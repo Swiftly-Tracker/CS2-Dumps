@@ -34,18 +34,19 @@ jobs:
             - name: Download tracked files
               run: |
                   ./sdd/SteamDepotDownload.App -app 730 -filelist tracked_files.json \
-                    -username "${{ secrets.STEAM_USERNAME }}" -password "${{ secrets.STEAM_PASSWORD }}"
+                    -username "${{ secrets.STEAM_USERNAME }}" -password "${{ secrets.STEAM_PASSWORD }}" \
+                    -dir install
 
             - name: Dump manifests
               run: |
                   ./sdd/SteamDepotDownload.App -app 730 -filelist tracked_files.json \
                     -username "${{ secrets.STEAM_USERNAME }}" -password "${{ secrets.STEAM_PASSWORD }}" \
-                    -manifest-only
+                    -manifest-only -dir install
 
             - name: Copy manifest dumps into manifests/
               run: |
                   mkdir -p manifests
-                  cp -r .sdd/dumps/. manifests/
+                  cp -r install/.sdd/dumps/. manifests/
 
             - name: Commit & push changes
               run: |
