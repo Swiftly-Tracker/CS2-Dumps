@@ -1,0 +1,76 @@
+name: Dumping
+
+on:
+    workflow_dispatch:
+
+permissions:
+    contents: write
+
+jobs:
+    dump:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Resolve latest SteamDepotDownload release
+              id: sdd_release
+              run: |
+                  url=$(curl -sSL https://api.github.com/repos/Swiftly-Tracker/SteamDepotDownload/releases/latest \
+                    | jq -r '.assets[] | select(.name == "SteamDepotDownload-linux-x64.zip") | .browser_download_url')
+                  if [ -z "$url" ] || [ "$url" = "null" ]; then
+                    echo "Could not resolve SteamDepotDownload-linux-x64.zip asset URL" >&2
+                    exit 1
+                  fi
+                  echo "url=$url" >> "$GITHUB_OUTPUT"
+
+            - name: Download & unpack SteamDepotDownload
+              run: |
+                  curl -sSL -o sdd.zip "${{ steps.sdd_release.outputs.url }}"
+                  mkdir -p sdd
+                  unzip -q sdd.zip -d sdd
+                  chmod +x sdd/SteamDepotDownload.App
+
+            - name: Download tracked files
+              run: |
+                  ./sdd/SteamDepotDownload.App -app 730 -filelist tracked_files.json \
+                    -username "${{ secrets.STEAM_USERNAME }}" -password "${{ secrets.STEAM_PASSWORD }}"
+
+            - name: Dump manifests
+              run: |
+                  ./sdd/SteamDepotDownload.App -app 730 -filelist tracked_files.json \
+                    -username "${{ secrets.STEAM_USERNAME }}" -password "${{ secrets.STEAM_PASSWORD }}" \
+                    -manifest-only
+
+            - name: Copy manifest dumps into manifests/
+              run: |
+                  mkdir -p manifests
+                  cp -r .sdd/dumps/. manifests/
+
+            - name: Commit & push changes
+              run: |
+                  git config user.name "github-actions[bot]"
+                  git config user.email "github-actions[bot]@users.noreply.github.com"
+                  git add -A
+
+                  if git diff --cached --quiet; then
+                    echo "No changes to commit"
+                    exit 0
+                  fi
+
+                  steam_inf=$(find . -path '*/game/csgo/steam.inf' -print -quit)
+                  if [ -z "$steam_inf" ]; then
+                    echo "steam.inf not found" >&2
+                    exit 1
+                  fi
+
+                  server_version=$(grep -m1 '^ServerVersion=' "$steam_inf" | cut -d= -f2 | tr -d '\r')
+                  patch_version=$(grep -m1 '^PatchVersion=' "$steam_inf" | cut -d= -f2 | tr -d '\r')
+                  version_date=$(grep -m1 '^VersionDate=' "$steam_inf" | cut -d= -f2 | tr -d '\r')
+                  version_time=$(grep -m1 '^VersionTime=' "$steam_inf" | cut -d= -f2 | tr -d '\r')
+                  files_modified=$(git diff --cached --name-only | wc -l)
+
+                  commit_msg="${server_version} - ${patch_version} | ${files_modified} modified | ${version_date} ${version_time}"
+
+                  git commit -m "$commit_msg"
+                  git push
