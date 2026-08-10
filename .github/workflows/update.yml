@@ -12,6 +12,8 @@ jobs:
         defaults:
             run:
                 shell: pwsh
+        env:
+            DUMP_PATH: ${{ github.workspace }}\dump
         steps:
             - name: Checkout
               uses: actions/checkout@v5
@@ -42,6 +44,31 @@ jobs:
                   ./sdd/SteamDepotDownload.App.exe -app 730 -filelist tracked_files.json `
                     -username "${{ secrets.STEAM_USERNAME }}" -password "${{ secrets.STEAM_PASSWORD }}" `
                     -dir install -max-downloads 8 -debug
+
+            - name: Resolve latest S2Dumper release
+              id: s2dumper_release
+              run: |
+                  $release = Invoke-RestMethod -Uri "https://api.github.com/repos/Swiftly-Tracker/s2dumper/releases/latest"
+                  $url = $release.assets | Where-Object { $_.name -like "s2dumper-windows-*.zip" -and $_.name -notlike "*-pdb*" } | Select-Object -ExpandProperty browser_download_url
+
+                  if ([string]::IsNullOrEmpty($url)) {
+                      Write-Error "Could not resolve s2dumper windows asset URL"
+                      exit 1
+                  }
+
+                  Add-Content -Path $env:GITHUB_OUTPUT -Value "url=$url"
+
+            - name: Download & unpack S2Dumper
+              run: |
+                  Invoke-WebRequest -Uri "${{ steps.s2dumper_release.outputs.url }}" -OutFile s2dumper.zip
+                  Expand-Archive -Path s2dumper.zip -DestinationPath install/game/bin/win64 -Force
+
+            - name: Clean dump directory
+              run: Remove-Item -Recurse -Force "$env:DUMP_PATH" -ErrorAction SilentlyContinue
+
+            - name: Run S2Dumper
+              working-directory: install/game/bin/win64
+              run: ./s2dumper.exe "$env:DUMP_PATH" csgo
 
             - name: Install strings tool
               run: |
