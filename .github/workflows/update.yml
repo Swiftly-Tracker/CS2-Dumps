@@ -41,34 +41,30 @@ jobs:
               run: |
                   ./sdd/SteamDepotDownload.App.exe -app 730 -filelist tracked_files.json `
                     -username "${{ secrets.STEAM_USERNAME }}" -password "${{ secrets.STEAM_PASSWORD }}" `
-                    -dir install -max-downloads 32 -debug
+                    -dir install -max-downloads 8 -debug
 
             - name: Dump binary strings
+              shell: bash
               run: |
-                  Remove-Item -Recurse -Force strings -ErrorAction SilentlyContinue
-                  New-Item -ItemType Directory -Force -Path strings/win64, strings/linuxsteamrt64 | Out-Null
+                  rm -rf strings
+                  mkdir -p strings/win64 strings/linuxsteamrt64
 
-                  function Get-Strings {
-                      param([string]$Path, [int]$MinLength = 4)
+                  STRINGS_BIN="/c/msys64/usr/bin/strings.exe"
 
-                      $bytes = [System.IO.File]::ReadAllBytes($Path)
-                      $sb = New-Object System.Text.StringBuilder
-                      foreach ($b in $bytes) {
-                          if ($b -ge 0x20 -and $b -le 0x7e) {
-                              [void]$sb.Append([char]$b)
-                          } else {
-                              if ($sb.Length -ge $MinLength) { $sb.ToString() }
-                              [void]$sb.Clear()
-                          }
-                      }
-                      if ($sb.Length -ge $MinLength) { $sb.ToString() }
-                  }
+                  find install -type f \( -name '*.exe' -o -name '*.dll' -o -name '*.so' \) -print0 |
+                  while IFS= read -r -d '' f; do
+                      ext="${f##*.}"
+                      base="$(basename "$f")"
+                      name="${base%.*}"
 
-                  Get-ChildItem -Path install -Recurse -File -Include *.exe, *.dll, *.so | ForEach-Object {
-                      $outdir = if ($_.Extension -eq ".so") { "strings/linuxsteamrt64" } else { "strings/win64" }
-                      $outfile = Join-Path $outdir ($_.BaseName + ".txt")
-                      Get-Strings -Path $_.FullName | Set-Content -Path $outfile
-                  }
+                      if [ "$ext" = "so" ]; then
+                          outdir="strings/linuxsteamrt64"
+                      else
+                          outdir="strings/win64"
+                      fi
+
+                      "$STRINGS_BIN" -n 4 "$f" > "$outdir/$name.txt"
+                  done
 
             - name: Dump manifests
               run: |
