@@ -38,7 +38,7 @@ jobs:
               run: |
                   ./sdd/SteamDepotDownload.App -app 730 -filelist tracked_files.json \
                     -username "${{ secrets.STEAM_USERNAME }}" -password "${{ secrets.STEAM_PASSWORD }}" \
-                    -dir install
+                    -dir install -max-downloads 32
 
             - name: Resolve latest VPKTools release
               id: vpktools_release
