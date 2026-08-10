@@ -64,7 +64,9 @@ jobs:
                   Expand-Archive -Path s2dumper.zip -DestinationPath install/game/bin/win64 -Force
 
             - name: Clean dump directory
-              run: Remove-Item -Recurse -Force "$env:DUMP_PATH" -ErrorAction SilentlyContinue
+              run: |
+                  Remove-Item -Recurse -Force "$env:DUMP_PATH" -ErrorAction SilentlyContinue
+                  New-Item -ItemType Directory -Force -Path "$env:DUMP_PATH" | Out-Null
 
             - name: Run S2Dumper
               working-directory: install/game/bin/win64
