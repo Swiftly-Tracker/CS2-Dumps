@@ -68,6 +68,7 @@ jobs:
 
             - name: Run S2Dumper
               working-directory: install/game/bin/win64
+              continue-on-error: true
               run: ./s2dumper.exe "$env:DUMP_PATH" csgo
 
             - name: Install strings tool
