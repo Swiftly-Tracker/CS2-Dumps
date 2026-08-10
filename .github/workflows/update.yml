@@ -38,7 +38,7 @@ jobs:
               run: |
                   ./sdd/SteamDepotDownload.App -app 730 -filelist tracked_files.json \
                     -username "${{ secrets.STEAM_USERNAME }}" -password "${{ secrets.STEAM_PASSWORD }}" \
-                    -dir install -max-downloads 32
+                    -dir install -max-downloads 32 -debug
 
             - name: Dump binary strings
               run: |
