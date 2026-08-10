@@ -40,37 +40,6 @@ jobs:
                     -username "${{ secrets.STEAM_USERNAME }}" -password "${{ secrets.STEAM_PASSWORD }}" \
                     -dir install -max-downloads 32
 
-            - name: Resolve latest VPKTools release
-              id: vpktools_release
-              run: |
-                  url=$(curl -sSL https://api.github.com/repos/Swiftly-Tracker/VPKTools/releases/latest \
-                    | jq -r '.assets[] | select(.name == "VPKTools-linux-x64.zip") | .browser_download_url')
-                  if [ -z "$url" ] || [ "$url" = "null" ]; then
-                    echo "Could not resolve VPKTools-linux-x64.zip asset URL" >&2
-                    exit 1
-                  fi
-                  echo "url=$url" >> "$GITHUB_OUTPUT"
-
-            - name: Download & unpack VPKTools
-              run: |
-                  curl -sSL -o vpktools.zip "${{ steps.vpktools_release.outputs.url }}"
-                  mkdir -p vpktools
-                  unzip -q vpktools.zip -d vpktools
-                  chmod +x vpktools/VPKTools.App
-
-            - name: List VPK contents
-              run: |
-                  vpktools_bin="$(pwd)/vpktools/VPKTools.App"
-                  find install -type f -name '*.vpk' -print0 |
-                  while IFS= read -r -d '' vpk; do
-                    dir=$(dirname "$vpk")
-                    name=$(basename "$vpk")
-                    if [[ "$name" =~ ^(.+)_[0-9]+\.vpk$ ]] && [ -f "$dir/${BASH_REMATCH[1]}_dir.vpk" ]; then
-                      continue
-                    fi
-                    ( cd "$dir" && "$vpktools_bin" -vpk "$name" -list -output "${name%.vpk}.txt" )
-                  done
-
             - name: Dump binary strings
               run: |
                   rm -rf strings
