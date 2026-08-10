@@ -44,7 +44,9 @@ jobs:
                     -dir install -max-downloads 8 -debug
 
             - name: Install strings tool
-              run: choco install sysinternals -y --no-progress
+              run: |
+                  Invoke-WebRequest -Uri "https://download.sysinternals.com/files/Strings.zip" -OutFile strings.zip
+                  Expand-Archive -Path strings.zip -DestinationPath sysinternals -Force
 
             - name: Dump binary strings
               shell: bash
@@ -64,7 +66,7 @@ jobs:
                           outdir="strings/win64"
                       fi
 
-                      strings64.exe -nobanner -accepteula -a "$f" > "$outdir/$name.txt"
+                      sysinternals/strings64.exe -nobanner -accepteula -a "$f" > "$outdir/$name.txt"
                   done
 
             - name: Dump manifests
