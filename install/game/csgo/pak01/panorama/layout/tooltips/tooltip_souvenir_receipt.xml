@@ -1,0 +1,44 @@
+<!-- xml reconstructed by Source 2 Viewer 19.2.0.0 - https://valveresourceformat.github.io -->
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/gamestyles.vcss_c" />
+		<include src="s2r://panorama/styles/tooltips/tooltip_text.vcss_c" />
+		<include src="s2r://panorama/styles/tooltips/tooltip_souvenir_receipt.vcss_c" />
+		<include src="s2r://panorama/styles/popups/popup_can_apply_pick_slot.vcss_c" />
+	</styles>
+	<scripts>
+		<include src="s2r://panorama/scripts/generated/items_event_current_generated_store.vts_c" />
+		<include src="s2r://panorama/scripts/common/iteminfo.vts_c" />
+		<include src="s2r://panorama/scripts/common/formattext.vts_c" />
+		<include src="s2r://panorama/scripts/tooltips/tooltip_souvenir_receipt.vts_c" />
+	</scripts>
+	<snippets>
+		<snippet name="sticker-entry">
+			<Panel class="tooltip-souvenir-receipt__row">
+				<Label class="tooltip-souvenir-receipt__name stratum-regular" text="{s:sticker-name}" />
+				<Label html="true" class="stratum-regular tooltip-souvenir-receipt__price" text="#major_store_price" />
+			</Panel>
+		</snippet>
+	</snippets>
+	<Panel class="tooltip-souvenir-receipt" ontooltiploaded="TooltipSouvenirReceipt.Init()">
+		<Label class="tooltip-souvenir-receipt__header" html="true" text="#popup_craft_souvenir_button_tooltip" />
+		<Label class="tooltip-souvenir-receipt__name stratum-regular top-margin-16" html="true" text="#popup_craft_souvenir_reciept" />
+		<Panel id="id-sticker-list" class="tooltip-souvenir-receipt__list" />
+		<Panel class="tooltip-souvenir-receipt__list">
+			<Panel id="id-sticker-total-row" class="tooltip-souvenir-receipt__row">
+				<Label class="tooltip-souvenir-receipt__name stratum-regular" text="#popup_craft_souvenir_reciept_total" />
+				<Label html="true" class="stratum-regular tooltip-souvenir-receipt__price" text="#major_store_price" />
+			</Panel>
+			<Panel id="id-sticker-discount-row" class="tooltip-souvenir-receipt__row">
+				<Label class="tooltip-souvenir-receipt__name stratum-regular" text="#popup_craft_souvenir_reciept_discount" />
+				<Label class="tooltip-souvenir-receipt__discount" text="-{d:discount}%" />
+			</Panel>
+			<Panel class="tooltip-souvenir-receipt__list">
+				<Panel id="id-sticker-discount-price-row" class="tooltip-souvenir-receipt__row">
+					<Label class="tooltip-souvenir-receipt__name stratum-regular" text="#popup_craft_souvenir_reciept_your_price" />
+					<Label html="true" class="stratum-regular cart-item__price horizontal-align-right" text="#major_store_price" />
+				</Panel>
+			</Panel>
+		</Panel>
+	</Panel>
+</root>

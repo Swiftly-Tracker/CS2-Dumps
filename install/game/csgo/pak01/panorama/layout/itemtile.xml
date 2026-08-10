@@ -1,0 +1,57 @@
+<!-- xml reconstructed by Source 2 Viewer 19.2.0.0 - https://valveresourceformat.github.io -->
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/csgostyles.vcss_c" />
+		<include src="s2r://panorama/styles/itemtile.vcss_c" />
+	</styles>
+	<scripts>
+		<include src="s2r://panorama/scripts/common/formattext.vts_c" />
+		<include src="s2r://panorama/scripts/itemtile.vts_c" />
+		<include src="s2r://panorama/scripts/common/iteminfo.vts_c" />
+		<include src="s2r://panorama/scripts/common/tint_spray_icon.vts_c" />
+	</scripts>
+	<Panel class="item-tile" onactivate="ItemTile.OnActivate()" oncontextmenu="ItemTile.OnActivate()" acceptsinput="true" onmouseover="ItemTile.ShowTooltip()" onmouseout="ItemTile.HideTooltip()" antialias="true" useglobalcontext="true">
+		<Panel id="ItemTileBg" class="item-tile__bg">
+			<Image id="ItemTileTeam" class="item-tile__team" />
+		</Panel>
+		<ItemImage class="item-tile__image" id="ItemImage" scaling="stretch-to-fit-preserve-aspect" />
+		<Panel class="item-tile__name-container">
+			<Label html="true" id="JsItemName" class="item-tile__name" />
+		</Panel>
+		<Label id="JsItemRental" html="true" class="item-tile__rental-expiration stratum-regular-italic" text="#item-rental-time-remaining" />
+		<Label id="JsCanRentItem" html="true" class="item-tile__rental-expiration stratum-regular-italic can-rent" text="#item-rental-time-remaining" />
+		<Panel class="item-tile__rarity" id="JsRarity" />
+		<Panel class="item-tile__top-left-down">
+			<Label class="item-tile__recent hidden" html="true" id="JsRecent" text="#inv_session_prop_recent" />
+			<Image id="JsOriginalOwner" class="item-tile__original-owner hidden" texturewidth="24" textureheight="24" src="s2r://panorama/images/icons/icon_original_owner.vsvg" />
+		</Panel>
+		<Panel class="item-tile__equipped">
+			<Panel id="ItemEquipped-noteam" class="item-tile__equipped__radiodot item-tile__equipped__radiodot--noteam hidden" />
+			<Panel id="FavoriteIcon-noteam" class="item-tile__equipped__favicon item-tile__equipped__favicon--noteam hidden" />
+			<Panel id="ItemEquipped-ct" class="item-tile__equipped__radiodot item-tile__equipped__radiodot--ct hidden" />
+			<Panel id="FavoriteIcon-ct" class="item-tile__equipped__favicon item-tile__equipped__favicon--ct hidden" />
+			<Panel id="ItemEquipped-t" class="item-tile__equipped__radiodot item-tile__equipped__radiodot--t hidden" />
+			<Panel id="FavoriteIcon-t" class="item-tile__equipped__favicon item-tile__equipped__favicon--t hidden" />
+		</Panel>
+		<Panel class="item-tile__top-left-bottom">
+			<Panel id="StickersOnWeapon" class="item-tile__stickers" />
+			<Panel id="KeychainsOnWeapon" class="item-tile__keychains" />
+		</Panel>
+		<Panel class="item-tile__multi-select">
+			<Image id="IconMultiSelect" texturewidth="20" textureheight="20" src="s2r://panorama/images/icons/ui/check.vsvg" />
+		</Panel>
+		<Panel class="item-tile__add">
+			<Image texturewidth="32" textureheight="32" src="s2r://panorama/images/icons/ui/cancel.vsvg" />
+		</Panel>
+		<Panel class="item-tile__remove">
+			<Image texturewidth="32" textureheight="32" src="s2r://panorama/images/icons/ui/cancel.vsvg" />
+		</Panel>
+		<Button class="full-width full-height" onactivate="ItemTile.OnActivate()" oncontextmenu="ItemTile.OnActivate()" />
+		<Button class="item-tile__inspect" onactivate="ItemTile.OnActivateInspectButtonFromTile();">
+			<Image id="IconMultiSelect" texturewidth="22" textureheight="22" src="s2r://panorama/images/icons/ui/zoom_in.vsvg" />
+		</Button>
+		<Panel id="VideoClipMovieContainer">
+			<Movie id="VideoClipMovie" controls="none" repeat="true" autoplay="onload" hittest="false" disableaudio="true" />
+		</Panel>
+	</Panel>
+</root>

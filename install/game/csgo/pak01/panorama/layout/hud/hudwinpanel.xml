@@ -1,0 +1,66 @@
+<!-- xml reconstructed by Source 2 Viewer 19.2.0.0 - https://valveresourceformat.github.io -->
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/csgostyles.vcss_c" />
+		<include src="s2r://panorama/styles/hud/hudhealthammocenter.vcss_c" />
+		<include src="s2r://panorama/styles/hud/hudwinpanel.vcss_c" />
+	</styles>
+	<scripts>
+		<include src="s2r://panorama/scripts/avatar.vts_c" />
+		<include src="s2r://panorama/scripts/common/iteminfo.vts_c" />
+		<include src="s2r://panorama/scripts/digitpanel.vts_c" />
+		<include src="s2r://panorama/scripts/particle_controls.vts_c" />
+		<include src="s2r://panorama/scripts/common/formattext.vts_c" />
+		<include src="s2r://panorama/scripts/common/scheduler.vts_c" />
+		<include src="s2r://panorama/scripts/common/teamcolor.vts_c" />
+		<include src="s2r://panorama/scripts/hud/hudwinpanel_background_map.vts_c" />
+		<include src="s2r://panorama/scripts/hud/hudwinpanel.vts_c" />
+	</scripts>
+	<snippets />
+	<CSGOHudWinPanel class="WinPanelRoot" hittest="false" hittestchildren="false">
+		<Panel class="WinPanelBasicContainer">
+			<Panel class="WinPanelTopSection">
+				<Panel class="WinPanelTopSection__Contents">
+					<Panel class="WinPanel__Result">
+						<Label class="WinPanel__Result__Title" text="{s:winpanel-title}" />
+						<Image texturewidth="-1" textureheight="16" class="WinPanel__Result__double-arrows" src="s2r://panorama/images/hud/double_arrows.vsvg" />
+						<Image texturewidth="-1" textureheight="16" class="WinPanel__Result__double-arrows WinPanel__Result__double-arrows--right" src="s2r://panorama/images/hud/double_arrows.vsvg" />
+						<Panel class="WinPanel__Result__glitch additive" />
+						<Panel class="WinPanel__Result__white" />
+						<Panel id="Funfact" class="WinPanelRow WinPanelRow--funfacts">
+							<Label id="FunFactText" class="WinPanelRow--funfacts__text" html="true" text="{s:winpanel-funfact}" />
+						</Panel>
+					</Panel>
+					<Label id="Surrender" class="WinPanel__Result__Title__Surrender" />
+				</Panel>
+			</Panel>
+			<Panel class="MVP_section">
+				<Panel id="id-match-mvp-map-container" class="mvp_map_container">
+					<MapPlayerPreviewPanel id="id-match-mvp-map" class="mvp_map" camera="camera" require-composition-layer="true" playermodel="agents/models/ctm_fbi/ctm_fbi.vmdl" item="models/inventory_items/skillgroups/skillgroup12.vmdl" playername="mvp_char" animgraphcharactermode="mvp-banner" mouse_rotate="false" transparent-background="false" map="ui/match_mvp" pin-fov="vertical" />
+				</Panel>
+				<Panel class="MVP_content">
+					<Panel id="MVP" class="MVP">
+						<Panel class="MVP__Winner">
+							<Panel class="MVP__Winner_Icons">
+								<CSGOAvatarImage id="MVPAvatar" class="MVP__Avatar" />
+								<Image id="MVPMusicKitIcon" class="MVP__MusicKitIcon" scaling="stretch-to-fit-preserve-aspect" />
+							</Panel>
+							<Panel class="MVP_Details">
+								<Label class="MVP__Reason stratum-medium-condensed" text="{s:mvp_name_and_reason}" />
+								<Panel class="left-right-flow">
+									<CSGOHonorIcon id="jsHonorIcon" class="vertical-center" do_fx="true" />
+									<Label class="MVP__WinnerName stratum-regular-condensed" text="{g:player_name:player_slot}" html="true" />
+								</Panel>
+								<Panel id="MVPMusicKit" class="MVP__MusicKit">
+									<Label id="MVPMusicKitName" class="MVP__MusicKitText MVP__MusicKitName stratum-regular" text="{s:winpanel-musickit-name} 𝅘𝅥𝅮" />
+									<Label id="MVPMusicKitStatTrak" class="MVP__MusicKitText" text="{s:winpanel-musickit-stattrack}" />
+								</Panel>
+							</Panel>
+						</Panel>
+					</Panel>
+				</Panel>
+				<Panel class="MVP__white" />
+			</Panel>
+		</Panel>
+	</CSGOHudWinPanel>
+</root>

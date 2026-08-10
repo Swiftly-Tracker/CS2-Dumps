@@ -1,0 +1,73 @@
+<!-- xml reconstructed by Source 2 Viewer 19.2.0.0 - https://valveresourceformat.github.io -->
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/csgostyles.vcss_c" />
+		<include src="s2r://panorama/styles/mainmenu_xpshop_tile.vcss_c" />
+		<include src="s2r://panorama/styles/mainmenu_major_tile.vcss_c" />
+	</styles>
+	<scripts>
+		<include src="s2r://panorama/scripts/common/licenseutil.vts_c" />
+		<include src="s2r://panorama/scripts/common/prime_button_action.vts_c" />
+		<include src="s2r://panorama/scripts/popups/popup_acknowledge_item.vts_c" />
+		<include src="s2r://panorama/scripts/common/icon.vts_c" />
+		<include src="s2r://panorama/scripts/common/iteminfo.vts_c" />
+		<include src="s2r://panorama/scripts/xpshop_track.vts_c" />
+		<include src="s2r://panorama/scripts/xpshop.vts_c" />
+		<include src="s2r://panorama/scripts/mainmenu_xpshop_tile.vts_c" />
+	</scripts>
+	<snippets>
+		<snippet name="mainmenu-shop-ticket">
+			<Panel class="mainmenu-xpshop-track" group="xpshop-nav">
+				<Panel id="id-mainmenu-xpshop-pass" class="mainmenu-xpshop-track__pass">
+					<Panel>
+						<Image class="mainmenu-xpshop-pass__bg" scaling="stretch-to-fit-x-preserve-aspect" textureheight="-1" texturewidth="64" src="s2r://panorama/images/backgrounds/xpshop/pass_bg.vsvg" />
+						<Image class="mainmenu-xpshop-pass__image" src="s2r://panorama/images/icons/ui/xpshop_star.vsvg" textureheight="-1" texturewidth="24" />
+					</Panel>
+					<Label class="mainmenu-xpshop-pass__label stratum-medium" text="#SFUI_MainMenu_Operation_Activate" />
+				</Panel>
+				<Panel id="id-mainmenu-xpshop-track-progress" class="mainmenu-xpshop-track__progess" />
+			</Panel>
+		</snippet>
+		<snippet name="mainmenu-xpshop-itemtile">
+			<Panel class="mainmenu-xpshop-itemtile" hittest="false">
+				<Image id="id-item-set-image" class="mainmenu-xpshop-itemtile__set-image" textureheight="180" texturewidth="-1" />
+				<ItemImage id="id-item-image" class="mainmenu-xpshop-itemtile-image" scaling="stretch-to-fit-x-preserve-aspect" textureheight="-1" texturewidth="240" hittest="false" />
+				<Label class="xpshop__item-tile__new-tag stratum-medium-italic" html="true" text="#Store_Price_New" hittest="false" />
+			</Panel>
+		</snippet>
+	</snippets>
+	<Panel class="mainmenu-xpshop-tile">
+		<ParticleScenePanel id="" class="mainmenu-xpshop-particle" hittest="false" startActive="true" particleName="particles/ui/xpshop/xpshop_panel_right_glow.vpcf" cameraOrigin="0 250 0" lookAt="0 0 0" fov="40" />
+		<Carousel id="id-mainmenu-xpshop-carousel" class="mainmenu-xpshop-carousel" panels-visible="3" autoscroll-delay="5s" />
+		<Panel class="mini-store__carousel-blocker" hittest="true" onactivate="">
+			<Panel class="mini-store-separator" />
+		</Panel>
+		<Panel class="mainmenu-xphop-tile__title-container">
+			<Label id="id-new-item-tag" class="xpshop__item-tile__new-tag stratum-medium-italic hide" text="#xpshop_new_items:f" />
+			<Label id="id-xpshop-title" class="stratum-medium-condensed mainmenu-xphop-tile__title" text="#store_tab_xpshop" />
+		</Panel>
+		<Button id="id-btn-open-xpshop" class="mainmenu-xpshop-tile__btn" hittest="true" acceptsfocus="true">
+			<Image id="id-img-open-xpshop" class="mainmenu-xpshop-tile__image" hittest="false" />
+		</Button>
+		<Panel id="id-upsell" class="mainmenu-xpshop-upsell" hittest="false" hittestchildren="false">
+			<ItemImage id="id-upsell-pass-image" class="mainmenu-xpshop-upsell__image" />
+			<Label class="mainmenu-xpshop-upsell__label" text="#xpshop_upsell_mainmenu_1" />
+			<Label class="mainmenu-xpshop-upsell__label line-2" text="#xpshop_upsell_mainmenu_2_v3" />
+			<Label class="mainmenu-xpshop-upsell__label line-3" text="#xpshop_upsell_mainmenu_3" />
+		</Panel>
+		<Panel class="mainmenu-xpshop-info-bar" hittest="false" hittestchildren="false">
+			<Panel id="id-balance" class="mainmenu-xpshop-balance">
+				<Label class="mainmenu-xpshop-balance__title stratum-medium-condensed" text="#xpshop_balance_caps" />
+				<Panel class="mainmenu-xpshop-balance__container">
+					<Label class="mainmenu-xpshop-balance__label stratum-medium-condensed" text="{d:redeemable-points}" />
+					<Image src="s2r://panorama/images/icons/ui/xpshop_star.vsvg" textureheight="32" texturewidth="32" />
+				</Panel>
+			</Panel>
+			<Panel id="id-tracks-container" class="mainmenu-xpshop-bottom" hittest="false" hittestchildren="false">
+				<Label class="mainmenu-xpshop-track-progress stratum-medium" text="#xpshop_track_progress" />
+				<Panel class="mainmenu-xpshop-line" />
+				<Panel id="id-tracks" class="mainmenu-xpshop-tracks show-star-count" />
+			</Panel>
+		</Panel>
+	</Panel>
+</root>

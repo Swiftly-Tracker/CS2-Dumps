@@ -1,0 +1,555 @@
+/* Prettified by Source 2 Viewer 19.2.0.0 - https://valveresourceformat.github.io */
+
+@define winPanelPosY: 190px;
+@define winPanelWidth: 400px;
+@define winPanelBgColorT: rgba(66, 46, 8, 0.85);
+@define winPanelBgColorCT: rgba(9, 40, 61, 0.85);
+CSGOHudWinPanel Label
+{
+	font-family: Stratum2, 'Arial Unicode MS';
+}
+
+.WinPanelRoot
+{
+	width: 100%;
+	height: fit-children;
+	y: winPanelPosY;
+	horizontal-align: center;
+	flow-children: down;
+	transition-property: position, opacity;
+	transition-duration: .3s;
+	transition-timing-function: ease-out;
+}
+
+.endofmatch .WinPanelRoot
+{
+	opacity: 0;
+}
+
+.WinPanelBasicContainer
+{
+	width: 100%;
+	horizontal-align: center;
+	flow-children: down;
+}
+
+.WinPanelRoot--ForceHide
+{
+	visibility: collapse;
+}
+
+.WinPanelRoot--ForceHide .WinPanel__Result__glitch
+{
+	visibility: collapse;
+}
+
+.WinPanelTopSection
+{
+	width: winPanelWidth;
+	horizontal-align: center;
+	z-index: 2;
+	transition-property: opacity;
+	transition-delay:.25s;
+	transition-duration: 0s;
+	transition-timing-function: ease-in;
+	flow-children: down;
+	margin-bottom: 16px;
+}
+
+.WinPanelTopSection__Contents
+{
+	width: 100%;
+	flow-children: down;
+}
+
+.HUD--localplayer--spectator .WinPanelRoot--Win--T .WinPanel__Result Label
+{
+	wash-color: t-color;
+}
+
+.HUD--localplayer--spectator .WinPanelRoot--Win--CT .WinPanel__Result Label
+{
+	wash-color: ct-color;
+}
+
+.WinPanel__Result__white
+{
+	background-color: white;
+	width: 100%;
+	height: 100%;
+	opacity: 1;
+	transition-property: opacity;
+	transition-delay: .25s;
+	transition-duration: .2s;
+	transition-timing-function: ease-in;
+}
+
+.WinPanel__Result
+{
+	horizontal-align: center;
+	width: winPanelWidth;
+	height: 80px;
+	opacity: 0;
+	transform: scale3d( 0, 1, 1);
+	border-left: 4px solid white;
+	border-right: 4px solid white;
+	border-radius: 3px;
+	world-blur: hudWorldBlur;
+	background-color: rgba(255, 255, 255, 0.356);
+	background-image: url("s2r://panorama/images/backgrounds/bluedots_large_png.vtex");
+	background-size: backgroundDotsSize;
+	background-img-opacity: 0.04;
+	transition-property: transform, opacity;
+	transition-duration: 0.25s, 0.25s;
+	transition-timing-function: ease-in;
+}
+
+.winpanel-basic-round-result-visible .WinPanel__Result
+{
+	opacity: 1;
+	transform: scale3d(1, 1, 1);
+	transition-property: transform, opacity;
+	transition-duration: 0.25s, 0.25s;
+	transition-timing-function: ease-in;
+}
+
+.winpanel-basic-round-result-visible .WinPanel__Result .WinPanel__Result__glitch
+{
+	opacity: 0;
+	brightness: 1;
+}
+
+.winpanel-basic-round-result-visible .WinPanel__Result .WinPanel__Result__white
+{
+	opacity: 0;
+	transition-delay: 0s;
+	transition-property: opacity;
+	transition-duration: 0s;
+	transition-timing-function: ease-in-out;
+}
+
+.winpanel-basic-round-result-visible .WinPanel__Result .WinPanel__Result__Title
+{
+	pre-transform-scale2d: 1, 1;
+	transition-property: pre-transform-scale2d;
+	transition-duration: 5s;
+	transition-timing-function: ease-in;
+}
+
+.winpanel-basic-round-result-visible .WinPanel__Result .WinPanel__Result__double-arrows
+{
+	transform: translateX(0px) scaleX(-1);
+	brightness: 1;
+}
+
+.winpanel-basic-round-result-visible .WinPanel__Result .WinPanel__Result__double-arrows.WinPanel__Result__double-arrows--right
+{
+	transform: translateX(0px) scaleX(1);
+}
+
+.WinPanelRoot--Win--CT:not(.WinPanelRoot--Lost) .WinPanel__Result
+{
+	border-left: 4px solid ct-color;
+	border-right: 4px solid ct-color;
+	background-color: winPanelBgColorCT;
+}
+
+.WinPanelRoot--Win--CT:not(.WinPanelRoot--Lost) .WinPanel__Result .WinPanel__Result__double-arrows,.WinPanelRoot--Win--CT:not(.WinPanelRoot--Lost) .WinPanel__Result .WinPanel__Result__glitch,.WinPanelRoot--Win--CT:not(.WinPanelRoot--Lost) .WinPanel__Result .WinPanel__Result__Title
+{
+	wash-color: ct-color;
+}
+
+.WinPanelRoot--Win--T:not(.WinPanelRoot--Lost) .WinPanel__Result
+{
+	border-left: 4px solid t-color;
+	border-right: 4px solid t-color;
+	background-color: winPanelBgColorT;
+}
+
+.WinPanelRoot--Win--T:not(.WinPanelRoot--Lost) .WinPanel__Result .WinPanel__Result__double-arrows,.WinPanelRoot--Win--T:not(.WinPanelRoot--Lost) .WinPanel__Result .WinPanel__Result__glitch,.WinPanelRoot--Win--T:not(.WinPanelRoot--Lost) .WinPanel__Result .WinPanel__Result__Title
+{
+	wash-color: t-color;
+}
+
+.WinPanelRoot--Lost .WinPanel__Result
+{
+	border-left: 4px solid negativeColor;
+	border-right: 4px solid negativeColor;
+	background-color: rgba(32, 2, 2, 0.877);
+}
+
+.WinPanelRoot--Lost .WinPanel__Result .WinPanel__Result__double-arrows,.WinPanelRoot--Lost .WinPanel__Result .WinPanel__Result__glitch,.WinPanelRoot--Lost .WinPanel__Result .WinPanel__Result__Title
+{
+	wash-color: negativeColor;
+}
+
+.WinPanel__Result .WinPanel__Result__Title
+{
+	font-weight: bold;
+	font-family: Stratum2 Medium Condensed;
+	font-size: 64px;
+	letter-spacing: 8px;
+	text-transform: uppercase;
+	height: 60px;
+	width: 340px;
+	text-overflow: shrink;
+	color: white;
+	flow-children: none;
+	pre-transform-scale2d: 1.5, 1.5;
+	text-shadow: 0px 0px 8px #353535bb;
+	text-align: center;
+	vertical-align: center;
+	horizontal-align: center;
+	margin-bottom: 14px;
+	transition-property: pre-transform-scale2d, letter-spacing;
+	transition-duration: 0.25s;
+	transition-timing-function: ease-in;
+}
+
+.WinPanel__Result .WinPanel__Result__glitch
+{
+	width: 100%;
+	height: 100%;
+	opacity: .25;
+	brightness: 10;
+	background-size: auto auto;
+	background-image: url("file://{resources}/videos/digital_glitch.webm");
+	transition-property: opacity, brightness;
+	transition-delay: .50s;
+	transition-duration: .2s;
+	transition-timing-function: ease-in;
+}
+
+.WinPanel__Result .WinPanel__Result__double-arrows
+{
+	vertical-align: center;
+	margin-left: 12px;
+	transform: translateX(25px) scaleX(-1);
+	brightness: 10;
+	transition-property: transform, brightness;
+	transition-delay: .50s;
+	transition-duration: 0.25s;
+	transition-timing-function: ease-in;
+	margin-bottom: 14px;
+}
+
+.WinPanel__Result .WinPanel__Result__double-arrows.WinPanel__Result__double-arrows--right
+{
+	transform: translateX(25px) scaleX(1);
+	margin-right: 12px;
+	horizontal-align: right;
+}
+
+.MVP__white
+{
+	background-color: white;
+	width: 100%;
+	height: 100%;
+	opacity: 1;
+	transition-property: opacity;
+	transition-delay: 1.25s;
+	transition-duration: .2s;
+	transition-timing-function: ease-in;
+}
+
+.WinPanelRoot--Win--CT .MVP__WinnerName,.WinPanelRoot--Win--CT .MVP__MusicKitText
+{
+	color: ct-color;
+}
+
+.WinPanelRoot--Win--CT .MVP__Reason
+{
+	background-color: ct-color;
+}
+
+.WinPanelRoot--Win--T .MVP__WinnerName,.WinPanelRoot--Win--T .MVP__MusicKitText
+{
+	color: t-color;
+}
+
+.WinPanelRoot--Win--T .MVP__Reason
+{
+	background-color: t-color;
+}
+
+.WinPanelRow--funfacts
+{
+	horizontal-align: center;
+	vertical-align: bottom;
+	opacity: 0;
+	width: 100%;
+	transition-property: height, opacity;
+	transition-delay: 0s;
+	transition-duration: .25s;
+	transition-timing-function: ease-in;
+}
+
+.WinPanelRow--funfacts .WinPanelRow--funfacts__text
+{
+	width: 100%;
+	height: 16px;
+	font-size: 12px;
+	font-weight: normal;
+	margin: 3px 0px;
+	horizontal-align: center;
+	font-family: Stratum2, "Arial Unicode MS";
+	text-align: center;
+	text-overflow: shrink;
+	color: white;
+	text-shadow: 0px 0px 8px #141414c7;
+	-s2-mix-blend-mode: normal;
+}
+
+.winpanel-basic-round-result-visible.winpanel-funfacts--show .WinPanelRow--funfacts
+{
+	opacity: 1;
+	transition-property: height, opacity;
+	transition-delay: 0s;
+	transition-duration: .25s;
+	transition-timing-function: ease-in;
+}
+
+.MVP_section
+{
+	transform: scale3d( 0, 1, 1);
+	height: 90px;
+	horizontal-align: center;
+	border-radius: 3px;
+	opacity-mask: url("s2r://panorama/images/masks/mvp_banner_fade-both-right-left_png.vtex");
+	transition-delay: 1s;
+	transition-property: width, transform, opacity;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+
+.winpanel-basic-round-result-visible.winpanel-mvp--show .MVP_section
+{
+	width: 920px;
+	opacity: 1;
+	transform: scale3d( 1, 1, 1);
+	transition-delay: .25s, 0s, 0s;
+	transition-property: width, transform, opacity;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+
+.winpanel-basic-round-result-visible.winpanel-mvp--show .MVP_section .MVP__white
+{
+	opacity: 0;
+	transition-delay: .25s, 0s, 0s;
+	transition-property: width, transform, opacity;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+
+.winpanel-basic-round-result-visible.non-premier.winpanel-mvp--show .MVP_section
+{
+	width: 640px;
+}
+
+.WinPanelRoot--Win--T .MVP_section
+{
+	background-color: winPanelBgColorT;
+}
+
+.WinPanelRoot--Win--CT .MVP_section
+{
+	background-color: winPanelBgColorCT;
+}
+
+.MVP_content
+{
+	horizontal-align: center;
+	vertical-align: center;
+	height: 100%;
+	width: 100%;
+	opacity: 1;
+}
+
+.mvp_map_container
+{
+	height: 100%;
+	width: 100%;
+	horizontal-align: center;
+	transition-delay: 1s;
+	transition-property: width, opacity;
+	transition-duration: .1s, .3s, .3s;
+	transition-timing-function: ease-in-out;
+}
+
+.mvp_map_container .mvp_map
+{
+	height: 100%;
+	width: 100%;
+}
+
+.MVP
+{
+	horizontal-align: center;
+	vertical-align: middle;
+	opacity: 0;
+	transition-property: opacity;
+	transition-duration: .3s;
+	transition-timing-function: ease-in-out;
+}
+
+.winpanel-basic-round-result-visible .MVP
+{
+	opacity: 1;
+	transition-property: opacity;
+	transition-duration: .1s;
+	transition-timing-function: ease-in-out;
+}
+
+.MVP .MVP__Winner
+{
+	width: fit-children;
+	flow-children: right;
+	horizontal-align: left;
+	height: 90px;
+}
+
+.MVP .MVP__Winner .MVP__Winner_Icons
+{
+	vertical-align: center;
+	overflow: noclip;
+	height: 100%;
+}
+
+.MVP .MVP__Winner .MVP__Winner_Icons .MVP__Avatar
+{
+	width: 72px;
+	height: 72px;
+	vertical-align: center;
+	margin-right: 8px;
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #6d6d6d ), to( #464646) );
+}
+
+.MVP .MVP__Winner .MVP__Winner_Icons .MVP__Avatar .AvatarImage
+{
+	width: 100%;
+	height: width-percentage(100%);
+}
+
+.MVP .MVP__Winner .MVP__Winner_Icons .MVP__MusicKitIcon
+{
+	width: 38px;
+	height: 38px;
+	vertical-align: bottom;
+	transform: translateY( 0px) translateX(42px);
+	visibility: collapse;
+}
+
+.MVP__MusicKit--show .MVP .MVP__Winner .MVP__Winner_Icons .MVP__MusicKitIcon
+{
+	visibility: visible;
+}
+
+.MVP .MVP__Winner .MVP_Details
+{
+	vertical-align: center;
+	padding-left: 0px;
+	flow-children: down;
+}
+
+.MVP .MVP__Winner .MVP_Details .MVP__Reason
+{
+	width: fit-children;
+	height: 21px;
+	vertical-align: top;
+	font-size: 18px;
+	text-overflow: ellipsis;
+	color: black;
+	padding: 0px 6px;
+}
+
+.MVP .MVP__Winner .MVP_Details .MVP__WinnerName
+{
+	width: 250px;
+	height: 38px;
+	vertical-align: bottom;
+	font-size: 28px;
+	text-overflow: ellipsis;
+	font-weight: medium;
+	font-weight: black;
+	text-shadow: 0px 2px 4px 2 #141414dc;
+	brightness: 1.5;
+}
+
+@keyframes 'CoinAnim'
+{
+	0%
+	{
+		transform: translatey( -40% );
+	}
+	
+	100%
+	{
+		transform: translatey( 0% );
+	}
+	
+}
+
+#jsHonorIcon
+{
+	width: 16px;
+	height: width-percentage(100%);
+	vertical-align: center;
+	margin-right: 2px;
+}
+
+@keyframes 'BackgroundScroll'
+{
+	0%
+	{
+		transform: translatey( -40% );
+	}
+	
+	100%
+	{
+		transform: translatey( 0% );
+	}
+	
+}
+
+.MVP__MusicKit
+{
+	flow-children: down;
+	width: fit-children;
+	visibility: collapse;
+}
+
+.MVP__MusicKit .MVP__MusicKitText
+{
+	font-size: 12px;
+	font-weight: bold;
+	vertical-align: middle;
+	white-space: nowrap;
+	text-overflow: shrink;
+	text-shadow: 0px 2px 4px 1.5 #141414ee;
+	width: 300px;
+	height: 16px;
+	opacity: 1;
+	brightness: 1.3;
+}
+
+.MVP__MusicKit #MVPMusicKitStatTrak
+{
+	margin-top: 2px;
+	font-family: Stratum2 Medium, "Arial Unicode MS";
+	visibility: collapse;
+}
+
+.MVP__MusicKit .MVP__MusicKitName
+{
+	font-weight: normal;
+	text-overflow: ellipsis;
+	text-shadow: 0px 2px 4px 1.5 #141414ee;
+	brightness: 1.3;
+}
+
+.MVP__MusicKit--show .MVP__MusicKit
+{
+	visibility: visible;
+}
+

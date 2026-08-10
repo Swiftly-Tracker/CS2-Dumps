@@ -1,0 +1,79 @@
+<!-- xml reconstructed by Source 2 Viewer 19.2.0.0 - https://valveresourceformat.github.io -->
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/gamestyles.vcss_c" />
+		<include src="s2r://panorama/styles/popups/popups_shared.vcss_c" />
+		<include src="s2r://panorama/styles/mainmenu.vcss_c" />
+		<include src="s2r://panorama/styles/popups/popup_inventory_inspect.vcss_c" />
+		<include src="s2r://panorama/styles/popups/popup_capability_shared.vcss_c" />
+	</styles>
+	<scripts>
+		<include src="s2r://panorama/scripts/common/iteminfo.vts_c" />
+		<include src="s2r://panorama/scripts/common/item_context_entries.vts_c" />
+		<include src="s2r://panorama/scripts/popups/popup_inspect_action-bar.vts_c" />
+		<include src="s2r://panorama/scripts/characterbuttons.vts_c" />
+	</scripts>
+	<Panel class="popup-capability__button-row" useglobalcontext="true">
+		<Panel class="right-left-flow horizontal-align-right vertical-center">
+			<TextButton id="InspectCloseBtn" class="PopupButton" text="#GameUI_Close" />
+			<Panel id="AddToCartContainer" class="right-left-flow vertical-center hidden">
+				<Panel class="popup-capability__seperator" />
+				<Panel class="add-to-cart-controls">
+					<TextButton id="RemoveFromCart" class="stratum-bold add-to-cart-controls__btn" text="-" />
+					<Panel class="add-to-cart-controls__center">
+						<Label class="add-to-cart-controls__title stratum-regular-condensed" html="true" text="#popup_add_to_cart_desc" />
+						<Label id="MajorItemPrice" class="add-to-cart-controls__price stratum-regular" html="true" text="#major_store_price" />
+					</Panel>
+					<TextButton id="AddToCart" class="stratum-bold add-to-cart-controls__btn" text="+" />
+				</Panel>
+			</Panel>
+			<TextButton id="SingleAction" class="PopupButton hidden" text="#Action" html="true" />
+		</Panel>
+		<Panel class="horizontal-align-left left-right-flow">
+			<RadioButton id="InspectWeaponBtn" class="IconButton hidden" group="popup-inspect-view" onactivate="InspectActionBar.NavigateModelPanel(&apos;InspectModel&apos;);" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;InspectWeaponBtn&apos;, &apos;#tooltip_inspect_weapon_model&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();">
+				<Image class="" src="s2r://panorama/images/icons/equipment/p250.vsvg" />
+			</RadioButton>
+			<RadioButton id="LookatWeaponBtn" class="IconButton hidden" group="popup-inspect-view" onactivate="InspectActionBar.LookatWeapon();" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;LookatWeaponBtn&apos;, &apos;#tooltip_lookat_weapon_model&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();">
+				<Image class="" textureheight="36" texturewidth="36" src="s2r://panorama/images/icons/ui/first_person.vsvg" />
+			</RadioButton>
+			<RadioButton id="InspectCharBtn" class="IconButton hidden" group="popup-inspect-view" onactivate="InspectActionBar.NavigateModelPanel(&apos;InspectModelChar&apos;);" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;InspectCharBtn&apos;, &apos;#tooltip_inspect_weapon_model_faction&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();">
+				<Image class="" src="s2r://panorama/images/icons/ui/ct_silhouette.vsvg" />
+			</RadioButton>
+			<Button id="InspectPlayMvpBtn" class="IconButton hidden" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;InspectPlayMvpBtn&apos;, &apos;#tooltip_inspect_play_mvp_anthem&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();">
+				<Image class="" src="s2r://panorama/images/icons/ui/unmuted.vsvg" />
+			</Button>
+			<Panel id="InspectCharModelsControls" class="popup-char-model-controls hidden">
+				<DropDown id="InspectDropdownCharModels" class="PopupButton horizontal-align-left" menuclass="DropDownMenu Width-250" />
+			</Panel>
+			<Panel id="id-character-button-container" class="hidden">
+				<Frame id="id-character-buttons" src="s2r://panorama/layout/characterbuttons.vxml_c" />
+			</Panel>
+			<Button id="InspectItemCert" class="IconButton">
+				<Image class="" src="s2r://panorama/images/icons/ui/info.vsvg" />
+			</Button>
+			<Button id="ChangeScenery" class="IconButton hidden" onactivate="InspectActionBar.UpdateScenery();" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;ChangeScenery&apos;, &apos;#tooltip_inspect_scenery&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();">
+				<Image class="" src="s2r://panorama/images/icons/ui/picture.vsvg" />
+			</Button>
+			<Button id="InspectMarketLink" class="IconButton hidden">
+				<Image class="" src="s2r://panorama/images/icons/ui/link.vsvg" />
+			</Button>
+			<Button id="OpenSeasonStats" class="IconButton hidden" onactivate="InspectActionBar.OpenSeasonStats();" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;OpenSeasonStats&apos;, &apos;#tooltip_inspect_open_season_stats&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();">
+				<Image class="" src="s2r://panorama/images/icons/ui/season_stats.vsvg" />
+			</Button>
+			<Button id="ViewHighlightReelAction" class="IconButton hidden" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;ViewHighlightReelAction&apos;, &apos;#inv_context_view_highlight_reel&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();">
+				<Image class="" src="s2r://panorama/images/icons/ui/video_clip.vsvg" />
+			</Button>
+			<Button id="InspectActionsButton" class="IconButton">
+				<Image class="" src="s2r://panorama/images/icons/ui/moreoptions.vsvg" />
+			</Button>
+			<ToggleButton id="id-sticker-bookmark" class="IconButton Bookmark">
+				<Image textureheight="22px" class="bookmark-empty" scaling="stretch-to-fit-preserve-aspect" src="s2r://panorama/images/icons/ui/favorite_star_empty.vsvg" />
+				<Image textureheight="22px" class="bookmark-filled" scaling="stretch-to-fit-preserve-aspect" src="s2r://panorama/images/icons/ui/favorite_star_filled.vsvg" />
+			</ToggleButton>
+			<Button id="InspectOpenCheckout" class="IconButton hidden" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;InspectOpenCheckout&apos;, &apos;#tooltip_inspect_shopping_cart&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();">
+				<Image class="" src="s2r://panorama/images/icons/ui/shoppingcart.vsvg" />
+				<Label class="stratum-bold-condensed" text="{d:total-items}" />
+			</Button>
+		</Panel>
+	</Panel>
+</root>

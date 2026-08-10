@@ -1,0 +1,130 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	MixGroups = 
+	[
+		{
+			name = "All"
+			path_substring = ""
+			class_substring = ""
+			chan_type = ""
+			sndlvl_min = 0
+			sndlvl_max = 20
+			priority = 60
+			is_ducked = 0
+			causes_ducking = 0
+			duck_to_percent = 100
+			ducker_threshold = 20
+		},
+		{
+			name = "layer_amount_target"
+			path_substring = ""
+			class_substring = ""
+			chan_type = ""
+			sndlvl_min = 0
+			sndlvl_max = 20
+			priority = 60
+			is_ducked = 0
+			causes_ducking = 0
+			duck_to_percent = 100
+			ducker_threshold = 20
+		},
+		{
+			name = "layer_amount_trigger"
+			path_substring = ""
+			class_substring = ""
+			chan_type = ""
+			sndlvl_min = 0
+			sndlvl_max = 20
+			priority = 60
+			is_ducked = 0
+			causes_ducking = 0
+			duck_to_percent = 100
+			ducker_threshold = 20
+		},
+	]
+	SoundMixers = 
+	{
+		Default_Mix = 
+		[
+			{
+				mixgroup = "All"
+				vol = 0.7
+				lvl = 1.0
+				dsp = 0.0
+				solo = 0.0
+				mute = 0.0
+			},
+			{
+				mixgroup = "layer_amount_target"
+				vol = 0.7
+				lvl = 1.0
+				dsp = 0.0
+				solo = 0.0
+				mute = 0.0
+			},
+			{
+				mixgroup = "layer_amount_trigger"
+				vol = 0.7
+				lvl = 1.0
+				dsp = 0.0
+				solo = 0.0
+				mute = 0.0
+			},
+		]
+		Display_Mix = 
+		[
+			{
+				mixgroup = "All"
+				vol = 0.7
+				lvl = 1.0
+				dsp = 0.0
+				solo = 0.0
+				mute = 0.0
+			},
+			{
+				mixgroup = "layer_amount_target"
+				vol = 0.6
+				lvl = 1.0
+				dsp = 0.0
+				solo = 0.0
+				mute = 0.0
+			},
+			{
+				mixgroup = "layer_amount_trigger"
+				vol = 0.6
+				lvl = 1.0
+				dsp = 0.0
+				solo = 0.0
+				mute = 0.0
+			},
+		]
+	}
+	MixLayers = 
+	{
+		layer_amount_test_01 = 
+		{
+			Mixers = 
+			[
+				{
+					mixgroup = "layer_amount_target"
+					lvl = 1.0
+					dsp = 1.0
+					solo = 0.0
+					mute = 0.0
+					vol = 0.0
+				},
+			]
+			Triggers = 
+			[
+				{
+					trigger = "layer_amount_trigger"
+					threshold = 0.0
+					mixamount = 1.0
+					attack = 0.0
+					release = 0.0
+					use_trigger_amount = true
+				},
+			]
+		}
+	}
+}

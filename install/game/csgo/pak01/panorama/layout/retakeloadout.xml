@@ -1,0 +1,71 @@
+<!-- xml reconstructed by Source 2 Viewer 19.2.0.0 - https://valveresourceformat.github.io -->
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/csgostyles.vcss_c" />
+		<include src="s2r://panorama/styles/retakeloadout.vcss_c" />
+	</styles>
+	<snippets>
+		<snippet name="RetakeLoadoutMenuLoadoutsContainer">
+			<Panel class="RetakeLoadoutMenu--loadouts-container" />
+		</snippet>
+		<snippet name="RetakeLoadoutMenuLoadoutContainer">
+			<Panel class="RetakeLoadoutMenu--loadout-container">
+				<Panel id="RetakeLoadoutMenuCardContainer" class="RetakeLoadoutMenu--card-container">
+					<Panel class="RetakeLoadoutMenu--card--contents">
+						<Image class="RetakeLoadoutMenu--card--contents-bg" texturewidth="320" textureheight="-1" src="s2r://panorama/images/icons/ui/retake_card_bg.vsvg" />
+						<Panel class="RetakeLoadoutMenu--card--contents-linemap" />
+						<Panel id="id-retake-primary-icon" class="RetakeLoadoutMenu--card--contents-primary">
+							<Image id="id-retake-primary-weapon-icon" scaling="stretch-to-fit-preserve-aspect" texturewidth="-1" textureheight="64" src="s2r://panorama/images/icons/equipment/awp.vsvg" />
+						</Panel>
+						<Image id="id-retake-qualifier" class="RetakeLoadoutMenu--card--contents-top" texturewidth="200" textureheight="-1" src="s2r://panorama/images/icons/ui/retake_card_top.vsvg" />
+						<Label id="id-retake-qualifier-text" class="RetakeLoadoutMenu--card--type stratum-medium-condensed" text="{s:qualifier-type}" />
+						<Image class="RetakeLoadoutMenu--card--contents-middle" texturewidth="320" textureheight="-1" src="s2r://panorama/images/icons/ui/retake_card_center.vsvg" />
+						<Label class="RetakeLoadoutMenu--card--name stratum-medium" text="{s:card-name}" />
+						<Panel class="RetakeLoadoutMenu--card--contents-utility">
+							<Panel id="id-retake-utilities-top-row" class="RetakeLoadoutMenu--card--contents-utility-row">
+								<Panel class="RetakeLoadoutMenu--card--contents-utility-icon">
+									<Image id="id-retake-utility-icon-0" scaling="stretch-to-fit-preserve-aspect" texturewidth="-1" textureheight="38" />
+								</Panel>
+								<Panel class="RetakeLoadoutMenu--card--contents-utility-icon">
+									<Image id="id-retake-utility-icon-1" scaling="stretch-to-fit-preserve-aspect" texturewidth="-1" textureheight="38" />
+								</Panel>
+								<Panel class="RetakeLoadoutMenu--card--contents-utility-icon">
+									<Image id="id-retake-utility-icon-2" scaling="stretch-to-fit-preserve-aspect" texturewidth="-1" textureheight="38" />
+								</Panel>
+							</Panel>
+							<Panel id="id-retake-utilities-bottom-row" class="RetakeLoadoutMenu--card--contents-utility-row">
+								<Panel class="RetakeLoadoutMenu--card--contents-utility-icon">
+									<Image id="id-retake-utility-icon-0" scaling="stretch-to-fit-preserve-aspect" texturewidth="-1" textureheight="38" />
+								</Panel>
+								<Panel class="RetakeLoadoutMenu--card--contents-utility-icon">
+									<Image id="id-retake-utility-icon-1" scaling="stretch-to-fit-preserve-aspect" texturewidth="-1" textureheight="38" />
+								</Panel>
+								<Panel class="RetakeLoadoutMenu--card--contents-utility-icon">
+									<Image id="id-retake-utility-icon-2" scaling="stretch-to-fit-preserve-aspect" texturewidth="-1" textureheight="38" />
+								</Panel>
+							</Panel>
+						</Panel>
+					</Panel>
+				</Panel>
+			</Panel>
+		</snippet>
+	</snippets>
+	<CSGORetakeLoadout class="RetakeLoadout">
+		<Panel id="backdrop" class="RetakeLoadoutMenu--backdrop">
+			<Panel id="id-retake-loadout-container" class="RetakeLoadoutMenu--main-container">
+				<Panel class="RetakeLoadoutMenu--glitch-container">
+					<Panel class="RetakeLoadoutMenu--bar-side hud-colorize-wash additive" />
+					<Panel class="RetakeLoadoutMenu--bar-side horizontal-align-right hud-colorize-wash additive" />
+					<Panel class="RetakeLoadoutMenu--bar-white" />
+				</Panel>
+				<Panel class="top-bottom-flow full-width full-height">
+					<Panel class="RetakeLoadoutMenu--main-titles-container">
+						<Label class="RetakeLoadoutMenu--large-title stratum-medium-condensed" text="{s:loadout-bomb}" />
+						<Label class="RetakeLoadoutMenu--small-title stratum-medium-italic" text="{s:loadout-title}" />
+					</Panel>
+					<Panel id="id-retake-cards-container" class="RetakeLoadoutMenu--loadouts-container" />
+				</Panel>
+			</Panel>
+		</Panel>
+	</CSGORetakeLoadout>
+</root>

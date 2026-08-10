@@ -1,0 +1,63 @@
+<!-- xml reconstructed by Source 2 Viewer 19.2.0.0 - https://valveresourceformat.github.io -->
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/gamestyles.vcss_c" />
+		<include src="s2r://panorama/styles/popups/popups_shared.vcss_c" />
+		<include src="s2r://panorama/styles/mainmenu.vcss_c" />
+		<include src="s2r://panorama/styles/popups/popup_inventory_inspect.vcss_c" />
+		<include src="s2r://panorama/styles/popups/popup_can_apply_pick_slot.vcss_c" />
+		<include src="s2r://panorama/styles/popups/popup_capability_shared.vcss_c" />
+	</styles>
+	<snippets>
+		<snippet name="craft-souvenir-dropdown-select-player-entry">
+			<Panel class="craft_souvenir_dropdown_select_player_entry left-right-flow horizontal-align-left DropDownMenu">
+				<Label id="id-craft-souvenir-dropdown-select-player-entry-cost" text="{d:cost} &lt;img src=&apos;file://{images}/icons/ui/major_coin.svg&apos; class=&apos;inline-coin-icon&apos;/&gt;" class="craft_souvenir_dropdown_select_player_entry_cost stratum-medium-condensed" html="true" hittest="false" hittestchildren="false" />
+				<Image id="id-team-player-logo" class="craft_souvenir_dropdown_select_player_entry_logo" textureheight="20" texturewidth="20" scaling="stretch-to-cover-preserve-aspect" hittest="false" hittestchildren="false" src="s2r://panorama/images/tournaments/unknown_team_dark.vsvg" />
+				<Label id="id-craft-souvenir-dropdown-select-player-entry-name" text="" class="craft_souvenir_dropdown_select_player_entry_name stratum-medium-condensed" />
+			</Panel>
+		</snippet>
+	</snippets>
+	<Panel class="popup-capability__button-row" useglobalcontext="true">
+		<Panel class="left-right-flow horizontal-align-right">
+			<ItemImage id="AsyncItemWorkDescImage" class="popup-capability__purchase__image" scaling="stretch-to-fit-x-preserve-aspect" />
+			<Label id="AsyncItemWorkDesc" html="true" hittest="false" class="popup-capability__purchase__text stratum-font" text="" />
+			<Panel id="NameableSpinner" class="Spinner vertical-center horizontal-center hidden" />
+			<Panel class="spacer" />
+			<TextButton id="AsyncItemWorkAcceptNegativeHold" class="PopupButtonTimer Negative AsyncItemWorkAcceptNegativeHidden" html="true" text="{s:action-label}">
+				<Panel id="id-response-btn-timer" class="user-response-btn__timer" />
+			</TextButton>
+			<Panel id="id-souvenir-discount" class="popup-capability__souvenir-discount hidden">
+				<Label id="id-souvenir-discount-percent" class="popup-capability__souvenir-discount__percent stratum-medium-condensed" text="#popup_souviner_discount" />
+				<Panel class="top-bottom-flow">
+					<Label class="popup-capability__souvenir-discount__original stratum-regular" html="true" text="{d:original-price} &lt;img src=&apos;file://{images}/icons/ui/major_coin.svg&apos; class=&apos;inline-coin-icon&apos;/&gt;" />
+					<Label class="popup-capability__souvenir-discount__cost cart-item__price stratum-regular" html="true" text="{d:price} &lt;img src=&apos;file://{images}/icons/ui/major_coin.svg&apos; class=&apos;inline-coin-icon&apos;/&gt;" />
+				</Panel>
+			</Panel>
+			<TextButton id="AsyncItemWorkAcceptConfirmHold" class="PopupButtonTimer Positive AsyncItemWorkAcceptNegativeHidden" html="true" text="{s:action-label}">
+				<Panel id="id-response-btn-timer" class="user-response-btn__timer" />
+			</TextButton>
+			<TextButton id="AsyncItemWorkAcceptNegative" html="true" class="PopupButton Negative AsyncItemWorkAcceptNegativeHidden" text="#Button_Delete" />
+			<TextButton id="AsyncItemWorkAcceptConfirm" html="true" class="PopupButton" text="#SFUI_Accept" />
+			<TextButton id="AsyncItemWorkCancelBtn" html="true" class="PopupButton" text="#GameUI_Close" />
+		</Panel>
+		<Panel class="left-right-flow horizontal-align-left full-height" hittest="false">
+			<DropDown class="PopupButton vertical-center horizontal-align-left hidden" id="AsyncOfferLimitDropdown" menuclass="DropDownMenu hidden" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;AsyncOfferLimitDropdown&apos;, &apos;#terminal_offer_limit_tooltip&apos; )" onmouseout="UiToolkitAPI.HideTextTooltip();" style="tooltip-position: right;" />
+			<DropDown class="PopupButton vertical-center horizontal-align-left hidden" id="MakeSouvenirPlayerSelect" menuclass="DropDownMenu hidden" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;MakeSouvenirPlayerSelect&apos;, &apos;#popup_craft_souvenir_player_tooltip&apos; )" onmouseout="UiToolkitAPI.HideTextTooltip();" style="tooltip-position: right;" />
+			<Panel class="left-right-flow vertical-center hidden">
+				<RadioButton id="InspectWeaponBtn" group="popup-inspect-view" class="IconButton" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;InspectWeaponBtn&apos;, &apos;#tooltip_inspect_weapon_model&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();">
+					<Image class="" textureheight="36" texturewidth="36" src="s2r://panorama/images/icons/equipment/p250.vsvg" />
+				</RadioButton>
+				<RadioButton id="LookatWeaponBtn" group="popup-inspect-view" class="IconButton" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;LookatWeaponBtn&apos;, &apos;#tooltip_lookat_weapon_model&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();">
+					<Image class="" textureheight="36" texturewidth="36" src="s2r://panorama/images/icons/ui/first_person.vsvg" />
+				</RadioButton>
+			</Panel>
+			<Button id="ChangeSouvenirItem" class="IconButton hidden" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;ChangeSouvenirItem&apos;, &apos;#tooltip_change_souvenir_item&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();">
+				<Image class="" textureheight="36" texturewidth="36" src="s2r://panorama/images/icons/ui/trade.vsvg" />
+			</Button>
+			<ToggleButton id="InspectItemModelZoom" class="PopupButton Zoom hidden" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;InspectItemModelZoom&apos;, &apos;#tooltip_character_zoom&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();" />
+			<Button id="ChangeScenery" class="IconButton hidden" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;ChangeScenery&apos;, &apos;#tooltip_inspect_scenery&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();">
+				<Image class="" textureheight="36" texturewidth="36" src="s2r://panorama/images/icons/ui/picture.vsvg" />
+			</Button>
+		</Panel>
+	</Panel>
+</root>

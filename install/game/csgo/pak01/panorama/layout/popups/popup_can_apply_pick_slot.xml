@@ -1,0 +1,94 @@
+<!-- xml reconstructed by Source 2 Viewer 19.2.0.0 - https://valveresourceformat.github.io -->
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/csgostyles.vcss_c" />
+		<include src="s2r://panorama/styles/mainmenu.vcss_c" />
+		<include src="s2r://panorama/styles/popups/popup_inventory_inspect.vcss_c" />
+		<include src="s2r://panorama/styles/popups/popup_can_apply_pick_slot.vcss_c" />
+	</styles>
+	<scripts>
+		<include src="s2r://panorama/scripts/generated/items_event_current_generated_store.vts_c" />
+		<include src="s2r://panorama/scripts/popups/popup_can_apply_pick_slot.vts_c" />
+	</scripts>
+	<snippets>
+		<snippet name="RemoveBtn">
+			<Button class="popup-can-apply_remove_btn">
+				<Label class="stratum-regular fontSize-ml popup-can-apply_remove__label cart-item__price hidden" id="CostLabel" text="#popup_can_stick_cost_label" html="true" />
+				<Image class="popup-can-apply_remove__selected" textureheight="20" texturewidth="-1" src="s2r://panorama/images/icons/ui/check.vsvg" />
+				<Image id="RemoveImage" class="popup-can-apply_remove__image" />
+				<Panel id="RemoveSpinner" class="ScrapeStickerSpinner Spinner hidden" />
+			</Button>
+		</snippet>
+	</snippets>
+	<Panel class="popup-capability__info-block patch" hittest="false" useglobalcontext="true">
+		<Panel class="popup-can-apply-container" hittest="false">
+			<Panel id="popup-capability-sticker-hints" class="popup-capability__apply-sticker-hints" hittest="false">
+				<TooltipPanel tooltip="#popup_control_tooltip_move_sticker" class="popup-capability__apply-sticker-hints__icons">
+					<Image class="popup-capability__apply-sticker-hints__action-icon" texturewidth="-1" textureheight="42" src="s2r://panorama/images/icons/ui/move_sticker.vsvg" />
+				</TooltipPanel>
+				<TooltipPanel tooltip="#popup_control_tooltip_rotate_sticker" class="popup-capability__apply-sticker-hints__icons">
+					<Image class="popup-capability__apply-sticker-hints__action-icon" texturewidth="-1" textureheight="42" src="s2r://panorama/images/icons/ui/rotate_sticker.vsvg" />
+				</TooltipPanel>
+				<TooltipPanel tooltip="#popup_control_tooltip_rotate_weapon" class="popup-capability__apply-sticker-hints__icons">
+					<Image class="popup-capability__apply-sticker-hints__action-icon" texturewidth="-1" textureheight="42" src="s2r://panorama/images/icons/ui/rotate_weapon.vsvg" />
+				</TooltipPanel>
+				<TooltipPanel class="popup-capability__apply-sticker-hints__separator" />
+				<TooltipPanel tooltip="#laptop_zoom_tooltip" class="popup-capability__apply-sticker-hints__icons">
+					<Image class="popup-capability__apply-sticker-hints__action-icon" texturewidth="-1" textureheight="42" src="s2r://panorama/images/icons/ui/mouse_zoom_camera.vsvg" />
+				</TooltipPanel>
+				<TooltipPanel tooltip="#laptop_pan_tooltip" class="popup-capability__apply-sticker-hints__icons">
+					<Image class="popup-capability__apply-sticker-hints__action-icon" texturewidth="-1" textureheight="42" src="s2r://panorama/images/icons/ui/shift_pan_camrea.vsvg" />
+				</TooltipPanel>
+			</Panel>
+			<Panel id="popup-capability-keychain-hints" class="popup-capability__apply-keychain-hints" hittest="false">
+				<TooltipPanel tooltip="#popup_control_tooltip_move_keychain" class="popup-capability__apply-sticker-hints__icons">
+					<Image class="popup-capability__apply-sticker-hints__action-icon" texturewidth="-1" textureheight="42" src="s2r://panorama/images/icons/ui/move_keychain.vsvg" />
+				</TooltipPanel>
+				<TooltipPanel tooltip="#popup_control_tooltip_rotate_weapon" class="popup-capability__apply-sticker-hints__icons">
+					<Image class="popup-capability__apply-sticker-hints__action-icon" texturewidth="-1" textureheight="42" src="s2r://panorama/images/icons/ui/rotate_weapon.vsvg" />
+				</TooltipPanel>
+				<Panel class="popup-capability__apply-sticker-hints__separator" />
+				<TooltipPanel tooltip="#laptop_zoom_tooltip" class="popup-capability__apply-sticker-hints__icons">
+					<Image class="popup-capability__apply-sticker-hints__action-icon" texturewidth="-1" textureheight="42" src="s2r://panorama/images/icons/ui/mouse_zoom_camera.vsvg" />
+				</TooltipPanel>
+				<TooltipPanel tooltip="#laptop_pan_tooltip" class="popup-capability__apply-sticker-hints__icons">
+					<Image class="popup-capability__apply-sticker-hints__action-icon" texturewidth="-1" textureheight="42" src="s2r://panorama/images/icons/ui/shift_pan_camrea.vsvg" />
+				</TooltipPanel>
+			</Panel>
+			<Panel id="popup-capability-sticker-remove-hint" class="popup-capability__remove-sticker-hint" hittest="false" hittestchildren="false">
+				<Image class="" texturewidth="32" textureheight="32" src="s2r://panorama/images/icons/ui/info.vsvg" />
+				<Label class="stratum-regular fontSize-ml" text="#popup_can_stick_scrape_hint" />
+			</Panel>
+			<Panel id="popup-capability-sticker-wipestickers-hint" class="popup-capability__remove-sticker-hint" hittest="false" hittestchildren="false">
+				<Image class="" texturewidth="32" textureheight="32" src="s2r://panorama/images/icons/ui/info.vsvg" />
+				<Label class="stratum-regular fontSize-ml" text="#popup_can_stick_wipestickers_hint" />
+			</Panel>
+			<Panel id="popup-capability-sticker-craft-souvenir-hint" class="popup-capability__craft-souvenir-hint" hittest="false" hittestchildren="false">
+				<Image class="" texturewidth="32" textureheight="32" src="s2r://panorama/images/icons/ui/filter_signature.vsvg" />
+				<Label id="popup-capability-sticker-craft-souvenir-inscription" class="stratum-regular fontSize-ml" text="#CSGO_Event_Details_CraftSouvenir_Memento" html="true" />
+			</Panel>
+			<Panel class="vertical-align-bottom top-bottom-flow horizontal-center" hittest="false">
+				<Panel id="CanStickerItemIcons" hittest="false" class="left-right-flow horizontal-center height-fit-children width-fit-children" />
+				<Panel id="StickerScrapeLevelContainer" hittest="false" class="left-right-flow horizontal-center height-fit-children width-fit-children">
+					<Label class="stratum-regular fontSize-ml" text="#popup_scrape_sticker_level" />
+					<Slider class="HorizontalSlider" direction="horizontal" id="StickerScrapeLevelSlider" />
+				</Panel>
+				<Panel class="popup-can-apply-controls" hittest="false">
+					<Panel class="popup-can-apply-button-container" hittest="false">
+						<Button id="CanApplyContinue" class="popup-can-apply-button">
+							<Label text="#SFUI_InvUse_Confirm_Sticker_slot" />
+						</Button>
+						<Button id="CanApplyCancel" class="popup-can-apply-button popup-can-apply-button--cancel">
+							<Label text="#Cancel" />
+							<Image texturewidth="16" textureheight="16" src="s2r://panorama/images/icons/ui/cancel.vsvg" />
+						</Button>
+						<Button id="CanApplyNextPos" class="popup-can-apply-button popup-can-apply-button--next">
+							<Label text="#SFUI_InvUse_Next_Preset" />
+							<Image texturewidth="16" textureheight="16" src="s2r://panorama/images/icons/ui/back.vsvg" />
+						</Button>
+					</Panel>
+				</Panel>
+			</Panel>
+		</Panel>
+	</Panel>
+</root>

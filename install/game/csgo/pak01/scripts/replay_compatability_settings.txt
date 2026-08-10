@@ -1,0 +1,25 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	m_RenamedSerializers =
+	[
+		{ m_OldName = "CCSGameModeRules_Scripted"			m_NewName = "CCSGameModeRules_Noop" },
+	]
+	
+	m_RenamedTypes =
+	[
+		{ m_OldName =  "PlayerAnimEvent_t"					m_NewName = "WeaponGameplayAnimState" },
+	]
+
+	// in CFlattenedSerializer::InitFakeField, we allow for some deleted types to maintain compatibility
+	m_FieldTypeAliases =
+	[
+		{ m_OldName =  "EGrenadeThrowState"				m_NewName = "uint32" },
+		{ m_OldName =  "CEntityIndex"				 	m_NewName = "int32" },
+		{ m_OldName =  "CSWeaponState_t"				m_NewName = "uint32" },
+		{ m_OldName =  "WorldGroupId_t"					m_NewName = "uint32" },
+		{ m_OldName =  "PlayerAnimEvent_t"				m_NewName = "WeaponGameplayAnimState" },
+		{ m_OldName =  "WeaponAttackType_t"				m_NewName = "int32" },
+		{ m_OldName =  "DecalRtEncoding_t"				m_NewName = "uint8" },
+	]
+}	
+

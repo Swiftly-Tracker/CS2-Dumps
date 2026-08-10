@@ -1,0 +1,27 @@
+<!-- xml reconstructed by Source 2 Viewer 19.2.0.0 - https://valveresourceformat.github.io -->
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/gamestyles.vcss_c" />
+		<include src="s2r://panorama/styles/stats/playerstats.vcss_c" />
+	</styles>
+	<scripts>
+		<include src="s2r://panorama/scripts/tooltips/stats/tooltip_playerstats_mapgraph.vjs_c" />
+	</scripts>
+	<Panel ontooltiploaded="setupTooltip()">
+		<Panel class="playerstats-tt__root">
+			<Panel class="playerstats-tt__header horizontal-center flow-children-down">
+				<Label class="vertical-align-bottom" text="{s:map_name}" />
+			</Panel>
+			<Panel class="top-bottom-flow horizontal-center">
+				<Panel class="map-graph-tooltip-labels">
+					<Label id="RecordLabel" text="#playerstats_map_tooltip_win_loss_tie" />
+					<Label style="margin-left: 8px;" class="horizontal-align-right" id="RecordResults" />
+				</Panel>
+				<Panel class="map-graph-tooltip-labels">
+					<Label id="ScoreLabel" text="#playerstats_map_tooltip_round_winrate" />
+					<Label style="margin-left: 8px;" class="horizontal-align-right" text="{s:score}%" />
+				</Panel>
+			</Panel>
+		</Panel>
+	</Panel>
+</root>

@@ -1,0 +1,93 @@
+/* Prettified by Source 2 Viewer 19.2.0.0 - https://valveresourceformat.github.io */
+
+.add_major_tokens
+{
+	opacity: 1;
+	visibility: visible;
+	transition-property: opacity;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+	ignore-parent-flow: true;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.65);
+	z-index: 4;
+}
+
+.add_major_tokens .add_major_tokens__amount
+{
+	vertical-align: center;
+	horizontal-align: center;
+	flow-children: right;
+	opacity: 0;
+	transition-property: position, pre-transform-scale2d;
+	transition-duration: 1s;
+	transition-timing-function: ease-in-out;
+}
+
+.add_major_tokens__amount-anim.add_major_tokens .add_major_tokens__amount
+{
+	animation-name: anim-new-credits;
+	animation-timing-function: ease-in-out;
+	animation-delay: .25s;
+	animation-duration: .5s;
+	animation-iteration-count: 1;
+	animation-fill-mode: both;
+}
+
+.add_major_tokens .add_major_tokens__amount Label
+{
+	font-size: 115px;
+	color: #0c240c;
+	text-shadow: 0px 0px 2px 2.0 #ffffff98;
+	opacity-mask: url("s2r://panorama/images/masks/top-bottom-fade-3_png.vtex");
+}
+
+.add_major_tokens .add_major_tokens__amount Image
+{
+	vertical-align: center;
+	margin: 0px 8px;
+	transform: translateY(-4px);
+}
+
+.add_major_tokens .add_major_tokens__particle
+{
+	width: 640px;
+	height: 640px;
+	vertical-align: center;
+	horizontal-align: center;
+	z-index: 2;
+	transition-property: opacity;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+
+.add_major_tokens.hide-particles .add_major_tokens__particle
+{
+	opacity: 0;
+}
+
+.add_major_tokens.hidden
+{
+	opacity: 0;
+	visibility: collapse;
+}
+
+@keyframes 'anim-new-credits'
+{
+	0%
+	{
+		transform: translatey( 0px ) scale3d( 1.2, 1.2, 1);
+		opacity: 0;
+		wash-color: yellow;
+	}
+	
+	100%
+	{
+		transform: translatey( 0px ) scale3d( 1, 1, 1);
+		opacity: 1;
+		wash-color: white;
+	}
+	
+}
+

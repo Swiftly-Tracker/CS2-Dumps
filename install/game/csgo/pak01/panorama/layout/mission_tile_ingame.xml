@@ -1,0 +1,35 @@
+<!-- xml reconstructed by Source 2 Viewer 19.2.0.0 - https://valveresourceformat.github.io -->
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/csgostyles.vcss_c" />
+		<include src="s2r://panorama/styles/mission_tile.vcss_c" />
+		<include src="s2r://panorama/styles/mission_tile_ingame.vcss_c" />
+	</styles>
+	<scripts>
+		<include src="s2r://panorama/scripts/common/formattext.vts_c" />
+		<include src="s2r://panorama/scripts/segmented_progress_bar.vts_c" />
+		<include src="s2r://panorama/scripts/mission_tile.vts_c" />
+	</scripts>
+	<Panel class="mission-root hidden" useglobalcontext="true">
+		<Panel class="mission mission-ingame full-width full-height">
+			<Panel class="background-contents">
+				<Panel class="bonuspanel-bg" />
+				<Panel class="bonuspanel-bkg-TOP" />
+				<Panel class="bonuspanel-bkg-BOT" />
+			</Panel>
+			<Panel class="mission-main-content">
+				<Panel class="mission-progress-container">
+					<Label class="mission-num" html="true" text="#weekly_mission_progress" />
+					<Panel id="progressBaContainer" class="progress-bar-container" />
+					<Panel class="mission-xp-reward-container">
+						<Image class="mission-xp-reward-img" clampfractionalpixelpositions="false" texturewidth="-1" textureheight="30" src="s2r://panorama/images/icons/mission-xp-reward.vsvg" />
+						<Label class="mission-xp-reward" text="#mission_xp_remaining" />
+					</Panel>
+				</Panel>
+				<Panel class="mission-description-container">
+					<Label class="mission-description" html="true" text="{s:mission_ingame}" />
+				</Panel>
+			</Panel>
+		</Panel>
+	</Panel>
+</root>
