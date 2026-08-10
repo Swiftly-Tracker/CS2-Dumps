@@ -8,7 +8,10 @@ permissions:
 
 jobs:
     dump:
-        runs-on: ubuntu-latest
+        runs-on: windows-latest
+        defaults:
+            run:
+                shell: pwsh
         steps:
             - name: Checkout
               uses: actions/checkout@v5
@@ -16,54 +19,67 @@ jobs:
             - name: Resolve latest SteamDepotDownload release
               id: sdd_release
               run: |
-                  url=$(curl -sSL https://api.github.com/repos/Swiftly-Tracker/SteamDepotDownload/releases/latest \
-                    | jq -r '.assets[] | select(.name == "SteamDepotDownload-linux-x64.zip") | .browser_download_url')
-                  if [ -z "$url" ] || [ "$url" = "null" ]; then
-                    echo "Could not resolve SteamDepotDownload-linux-x64.zip asset URL" >&2
-                    exit 1
-                  fi
-                  echo "url=$url" >> "$GITHUB_OUTPUT"
+                  $release = Invoke-RestMethod -Uri "https://api.github.com/repos/Swiftly-Tracker/SteamDepotDownload/releases/latest"
+                  $url = $release.assets | Where-Object { $_.name -eq "SteamDepotDownload-win-x64.zip" } | Select-Object -ExpandProperty browser_download_url
+
+                  if ([string]::IsNullOrEmpty($url)) {
+                      Write-Error "Could not resolve SteamDepotDownload-win-x64.zip asset URL"
+                      exit 1
+                  }
+
+                  Add-Content -Path $env:GITHUB_OUTPUT -Value "url=$url"
 
             - name: Download & unpack SteamDepotDownload
               run: |
-                  curl -sSL -o sdd.zip "${{ steps.sdd_release.outputs.url }}"
-                  mkdir -p sdd
-                  unzip -q sdd.zip -d sdd
-                  chmod +x sdd/SteamDepotDownload.App
+                  Invoke-WebRequest -Uri "${{ steps.sdd_release.outputs.url }}" -OutFile sdd.zip
+                  Expand-Archive -Path sdd.zip -DestinationPath sdd -Force
 
             - name: Clean install directory
-              run: rm -rf install
+              run: Remove-Item -Recurse -Force install -ErrorAction SilentlyContinue
 
             - name: Download tracked files
               run: |
-                  ./sdd/SteamDepotDownload.App -app 730 -filelist tracked_files.json \
-                    -username "${{ secrets.STEAM_USERNAME }}" -password "${{ secrets.STEAM_PASSWORD }}" \
+                  ./sdd/SteamDepotDownload.App.exe -app 730 -filelist tracked_files.json `
+                    -username "${{ secrets.STEAM_USERNAME }}" -password "${{ secrets.STEAM_PASSWORD }}" `
                     -dir install -max-downloads 32 -debug
 
             - name: Dump binary strings
               run: |
-                  rm -rf strings
-                  mkdir -p strings/win64 strings/linuxsteamrt64
-                  find install -type f \( -name '*.exe' -o -name '*.dll' -o -name '*.so' \) -print0 |
-                  while IFS= read -r -d '' bin; do
-                    name=$(basename "$bin")
-                    case "$name" in
-                      *.so) outdir="strings/linuxsteamrt64" ;;
-                      *) outdir="strings/win64" ;;
-                    esac
-                    strings "$bin" > "$outdir/${name%.*}.txt"
-                  done
+                  Remove-Item -Recurse -Force strings -ErrorAction SilentlyContinue
+                  New-Item -ItemType Directory -Force -Path strings/win64, strings/linuxsteamrt64 | Out-Null
+
+                  function Get-Strings {
+                      param([string]$Path, [int]$MinLength = 4)
+
+                      $bytes = [System.IO.File]::ReadAllBytes($Path)
+                      $sb = New-Object System.Text.StringBuilder
+                      foreach ($b in $bytes) {
+                          if ($b -ge 0x20 -and $b -le 0x7e) {
+                              [void]$sb.Append([char]$b)
+                          } else {
+                              if ($sb.Length -ge $MinLength) { $sb.ToString() }
+                              [void]$sb.Clear()
+                          }
+                      }
+                      if ($sb.Length -ge $MinLength) { $sb.ToString() }
+                  }
+
+                  Get-ChildItem -Path install -Recurse -File -Include *.exe, *.dll, *.so | ForEach-Object {
+                      $outdir = if ($_.Extension -eq ".so") { "strings/linuxsteamrt64" } else { "strings/win64" }
+                      $outfile = Join-Path $outdir ($_.BaseName + ".txt")
+                      Get-Strings -Path $_.FullName | Set-Content -Path $outfile
+                  }
 
             - name: Dump manifests
               run: |
-                  ./sdd/SteamDepotDownload.App -app 730 -filelist tracked_files.json \
-                    -username "${{ secrets.STEAM_USERNAME }}" -password "${{ secrets.STEAM_PASSWORD }}" \
+                  ./sdd/SteamDepotDownload.App.exe -app 730 -filelist tracked_files.json `
+                    -username "${{ secrets.STEAM_USERNAME }}" -password "${{ secrets.STEAM_PASSWORD }}" `
                     -manifest-only -dir install
 
             - name: Copy manifest dumps into manifests/
               run: |
-                  mkdir -p manifests
-                  cp -r install/.sdd/dumps/. manifests/
+                  New-Item -ItemType Directory -Force -Path manifests | Out-Null
+                  Copy-Item -Path install/.sdd/dumps/* -Destination manifests -Recurse -Force
 
             - name: Commit & push changes
               run: |
@@ -71,24 +87,31 @@ jobs:
                   git config user.email "github-actions[bot]@users.noreply.github.com"
                   git add -A
 
-                  if git diff --cached --quiet; then
-                    echo "No changes to commit"
-                    exit 0
-                  fi
+                  git diff --cached --quiet
+                  if ($LASTEXITCODE -eq 0) {
+                      Write-Output "No changes to commit"
+                      exit 0
+                  }
 
-                  steam_inf=$(find . -path '*/game/csgo/steam.inf' -print -quit)
-                  if [ -z "$steam_inf" ]; then
-                    echo "steam.inf not found" >&2
-                    exit 1
-                  fi
+                  $steamInf = Get-ChildItem -Recurse -Filter steam.inf -ErrorAction SilentlyContinue |
+                      Where-Object { $_.FullName -match '[\\/]game[\\/]csgo[\\/]steam\.inf$' } |
+                      Select-Object -First 1
 
-                  server_version=$(grep -m1 '^ServerVersion=' "$steam_inf" | cut -d= -f2 | tr -d '\r')
-                  patch_version=$(grep -m1 '^PatchVersion=' "$steam_inf" | cut -d= -f2 | tr -d '\r')
-                  version_date=$(grep -m1 '^VersionDate=' "$steam_inf" | cut -d= -f2 | tr -d '\r')
-                  version_time=$(grep -m1 '^VersionTime=' "$steam_inf" | cut -d= -f2 | tr -d '\r')
-                  files_modified=$(git diff --cached --name-only | wc -l)
+                  if (-not $steamInf) {
+                      Write-Error "steam.inf not found"
+                      exit 1
+                  }
 
-                  commit_msg="${server_version} - ${patch_version} | ${files_modified} modified | ${version_date} ${version_time}"
+                  $content = Get-Content -Path $steamInf.FullName
 
-                  git commit -m "$commit_msg"
+                  $serverVersion = ($content | Where-Object { $_ -match '^ServerVersion=' } | Select-Object -First 1) -replace '^ServerVersion=', '' -replace "`r", ''
+                  $patchVersion = ($content | Where-Object { $_ -match '^PatchVersion=' } | Select-Object -First 1) -replace '^PatchVersion=', '' -replace "`r", ''
+                  $versionDate = ($content | Where-Object { $_ -match '^VersionDate=' } | Select-Object -First 1) -replace '^VersionDate=', '' -replace "`r", ''
+                  $versionTime = ($content | Where-Object { $_ -match '^VersionTime=' } | Select-Object -First 1) -replace '^VersionTime=', '' -replace "`r", ''
+
+                  $filesModified = (git diff --cached --name-only | Measure-Object -Line).Lines
+
+                  $commitMsg = "$serverVersion - $patchVersion | $filesModified modified | $versionDate $versionTime"
+
+                  git commit -m "$commitMsg"
                   git push
