@@ -74,25 +74,12 @@ jobs:
               run: ./s2dumper.exe "$env:DUMP_PATH" csgo
 
             - name: Dump binary strings
-              shell: bash
               run: |
-                  rm -rf strings
-                  mkdir -p strings/win64 strings/linuxsteamrt64
+                  Remove-Item -Recurse -Force strings -ErrorAction SilentlyContinue
+                  New-Item -ItemType Directory -Force -Path strings/win64, strings/linuxsteamrt64 | Out-Null
 
-                  find install -type f \( -name '*.exe' -o -name '*.dll' -o -name '*.so' \) -print0 |
-                  while IFS= read -r -d '' f; do
-                      ext="${f##*.}"
-                      base="$(basename "$f")"
-                      name="${base%.*}"
-
-                      if [ "$ext" = "so" ]; then
-                          outdir="strings/linuxsteamrt64"
-                      else
-                          outdir="strings/win64"
-                      fi
-
-                      strings-tool/strings.exe --binary="$f" > "$outdir/$name.txt"
-                  done
+                  ./strings-tool/strings.exe --binary='install/**/*.exe,install/**/*.dll' --output-dir=strings/win64
+                  ./strings-tool/strings.exe --binary='install/**/*.so' --output-dir=strings/linuxsteamrt64
 
             - name: Dump manifests
               run: |
