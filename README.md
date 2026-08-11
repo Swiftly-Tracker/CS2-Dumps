@@ -1,15 +1,32 @@
 # CS2 - Dump Tracking
 
-Automated dumps of Counter-Strike 2 (app 730) depot content, binary strings, Steam manifests and the S2Dumper schema output.
+Automated dumps of Counter-Strike 2 (app 730) depot content, binary strings, reconstructed protobuf schemas, Steam manifests and the S2Dumper schema output.
 
 ## Repository layout
 
-| Path         | Contents                                                                                                                          |
-| ------------ | --------------------------------------------------------------------------------------------------------------------------------- |
-| `install/`   | Extracted game files pulled from the tracked Steam depots (scripts, configs, VPK archives selected by `tracked_files.json`, etc). |
-| `manifests/` | Raw Steam depot manifests, one file per depot, named `manifest_<depotid>_<manifestid>.txt`.                                       |
-| `strings/`   | Output of `strings` run against every `.exe`, `.dll` and `.so` under `install/`. Split into `win64/` and `linuxsteamrt64/`.       |
-| `dump/`      | Output of [S2Dumper](https://github.com/Swiftly-Tracker/s2dumper).                                                                |
+| Path         | Contents                                                                                                                                                                  |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `install/`   | Extracted game files pulled from the tracked Steam depots (scripts, configs, VPK archives selected by `tracked_files.json`, etc).                                         |
+| `manifests/` | One file per build, named `manifest_<patchversion>_<serverversion>_<sourcerevision>.txt`.                                                                                 |
+| `strings/`   | Output of [`strings`](https://github.com/Swiftly-Tracker/strings) run against every `.exe`, `.dll` and `.so` under `install/`. Split into `win64/` and `linuxsteamrt64/`. |
+| `protobufs/` | `.proto` schemas reconstructed from every `.dll` under `install/` via [ProtoDump](https://github.com/Swiftly-Tracker/ProtoDump).                                          |
+| `dump/`      | Output of [S2Dumper](https://github.com/Swiftly-Tracker/s2dumper).                                                                                                        |
+
+## protobufs/ layout
+
+```
+protobufs/
+├── all/                # every discovered proto, deduplicated across all binaries
+│   ├── netmessages.proto
+│   └── ...
+├── client/             # protos first found in client.dll
+│   ├── usercmd.proto
+│   └── ...
+└── engine2/
+    └── ...
+```
+
+One subfolder per source `.dll` (schemas first discovered there), plus `all/` with everything deduplicated.
 
 ## dump/ files
 
