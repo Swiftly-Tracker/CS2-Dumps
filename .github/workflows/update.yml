@@ -18,50 +18,50 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v5
 
-            - name: Resolve latest SteamDepotDownload release
-              id: sdd_release
-              run: |
-                  $release = Invoke-RestMethod -Uri "https://api.github.com/repos/Swiftly-Tracker/SteamDepotDownload/releases/latest"
-                  $url = $release.assets | Where-Object { $_.name -eq "SteamDepotDownload-win-x64.zip" } | Select-Object -ExpandProperty browser_download_url
-
-                  if ([string]::IsNullOrEmpty($url)) {
-                      Write-Error "Could not resolve SteamDepotDownload-win-x64.zip asset URL"
-                      exit 1
-                  }
-
-                  Add-Content -Path $env:GITHUB_OUTPUT -Value "url=$url"
-
-            - name: Download & unpack SteamDepotDownload
-              run: |
-                  Invoke-WebRequest -Uri "${{ steps.sdd_release.outputs.url }}" -OutFile sdd.zip
-                  Expand-Archive -Path sdd.zip -DestinationPath sdd -Force
-
             - name: Clean install directory
               run: Remove-Item -Recurse -Force install -ErrorAction SilentlyContinue
+
+            - name: Resolve tool releases
+              id: tool_releases
+              run: |
+                  function Resolve-Asset($repo, $filter) {
+                      $release = Invoke-RestMethod -Uri "https://api.github.com/repos/$repo/releases/latest"
+                      $url = $release.assets | Where-Object $filter | Select-Object -ExpandProperty browser_download_url
+
+                      if ([string]::IsNullOrEmpty($url)) {
+                          Write-Error "Could not resolve release asset URL for $repo"
+                          exit 1
+                      }
+
+                      return $url
+                  }
+
+                  $sddUrl = Resolve-Asset "Swiftly-Tracker/SteamDepotDownload" { $_.name -eq "SteamDepotDownload-win-x64.zip" }
+                  $s2dumperUrl = Resolve-Asset "Swiftly-Tracker/s2dumper" { $_.name -like "s2dumper-windows-*.zip" -and $_.name -notlike "*-pdb*" }
+                  $stringsUrl = Resolve-Asset "Swiftly-Tracker/strings" { $_.name -eq "strings-win-x64.zip" }
+
+                  Add-Content -Path $env:GITHUB_OUTPUT -Value "sdd_url=$sddUrl"
+                  Add-Content -Path $env:GITHUB_OUTPUT -Value "s2dumper_url=$s2dumperUrl"
+                  Add-Content -Path $env:GITHUB_OUTPUT -Value "strings_url=$stringsUrl"
+
+            - name: Download & unpack tools
+              run: |
+                  $tools = @(
+                      @{ Url = "${{ steps.tool_releases.outputs.sdd_url }}"; Zip = "sdd.zip"; Dest = "sdd" },
+                      @{ Url = "${{ steps.tool_releases.outputs.s2dumper_url }}"; Zip = "s2dumper.zip"; Dest = "install/game/bin/win64" },
+                      @{ Url = "${{ steps.tool_releases.outputs.strings_url }}"; Zip = "strings-tool.zip"; Dest = "strings-tool" }
+                  )
+
+                  $tools | ForEach-Object -Parallel {
+                      Invoke-WebRequest -Uri $_.Url -OutFile $_.Zip
+                      Expand-Archive -Path $_.Zip -DestinationPath $_.Dest -Force
+                  }
 
             - name: Download tracked files
               run: |
                   ./sdd/SteamDepotDownload.App.exe -app 730 -filelist tracked_files.json `
                     -username "${{ secrets.STEAM_USERNAME }}" -password "${{ secrets.STEAM_PASSWORD }}" `
                     -dir install -max-downloads 8 -debug
-
-            - name: Resolve latest S2Dumper release
-              id: s2dumper_release
-              run: |
-                  $release = Invoke-RestMethod -Uri "https://api.github.com/repos/Swiftly-Tracker/s2dumper/releases/latest"
-                  $url = $release.assets | Where-Object { $_.name -like "s2dumper-windows-*.zip" -and $_.name -notlike "*-pdb*" } | Select-Object -ExpandProperty browser_download_url
-
-                  if ([string]::IsNullOrEmpty($url)) {
-                      Write-Error "Could not resolve s2dumper windows asset URL"
-                      exit 1
-                  }
-
-                  Add-Content -Path $env:GITHUB_OUTPUT -Value "url=$url"
-
-            - name: Download & unpack S2Dumper
-              run: |
-                  Invoke-WebRequest -Uri "${{ steps.s2dumper_release.outputs.url }}" -OutFile s2dumper.zip
-                  Expand-Archive -Path s2dumper.zip -DestinationPath install/game/bin/win64 -Force
 
             - name: Clean dump directory
               run: |
@@ -72,11 +72,6 @@ jobs:
               working-directory: install/game/bin/win64
               continue-on-error: true
               run: ./s2dumper.exe "$env:DUMP_PATH" csgo
-
-            - name: Install strings tool
-              run: |
-                  Invoke-WebRequest -Uri "https://download.sysinternals.com/files/Strings.zip" -OutFile strings.zip
-                  Expand-Archive -Path strings.zip -DestinationPath sysinternals -Force
 
             - name: Dump binary strings
               shell: bash
@@ -96,7 +91,7 @@ jobs:
                           outdir="strings/win64"
                       fi
 
-                      sysinternals/strings64.exe -nobanner -accepteula -a "$f" > "$outdir/$name.txt"
+                      strings-tool/strings.exe --binary="$f" > "$outdir/$name.txt"
                   done
 
             - name: Dump manifests
