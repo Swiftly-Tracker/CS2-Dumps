@@ -1,0 +1,2768 @@
+{
+  "name": "gcsdk_gcmessages.proto",
+  "package": "",
+  "dependency": [
+    "steammessages.proto"
+  ],
+  "public_dependency": [],
+  "weak_dependency": [],
+  "message_type": [
+    {
+      "name": "CMsgSOIDOwner",
+      "field": [
+        {
+          "name": "type",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "id",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT64",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CMsgSOSingleObject",
+      "field": [
+        {
+          "name": "type_id",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "object_data",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BYTES",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "version",
+          "number": 4,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FIXED64",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "owner_soid",
+          "number": 5,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CMsgSOIDOwner",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CMsgSOMultipleObjects",
+      "field": [
+        {
+          "name": "objects_modified",
+          "number": 2,
+          "label": "LABEL_REPEATED",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CMsgSOMultipleObjects.SingleObject",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "version",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FIXED64",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "owner_soid",
+          "number": 6,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CMsgSOIDOwner",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [
+        {
+          "name": "SingleObject",
+          "field": [
+            {
+              "name": "type_id",
+              "number": 1,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_INT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "object_data",
+              "number": 2,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_BYTES",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            }
+          ],
+          "extension": [],
+          "nested_type": [],
+          "enum_type": [],
+          "extension_range": [],
+          "oneof_decl": [],
+          "options": {
+            "message_set_wire_format": false,
+            "no_standard_descriptor_accessor": false,
+            "deprecated": false,
+            "map_entry": false,
+            "uninterpreted_option": []
+          },
+          "reserved_range": [],
+          "reserved_name": []
+        }
+      ],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CMsgSOCacheSubscribed",
+      "field": [
+        {
+          "name": "objects",
+          "number": 2,
+          "label": "LABEL_REPEATED",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CMsgSOCacheSubscribed.SubscribedType",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "version",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FIXED64",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "owner_soid",
+          "number": 4,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CMsgSOIDOwner",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [
+        {
+          "name": "SubscribedType",
+          "field": [
+            {
+              "name": "type_id",
+              "number": 1,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_INT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "object_data",
+              "number": 2,
+              "label": "LABEL_REPEATED",
+              "type": "TYPE_BYTES",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            }
+          ],
+          "extension": [],
+          "nested_type": [],
+          "enum_type": [],
+          "extension_range": [],
+          "oneof_decl": [],
+          "options": null,
+          "reserved_range": [],
+          "reserved_name": []
+        }
+      ],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CMsgSOCacheUnsubscribed",
+      "field": [
+        {
+          "name": "owner_soid",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CMsgSOIDOwner",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CMsgSOCacheSubscriptionCheck",
+      "field": [
+        {
+          "name": "version",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FIXED64",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "owner_soid",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CMsgSOIDOwner",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CMsgSOCacheSubscriptionRefresh",
+      "field": [
+        {
+          "name": "owner_soid",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CMsgSOIDOwner",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CMsgSOCacheVersion",
+      "field": [
+        {
+          "name": "version",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FIXED64",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CMsgAccountDetails",
+      "field": [
+        {
+          "name": "valid",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "account_name",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_STRING",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "public_profile",
+          "number": 4,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "public_inventory",
+          "number": 5,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "vac_banned",
+          "number": 6,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "cyber_cafe",
+          "number": 7,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "school_account",
+          "number": 8,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "free_trial_account",
+          "number": 9,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "subscribed",
+          "number": 10,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "low_violence",
+          "number": 11,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "limited",
+          "number": 12,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "trusted",
+          "number": 13,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "package",
+          "number": 14,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "time_cached",
+          "number": 15,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FIXED32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "account_locked",
+          "number": 16,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "community_banned",
+          "number": 17,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "trade_banned",
+          "number": 18,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "eligible_for_community_market",
+          "number": 19,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CMsgGCMultiplexMessage",
+      "field": [
+        {
+          "name": "msgtype",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "payload",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BYTES",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "steamids",
+          "number": 3,
+          "label": "LABEL_REPEATED",
+          "type": "TYPE_FIXED64",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "replytogc",
+          "number": 4,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CMsgGCMultiplexMessage_Response",
+      "field": [
+        {
+          "name": "msgtype",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CGCToGCMsgMasterAck",
+      "field": [
+        {
+          "name": "dir_index",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "gc_type",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CGCToGCMsgMasterAck_Response",
+      "field": [
+        {
+          "name": "eresult",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "2",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CGCToGCMsgMasterStartupComplete",
+      "field": [],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CGCToGCMsgRouted",
+      "field": [
+        {
+          "name": "msg_type",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "sender_id",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FIXED64",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "net_message",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BYTES",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "ip",
+          "number": 4,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CGCToGCMsgRoutedReply",
+      "field": [
+        {
+          "name": "msg_type",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "net_message",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BYTES",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CMsgGCUpdateSessionIP",
+      "field": [
+        {
+          "name": "steamid",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FIXED64",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "ip",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FIXED32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CMsgGCRequestSessionIP",
+      "field": [
+        {
+          "name": "steamid",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FIXED64",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CMsgGCRequestSessionIPResponse",
+      "field": [
+        {
+          "name": "ip",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FIXED32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CMsgSOCacheHaveVersion",
+      "field": [
+        {
+          "name": "soid",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CMsgSOIDOwner",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "version",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FIXED64",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CMsgClientHello",
+      "field": [
+        {
+          "name": "version",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "socache_have_versions",
+          "number": 2,
+          "label": "LABEL_REPEATED",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CMsgSOCacheHaveVersion",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "client_session_need",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "client_launcher",
+          "number": 4,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "partner_srcid",
+          "number": 5,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "partner_accountid",
+          "number": 6,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "partner_accountflags",
+          "number": 7,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "partner_accountbalance",
+          "number": 8,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "steam_launcher",
+          "number": 9,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CMsgServerHello",
+      "field": [
+        {
+          "name": "version",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "socache_have_versions",
+          "number": 2,
+          "label": "LABEL_REPEATED",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CMsgSOCacheHaveVersion",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "legacy_client_session_need",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "client_launcher",
+          "number": 4,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "legacy_steamdatagram_routing",
+          "number": 6,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BYTES",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "required_internal_addr",
+          "number": 7,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "steamdatagram_login",
+          "number": 8,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BYTES",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "socache_control",
+          "number": 9,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CMsgClientWelcome",
+      "field": [
+        {
+          "name": "version",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "game_data",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BYTES",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "outofdate_subscribed_caches",
+          "number": 3,
+          "label": "LABEL_REPEATED",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CMsgSOCacheSubscribed",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "uptodate_subscribed_caches",
+          "number": 4,
+          "label": "LABEL_REPEATED",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CMsgSOCacheSubscriptionCheck",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "location",
+          "number": 5,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CMsgClientWelcome.Location",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "game_data2",
+          "number": 6,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BYTES",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "rtime32_gc_welcome_timestamp",
+          "number": 7,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "currency",
+          "number": 8,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "balance",
+          "number": 9,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "balance_url",
+          "number": 10,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_STRING",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "txn_country_code",
+          "number": 11,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_STRING",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [
+        {
+          "name": "Location",
+          "field": [
+            {
+              "name": "latitude",
+              "number": 1,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_FLOAT",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "longitude",
+              "number": 2,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_FLOAT",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "country",
+              "number": 3,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_STRING",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            }
+          ],
+          "extension": [],
+          "nested_type": [],
+          "enum_type": [],
+          "extension_range": [],
+          "oneof_decl": [],
+          "options": null,
+          "reserved_range": [],
+          "reserved_name": []
+        }
+      ],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CMsgConnectionStatus",
+      "field": [
+        {
+          "name": "status",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_ENUM",
+          "type_name": ".GCConnectionStatus",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "client_session_need",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "queue_position",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "queue_size",
+          "number": 4,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "wait_seconds",
+          "number": 5,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "estimated_wait_seconds_remaining",
+          "number": 6,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CWorkshop_PopulateItemDescriptions_Request",
+      "field": [
+        {
+          "name": "appid",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "languages",
+          "number": 2,
+          "label": "LABEL_REPEATED",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CWorkshop_PopulateItemDescriptions_Request.ItemDescriptionsLanguageBlock",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [
+        {
+          "name": "SingleItemDescription",
+          "field": [
+            {
+              "name": "gameitemid",
+              "number": 1,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_UINT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "item_description",
+              "number": 2,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_STRING",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "one_per_account",
+              "number": 3,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_BOOL",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            }
+          ],
+          "extension": [],
+          "nested_type": [],
+          "enum_type": [],
+          "extension_range": [],
+          "oneof_decl": [],
+          "options": null,
+          "reserved_range": [],
+          "reserved_name": []
+        },
+        {
+          "name": "ItemDescriptionsLanguageBlock",
+          "field": [
+            {
+              "name": "language",
+              "number": 1,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_STRING",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "descriptions",
+              "number": 2,
+              "label": "LABEL_REPEATED",
+              "type": "TYPE_MESSAGE",
+              "type_name": ".CWorkshop_PopulateItemDescriptions_Request.SingleItemDescription",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            }
+          ],
+          "extension": [],
+          "nested_type": [],
+          "enum_type": [],
+          "extension_range": [],
+          "oneof_decl": [],
+          "options": null,
+          "reserved_range": [],
+          "reserved_name": []
+        }
+      ],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CWorkshop_GetContributors_Request",
+      "field": [
+        {
+          "name": "appid",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "gameitemid",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CWorkshop_GetContributors_Response",
+      "field": [
+        {
+          "name": "contributors",
+          "number": 1,
+          "label": "LABEL_REPEATED",
+          "type": "TYPE_FIXED64",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CWorkshop_SetItemPaymentRules_Request",
+      "field": [
+        {
+          "name": "appid",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "gameitemid",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "associated_workshop_files",
+          "number": 3,
+          "label": "LABEL_REPEATED",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CWorkshop_SetItemPaymentRules_Request.WorkshopItemPaymentRule",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "partner_accounts",
+          "number": 4,
+          "label": "LABEL_REPEATED",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CWorkshop_SetItemPaymentRules_Request.PartnerItemPaymentRule",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "validate_only",
+          "number": 5,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "make_workshop_files_subscribable",
+          "number": 6,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "associated_workshop_file_for_direct_payments",
+          "number": 7,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CWorkshop_SetItemPaymentRules_Request.WorkshopDirectPaymentRule",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [
+        {
+          "name": "WorkshopItemPaymentRule",
+          "field": [
+            {
+              "name": "workshop_file_id",
+              "number": 1,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_UINT64",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "revenue_percentage",
+              "number": 2,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_FLOAT",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "rule_description",
+              "number": 3,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_STRING",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "rule_type",
+              "number": 4,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_UINT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "1",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            }
+          ],
+          "extension": [],
+          "nested_type": [],
+          "enum_type": [],
+          "extension_range": [],
+          "oneof_decl": [],
+          "options": null,
+          "reserved_range": [],
+          "reserved_name": []
+        },
+        {
+          "name": "WorkshopDirectPaymentRule",
+          "field": [
+            {
+              "name": "workshop_file_id",
+              "number": 1,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_UINT64",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "rule_description",
+              "number": 2,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_STRING",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            }
+          ],
+          "extension": [],
+          "nested_type": [],
+          "enum_type": [],
+          "extension_range": [],
+          "oneof_decl": [],
+          "options": null,
+          "reserved_range": [],
+          "reserved_name": []
+        },
+        {
+          "name": "PartnerItemPaymentRule",
+          "field": [
+            {
+              "name": "account_id",
+              "number": 1,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_UINT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "revenue_percentage",
+              "number": 2,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_FLOAT",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "rule_description",
+              "number": 3,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_STRING",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            }
+          ],
+          "extension": [],
+          "nested_type": [],
+          "enum_type": [],
+          "extension_range": [],
+          "oneof_decl": [],
+          "options": null,
+          "reserved_range": [],
+          "reserved_name": []
+        }
+      ],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CWorkshop_SetItemPaymentRules_Response",
+      "field": [],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CGameServers_AggregationQuery_Request",
+      "field": [
+        {
+          "name": "filter",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_STRING",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "group_fields",
+          "number": 3,
+          "label": "LABEL_REPEATED",
+          "type": "TYPE_STRING",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CGameServers_AggregationQuery_Response",
+      "field": [
+        {
+          "name": "groups",
+          "number": 1,
+          "label": "LABEL_REPEATED",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CGameServers_AggregationQuery_Response.Group",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [
+        {
+          "name": "Group",
+          "field": [
+            {
+              "name": "group_values",
+              "number": 1,
+              "label": "LABEL_REPEATED",
+              "type": "TYPE_STRING",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "servers_empty",
+              "number": 2,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_UINT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "servers_full",
+              "number": 3,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_UINT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "servers_total",
+              "number": 4,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_UINT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "players_humans",
+              "number": 5,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_UINT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "players_bots",
+              "number": 6,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_UINT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "player_capacity",
+              "number": 7,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_UINT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            }
+          ],
+          "extension": [],
+          "nested_type": [],
+          "enum_type": [],
+          "extension_range": [],
+          "oneof_decl": [],
+          "options": null,
+          "reserved_range": [],
+          "reserved_name": []
+        }
+      ],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CWorkshop_AddSpecialPayment_Request",
+      "field": [
+        {
+          "name": "appid",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "gameitemid",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "date",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_STRING",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "payment_us_usd",
+          "number": 4,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT64",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "payment_row_usd",
+          "number": 5,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT64",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CWorkshop_AddSpecialPayment_Response",
+      "field": [],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CProductInfo_SetRichPresenceLocalization_Request",
+      "field": [
+        {
+          "name": "appid",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "languages",
+          "number": 2,
+          "label": "LABEL_REPEATED",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CProductInfo_SetRichPresenceLocalization_Request.LanguageSection",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "steamid",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT64",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [
+        {
+          "name": "Token",
+          "field": [
+            {
+              "name": "token",
+              "number": 1,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_STRING",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "value",
+              "number": 2,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_STRING",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            }
+          ],
+          "extension": [],
+          "nested_type": [],
+          "enum_type": [],
+          "extension_range": [],
+          "oneof_decl": [],
+          "options": null,
+          "reserved_range": [],
+          "reserved_name": []
+        },
+        {
+          "name": "LanguageSection",
+          "field": [
+            {
+              "name": "language",
+              "number": 1,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_STRING",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "tokens",
+              "number": 2,
+              "label": "LABEL_REPEATED",
+              "type": "TYPE_MESSAGE",
+              "type_name": ".CProductInfo_SetRichPresenceLocalization_Request.Token",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            }
+          ],
+          "extension": [],
+          "nested_type": [],
+          "enum_type": [],
+          "extension_range": [],
+          "oneof_decl": [],
+          "options": null,
+          "reserved_range": [],
+          "reserved_name": []
+        }
+      ],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CProductInfo_SetRichPresenceLocalization_Response",
+      "field": [],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CMsgSerializedSOCache",
+      "field": [
+        {
+          "name": "file_version",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "caches",
+          "number": 2,
+          "label": "LABEL_REPEATED",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CMsgSerializedSOCache.Cache",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "gc_socache_file_version",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [
+        {
+          "name": "TypeCache",
+          "field": [
+            {
+              "name": "type",
+              "number": 1,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_UINT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "objects",
+              "number": 2,
+              "label": "LABEL_REPEATED",
+              "type": "TYPE_BYTES",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "service_id",
+              "number": 3,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_UINT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            }
+          ],
+          "extension": [],
+          "nested_type": [],
+          "enum_type": [],
+          "extension_range": [],
+          "oneof_decl": [],
+          "options": null,
+          "reserved_range": [],
+          "reserved_name": []
+        },
+        {
+          "name": "Cache",
+          "field": [
+            {
+              "name": "type",
+              "number": 1,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_UINT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "id",
+              "number": 2,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_UINT64",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "versions",
+              "number": 3,
+              "label": "LABEL_REPEATED",
+              "type": "TYPE_MESSAGE",
+              "type_name": ".CMsgSerializedSOCache.Cache.Version",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "type_caches",
+              "number": 4,
+              "label": "LABEL_REPEATED",
+              "type": "TYPE_MESSAGE",
+              "type_name": ".CMsgSerializedSOCache.TypeCache",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            }
+          ],
+          "extension": [],
+          "nested_type": [
+            {
+              "name": "Version",
+              "field": [
+                {
+                  "name": "service",
+                  "number": 1,
+                  "label": "LABEL_OPTIONAL",
+                  "type": "TYPE_UINT32",
+                  "type_name": "",
+                  "extendee": "",
+                  "default_value": "",
+                  "oneof_index": 0,
+                  "json_name": "",
+                  "options": null,
+                  "proto3_optional": false
+                },
+                {
+                  "name": "version",
+                  "number": 2,
+                  "label": "LABEL_OPTIONAL",
+                  "type": "TYPE_UINT64",
+                  "type_name": "",
+                  "extendee": "",
+                  "default_value": "",
+                  "oneof_index": 0,
+                  "json_name": "",
+                  "options": null,
+                  "proto3_optional": false
+                }
+              ],
+              "extension": [],
+              "nested_type": [],
+              "enum_type": [],
+              "extension_range": [],
+              "oneof_decl": [],
+              "options": null,
+              "reserved_range": [],
+              "reserved_name": []
+            }
+          ],
+          "enum_type": [],
+          "extension_range": [],
+          "oneof_decl": [],
+          "options": null,
+          "reserved_range": [],
+          "reserved_name": []
+        }
+      ],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    }
+  ],
+  "enum_type": [
+    {
+      "name": "GCClientLauncherType",
+      "value": [
+        {
+          "name": "GCClientLauncherType_DEFAULT",
+          "number": 0,
+          "options": null
+        },
+        {
+          "name": "GCClientLauncherType_PERFECTWORLD",
+          "number": 1,
+          "options": null
+        },
+        {
+          "name": "GCClientLauncherType_STEAMCHINA",
+          "number": 2,
+          "options": null
+        },
+        {
+          "name": "GCClientLauncherType_SOURCE2",
+          "number": 3,
+          "options": null
+        }
+      ],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "GCConnectionStatus",
+      "value": [
+        {
+          "name": "GCConnectionStatus_HAVE_SESSION",
+          "number": 0,
+          "options": null
+        },
+        {
+          "name": "GCConnectionStatus_GC_GOING_DOWN",
+          "number": 1,
+          "options": null
+        },
+        {
+          "name": "GCConnectionStatus_NO_SESSION",
+          "number": 2,
+          "options": null
+        },
+        {
+          "name": "GCConnectionStatus_NO_SESSION_IN_LOGON_QUEUE",
+          "number": 3,
+          "options": null
+        },
+        {
+          "name": "GCConnectionStatus_NO_STEAM",
+          "number": 4,
+          "options": null
+        }
+      ],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    }
+  ],
+  "service": [],
+  "extension": [],
+  "options": null,
+  "source_code_info": null,
+  "syntax": ""
+}

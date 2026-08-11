@@ -1,0 +1,5598 @@
+{
+  "name": "netmessages.proto",
+  "package": "",
+  "dependency": [
+    "networkbasetypes.proto",
+    "source2_steam_stats.proto"
+  ],
+  "public_dependency": [],
+  "weak_dependency": [],
+  "message_type": [
+    {
+      "name": "CCLCMsg_ClientInfo",
+      "field": [
+        {
+          "name": "send_table_crc",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FIXED32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "server_count",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "is_hltv",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "friends_id",
+          "number": 5,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "friends_name",
+          "number": 6,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_STRING",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CCLCMsg_Move",
+      "field": [
+        {
+          "name": "data",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BYTES",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "last_command_number",
+          "number": 4,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CMsgVoiceAudio",
+      "field": [
+        {
+          "name": "format",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_ENUM",
+          "type_name": ".VoiceDataFormat_t",
+          "extendee": "",
+          "default_value": "VOICEDATA_FORMAT_STEAM",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "voice_data",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BYTES",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "sequence_bytes",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "section_number",
+          "number": 4,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "sample_rate",
+          "number": 5,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "uncompressed_sample_offset",
+          "number": 6,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "num_packets",
+          "number": 7,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "packet_offsets",
+          "number": 8,
+          "label": "LABEL_REPEATED",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": {
+            "ctype": "STRING",
+            "packed": true,
+            "jstype": "JS_NORMAL",
+            "lazy": false,
+            "deprecated": false,
+            "weak": false,
+            "uninterpreted_option": []
+          },
+          "proto3_optional": false
+        },
+        {
+          "name": "voice_level",
+          "number": 9,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FLOAT",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CCLCMsg_VoiceData",
+      "field": [
+        {
+          "name": "audio",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CMsgVoiceAudio",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "xuid",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FIXED64",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "tick",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CCLCMsg_BaselineAck",
+      "field": [
+        {
+          "name": "baseline_tick",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "baseline_nr",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CCLCMsg_ListenEvents",
+      "field": [
+        {
+          "name": "event_mask",
+          "number": 1,
+          "label": "LABEL_REPEATED",
+          "type": "TYPE_FIXED32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CCLCMsg_RespondCvarValue",
+      "field": [
+        {
+          "name": "cookie",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "status_code",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "name",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_STRING",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "value",
+          "number": 4,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_STRING",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CCLCMsg_LoadingProgress",
+      "field": [
+        {
+          "name": "progress",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CCLCMsg_SplitPlayerConnect",
+      "field": [
+        {
+          "name": "playername",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_STRING",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CCLCMsg_SplitPlayerDisconnect",
+      "field": [
+        {
+          "name": "slot",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": {
+            "ctype": "STRING",
+            "packed": false,
+            "jstype": "JS_NORMAL",
+            "lazy": false,
+            "deprecated": false,
+            "weak": false,
+            "uninterpreted_option": []
+          },
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CCLCMsg_ServerStatus",
+      "field": [
+        {
+          "name": "simplified",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CCLCMsg_RequestPause",
+      "field": [
+        {
+          "name": "pause_type",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_ENUM",
+          "type_name": ".RequestPause_t",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "pause_group",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CCLCMsg_CmdKeyValues",
+      "field": [
+        {
+          "name": "data",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BYTES",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": {
+        "message_set_wire_format": false,
+        "no_standard_descriptor_accessor": false,
+        "deprecated": false,
+        "map_entry": false,
+        "uninterpreted_option": []
+      },
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CCLCMsg_RconServerDetails",
+      "field": [
+        {
+          "name": "token",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BYTES",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CCLCMsg_Diagnostic",
+      "field": [
+        {
+          "name": "system_specs",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CMsgSource2SystemSpecs",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "vprof_report",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CMsgSource2VProfLiteReport",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "downstream_flow",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CMsgSource2NetworkFlowQuality",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "upstream_flow",
+          "number": 4,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CMsgSource2NetworkFlowQuality",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "perf_samples",
+          "number": 5,
+          "label": "LABEL_REPEATED",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CMsgSource2PerfIntervalSample",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": {
+        "message_set_wire_format": false,
+        "no_standard_descriptor_accessor": false,
+        "deprecated": false,
+        "map_entry": false,
+        "uninterpreted_option": []
+      },
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CSVCMsg_ServerInfo",
+      "field": [
+        {
+          "name": "protocol",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "server_count",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "is_dedicated",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "is_hltv",
+          "number": 4,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "c_os",
+          "number": 6,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "max_clients",
+          "number": 10,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "max_classes",
+          "number": 11,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "player_slot",
+          "number": 12,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "-1",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": {
+            "ctype": "STRING",
+            "packed": false,
+            "jstype": "JS_NORMAL",
+            "lazy": false,
+            "deprecated": false,
+            "weak": false,
+            "uninterpreted_option": []
+          },
+          "proto3_optional": false
+        },
+        {
+          "name": "tick_interval",
+          "number": 13,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FLOAT",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "game_dir",
+          "number": 14,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_STRING",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "map_name",
+          "number": 15,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_STRING",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "sky_name",
+          "number": 16,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_STRING",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "host_name",
+          "number": 17,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_STRING",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "addon_name",
+          "number": 18,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_STRING",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "game_session_config",
+          "number": 19,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CSVCMsg_GameSessionConfiguration",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "game_session_manifest",
+          "number": 20,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BYTES",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": {
+        "message_set_wire_format": false,
+        "no_standard_descriptor_accessor": false,
+        "deprecated": false,
+        "map_entry": false,
+        "uninterpreted_option": []
+      },
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CSVCMsg_ClassInfo",
+      "field": [
+        {
+          "name": "create_on_client",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "classes",
+          "number": 2,
+          "label": "LABEL_REPEATED",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CSVCMsg_ClassInfo.class_t",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [
+        {
+          "name": "class_t",
+          "field": [
+            {
+              "name": "class_id",
+              "number": 1,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_INT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "class_name",
+              "number": 3,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_STRING",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            }
+          ],
+          "extension": [],
+          "nested_type": [],
+          "enum_type": [],
+          "extension_range": [],
+          "oneof_decl": [],
+          "options": null,
+          "reserved_range": [],
+          "reserved_name": []
+        }
+      ],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": {
+        "message_set_wire_format": false,
+        "no_standard_descriptor_accessor": false,
+        "deprecated": false,
+        "map_entry": false,
+        "uninterpreted_option": []
+      },
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CSVCMsg_SetPause",
+      "field": [
+        {
+          "name": "paused",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CSVCMsg_VoiceInit",
+      "field": [
+        {
+          "name": "quality",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "codec",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_STRING",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "version",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "0",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CSVCMsg_Print",
+      "field": [
+        {
+          "name": "text",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_STRING",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": {
+        "message_set_wire_format": false,
+        "no_standard_descriptor_accessor": false,
+        "deprecated": false,
+        "map_entry": false,
+        "uninterpreted_option": []
+      },
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CSVCMsg_Sounds",
+      "field": [
+        {
+          "name": "reliable_sound",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "sounds",
+          "number": 2,
+          "label": "LABEL_REPEATED",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CSVCMsg_Sounds.sounddata_t",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [
+        {
+          "name": "sounddata_t",
+          "field": [
+            {
+              "name": "origin_x",
+              "number": 1,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_SINT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "origin_y",
+              "number": 2,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_SINT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "origin_z",
+              "number": 3,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_SINT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "volume",
+              "number": 4,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_UINT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "delay_value",
+              "number": 5,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_FLOAT",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "sequence_number",
+              "number": 6,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_INT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "entity_index",
+              "number": 7,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_INT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "-1",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": {
+                "ctype": "STRING",
+                "packed": false,
+                "jstype": "JS_NORMAL",
+                "lazy": false,
+                "deprecated": false,
+                "weak": false,
+                "uninterpreted_option": []
+              },
+              "proto3_optional": false
+            },
+            {
+              "name": "channel",
+              "number": 8,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_INT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "pitch",
+              "number": 9,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_INT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "flags",
+              "number": 10,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_INT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "sound_num",
+              "number": 11,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_UINT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "sound_num_handle",
+              "number": 12,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_FIXED32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "speaker_entity",
+              "number": 13,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_INT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "random_seed",
+              "number": 14,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_INT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "sound_level",
+              "number": 15,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_INT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "is_sentence",
+              "number": 16,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_BOOL",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "is_ambient",
+              "number": 17,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_BOOL",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "guid",
+              "number": 18,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_UINT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "sound_resource_id",
+              "number": 19,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_FIXED64",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            }
+          ],
+          "extension": [],
+          "nested_type": [],
+          "enum_type": [],
+          "extension_range": [],
+          "oneof_decl": [],
+          "options": null,
+          "reserved_range": [],
+          "reserved_name": []
+        }
+      ],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CSVCMsg_Prefetch",
+      "field": [
+        {
+          "name": "sound_index",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "resource_type",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_ENUM",
+          "type_name": ".PrefetchType",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CSVCMsg_SetView",
+      "field": [
+        {
+          "name": "entity_index",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "-1",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": {
+            "ctype": "STRING",
+            "packed": false,
+            "jstype": "JS_NORMAL",
+            "lazy": false,
+            "deprecated": false,
+            "weak": false,
+            "uninterpreted_option": []
+          },
+          "proto3_optional": false
+        },
+        {
+          "name": "slot",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "-1",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": {
+            "ctype": "STRING",
+            "packed": false,
+            "jstype": "JS_NORMAL",
+            "lazy": false,
+            "deprecated": false,
+            "weak": false,
+            "uninterpreted_option": []
+          },
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CSVCMsg_FixAngle",
+      "field": [
+        {
+          "name": "relative",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "angle",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CMsgQAngle",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CSVCMsg_CrosshairAngle",
+      "field": [
+        {
+          "name": "angle",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CMsgQAngle",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CSVCMsg_BSPDecal",
+      "field": [
+        {
+          "name": "pos",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CMsgVector",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "decal_texture_index",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "entity_index",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "-1",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": {
+            "ctype": "STRING",
+            "packed": false,
+            "jstype": "JS_NORMAL",
+            "lazy": false,
+            "deprecated": false,
+            "weak": false,
+            "uninterpreted_option": []
+          },
+          "proto3_optional": false
+        },
+        {
+          "name": "model_index",
+          "number": 4,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "low_priority",
+          "number": 5,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CSVCMsg_SplitScreen",
+      "field": [
+        {
+          "name": "type",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_ENUM",
+          "type_name": ".ESplitScreenMessageType",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "slot",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": {
+            "ctype": "STRING",
+            "packed": false,
+            "jstype": "JS_NORMAL",
+            "lazy": false,
+            "deprecated": false,
+            "weak": false,
+            "uninterpreted_option": []
+          },
+          "proto3_optional": false
+        },
+        {
+          "name": "player_index",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "-1",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": {
+            "ctype": "STRING",
+            "packed": false,
+            "jstype": "JS_NORMAL",
+            "lazy": false,
+            "deprecated": false,
+            "weak": false,
+            "uninterpreted_option": []
+          },
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CSVCMsg_GetCvarValue",
+      "field": [
+        {
+          "name": "cookie",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "cvar_name",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_STRING",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CSVCMsg_Menu",
+      "field": [
+        {
+          "name": "dialog_type",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "menu_key_values",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BYTES",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CSVCMsg_UserMessage",
+      "field": [
+        {
+          "name": "msg_type",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "msg_data",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BYTES",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "passthrough",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CSVCMsg_SendTable",
+      "field": [
+        {
+          "name": "is_end",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "net_table_name",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_STRING",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "needs_decoder",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "props",
+          "number": 4,
+          "label": "LABEL_REPEATED",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CSVCMsg_SendTable.sendprop_t",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [
+        {
+          "name": "sendprop_t",
+          "field": [
+            {
+              "name": "type",
+              "number": 1,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_INT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "var_name",
+              "number": 2,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_STRING",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "flags",
+              "number": 3,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_INT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "priority",
+              "number": 4,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_INT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "dt_name",
+              "number": 5,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_STRING",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "num_elements",
+              "number": 6,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_INT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "low_value",
+              "number": 7,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_FLOAT",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "high_value",
+              "number": 8,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_FLOAT",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "num_bits",
+              "number": 9,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_INT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            }
+          ],
+          "extension": [],
+          "nested_type": [],
+          "enum_type": [],
+          "extension_range": [],
+          "oneof_decl": [],
+          "options": null,
+          "reserved_range": [],
+          "reserved_name": []
+        }
+      ],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CSVCMsg_GameEventList",
+      "field": [
+        {
+          "name": "descriptors",
+          "number": 1,
+          "label": "LABEL_REPEATED",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CSVCMsg_GameEventList.descriptor_t",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [
+        {
+          "name": "key_t",
+          "field": [
+            {
+              "name": "type",
+              "number": 1,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_INT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "name",
+              "number": 2,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_STRING",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            }
+          ],
+          "extension": [],
+          "nested_type": [],
+          "enum_type": [],
+          "extension_range": [],
+          "oneof_decl": [],
+          "options": null,
+          "reserved_range": [],
+          "reserved_name": []
+        },
+        {
+          "name": "descriptor_t",
+          "field": [
+            {
+              "name": "eventid",
+              "number": 1,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_INT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "name",
+              "number": 2,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_STRING",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "keys",
+              "number": 3,
+              "label": "LABEL_REPEATED",
+              "type": "TYPE_MESSAGE",
+              "type_name": ".CSVCMsg_GameEventList.key_t",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            }
+          ],
+          "extension": [],
+          "nested_type": [],
+          "enum_type": [],
+          "extension_range": [],
+          "oneof_decl": [],
+          "options": null,
+          "reserved_range": [],
+          "reserved_name": []
+        }
+      ],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CSVCMsg_PacketEntities",
+      "field": [
+        {
+          "name": "max_entries",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "updated_entries",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "legacy_is_delta",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "update_baseline",
+          "number": 4,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "baseline",
+          "number": 5,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "delta_from",
+          "number": 6,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "entity_data",
+          "number": 7,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BYTES",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "pending_full_frame",
+          "number": 8,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "active_spawngroup_handle",
+          "number": 9,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "max_spawngroup_creationsequence",
+          "number": 10,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "last_cmd_number_executed",
+          "number": 11,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "last_cmd_number_recv_delta",
+          "number": 17,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_SINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "server_tick",
+          "number": 12,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "serialized_entities",
+          "number": 13,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BYTES",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "alternate_baselines",
+          "number": 15,
+          "label": "LABEL_REPEATED",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CSVCMsg_PacketEntities.alternate_baseline_t",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "has_pvs_vis_bits_deprecated",
+          "number": 16,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "cmd_recv_status",
+          "number": 22,
+          "label": "LABEL_REPEATED",
+          "type": "TYPE_SINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": {
+            "ctype": "STRING",
+            "packed": true,
+            "jstype": "JS_NORMAL",
+            "lazy": false,
+            "deprecated": false,
+            "weak": false,
+            "uninterpreted_option": []
+          },
+          "proto3_optional": false
+        },
+        {
+          "name": "non_transmitted_entities",
+          "number": 19,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CSVCMsg_PacketEntities.non_transmitted_entities_t",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "cq_starved_command_ticks",
+          "number": 20,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "cq_discarded_command_ticks",
+          "number": 21,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "outofpvs_entity_updates",
+          "number": 23,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CSVCMsg_PacketEntities.outofpvs_entity_updates_t",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "dev_padding",
+          "number": 999,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BYTES",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [
+        {
+          "name": "alternate_baseline_t",
+          "field": [
+            {
+              "name": "entity_index",
+              "number": 1,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_INT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "baseline_index",
+              "number": 2,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_INT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            }
+          ],
+          "extension": [],
+          "nested_type": [],
+          "enum_type": [],
+          "extension_range": [],
+          "oneof_decl": [],
+          "options": null,
+          "reserved_range": [],
+          "reserved_name": []
+        },
+        {
+          "name": "non_transmitted_entities_t",
+          "field": [
+            {
+              "name": "header_count",
+              "number": 1,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_INT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "data",
+              "number": 2,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_BYTES",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            }
+          ],
+          "extension": [],
+          "nested_type": [],
+          "enum_type": [],
+          "extension_range": [],
+          "oneof_decl": [],
+          "options": null,
+          "reserved_range": [],
+          "reserved_name": []
+        },
+        {
+          "name": "outofpvs_entity_updates_t",
+          "field": [
+            {
+              "name": "count",
+              "number": 1,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_INT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "data",
+              "number": 2,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_BYTES",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            }
+          ],
+          "extension": [],
+          "nested_type": [],
+          "enum_type": [],
+          "extension_range": [],
+          "oneof_decl": [],
+          "options": null,
+          "reserved_range": [],
+          "reserved_name": []
+        }
+      ],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": {
+        "message_set_wire_format": false,
+        "no_standard_descriptor_accessor": false,
+        "deprecated": false,
+        "map_entry": false,
+        "uninterpreted_option": []
+      },
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CSVCMsg_TempEntities",
+      "field": [
+        {
+          "name": "reliable",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "num_entries",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "entity_data",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BYTES",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CSVCMsg_CreateStringTable",
+      "field": [
+        {
+          "name": "name",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_STRING",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "num_entries",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "user_data_fixed_size",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "user_data_size",
+          "number": 4,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "user_data_size_bits",
+          "number": 5,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "flags",
+          "number": 6,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "string_data",
+          "number": 7,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BYTES",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "uncompressed_size",
+          "number": 8,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "data_compressed",
+          "number": 9,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "using_varint_bitcounts",
+          "number": 10,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": {
+        "message_set_wire_format": false,
+        "no_standard_descriptor_accessor": false,
+        "deprecated": false,
+        "map_entry": false,
+        "uninterpreted_option": []
+      },
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CSVCMsg_UpdateStringTable",
+      "field": [
+        {
+          "name": "table_id",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "num_changed_entries",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "string_data",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BYTES",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": {
+        "message_set_wire_format": false,
+        "no_standard_descriptor_accessor": false,
+        "deprecated": false,
+        "map_entry": false,
+        "uninterpreted_option": []
+      },
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CSVCMsg_VoiceData",
+      "field": [
+        {
+          "name": "audio",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CMsgVoiceAudio",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "client_deprecated",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "-1",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": {
+            "ctype": "STRING",
+            "packed": false,
+            "jstype": "JS_NORMAL",
+            "lazy": false,
+            "deprecated": false,
+            "weak": false,
+            "uninterpreted_option": []
+          },
+          "proto3_optional": false
+        },
+        {
+          "name": "proximity",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "xuid",
+          "number": 4,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FIXED64",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "audible_mask",
+          "number": 5,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "tick",
+          "number": 6,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "passthrough",
+          "number": 7,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "entity",
+          "number": 8,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "-1",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": {
+            "ctype": "STRING",
+            "packed": false,
+            "jstype": "JS_NORMAL",
+            "lazy": false,
+            "deprecated": false,
+            "weak": false,
+            "uninterpreted_option": []
+          },
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CSVCMsg_PacketReliable",
+      "field": [
+        {
+          "name": "tick",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "messagessize",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "state",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CSVCMsg_FullFrameSplit",
+      "field": [
+        {
+          "name": "tick",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "section",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "total",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "data",
+          "number": 4,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BYTES",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CSVCMsg_HLTVStatus",
+      "field": [
+        {
+          "name": "master",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_STRING",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "clients",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "slots",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "proxies",
+          "number": 4,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CSVCMsg_ServerSteamID",
+      "field": [
+        {
+          "name": "steam_id",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT64",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CSVCMsg_CmdKeyValues",
+      "field": [
+        {
+          "name": "data",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BYTES",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CSVCMsg_RconServerDetails",
+      "field": [
+        {
+          "name": "token",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BYTES",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "details",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_STRING",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CMsgIPCAddress",
+      "field": [
+        {
+          "name": "computer_guid",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FIXED64",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "process_id",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CMsgServerPeer",
+      "field": [
+        {
+          "name": "player_slot",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "-1",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": {
+            "ctype": "STRING",
+            "packed": false,
+            "jstype": "JS_NORMAL",
+            "lazy": false,
+            "deprecated": false,
+            "weak": false,
+            "uninterpreted_option": []
+          },
+          "proto3_optional": false
+        },
+        {
+          "name": "steamid",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FIXED64",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "ipc",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CMsgIPCAddress",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "they_hear_you",
+          "number": 4,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "you_hear_them",
+          "number": 5,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "is_listenserver_host",
+          "number": 6,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CSVCMsg_PeerList",
+      "field": [
+        {
+          "name": "peer",
+          "number": 1,
+          "label": "LABEL_REPEATED",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CMsgServerPeer",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CSVCMsg_ClearAllStringTables",
+      "field": [
+        {
+          "name": "mapname",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_STRING",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "create_tables_skipped",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "ProtoFlattenedSerializerField_t",
+      "field": [
+        {
+          "name": "var_type_sym",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "var_name_sym",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "bit_count",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "low_value",
+          "number": 4,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FLOAT",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "high_value",
+          "number": 5,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FLOAT",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "encode_flags",
+          "number": 6,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "field_serializer_name_sym",
+          "number": 7,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "field_serializer_version",
+          "number": 8,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "send_node_sym",
+          "number": 9,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "var_encoder_sym",
+          "number": 10,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "polymorphic_types",
+          "number": 11,
+          "label": "LABEL_REPEATED",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".ProtoFlattenedSerializerField_t.polymorphic_field_t",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "var_serializer_sym",
+          "number": 12,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [
+        {
+          "name": "polymorphic_field_t",
+          "field": [
+            {
+              "name": "polymorphic_field_serializer_name_sym",
+              "number": 1,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_INT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "polymorphic_field_serializer_version",
+              "number": 2,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_INT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            }
+          ],
+          "extension": [],
+          "nested_type": [],
+          "enum_type": [],
+          "extension_range": [],
+          "oneof_decl": [],
+          "options": null,
+          "reserved_range": [],
+          "reserved_name": []
+        }
+      ],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "ProtoFlattenedSerializer_t",
+      "field": [
+        {
+          "name": "serializer_name_sym",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "serializer_version",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "fields_index",
+          "number": 3,
+          "label": "LABEL_REPEATED",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CSVCMsg_FlattenedSerializer",
+      "field": [
+        {
+          "name": "serializers",
+          "number": 1,
+          "label": "LABEL_REPEATED",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".ProtoFlattenedSerializer_t",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "symbols",
+          "number": 2,
+          "label": "LABEL_REPEATED",
+          "type": "TYPE_STRING",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "fields",
+          "number": 3,
+          "label": "LABEL_REPEATED",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".ProtoFlattenedSerializerField_t",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": {
+        "message_set_wire_format": false,
+        "no_standard_descriptor_accessor": false,
+        "deprecated": false,
+        "map_entry": false,
+        "uninterpreted_option": []
+      },
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CSVCMsg_StopSound",
+      "field": [
+        {
+          "name": "guid",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FIXED32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CBidirMsg_RebroadcastGameEvent",
+      "field": [
+        {
+          "name": "posttoserver",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "buftype",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "clientbitcount",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "receivingclients",
+          "number": 4,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT64",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CBidirMsg_RebroadcastSource",
+      "field": [
+        {
+          "name": "eventsource",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CBidirMsg_PredictionEvent",
+      "field": [
+        {
+          "name": "event_id",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "event_data",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BYTES",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "sync_type",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "sync_val_uint32",
+          "number": 4,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [
+        {
+          "name": "ESyncType",
+          "value": [
+            {
+              "name": "ST_Tick",
+              "number": 0,
+              "options": null
+            },
+            {
+              "name": "ST_UserCmdNum",
+              "number": 1,
+              "options": null
+            }
+          ],
+          "options": null,
+          "reserved_range": [],
+          "reserved_name": []
+        }
+      ],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CMsgServerNetworkStats",
+      "field": [
+        {
+          "name": "dedicated",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "cpu_usage",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "memory_used_mb",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "memory_free_mb",
+          "number": 4,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "uptime",
+          "number": 5,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "spawn_count",
+          "number": 6,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "num_clients",
+          "number": 8,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "num_bots",
+          "number": 9,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "num_spectators",
+          "number": 10,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "num_tv_relays",
+          "number": 11,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "fps",
+          "number": 12,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FLOAT",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "ports",
+          "number": 17,
+          "label": "LABEL_REPEATED",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CMsgServerNetworkStats.Port",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "avg_ping_ms",
+          "number": 18,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FLOAT",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "avg_engine_latency_out",
+          "number": 19,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FLOAT",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "avg_packets_out",
+          "number": 20,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FLOAT",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "avg_packets_in",
+          "number": 21,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FLOAT",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "avg_loss_out",
+          "number": 22,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FLOAT",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "avg_loss_in",
+          "number": 23,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FLOAT",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "avg_data_out",
+          "number": 24,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FLOAT",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "avg_data_in",
+          "number": 25,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FLOAT",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "total_data_in",
+          "number": 26,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT64",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "total_packets_in",
+          "number": 27,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT64",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "total_data_out",
+          "number": 28,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT64",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "total_packets_out",
+          "number": 29,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT64",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "players",
+          "number": 30,
+          "label": "LABEL_REPEATED",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CMsgServerNetworkStats.Player",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [
+        {
+          "name": "Port",
+          "field": [
+            {
+              "name": "port",
+              "number": 1,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_INT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "name",
+              "number": 2,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_STRING",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            }
+          ],
+          "extension": [],
+          "nested_type": [],
+          "enum_type": [],
+          "extension_range": [],
+          "oneof_decl": [],
+          "options": null,
+          "reserved_range": [],
+          "reserved_name": []
+        },
+        {
+          "name": "Player",
+          "field": [
+            {
+              "name": "steamid",
+              "number": 1,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_UINT64",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "remote_addr",
+              "number": 2,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_STRING",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "ping_avg_ms",
+              "number": 4,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_INT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "packet_loss_pct",
+              "number": 5,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_FLOAT",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "is_bot",
+              "number": 6,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_BOOL",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "loss_in",
+              "number": 7,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_FLOAT",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "loss_out",
+              "number": 8,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_FLOAT",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "engine_latency_ms",
+              "number": 9,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_INT32",
+              "type_name": "",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            }
+          ],
+          "extension": [],
+          "nested_type": [],
+          "enum_type": [],
+          "extension_range": [],
+          "oneof_decl": [],
+          "options": null,
+          "reserved_range": [],
+          "reserved_name": []
+        }
+      ],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CSVCMsg_HltvReplay",
+      "field": [
+        {
+          "name": "delay",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "primary_target",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "-1",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": {
+            "ctype": "STRING",
+            "packed": false,
+            "jstype": "JS_NORMAL",
+            "lazy": false,
+            "deprecated": false,
+            "weak": false,
+            "uninterpreted_option": []
+          },
+          "proto3_optional": false
+        },
+        {
+          "name": "replay_stop_at",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "replay_start_at",
+          "number": 4,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "replay_slowdown_begin",
+          "number": 5,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "replay_slowdown_end",
+          "number": 6,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "replay_slowdown_rate",
+          "number": 7,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FLOAT",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "reason",
+          "number": 8,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CCLCMsg_HltvReplay",
+      "field": [
+        {
+          "name": "request",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "slowdown_length",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FLOAT",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "slowdown_rate",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FLOAT",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "primary_target",
+          "number": 4,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "-1",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": {
+            "ctype": "STRING",
+            "packed": false,
+            "jstype": "JS_NORMAL",
+            "lazy": false,
+            "deprecated": false,
+            "weak": false,
+            "uninterpreted_option": []
+          },
+          "proto3_optional": false
+        },
+        {
+          "name": "event_time",
+          "number": 5,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FLOAT",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CSVCMsg_Broadcast_Command",
+      "field": [
+        {
+          "name": "cmd",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_STRING",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CCLCMsg_HltvFixupOperatorTick",
+      "field": [
+        {
+          "name": "tick",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "props_data",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BYTES",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "origin",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CMsgVector",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "eye_angles",
+          "number": 4,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CMsgQAngle",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "observer_mode",
+          "number": 5,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "cameraman_scoreboard",
+          "number": 6,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "observer_target",
+          "number": 7,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "view_offset",
+          "number": 8,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CMsgVector",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CSVCMsg_HltvFixupOperatorStatus",
+      "field": [
+        {
+          "name": "mode",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "override_operator_name",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_STRING",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CMsgServerUserCmd",
+      "field": [
+        {
+          "name": "data",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BYTES",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "cmd_number",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "player_slot",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "-1",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": {
+            "ctype": "STRING",
+            "packed": false,
+            "jstype": "JS_NORMAL",
+            "lazy": false,
+            "deprecated": false,
+            "weak": false,
+            "uninterpreted_option": []
+          },
+          "proto3_optional": false
+        },
+        {
+          "name": "server_tick_executed",
+          "number": 4,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "client_tick",
+          "number": 5,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "delta_data",
+          "number": 6,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BYTES",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CSVCMsg_UserCommands",
+      "field": [
+        {
+          "name": "commands",
+          "number": 1,
+          "label": "LABEL_REPEATED",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CMsgServerUserCmd",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CSVCMsg_NextMsgPredicted",
+      "field": [
+        {
+          "name": "predicted_by_player_slot",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "-1",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": {
+            "ctype": "STRING",
+            "packed": false,
+            "jstype": "JS_NORMAL",
+            "lazy": false,
+            "deprecated": false,
+            "weak": false,
+            "uninterpreted_option": []
+          },
+          "proto3_optional": false
+        },
+        {
+          "name": "message_type_id",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    }
+  ],
+  "enum_type": [
+    {
+      "name": "CLC_Messages",
+      "value": [
+        {
+          "name": "clc_ClientInfo",
+          "number": 20,
+          "options": null
+        },
+        {
+          "name": "clc_Move",
+          "number": 21,
+          "options": null
+        },
+        {
+          "name": "clc_VoiceData",
+          "number": 22,
+          "options": null
+        },
+        {
+          "name": "clc_BaselineAck",
+          "number": 23,
+          "options": null
+        },
+        {
+          "name": "clc_RespondCvarValue",
+          "number": 25,
+          "options": null
+        },
+        {
+          "name": "clc_LoadingProgress",
+          "number": 27,
+          "options": null
+        },
+        {
+          "name": "clc_SplitPlayerConnect",
+          "number": 28,
+          "options": null
+        },
+        {
+          "name": "clc_SplitPlayerDisconnect",
+          "number": 30,
+          "options": null
+        },
+        {
+          "name": "clc_ServerStatus",
+          "number": 31,
+          "options": null
+        },
+        {
+          "name": "clc_RequestPause",
+          "number": 33,
+          "options": null
+        },
+        {
+          "name": "clc_CmdKeyValues",
+          "number": 34,
+          "options": null
+        },
+        {
+          "name": "clc_RconServerDetails",
+          "number": 35,
+          "options": null
+        },
+        {
+          "name": "clc_HltvReplay",
+          "number": 36,
+          "options": null
+        },
+        {
+          "name": "clc_Diagnostic",
+          "number": 37,
+          "options": null
+        }
+      ],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "SVC_Messages",
+      "value": [
+        {
+          "name": "svc_ServerInfo",
+          "number": 40,
+          "options": null
+        },
+        {
+          "name": "svc_FlattenedSerializer",
+          "number": 41,
+          "options": null
+        },
+        {
+          "name": "svc_ClassInfo",
+          "number": 42,
+          "options": null
+        },
+        {
+          "name": "svc_SetPause",
+          "number": 43,
+          "options": null
+        },
+        {
+          "name": "svc_CreateStringTable",
+          "number": 44,
+          "options": null
+        },
+        {
+          "name": "svc_UpdateStringTable",
+          "number": 45,
+          "options": null
+        },
+        {
+          "name": "svc_VoiceInit",
+          "number": 46,
+          "options": null
+        },
+        {
+          "name": "svc_VoiceData",
+          "number": 47,
+          "options": null
+        },
+        {
+          "name": "svc_Print",
+          "number": 48,
+          "options": null
+        },
+        {
+          "name": "svc_Sounds",
+          "number": 49,
+          "options": null
+        },
+        {
+          "name": "svc_SetView",
+          "number": 50,
+          "options": null
+        },
+        {
+          "name": "svc_ClearAllStringTables",
+          "number": 51,
+          "options": null
+        },
+        {
+          "name": "svc_CmdKeyValues",
+          "number": 52,
+          "options": null
+        },
+        {
+          "name": "svc_BSPDecal",
+          "number": 53,
+          "options": null
+        },
+        {
+          "name": "svc_SplitScreen",
+          "number": 54,
+          "options": null
+        },
+        {
+          "name": "svc_PacketEntities",
+          "number": 55,
+          "options": null
+        },
+        {
+          "name": "svc_Prefetch",
+          "number": 56,
+          "options": null
+        },
+        {
+          "name": "svc_Menu",
+          "number": 57,
+          "options": null
+        },
+        {
+          "name": "svc_GetCvarValue",
+          "number": 58,
+          "options": null
+        },
+        {
+          "name": "svc_StopSound",
+          "number": 59,
+          "options": null
+        },
+        {
+          "name": "svc_PeerList",
+          "number": 60,
+          "options": null
+        },
+        {
+          "name": "svc_PacketReliable",
+          "number": 61,
+          "options": null
+        },
+        {
+          "name": "svc_HLTVStatus",
+          "number": 62,
+          "options": null
+        },
+        {
+          "name": "svc_ServerSteamID",
+          "number": 63,
+          "options": null
+        },
+        {
+          "name": "svc_FullFrameSplit",
+          "number": 70,
+          "options": null
+        },
+        {
+          "name": "svc_RconServerDetails",
+          "number": 71,
+          "options": null
+        },
+        {
+          "name": "svc_UserMessage",
+          "number": 72,
+          "options": null
+        },
+        {
+          "name": "svc_Broadcast_Command",
+          "number": 74,
+          "options": null
+        },
+        {
+          "name": "svc_HltvFixupOperatorStatus",
+          "number": 75,
+          "options": null
+        },
+        {
+          "name": "svc_UserCmds",
+          "number": 76,
+          "options": null
+        },
+        {
+          "name": "svc_NextMsgPredicted",
+          "number": 77,
+          "options": null
+        }
+      ],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "VoiceDataFormat_t",
+      "value": [
+        {
+          "name": "VOICEDATA_FORMAT_STEAM",
+          "number": 0,
+          "options": null
+        },
+        {
+          "name": "VOICEDATA_FORMAT_ENGINE",
+          "number": 1,
+          "options": null
+        },
+        {
+          "name": "VOICEDATA_FORMAT_OPUS",
+          "number": 2,
+          "options": null
+        }
+      ],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "RequestPause_t",
+      "value": [
+        {
+          "name": "RP_PAUSE",
+          "number": 0,
+          "options": null
+        },
+        {
+          "name": "RP_UNPAUSE",
+          "number": 1,
+          "options": null
+        },
+        {
+          "name": "RP_TOGGLEPAUSE",
+          "number": 2,
+          "options": null
+        }
+      ],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "PrefetchType",
+      "value": [
+        {
+          "name": "PFT_SOUND",
+          "number": 0,
+          "options": null
+        }
+      ],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "ESplitScreenMessageType",
+      "value": [
+        {
+          "name": "MSG_SPLITSCREEN_ADDUSER",
+          "number": 0,
+          "options": null
+        },
+        {
+          "name": "MSG_SPLITSCREEN_REMOVEUSER",
+          "number": 1,
+          "options": null
+        }
+      ],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "EQueryCvarValueStatus",
+      "value": [
+        {
+          "name": "eQueryCvarValueStatus_ValueIntact",
+          "number": 0,
+          "options": null
+        },
+        {
+          "name": "eQueryCvarValueStatus_CvarNotFound",
+          "number": 1,
+          "options": null
+        },
+        {
+          "name": "eQueryCvarValueStatus_NotACvar",
+          "number": 2,
+          "options": null
+        },
+        {
+          "name": "eQueryCvarValueStatus_CvarProtected",
+          "number": 3,
+          "options": null
+        }
+      ],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "DIALOG_TYPE",
+      "value": [
+        {
+          "name": "DIALOG_MSG",
+          "number": 0,
+          "options": null
+        },
+        {
+          "name": "DIALOG_MENU",
+          "number": 1,
+          "options": null
+        },
+        {
+          "name": "DIALOG_TEXT",
+          "number": 2,
+          "options": null
+        },
+        {
+          "name": "DIALOG_ENTRY",
+          "number": 3,
+          "options": null
+        },
+        {
+          "name": "DIALOG_ASKCONNECT",
+          "number": 4,
+          "options": null
+        }
+      ],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "SVC_Messages_LowFrequency",
+      "value": [
+        {
+          "name": "svc_dummy",
+          "number": 600,
+          "options": null
+        }
+      ],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "Bidirectional_Messages",
+      "value": [
+        {
+          "name": "bi_RebroadcastGameEvent",
+          "number": 16,
+          "options": null
+        },
+        {
+          "name": "bi_RebroadcastSource",
+          "number": 17,
+          "options": null
+        },
+        {
+          "name": "bi_GameEvent_DEPRECATED",
+          "number": 18,
+          "options": null
+        },
+        {
+          "name": "bi_PredictionEvent",
+          "number": 19,
+          "options": null
+        }
+      ],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "ReplayEventType_t",
+      "value": [
+        {
+          "name": "REPLAY_EVENT_CANCEL",
+          "number": 0,
+          "options": null
+        },
+        {
+          "name": "REPLAY_EVENT_DEATH",
+          "number": 1,
+          "options": null
+        },
+        {
+          "name": "REPLAY_EVENT_GENERIC",
+          "number": 2,
+          "options": null
+        },
+        {
+          "name": "REPLAY_EVENT_STUCK_NEED_FULL_UPDATE",
+          "number": 3,
+          "options": null
+        },
+        {
+          "name": "REPLAY_EVENT_VICTORY",
+          "number": 4,
+          "options": null
+        }
+      ],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    }
+  ],
+  "service": [],
+  "extension": [],
+  "options": {
+    "java_package": "",
+    "java_outer_classname": "",
+    "java_multiple_files": false,
+    "java_generate_equals_and_hash": false,
+    "java_string_check_utf8": false,
+    "optimize_for": "SPEED",
+    "go_package": "",
+    "cc_generic_services": false,
+    "java_generic_services": false,
+    "py_generic_services": false,
+    "php_generic_services": false,
+    "deprecated": false,
+    "cc_enable_arenas": true,
+    "objc_class_prefix": "",
+    "csharp_namespace": "",
+    "swift_prefix": "",
+    "php_class_prefix": "",
+    "php_namespace": "",
+    "php_metadata_namespace": "",
+    "ruby_package": "",
+    "uninterpreted_option": []
+  },
+  "source_code_info": null,
+  "syntax": ""
+}

@@ -1,0 +1,219 @@
+{
+  "name": "prediction_events.proto",
+  "package": "",
+  "dependency": [
+    "networkbasetypes.proto"
+  ],
+  "public_dependency": [],
+  "weak_dependency": [],
+  "message_type": [
+    {
+      "name": "CPredictionEvent_Teleport",
+      "field": [
+        {
+          "name": "origin",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CMsgVector",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "angles",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CMsgQAngle",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "drop_to_ground_range",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FLOAT",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "velocity",
+          "number": 4,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CMsgVector",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CPredictionEvent_StringCommand",
+      "field": [
+        {
+          "name": "command",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_STRING",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CPredictionEvent_Diagnostic",
+      "field": [
+        {
+          "name": "id",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "requested_sync",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "requested_player_index",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "execution_sync",
+          "number": 4,
+          "label": "LABEL_REPEATED",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    }
+  ],
+  "enum_type": [
+    {
+      "name": "EBasePredictionEvents",
+      "value": [
+        {
+          "name": "BPE_StringCommand",
+          "number": 128,
+          "options": null
+        },
+        {
+          "name": "BPE_Teleport",
+          "number": 130,
+          "options": null
+        },
+        {
+          "name": "BPE_Diagnostic",
+          "number": 16384,
+          "options": null
+        }
+      ],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    }
+  ],
+  "service": [],
+  "extension": [],
+  "options": {
+    "java_package": "",
+    "java_outer_classname": "",
+    "java_multiple_files": false,
+    "java_generate_equals_and_hash": false,
+    "java_string_check_utf8": false,
+    "optimize_for": "SPEED",
+    "go_package": "",
+    "cc_generic_services": false,
+    "java_generic_services": false,
+    "py_generic_services": false,
+    "php_generic_services": false,
+    "deprecated": false,
+    "cc_enable_arenas": true,
+    "objc_class_prefix": "",
+    "csharp_namespace": "",
+    "swift_prefix": "",
+    "php_class_prefix": "",
+    "php_namespace": "",
+    "php_metadata_namespace": "",
+    "ruby_package": "",
+    "uninterpreted_option": []
+  },
+  "source_code_info": null,
+  "syntax": ""
+}

@@ -1,0 +1,428 @@
+{
+  "name": "c_peer2peer_netmessages.proto",
+  "package": "",
+  "dependency": [
+    "netmessages.proto",
+    "networkbasetypes.proto"
+  ],
+  "public_dependency": [],
+  "weak_dependency": [],
+  "message_type": [
+    {
+      "name": "CP2P_TextMessage",
+      "field": [
+        {
+          "name": "text",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BYTES",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CSteam_Voice_Encoding",
+      "field": [
+        {
+          "name": "voice_data",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BYTES",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CP2P_Voice",
+      "field": [
+        {
+          "name": "audio",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CMsgVoiceAudio",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "broadcast_group",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [
+        {
+          "name": "Handler_Flags",
+          "value": [
+            {
+              "name": "Played_Audio",
+              "number": 1,
+              "options": null
+            }
+          ],
+          "options": null,
+          "reserved_range": [],
+          "reserved_name": []
+        }
+      ],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CP2P_Ping",
+      "field": [
+        {
+          "name": "send_time",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT64",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "is_reply",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CP2P_VRAvatarPosition",
+      "field": [
+        {
+          "name": "body_parts",
+          "number": 1,
+          "label": "LABEL_REPEATED",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CP2P_VRAvatarPosition.COrientation",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "hat_id",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "scene_id",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "world_scale",
+          "number": 4,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [
+        {
+          "name": "COrientation",
+          "field": [
+            {
+              "name": "pos",
+              "number": 1,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_MESSAGE",
+              "type_name": ".CMsgVector",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            },
+            {
+              "name": "ang",
+              "number": 2,
+              "label": "LABEL_OPTIONAL",
+              "type": "TYPE_MESSAGE",
+              "type_name": ".CMsgQAngle",
+              "extendee": "",
+              "default_value": "",
+              "oneof_index": 0,
+              "json_name": "",
+              "options": null,
+              "proto3_optional": false
+            }
+          ],
+          "extension": [],
+          "nested_type": [],
+          "enum_type": [],
+          "extension_range": [],
+          "oneof_decl": [],
+          "options": null,
+          "reserved_range": [],
+          "reserved_name": []
+        }
+      ],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CP2P_WatchSynchronization",
+      "field": [
+        {
+          "name": "demo_tick",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "paused",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "tv_listen_voice_indices",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT64",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "dota_spectator_mode",
+          "number": 4,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "dota_spectator_watching_broadcaster",
+          "number": 5,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_BOOL",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "dota_spectator_hero_index",
+          "number": 6,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "dota_spectator_autospeed",
+          "number": 7,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "dota_replay_speed",
+          "number": 8,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_INT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    }
+  ],
+  "enum_type": [
+    {
+      "name": "P2P_Messages",
+      "value": [
+        {
+          "name": "p2p_TextMessage",
+          "number": 256,
+          "options": null
+        },
+        {
+          "name": "p2p_Voice",
+          "number": 257,
+          "options": null
+        },
+        {
+          "name": "p2p_Ping",
+          "number": 258,
+          "options": null
+        },
+        {
+          "name": "p2p_VRAvatarPosition",
+          "number": 259,
+          "options": null
+        },
+        {
+          "name": "p2p_WatchSynchronization",
+          "number": 260,
+          "options": null
+        },
+        {
+          "name": "p2p_FightingGame_GameData",
+          "number": 261,
+          "options": null
+        },
+        {
+          "name": "p2p_FightingGame_Connection",
+          "number": 262,
+          "options": null
+        }
+      ],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    }
+  ],
+  "service": [],
+  "extension": [],
+  "options": null,
+  "source_code_info": null,
+  "syntax": ""
+}

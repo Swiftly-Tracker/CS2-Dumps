@@ -1,0 +1,636 @@
+{
+  "name": "steamnetworkingsockets_messages_udp.proto",
+  "package": "",
+  "dependency": [
+    "steamnetworkingsockets_messages_certs.proto",
+    "steamnetworkingsockets_messages.proto"
+  ],
+  "public_dependency": [],
+  "weak_dependency": [],
+  "message_type": [
+    {
+      "name": "CMsgSteamSockets_UDP_ChallengeRequest",
+      "field": [
+        {
+          "name": "connection_id",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FIXED32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "my_timestamp",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FIXED64",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "protocol_version",
+          "number": 4,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CMsgSteamSockets_UDP_ChallengeReply",
+      "field": [
+        {
+          "name": "connection_id",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FIXED32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "challenge",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FIXED64",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "your_timestamp",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FIXED64",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "protocol_version",
+          "number": 4,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CMsgSteamSockets_UDP_ConnectRequest",
+      "field": [
+        {
+          "name": "client_connection_id",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FIXED32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "challenge",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FIXED64",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "my_timestamp",
+          "number": 5,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FIXED64",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "ping_est_ms",
+          "number": 6,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "crypt",
+          "number": 7,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CMsgSteamDatagramSessionCryptInfoSigned",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "cert",
+          "number": 4,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CMsgSteamDatagramCertificateSigned",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "legacy_protocol_version",
+          "number": 8,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "identity_string",
+          "number": 10,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_STRING",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "legacy_client_steam_id",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FIXED64",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "legacy_identity_binary",
+          "number": 9,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CMsgSteamNetworkingIdentityLegacyBinary",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CMsgSteamSockets_UDP_ConnectOK",
+      "field": [
+        {
+          "name": "client_connection_id",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FIXED32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "server_connection_id",
+          "number": 5,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FIXED32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "your_timestamp",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FIXED64",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "delay_time_usec",
+          "number": 4,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "crypt",
+          "number": 7,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CMsgSteamDatagramSessionCryptInfoSigned",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "cert",
+          "number": 8,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CMsgSteamDatagramCertificateSigned",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "identity_string",
+          "number": 11,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_STRING",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "legacy_server_steam_id",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FIXED64",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "legacy_identity_binary",
+          "number": 10,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CMsgSteamNetworkingIdentityLegacyBinary",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CMsgSteamSockets_UDP_ConnectionClosed",
+      "field": [
+        {
+          "name": "to_connection_id",
+          "number": 4,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FIXED32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "from_connection_id",
+          "number": 5,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FIXED32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "debug",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_STRING",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "reason_code",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CMsgSteamSockets_UDP_NoConnection",
+      "field": [
+        {
+          "name": "from_connection_id",
+          "number": 2,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FIXED32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "to_connection_id",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_FIXED32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    },
+    {
+      "name": "CMsgSteamSockets_UDP_Stats",
+      "field": [
+        {
+          "name": "stats",
+          "number": 1,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_MESSAGE",
+          "type_name": ".CMsgSteamDatagramConnectionQuality",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        },
+        {
+          "name": "flags",
+          "number": 3,
+          "label": "LABEL_OPTIONAL",
+          "type": "TYPE_UINT32",
+          "type_name": "",
+          "extendee": "",
+          "default_value": "",
+          "oneof_index": 0,
+          "json_name": "",
+          "options": null,
+          "proto3_optional": false
+        }
+      ],
+      "extension": [],
+      "nested_type": [],
+      "enum_type": [
+        {
+          "name": "Flags",
+          "value": [
+            {
+              "name": "ACK_REQUEST_E2E",
+              "number": 2,
+              "options": null
+            },
+            {
+              "name": "ACK_REQUEST_IMMEDIATE",
+              "number": 4,
+              "options": null
+            },
+            {
+              "name": "NOT_PRIMARY_TRANSPORT_E2E",
+              "number": 16,
+              "options": null
+            }
+          ],
+          "options": null,
+          "reserved_range": [],
+          "reserved_name": []
+        }
+      ],
+      "extension_range": [],
+      "oneof_decl": [],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    }
+  ],
+  "enum_type": [
+    {
+      "name": "ESteamNetworkingUDPMsgID",
+      "value": [
+        {
+          "name": "k_ESteamNetworkingUDPMsg_ChallengeRequest",
+          "number": 32,
+          "options": null
+        },
+        {
+          "name": "k_ESteamNetworkingUDPMsg_ChallengeReply",
+          "number": 33,
+          "options": null
+        },
+        {
+          "name": "k_ESteamNetworkingUDPMsg_ConnectRequest",
+          "number": 34,
+          "options": null
+        },
+        {
+          "name": "k_ESteamNetworkingUDPMsg_ConnectOK",
+          "number": 35,
+          "options": null
+        },
+        {
+          "name": "k_ESteamNetworkingUDPMsg_ConnectionClosed",
+          "number": 36,
+          "options": null
+        },
+        {
+          "name": "k_ESteamNetworkingUDPMsg_NoConnection",
+          "number": 37,
+          "options": null
+        }
+      ],
+      "options": null,
+      "reserved_range": [],
+      "reserved_name": []
+    }
+  ],
+  "service": [],
+  "extension": [],
+  "options": {
+    "java_package": "",
+    "java_outer_classname": "",
+    "java_multiple_files": false,
+    "java_generate_equals_and_hash": false,
+    "java_string_check_utf8": false,
+    "optimize_for": "SPEED",
+    "go_package": "",
+    "cc_generic_services": false,
+    "java_generic_services": false,
+    "py_generic_services": false,
+    "php_generic_services": false,
+    "deprecated": false,
+    "cc_enable_arenas": true,
+    "objc_class_prefix": "",
+    "csharp_namespace": "",
+    "swift_prefix": "",
+    "php_class_prefix": "",
+    "php_namespace": "",
+    "php_metadata_namespace": "",
+    "ruby_package": "",
+    "uninterpreted_option": []
+  },
+  "source_code_info": null,
+  "syntax": ""
+}
