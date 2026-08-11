@@ -39,17 +39,20 @@ jobs:
                   $sddUrl = Resolve-Asset "Swiftly-Tracker/SteamDepotDownload" { $_.name -eq "SteamDepotDownload-win-x64.zip" }
                   $s2dumperUrl = Resolve-Asset "Swiftly-Tracker/s2dumper" { $_.name -like "s2dumper-windows-*.zip" -and $_.name -notlike "*-pdb*" }
                   $stringsUrl = Resolve-Asset "Swiftly-Tracker/strings" { $_.name -eq "strings-win-x64.zip" }
+                  $protoDumpUrl = Resolve-Asset "Swiftly-Tracker/ProtoDump" { $_.name -eq "ProtoDump-win-x64.zip" }
 
                   Add-Content -Path $env:GITHUB_OUTPUT -Value "sdd_url=$sddUrl"
                   Add-Content -Path $env:GITHUB_OUTPUT -Value "s2dumper_url=$s2dumperUrl"
                   Add-Content -Path $env:GITHUB_OUTPUT -Value "strings_url=$stringsUrl"
+                  Add-Content -Path $env:GITHUB_OUTPUT -Value "protodump_url=$protoDumpUrl"
 
             - name: Download & unpack tools
               run: |
                   $tools = @(
                       @{ Url = "${{ steps.tool_releases.outputs.sdd_url }}"; Zip = "sdd.zip"; Dest = "sdd" },
                       @{ Url = "${{ steps.tool_releases.outputs.s2dumper_url }}"; Zip = "s2dumper.zip"; Dest = "install/game/bin/win64" },
-                      @{ Url = "${{ steps.tool_releases.outputs.strings_url }}"; Zip = "strings-tool.zip"; Dest = "strings-tool" }
+                      @{ Url = "${{ steps.tool_releases.outputs.strings_url }}"; Zip = "strings-tool.zip"; Dest = "strings-tool" },
+                      @{ Url = "${{ steps.tool_releases.outputs.protodump_url }}"; Zip = "protodump.zip"; Dest = "protodump-tool" }
                   )
 
                   $tools | ForEach-Object -Parallel {
@@ -80,6 +83,12 @@ jobs:
 
                   ./strings-tool/strings.exe --binary='install/**/*.exe,install/**/*.dll' --output-dir=strings/win64
                   ./strings-tool/strings.exe --binary='install/**/*.so' --output-dir=strings/linuxsteamrt64
+
+            - name: Dump protobufs
+              run: |
+                  Remove-Item -Recurse -Force protobufs -ErrorAction SilentlyContinue
+
+                  ./protodump-tool/ProtoDump.exe --binary='install/**/*.dll' --output-dir=protobufs
 
             - name: Dump manifests
               run: |
