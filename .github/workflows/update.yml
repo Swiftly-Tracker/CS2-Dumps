@@ -137,9 +137,15 @@ jobs:
                       "ClientVersion  : ${{ steps.build_info.outputs.client_version }}",
                       "PatchVersion   : ${{ steps.build_info.outputs.patch_version }}",
                       "SourceRevision : ${{ steps.build_info.outputs.source_revision }}",
-                      "Game build time: ${{ steps.build_info.outputs.build_time_utc }}",
-                      ""
+                      "Game build time: ${{ steps.build_info.outputs.build_time_utc }}"
                   )
+
+                  $branchInfoPath = "install/.sdd/dumps/branch.info.txt"
+                  if (Test-Path $branchInfoPath) {
+                      $lines += Get-Content -Path $branchInfoPath
+                  }
+
+                  $lines += ""
 
                   Get-ChildItem -Path install/.sdd/dumps -Filter "manifest_*.txt" | Sort-Object Name | ForEach-Object {
                       $lines += Get-Content -Path $_.FullName -TotalCount 7
