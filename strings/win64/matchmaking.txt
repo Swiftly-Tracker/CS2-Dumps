@@ -32,10 +32,10 @@
  #Valve_Reject_Connect_From_Lobby
  #Valve_Reject_Reserved_For_Lobby
  (08@HPX`hpx
- (08@HPX`j
- (08@HPXb
- (08@HPZ
- (0X`hpz
+ (08@HPX`j 
+ (08@HPXb0
+ (08@HPZ 
+ (0X`hpz0
  :score average_contribution  :payloadformat {  payload0 {  :score mvp_awards :format int  :upload sum  }  payload1 {  :score rounds_played  :format int  :upload sum  }  payload2 {  :score total_contribution  :format int  :upload sum  }  payload3 {  :score kills  :format int  :upload sum  }  payload4 {  :score deaths  :format int  :upload sum  }  payload5 {  :score damage  :format int  :upload sum  }  } 
  :score kd_ratio  :payloadformat {  payload0 {  :score kills :format int  :upload sum  }  payload1 {  :score deaths  :format int  :upload sum  }  payload2 {  :score rounds_played  :format int  :upload sum  }  payload3 {  :score shots_fired  :format int  :upload sum  }  payload4 {  :score head_shots  :format int  :upload sum  }  payload5 {  :score shots_hit  :format int  :upload sum  }  } 
  :score num_rounds  :scoresum 1  :payloadformat {  payload0 {  :score time_played  :format uint64  :upload sum  }  payload1 {  :score time_played_ct  :format uint64  :upload sum  }  payload2 {  :score time_played_t  :format uint64  :upload sum  }  payload3 {  :score total_medals  :format int  :upload last  }  } 
@@ -1569,7 +1569,6 @@ Option must have a name.
 Option must not use reserved name "uninterpreted_option".
 Options/searchteamkey
 Options/server
-P08Jp
 P@HPX`hpx\f
 PDT
 PIO
@@ -2305,6 +2304,7 @@ bad array new length
 bad cast
 bad exception
 bad file descriptor
+bad function call
 bad locale name
 bad message
 balance
@@ -2585,6 +2585,7 @@ class Player<IPlayerLocal> (demangled)
 class PlayerFriend (demangled)
 class PlayerLocal (demangled)
 class PlayerManager (demangled)
+class `protected: CSysSessionBase::CSysSessionBase(KeyValues*)'::`2'::<lambda_1> (demangled)
 class google::protobuf::DescriptorBuilder::OptionInterpreter::AggregateOptionFinder (demangled)
 class google::protobuf::DescriptorDatabase (demangled)
 class google::protobuf::DescriptorProto (demangled)
@@ -2672,6 +2673,8 @@ class google::protobuf::io::StringOutputStream (demangled)
 class google::protobuf::io::ZeroCopyInputStream (demangled)
 class google::protobuf::io::ZeroCopyOutputStream (demangled)
 class std::_Facet_base (demangled)
+class std::_Func_base<void, char const*, int> (demangled)
+class std::_Func_impl_no_alloc<`protected: CSysSessionBase::CSysSessionBase(KeyValues*)'::`2'::<lambda_1>, void, char const*, int> (demangled)
 class std::_Generic_error_category (demangled)
 class std::_Iosb<int> (demangled)
 class std::_Iostream_error_category2 (demangled)
@@ -2681,6 +2684,7 @@ class std::bad_alloc (demangled)
 class std::bad_array_new_length (demangled)
 class std::bad_cast (demangled)
 class std::bad_exception (demangled)
+class std::bad_function_call (demangled)
 class std::bad_typeid (demangled)
 class std::basic_ios<char, std::char_traits<char> > (demangled)
 class std::basic_iostream<char, std::char_traits<char> > (demangled)
@@ -2951,7 +2955,6 @@ guard
 guardian
 gungameprogressive
 gungametrbomb
-hIR
 h\n,NETWORK_DISCONNECT_REMOTE_TIMEOUT_CONNECTING
 hltv_replay
 hltv_replay_flags
@@ -2966,7 +2969,7 @@ hostendgame
 hostinit
 hostname
 hpx
-hpz
+hpz0
 iController
 idempotency_level
 identifier removed
@@ -3155,6 +3158,7 @@ log10
 m\nXo
 machine
 machine%d
+machine%d/numPlayers
 machine0
 machine0/tuver
 makeonline
