@@ -2,174 +2,25 @@ name: Dumping
 
 on:
     workflow_dispatch:
+        inputs:
+            branch:
+                description: "Steam depot branch (blank = public/default)"
+                required: false
+                default: "public"
 
-permissions:
-    contents: write
+concurrency:
+    group: ${{ github.workflow }}
+    cancel-in-progress: true
 
 jobs:
     dump:
-        runs-on: windows-latest
-        defaults:
-            run:
-                shell: pwsh
-        env:
-            DUMP_PATH: ${{ github.workspace }}\dump
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v5
-
-            - name: Clean install directory
-              run: Remove-Item -Recurse -Force install -ErrorAction SilentlyContinue
-
-            - name: Resolve tool releases
-              id: tool_releases
-              run: |
-                  function Resolve-Asset($repo, $filter) {
-                      $release = Invoke-RestMethod -Uri "https://api.github.com/repos/$repo/releases/latest"
-                      $url = $release.assets | Where-Object $filter | Select-Object -ExpandProperty browser_download_url
-
-                      if ([string]::IsNullOrEmpty($url)) {
-                          Write-Error "Could not resolve release asset URL for $repo"
-                          exit 1
-                      }
-
-                      return $url
-                  }
-
-                  $sddUrl = Resolve-Asset "Swiftly-Tracker/SteamDepotDownload" { $_.name -eq "SteamDepotDownload-win-x64.zip" }
-                  $s2dumperUrl = Resolve-Asset "Swiftly-Tracker/s2dumper" { $_.name -like "s2dumper-windows-*.zip" -and $_.name -notlike "*-pdb*" }
-                  $stringsUrl = Resolve-Asset "Swiftly-Tracker/strings" { $_.name -eq "strings-win-x64.zip" }
-                  $protoDumpUrl = Resolve-Asset "Swiftly-Tracker/ProtoDump" { $_.name -eq "ProtoDump-win-x64.zip" }
-
-                  Add-Content -Path $env:GITHUB_OUTPUT -Value "sdd_url=$sddUrl"
-                  Add-Content -Path $env:GITHUB_OUTPUT -Value "s2dumper_url=$s2dumperUrl"
-                  Add-Content -Path $env:GITHUB_OUTPUT -Value "strings_url=$stringsUrl"
-                  Add-Content -Path $env:GITHUB_OUTPUT -Value "protodump_url=$protoDumpUrl"
-
-            - name: Download & unpack tools
-              run: |
-                  $tools = @(
-                      @{ Url = "${{ steps.tool_releases.outputs.sdd_url }}"; Zip = "sdd.zip"; Dest = "sdd" },
-                      @{ Url = "${{ steps.tool_releases.outputs.s2dumper_url }}"; Zip = "s2dumper.zip"; Dest = "install/game/bin/win64" },
-                      @{ Url = "${{ steps.tool_releases.outputs.strings_url }}"; Zip = "strings-tool.zip"; Dest = "strings-tool" },
-                      @{ Url = "${{ steps.tool_releases.outputs.protodump_url }}"; Zip = "protodump.zip"; Dest = "protodump-tool" }
-                  )
-
-                  $tools | ForEach-Object -Parallel {
-                      Invoke-WebRequest -Uri $_.Url -OutFile $_.Zip
-                      Expand-Archive -Path $_.Zip -DestinationPath $_.Dest -Force
-                  }
-
-            - name: Download tracked files
-              run: |
-                  ./sdd/SteamDepotDownload.App.exe -app 730 -filelist tracked_files.json `
-                    -username "${{ secrets.STEAM_USERNAME }}" -password "${{ secrets.STEAM_PASSWORD }}" `
-                    -dir install -max-downloads 12
-
-            - name: Read build info
-              id: build_info
-              run: |
-                  $steamInf = Get-ChildItem -Recurse -Filter steam.inf -ErrorAction SilentlyContinue |
-                      Where-Object { $_.FullName -match '[\\/]game[\\/]csgo[\\/]steam\.inf$' } |
-                      Select-Object -First 1
-
-                  if (-not $steamInf) {
-                      Write-Error "steam.inf not found"
-                      exit 1
-                  }
-
-                  $content = Get-Content -Path $steamInf.FullName
-
-                  function Get-IniValue($key) {
-                      ($content | Where-Object { $_ -match "^$key=" } | Select-Object -First 1) -replace "^$key=", '' -replace "`r", ''
-                  }
-
-                  $versionDate = Get-IniValue 'VersionDate'
-                  $versionTime = Get-IniValue 'VersionTime'
-
-                  # steam.inf's VersionDate/VersionTime are Seattle local time (GMT-7); shift to UTC to line up with manifest dates
-                  $buildTimeUtc = [datetime]::ParseExact("$versionDate $versionTime", 'MMM dd yyyy HH:mm:ss', [System.Globalization.CultureInfo]::InvariantCulture).AddHours(7).ToString("yyyy-MM-ddTHH:mm:ss.0000000Z")
-
-                  Add-Content -Path $env:GITHUB_OUTPUT -Value "server_version=$(Get-IniValue 'ServerVersion')"
-                  Add-Content -Path $env:GITHUB_OUTPUT -Value "client_version=$(Get-IniValue 'ClientVersion')"
-                  Add-Content -Path $env:GITHUB_OUTPUT -Value "patch_version=$(Get-IniValue 'PatchVersion')"
-                  Add-Content -Path $env:GITHUB_OUTPUT -Value "source_revision=$(Get-IniValue 'SourceRevision')"
-                  Add-Content -Path $env:GITHUB_OUTPUT -Value "version_date=$versionDate"
-                  Add-Content -Path $env:GITHUB_OUTPUT -Value "version_time=$versionTime"
-                  Add-Content -Path $env:GITHUB_OUTPUT -Value "build_time_utc=$buildTimeUtc"
-
-            - name: Clean dump directory
-              run: |
-                  Remove-Item -Recurse -Force "$env:DUMP_PATH" -ErrorAction SilentlyContinue
-                  New-Item -ItemType Directory -Force -Path "$env:DUMP_PATH" | Out-Null
-
-            - name: Run S2Dumper
-              working-directory: install/game/bin/win64
-              continue-on-error: true
-              run: ./s2dumper.exe "$env:DUMP_PATH" csgo
-
-            - name: Dump binary strings
-              run: |
-                  Remove-Item -Recurse -Force strings -ErrorAction SilentlyContinue
-                  New-Item -ItemType Directory -Force -Path strings/win64, strings/linuxsteamrt64 | Out-Null
-
-                  ./strings-tool/strings.exe --binary='install/**/*.exe,install/**/*.dll' --output-dir=strings/win64
-                  ./strings-tool/strings.exe --binary='install/**/*.so' --output-dir=strings/linuxsteamrt64
-
-            - name: Dump protobufs
-              run: |
-                  Remove-Item -Recurse -Force protobufs -ErrorAction SilentlyContinue
-
-                  ./protodump-tool/ProtoDump.exe --binary='install/**/*.dll' --output-dir=protobufs
-
-            - name: Dump manifests
-              run: |
-                  ./sdd/SteamDepotDownload.App.exe -app 730 -filelist tracked_files.json `
-                    -username "${{ secrets.STEAM_USERNAME }}" -password "${{ secrets.STEAM_PASSWORD }}" `
-                    -manifest-only -dir install
-
-            - name: Build combined manifest
-              run: |
-                  New-Item -ItemType Directory -Force -Path manifests | Out-Null
-
-                  $lines = @(
-                      "ServerVersion  : ${{ steps.build_info.outputs.server_version }}",
-                      "ClientVersion  : ${{ steps.build_info.outputs.client_version }}",
-                      "PatchVersion   : ${{ steps.build_info.outputs.patch_version }}",
-                      "SourceRevision : ${{ steps.build_info.outputs.source_revision }}",
-                      "Game build time: ${{ steps.build_info.outputs.build_time_utc }}"
-                  )
-
-                  $branchInfoPath = "install/.sdd/dumps/branch.info.txt"
-                  if (Test-Path $branchInfoPath) {
-                      $lines += Get-Content -Path $branchInfoPath
-                  }
-
-                  $lines += ""
-
-                  Get-ChildItem -Path install/.sdd/dumps -Filter "manifest_*.txt" | Sort-Object Name | ForEach-Object {
-                      $lines += Get-Content -Path $_.FullName -TotalCount 7
-                      $lines += ""
-                  }
-
-                  $outFile = "manifests/manifest_${{ steps.build_info.outputs.patch_version }}_${{ steps.build_info.outputs.server_version }}_${{ steps.build_info.outputs.source_revision }}.txt"
-                  $lines | Set-Content -Path $outFile -Encoding utf8
-
-            - name: Commit & push changes
-              run: |
-                  git config user.name "github-actions[bot]"
-                  git config user.email "github-actions[bot]@users.noreply.github.com"
-                  git add -A
-
-                  git diff --cached --quiet
-                  if ($LASTEXITCODE -eq 0) {
-                      Write-Output "No changes to commit"
-                      exit 0
-                  }
-
-                  $filesModified = (git diff --cached --name-only | Measure-Object -Line).Lines
-
-                  $commitMsg = "${{ steps.build_info.outputs.server_version }} - ${{ steps.build_info.outputs.patch_version }} | $filesModified modified | ${{ steps.build_info.outputs.version_date }} ${{ steps.build_info.outputs.version_time }}"
-
-                  git commit -m "$commitMsg"
-                  git push
+        uses: swiftly-tracker/dumps/.github/workflows/dumper.yml
+        permissions:
+            contents: write
+            statuses: write
+        with:
+            app_id: "730"
+            branch: ${{ inputs.branch }}
+            game_folder: "csgo"
+            tracked_files: "tracked_files.json"
+        secrets: inherit
