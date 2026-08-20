@@ -46,8 +46,7 @@
 !g_pPulseSystem->GetWeakHandleTable()->AnyHandlesAllocated()
 """
 "Limit Count: " + m_nLimitCount
-#\tV_exp2f
-%\tV_expf
+$\tV_exp2f
 %d %d %d %d
 %d CallInfos:\n
 %d Cells:\n
@@ -89,6 +88,7 @@
 %s:wait
 %s<br><br>%s
 &Sgw
+&\tV_expf
 (Expecting %s)
 (Expecting EOF)
 (None)
@@ -133,7 +133,6 @@
 .CRT$XPZ
 .CRT$XTA
 .CRT$XTZ
-.\tV_fmodd
 .bss
 .data
 .data$r
@@ -167,17 +166,18 @@
 .xJ>Hf
 .xdata
 .xdata$x
-/\tV_fmodf
+/\tV_fmodd
 /src/
+0\tV_fmodf
 1#IND
 1#QNAN
 1#SNAN
 1:1: Tokens : ( T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | TOK_COLON | OPEN_BRACE | CLOSE_BRACE | OPEN_PAREN | CLOSE_PAREN | OPEN_BRACKET | CLOSE_BRACKET | SEMICOLON | OP_EQUAL | COMMA | DOUBLE_AND | NEGATIVE_TOK | DOUBLE_OR | LITERAL_TRUE | LITERAL_FALSE | POS_INTLITERAL | POS_FLOATLITERAL | SCOPE_QUALIFIER | ID | DOUBLE_QUOTED_STRING | SINGLE_QUOTED_STRING | SINGLE_LINE_COMMENT | ML_COMMENT | WS | UNRECOGNIZED );
 222
-2\tV_fpclassifyd
 3>N;kU
-3\tV_fprintf
+3\tV_fpclassifyd
 488:1: POS_FLOATLITERAL : ( ( DIGIT )+ '.' ( DIGIT )* ( EXPONENT )? | '.' ( DIGIT )+ ( EXPONENT )? | ( DIGIT )+ EXPONENT );
+4\tV_fprintf
 : lexer error %d :\n\t%s at offset %d, 
 ;1#INF
 <DOWN>
@@ -1263,7 +1263,6 @@ LTE_INT
 LT_FLOAT
 LT_GAMETIME
 LT_INT
-L\tV_isnand
 Leap to Chunk C%d
 LeaveCriticalSection
 Length (magnitude) of Vector
@@ -1358,6 +1357,7 @@ MUL_FLOAT
 MUL_INT
 MVDataNodeType
 MVDataOverlayType
+M\tV_isnand
 Make Angle
 Make Angle From Forward Vector
 Make Color
@@ -2154,10 +2154,8 @@ Yield, Resume=%s
 [test]
 [thunk]:
 [unknown]
-\\tV_log10f
-\f\tV_acosd
 \n    near %s\n    
-\n\ng_pMemAlloc
+\r\tV_acosd
 \t The lexer was matching from line %d, offset %d, which\n\t 
 \tV_asind
 \tV_atan2f
@@ -2166,6 +2164,7 @@ Yield, Resume=%s
 \tV_atofloat32
 \tV_atoi
 \tV_cosd
+\tV_snprintf
 \tV_stricmp_fast
 \tV_tand
 \tWarning
@@ -2178,8 +2177,9 @@ Yield, Resume=%s
 \t_V_strncpy
 \tcQr
 \tkE>fvw
+\v\ng_pMemAlloc
+]\tV_log10f
 _Target
-_\tV_log2f
 __CursorQueue__
 __FireCursorsParent__
 __State_Child_Condition__
@@ -2210,6 +2210,7 @@ __vectorcall
 _cells
 _class
 `RTTI
+`\tV_log2f
 `adjustor{
 `anonymous namespace'
 `copy constructor closure'
@@ -2261,7 +2262,6 @@ _class
 `vtordisp{
 a:fulltype
 a:typeparam
-a\tV_logf
 abcdefghijklmnopqrstuvwxyz
 abs
 acos
@@ -2307,6 +2307,7 @@ bInAutoWakeList
 bInherit
 bValue
 bWasAnObservableComputation
+b\tV_logf
 backed_by_variable
 bad address
 bad exception
@@ -2741,7 +2742,6 @@ long
 long 
 looks like this:\n\t\t%.*s\n
 m\nXo
-m\tV_powf
 m_Args
 m_AsyncChild1
 m_AsyncChild2
@@ -3050,6 +3050,7 @@ nWakePriority
 nWhichOutflowA
 nWhichOutflowB
 nYieldArg1
+n\tV_powf
 name
 nan
 nan(ind)
@@ -3087,7 +3088,6 @@ npc_ability_name
 npcclass
 null
 nullptr
-o\tV_qsort_s
 observable_false
 observable_listeners
 observable_scope
@@ -3134,6 +3134,7 @@ pTraceStringA
 pTraceStringB
 pValue
 pYieldArg2
+p\tV_qsort_s
 panorama_image
 panorama_layout
 panorama_style
@@ -3334,7 +3335,6 @@ supported_domains
 suppress_expr
 surface_properties
 system_state
-t\tV_roundf
 table
 tagName
 tagValue
@@ -3374,6 +3374,7 @@ true
 type
 type:
 type_restriction_is_enum_flags
+u\tV_roundf
 uint
 uint16
 uint32
@@ -3426,17 +3427,16 @@ world_angle
 world_point
 world_transform
 wrong protocol type
-y\tV_sincosf
 ycg
 yield_token
 yields
-z\tV_sind
+z\tV_sincosf
 { className = 'IsControlFlowNode' }
 { className = 'IsStateNode' item_factory = 'BooleanSwitchState' }
 { className = 'IsWaitNode IsControlFlowNode' item_factory = 'InflowWait' }
 { className='IsControlFlowNode AllOutflowsInSpecialSection IsSelectorNode' create_special_outflows_section=true }
 { item_factory = 'IntervalTimer' }
 { standard_yielding_flow = true }
+{\tV_sind
 {flat}
 {for 
-~\tV_snprintf

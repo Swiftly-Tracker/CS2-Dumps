@@ -93,7 +93,6 @@
 #bML"
 #include
 #line
-$\tV_expd
 %-100s %-6s %-6s\n
 %.0Lf
 %.100s: Can not read TIFF directory
@@ -103,6 +102,7 @@ $\tV_expd
 %A Is
 %H : %M : %S
 %I : %M : %S %p
+%\tV_expd
 %b %d %H : %M : %S %Y
 %d %d %d %d
 %d / %m / %y
@@ -218,7 +218,7 @@ $\tV_expd
 %s_s_PerMipLevelImageViewSrgb
 %suncompressed data
 &Sgw
-&\tV_fclose
+'\tV_fclose
 ( ( uint32 ) pImmutableSamplersBlob->GetBinaryBlobSize() ) == ( pipelineLayoutHash.m_nNumImmutableSamplers * sizeof( PipelineLayoutImmutableSampler_t ) )
 ( ( uint32 ) pLayoutBindingFlagsBlob->GetBinaryBlobSize() ) == ( pipelineLayoutHash.m_numLayoutBindingsPerSet[ nDescriptorSet ] * sizeof( VkDescriptorBindingFlags ) )
 ( ( uint32 ) pLayoutBindingsBlob->GetBinaryBlobSize() ) == ( pipelineLayoutHash.m_numLayoutBindingsPerSet[ nDescriptorSet ] * sizeof( VkDescriptorSetLayoutBinding ) )
@@ -356,15 +356,15 @@ $\tV_expd
 0123456789ABCDEFabcdef-+XxPp
 0123456789abcdefghijklmnopqrstuvwxyz
 0: Bilinear, 1: Trilinear, 2: Aniso 2x, 3: Aniso 4x, 4: Aniso 8x, 5: Aniso 16x
-0\tV_fopen
 0x%x
 1#IND
 1#INF
 1#QNAN
 1#SNAN
-2\tV_fpclassifyd
+1\tV_fopen
 3>N;kU
-3\tV_fprintf
+3\tV_fpclassifyd
+4\tV_fprintf
 5;FJ$,XEK4<
 5J5J5J5J5J5J5J5J5J5J5J5J5J5J5J5Jx
 7&F|If
@@ -407,7 +407,6 @@ $\tV_expd
 ?ysB
 @BXV
 @Integer overflow in %s
-@\tV_fwrite
 @^8U)zj
 @count
 @iZb
@@ -427,6 +426,7 @@ ATI2N
 ATI_TC_CalculateBufferSize_Wrapper
 ATI_TC_ConvertTexture_Wrapper
 AUUUUUU
+A\tV_fwrite
 Aboring CRenderContextVulkan::ReadBufferIndirect because of GPU memory allocation failure.\n
 Aboring OnReadPixels because of GPU memory allocation failure.\n
 Aborting OnReadBuffer because of GPU memory allocation failure.\n
@@ -1519,7 +1519,6 @@ IS_DIRECTX
 IS_PC
 IS_SM_
 IS_VULKAN
-I\tV_isdigit_str
 IdThread
 If true, the main thread pauses and unpauses the Vulkan worker threads around each texture deallocation, which allows the workers to make a little bit of progress but results in main thread stalls. If false, we keep the workers paused until all deallocations are done, allowing the deallocations to complete significantly faster.
 IiGM>nw
@@ -1621,6 +1620,7 @@ JPEG datastream contains no image
 JPEG parameter struct mismatch: library thinks size is %u, caller expects %u
 JPEGMEM
 JSON version mismatches.
+J\tV_isdigit_str
 Jan
 January
 Jitter.Offset.X
@@ -3197,7 +3197,6 @@ Zjz\v
 [Index: 
 [aOni*{
 \f\f\f
-\f\ng_pThreadPool
 \mfpmp.exe
 \n    near %s\n    
 \n*** %s "%s" in %s does not follow the 0..N format!\n\n
@@ -3274,9 +3273,9 @@ Zjz\v
 \nPS_RENDER_STATE
 \nRTX
 \n\n\n
-\n\ng_pMemAlloc
 \n\tCommand Buffer Labels - %d\n
 \n\tObjects - %d\n
+\r\ng_pThreadPool
 \r\r\r\r\r\r
 \r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r
 \rmj>zjZ
@@ -3295,6 +3294,7 @@ Zjz\v
 \tV_atanf
 \tV_atoi
 \tV_cosf
+\tV_snprintf
 \tV_sscanf
 \tV_stricmp_fast
 \tV_strlower_fast
@@ -3320,9 +3320,10 @@ Zjz\v
 \tg_Mathlib_GammaToLinearByteTable
 \tg_TSPointerListNodes
 \tkE>fvw
+\v\ng_pMemAlloc
 \v\v\v
-]\tV_log2_uint
 ]rHa
+^\tV_log2_uint
 ^oEZ_
 _DOVK
 _DOVK_RESULT
@@ -3373,7 +3374,6 @@ _rtx
 _tools.txt
 _wjb
 `RTTI
-`\tV_logd
 `anonymous namespace'
 `copy constructor closure'
 `default constructor closure'
@@ -3410,7 +3410,7 @@ _wjb
 `vftable'
 `virtual displacement map'
 aBt
-a\tV_logf
+a\tV_logd
 abcdefghijklmnopqrstuvwxyz
 acos
 address family not supported
@@ -3448,6 +3448,7 @@ attachments
 attributes
 azj
 bValid
+b\tV_logf
 b\vp\nP
 back
 bad address
@@ -4232,7 +4233,6 @@ lLX
 lTS
 lUI
 lUS
-l\tV_powd
 laQ
 lab
 layout
@@ -4264,7 +4264,7 @@ logicOpEnable
 looks like this:\n\t\t%.*s\n
 lzY
 m\nXo
-m\tV_powf
+m\tV_powd
 m_Value
 m_bAlphaToCoverageEnable
 m_bDepthClipEnable
@@ -4367,7 +4367,7 @@ nResult = vmaCreatePool( m_pVmaAllocator, &poolCreateInfo, &pNewPool )
 nSemaphoreIndex < static_cast< int32 >( m_nSwapQueueImageCount )
 nSemaphoreIndex >= 0
 nTries < 10000000
-n\tV_qsort
+n\tV_powf
 name
 nan
 nan(ind)
@@ -4421,7 +4421,7 @@ nvLocaltime(&curTime, &curTm) != nullptr
 o KPBf
 oI>b
 oY.o<
-o\tV_qsort_s
+o\tV_qsort
 object_lifetime
 obwQ4
 offset
@@ -4473,6 +4473,7 @@ pXZ
 pYT
 pYZ
 pZT
+p\tV_qsort_s
 paZ
 panorama_
 panorama_rt_
@@ -4944,7 +4945,6 @@ tC7Ddx
 tOX
 tTS
 tXX
-t\tV_roundf
 tag
 tan
 tanf
@@ -5002,6 +5002,7 @@ type.sampler
 t|AO
 uGroupId
 uUv
+u\tV_roundf
 uint16
 uint32
 uint64
@@ -5917,9 +5918,8 @@ ycbcrRange
 ycg
 zMt
 zZg
-{\tV_sinf
 {kHw
 {zel#|67
 |Bati_compress_wrapper.dll
-~\tV_snprintf
+|\tV_sinf
 ~}|{zyxwvutsrqponmlkjihgfedcba`_^]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)('&%$#"! 

@@ -163,10 +163,10 @@ $xmm9
 %8x-%4x-%4x-%2x%2x-%2x%2x%2x%2x%2x%2x
 %9.2f
 %9d
-%G8
 %SYSTEMROOT%\system32\dbghelp.dll
 %WINDIR%\system32\dbghelp.dll
 %WinDir%\SysWOW64\
+%a8
 %animgraph0
 %ct
 %d %d %d %d
@@ -1511,6 +1511,7 @@ CTestScriptMgr::StartLoop( %s ): loop already exists.
 CThreadNullVerificationMutex: Thread %llu acquiring null-mutex while thread %llu is still holding it, indicates unexpected thread-safety issue
 CThreadNullVerificationMutex::Lock
 CThreadPool::Start called and it was already initialized.
+CThreadedDependentJob::Wait UPSTREAM %d/%d jobs
 CThreadedTraverseJobSync::WaitForAllDone
 CThreadedTraverseJob_FastWin32::CThreadedTraverseJob_FastWin32
 CTimeCondition
@@ -7478,6 +7479,7 @@ public: IKeyValuesDumpContextAsText& IKeyValuesDumpContextAsText::operator=(IKey
 public: IKeyValuesDumpContextAsText::IKeyValuesDumpContextAsText(IKeyValuesDumpContextAsText const&) (demangled)
 public: IKeyValuesDumpContextAsText::IKeyValuesDumpContextAsText(IKeyValuesDumpContextAsText&&) (demangled)
 public: IKeyValuesDumpContextAsText::IKeyValuesDumpContextAsText(void) (demangled)
+public: IKeyValuesSystem* KeyValues::GetKeyValuesSystem(void) const (demangled)
 public: JobStatus_t CThreadedJob::Abort(bool) (demangled)
 public: KeyValues const* KeyValues::FindKey(char const*) const (demangled)
 public: KeyValues& KeyValues::operator=(KeyValues const&) (demangled)
@@ -7496,6 +7498,7 @@ public: KeyValues* KeyValues::GetFirstValue(void) (demangled)
 public: KeyValues* KeyValues::GetNextKey(void) (demangled)
 public: KeyValues* KeyValues::GetNextTrueSubKey(void) (demangled)
 public: KeyValues* KeyValues::GetNextValue(void) (demangled)
+public: KeyValues* KeyValues::MakeCopy(IKeyValuesSystem*) const (demangled)
 public: KeyValues* KeyValues::MakeCopy(void) const (demangled)
 public: KeyValues* KeyValuesJSONParser::ParseFile(void) (demangled)
 public: KeyValues::KeyValues(KeyValues const*, bool) (demangled)
@@ -8204,7 +8207,6 @@ public: void CThreadSwapTarget::ReleaseOwnerThread(void) (demangled)
 public: void CThreadedDependentJob::ReleaseUpstreamDependency(void) (demangled)
 public: void CThreadedDependentJob::Wait(void) (demangled)
 public: void CThreadedJob::WaitOrImmediatelyExecute(void) (demangled)
-public: void CThreadedJobWithDependencies::Wait(void) (demangled)
 public: void CUniformRandomStreamImpl<CAtomicMutex>::RandomizeBits(void*, uint64_t) (demangled)
 public: void CUniformRandomStreamImpl<CAtomicMutex>::SetSeed(int) (demangled)
 public: void CUniformRandomStreamImpl<CThreadNullMutex>::RandomizeBits(void*, uint64_t) (demangled)

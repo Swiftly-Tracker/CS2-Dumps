@@ -62,16 +62,15 @@
  mat_print_shader_info <file.vfx> [options]\n
  new
  using substring "%s"
-#\tV_exp2f
 #include
 #line
+$\tV_exp2f
 %10s
 %15.15s 
 %6d
 %6d %-50s
 %6s %-50s %5s %5s %5s %5s %5s %5s %10s\n
 %6s %-50s %5s %5s %5s %5s %5s %5s %5s %10s\n
-%\tV_expf
 %d %d %d %d
 %dS
 %f %f %f %f
@@ -108,6 +107,7 @@
 %vsB,
 %x3
 %x4
+&\tV_expf
 (On the line reading %s):\n
 (channel = 
 (end of input).\n\t This indicates a poorly specified lexer RULE\n\t or unterminated input element such as: "STRING["]\n
@@ -210,7 +210,7 @@
 // Reloading all shaders -----------------------------------------------------\n
 /src/
 3>N;kU
-3\tV_fprintf
+4\tV_fprintf
 : lexer error %d :\n\t%s at offset %d, 
 <<unknown_mod>>\
 <DOWN>
@@ -890,7 +890,6 @@ RGBA8888_UINT
 RGBX8888
 RSDS
 RTX
-R\tV_iswcntrl
 RaiseException
 RandomFloat
 RayTrace
@@ -940,6 +939,7 @@ SUPPORTS_GS
 SV_ClipDistance
 SV_Position
 SV_Target
+S\tV_iswcntrl
 S_EXECUTION_REORDERING
 S_MOLTEN_VK
 S_REVERSE_DEPTH_BUFFER
@@ -1203,9 +1203,7 @@ WriteFile
 [Dynamic shader compile] Reloading %d material(s)\n
 [Dynamic shader compile] Warning: %d material(s) are not reloaded because they have outstanding file I/O requests\n
 [Index: 
-\\tV_log10f
 \error.vmat
-\f\ng_pThreadPool
 \n    near %s\n    
 \n   NOTE: Currently showing on disk format without accounting for picmip level or streaming state!\n
 \n   Options:\n
@@ -1302,9 +1300,10 @@ WriteFile
 \nVCS file format is invalid for %s\n
 \nVCS file version is %d instead of %d for %s\n
 \n\n\n
-\n\ng_pMemAlloc
 \n\t%02i%% (%i/%i)
+\n\tV_ZSTD_getFrameContentSize
 \n\t\tDynamic:
+\r\ng_pThreadPool
 \src\shaders\
 \t The lexer was matching from line %d, offset %d, which\n\t 
 \tV_ZSTD_createDCtx
@@ -1313,9 +1312,9 @@ WriteFile
 \tV_ZSTD_decompress_usingDDict
 \tV_ZSTD_freeDCtx
 \tV_ZSTD_getDictID_fromDDict
-\tV_ZSTD_getDictID_fromFrame
 \tV_atoi
 \tV_cosf
+\tV_snprintf
 \tV_sscanf
 \tV_stricmp_fast
 \tV_strspn
@@ -1325,7 +1324,7 @@ WriteFile
 \tV_vsnprintf
 \tWarning
 \t\tStatic:
-\t\tV_ZSTD_getFrameContentSize
+\t\tV_ZSTD_getDictID_fromFrame
 \t\t\t
 \t_V_StringAfterPrefix
 \t_V_strEndsWith
@@ -1334,10 +1333,11 @@ WriteFile
 \t_V_strncpy
 \t_V_strnicmp_fast
 \tkE>fvw
-]\tV_log2_uint
+\v\ng_pMemAlloc
+]\tV_log10f
+^\tV_log2_uint
 ^^^ Attribute-based texture warning is now disabled after outputting 50 warnings.\n
 ^^^ Constant buffer warning is now disabled after outputting 50 warnings.\n
-_\tV_log2f
 __Attribute__
 __Expression__
 __FROM_ATTRIBUTE_OR_FEATURE__
@@ -1372,6 +1372,7 @@ _copy%u
 _feature
 _rtx
 `RTTI
+`\tV_log2f
 `anonymous namespace'
 `copy constructor closure'
 `default constructor closure'
@@ -1407,7 +1408,6 @@ _rtx
 `vector vbase copy constructor iterator'
 `vftable'
 `virtual displacement map'
-a\tV_logf
 abcdefghijklmnopqrstuvwxyz
 abs
 address family not supported
@@ -1418,6 +1418,7 @@ appendstructuredbuffer
 argument list too long
 argument out of domain
 array
+b\tV_logf
 bad address
 bad exception
 bad file descriptor
@@ -1741,7 +1742,6 @@ invalid_parameter
 io error
 is a directory
 is also the end of the line, so you must check your lexer rules\n
-l\tV_powd
 length
 lerp
 lexer->mTokens(): Error: No lexer rules were added to the lexer yet!\n
@@ -1751,7 +1751,7 @@ log
 log10
 log2
 looks like this:\n\t\t%.*s\n
-m\tV_powf
+m\tV_powd
 m_Name
 m_allVars
 m_argIndexArray
@@ -2024,7 +2024,7 @@ modes
 n03>Pu
 nBatchIndices <= 16384
 nBatchIndices <= nMaxIndexCountPerPass
-n\tV_qsort
+n\tV_powf
 name
 near '%c' :\n
 near char(%#02X) :\n
@@ -2054,7 +2054,7 @@ not connected
 not enough memory
 not supported
 null
-o\tV_qsort_s
+o\tV_qsort
 odn
 operation canceled
 operation in progress
@@ -2068,6 +2068,7 @@ operator<=>
 owner dead
 pFx
 pOC
+p\tV_qsort_s
 permission denied
 position
 pow
@@ -2275,6 +2276,5 @@ void V_SplitString(char const*, char const*, CUtlVector<CUtlString, int, CUtlVec
 vpk:
 win98japanese
 wrong protocol type
-y\tV_sincosf
-{\tV_sinf
-~\tV_snprintf
+z\tV_sincosf
+|\tV_sinf

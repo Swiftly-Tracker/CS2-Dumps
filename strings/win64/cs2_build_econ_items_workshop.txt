@@ -32,13 +32,12 @@
 %s: nLoadError: %d, RequestModule: %s, RequestInterface: %s, Module: %s, Interface: %s
 %s: no space for allocation of %u\n
 %s_music_kit
-&\tV_fclose
+'\tV_fclose
 *****************: Cannot call CAppSystemDict::AddSystems without initializing first!\n
 *.econitem
 *LANGUAGE*
 *StO9>T
-*\tV_fflush
--\tV_fileno
++\tV_fflush
 -con_logfile
 -consoleapp
 -consolelog
@@ -66,6 +65,7 @@
 .CRT$XPZ
 .CRT$XTA
 .CRT$XTZ
+.\tV_fileno
 .bss
 .data
 .data$r
@@ -106,24 +106,24 @@
 /content/
 /game/
 /src/
-1\tV_fopenUTF8
+2\tV_fopenUTF8
 3>N;kU
 <<ECONITEM_INSERT_COUPON_LOOTLIST>>
 <<ECONITEM_INSERT_EVERYTHING_SOURCE2_BUILD_HERE>>
 <no failure reason set>
 <unknown>
 =imb;D
->\tV_ftell
 ?UUUUUU
+?\tV_ftell
 ?qBJ
 ?ysB
-@\tV_fwrite
 A game file appears to be missing or corrupted.  In the Steam client go to the game's properties.  In the 'Local Files' tab select 'Verify Integrity of Game Cache' to have Steam double-check the game's installation.
 A>pP&
 ABCDEFGHIJKLMNOPQRSTUVWXYZ
 ADDONROOT
 ADDONS
 APPSYSTEM: In ConnectInterfaces(), s_nRegistrationCount is %d!\n
+A\tV_fwrite
 AcquireSRWLockExclusive
 AddonConfig/RestrictFlatFileAddonsToTools
 AddonConfig/UseOfficialAddons
@@ -635,7 +635,7 @@ WriteFile
 Wrote '%s'.\n
 You are trying to mount addon '%s' but SetAllowAddonChanges is false which probably means you shouldn't be calling this directly.\n
 You are trying to unmount addon '%s', but SetAllowAddonChanges is false which probably means you should be using calling this directly.\n
-\n\ng_pMemAlloc
+\tV_snprintf
 \tV_sscanf
 \tV_stricmp_fast
 \tV_vsnprintf
@@ -647,6 +647,7 @@ You are trying to unmount addon '%s', but SetAllowAddonChanges is false which pr
 \t_V_strncpy
 \t_V_strnicmp_fast
 \tkE>fvw
+\v\ng_pMemAlloc
 _Anodized
 _AnodizedAirbrushed
 _AnodizedMulticolor
@@ -868,7 +869,6 @@ mod
 music_definitions
 n03>Pu
 nTries < 10000000
-n\tV_qsort
 name
 network down
 network reset
@@ -894,7 +894,7 @@ not connected
 not enough memory
 not supported
 nullptr
-o\tV_qsort_s
+o\tV_qsort
 officialaddonroot
 operation canceled
 operation in progress
@@ -908,6 +908,7 @@ operator<=>
 owner dead
 pFx
 pOC
+p\tV_qsort_s
 paint_kits
 paint_kits_rarity
 pedestal_display_model
@@ -1046,4 +1047,3 @@ wear_remap_max
 wear_remap_min
 write
 wrong protocol type
-~\tV_snprintf
