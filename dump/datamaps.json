@@ -3827,9 +3827,9 @@
             },
             "think_functions": [
                 "CCSPlayerControllerInventoryUpdateThink",
+                "CCSPlayerControllerResourceDataThink",
                 "CCSPlayerControllerPlayerForceTeamThink",
-                "CCSPlayerControllerResetForceTeamThink",
-                "CCSPlayerControllerResourceDataThink"
+                "CCSPlayerControllerResetForceTeamThink"
             ]
         },
         {
@@ -4809,12 +4809,7 @@
             "class_name": "CBaseProp",
             "data_class_name": "CBaseProp",
             "fields": {},
-            "think_functions": [
-                "CBasePropDoorDisableAreaPortalThink",
-                "CBasePropDoorDoorAutoCloseThink",
-                "CBasePropDoorDoorCloseMoveDone",
-                "CBasePropDoorDoorOpenMoveDone"
-            ]
+            "think_functions": []
         },
         {
             "class_name": "C_PhysBox",
@@ -7814,13 +7809,13 @@
                 ]
             },
             "think_functions": [
-                "CBaseDoorCloseAreaPortalsThink",
-                "CBaseDoorDoorGoDown",
-                "CBaseDoorDoorGoUp",
-                "CBaseDoorDoorHitBottom",
-                "CBaseDoorDoorHitTop",
                 "CBaseDoorDoorTouch",
-                "CBaseDoorMovingSoundThink"
+                "CBaseDoorDoorGoUp",
+                "CBaseDoorDoorGoDown",
+                "CBaseDoorDoorHitTop",
+                "CBaseDoorDoorHitBottom",
+                "CBaseDoorMovingSoundThink",
+                "CBaseDoorCloseAreaPortalsThink"
             ]
         },
         {
@@ -8366,9 +8361,9 @@
                 ]
             },
             "think_functions": [
+                "CBarnLightThink_SetNextQueuedLightStyle",
                 "CBarnLightThink_ApplyLightStylesToTargets",
-                "CBarnLightThink_LightStyleEvent",
-                "CBarnLightThink_SetNextQueuedLightStyle"
+                "CBarnLightThink_LightStyleEvent"
             ]
         },
         {
@@ -8987,9 +8982,9 @@
                 ]
             },
             "think_functions": [
+                "CPhysHingeSoundThink",
                 "CPhysHingeLimitThink",
-                "CPhysHingeMoveThink",
-                "CPhysHingeSoundThink"
+                "CPhysHingeMoveThink"
             ]
         },
         {
@@ -9418,8 +9413,7 @@
             },
             "think_functions": [
                 "CColorCorrectionFadeInThink",
-                "CColorCorrectionFadeOutThink",
-                "CColorCorrectionVolumeThinkFunc"
+                "CColorCorrectionFadeOutThink"
             ]
         },
         {
@@ -9861,8 +9855,7 @@
             },
             "think_functions": [
                 "CPhysicsPropClearFlagsThink",
-                "CPhysicsPropClearThrownByPlayerThink",
-                "CPhysicsPropRespawnableMaterialize"
+                "CPhysicsPropClearThrownByPlayerThink"
             ]
         },
         {
@@ -9950,9 +9943,8 @@
                 ]
             },
             "think_functions": [
-                "CFuncTrainControlsFind",
-                "CFuncTrainNext",
-                "CFuncTrainWait"
+                "CFuncTrainWait",
+                "CFuncTrainNext"
             ]
         },
         {
@@ -10157,10 +10149,10 @@
                 ]
             },
             "think_functions": [
-                "CBasePropDoorDisableAreaPortalThink",
-                "CBasePropDoorDoorAutoCloseThink",
                 "CBasePropDoorDoorCloseMoveDone",
-                "CBasePropDoorDoorOpenMoveDone"
+                "CBasePropDoorDoorOpenMoveDone",
+                "CBasePropDoorDisableAreaPortalThink",
+                "CBasePropDoorDoorAutoCloseThink"
             ]
         },
         {
@@ -10525,8 +10517,8 @@
             "data_class_name": "CItemDefuser",
             "fields": {},
             "think_functions": [
-                "CItemDefuserActivateThink",
-                "CItemDefuserDefuserTouch"
+                "CItemDefuserDefuserTouch",
+                "CItemDefuserActivateThink"
             ]
         },
         {
@@ -10638,14 +10630,14 @@
             "data_class_name": "CBaseGrenade",
             "fields": {},
             "think_functions": [
+                "CBaseGrenadeSmoke",
                 "CBaseGrenadeBounceTouch",
+                "CBaseGrenadeSlideTouch",
+                "CBaseGrenadeExplodeTouch",
                 "CBaseGrenadeDangerSoundThink",
+                "CBaseGrenadePreDetonate",
                 "CBaseGrenadeDetonate",
                 "CBaseGrenadeDetonateUse",
-                "CBaseGrenadeExplodeTouch",
-                "CBaseGrenadePreDetonate",
-                "CBaseGrenadeSlideTouch",
-                "CBaseGrenadeSmoke",
                 "CBaseGrenadeTumbleThink"
             ]
         },
@@ -10653,9 +10645,7 @@
             "class_name": "CBaseCSGrenade",
             "data_class_name": "CBaseCSGrenade",
             "fields": {},
-            "think_functions": [
-                "CBaseCSGrenadeProjectileDangerSoundThink"
-            ]
+            "think_functions": []
         },
         {
             "class_name": "CEnvViewPunch",
@@ -10811,9 +10801,9 @@
             },
             "think_functions": [
                 "CSpriteAnimateThink",
-                "CSpriteAnimateUntilDead",
+                "CSpriteExpandThink",
                 "CSpriteBeginFadeOutThink",
-                "CSpriteExpandThink"
+                "CSpriteAnimateUntilDead"
             ]
         },
         {
@@ -11300,9 +11290,9 @@
                 ]
             },
             "think_functions": [
+                "CFuncMoveLinearStopMoveSound",
                 "CFuncMoveLinearNavMovableThink",
-                "CFuncMoveLinearNavObstacleThink",
-                "CFuncMoveLinearStopMoveSound"
+                "CFuncMoveLinearNavObstacleThink"
             ]
         },
         {
@@ -11396,8 +11386,7 @@
             "fields": {},
             "think_functions": [
                 "CHostageHostageThink",
-                "CHostageHostageUse",
-                "CHostageRescueZoneHostageRescueTouch"
+                "CHostageHostageUse"
             ]
         },
         {
@@ -11779,10 +11768,10 @@
             "data_class_name": "CSmokeGrenadeProjectile",
             "fields": {},
             "think_functions": [
-                "CSmokeGrenadeProjectileThink_BuildingSmokeVolume",
                 "CSmokeGrenadeProjectileThink_Detonate",
+                "CSmokeGrenadeProjectileThink_Update",
                 "CSmokeGrenadeProjectileThink_Remove",
-                "CSmokeGrenadeProjectileThink_Update"
+                "CSmokeGrenadeProjectileThink_BuildingSmokeVolume"
             ]
         },
         {
@@ -12740,14 +12729,9 @@
                 ]
             },
             "think_functions": [
-                "CItemComeToRest",
-                "CItemDefuserActivateThink",
-                "CItemDefuserDefuserTouch",
-                "CItemGenericItemGenericTouch",
-                "CItemGenericTriggerHelperItemGenericTriggerHelperTouch",
                 "CItemItemTouch",
                 "CItemMaterialize",
-                "CItemSodaCanThink"
+                "CItemComeToRest"
             ]
         },
         {
@@ -13101,13 +13085,13 @@
                 ]
             },
             "think_functions": [
-                "CBaseButtonActivateTouch",
-                "CBaseButtonButtonBackHome",
-                "CBaseButtonButtonReturn",
-                "CBaseButtonButtonSpark",
                 "CBaseButtonButtonTouch",
+                "CBaseButtonButtonSpark",
+                "CBaseButtonTriggerAndWait",
+                "CBaseButtonButtonReturn",
+                "CBaseButtonButtonBackHome",
                 "CBaseButtonButtonUse",
-                "CBaseButtonTriggerAndWait"
+                "CBaseButtonActivateTouch"
             ]
         },
         {
@@ -13544,8 +13528,8 @@
                 ]
             },
             "think_functions": [
-                "CCSWeaponBaseDefaultTouch",
-                "CCSWeaponBaseRemoveUnownedWeaponThink"
+                "CCSWeaponBaseRemoveUnownedWeaponThink",
+                "CCSWeaponBaseDefaultTouch"
             ]
         },
         {
@@ -13772,8 +13756,8 @@
             "data_class_name": "CChicken",
             "fields": {},
             "think_functions": [
-                "CChickenChickenThink",
                 "CChickenChickenTouch",
+                "CChickenChickenThink",
                 "CChickenChickenUse"
             ]
         },
@@ -14118,11 +14102,11 @@
                 ]
             },
             "think_functions": [
-                "CRagdollPropAttachedItemsThink",
-                "CRagdollPropClearFlagsThink",
-                "CRagdollPropFadeOutThink",
                 "CRagdollPropSetDebrisThink",
-                "CRagdollPropSettleThink"
+                "CRagdollPropClearFlagsThink",
+                "CRagdollPropSettleThink",
+                "CRagdollPropAttachedItemsThink",
+                "CRagdollPropFadeOutThink"
             ]
         },
         {
@@ -15989,7 +15973,6 @@
             "data_class_name": "CEnvWind",
             "fields": {},
             "think_functions": [
-                "CEnvWindControllerWindThink",
                 "CEnvWindWindThink"
             ]
         },
@@ -16636,12 +16619,7 @@
             "class_name": "CSmokeGrenade",
             "data_class_name": "CSmokeGrenade",
             "fields": {},
-            "think_functions": [
-                "CSmokeGrenadeProjectileThink_BuildingSmokeVolume",
-                "CSmokeGrenadeProjectileThink_Detonate",
-                "CSmokeGrenadeProjectileThink_Remove",
-                "CSmokeGrenadeProjectileThink_Update"
-            ]
+            "think_functions": []
         },
         {
             "class_name": "CInfoVisibilityBox",
@@ -17032,10 +17010,10 @@
             "think_functions": [
                 "CBaseEntityClearNavIgnoreContentsThink",
                 "CBaseEntityFakeScriptThinkFunc",
-                "CBaseEntitySUB_CallUseToggle",
-                "CBaseEntitySUB_DoNothing",
+                "CBaseEntitySUB_Remove",
                 "CBaseEntitySUB_KillSelf",
-                "CBaseEntitySUB_Remove"
+                "CBaseEntitySUB_DoNothing",
+                "CBaseEntitySUB_CallUseToggle"
             ]
         },
         {
@@ -17971,10 +17949,10 @@
                 ]
             },
             "think_functions": [
-                "CFuncTrackTrainDeadEnd",
+                "CFuncTrackTrainNext",
                 "CFuncTrackTrainFind",
                 "CFuncTrackTrainNearestPath",
-                "CFuncTrackTrainNext"
+                "CFuncTrackTrainDeadEnd"
             ]
         },
         {
@@ -18130,10 +18108,10 @@
                 ]
             },
             "think_functions": [
+                "CMomentaryRotButtonUseMoveDone",
                 "CMomentaryRotButtonReturnMoveDone",
                 "CMomentaryRotButtonSetPositionMoveDone",
-                "CMomentaryRotButtonUpdateThink",
-                "CMomentaryRotButtonUseMoveDone"
+                "CMomentaryRotButtonUpdateThink"
             ]
         },
         {
@@ -18391,8 +18369,8 @@
             "data_class_name": "CDecoyProjectile",
             "fields": {},
             "think_functions": [
-                "CDecoyProjectileGunfireThink",
-                "CDecoyProjectileThink_Detonate"
+                "CDecoyProjectileThink_Detonate",
+                "CDecoyProjectileGunfireThink"
             ]
         },
         {
@@ -18694,8 +18672,8 @@
                 ]
             },
             "think_functions": [
-                "CMultiLightProxyApproachBrightnessThink",
-                "CMultiLightProxyRestoreFlashlightThink"
+                "CMultiLightProxyRestoreFlashlightThink",
+                "CMultiLightProxyApproachBrightnessThink"
             ]
         },
         {
@@ -18996,9 +18974,7 @@
                 ]
             },
             "think_functions": [
-                "CBreakableDie",
-                "CBreakablePropBreakThink",
-                "CBreakablePropRampToDefaultFadeScale"
+                "CBreakableDie"
             ]
         },
         {
@@ -19264,9 +19240,9 @@
                 ]
             },
             "think_functions": [
+                "CTriggerHurtRadiationThink",
                 "CTriggerHurtHurtThink",
-                "CTriggerHurtNavThink",
-                "CTriggerHurtRadiationThink"
+                "CTriggerHurtNavThink"
             ]
         },
         {
@@ -20215,12 +20191,12 @@
                 ]
             },
             "think_functions": [
-                "CFuncRotatingHurtTouch",
-                "CFuncRotatingReverseMove",
-                "CFuncRotatingRotateMove",
-                "CFuncRotatingRotatingUse",
+                "CFuncRotatingSpinUpMove",
                 "CFuncRotatingSpinDownMove",
-                "CFuncRotatingSpinUpMove"
+                "CFuncRotatingHurtTouch",
+                "CFuncRotatingRotatingUse",
+                "CFuncRotatingRotateMove",
+                "CFuncRotatingReverseMove"
             ]
         },
         {
@@ -20228,8 +20204,8 @@
             "data_class_name": "CCSPlayerPawn",
             "fields": {},
             "think_functions": [
-                "CCSPlayerPawnCheckStuffThink",
-                "CCSPlayerPawnPushawayThink"
+                "CCSPlayerPawnPushawayThink",
+                "CCSPlayerPawnCheckStuffThink"
             ]
         },
         {
@@ -20906,9 +20882,7 @@
                     }
                 ]
             },
-            "think_functions": [
-                "CPathMoverEntitySpawnerSpawnThink"
-            ]
+            "think_functions": []
         },
         {
             "class_name": "CLogicMeasureMovement",
@@ -21791,15 +21765,15 @@
             },
             "think_functions": [
                 "CBaseModelEntityProcessSceneEventsThink",
-                "CBaseModelEntitySUB_DissolveIfUncarried",
-                "CBaseModelEntitySUB_FadeOut",
-                "CBaseModelEntitySUB_PerformShadowFadeIn",
-                "CBaseModelEntitySUB_PerformShadowFadeOut",
                 "CBaseModelEntitySUB_StartFadeOut",
                 "CBaseModelEntitySUB_StartFadeOutInstant",
-                "CBaseModelEntitySUB_StartShadowFadeIn",
+                "CBaseModelEntitySUB_FadeOut",
                 "CBaseModelEntitySUB_StartShadowFadeOut",
-                "CBaseModelEntitySUB_StopShadowFade"
+                "CBaseModelEntitySUB_PerformShadowFadeOut",
+                "CBaseModelEntitySUB_StartShadowFadeIn",
+                "CBaseModelEntitySUB_PerformShadowFadeIn",
+                "CBaseModelEntitySUB_StopShadowFade",
+                "CBaseModelEntitySUB_DissolveIfUncarried"
             ]
         },
         {
@@ -22313,8 +22287,7 @@
                 ]
             },
             "think_functions": [
-                "CItemGenericItemGenericTouch",
-                "CItemGenericTriggerHelperItemGenericTriggerHelperTouch"
+                "CItemGenericItemGenericTouch"
             ]
         },
         {
@@ -23281,10 +23254,10 @@
                 ]
             },
             "think_functions": [
+                "CFuncPlatPlatUse",
                 "CFuncPlatCallGoDown",
-                "CFuncPlatCallHitBottom",
                 "CFuncPlatCallHitTop",
-                "CFuncPlatPlatUse"
+                "CFuncPlatCallHitBottom"
             ]
         },
         {
@@ -23463,9 +23436,9 @@
                 ]
             },
             "think_functions": [
-                "CTriggerLerpObjectAttachedEntityThink",
                 "CTriggerLerpObjectLerpThink",
-                "CTriggerLerpObjectUnsetWaitForEntity"
+                "CTriggerLerpObjectUnsetWaitForEntity",
+                "CTriggerLerpObjectAttachedEntityThink"
             ]
         },
         {
@@ -23728,10 +23701,10 @@
                 ]
             },
             "think_functions": [
-                "CPointCommentaryNodeAcculumatePlayTimeThink",
                 "CPointCommentaryNodeSpinThink",
+                "CPointCommentaryNodeUpdateViewThink",
                 "CPointCommentaryNodeUpdateViewPostThink",
-                "CPointCommentaryNodeUpdateViewThink"
+                "CPointCommentaryNodeAcculumatePlayTimeThink"
             ]
         },
         {
