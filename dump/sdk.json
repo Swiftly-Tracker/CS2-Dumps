@@ -94004,6 +94004,59 @@
             "size": 48
         },
         {
+            "alignment": 255,
+            "fields": [
+                {
+                    "alignment": 2,
+                    "kind": "ref",
+                    "name": "m_nPanelIdIndex",
+                    "name_hash": 1602210087785846640,
+                    "networked": true,
+                    "offset": 8,
+                    "size": 2,
+                    "type": "uint16"
+                },
+                {
+                    "alignment": 2,
+                    "kind": "ref",
+                    "name": "m_nDialogVariableIndex",
+                    "name_hash": 1602210091556107355,
+                    "networked": true,
+                    "offset": 10,
+                    "size": 2,
+                    "type": "uint16"
+                },
+                {
+                    "alignment": 8,
+                    "kind": "atomic",
+                    "name": "m_sValue",
+                    "name_hash": 1602210091688044363,
+                    "networked": true,
+                    "offset": 16,
+                    "size": 8,
+                    "templated": "CUtlString",
+                    "type": "CUtlString"
+                },
+                {
+                    "alignment": 1,
+                    "kind": "ref",
+                    "name": "m_bIsSet",
+                    "name_hash": 1602210088876499891,
+                    "networked": true,
+                    "offset": 24,
+                    "size": 1,
+                    "type": "bool"
+                }
+            ],
+            "fields_count": 4,
+            "has_chainer": false,
+            "is_struct": true,
+            "name": "HUDPanelDialogVariableString_t",
+            "name_hash": 373043606,
+            "project": "client",
+            "size": 32
+        },
+        {
             "alignment": 8,
             "base_classes": [
                 "CVAudioNodeBaseDesc"
@@ -98264,6 +98317,48 @@
             "name_hash": 3702773323,
             "project": "resourcesystem",
             "size": 1
+        },
+        {
+            "alignment": 4,
+            "fields": [
+                {
+                    "alignment": 2,
+                    "kind": "ref",
+                    "name": "m_nPanelIdIndex",
+                    "name_hash": 15021105745028831088,
+                    "networked": true,
+                    "offset": 0,
+                    "size": 2,
+                    "type": "uint16"
+                },
+                {
+                    "alignment": 2,
+                    "kind": "ref",
+                    "name": "m_nClassNameIndex",
+                    "name_hash": 15021105745435090844,
+                    "networked": true,
+                    "offset": 2,
+                    "size": 2,
+                    "type": "uint16"
+                },
+                {
+                    "alignment": 4,
+                    "kind": "ref",
+                    "name": "m_eClassStatus",
+                    "name_hash": 15021105748889293402,
+                    "networked": true,
+                    "offset": 4,
+                    "size": 4,
+                    "type": "EHudPanelClassStatus_t"
+                }
+            ],
+            "fields_count": 3,
+            "has_chainer": false,
+            "is_struct": true,
+            "name": "HUDPanelHasClass_t",
+            "name_hash": 3497373719,
+            "project": "client",
+            "size": 8
         },
         {
             "alignment": 8,
@@ -149852,6 +149947,67 @@
             "size": 8
         },
         {
+            "alignment": 255,
+            "fields": [
+                {
+                    "alignment": 1,
+                    "kind": "ref",
+                    "name": "m_bInputCaptureEnabled",
+                    "name_hash": 14468741635989356888,
+                    "networked": true,
+                    "offset": 48,
+                    "size": 1,
+                    "type": "bool"
+                },
+                {
+                    "alignment": 8,
+                    "kind": "atomic",
+                    "name": "m_vecHasClasses",
+                    "name_hash": 14468741633901484217,
+                    "networked": true,
+                    "offset": 56,
+                    "size": 24,
+                    "template": [
+                        "HUDPanelHasClass_t"
+                    ],
+                    "templated": "C_NetworkUtlVectorBase< HUDPanelHasClass_t >",
+                    "type": "C_NetworkUtlVectorBase"
+                },
+                {
+                    "alignment": 8,
+                    "kind": "atomic",
+                    "name": "m_vecDialogVariableStrings",
+                    "name_hash": 14468741632802220029,
+                    "networked": true,
+                    "offset": 80,
+                    "size": 24,
+                    "template": [
+                        "HUDPanelDialogVariableString_t"
+                    ],
+                    "templated": "C_NetworkUtlVectorBase< HUDPanelDialogVariableString_t >",
+                    "type": "C_NetworkUtlVectorBase"
+                },
+                {
+                    "alignment": 4,
+                    "kind": "atomic",
+                    "name": "m_playerSlot",
+                    "name_hash": 14468741635406449676,
+                    "networked": false,
+                    "offset": 264,
+                    "size": 4,
+                    "templated": "CPlayerSlot",
+                    "type": "CPlayerSlot"
+                }
+            ],
+            "fields_count": 4,
+            "has_chainer": false,
+            "is_struct": true,
+            "name": "CCSCustomHudLayoutState",
+            "name_hash": 3368766427,
+            "project": "client",
+            "size": 272
+        },
+        {
             "alignment": 8,
             "base_classes": [
                 "C_CSGO_TeamPreviewCamera"
@@ -155236,6 +155392,56 @@
         {
             "alignment": 8,
             "base_classes": [
+                "C_BaseEntity"
+            ],
+            "base_classes_count": 1,
+            "fields": [
+                {
+                    "alignment": 4,
+                    "kind": "atomic",
+                    "name": "m_hPawn",
+                    "name_hash": 13517611930690423837,
+                    "networked": true,
+                    "offset": 1536,
+                    "size": 4,
+                    "template": [
+                        "C_CSPlayerPawnBase"
+                    ],
+                    "templated": "CHandle< C_CSPlayerPawnBase >",
+                    "type": "CHandle"
+                },
+                {
+                    "alignment": 1,
+                    "kind": "ref",
+                    "name": "m_bEnabled",
+                    "name_hash": 13517611930236545918,
+                    "networked": true,
+                    "offset": 1540,
+                    "size": 1,
+                    "type": "bool"
+                },
+                {
+                    "alignment": 1,
+                    "kind": "ref",
+                    "name": "m_bIsControllingAngles",
+                    "name_hash": 13517611931178981262,
+                    "networked": true,
+                    "offset": 1541,
+                    "size": 1,
+                    "type": "bool"
+                }
+            ],
+            "fields_count": 3,
+            "has_chainer": false,
+            "is_struct": false,
+            "name": "CCSPlayerCamera",
+            "name_hash": 3147314286,
+            "project": "client",
+            "size": 1544
+        },
+        {
+            "alignment": 8,
+            "base_classes": [
                 "C_BaseModelEntity"
             ],
             "base_classes_count": 1,
@@ -159081,6 +159287,99 @@
             "name_hash": 3730472944,
             "project": "client",
             "size": 7440
+        },
+        {
+            "alignment": 8,
+            "base_classes": [
+                "C_BaseEntity"
+            ],
+            "base_classes_count": 1,
+            "fields": [
+                {
+                    "alignment": 8,
+                    "kind": "atomic",
+                    "name": "m_strLayout",
+                    "name_hash": 10190341553562292278,
+                    "networked": true,
+                    "offset": 1544,
+                    "size": 8,
+                    "templated": "CUtlSymbolLarge",
+                    "type": "CUtlSymbolLarge"
+                },
+                {
+                    "alignment": 8,
+                    "kind": "atomic",
+                    "name": "m_vecPlayerLayoutStates",
+                    "name_hash": 10190341552240348824,
+                    "networked": true,
+                    "offset": 1552,
+                    "size": 104,
+                    "template": [
+                        "CCSCustomHudLayoutState"
+                    ],
+                    "templated": "C_UtlVectorEmbeddedNetworkVar< CCSCustomHudLayoutState >",
+                    "type": "C_UtlVectorEmbeddedNetworkVar"
+                },
+                {
+                    "alignment": 255,
+                    "kind": "ref",
+                    "name": "m_globalLayoutState",
+                    "name_hash": 10190341551170979421,
+                    "networked": true,
+                    "offset": 1656,
+                    "size": 272,
+                    "type": "CCSCustomHudLayoutState"
+                },
+                {
+                    "alignment": 8,
+                    "kind": "atomic",
+                    "name": "m_vecPanelIds",
+                    "name_hash": 10190341553192579241,
+                    "networked": true,
+                    "offset": 1928,
+                    "size": 24,
+                    "template": [
+                        "CUtlString"
+                    ],
+                    "templated": "C_NetworkUtlVectorBase< CUtlString >",
+                    "type": "C_NetworkUtlVectorBase"
+                },
+                {
+                    "alignment": 8,
+                    "kind": "atomic",
+                    "name": "m_vecClassNames",
+                    "name_hash": 10190341553296406557,
+                    "networked": true,
+                    "offset": 1952,
+                    "size": 24,
+                    "template": [
+                        "CUtlString"
+                    ],
+                    "templated": "C_NetworkUtlVectorBase< CUtlString >",
+                    "type": "C_NetworkUtlVectorBase"
+                },
+                {
+                    "alignment": 8,
+                    "kind": "atomic",
+                    "name": "m_vecDialogVariableNames",
+                    "name_hash": 10190341551131603851,
+                    "networked": true,
+                    "offset": 1976,
+                    "size": 24,
+                    "template": [
+                        "CUtlString"
+                    ],
+                    "templated": "C_NetworkUtlVectorBase< CUtlString >",
+                    "type": "C_NetworkUtlVectorBase"
+                }
+            ],
+            "fields_count": 6,
+            "has_chainer": false,
+            "is_struct": false,
+            "name": "CCSCustomHudLayout",
+            "name_hash": 2372623782,
+            "project": "client",
+            "size": 2096
         },
         {
             "alignment": 255,
@@ -182376,6 +182675,16 @@
             "name_hash": 235179302,
             "project": "client",
             "size": 20320
+        },
+        {
+            "alignment": 255,
+            "fields_count": 0,
+            "has_chainer": false,
+            "is_struct": true,
+            "name": "CCSCustomHudLayout_API",
+            "name_hash": 3875759241,
+            "project": "client",
+            "size": 8
         },
         {
             "alignment": 16,
@@ -231754,7 +232063,7 @@
             "name": "CCSPointScriptEntity",
             "name_hash": 4085190234,
             "project": "server",
-            "size": 1552
+            "size": 1576
         },
         {
             "alignment": 8,
@@ -243050,6 +243359,27 @@
             "size": 4
         },
         {
+            "alignment": 4,
+            "fields": [
+                {
+                    "name": "k_eHudPanelClassStatus_Undefined",
+                    "value": -1
+                },
+                {
+                    "name": "k_eHudPanelClassStatus_DoesNotHaveClass",
+                    "value": 0
+                },
+                {
+                    "name": "k_eHudPanelClassStatus_HasClass",
+                    "value": 1
+                }
+            ],
+            "fields_count": 3,
+            "name": "EHudPanelClassStatus_t",
+            "project": "client",
+            "size": 4
+        },
+        {
             "alignment": 1,
             "fields": [
                 {
@@ -244806,9 +245136,13 @@
                 {
                     "name": "CS_UM_WeaponMagDrop",
                     "value": 389
+                },
+                {
+                    "name": "CS_UM_CustomHudClicked",
+                    "value": 390
                 }
             ],
-            "fields_count": 78,
+            "fields_count": 79,
             "name": "ECstrike15UserMessages",
             "project": "client",
             "size": 4

@@ -282,7 +282,7 @@ PropertyEditorSystem_001
 QueryPerformanceCounter
 RESOURCE_TYPE_JAVASCRIPT
 RESOURCE_TYPE_TYPESCRIPT
-RSDSD
+RSDS
 RaiseException
 RegisterConCommand: Unknown error registering con command "%s"!\n
 RegisterConVar: Unknown error registering convar "%s"!\n
@@ -359,6 +359,9 @@ UUUUUU
 UnhandledExceptionFilter
 Unknown exception
 UtlRBTree_FailedInsertDuplicate
+UtlVectorMemory_Alloc
+UtlVectorMemory_CalcNewAllocationCount
+UtlVectorMemory_FailedAllocation
 V8 Near Heap Limit: cur=%llu, init=%llu, max=%llu
 V8 hiting max memory limit: %d MB
 V8FatalErrorHandler
@@ -598,15 +601,22 @@ public: static void v8::V8::DisposePlatform(void) (demangled)
 public: static void v8::V8::InitializePlatform(v8::Platform*) (demangled)
 public: static void v8::V8::etFlagsFromString::operator~(char const*, uint64_t) (demangled)
 public: uint64_t v8::Isolate::NumberOfHeapSpaces(void) (demangled)
+public: v8::HandleScope::HandleScope(v8::Isolate*) (demangled)
+public: v8::HandleScope::~HandleScope(void) (demangled)
 public: v8::HeapSpaceStatistics::HeapSpaceStatistics(void) (demangled)
 public: v8::HeapStatistics::HeapStatistics(void) (demangled)
 public: v8::Isolate::CreateParams::CreateParams(void) (demangled)
 public: v8::Isolate::CreateParams::~CreateParams(void) (demangled)
+public: v8::Local<v8::Context> v8::Isolate::GetCurrentContext(void) (demangled)
+public: v8::String::Utf8Value::Utf8Value(v8::Isolate*, v8::Local<v8::Value>) (demangled)
+public: v8::String::Utf8Value::~Utf8Value(void) (demangled)
 public: virtual void* v8::ArrayBuffer::Allocator::Reallocate(void*, uint64_t, uint64_t) (demangled)
 public: void CBufferString::MoveFrom(CBufferString&) (demangled)
 public: void CBufferString::Purge(int) (demangled)
 public: void CBufferString::ToLowerFast(int) (demangled)
 public: void CUtlString::Set(char const*) (demangled)
+public: void v8::Context::Enter(void) (demangled)
+public: void v8::Context::Exit(void) (demangled)
 public: void v8::Isolate::Dispose(void) (demangled)
 public: void v8::Isolate::Enter(void) (demangled)
 public: void v8::Isolate::Exit(void) (demangled)
@@ -616,6 +626,7 @@ public: void v8::Isolate::SetCaptureStackTraceForUncaughtExceptions(bool, int, v
 public: void v8::Isolate::SetFatalErrorHandler(void (*)(char const*, char const*)) (demangled)
 public: void v8::Isolate::\v?AddNearHeapLimitCallback(uint64_t (*)(void*, uint64_t, uint64_t), void*) (demangled)
 public: void v8::Isolate::etOOMErrorHandler::operator~(void (*)(char const*, v8::OOMDetails const&)) (demangled)
+public: void v8::Isolate::etPromiseRejectCallback::operator~(void (*)(v8::PromiseRejectMessage)) (demangled)
 public: void v8::ResourceConstraints::ConfigureDefaultsFromHeapSize(uint64_t, uint64_t) (demangled)
 purecall
 qangle
