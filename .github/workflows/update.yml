@@ -24,3 +24,9 @@ jobs:
             game_folder: "csgo"
             tracked_files: "tracked_files.json"
         secrets: inherit
+
+    trigger_update:
+        needs: dump
+        uses: Swiftly-Tracker/Dumps/.github/workflows/trigger_update.yml@main
+        secrets:
+            TRIGGER_PAT: ${{ secrets.TRIGGER_PAT }}
