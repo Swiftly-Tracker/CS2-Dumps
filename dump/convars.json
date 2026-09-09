@@ -5964,6 +5964,36 @@
             "has_max": false,
             "has_min": false
         },
+        "default": "",
+        "description": "Key to decrypt encrypted GOTV messages",
+        "flags": [
+            "release"
+        ],
+        "module": "engine2",
+        "name": "cl_decryptdata_key"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "default": "",
+        "description": "Key to decrypt public encrypted GOTV messages",
+        "flags": [
+            "release"
+        ],
+        "module": "engine2",
+        "name": "cl_decryptdata_key_pub"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
         "default": "1",
         "description": "Enable 'TrueView' when watching a demo, which attempts to recreate the client's experience more accurately.  0=disable, 1=only if demo version match, 2=always",
         "flags": [
@@ -61315,6 +61345,36 @@
             "has_max": false,
             "has_min": false
         },
+        "default": "",
+        "description": "When set to a valid key communication messages will be encrypted for GOTV",
+        "flags": [
+            "release"
+        ],
+        "module": "engine2",
+        "name": "tv_encryptdata_key"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "default": "",
+        "description": "When set to a valid key public communication messages will be encrypted for GOTV",
+        "flags": [
+            "release"
+        ],
+        "module": "engine2",
+        "name": "tv_encryptdata_key_pub"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
         "default": "false",
         "description": "",
         "flags": [
@@ -61935,6 +61995,21 @@
             "has_max": false,
             "has_min": false
         },
+        "default": "1",
+        "description": "Relay text chat data to GOTV: 0=off, 1=say, 2=say+say_team",
+        "flags": [
+            "release"
+        ],
+        "module": "server",
+        "name": "tv_relaytextchat"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
         "default": "true",
         "description": "Relay voice data: 0=off, 1=on",
         "flags": [
@@ -61973,21 +62048,6 @@
         ],
         "module": "engine2",
         "name": "tv_secure_bypass"
-    },
-    {
-        "attributes": {
-            "has_callback": true,
-            "has_default": true,
-            "has_max": false,
-            "has_min": false
-        },
-        "default": "true",
-        "description": "",
-        "flags": [
-            "release"
-        ],
-        "module": "server",
-        "name": "tv_show_allchat"
     },
     {
         "attributes": {

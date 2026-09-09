@@ -163012,52 +163012,16 @@
         {
             "alignment": 8,
             "base_classes": [
-                "C_BaseEntity"
+                "CCSCustomPlayerCamera"
             ],
             "base_classes_count": 1,
-            "fields": [
-                {
-                    "alignment": 4,
-                    "kind": "atomic",
-                    "name": "m_hPawn",
-                    "name_hash": 13517611930690423837,
-                    "networked": true,
-                    "offset": 1536,
-                    "size": 4,
-                    "template": [
-                        "C_CSPlayerPawnBase"
-                    ],
-                    "templated": "CHandle< C_CSPlayerPawnBase >",
-                    "type": "CHandle"
-                },
-                {
-                    "alignment": 1,
-                    "kind": "ref",
-                    "name": "m_bEnabled",
-                    "name_hash": 13517611930236545918,
-                    "networked": true,
-                    "offset": 1540,
-                    "size": 1,
-                    "type": "bool"
-                },
-                {
-                    "alignment": 1,
-                    "kind": "ref",
-                    "name": "m_bIsControllingAngles",
-                    "name_hash": 13517611931178981262,
-                    "networked": true,
-                    "offset": 1541,
-                    "size": 1,
-                    "type": "bool"
-                }
-            ],
-            "fields_count": 3,
+            "fields_count": 0,
             "has_chainer": false,
             "is_struct": false,
             "name": "CCSPlayerCamera",
             "name_hash": 3147314286,
             "project": "client",
-            "size": 1544
+            "size": 1600
         },
         {
             "alignment": 8,
@@ -167294,10 +167258,20 @@
                     "name": "m_strLayout",
                     "name_hash": 10190341553562292278,
                     "networked": true,
-                    "offset": 1544,
+                    "offset": 1560,
                     "size": 8,
                     "templated": "CUtlSymbolLarge",
                     "type": "CUtlSymbolLarge"
+                },
+                {
+                    "alignment": 1,
+                    "kind": "ref",
+                    "name": "m_bObservable",
+                    "name_hash": 10190341552381314760,
+                    "networked": true,
+                    "offset": 1568,
+                    "size": 1,
+                    "type": "bool"
                 },
                 {
                     "alignment": 8,
@@ -167305,7 +167279,7 @@
                     "name": "m_vecPlayerLayoutStates",
                     "name_hash": 10190341552240348824,
                     "networked": true,
-                    "offset": 1552,
+                    "offset": 1576,
                     "size": 104,
                     "template": [
                         "CCSCustomHudLayoutState"
@@ -167319,7 +167293,7 @@
                     "name": "m_globalLayoutState",
                     "name_hash": 10190341551170979421,
                     "networked": true,
-                    "offset": 1656,
+                    "offset": 1680,
                     "size": 264,
                     "type": "CCSCustomHudLayoutState"
                 },
@@ -167329,7 +167303,7 @@
                     "name": "m_vecPanelIds",
                     "name_hash": 10190341553192579241,
                     "networked": true,
-                    "offset": 1920,
+                    "offset": 1944,
                     "size": 24,
                     "template": [
                         "CUtlString"
@@ -167343,7 +167317,7 @@
                     "name": "m_vecClassNames",
                     "name_hash": 10190341553296406557,
                     "networked": true,
-                    "offset": 1944,
+                    "offset": 1968,
                     "size": 24,
                     "template": [
                         "CUtlString"
@@ -167357,7 +167331,7 @@
                     "name": "m_vecDialogVariableNames",
                     "name_hash": 10190341551131603851,
                     "networked": true,
-                    "offset": 1968,
+                    "offset": 1992,
                     "size": 24,
                     "template": [
                         "CUtlString"
@@ -167366,13 +167340,13 @@
                     "type": "C_NetworkUtlVectorBase"
                 }
             ],
-            "fields_count": 6,
+            "fields_count": 7,
             "has_chainer": false,
             "is_struct": false,
             "name": "CCSCustomHudLayout",
             "name_hash": 2372623782,
             "project": "client",
-            "size": 2088
+            "size": 2112
         },
         {
             "alignment": 255,
@@ -183321,6 +183295,112 @@
             "name_hash": 3758080763,
             "project": "client",
             "size": 72
+        },
+        {
+            "alignment": 8,
+            "base_classes": [
+                "C_BaseEntity"
+            ],
+            "base_classes_count": 1,
+            "fields": [
+                {
+                    "alignment": 4,
+                    "kind": "atomic",
+                    "name": "m_hPawn",
+                    "name_hash": 438034890448079901,
+                    "networked": true,
+                    "offset": 1536,
+                    "size": 4,
+                    "template": [
+                        "C_CSPlayerPawnBase"
+                    ],
+                    "templated": "CHandle< C_CSPlayerPawnBase >",
+                    "type": "CHandle"
+                },
+                {
+                    "alignment": 1,
+                    "kind": "ref",
+                    "name": "m_nCameraMode",
+                    "name_hash": 438034891798910657,
+                    "networked": true,
+                    "offset": 1540,
+                    "size": 1,
+                    "type": "CustomCameraMode_t"
+                },
+                {
+                    "alignment": 4,
+                    "kind": "atomic",
+                    "name": "m_hFollowEntity",
+                    "name_hash": 438034890131530025,
+                    "networked": true,
+                    "offset": 1544,
+                    "size": 4,
+                    "template": [
+                        "C_BaseEntity"
+                    ],
+                    "templated": "CHandle< C_BaseEntity >",
+                    "type": "CHandle"
+                },
+                {
+                    "alignment": 1,
+                    "kind": "ref",
+                    "name": "m_bFollowEyes",
+                    "name_hash": 438034888457024418,
+                    "networked": true,
+                    "offset": 1548,
+                    "size": 1,
+                    "type": "bool"
+                },
+                {
+                    "alignment": 4,
+                    "kind": "atomic",
+                    "name": "m_vecFollowOffset",
+                    "name_hash": 438034889415961683,
+                    "networked": true,
+                    "offset": 1552,
+                    "size": 12,
+                    "templated": "Vector",
+                    "type": "Vector"
+                },
+                {
+                    "alignment": 4,
+                    "kind": "atomic",
+                    "name": "m_vecCameraOffset",
+                    "name_hash": 438034891045529657,
+                    "networked": true,
+                    "offset": 1564,
+                    "size": 12,
+                    "templated": "Vector",
+                    "type": "Vector"
+                },
+                {
+                    "alignment": 1,
+                    "kind": "ref",
+                    "name": "m_bClipCameraOffset",
+                    "name_hash": 438034889405067767,
+                    "networked": true,
+                    "offset": 1576,
+                    "size": 1,
+                    "type": "bool"
+                },
+                {
+                    "alignment": 4,
+                    "kind": "ref",
+                    "name": "m_flCameraOffsetReturnStrength",
+                    "name_hash": 438034889026563140,
+                    "networked": true,
+                    "offset": 1580,
+                    "size": 4,
+                    "type": "float32"
+                }
+            ],
+            "fields_count": 8,
+            "has_chainer": false,
+            "is_struct": false,
+            "name": "CCSCustomPlayerCamera",
+            "name_hash": 101987945,
+            "project": "client",
+            "size": 1600
         },
         {
             "alignment": 255,
@@ -226203,52 +226283,16 @@
         {
             "alignment": 8,
             "base_classes": [
-                "CBaseEntity"
+                "CCSCustomPlayerCamera"
             ],
             "base_classes_count": 1,
-            "fields": [
-                {
-                    "alignment": 4,
-                    "kind": "atomic",
-                    "name": "m_hPawn",
-                    "name_hash": 13517611930690423837,
-                    "networked": true,
-                    "offset": 1192,
-                    "size": 4,
-                    "template": [
-                        "CCSPlayerPawnBase"
-                    ],
-                    "templated": "CHandle< CCSPlayerPawnBase >",
-                    "type": "CHandle"
-                },
-                {
-                    "alignment": 1,
-                    "kind": "ref",
-                    "name": "m_bEnabled",
-                    "name_hash": 13517611930236545918,
-                    "networked": true,
-                    "offset": 1196,
-                    "size": 1,
-                    "type": "bool"
-                },
-                {
-                    "alignment": 1,
-                    "kind": "ref",
-                    "name": "m_bIsControllingAngles",
-                    "name_hash": 13517611931178981262,
-                    "networked": true,
-                    "offset": 1197,
-                    "size": 1,
-                    "type": "bool"
-                }
-            ],
-            "fields_count": 3,
+            "fields_count": 0,
             "has_chainer": false,
             "is_struct": false,
             "name": "CCSPlayerCamera",
             "name_hash": 3147314286,
             "project": "server",
-            "size": 1200
+            "size": 1256
         },
         {
             "alignment": 8,
@@ -232341,12 +232385,22 @@
                     "type": "CUtlSymbolLarge"
                 },
                 {
+                    "alignment": 1,
+                    "kind": "ref",
+                    "name": "m_bObservable",
+                    "name_hash": 10190341552381314760,
+                    "networked": true,
+                    "offset": 1200,
+                    "size": 1,
+                    "type": "bool"
+                },
+                {
                     "alignment": 8,
                     "kind": "atomic",
                     "name": "m_vecPlayerLayoutStates",
                     "name_hash": 10190341552240348824,
                     "networked": true,
-                    "offset": 1200,
+                    "offset": 1208,
                     "size": 104,
                     "template": [
                         "CCSCustomHudLayoutState"
@@ -232360,7 +232414,7 @@
                     "name": "m_globalLayoutState",
                     "name_hash": 10190341551170979421,
                     "networked": true,
-                    "offset": 1304,
+                    "offset": 1312,
                     "size": 408,
                     "type": "CCSCustomHudLayoutState"
                 },
@@ -232370,7 +232424,7 @@
                     "name": "m_vecPanelIds",
                     "name_hash": 10190341553192579241,
                     "networked": true,
-                    "offset": 1712,
+                    "offset": 1720,
                     "size": 24,
                     "template": [
                         "CUtlString"
@@ -232384,7 +232438,7 @@
                     "name": "m_vecClassNames",
                     "name_hash": 10190341553296406557,
                     "networked": true,
-                    "offset": 1736,
+                    "offset": 1744,
                     "size": 24,
                     "template": [
                         "CUtlString"
@@ -232398,7 +232452,7 @@
                     "name": "m_vecDialogVariableNames",
                     "name_hash": 10190341551131603851,
                     "networked": true,
-                    "offset": 1760,
+                    "offset": 1768,
                     "size": 24,
                     "template": [
                         "CUtlString"
@@ -232407,13 +232461,13 @@
                     "type": "CNetworkUtlVectorBase"
                 }
             ],
-            "fields_count": 6,
+            "fields_count": 7,
             "has_chainer": false,
             "is_struct": false,
             "name": "CCSCustomHudLayout",
             "name_hash": 2372623782,
             "project": "server",
-            "size": 2024
+            "size": 2032
         },
         {
             "alignment": 255,
@@ -258391,6 +258445,112 @@
             "name_hash": 655153870,
             "project": "server",
             "size": 2280
+        },
+        {
+            "alignment": 8,
+            "base_classes": [
+                "CBaseEntity"
+            ],
+            "base_classes_count": 1,
+            "fields": [
+                {
+                    "alignment": 4,
+                    "kind": "atomic",
+                    "name": "m_hPawn",
+                    "name_hash": 438034890448079901,
+                    "networked": true,
+                    "offset": 1192,
+                    "size": 4,
+                    "template": [
+                        "CCSPlayerPawnBase"
+                    ],
+                    "templated": "CHandle< CCSPlayerPawnBase >",
+                    "type": "CHandle"
+                },
+                {
+                    "alignment": 1,
+                    "kind": "ref",
+                    "name": "m_nCameraMode",
+                    "name_hash": 438034891798910657,
+                    "networked": true,
+                    "offset": 1196,
+                    "size": 1,
+                    "type": "CustomCameraMode_t"
+                },
+                {
+                    "alignment": 4,
+                    "kind": "atomic",
+                    "name": "m_hFollowEntity",
+                    "name_hash": 438034890131530025,
+                    "networked": true,
+                    "offset": 1200,
+                    "size": 4,
+                    "template": [
+                        "CBaseEntity"
+                    ],
+                    "templated": "CHandle< CBaseEntity >",
+                    "type": "CHandle"
+                },
+                {
+                    "alignment": 1,
+                    "kind": "ref",
+                    "name": "m_bFollowEyes",
+                    "name_hash": 438034888457024418,
+                    "networked": true,
+                    "offset": 1204,
+                    "size": 1,
+                    "type": "bool"
+                },
+                {
+                    "alignment": 4,
+                    "kind": "atomic",
+                    "name": "m_vecFollowOffset",
+                    "name_hash": 438034889415961683,
+                    "networked": true,
+                    "offset": 1208,
+                    "size": 12,
+                    "templated": "Vector",
+                    "type": "Vector"
+                },
+                {
+                    "alignment": 4,
+                    "kind": "atomic",
+                    "name": "m_vecCameraOffset",
+                    "name_hash": 438034891045529657,
+                    "networked": true,
+                    "offset": 1220,
+                    "size": 12,
+                    "templated": "Vector",
+                    "type": "Vector"
+                },
+                {
+                    "alignment": 1,
+                    "kind": "ref",
+                    "name": "m_bClipCameraOffset",
+                    "name_hash": 438034889405067767,
+                    "networked": true,
+                    "offset": 1232,
+                    "size": 1,
+                    "type": "bool"
+                },
+                {
+                    "alignment": 4,
+                    "kind": "ref",
+                    "name": "m_flCameraOffsetReturnStrength",
+                    "name_hash": 438034889026563140,
+                    "networked": true,
+                    "offset": 1236,
+                    "size": 4,
+                    "type": "float32"
+                }
+            ],
+            "fields_count": 8,
+            "has_chainer": false,
+            "is_struct": false,
+            "name": "CCSCustomPlayerCamera",
+            "name_hash": 101987945,
+            "project": "server",
+            "size": 1248
         },
         {
             "alignment": 255,
@@ -294699,15 +294859,15 @@
                     "value": 304
                 },
                 {
-                    "name": "CS_UM_SayText",
+                    "name": "CS_UM_SayText_CSGOLegacy",
                     "value": 305
                 },
                 {
-                    "name": "CS_UM_SayText2",
+                    "name": "CS_UM_SayText2_CSGOLegacy",
                     "value": 306
                 },
                 {
-                    "name": "CS_UM_TextMsg",
+                    "name": "CS_UM_TextMsg_CSGOLegacy",
                     "value": 307
                 },
                 {
@@ -294787,7 +294947,7 @@
                     "value": 327
                 },
                 {
-                    "name": "CS_UM_UpdateTeamMoney",
+                    "name": "CS_UM_UpdateTeamMoney_CSGOLegacy",
                     "value": 328
                 },
                 {
@@ -305731,9 +305891,13 @@
                 {
                     "name": "svc_NextMsgPredicted",
                     "value": 77
+                },
+                {
+                    "name": "svc_EncryptedData",
+                    "value": 78
                 }
             ],
-            "fields_count": 31,
+            "fields_count": 32,
             "name": "SVC_Messages",
             "project": "client",
             "size": 4
@@ -308817,6 +308981,31 @@
             "name": "SubclassVDataChangeType_t",
             "project": "client",
             "size": 4
+        },
+        {
+            "alignment": 1,
+            "fields": [
+                {
+                    "name": "CUSTOM_CAMERA_MODE_DISABLED",
+                    "value": 0
+                },
+                {
+                    "name": "CUSTOM_CAMERA_MODE_CONTROLLED",
+                    "value": 1
+                },
+                {
+                    "name": "CUSTOM_CAMERA_MODE_CONTROLLED_POSITION",
+                    "value": 2
+                },
+                {
+                    "name": "CUSTOM_CAMERA_MODE_FOLLOW_POSITION",
+                    "value": 3
+                }
+            ],
+            "fields_count": 4,
+            "name": "CustomCameraMode_t",
+            "project": "client",
+            "size": 1
         },
         {
             "alignment": 4,

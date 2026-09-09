@@ -793,8 +793,10 @@ declare module "cs_script/point_script"
         IsScoped(): boolean;
         IsNoclipping(): boolean;
         IsBuyMenuOpen(): boolean;
-        GetCamera(): CSPlayerCamera;
+        GetCustomCamera(): CustomPlayerCamera;
 
+        /** @deprecated This method will be removed in a future update */
+        GetCamera(): CSPlayerCamera;
         /** @deprecated This method will be removed in a future update */
         IsCrouching(): boolean;
         /** @deprecated This method will be removed in a future update */
@@ -809,6 +811,9 @@ declare module "cs_script/point_script"
      *   * <Image> with attributes id, class, hittest, and src
      *   * <Button> with attributes id and class
      * * Styling with css is supported.
+     * * The following css classes will be set on an ancestor panel when appropriate:
+     *   * `HUD_BUYMENU_VISIBLE`
+     *   * `HUD_SCOREBOARD_VISIBLE`
      * * Events and client side scripting are not supported.
      * 
      * To use
@@ -858,16 +863,52 @@ declare module "cs_script/point_script"
         ForceSpawn(origin?: Vector, angle?: QAngle): Entity[] | undefined;
     }
 
+    export enum CustomCameraMode {
+        /** Position and angles come from the eye position and angles of the player. */
+        DISABLED = 0,
+        /** Position and angles come from the origin and angles of the camera entity. */
+        CONTROLLED = 1,
+        /** Position comes from the origin of camera entity. Angles are player controlled. */
+        CONTROLLED_POSITION = 2,
+        /** Position comes from an offset around a followed position. Angles are player controlled. */
+        FOLLOW_POSITION = 3
+    }
+
+    interface CameraFollowConfig {
+        /** The entity to follow */
+        followEntity: Entity;
+        /** Should followOffset be an offset from the eyes instead of the origin */
+        followEyes?: boolean;
+        /** An offset from the origin (or eyes) of followEntity to follow */
+        followOffset?: Vector;
+        /** An offset from the followed position rotated by player's eye angles. x is forward, y is left, z is up. */
+        cameraOffset?: Vector;
+        /** Should cameraOffset be pulled in to not clip into solids. */
+        clipCameraOffset?: boolean;
+        /** Strength of returning the camera to cameraOffset after being pushed in by clipping. Defaults to 1; instant. */
+        cameraOffsetReturnStrength?: number;
+    }
+
     /**
-     * Move this to control a player's view without moving their pawn.
-     * There is at most one of these per CSPlayerPawn, created on demand when CSPlayerPawn.GetCamera is called.
+     * Configuration of a player's view position and angles.
+     * There is at most one of these per CSPlayerPawn, created on demand when CSPlayerPawn.GetCustomCamera is called.
      * @experimental This feature is experimental and may experience breaking changes.
      * Please send feedback to CSGOTeamFeedback@valvesoftware.com with "cs_script Feedback" in the subject line.
      */
+    export class CustomPlayerCamera extends Entity {
+        GetPlayer(): CSPlayerPawn;
+        GetMode(): CustomCameraMode;
+        SetMode(mode: CustomCameraMode): void;
+        SetFollowConfig(followConfig: CameraFollowConfig): void;
+    }
+
+    /** @deprecated This class will be removed soon */
     export class CSPlayerCamera extends Entity {
+        /** @deprecated This method will be removed soon */
         IsEnabled(): boolean;
+        /** @deprecated This method will be removed soon */
         SetEnabled(enabled: boolean): void;
-        /** Set to false let a player look around from the camera's position. */
+        /** @deprecated This method will be removed soon */
         SetIsControllingAngles(controlling: boolean): void;
     }
 

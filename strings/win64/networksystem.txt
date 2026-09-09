@@ -37,9 +37,9 @@
  #Valve_Reject_Reserved_For_Lobby
  %dms faster than direct ping of %dms
  (08@HPX`hpx
- (08@HPX`j
+ (08@HPX`j0
  (08@HPXb
- (08@HPZ
+ (08@HPZ0
  (0X`hpz
  - keeping around as cacheable shared connection
  = { <proto text format> }". To set fields within it, use syntax like "
@@ -633,6 +633,7 @@ $schemasystem/schema_enable_defines.h
 0123456789abcdefghijklmnopqrstuvwxyz
 0:<\n\fdelta_ignore
 0\n\vserializers
+0vHN
 1#IND
 1#INF
 1#QNAN
@@ -674,10 +675,12 @@ $schemasystem/schema_enable_defines.h
 ?qBJ
 ?ysB
 @08@HPX`hpx
+@08NHN
 @HPX
 @HPX&I
-@HPX`hv0d
-@HV@r
+@HPX`hvPh
+@HV`v
+@nHN
 A file with this name is already in the pool.
 A protocol message was rejected because it was too big (more than 
 A>pP&
@@ -985,6 +988,7 @@ CSVCMsg_ClearAllStringTables
 CSVCMsg_CmdKeyValues
 CSVCMsg_CreateStringTable
 CSVCMsg_CrosshairAngle
+CSVCMsg_EncryptedData
 CSVCMsg_FixAngle
 CSVCMsg_FlattenedSerializer
 CSVCMsg_FullFrameSplit
@@ -1813,7 +1817,8 @@ Order,'From','To',Bits\n
 OutSeqNum
 OutSeqNumAck
 Overrides IP for multihomed hosts
-P08N(J
+P08JP
+P08NHN
 P@HPX`hpx\f
 PACKET_STATUS_DROPPED
 PACKET_STATUS_INVALID
@@ -1933,7 +1938,7 @@ REPLAY_EVENT_VICTORY
 RP_PAUSE
 RP_TOGGLEPAUSE
 RSDS
-R\vp\fH
+R\vp,L
 RadianEuler
 RaiseException
 RandomFloat
@@ -2386,7 +2391,6 @@ X\n'NETWORK_DISCONNECT_BADSPECTATORPASSWORD
 X\n'NETWORK_DISCONNECT_DIFFERENTCLASSTABLES
 X\n'NETWORK_DISCONNECT_KICKED_NOSTEAMTICKET
 X\n(NETWORK_DISCONNECT_INVALID_MESSAGE_ERROR
-Xfpv
 Y\n)NETWORK_DISCONNECT_NO_PEER_GROUP_HANDLERS
 Y\n*NETWORK_DISCONNECT_STRINGTABLEMSG_OVERFLOW
 Y\n0NETWORK_DISCONNECT_REJECT_SERVERCDKEYAUTHINVALID
@@ -2579,6 +2583,7 @@ Z\n+NETWORK_DISCONNECT_CONNECT_REQUEST_TIMEDOUT
 \n\tcpu_usage
 \n\tcvar_name
 \n\tdedicated
+\n\tencrypted
 \n\tgame_mode
 \n\tgame_type
 \n\thost_name
@@ -2741,6 +2746,7 @@ _nextafter
 `managed vector constructor iterator'
 `managed vector copy constructor iterator'
 `managed vector destructor iterator'
+`nHN
 `omni callsig'
 `placement delete closure'
 `placement delete[] closure'
@@ -2759,7 +2765,7 @@ _nextafter
 `vector vbase copy constructor iterator'
 `vftable'
 `virtual displacement map'
-aBv(J
+aBvHN
 abcdefghijklmnopqrstuvwxyz
 acos
 activated
@@ -2849,6 +2855,7 @@ bytes_total_voice
 c_os
 cameraman_scoreboard
 can't reach here.
+caster
 cc_enable_arenas
 cc_generic_services
 ceil
@@ -2976,6 +2983,7 @@ class CSVCMsg_ClearAllStringTables (demangled)
 class CSVCMsg_CmdKeyValues (demangled)
 class CSVCMsg_CreateStringTable (demangled)
 class CSVCMsg_CrosshairAngle (demangled)
+class CSVCMsg_EncryptedData (demangled)
 class CSVCMsg_FixAngle (demangled)
 class CSVCMsg_FlattenedSerializer (demangled)
 class CSVCMsg_FullFrameSplit (demangled)
@@ -3535,6 +3543,7 @@ k_EProtoDebugVisibility_GC
 k_EProtoDebugVisibility_Never
 k_EProtoDebugVisibility_Server
 key_t
+key_type
 keys
 laQ
 label
@@ -3605,6 +3614,7 @@ msg_data
 msg_type
 n03>Pu
 nBits != 32
+nHN
 nIndex != m_priorityToOrderMap.InvalidIndex()
 nPriority != NETWORK_FIELD_CHANGE_DEFAULT_PRIORITY
 n\n0NETWORK_DISCONNECT_KICKED_VACNETABNORMALBEHAVIOR
@@ -3778,7 +3788,8 @@ outofpvs_entity_updates_t
 override_operator_name
 owM&
 owner dead
-p08@H^(J
+p08@H^HN
+p>HN
 p@HPX`h\f
 pFx
 pOC
@@ -3812,7 +3823,7 @@ players_networkids
 pmInfoDest.m_pFlattenedSerializer
 pmInfoDest.m_unPolymorphicTypeId == pmInfoSource.m_unPolymorphicTypeId
 pmInfoSource.m_pFlattenedSerializer
-pn(J
+pnHN
 pointer
 pointer field
 polymorphic
@@ -4120,6 +4131,7 @@ svc_Broadcast_Command
 svc_ClearAllStringTables
 svc_CmdKeyValues
 svc_CreateStringTable
+svc_EncryptedData
 svc_FlattenedSerializer
 svc_FullFrameSplit
 svc_GetCvarValue
@@ -4232,6 +4244,7 @@ using_varint_bitcounts
 utcdatetime_vals
 utlvector
 v@vector2
+vHN
 val_bool
 val_byte
 val_long
