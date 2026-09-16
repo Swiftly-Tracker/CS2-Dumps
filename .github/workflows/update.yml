@@ -3,6 +3,10 @@ name: Dumping
 on:
     workflow_dispatch:
         inputs:
+            dumps_commit:
+                description: "Existing CS2-Dumps commit to publish with IDA only (blank = run a new dump)"
+                required: false
+                default: ""
             branch:
                 description: "Steam depot branch (blank = public/default)"
                 required: false
@@ -14,6 +18,7 @@ concurrency:
 
 jobs:
     dump:
+        if: inputs.dumps_commit == ''
         uses: swiftly-tracker/dumps/.github/workflows/dumper.yml@main
         permissions:
             contents: write
@@ -26,7 +31,12 @@ jobs:
         secrets: inherit
 
     trigger_update:
+        if: always() && !cancelled() && (needs.dump.result == 'success' || (needs.dump.result == 'skipped' && inputs.dumps_commit != ''))
         needs: dump
         uses: Swiftly-Tracker/Dumps/.github/workflows/trigger_update.yml@main
+        with:
+            dumps_commit: ${{ inputs.dumps_commit || needs.dump.outputs.dumps_commit }}
         secrets:
             TRIGGER_PAT: ${{ secrets.TRIGGER_PAT }}
+            S2A_API_URL: ${{ secrets.S2A_API_URL }}
+            S2A_API_KEY: ${{ secrets.S2A_API_KEY }}
