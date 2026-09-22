@@ -29,10 +29,12 @@
  Complete Object Locator'
  LinePos:
  Type Descriptor'
+ \n_V_strncmp
  delete
  delete[]
  near '%s' -
  new
+!\n_V_strncpy
 """
 "%s" -addon %s
 "Test"\n{\n"TestKeyForAddon" "%s"\n}\n
@@ -97,6 +99,7 @@
 #WorkshopCfg_ShowHelp
 #WorkshopCfg_ShowLaunchCommandLine
 #WorkshopCfg_WindowTitle
+#\n_V_strnicmp_fast
 %02i/%02i %02i:%02i:%02i 
 %dS
 %lld
@@ -121,7 +124,6 @@
 %systemdrive%\users\%username%\Desktop
 '%s' is not a valid variable type
 'OverrideClass' was specified but class '%s' has not been previously defined.\n
-'\tV_fclose
 (Expecting %s)
 (Expecting EOF)
 (None)
@@ -133,7 +135,6 @@
 *.tga
 *LANGUAGE*
 *StO9>T
-+\tV_fflush
 +inf
 , at offset %d
 , near %s
@@ -178,7 +179,6 @@
 .CRT$XPZ
 .CRT$XTA
 .CRT$XTZ
-.\tV_fileno
 .bss
 .cfg
 .data
@@ -219,7 +219,6 @@
 .xJ>Hf
 .xdata
 .xdata$x
-/\tV_fmodd
 /content/
 /e,/select,"
 /game/
@@ -257,7 +256,6 @@
 1reject()
 2DownArrowPressed()
 2UpArrowPressed()
-2\tV_fopenUTF8
 2accepted()
 2clicked()
 2customContextMenuRequested( const QPoint & )
@@ -271,9 +269,7 @@
 2timeout()
 2triggered()
 3>N;kU
-3\tV_fpclassifyd
 488:1: POS_FLOATLITERAL : ( ( DIGIT )+ '.' ( DIGIT )* ( EXPONENT )? | '.' ( DIGIT )+ ( EXPONENT )? | ( DIGIT )+ EXPONENT );
-4\tV_fprintf
 : lexer error %d :\n\t%s at offset %d, 
 :/images/lock.png
 <DOWN>
@@ -281,6 +277,7 @@
 <EOR>
 <UNKNOWN>
 <Unknown>
+<\ng_pMemAlloc
 <array: %u elements>
 <binary blob: %u bytes>
 <empty member name>
@@ -299,7 +296,8 @@
 =imb;D
 ???
 ?UUUUUU
-?\tV_ftell
+?\tV_atof
+?material
 ?qBJ
 ?ysB
 A game file appears to be missing or corrupted.  In the Steam client go to the game's properties.  In the 'Local Files' tab select 'Verify Integrity of Game Cache' to have Steam double-check the game's installation.
@@ -313,7 +311,6 @@ ANY
 APPSYSTEM: In ConnectInterfaces(), s_nRegistrationCount is %d!\n
 ARRAY_MEMBERS_VIA_PARENT
 ARRAY_PARENT_ONLY
-A\tV_fwrite
 AcceptIfItemPicked
 Accepted
 Access violation - no RTTI data!
@@ -363,10 +360,11 @@ AssetSystemTest001
 Attribute.%s.%s
 Audio
 Aug
-Aug 24 2026
 August
 BACKSLASH_CHAR
 BF>^G
+B\tV_atoi
+Bad GD variable type
 Bad class description
 Bad dynamic_cast!
 Bad input/output type '%s'
@@ -500,7 +498,7 @@ CUtlLeanVectorImpl<class CUtlLeanVectorBase<struct CUtlMemoryBlockAllocator<char
 CUtlMemoryBlockAllocator<char,class CMemAllocAllocator>::AddPage
 CUtlMemoryBlockAllocator<char,class CMemAllocAllocator>::Alloc
 CUtlSymbolTableLarge element limit of %u exceeded\n
-Can't find '%s'
+Can't read '%s'
 Cannot run executable from '_build_' intermediate dir: %s
 Cast of %s loses value information (returning %s)\n
 CharacterSetBuild
@@ -558,6 +556,7 @@ Early exit
 EarlyInit_Tier0
 EconItemToolModel_001
 Element.%s
+Empty gameinfo file '%s'
 EncodePointer
 Encountered a circular dependency with library %s!\n
 EngineServiceMgr001
@@ -729,6 +728,7 @@ InputService_001
 InputStackSystemVersion001
 InputSystemVersion001
 InstallSchemaBindings
+Invalid %s: %s
 Invalid search path specified for '%s'. Search path '%s' does not contain '%s'\n
 InvokeMiniDumpHandler
 IsDebuggerPresent
@@ -752,7 +752,6 @@ KeyValues3: pre-allocated array memory is too small for %u elements (%u bytes av
 KeyValues3: pre-allocated table memory is too small for %u members (%u bytes available, %u bytes needed)\n
 KeyValuesSystem
 L>ev
-LAYEREDGAMEROOT
 LCMapStringEx
 LCMapStringW
 LEFT
@@ -762,7 +761,6 @@ LITERAL_TRUE
 LOG_DEVELOPER
 LOG_DEVELOPER_CONSOLE
 LOG_GENERAL
-LayeredGameRoot
 LayeredOnMod
 Layout Side To Side
 Layout Top To Bottom
@@ -805,7 +803,6 @@ MOD
 MODEL_PROCESSING_SERVICES_INTERFACE_001
 MPropertyProvidesEditContextString
 MVDataOutlinerLeafNameFn
-M\tV_isnand
 MapListService_001
 Maps
 Mar
@@ -864,6 +861,7 @@ No %s specified. Expected '=' '[' <%s> ']'
 No closing */ before end of file
 No data
 No expression!
+No game directory specified
 No input data for '%s'. (Empty buffer.)
 No know mod!
 NoDefaultModPath
@@ -890,6 +888,7 @@ OnCreateShortcutClicked
 OnDeleteClicked
 OnEditAddonInfoClicked
 OnEditItemsClicked
+OnEditingFinished
 OnEditingName
 OnFilterTextChanged
 OnFocusOut
@@ -960,7 +959,7 @@ Plat_RegisterModule
 Plat_RelativeTicks
 Plat_RemoveFile
 Plat_SafeRemoveFile
-Plat_SetGameDirectories
+Plat_SetGameDirectory
 Plat_ShutdownCOM
 Plat_TickDiffMilliSecF
 Plat_UnloadModule
@@ -976,12 +975,14 @@ QPlainTextEdit
 QTextDocument*
 QTreeWidgetItem*
 QWidget*
+Q\tV_fclose
 Qt5Core.dll
 Qt5Gui.dll
 Qt5Widgets.dll
 QueryPerformanceCounter
 RIGHT
 RSDSY
+R\vpD
 RaiseException
 Recognition Exception
 Recognition exception
@@ -1051,6 +1052,7 @@ ScrollbarBackground
 Search paths for GAMEROOT and CONTENTROOT are expected to be sibling directories\n\tGAMEROOT: "%s"\n\tCONTENTROOT: "%s"\n
 SearchPaths
 Sep
+Sep 21 2026
 September
 SerializedEntitiesVersion001
 ServerToolsInfo_001
@@ -1064,6 +1066,7 @@ SetWin32ConsoleColor
 Shadow
 ShouldPunchThroughPolymorphism
 SleepConditionVariableSRW
+SmartPropsSystem_001
 SoundOpSystem001
 SoundOpSystemEdit001
 SoundPicker()
@@ -1168,6 +1171,7 @@ Tue
 Tuesday
 UNRECOGNIZED
 UUUUUU
+U\tV_fflush
 UnInvalid
 UnNegate
 UnNot
@@ -1185,6 +1189,7 @@ Unexpected token
 Unexpected token '%s' %s
 UnhandledExceptionFilter
 Unknown
+Unknown GDIVType_t %u
 Unknown class '%s' specified by @exclude
 Unknown exception
 Unknown property %s
@@ -1225,6 +1230,15 @@ VScriptManager010
 VStringTokenSystem001
 VWebm001
 V_AreSlashesCorrect
+V_CheckStringToBool
+V_CheckStringToColor
+V_CheckStringToFloat32
+V_CheckStringToInt32
+V_CheckStringToQAngle
+V_CheckStringToUint32
+V_CheckStringToVector
+V_CheckStringToVector2D
+V_CheckStringToVector4D
 V_DoubleToString_Unsafe
 V_GetFileExtension
 V_GetFileExtensionSafe
@@ -1244,7 +1258,6 @@ V_StringToInt64
 V_StringToUint64
 V_StripFilename
 V_UInt64ToString_Unsafe
-V_UnqualifiedFileName
 Variable %s has bad default value %s (no choices with that name or value)
 Video
 ViewportBackground
@@ -1266,38 +1279,40 @@ WindowText
 WorldRendererMgr001
 WriteConsoleW
 WriteFile
+X\tV_fileno
+Y\tV_fmodd
 You are trying to mount addon '%s' but SetAllowAddonChanges is false which probably means you shouldn't be calling this directly.\n
 You are trying to unmount addon '%s', but SetAllowAddonChanges is false which probably means you should be using calling this directly.\n
 [Index: 
 [a-zA-Z0-9][a-zA-Z0-9_]*
+\\tV_fopenUTF8
 \f\f?focusInEvent@QLabel@@MEAAXPEAVQFocusEvent@@@Z
 \n    near %s\n    
 \n\r?heightForWidth@QBoxLayout@@UEBAHH@Z
 \n\t\t\tQPushButton {\n\t\t\t\tbackground-color : rgb( 49, 69, 80 );\n\t\t\t\tborder: 2px solid rgb( 143, 171, 187 );\n\t\t\t\tborder-radius: 5px;\n\t\t\t\tmin-height : 18px;\n\t\t\t\tfont: bold 12pt;\n\t\t\t}\n\t\t\tQPushButton:hover:!pressed {\n\t\t\t\tbackground-color : rgb( 100, 140, 160 );\n\t\t\t}\n\t\t\tQPushButton:disabled {\n\t\t\t\tbackground-color : rgb( 40, 44, 46 );\n\t\t\t\tborder: 2px solid rgb( 106, 111, 114 );\n\t\t\t}\n\t\t
 \n\t\t\t\tQPushButton {\n\t\t\t\t\tbackground-color : rgb( 49, 69, 80 );\n\t\t\t\t\tborder: 2px solid rgb( 143, 171, 187 );\n\t\t\t\t\tborder-radius: 5px;\n\t\t\t\t\tfont: bold 10pt;\n\t\t\t\t}\n\t\t\t\tQPushButton:hover:!pressed {\n\t\t\t\t\tbackground-color : rgb( 100, 140, 160 );\n\t\t\t\t}\n\t\t\t\tQPushButton:disabled {\n\t\t\t\t\tbackground-color : rgb( 40, 44, 46 );\n\t\t\t\t\tborder: 2px solid rgb( 106, 111, 114 );\n\t\t\t\t}\n\t\t\t
+\n_MakeGlobalSymbol
+\n_V_StringAfterPrefix
+\n_V_StringAfterPrefixCaseSensitive
+\n_V_strEndsWith
 \rIHDR
 \r\f?focusInEvent@QLineEdit@@MEAAXPEAVQFocusEvent@@@Z
 \t The lexer was matching from line %d, offset %d, which\n\t 
-\tV_atof
-\tV_atoi
+\tV_UnqualifiedFileName
+\tV_qsort
+\tV_qsort_s
 \tV_snprintf
 \tV_sscanf
 \tV_stricmp_fast
 \tV_vsnprintf
 \tWarning
 \tWorldsize_Init
+\t\n_V_ComposeFileName
 \t\v?brushOrigin@QPainter@@QEBA?AVQPoint@@XZ
-\t_MakeGlobalSymbol
-\t_V_ComposeFileName
-\t_V_StringAfterPrefix
-\t_V_StringAfterPrefixCaseSensitive
-\t_V_strEndsWith
-\t_V_strncmp
-\t_V_strncpy
-\t_V_strnicmp_fast
 \tkE>fvw
 \v\f?focusInEvent@QGroupBox@@MEAAXPEAVQFocusEvent@@@Z
-\v\ng_pMemAlloc
+]\tV_fpclassifyd
+^\tV_fprintf
 __CACHED_editcontext_provider_lookup
 __IsValveCQTabbedStyle
 __based(
@@ -1361,7 +1376,8 @@ abcdefghijklmnopqrstuvwxyz
 addoninfo
 addoninfo.txt
 addonroot
-addonroot_language
+addonroot_audiolanguage
+addonroot_uilanguage
 address family not supported
 address in use
 address not available
@@ -1496,7 +1512,6 @@ class IToolAttr_Map (demangled)
 class IToolAttr_Table (demangled)
 class IToolAttr_Value (demangled)
 class IToolSystem2 (demangled)
-class ITypedPropertyEditDomain<HToolAttrTableInstance, IBaseToolAttr*> (demangled)
 class IVDataExternalToolContextProvider (demangled)
 class QAbstractButton (demangled)
 class QAbstractItemDelegate (demangled)
@@ -1576,6 +1591,7 @@ curve
 dddd, MMMM dd, yyyy
 decal
 default
+default value
 default_color
 desc
 description
@@ -1599,7 +1615,6 @@ expects_cpp_declaration
 explorer.exe
 expr
 false
-fgd_metadata_merge
 file exists
 file too large
 file://{images}/%s
@@ -1611,7 +1626,10 @@ filter_type
 filterclass
 flagchoices
 flags
+flags value
 float
+floatchoices
+floatchoices choice
 frameColor
 friendly_name
 function not supported
@@ -1644,27 +1662,18 @@ game:tools/images/valve_style/arrow_right.png
 game:tools/images/valve_style/arrow_up.png
 game:tools/images/valve_style/branch_open.png
 game:tools/images/valve_style/branch_open_activated.png
-game:tools/images/valve_style/checkbox_checked.png
-game:tools/images/valve_style/checkbox_checked_disabled.png
-game:tools/images/valve_style/checkbox_indeterminate.png
-game:tools/images/valve_style/checkbox_indeterminate_disabled.png
-game:tools/images/valve_style/checkbox_unchecked.png
-game:tools/images/valve_style/checkbox_unchecked_disabled.png
 game:tools/images/valve_style/dock_close_button.png
 game:tools/images/valve_style/dock_float_button.png
-game:tools/images/valve_style/radio_selected.png
-game:tools/images/valve_style/radio_selected_disabled.png
-game:tools/images/valve_style/radio_unselected.png
-game:tools/images/valve_style/radio_unselected_disabled.png
 game:tools/images/valve_style/tab-closebutton-hovered.png
 game:tools/images/valve_style/tab-closebutton-selected-hovered.png
 game:tools/images/valve_style/tab-closebutton-selected.png
 game:tools/images/valve_style/tab-closebutton.png
 game:tools/images/valve_style/toolbar_extension_h.png
 game:tools/images/valve_style/toolbar_extension_v.png
-game_language
+game_audiolanguage
 game_lowviolence
 game_nontools
+game_uilanguage
 gameinfo
 gameinfo.gi
 gameinfo_branchspecific.gi
@@ -1681,6 +1690,7 @@ helpsystem
 hidden
 host unreachable
 https://www.counter-strike.net/workshop/workshop
+i\tV_ftell
 icon
 identifier removed
 illegal byte sequence
@@ -1698,6 +1708,7 @@ int
 int FioReadFileToBuffer(char const*, CUtlBuffer*, int) (demangled)
 int V_strnlen(char const*, int) (demangled)
 intchoices
+intchoices choice
 integer
 interrupted
 intmap
@@ -1716,6 +1727,7 @@ items/assets/keychains/workshop
 items/assets/paintkits/workshop
 items/assets/sprays/workshop
 items/assets/stickers/workshop
+k\tV_fwrite
 key
 keyframe
 keyframeclass
@@ -1737,7 +1749,6 @@ mapkeys_suggestion_name
 mapped
 maps
 maps/
-material
 materialgroup
 max
 mesh
@@ -1790,7 +1801,6 @@ no_help_info
 node_dest
 node_id
 node_id_List
-none
 not a directory
 not a socket
 not a stream
@@ -1802,7 +1812,6 @@ npc_ability_name
 npcclass
 null
 nullptr
-o\tV_qsort
 officialaddonroot
 ole32.dll
 open
@@ -1816,6 +1825,9 @@ operator ""
 operator co_await
 operator<=>
 optional_toggle_cmd
+originating_classname
+originating_filename
+originating_linenumber
 output
 override_attr
 override_description
@@ -1830,7 +1842,6 @@ pData
 pFx
 pItem
 pOC
-p\tV_qsort_s
 panorama/%s_image_list.vdata
 panorama/images/
 panorama/localization/core_tools_%language%.txt
@@ -1848,6 +1859,7 @@ path
 pathclass
 pathnode
 pathnodeclass
+perforce.inf
 permission denied
 point
 pointclass
@@ -2159,6 +2171,7 @@ public: QAction::QAction(QIcon const&, QString const&, QObject*) (demangled)
 public: QAction::QAction(QObject*) (demangled)
 public: QAction::QAction(QString const&, QObject*) (demangled)
 public: QApplication::QApplication(int&, char**, int) (demangled)
+public: QBrush const& QPalette::brush(QPalette::ColorGroup, QPalette::ColorRole) const (demangled)
 public: QBrush const& QPalette::brush(QPalette::ColorRole) const (demangled)
 public: QBrush const& QPalette::button(void) const (demangled)
 public: QBrush const& QPalette::dark(void) const (demangled)
@@ -2180,6 +2193,7 @@ public: QByteArray::~QByteArray(void) (demangled)
 public: QChar::QChar(QLatin1Char) (demangled)
 public: QColor QColor::lighter(int) const (demangled)
 public: QColor const& QBrush::color(void) const (demangled)
+public: QColor const& QPalette::color(QPalette::ColorGroup, QPalette::ColorRole) const (demangled)
 public: QColor const& QPalette::color(QPalette::ColorRole) const (demangled)
 public: QColor& QColor::operator=(QColor const&) (demangled)
 public: QColor& QColor::operator=(Qt::GlobalColor) (demangled)
@@ -2241,6 +2255,7 @@ public: QPalette::QPalette(void) (demangled)
 public: QPalette::~QPalette(void) (demangled)
 public: QPen const& QPainter::pen(void) const (demangled)
 public: QPen::QPen(QBrush const&, double, Qt::PenStyle, Qt::PenCapStyle, Qt::PenJoinStyle) (demangled)
+public: QPen::QPen(QColor const&) (demangled)
 public: QPen::QPen(QPen const&) (demangled)
 public: QPen::~QPen(void) (demangled)
 public: QPixmap QBrush::texture(void) const (demangled)
@@ -2252,6 +2267,8 @@ public: QPlainTextEdit::QPlainTextEdit(QWidget*) (demangled)
 public: QPoint& QVector<QPoint>::operator[](int) (demangled)
 public: QPolygon::QPolygon(int) (demangled)
 public: QPolygon::~QPolygon(void) (demangled)
+public: QPolygonF::QPolygonF(void) (demangled)
+public: QPolygonF::~QPolygonF(void) (demangled)
 public: QProxyStyle::QProxyStyle(QStyle*) (demangled)
 public: QPushButton* QMessageBox::addButton(QMessageBox::StandardButton) (demangled)
 public: QPushButton* QMessageBox::addButton(QString const&, QMessageBox::ButtonRole) (demangled)
@@ -2259,12 +2276,16 @@ public: QPushButton::QPushButton(QIcon const&, QString const&, QWidget*) (demang
 public: QPushButton::QPushButton(QString const&, QWidget*) (demangled)
 public: QRect QRect::adjusted(int, int, int, int) const (demangled)
 public: QRect QWidget::rect(void) const (demangled)
+public: QRect::QRect(int, int, int, int) (demangled)
+public: QRectF QTransform::mapRect(QRectF const&) const (demangled)
+public: QRectF::QRectF(QPointF const&, QPointF const&) (demangled)
 public: QRectF::QRectF(QRect const&) (demangled)
 public: QRegExp::QRegExp(QString const&, Qt::CaseSensitivity, QRegExp::PatternSyntax) (demangled)
 public: QRegExp::~QRegExp(void) (demangled)
 public: QRegExpValidator::QRegExpValidator(QRegExp const&, QObject*) (demangled)
 public: QSize QPixmap::size(void) const (demangled)
 public: QSize QRect::size(void) const (demangled)
+public: QSize QSize::boundedTo(QSize const&) const (demangled)
 public: QSplitter* QSplitterHandle::splitter(void) const (demangled)
 public: QSplitter::QSplitter(Qt::Orientation, QWidget*) (demangled)
 public: QSplitterHandle* QSplitter::handle(int) const (demangled)
@@ -2318,6 +2339,11 @@ public: QTextOption::QTextOption(QFlags<Qt::AlignmentFlag>) (demangled)
 public: QTextOption::~QTextOption(void) (demangled)
 public: QTimer::QTimer(QObject*) (demangled)
 public: QToolButton::QToolButton(QWidget*) (demangled)
+public: QTransform QTransform::inverted(bool*) const (demangled)
+public: QTransform const& QPainter::deviceTransform(void) const (demangled)
+public: QTransform& QTransform::operator=(QTransform const&) (demangled)
+public: QTransform::QTransform(void) (demangled)
+public: QTransform::TransformationType QTransform::type(void) const (demangled)
 public: QTranslator::QTranslator(QObject*) (demangled)
 public: QTreeWidget::QTreeWidget(QWidget*) (demangled)
 public: QTreeWidgetItem* QTreeWidget::invisibleRootItem(void) const (demangled)
@@ -2337,6 +2363,7 @@ public: QVariant::QVariant(int) (demangled)
 public: QVariant::QVariant(int, void const*, unsigned int) (demangled)
 public: QVariant::QVariant(void) (demangled)
 public: QVariant::~QVariant(void) (demangled)
+public: QVector<QPointF>& QVector<QPointF>::operator<<(QPointF&&) (demangled)
 public: QWidget::QWidget(QWidget*, QFlags<Qt::WindowType>) (demangled)
 public: Qt::BrushStyle QBrush::style(void) const (demangled)
 public: Qt::Orientation QSplitter::orientation(void) const (demangled)
@@ -2364,6 +2391,7 @@ public: bool QFileInfo::isDir(void) const (demangled)
 public: bool QIcon::isNull(void) const (demangled)
 public: bool QObject::inherits(char const*) const (demangled)
 public: bool QObject::setProperty(char const*, QVariant const&) (demangled)
+public: bool QPainter::testRenderHint(QPainter::RenderHint) const (demangled)
 public: bool QPixmap::isNull(void) const (demangled)
 public: bool QString::startsWith(QString const&, Qt::CaseSensitivity) const (demangled)
 public: bool QTextCharFormat::isValid(void) const (demangled)
@@ -2406,6 +2434,7 @@ public: char* CBufferString::SetLength(int, bool, int*) (demangled)
 public: char* CUtlString::GetForModify(void) (demangled)
 public: char* QByteArray::data(void) (demangled)
 public: double QFont::pointSizeF(void) const (demangled)
+public: double QPaintDevice::devicePixelRatioF(void) const (demangled)
 public: int CBufferString::AppendFormat(char const*, ...) (demangled)
 public: int CBufferString::AppendFormatV(char const*, char*) (demangled)
 public: int CBufferString::Format(char const*, ...) (demangled)
@@ -2432,6 +2461,7 @@ public: static QListData::Data const QListData::shared_null (demangled)
 public: static QMessageBox::StandardButton QMessageBox::warning(QWidget*, QString const&, QString const&, QFlags<QMessageBox::StandardButton>, QMessageBox::StandardButton) (demangled)
 public: static QMetaObject const QAbstractButton::staticMetaObject (demangled)
 public: static QMetaObject const QAbstractSpinBox::staticMetaObject (demangled)
+public: static QMetaObject const QCheckBox::staticMetaObject (demangled)
 public: static QMetaObject const QDialog::staticMetaObject (demangled)
 public: static QMetaObject const QDialogButtonBox::staticMetaObject (demangled)
 public: static QMetaObject const QLabel::staticMetaObject (demangled)
@@ -2439,6 +2469,7 @@ public: static QMetaObject const QLineEdit::staticMetaObject (demangled)
 public: static QMetaObject const QMainWindow::staticMetaObject (demangled)
 public: static QMetaObject const QObject::staticMetaObject (demangled)
 public: static QMetaObject const QProxyStyle::staticMetaObject (demangled)
+public: static QMetaObject const QRadioButton::staticMetaObject (demangled)
 public: static QMetaObject const QSplitter::staticMetaObject (demangled)
 public: static QMetaObject const QSplitterHandle::staticMetaObject (demangled)
 public: static QMetaObject const QTextDocument::staticMetaObject (demangled)
@@ -2783,15 +2814,20 @@ public: void QMessageBox::setDefaultButton(QPushButton*) (demangled)
 public: void QMessageBox::setIcon(QMessageBox::Icon) (demangled)
 public: void QMessageBox::setText(QString const&) (demangled)
 public: void QMessageBox::setWindowTitle(QString const&) (demangled)
+public: void QPainter::drawEllipse(QRectF const&) (demangled)
 public: void QPainter::drawLines(QLine const*, int) (demangled)
+public: void QPainter::drawLines(QLineF const*, int) (demangled)
 public: void QPainter::drawPixmap(QPointF const&, QPixmap const&) (demangled)
 public: void QPainter::drawPixmap(QRect const&, QPixmap const&) (demangled)
 public: void QPainter::drawPolyline(QPolygon const&) (demangled)
-public: void QPainter::drawRects(QRect const*, int) (demangled)
+public: void QPainter::drawPolyline(QPolygonF const&) (demangled)
+public: void QPainter::drawRects(QRectF const*, int) (demangled)
 public: void QPainter::drawRoundedRect(QRectF const&, double, double, Qt::SizeMode) (demangled)
 public: void QPainter::fillRect(QRect const&, QBrush const&) (demangled)
 public: void QPainter::fillRect(QRect const&, QColor const&) (demangled)
 public: void QPainter::resetTransform(void) (demangled)
+public: void QPainter::restore(void) (demangled)
+public: void QPainter::save(void) (demangled)
 public: void QPainter::setBackground(QBrush const&) (demangled)
 public: void QPainter::setBrush(QBrush const&) (demangled)
 public: void QPainter::setBrush(Qt::BrushStyle) (demangled)
@@ -2801,10 +2837,16 @@ public: void QPainter::setCompositionMode(QPainter::CompositionMode) (demangled)
 public: void QPainter::setFont(QFont const&) (demangled)
 public: void QPainter::setPen(QColor const&) (demangled)
 public: void QPainter::setPen(QPen const&) (demangled)
+public: void QPainter::setPen(Qt::PenStyle) (demangled)
+public: void QPainter::setRenderHint(QPainter::RenderHint, bool) (demangled)
 public: void QPainter::translate(QPointF const&) (demangled)
 public: void QPalette::setBrush(QPalette::ColorGroup, QPalette::ColorRole, QBrush const&) (demangled)
 public: void QPalette::setBrush(QPalette::ColorRole, QBrush const&) (demangled)
 public: void QPalette::setColor(QPalette::ColorRole, QColor const&) (demangled)
+public: void QPen::setCapStyle(Qt::PenCapStyle) (demangled)
+public: void QPen::setCosmetic(bool) (demangled)
+public: void QPen::setJoinStyle(Qt::PenJoinStyle) (demangled)
+public: void QPen::setWidth(int) (demangled)
 public: void QPlainTextEdit::setLineWrapMode(QPlainTextEdit::LineWrapMode) (demangled)
 public: void QPlainTextEdit::setPlainText(QString const&) (demangled)
 public: void QPlainTextEdit::setReadOnly(bool) (demangled)
@@ -2976,6 +3018,7 @@ too many symbolic link levels
 tools/stylesheets/qtabbedstyle_colors.vsc
 tools/workshop_addoninfo.fgd
 toolsMaterial
+transform
 true
 uint
 unable to register all schema data: %s\n
@@ -3012,6 +3055,7 @@ vpost
 vsky
 vsnap
 vtex
+w\tV_isnand
 windows
 workshop_items
 world_angle

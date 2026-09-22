@@ -2,21 +2,33 @@
 
 CSColorPicker
 {
+	flow-children: right;
+	height: fit-children;
+	width: 100%;
+}
+
+CSColorPicker .color-picker-hue-sat-section
+{
 	flow-children: down;
+	width: 200px;
+	height: 100%;
 }
 
 CSColorPicker #SaturationValueSelector
 {
 	width: 100%;
 	height: 150px;
-	margin-bottom: 3px;
+	border-radius: 3px;
+	margin-bottom: 16px;
 }
 
 CSColorPicker #HueSelector
 {
 	width: 100%;
-	height: 20px;
-	margin-bottom: 3px;
+	height: 12px;
+	margin-top: 0px;
+	border-radius: 3px;
+	margin-bottom: 16px;
 }
 
 CSColorPickerHue #Canvas
@@ -31,9 +43,105 @@ CSColorPickerSaturationValue #Canvas
 	height: 100%;
 }
 
-CSColorPicker #HexRgb
+CSColorPicker #HexRgb,TextEntry
 {
-	width: 100%;
-	height: 35px;
+	height: 24px;
+	min-height: 24px;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	background-color: rgba(0, 0, 0, 0.347);
+	border-radius: 3px;
+	width: 100px;
+	padding: 3px 6px;
+	margin: 4px 0px;
+	font-size: 12px;
+}
+
+.color-picker-value-row
+{
+	flow-children: right;
+	margin-left:32px;
+}
+
+.color-picker-value-row .color-picker-value-row__title
+{
+	width: 14px;
+	font-family: Stratum2 Light, "Arial Unicode MS";
+	font-size: 14px;
+	vertical-align: center;
+}
+
+.color-picker-value-row TextEntry:disabled
+{
+	opacity: .2;
+}
+
+.color-picker-color-box-container
+{
+	flow-children: down;
+	horizontal-align: right;
+}
+
+.color-picker-color-box-container .color-picker-color-box
+{
+	height: 24px;
+	width: 68px;
+	background-color: red;
+}
+
+.color-picker-color-box-container Label
+{
+	font-size: 12px;
+	text-align: center;
+	horizontal-align: center;
+	opacity: .5;
+}
+
+CSColorPicker .color-picker-alpha-slider-section
+{
+	vertical-align: bottom;
+	flow-children: down;
+	margin-bottom: 12px;
+}
+
+CSColorPicker .color-picker-alpha-slider-section Slider.HorizontalSlider
+{
+	height: 12px;
+	background-image: url("s2r://panorama/images/backgrounds/slider_alpha_bg_png.vtex");
+	background-repeat: repeat-x;
+	background-img-opacity: .075 ;
+	background-size: 8px 12px;
+}
+
+CSColorPicker .color-picker-alpha-slider-section Slider.HorizontalSlider #SliderTrack
+{
+	height: 12px;
+	border-radius: 3px;
+}
+
+CSColorPicker .color-picker-alpha-slider-section Slider.HorizontalSlider #SliderTrackProgress
+{
+	background-color: none;
+}
+
+CSColorPicker .color-picker-alpha-slider-section Slider.HorizontalSlider #SliderThumb
+{
+	width: 2px;
+	box-shadow: #0000005e 0px 0px 2px 2px ;
+	background-color: white;
+}
+
+CSColorPicker .color-picker-alpha-slider-section Slider:disabled
+{
+	opacity: .25;
+}
+
+CSColorPicker .color-picker-alpha-slider-section Slider:disabled #SliderThumb
+{
+	opacity: 0;
+}
+
+CSColorPicker.hide-alpha .color-picker-alpha-slider-section,CSColorPicker.hide-alpha .color-picker-alpha-value-row
+{
+	visibility: collapse;
 }
 

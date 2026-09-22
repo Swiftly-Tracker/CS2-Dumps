@@ -1,15 +1,15 @@
 <!-- xml reconstructed by Source 2 Viewer 19.2.0.0 - https://valveresourceformat.github.io -->
 <root>
 	<styles>
-		<include src="s2r://panorama/styles/csgostyles.vcss_c" />
-		<include src="s2r://panorama/styles/mainmenu.vcss_c" />
-		<include src="s2r://panorama/styles/mainmenu_inventory.vcss_c" />
+		<include src="s2r://panorama/styles/csgostyles.vcss" />
+		<include src="s2r://panorama/styles/mainmenu.vcss" />
+		<include src="s2r://panorama/styles/mainmenu_inventory.vcss" />
 	</styles>
 	<scripts>
-		<include src="s2r://panorama/scripts/common/formattext.vts_c" />
-		<include src="s2r://panorama/scripts/common/iteminfo.vts_c" />
-		<include src="s2r://panorama/scripts/popups/popup_acknowledge_item.vts_c" />
-		<include src="s2r://panorama/scripts/mainmenu_inventory.vts_c" />
+		<include src="s2r://panorama/scripts/common/formattext.vts" />
+		<include src="s2r://panorama/scripts/common/iteminfo.vts" />
+		<include src="s2r://panorama/scripts/popups/popup_acknowledge_item.vts" />
+		<include src="s2r://panorama/scripts/mainmenu_inventory.vts" />
 	</scripts>
 	<snippets>
 		<snippet name="InvSortDropdownSnippet">
@@ -59,9 +59,7 @@
 					<Button id="InvXrayBtn" class="inv-nav-solid-btn">
 						<Label text="#popup_xray_title" />
 					</Button>
-					<Panel id="" class="navbar-btn__notification inv-nav-solid-btn-notification">
-						<Label id="" class="navbar-btn__notification-text" text="1" />
-					</Panel>
+					<Frame class="inv-nav-solid-btn-notification" src="s2r://panorama/layout/btn_alert.vxml" />
 				</Panel>
 				<Button id="InvLoadoutBtn" class="">
 					<Label text="#inv_nav_loadout" />
@@ -103,9 +101,7 @@
 						<Panel class="left-right-flow vertical-center">
 							<Button id="InvXrayBtnContainer" class="content-navbar__tabs__btn left-right-flow">
 								<Label text="#popup_xray_title" />
-								<Panel id="" class="navbar-btn__notification inv-nav-solid-btn-notification">
-									<Label id="" class="navbar-btn__notification-text" text="1" />
-								</Panel>
+								<Frame class="inv-nav-solid-btn-notification" src="s2r://panorama/layout/btn_alert.vxml" />
 							</Button>
 							<RadioButton id="InvCraftingBtn" group="inv-top-nav" class="content-navbar__tabs__btn left-right-flow visible-if-not-limitedbeta" onactivate="InventoryPanel.NavigateToTab( &apos;tradeup&apos; );">
 								<Label text="#inv_nav_tradeup" />
@@ -120,8 +116,8 @@
 			</Panel>
 			<Panel class="full-width full-height">
 				<Panel id="InventoryMain" class="mainmenu-content__container__inventory" />
-				<Frame id="InvCraftingPanel" src="s2r://panorama/layout/crafting.vxml_c" />
-				<Frame id="InvSearchPanel" src="s2r://panorama/layout/mainmenu_inv_search.vxml_c" />
+				<Frame id="InvCraftingPanel" src="s2r://panorama/layout/crafting.vxml" />
+				<Frame id="InvSearchPanel" src="s2r://panorama/layout/mainmenu_inv_search.vxml" />
 			</Panel>
 		</Panel>
 	</Panel>

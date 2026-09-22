@@ -197,7 +197,6 @@
 	steamaudio_customdata_bake_dimensions(boolean) [ group="Steam Audio Custom Data Settings" ]: "Bake Dimensions" : "0" : "Bake occlusion dimensions data (size and inside outside) per probe."
 	steamaudio_customdata_bake_materials(boolean) [ group="Steam Audio Custom Data Settings" ]: "Bake Materials" : "0" : "Bake custom materials data (top 3 nearby materials) per probe."
 
-	steamaudio_customdata_occlusion_pathing(boolean) [ group="Steam Audio Custom Data Settings" ]: "Occlusion: Simulate Pathing" : "1" : "Simulate pathing when computing baked occlusion."
 	steamaudio_customdata_occlusion_reflection(boolean) [ group="Steam Audio Custom Data Settings" ]: "Occlusion: Simulate Reflection" : "0" : "Simulate reflections when computing baked occlusion."
 	steamaudio_customdata_occlusion_reflection_rays(integer) [ group="Steam Audio Custom Data Settings" ]: "Occlusion: Reflection Num Rays" : "8192" : "Number of rays to simulate reflections."
 	steamaudio_customdata_occlusion_reflection_bounces(integer) [ group="Steam Audio Custom Data Settings" ]: "Occlusion: Reflection Bounces" : "8" : "Number of bounces to simulate reflections."
@@ -302,6 +301,16 @@
 [
 	master(string) : "Master (Obsolete)" : : "Legacy support: The name of a master entity. If the master hasn't been activated, this entity will not activate."
 	input EndGame(void) : "End the multiplayer game."
+]
+
+// fog_volume redefined here rather than removed from the exclude list because PostProcessName and
+// ColorCorrectionName had to be dropped.
+// These parameters no longer work:
+//		PostProcessName(target_destination) : "Postprocess Name" : : "The name of the postprocess entity associated with this volume."
+//		ColorCorrectionName(target_destination) : "ColorCorrection Name" : : "The name of the color_correction entity associated with this volume."
+@SolidClass base( Targetname, EnableDisable ) tags( Lighting ) = fog_volume : "An entity to control the fog in the map."
+[
+	FogName(target_destination) : "Fog Name" : : "The name of the fog entity associated with this volume."
 ]
 
 @PointClass base(Targetname, EnableDisable) tags( Lighting )
@@ -424,6 +433,25 @@
 //	angular_fog_max_start( float ) : "Fog Max Angle Start" : "25.0"
 //	angular_fog_min_start( float ) : "Fog Min Angle Start" : "-25.0"
 //	angular_fog_min_end( float ) : "Fog Min Angle End" : "-35.0"
+]
+
+@PointClass base(Angles) size(-8 -8 -8, 8 8 8) box_oriented( box_mins, box_maxs ) = point_deathcam_bounds :
+	"Confines the death camera. If the death camera starts within this box, the camera is kept inside it."
+[
+	box_mins(vector) : "Box Mins" : "-256 -256 -128" : "Minimum extent of the box, in the entity's local space."
+	box_maxs(vector) : "Box Maxs" : "256 256 128" : "Maximum extent of the box, in the entity's local space."
+	lerp_distance(float) : "Ragdoll Look-At Lerp Distance" : "256" : "When the camera is pulled back inside the box, the distance of that correction lerps the camera to point at the dead player. Zero disables the feature and leaves the camera orientation unaffected."
+]
+
+@PointClass base(Angles) iconsprite("editor/env_shake.vmat") box_oriented( box_mins, box_maxs ) = env_shake_volume :
+	"Continuously shakes the camera of any player whose view is inside this box."
+[
+	box_mins(vector) : "Box Mins" : "-256 -256 -128" : "Minimum extent of the box, in the entity's local space."
+	box_maxs(vector) : "Box Maxs" : "256 256 128" : "Maximum extent of the box, in the entity's local space."
+	amplitude(float) : "Amplitude" : "2" : "How far the camera is displaced, in units."
+	frequency(float) : "Frequency (Hz)" : "10" : "Oscillations per second."
+	falloff_distance(float) : "Falloff Distance" : "64" : "Distance outside the box to fade in the shake."
+	roll_scale(float) : "Roll Scale" : "0.25" : "How much the shake rolls the view. A multiplier of the amplitude."
 ]
 
 @PointClass base(Targetname) size(-8 -8 -8, 8 8 8) = env_hudhint : 
@@ -864,10 +892,10 @@
 	minroughness(float) { group="Specular" min="0.0" max="1.0" } : "Specular Softness" : "0" : "USE WITH CAUTION: Artificially softens direct specular (not cubemaps) to simulate cheap, soft area lights. Note: Direct Lighting must be set to Stationary or Dynamic for this to have an effect."
 	
 	ambient_occlusion_proxy_override(boolean) [ group="Ambient Occlusion Proxies" ] : "Custom AO Proxies" : 0
-	ambient_occlusion_proxy_position_0(target_destination) [ group="Ambient Occlusion Proxies" ] : "Custom AO Proxy Position 0" : "0 0 0" : "Relative to origin of the light_environment."
-	ambient_occlusion_proxy_position_1(target_destination) [ group="Ambient Occlusion Proxies" ] : "Custom AO Proxy Position 1" : "0 0 0" : "Relative to origin of the light_environment."
-	ambient_occlusion_proxy_position_2(target_destination) [ group="Ambient Occlusion Proxies" ] : "Custom AO Proxy Position 2" : "0 0 0" : "Relative to origin of the light_environment."
-	ambient_occlusion_proxy_position_3(target_destination) [ group="Ambient Occlusion Proxies" ] : "Custom AO Proxy Position 3" : "0 0 0" : "Relative to origin of the light_environment."
+	ambient_occlusion_proxy_position_0(target_destination) [ group="Ambient Occlusion Proxies" ] : "Custom AO Proxy Position 0" : "" : ""
+	ambient_occlusion_proxy_position_1(target_destination) [ group="Ambient Occlusion Proxies" ] : "Custom AO Proxy Position 1" : "" : ""
+	ambient_occlusion_proxy_position_2(target_destination) [ group="Ambient Occlusion Proxies" ] : "Custom AO Proxy Position 2" : "" : ""
+	ambient_occlusion_proxy_position_3(target_destination) [ group="Ambient Occlusion Proxies" ] : "Custom AO Proxy Position 3" : "" : ""
 	ambient_occlusion_proxy_cone_angle_0(float) { group="Ambient Occlusion Proxies" min="0.01" max="1.0" } : "Custom AO Proxy Cone Softness 0" : "0.3" : "Softness of Imaginary Shadowing Light."
 	ambient_occlusion_proxy_cone_angle_1(float) { group="Ambient Occlusion Proxies" min="0.01" max="1.0" } : "Custom AO Proxy Cone Softness 1" : "0.3" : "Softness of Imaginary Shadowing Light."
 	ambient_occlusion_proxy_cone_angle_2(float) { group="Ambient Occlusion Proxies" min="0.01" max="1.0" } : "Custom AO Proxy Cone Softness 2" : "0.3" : "Softness of Imaginary Shadowing Light."
@@ -1088,6 +1116,26 @@
 	targetMapName(instance_file) : "Map Name"
 	fixupNames(boolean) : "Fixup Entity Names" : 0
 	worldGroupID(string) : "WorldGroupID" : "skyboxWorldGroup0"
+]
+
+@PointClass base(Targetname, Parentname) size(-8 -8 -8, 8 8 8) color(0 0 255) = sky_camera_volume_target :
+	"A landmark whose surroundings are rendered as the 3D Skybox for any sky_camera_volume pointing at it."
+[
+	scale(integer) : "3D Skybox scale" : 16 : "Scale of the borrowed perspective."
+	sky_material(resource:material) : "Skybox Material Override" : "" : "Leave un-set to use the map's existing sky material."
+]
+
+@PointClass base(Targetname, Parentname, EnableDisable) box_oriented( box_mins, box_maxs ) color(0 0 255) = sky_camera_volume :
+	"While the player's view is inside this box, the area around the referenced sky_camera_volume_target is rendered as the 3D Skybox."
+[
+	target(target_destination) : "Target" : "" : "Name of the sky_camera_volume_target to use."
+	box_mins(vector) : "Box Mins" : "-256 -256 -256" : "Local minimum corner of the volume."
+	box_maxs(vector) : "Box Maxs" : "256 256 256" : "Local maximum corner of the volume."
+	priority(integer) : "Priority" : 0 : "When volumes overlap, the highest priority wins."
+	skybox_receives_world_csm(boolean) : "Skybox Receives Main World CSM Shadows" : 1 : "Allow the main world sun shadows to cast onto the 3D Skybox scenery."
+	world_receives_skybox_csm(boolean) : "Main World Receives Skybox CSM Shadows" : 0 : "Allow the 3D Skybox scenery to cast sun shadows onto the main world. Perf warning: costs an extra shadow pass per cascade."
+	SkyboxBlurEffect(boolean) : "Skybox Blur Effect" : 0 : "Directionally blur the 3D Skybox pixels toward Blur Origin, to make the borrowed perspective feel like it is in motion."
+	blur_origin(vector) { enabled={ variable="SkyboxBlurEffect" value="1" } } : "Blur Origin" : "0 0 0" : "World position the skybox pixels are blurred toward."
 ]
 
 @PointClass base(Targetname, Parentname, CanBeClientOnly) tags( Particles ) editormodel("models/editor/cone_helper_xyz.vmdl") helper_particle_glow() = env_particle_glow : 
@@ -1325,6 +1373,24 @@
 	lodlevel(lod_level)  [ group="Render Properties" ] : "Render LOD" : "0" : "Auto for standard LOD behaviour, or select an explicit LOD to use. Note that LODs take up more room in the lightmap and do not merge, potentially making them less performant if used on many objects (Set to Auto)."	
 ]
 
+
+@SolidClass base(Trigger, CanBeClientOnly) = cs_minimap_volume:
+	"Sets the minimap image for any player within this volume."
+	[
+		minimap_name(string) : "Minimap Name"
+	]
+
+@OverrideClass = AcousticProperty
+[
+	steamaudio_geometry_mode(choices) { group="Acoustic Properties" sort_priority = -1000 } : "Acoustic Geometry" : "0" : "Overrides how this object contributes geometry to the Steam Audio scene. The modes are mutually exclusive.<br/><b>Default</b>: No change. <br/><b>Exclude</b>: Exclude object form static geometry.<br/><b>Force Static</b>: Consider dynamic object as static geometry.<br/><b>Force Dynamic</b>: Consider object as dynamic geometry, all other dynamic objects are otherwise ignored." =
+	[
+		"0" : "Default"
+		"1" : "Exclude"
+		"2" : "Force Static"
+		"3" : "Force Dynamic"
+	]
+]
+
 @PointClass base(Targetname,Angles) global( map_parameters ) = info_map_parameters :
 	"Map parameters. Used to set which teams can buys, and the C4 bomb detonation radius."
 [
@@ -1361,6 +1427,11 @@
 		2: "Only Realtime Shadows"
 		3: "Only Baked Shadows"
 	]
+]
+
+@OverrideClass = func_button
+[
+	displaytext(string) : "Use Prompt Token" : : "Localization token prompt shown on-screen. Leave blank for no prompt."
 ]
 
 //-------------------------------------------------------------------------
@@ -1421,6 +1492,7 @@
 	movedir(angle) : "Move Direction (Pitch Yaw Roll)" : "0 0 0" : "The direction conveyor moves."
 	speed(float) : "Conveyor Speed, , in inches / second." : "100"
 	transition_duration(float) : "Transition Duration (seconds)" : "0" : "How long it will take to transition to the new speed."
+	friction_scale(float) : "Friction Scale" : "-1" : "Overrides the friction of the belt surface, which controls how strongly the belt drags physics objects and ragdolls. Large values are useful to make ragdolls keep up with the belt. Leave negative to use the friction from the surface material instead."
 
 
 	// Inputs
@@ -1538,6 +1610,34 @@
 		class_game_keys =
 		[
 			{ key = "isPointPrefab" value = true },
+			{ key = "targetMapName" value = "prefabs/misc/terrorist_rush_intro" }
+		]
+	}
+	model("agents/models/tm_phoenix/tm_phoenix") 
+	= terrorist_rush_intro : "In-map terrorist rush intro." 
+[
+]
+
+@PointClass base(Targetname) 
+	metadata
+	{
+		class_game_keys =
+		[
+			{ key = "isPointPrefab" value = true },
+			{ key = "targetMapName" value = "prefabs/misc/counterterrorist_rush_intro" }
+		]
+	}
+	model("agents/models/ctm_sas/ctm_sas")
+	= counterterrorist_rush_intro : "In-map counter-terrorist rush intro." 
+[
+]
+
+@PointClass base(Targetname) 
+	metadata
+	{
+		class_game_keys =
+		[
+			{ key = "isPointPrefab" value = true },
 			{ key = "targetMapName" value = "prefabs/misc/end_of_match" }
 		]
 	}
@@ -1560,11 +1660,6 @@
 
 @PointClass = cs_minimap_boundary:
 	"One of two corners needed to define the minimap boundaries (extend to support multilevel maps)."
-[
-]
-
-@PointClass studio("models/pets/egg_pristine.vmdl") = cs_pet_placement:
-	"Location on the map where to place pet."
 [
 ]
 
@@ -1603,6 +1698,51 @@
 	targetname(target_source) { sort_priority = 90 } : "Name" : : "The name that other entities refer to this entity by."
 	layout(resource:xml) : "Layout" : : "A panorama layout file. A limited set of panel types and attributes are supported."
 	observable(boolean) : "Observable" : : "Show each player's own version of this UI to whoever is spectating them."
+]
+
+@PointClass iconsprite("materials/editor/custom_hud_layout.vmat") = radar_element :
+	"This entity will display on the radar and map overview."
+[
+	targetname(target_source) { sort_priority = 90 } : "Name" : : "The name that other entities refer to this entity by."
+	element_type(choices) : "Element Type" : "0" : "Element icon that will be displayed on the radar." =
+	[
+		"0" : "Tower"
+		"1" : "C4"
+		"2" : "Hostage"
+	]
+	element_color(choices) : "Element Color" : "0" : "Element icon will be displayed on the radar in this color." =
+	[
+		"0" : "Player HUD"
+		"1" : "Gray"
+		"2" : "White"
+		"3" : "CT Team Color"
+		"4" : "T Team Color"
+		"5" : "Red"
+		"6" : "Green"
+	]
+	team_filter(choices) : "Team Filter" : "0" : "Which teams display this element on their radar and overview map." =
+	[
+		"0" : "Everybody"
+		"1" : "CT-only"
+		"2" : "T-only"
+		"3" : "Exclude Observers"
+		"4" : "Observers-only"
+		"5" : "Exclude T"
+		"6" : "Exclude CT"
+	]
+]
+
+@PointClass iconsprite("materials/editor/custom_hud_layout.vmat") = observable_element :
+	"This entity can be spectated when all teammates are no longer alive."
+[
+	targetname(target_source) { sort_priority = 90 } : "Name" : : "The name that other entities refer to this entity by."
+	observable_entname(target_destination) : "Observable Model" : "" : "Model entity that is being spectated."
+	team_filter(choices) : "Team Filter" : "0" : "Which teams can spectate this element." =
+	[
+		"0" : "Everybody"
+		"1" : "CT-only"
+		"2" : "T-only"
+	]
 ]
 
 @FilterClass base(BaseFilter) iconsprite("editor/filter_team.vmat") = filter_activator_team :

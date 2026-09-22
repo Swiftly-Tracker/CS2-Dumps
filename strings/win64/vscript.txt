@@ -11,6 +11,7 @@
  Complete Object Locator'
  HTTP/1.1\r\n
  Type Descriptor'
+ \n_V_strncmp
  ]Acosh
  ]Asinh
  delete
@@ -20,6 +21,7 @@
  in main chunk
  new
 !AxU
+!\n_V_strncpy
 #bML"
 $Ib?s
 %016llx
@@ -42,7 +44,6 @@ $Ib?s
 %s called with %d arguments - expected %d-%d
 %s connection attempt timed out\n
 %s expected, got %s
-%s has no instance glue - are you doing objectName.%s instead of objectName:%s?
 %s near '%s'
 %s parameter %d: expected %s but got %s.\n
 %s: allocation of %u too large, max %u\n
@@ -81,7 +82,9 @@ $Ib?s
 (for state)
 (for step)
 (null)
+)\nbase64_decode
 *StO9>T
+*\nbase64_encode
 ,HR>O
 -BH>t
 ...
@@ -165,7 +168,6 @@ $Ib?s
 10B99CC24B46CCF94E0E371687C756DB
 1434713789_main
 258EAFA5-E914-47DA-95CA-C5AB0DC85B11
-2\vppx
 3>N;kU
 6\fXO>\ntA
 8@HPX
@@ -175,6 +177,7 @@ $Ib?s
 <Global scope>
 <Global>
 <See locals>
+<\ng_pMemAlloc
 <array: %u elements>
 <binary blob: %u bytes>
 <eof>
@@ -245,6 +248,7 @@ BAL
 BF>^G
 BSR_ANYCRLF)
 BSR_UNICODE)
+B\tV_atoi
 Bad address
 Bad file descriptor
 BakedLODBuilderMgr001
@@ -290,7 +294,6 @@ CUtlMemoryBlockAllocator<char,class CMemAllocAllocator>::Alloc
 CUtlSymbolTableLarge element limit of %u exceeded\n
 CWD>~3
 Cabs
-Can't call %s:%s on an object of type %s
 Canadian_Aboriginal
 Cannot recover from failed socket shutdown. (error %d)
 Carian
@@ -529,6 +532,7 @@ Invalid continueToLocation message
 Invalid evaluate message
 Invalid evaluateOnCallFrame message
 Invalid getProperties message
+Invalid object passed to %s.
 Invalid removeBreakpoint message
 Invalid seek
 Invalid setBreakpoint message
@@ -774,8 +778,8 @@ RRRRRRRR4Q5QQQQQ
 RRRRRRRREEGRQQQQ
 RSDSu
 RXw
-R\fppx
-R\vppx
+R\fpx
+R\vpx
 RaiseException
 RandomFloat
 RandomFloatWrapper
@@ -857,6 +861,7 @@ Shavian
 Sinhala
 SleepConditionVariableSRW
 Sln
+SmartPropsSystem_001
 Socket error: %d\n
 SoundOpSystem001
 SoundOpSystemEdit001
@@ -1020,7 +1025,6 @@ V_StringToVector
 V_StringToVector2D
 V_StringToVector4D
 V_StringToVectorWS
-V_UnqualifiedFileName
 Vai
 Vc0a
 Vdk
@@ -1071,7 +1075,6 @@ Zjz\v
 [*ncd>TQ
 [aOni*{
 [builtin:
-[none]
 [string "
 \ at end of pattern
 \C not allowed in lookbehind assertion
@@ -1086,31 +1089,27 @@ Zjz\v
 \n\tno field package.preload['%s']
 \n\tno file '%s'
 \n\tno module '%s' in file '%s'
+\n_V_StringAfterPrefix
+\n_V_StringAfterPrefixCaseSensitive
 \nh?oT
 \nk>oB
 \nrandomseed
 \p{Xwd}
 \rmj>zjZ
 \tJR>8o
-\tV_atoi
+\tV_UnqualifiedFileName
+\tV_qsort_s
+\tV_sincosf
 \tV_snprintf
 \tV_stricmp_fast
 \tV_vsnprintf
 \tWarning
-\t_V_StringAfterPrefix
-\t_V_StringAfterPrefixCaseSensitive
-\t_V_strncmp
-\t_V_strncpy
-\tbase64_decode
-\tbase64_encode
 \tcQr
 \tisrunning
 \tkE>fvw
 \u%04x
-\v\ng_pMemAlloc
 \var\srcds\shared\dota
 \vgetregistry\fgetmetatable\fsetmetatable
-\vppx
 ] is an invalid data character in JavaScript compatibility mode
 ^RfN>
 ^^^^
@@ -1900,7 +1899,6 @@ owner dead
 pFx
 pOC
 pTq
-p\tV_qsort_s
 package
 page
 pagesize
@@ -1916,7 +1914,6 @@ perform arithmetic on
 permessage-deflate
 popen
 pow
-ppx
 preload
 print
 printf
@@ -2003,6 +2000,7 @@ qangle
 quaternion
 rNm>)
 r\tVr.>T
+r\vpx
 rad
 random
 range check failure
@@ -2362,6 +2360,5 @@ yLM
 yUk
 ycg
 zZg
-z\tV_sincosf
 { "Browser" : " INSPECTOR_BROWSER_NAME ", "Protocol-Version" : " INSPECTOR_PROTOCOL_VERSION ", "User-Agent" : " INSPECTOR_USER_AGENT ", "webSocketDebuggerUrl" : "ws://localhost:41000/process/%u" }\r\n
 {kHw

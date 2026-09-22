@@ -72,10 +72,37 @@
 	value(int) : "Seed Generation Value"
 ]
 
+@Struct = chicken_metadata_procgeo_characteristic
+[
+	name(string) : "Name" : "" : "Name of the procedural shape"
+	sequence_min(string) : "Min Sequence" : "" : "Single frame sequence blended in at value 0"
+	sequence_max(string) : "Max Sequence" : "" : "Single frame sequence blended in at value 1"
+]
+
+@Struct = chicken_metadata_procgeo_preset_value
+[
+	name(string) : "Characteristic Name"
+	min(float) : "Min" : "0"
+	max(float) : "Max" : "1"
+]
+
+@Struct = chicken_metadata_procgeo_presets
+[
+	adolescent(array:struct:chicken_metadata_procgeo_preset_value) { autoexpand_self = true } : "Adolescent"
+	adult(array:struct:chicken_metadata_procgeo_preset_value) { autoexpand_self = true } : "Adult"
+]
+
+@Struct = chicken_metadata_procgeo
+[
+	characteristics(array:struct:chicken_metadata_procgeo_characteristic) { autoexpand_self = true } : "Characteristics"
+	presets(struct:chicken_metadata_procgeo_presets) { autoexpand_self = true } : "Presets"
+]
+
 @ModelGameData = chicken_metadata
 [
 	matgrps(array:struct:chicken_metadata_material_group) : "Material Groups"
 	matparams(array:struct:chicken_metadata_material_param) : "Material Params"
+	procedural_geometry_poses(struct:chicken_metadata_procgeo) { autoexpand_self = true } : "Procedural Geometry Poses"
 ]
 
 @ModelGameData = patch_camera_preset_list : "Camera preset position names for patch slots on this character."

@@ -11,9 +11,11 @@
  RELEASE
  REPEAT
  Type Descriptor'
+ \n_V_strncmp
  delete
  delete[]
  new
+!\n_V_strncpy
 !root
 """
 %1 [W = %2, C = %3, Instance = %4, Mode = %5]
@@ -112,6 +114,7 @@
 1setFilterWildcard(QString)
 1trigger()
 2OnDownPressed()
+2\vpTb
 2aboutToShow()
 2anchorClicked(QUrl)
 2changed()
@@ -129,6 +132,7 @@
 </font>
 </font><br>
 <NONE>
+<\ng_pMemAlloc
 <a href='%1'>%2</a>
 <a href='helpsystem:%s'>%s</a> &gt; 
 <array: %u elements>
@@ -151,9 +155,9 @@
 ???
 ?Class data is a '%s', not a table\n
 ?UUUUUU
+?\tV_atof
 ?qBJ
 ?ysB
-@InputBindSystem
 A>pP&
 ABCDEFGHIJKLMNOPQRSTUVWXYZ
 APPSYSTEM: In ConnectInterfaces(), s_nRegistrationCount is %d!\n
@@ -184,6 +188,7 @@ Aug
 August
 BF>^G
 BUTTON
+B\tV_atoi
 Background
 Backspace
 Bad checkstate (expected eg. 'PartiallyChecked')
@@ -197,6 +202,8 @@ Binding removed due to active drag: %s
 Break
 C:\buildworker\csgo_rel_win64\build\_build_\tools\helpsystem\_vpc_helpsystem\default\win64\_msvc_\Retail\helpsystem.pdb
 C:\buildworker\csgo_rel_win64\build\src\public\tier0\utldict.h
+C:\buildworker\csgo_rel_win64\build\src\qcontrols\inputglobalhotkeys.cpp
+C:\buildworker\csgo_rel_win64\build\src\tools\helpsystem\qhelpeditorwidget.cpp
 CGlobalHotkeyCommands
 CInputBindManager::HandleInputCode recursion depth got too deep.\n
 CKV3Arena::Root
@@ -215,6 +222,33 @@ CQBindableCommandAction
 CQBindableCommandPushButton
 CQBindableCommandToolButton
 CQBindableWidgetInfo
+CQClickableLabel
+CQConnectHelper_QObject
+CQConnectHelper_QString
+CQConnectHelper_QStringQString
+CQConnectHelper_QStringbool
+CQConnectHelper_QStringfloat
+CQConnectHelper_QStringint
+CQConnectHelper_QVariant
+CQConnectHelper_QWidget
+CQConnectHelper_bool
+CQConnectHelper_boolQString
+CQConnectHelper_boolbool
+CQConnectHelper_boolfloat
+CQConnectHelper_boolint
+CQConnectHelper_float
+CQConnectHelper_floatQString
+CQConnectHelper_floatbool
+CQConnectHelper_floatfloat
+CQConnectHelper_floatint
+CQConnectHelper_int
+CQConnectHelper_intQString
+CQConnectHelper_intbool
+CQConnectHelper_intfloat
+CQConnectHelper_intint
+CQConnectHelper_intvoid
+CQConnectHelper_void
+CQConnectHelper_voidvoid
 CQDragOverlayWidget
 CQDraggableWidgetList
 CQDynamicWidget
@@ -234,6 +268,7 @@ CQInputBindMenu
 CQInputDebugger
 CQInputKeyStateVisualizer
 CQScrollableWidgetList
+CQSmartTextEdit
 CQTabbedStyle
 CQTextEditSuppressShortcuts
 CQTreeWidgetWithHover
@@ -261,6 +296,7 @@ CharacterSetBuild
 CheckState
 Children
 Class
+ClassName
 Clear History
 ClearInputHistory
 ClientLocalServerAccess001
@@ -346,6 +382,8 @@ Failed to load help file '%s'.\n
 Failed to save unsupported class
 Feb
 February
+File
+FileLine
 Filter:
 FilterApplied
 Find:
@@ -448,6 +486,7 @@ InitializeSListHead
 Input Binding Error
 Input Debugger [%1]
 Input Sequence
+InputBindSystem
 InputService_001
 InputStackSystemVersion001
 InputSystemVersion001
@@ -588,8 +627,10 @@ OnAutoUpdateTimer
 OnDownPressed
 OnEditButtonClicked
 OnEditTextChanged
+OnEditingFinished
 OnFileChanged
 OnFilterChanged
+OnFocusOut
 OnOptionChanged
 OnRefreshClicked
 OnReloadTimeout
@@ -601,6 +642,7 @@ OnTreeSelectionChanged
 OpenFileMappingA
 OpenMutexA
 Orientation
+OverideHelpContextName
 P4File
 PIO
 PanoramaTextServices001
@@ -671,8 +713,6 @@ QueryPerformanceCounter
 RMouse
 RMouseDoubleClick
 RSDS
-R\fp E
-R\vp(C
 RaiseException
 RandomFloat
 RandomInt
@@ -735,6 +775,7 @@ Size
 SizePolicy
 SizePolicy array must have two elements
 SleepConditionVariableSRW
+SmartPropsSystem_001
 SoundOpSystem001
 SoundOpSystemEdit001
 SoundService_001
@@ -836,7 +877,6 @@ V_StringToFloat64
 V_StringToInt32
 V_StringToInt64
 V_StringToUint64
-V_UnqualifiedFileName
 Value
 ValveSMMem:%s
 ValveSMMut:%s
@@ -868,19 +908,15 @@ Yes - Discard Changes
 [NoWidget]
 \f\f?columnCount@QStandardItemModel@@UEBAHAEBVQModelIndex@@@Z
 \f\f?focusInEvent@QLabel@@MEAAXPEAVQFocusEvent@@@Z
-\n\n\n
 \n\r?heightForWidth@QBoxLayout@@UEBAHH@Z
 \r\f?focusInEvent@QLineEdit@@MEAAXPEAVQFocusEvent@@@Z
 \r\r?heightForWidth@QGridLayout@@UEBAHH@Z
-\tV_atof
-\tV_atoi
+\tV_UnqualifiedFileName
+\tV_qsort_s
 \tV_stricmp_fast
 \tWarning
-\t_V_strncmp
-\t_V_strncpy
 \tkE>fvw
 \v\f?focusInEvent@QGroupBox@@MEAAXPEAVQFocusEvent@@@Z
-\v\ng_pMemAlloc
 __IsValveCQTabbedStyle
 __based(
 __cdecl
@@ -949,6 +985,7 @@ bad exception
 bad function call
 binary
 binary_blob
+bind_targets
 binding
 bold
 bold text
@@ -968,14 +1005,14 @@ char const* V_stristr_fast(char const*, char const*) (demangled)
 checkstate
 children
 class CBaseAppSystem<IHelpSystem> (demangled)
+class CBaseBindTargetDescriptor (demangled)
+class CBaseBindableCommand (demangled)
 class CBaseDynamicWidgetFactory (demangled)
 class CBaseVModuleMetadataProvider (demangled)
 class CBindTargetDescriptor<CGlobalHotkeyCommands> (demangled)
-class CBindTargetDescriptor<CGlobalHotkeyCommands>::CSpecificTargetBindableCommand (demangled)
+class CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand (demangled)
 class CBindTargetDescriptor<CQHelpEditorWidget> (demangled)
-class CBindTargetDescriptor<CQHelpEditorWidget>::CSpecificTargetBindableCommand (demangled)
-class CBindTargetDescriptorBase (demangled)
-class CBindableCommand (demangled)
+class CBindTargetDescriptor<CQHelpEditorWidget>::CBindableCommand (demangled)
 class CDynamicWidgetFactory<CQDraggableWidgetList> (demangled)
 class CDynamicWidgetFactory<CQFilteredTreeWidget> (demangled)
 class CDynamicWidgetFactory<CQTextEditSuppressShortcuts> (demangled)
@@ -1011,6 +1048,7 @@ class CDynamicWidgetFactory_Orientation<QHeaderView> (demangled)
 class CDynamicWidgetFactory_Orientation<QSplitter> (demangled)
 class CGlobalHotkeyCommands (demangled)
 class CHelpSystem (demangled)
+class CInputBindTargetMetadataProvider (demangled)
 class CKV3TransferContextBase (demangled)
 class CKV3TransferLoadContext (demangled)
 class CKV3TransferSaveContext (demangled)
@@ -1121,31 +1159,12 @@ class QTreeWidgetItem (demangled)
 class QVBoxLayout (demangled)
 class QWidget (demangled)
 class QWidgetAction (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`10'::<lambda_8> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`11'::<lambda_9> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`12'::<lambda_10> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`13'::<lambda_11> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`14'::<lambda_12> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`15'::<lambda_13> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`16'::<lambda_14> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`17'::<lambda_15> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`3'::<lambda_1> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`4'::<lambda_2> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`5'::<lambda_3> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`6'::<lambda_4> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`7'::<lambda_5> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`8'::<lambda_6> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`9'::<lambda_7> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CQHelpEditorWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`10'::<lambda_8> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CQHelpEditorWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`3'::<lambda_1> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CQHelpEditorWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`4'::<lambda_2> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CQHelpEditorWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`5'::<lambda_3> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CQHelpEditorWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`6'::<lambda_4> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CQHelpEditorWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`7'::<lambda_5> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CQHelpEditorWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`8'::<lambda_6> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CQHelpEditorWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`9'::<lambda_7> (demangled)
-class `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance (demangled)
-class `public: static CBindTargetDescriptorBase* CQHelpEditorWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance (demangled)
+class `public: CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand& CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand::SetFunction<void (CGlobalHotkeyCommands::*)(int, int), int, int>(BindableCommandStage_t, void (CGlobalHotkeyCommands::*)(int, int), int, int)'::`2'::<lambda_1> (demangled)
+class `public: CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand& CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand::SetFunction<void (CGlobalHotkeyCommands::*)(void)>(BindableCommandStage_t, void (CGlobalHotkeyCommands::*)(void))'::`2'::<lambda_1> (demangled)
+class `public: CBindTargetDescriptor<CQHelpEditorWidget>::CBindableCommand& CBindTargetDescriptor<CQHelpEditorWidget>::CBindableCommand::SetFunction<void (CQHelpEditorWidget::*)(char const*, char const*), char const*, char const*>(BindableCommandStage_t, void (CQHelpEditorWidget::*)(char const*, char const*), char const*, char const*)'::`2'::<lambda_1> (demangled)
+class `public: CBindTargetDescriptor<CQHelpEditorWidget>::CBindableCommand& CBindTargetDescriptor<CQHelpEditorWidget>::CBindableCommand::SetFunction<void (CQHelpEditorWidget::*)(void)>(BindableCommandStage_t, void (CQHelpEditorWidget::*)(void))'::`2'::<lambda_1> (demangled)
+class `public: static CBaseBindTargetDescriptor* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance (demangled)
+class `public: static CBaseBindTargetDescriptor* CQHelpEditorWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance (demangled)
 class std::_Func_base<void, CGlobalHotkeyCommands*> (demangled)
 class std::_Func_base<void, CQBindableCommandPushButton*, CBaseDynamicWidgetFactory::InitContext_t const&> (demangled)
 class std::_Func_base<void, CQBindableCommandToolButton*, CBaseDynamicWidgetFactory::InitContext_t const&> (demangled)
@@ -1160,29 +1179,10 @@ class std::_Func_base<void, QTabWidget*, CBaseDynamicWidgetFactory::InitContext_
 class std::_Func_base<void, QTableWidget*, CBaseDynamicWidgetFactory::InitContext_t const&> (demangled)
 class std::_Func_base<void, QToolBar*, CBaseDynamicWidgetFactory::InitContext_t const&> (demangled)
 class std::_Func_base<void, QToolButton*, CBaseDynamicWidgetFactory::InitContext_t const&> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`10'::<lambda_8>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`11'::<lambda_9>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`12'::<lambda_10>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`13'::<lambda_11>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`14'::<lambda_12>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`15'::<lambda_13>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`16'::<lambda_14>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`17'::<lambda_15>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`3'::<lambda_1>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`4'::<lambda_2>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`5'::<lambda_3>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`6'::<lambda_4>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`7'::<lambda_5>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`8'::<lambda_6>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`9'::<lambda_7>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CQHelpEditorWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`10'::<lambda_8>, void, CQHelpEditorWidget*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CQHelpEditorWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`3'::<lambda_1>, void, CQHelpEditorWidget*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CQHelpEditorWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`4'::<lambda_2>, void, CQHelpEditorWidget*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CQHelpEditorWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`5'::<lambda_3>, void, CQHelpEditorWidget*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CQHelpEditorWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`6'::<lambda_4>, void, CQHelpEditorWidget*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CQHelpEditorWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`7'::<lambda_5>, void, CQHelpEditorWidget*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CQHelpEditorWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`8'::<lambda_6>, void, CQHelpEditorWidget*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CQHelpEditorWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`9'::<lambda_7>, void, CQHelpEditorWidget*> (demangled)
+class std::_Func_impl_no_alloc<`public: CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand& CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand::SetFunction<void (CGlobalHotkeyCommands::*)(int, int), int, int>(BindableCommandStage_t, void (CGlobalHotkeyCommands::*)(int, int), int, int)'::`2'::<lambda_1>, void, CGlobalHotkeyCommands*> (demangled)
+class std::_Func_impl_no_alloc<`public: CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand& CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand::SetFunction<void (CGlobalHotkeyCommands::*)(void)>(BindableCommandStage_t, void (CGlobalHotkeyCommands::*)(void))'::`2'::<lambda_1>, void, CGlobalHotkeyCommands*> (demangled)
+class std::_Func_impl_no_alloc<`public: CBindTargetDescriptor<CQHelpEditorWidget>::CBindableCommand& CBindTargetDescriptor<CQHelpEditorWidget>::CBindableCommand::SetFunction<void (CQHelpEditorWidget::*)(char const*, char const*), char const*, char const*>(BindableCommandStage_t, void (CQHelpEditorWidget::*)(char const*, char const*), char const*, char const*)'::`2'::<lambda_1>, void, CQHelpEditorWidget*> (demangled)
+class std::_Func_impl_no_alloc<`public: CBindTargetDescriptor<CQHelpEditorWidget>::CBindableCommand& CBindTargetDescriptor<CQHelpEditorWidget>::CBindableCommand::SetFunction<void (CQHelpEditorWidget::*)(void)>(BindableCommandStage_t, void (CQHelpEditorWidget::*)(void))'::`2'::<lambda_1>, void, CQHelpEditorWidget*> (demangled)
 class std::_Func_impl_no_alloc<void (*)(CQBindableCommandPushButton*, CBaseDynamicWidgetFactory::InitContext_t const&), void, CQBindableCommandPushButton*, CBaseDynamicWidgetFactory::InitContext_t const&> (demangled)
 class std::_Func_impl_no_alloc<void (*)(CQBindableCommandToolButton*, CBaseDynamicWidgetFactory::InitContext_t const&), void, CQBindableCommandToolButton*, CBaseDynamicWidgetFactory::InitContext_t const&> (demangled)
 class std::_Func_impl_no_alloc<void (*)(QCheckBox*, CBaseDynamicWidgetFactory::InitContext_t const&), void, QCheckBox*, CBaseDynamicWidgetFactory::InitContext_t const&> (demangled)
@@ -1202,7 +1202,9 @@ class std::bad_function_call (demangled)
 class std::exception (demangled)
 class type_info (demangled)
 clear_group
+clicked
 colspan
+commands
 concommand
 connections
 const char*
@@ -1212,6 +1214,7 @@ dddd, MMMM dd, yyyy
 decal
 default
 defaultAction
+description
 dest
 doItemsLayout
 dock
@@ -1298,6 +1301,8 @@ m_Context
 m_Input
 m_InputMacros
 m_Name
+map
+mapped
 material
 menu
 menuAction
@@ -1321,7 +1326,6 @@ pFx
 pItem
 pOC
 pPrevFocusWidget
-p\tV_qsort_s
 particlesystem
 position
 priority
@@ -2865,7 +2869,6 @@ public: void** QListData::begin(void) const (demangled)
 purecall
 quiet
 r\tVr.>T
-r\vp E
 range check failure
 resource/toolhelp_%s_%s.txt
 resource_manifests

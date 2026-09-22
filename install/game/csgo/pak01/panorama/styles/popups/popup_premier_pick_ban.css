@@ -265,40 +265,75 @@
 	opacity: 0;
 }
 
-.premier-pickban-phase-2 .premier-pickban__maps,.premier-pickban-phase-3 .premier-pickban__maps,.premier-pickban-phase-4 .premier-pickban__maps
+.premier-pickban-phase-2 .premier-pickban__maps,.premier-pickban-phase-3 .premier-pickban__maps,.premier-pickban-phase-4 .premier-pickban__maps,.premier-pickban-phase-5 .premier-pickban__maps
 {
 	opacity: 1;
 	transform: scale3d(1, 1, 1);
 }
 
-.premier-pickban-phase-2 .premier-pickban__players,.premier-pickban-phase-3 .premier-pickban__players,.premier-pickban-phase-4 .premier-pickban__players
+.premier-pickban-phase-2 .premier-pickban__players,.premier-pickban-phase-3 .premier-pickban__players,.premier-pickban-phase-4 .premier-pickban__players,.premier-pickban-phase-5 .premier-pickban__players
 {
 	opacity: 1;
 }
 
-.premier-pickban-phase-2 .premier-pickban__spider-bg,.premier-pickban-phase-3 .premier-pickban__spider-bg,.premier-pickban-phase-4 .premier-pickban__spider-bg
+.premier-pickban-phase-2 .premier-pickban__spider-bg,.premier-pickban-phase-3 .premier-pickban__spider-bg,.premier-pickban-phase-4 .premier-pickban__spider-bg,.premier-pickban-phase-5 .premier-pickban__spider-bg
 {
 	opacity: 1;
 }
 
-.premier-pickban-phase-2 #PartyChat,.premier-pickban-phase-3 #PartyChat,.premier-pickban-phase-4 #PartyChat
+.premier-pickban-phase-2 #PartyChat,.premier-pickban-phase-3 #PartyChat,.premier-pickban-phase-4 #PartyChat,.premier-pickban-phase-5 #PartyChat
 {
 	opacity: 1;
 }
 
-.premier-pickban-phase-5 .premier-pickban__maps
+.premier-pickban-phase-5 .premier-pickban-pick .premier-pickban__map-btn-bg .random-flash-effect,.premier-pickban-phase-5 .premier-pickban-pick .premier-pickban__map-btn-bg
 {
-	opacity: 1;
+	animation-duration: .76s;
+	animation-timing-function: linear;
+	animation-iteration-count: 5;
+	animation-fill-mode: both;
 }
 
-.premier-pickban-phase-5 .premier-pickban__spider-bg
+.premier-pickban-phase-5 .premier-pickban-pick .premier-pickban__map-btn-bg .random-flash-effect
 {
-	opacity: 0;
+	animation-name: random-flash-effect-brightness;
 }
 
-.premier-pickban-phase-5 #PartyChat
+.premier-pickban-phase-5 .premier-pickban-pick .premier-pickban__map-btn-bg
 {
-	opacity: 1;
+	animation-name: random-flash-effect-transform;
+}
+
+.premier-pickban-phase-5 .premier-pickban-pick-seq0 .premier-pickban__map-btn-bg .random-flash-effect
+{
+	animation-name: random-flash-effect-brightness5;
+}
+
+.premier-pickban-phase-5 .premier-pickban-pick-seq0 .premier-pickban__map-btn-bg
+{
+	animation-name: random-flash-effect-transform5;
+}
+
+.premier-pickban-phase-5 .premier-pickban-pick-seq0 .premier-pickban__map-btn-bg .random-flash-effect,.premier-pickban-phase-5 .premier-pickban-pick-seq0 .premier-pickban__map-btn-bg
+{
+	animation-delay: .00s;
+	animation-iteration-count: 1;
+	animation-duration: 5.0s;
+}
+
+.premier-pickban-phase-5 .premier-pickban-pick-seq1 .premier-pickban__map-btn-bg .random-flash-effect,.premier-pickban-phase-5 .premier-pickban-pick-seq1 .premier-pickban__map-btn-bg
+{
+	animation-delay: .19s;
+}
+
+.premier-pickban-phase-5 .premier-pickban-pick-seq2 .premier-pickban__map-btn-bg .random-flash-effect,.premier-pickban-phase-5 .premier-pickban-pick-seq2 .premier-pickban__map-btn-bg
+{
+	animation-delay: .38s;
+}
+
+.premier-pickban-phase-5 .premier-pickban-pick-seq3 .premier-pickban__map-btn-bg .random-flash-effect,.premier-pickban-phase-5 .premier-pickban-pick-seq3 .premier-pickban__map-btn-bg
+{
+	animation-delay: .57s;
 }
 
 .premier-pickban-phase-6 .premier-pickban__maps
@@ -306,18 +341,33 @@
 	opacity: 1;
 }
 
-.premier-pickban-phase-6 .premier-pickban__team--result
+.premier-pickban-phase-6 .premier-pickban__spider-bg
+{
+	opacity: 0;
+}
+
+.premier-pickban-phase-6 #PartyChat
 {
 	opacity: 1;
 }
 
-.premier-pickban-phase-6 .premier-pickban__spider-bg
+.premier-pickban-phase-7 .premier-pickban__maps
+{
+	opacity: 1;
+}
+
+.premier-pickban-phase-7 .premier-pickban__team--result
+{
+	opacity: 1;
+}
+
+.premier-pickban-phase-7 .premier-pickban__spider-bg
 {
 	opacity: 0;
 	visibility: collapse;
 }
 
-.premier-pickban-phase-6 #PartyChat
+.premier-pickban-phase-7 #PartyChat
 {
 	opacity: 1;
 }
@@ -535,6 +585,17 @@
 	position: 0px 0px 0px;
 }
 
+.premier-pickban__map-btn .premier-pickban__map-btn-container .premier-pickban__map-btn__label_low
+{
+	text-transform: uppercase;
+	text-align: center;
+	horizontal-align: center;
+	vertical-align: bottom;
+	margin-bottom: 10px;
+	text-shadow: 0px 0px 6px 1.0 rgba(255, 255, 255, 0.635);
+	position: 0px 0px 0px;
+}
+
 .premier-pickban__map-btn .premier-pickban__map-btn-container .premier-pickban__map-btn__vote-container
 {
 	width: 42px;
@@ -561,6 +622,7 @@
 	vertical-align: center;
 	background-image: none;
 	z-index:2;
+	img-shadow: 2px 2px 6px 0.0 #000000cc;
 	opacity: 0;
 	transform: scale3d( 1.5, 1.5, 1);
 	transition-property: transform, opacity;
@@ -574,7 +636,7 @@
 	vertical-align: bottom;
 	text-align: center;
 	padding: 2px 8px;
-	background-color: negativeColor;
+	background-color: positiveColor;
 	position: 0px 0px 0px;
 	border-radius: 3px;
 	overflow: noclip;
@@ -638,9 +700,39 @@
 	color: black;
 }
 
+.premier-pickban__map-btn .premier-pickban__map-btn-container.premier-pickban-veto .premier-pickban__map-btn__label_low
+{
+	color: black;
+	visibility: collapse;
+}
+
 .premier-pickban__map-btn .premier-pickban__map-btn-container:hover:not(:disabled) .premier-pickban__map-btn__map-image
 {
 	brightness: 2;
+}
+
+.premier-pickban__map-btn .premier-pickban__map-btn-container.premier-pickban-canblur:disabled:not(.premier-pickban-pick) .premier-pickban__map-btn-bg-image
+{
+	border: 2px solid rgb(140, 140, 140);
+	blur:gaussian( 3, 3, 1 );
+	brightness: .9;
+}
+
+.premier-pickban__map-btn .premier-pickban__map-btn-container.premier-pickban-canblur:disabled:not(.premier-pickban-pick) .premier-pickban__map-btn__map-fade
+{
+	background-color: rgba(0, 0, 0, 0.9);
+}
+
+.premier-pickban__map-btn .premier-pickban__map-btn-container.premier-pickban-canblur:disabled:not(.premier-pickban-pick) .premier-pickban__map-btn__label
+{
+	color: rgb(130, 130, 130);
+	text-shadow: none;
+}
+
+.premier-pickban__map-btn .premier-pickban__map-btn-container.premier-pickban-canblur:disabled:not(.premier-pickban-pick) .premier-pickban__map-btn__label_low
+{
+	color: rgb(130, 130, 130);
+	text-shadow: none;
 }
 
 .premier-pickban__map-btn .premier-pickban__map-btn-container:disabled
@@ -649,30 +741,12 @@
 	box-shadow: none;
 }
 
-.premier-pickban__map-btn .premier-pickban__map-btn-container:disabled .premier-pickban__map-btn-bg-image
-{
-	border: 2px solid rgb(140, 140, 140);
-	blur:gaussian( 3, 3, 1 );
-	brightness: .9;
-}
-
-.premier-pickban__map-btn .premier-pickban__map-btn-container:disabled .premier-pickban__map-btn__map-fade
-{
-	background-color: rgba(0, 0, 0, 0.9);
-}
-
 .premier-pickban__map-btn .premier-pickban__map-btn-container:disabled .premier-pickban__map-btn__vote-container
 {
 	opacity: 0;
 	transition-property: opacity;
 	transition-duration: 0.25s;
 	transition-timing-function: ease-in-out;
-}
-
-.premier-pickban__map-btn .premier-pickban__map-btn-container:disabled .premier-pickban__map-btn__label
-{
-	color: rgb(130, 130, 130);
-	text-shadow: none;
 }
 
 .premier-pickban__map-btn .premier-pickban__map-btn-container.premier-pickban__map-btn__show-status .premier-pickban__map-btn-status
@@ -687,16 +761,6 @@
 .premier-pickban__map-btn .premier-pickban__map-btn-container.is-team-pick .premier-pickban__map-btn-status
 {
 	background-color: green;
-}
-
-.premier-pickban__map-btn .premier-pickban__map-btn-container.is-team-pick .premier-pickban__map-btn-bg-image
-{
-	blur:gaussian( 0, 0, 0 );
-}
-
-.premier-pickban__map-btn .premier-pickban__map-btn-container.is-team-pick:disabled .premier-pickban__map-btn-bg-image
-{
-	blur:gaussian( 0, 0, 0 );
 }
 
 .premier-pickban__map-btn .premier-pickban__map-btn-container.premier-pickban__map-btn-winning--green
@@ -720,6 +784,12 @@
 	height: 14px;
 	text-overflow: ellipsis;
 	font-size: 12px;
+}
+
+.premier-pickban__map-avatars-container .premier-pickban__map-avatars__label .decorated-player-name__clan-tag,.premier-pickban__teammates .premier-pickban__map-avatars__label .decorated-player-name__clan-tag
+{
+	font-family: Stratum2 Light Condensed, "Arial Unicode MS";
+	font-weight: light;
 }
 
 .premier-pickban__map-avatars-container CSGOAvatarImage,.premier-pickban__teammates CSGOAvatarImage
@@ -782,9 +852,15 @@
 
 .premier-pickban__players .premier-pickban__map-avatars__label
 {
-	width: 140px;
+	width: 200px;
 	height: 18px;
 	font-size: 16px;
+}
+
+.premier-pickban__players .decorated-player-name__clan-tag
+{
+	font-family: Stratum2 Light Condensed, "Arial Unicode MS";
+	font-weight: light;
 }
 
 .premier-pickban__players CSGOAvatarImage.team-color
@@ -858,7 +934,7 @@
 .is-vote-phase.premier-pickban__map-btn-container:selected .premier-pickban__map-btn__vote
 {
 	wash-color: positiveColor;
-	background-image: url("s2r://panorama/images/icons/ui/check.vsvg");
+	background-image: url("s2r://panorama/images/icons/ui/thumbs_up.vsvg");
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 32px 32px;
@@ -899,6 +975,332 @@
 	100%
 	{
 		brightness: 1;
+		transform: scale3d( 1, 1, 1);
+	}
+	
+}
+
+@keyframes 'random-flash-effect-brightness'
+{
+	0%
+	{
+		brightness: 1;
+	}
+	
+	35%
+	{
+		brightness: 1;
+	}
+	
+	50%
+	{
+		brightness: 4;
+	}
+	
+	65%
+	{
+		brightness: 1;
+	}
+	
+	100%
+	{
+		brightness: 1;
+	}
+	
+}
+
+@keyframes 'random-flash-effect-brightness5'
+{
+	0%
+	{
+		brightness: 1;
+	}
+	
+	5.32%
+	{
+		brightness: 1;
+	}
+	
+	7.60%
+	{
+		brightness: 4;
+	}
+	
+	9.88%
+	{
+		brightness: 1;
+	}
+	
+	20.52%
+	{
+		brightness: 1;
+	}
+	
+	22.80%
+	{
+		brightness: 4;
+	}
+	
+	25.08%
+	{
+		brightness: 1;
+	}
+	
+	35.72%
+	{
+		brightness: 1;
+	}
+	
+	38.00%
+	{
+		brightness: 4;
+	}
+	
+	40.28%
+	{
+		brightness: 1;
+	}
+	
+	50.92%
+	{
+		brightness: 1;
+	}
+	
+	53.20%
+	{
+		brightness: 4;
+	}
+	
+	55.48%
+	{
+		brightness: 1;
+	}
+	
+	66.12%
+	{
+		brightness: 1;
+	}
+	
+	68.40%
+	{
+		brightness: 4;
+	}
+	
+	70.68%
+	{
+		brightness: 1;
+	}
+	
+	81.32%
+	{
+		brightness: 1;
+	}
+	
+	83.60%
+	{
+		brightness: 4;
+	}
+	
+	85.88%
+	{
+		brightness: 1;
+	}
+	
+	87%
+	{
+		brightness: 1;
+	}
+	
+	89%
+	{
+		brightness: 4;
+	}
+	
+	91%
+	{
+		brightness: 1;
+	}
+	
+	93%
+	{
+		brightness: 4;
+	}
+	
+	95%
+	{
+		brightness: 1;
+	}
+	
+	97%
+	{
+		brightness: 4;
+	}
+	
+	100%
+	{
+		brightness: 1;
+	}
+	
+}
+
+@keyframes 'random-flash-effect-transform'
+{
+	0%
+	{
+		transform: scale3d( 1, 1, 1);
+	}
+	
+	35%
+	{
+		transform: scale3d( 1, 1, 1);
+	}
+	
+	50%
+	{
+		transform: scale3d( 1.05, 1.05, 1);
+	}
+	
+	65%
+	{
+		transform: scale3d( 1, 1, 1);
+	}
+	
+	100%
+	{
+		transform: scale3d( 1, 1, 1);
+	}
+	
+}
+
+@keyframes 'random-flash-effect-transform5'
+{
+	0%
+	{
+		transform: scale3d( 1, 1, 1);
+	}
+	
+	5.32%
+	{
+		transform: scale3d( 1, 1, 1);
+	}
+	
+	7.60%
+	{
+		transform: scale3d( 1.05, 1.05, 1);
+	}
+	
+	9.88%
+	{
+		transform: scale3d( 1, 1, 1);
+	}
+	
+	20.52%
+	{
+		transform: scale3d( 1, 1, 1);
+	}
+	
+	22.80%
+	{
+		transform: scale3d( 1.05, 1.05, 1);
+	}
+	
+	25.08%
+	{
+		transform: scale3d( 1, 1, 1);
+	}
+	
+	35.72%
+	{
+		transform: scale3d( 1, 1, 1);
+	}
+	
+	38.00%
+	{
+		transform: scale3d( 1.05, 1.05, 1);
+	}
+	
+	40.28%
+	{
+		transform: scale3d( 1, 1, 1);
+	}
+	
+	50.92%
+	{
+		transform: scale3d( 1, 1, 1);
+	}
+	
+	53.20%
+	{
+		transform: scale3d( 1.05, 1.05, 1);
+	}
+	
+	55.48%
+	{
+		transform: scale3d( 1, 1, 1);
+	}
+	
+	66.12%
+	{
+		transform: scale3d( 1, 1, 1);
+	}
+	
+	68.40%
+	{
+		transform: scale3d( 1.05, 1.05, 1);
+	}
+	
+	70.68%
+	{
+		transform: scale3d( 1, 1, 1);
+	}
+	
+	81.32%
+	{
+		transform: scale3d( 1, 1, 1);
+	}
+	
+	83.60%
+	{
+		transform: scale3d( 1.05, 1.05, 1);
+	}
+	
+	85.88%
+	{
+		transform: scale3d( 1, 1, 1);
+	}
+	
+	87%
+	{
+		transform: scale3d( 1, 1, 1);
+	}
+	
+	89%
+	{
+		transform: scale3d( 1.05, 1.05, 1);
+	}
+	
+	91%
+	{
+		transform: scale3d( 1, 1, 1);
+	}
+	
+	93%
+	{
+		transform: scale3d( 1.05, 1.05, 1);
+	}
+	
+	95%
+	{
+		transform: scale3d( 1, 1, 1);
+	}
+	
+	97%
+	{
+		transform: scale3d( 1.05, 1.05, 1);
+	}
+	
+	100%
+	{
 		transform: scale3d( 1, 1, 1);
 	}
 	
@@ -1022,14 +1424,17 @@
 	background-color: gradient( linear, 0% 100%, 0% 0%, from(#000000e7), to( #00000036) );
 }
 
-#id-map-vote-btn-0.premier-pickban__map-btn--picked .premier-pickban__map-btn-bg-image,#id-map-vote-btn-1.premier-pickban__map-btn--picked .premier-pickban__map-btn-bg-image,#id-map-vote-btn-2.premier-pickban__map-btn--picked .premier-pickban__map-btn-bg-image,#id-map-vote-btn-3.premier-pickban__map-btn--picked .premier-pickban__map-btn-bg-image,#id-map-vote-btn-4.premier-pickban__map-btn--picked .premier-pickban__map-btn-bg-image,#id-map-vote-btn-5.premier-pickban__map-btn--picked .premier-pickban__map-btn-bg-image,#id-map-vote-btn-6.premier-pickban__map-btn--picked .premier-pickban__map-btn-bg-image
-{
-	blur:gaussian( 0, 0, 0);
-}
-
 #id-map-vote-btn-0.premier-pickban__map-btn--picked .premier-pickban__map-btn__label,#id-map-vote-btn-1.premier-pickban__map-btn--picked .premier-pickban__map-btn__label,#id-map-vote-btn-2.premier-pickban__map-btn--picked .premier-pickban__map-btn__label,#id-map-vote-btn-3.premier-pickban__map-btn--picked .premier-pickban__map-btn__label,#id-map-vote-btn-4.premier-pickban__map-btn--picked .premier-pickban__map-btn__label,#id-map-vote-btn-5.premier-pickban__map-btn--picked .premier-pickban__map-btn__label,#id-map-vote-btn-6.premier-pickban__map-btn--picked .premier-pickban__map-btn__label
 {
 	visibility: collapse;
+}
+
+#id-map-vote-btn-0.premier-pickban__map-btn--picked .premier-pickban__map-btn__label_low,#id-map-vote-btn-1.premier-pickban__map-btn--picked .premier-pickban__map-btn__label_low,#id-map-vote-btn-2.premier-pickban__map-btn--picked .premier-pickban__map-btn__label_low,#id-map-vote-btn-3.premier-pickban__map-btn--picked .premier-pickban__map-btn__label_low,#id-map-vote-btn-4.premier-pickban__map-btn--picked .premier-pickban__map-btn__label_low,#id-map-vote-btn-5.premier-pickban__map-btn--picked .premier-pickban__map-btn__label_low,#id-map-vote-btn-6.premier-pickban__map-btn--picked .premier-pickban__map-btn__label_low
+{
+	transform: scale3d( 2, 2, 2 );
+	transition-property: transform;
+	color: rgb(130, 130, 130);
+	text-shadow: none;
 }
 
 #id-map-vote-btn-0.premier-pickban__map-btn--picked .premier-pickban__map-btn__result,#id-map-vote-btn-1.premier-pickban__map-btn--picked .premier-pickban__map-btn__result,#id-map-vote-btn-2.premier-pickban__map-btn--picked .premier-pickban__map-btn__result,#id-map-vote-btn-3.premier-pickban__map-btn--picked .premier-pickban__map-btn__result,#id-map-vote-btn-4.premier-pickban__map-btn--picked .premier-pickban__map-btn__result,#id-map-vote-btn-5.premier-pickban__map-btn--picked .premier-pickban__map-btn__result,#id-map-vote-btn-6.premier-pickban__map-btn--picked .premier-pickban__map-btn__result

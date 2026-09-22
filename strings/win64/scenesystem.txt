@@ -4,27 +4,65 @@
       
                           
                                 
+                 %s rendertarget binds, %s push-constant sets\n
+                 tiles  %2i%% of atlas   (%s all-lit, %s all-shadow, %s penumbra)\n
+     light objects      env %-3s   lpv  %-3s\n
+    %-12s %12s %12s %12s\n
     %s, 0x%08x+%s
-    empty indirect draws compacted: %i
-   %d initial materials (%d initial depth-only) (%i fast-path depth-only)\n
-   %d material Vfx evals, %d material Vfx rule checks, %i cb updates (%ikb)\n
-   %d material computes, %d full material sets, %d skipped sets, %d partial-skipped sets, %d texture-only sets\n
+    aggregate  %s of %s fragments merged\n
+    clutter    %s instances in %s visible tiles\n
+    instmesh   %s instances (%s LOD) -> %s meshes drawn; shadow %s -> %s\n
+    particles  %s material binds\n
+    reculled but still visible: %s base, %s animated, %s aggregate, %s instmesh\n
+   %8s  %-8s
    SST: %.1f MB, uncompressed: %d MB (compression: %.1f%%)\n
    SST: EMPTY (no static geo rendered into any tiles, must be flagged as baked only)\n
-  %s agg [%s fragments (%s merged), %s meshlets drawn (%s tested, %s recull, %s recull visible)]\n
-  %s base ( %s meshlets drawn, %s tested ), %s animated ( %s meshlets drawn, %s tested )\n
-  %s clutter sceneobjects [%s tiles, %s instances]\n
-  %s instmesh [%s draw calls, %s instances, %s drawn (shadow: %s instances, %s drawn), %s recull visible ]\n
+  ! %d leaked drawlists\n
+  %-11s %10s %11s %12s %12s %9s\n
+  %-14s %10s   %s\n
+  %-14s %10s   (%s depth-only, %s fast-path depth-only)\n
+  %-14s %10s   (%s kb)\n
+  %-14s %10s   (%s rule checks)\n
+  %-14s %10s   (%s skipped, %s partial, %s texture-only)\n
+  %-14s %10s builds     (%s tris)\n
+  %-14s %10s builds     (%s tris, %u compactions, %s scratch)\n
+  %-14s %10s instances  (%s geometries, %s size-culled)\n
+  %-14s %10s instances  (%s geometries, %s tris)\n
+  %-14s %10s\n
+  %-14s %12s %12s %12s\n
+  %s empty indirect draws compacted\n
+  %s objects starting to fade\n
+  %s pre-cull   ->   %s tested   ->   %s passing  (%.1f%%)\n
   Actual   : 
   Cache: %.1f MB
   Comment started here.
   Expected : 
+  Meshlets: %.1fK
+  Meshlets: %.1fM
+  Meshlets: %d
   Verts: %.1fK
   Verts: %.1fM
   Verts: %d
   [%i] %s %s %s IndexCount: %d\n
-  cpu culling: [vis %d] [vol %d] [dist %d] [size %d]\n
-  gpu culling: [vis %d] [frust %d] [occ %d] [vol %d] [bface %d] [size %d] [density %d]
+  allocated      %s transforms, %s instances, %s meshlets\n
+  boxes      %s cull boxes, %s objects tested (%lluus) -> %s culled\n
+  draw calls   %12s   + %s meshlet dispatches\n
+  fog volumes    %10d   (%d culled: %d frustum, %d dist, %d pvs)\n
+  jobs           %s culling (%.3f ms), %s rendering (%.3f ms), %s used to render\n
+  meshlet bounds %u updates, %s meshlets\n
+  scene objs   %12s   drawn\n
+  scratch        %s used (high watermark %s)\n
+  shadow tiles   lights %2i%% of slots   (%s conservative -> %s final)\n
+  shadowed lights      omni %-3s   spot %-3s   barn %-3s   [%s fog only]\n
+  shadowmaps     %10d   (%d dynamic, %d mixed, %d fog-only, %d skipped)\n
+  submission     %s primary contexts, %s display lists, %s resolves\n
+  timing         begin->finish %.3f ms, finish->complete %.3f ms\n
+  triangles    %12s\n
+  unshadowed lights    omni %-3s   spot %-3s   barn %-3s   [%s fog only]\n
+  vertex cache   %u updates in %u dispatches, %s vertices\n
+  vertices     %12s\n
+  views          %s still allocated\n
+  views        %12s   (%s with world traversal)\n
   w/ default threshold: %d,
   w/ default threshold: (%.1f, %.1f)
   w/ large threshold: %d,
@@ -42,12 +80,11 @@
  #Player_DisconnectReason_Suicide
  #Valve_Reject_Connect_From_Lobby
  #Valve_Reject_Reserved_For_Lobby
- %i fog-only.
  %s | Flags %lld \n
  (08@HPX`hpx
- (08@HPX`j
+ (08@HPX`jP
  (08@HPXb
- (08@HPZ
+ (08@HPZP
  (0X`hpz
  (EXTERN)
  (Frozen)
@@ -147,9 +184,11 @@
  Width=%d
  Window=0x%08X
  Window=0x%08X%n
+ [RE-RENDER: different object flags requested]
  [cur %i, targ %i %s, %.1fs]
  [default = $0
  [lod
+ \n_V_strncmp
  ]Asinh
  a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
  adding views while previous rendering is running. Someone needed to call WaitForRenderingToComplete()!!!!!\n
@@ -194,6 +233,7 @@
 !#Player_DisconnectReason_TK_Start
 !#Player_DisconnectReason_VotedOff
 !.google.protobuf.EnumValueOptions
+!\n_V_strncpy
 !pObj->HasFlags( SCENEOBJECTFLAG_DELETED )
 !pObj->IsDeleted()
 " because it is missing required fields: 
@@ -514,6 +554,7 @@
 #Valve_Reject_Hidden_Game
 #Valve_Reject_Single_Player
 #WindowMenu
+#\n_V_strnicmp_fast
 $#GameUI_Disconnect_BadServerPassword
 $#GameUI_Disconnect_ConnectionFailure
 $#GameUI_Disconnect_MessageParseError
@@ -529,10 +570,10 @@ $0enum $1 {\n
 $0message $1
 $0oneof $1 {
 $0option $1;\n
+$@alpha
 $Ib?s
 $\n\fsignon_state
 $\n\vorientation
-$\tV_exp2f
 $schemasystem/schema_enable_defines.h
 $tIP
 %!FontType
@@ -571,6 +612,8 @@ $tIP
 %.2fms
 %.3f ms
 %.3f | %i%% %i/%i
+%.3s %s %.*s %s %.3s\n
+%.3s %s %.*s\n
 %0.2f
 %0.3f
 %02X%02X%02X
@@ -589,16 +632,14 @@ $tIP
 %08dx.geo
 %3d
 %ADOBeginFontDict
-%ab
+%Ac
+%Gc
 %c [%02d] where %03d, insert %03d, delete %03d, char_storage %03d "%.*s"
-%cI
 %d %d %d %d
-%d (%d depth-only
 %d assets
 %d columns
 %d current allocations
 %d past errors skipped.
-%d primary\n
 %d some text
 %d vertices, %d indices (%d triangles)
 %d visible windows, %d current allocations
@@ -617,13 +658,12 @@ $tIP
 %hu
 %i The quick brown fox jumps over the lazy dog
 %i The quick brown fox jumps over the lazy dog\n
-%i dynamic, %i cached, %i failed, %i lru
-%i dynamic, %i cached, %i failed, %i lru'd in %ix%i atlas
+%i dynamic, %i cached, %i failed, %i lru'd in %ix%i atlas | %i requests, %i reused, %i re-renders drawn (%i held)
 %i filtered textures
 %i loaded models, %i allocations.  using %.1f%% of atlas
 %i object%s, %i draw call%s, %s tris
+%i requests, %i reused without re-render%s
 %i resources used
-%i shadowmaps [%i dynamic, %i mixed, %i fog-only]\n
 %i textures
 %i tiles used, %i tiles rendered, %i tiles recycled, %i failed in %ix%i atlas
 %ix%i
@@ -641,6 +681,8 @@ $tIP
 %s (%-14s): FAIL %s\n
 %s (%-14s): FAIL aborted\n
 %s (%-14s): pass\n
+%s - Dynamic Shadow %d
+%s - Mixed Shadow %d
 %s 0x%04X%s: %d windows (vis: '%s')
 %s 0x%04X%s: %s (vis: '%s')
 %s 0x%08X (%d tabs)%s  {
@@ -655,7 +697,6 @@ $tIP
 %s is wrong format %s - expected %s!\n
 %s###Menu_%02d
 %s##path
-%s%d.vtex
 %s, 0x%08x+%s -- Overlaps:
 %s.ini
 %s.log
@@ -663,6 +704,7 @@ $tIP
 %s/%s's viewport (%d,%d - %d,%d) extends outside of the framebuffer (%d,%d)
 %s/DockSpace_%08X
 %s: %d entries, %d bytes
+%s: %i dynamic, %i cached, %i failed, %i lru, %i requests, %i reused, %i re-renders (%i held)
 %s: '%s' %d vtx, %d indices, %d cmds
 %s: 0x%08X (scored %d)
 %s: 0x%08X%s
@@ -682,10 +724,7 @@ $tIP
 %s\n%.0f/%.0f
 %s\nIndex: %d
 %s\nLOD Level: %d Draw Calls: %d Triangles: %d
-%s_%d.vtex
-%s_%d_%d.vtex
 %u ms
-%uD
 &#GameUI_Disconnect_InvalidMessageError
 &#GameUI_Disconnect_NoPeerGroupHandlers
 &#GameUI_Disconnect_PureServer_Mismatch
@@ -696,7 +735,6 @@ $tIP
 &?PPPPPPP?
 &Sgw
 &\n"SPAWN_GROUP_IS_INITIAL_SPAWN_GROUP
-&\tV_expf
 '!$J$N$R$V$Z$^$b$f$j$n0
 '#GameUI_Disconnect_BadSpectatorPassword
 '#GameUI_Disconnect_DifferentClassTables
@@ -720,37 +758,46 @@ $tIP
 (%6.1f,%6.1f) (%6.1f,%6.1f) Size (%6.1f,%6.1f) %s
 (%6.1f,%6.1f) (%6.1f,%6.1f) Size (%6.1f,%6.1f) Col %d %s
 (%d,%d,%d,%d)
+(%s depth-only
 (0`hpx
 (2) Or right-click this text
 (3) Or click this button
 (<-- right-click here)
+(AIc
+(AQc
 (ActiveIdUsing: AllKeyboardKeys: %d, NavDirMask: 0x%X)
-(Aub
-(Awb
 (Click and drag to scroll)
 (Context Name: "%s")
 (Debug Log: Auto-disabled some ImGuiDebugLogFlags after 2 frames)\n
 (Dock node)
+(EFc
+(Elc
 (Hex)
 (Hold Ctrl to: 
 (Hold Ctrl to: use 
 (Hold Shift to display a dummy viewport)
-(IRb
-(Ifb
-(Ijb
+(IAc
+(IMc
+(IWc
 (Internal Buffer: TextA Size: %d, Capacity: %d)
+(Ixc
 (Left) Using ImGui::PushClipRect():\nWill alter ImGui hit-testing logic + ImDrawList rendering.\n(use this if you want your clipping rectangle to affect interactions)\n\n(Center) Using ImDrawList::PushClipRect():\nWill alter ImDrawList rendering only.\n(use this as a shortcut if you are only using ImDrawList calls)\n\n(Right) Using ImDrawList::AddText() with a fine ClipRect:\nWill alter only this specific ImDrawList::AddText() rendering.\nThis is often used internally to avoid altering the clipping rectangle and minimize draw calls.
-(MTb
+(MDc
+(MEc
+(MOc
+(MZc
 (Main menu bar)
 (None)
 (Popup)
-(QBb
+(QCc
+(QHc
+(Qdc
 (R = radius, N = approx number of segments)
 (SceneWorld 3D Dump contains %d large objects - they are scaled down and will render red.)\n
-(USb
+(UJc
 (Untitled)
 (Use ImGui::SameLine() to keep adding items to the right of the preceding item)
-(Uyb
+(Ywc
 (Z(^(b(f(j(n(r(v(z1
 (\?=\nW>=\nW>=\nW>
 (\t"\r\n\vCNETMsg_NOP"'\n
@@ -778,7 +825,8 @@ $tIP
 (\v2\v.CMsgQAngle
 (\v2\v.CMsgVector
 (\v2\v.CMsg_CVars:
-(aeb
+(aGc
+(aic
 (also access from 'Examples->Assets Browser' in menu)
 (and more errors)
 (c) 2014-2025 Omar Cornut
@@ -786,25 +834,27 @@ $tIP
 (demo menu)
 (dump)
 (dump3d)
-(ePb
+(eBc
 (except InputRouting which is spammy)
+(eye
 (in ChildD: not using same Shortcut)
 (in ChildE: using same Shortcut)
 (in PopupF)
 (in WindowA)
+(mRc
 (merge 
 (no material)
 (no model)
 (note: some platform backends may not reflect a change of this value for existing viewports, and may need the viewport to be recreated)
 (null)
+(qgc
 (see Demo->Configuration for details & more)
-(uib
 (unnamed)
 (viewmodel) depth to increment candidate plane values per iteration to satisfy selection.
 (viewmodel) max error (distance away in depth) candidate plane is allowed before rejecting.
 (viewmodel) precision for depth compression at SST leaf nodes.
 (void*)0x%p
-(yGb
+(yac
 )", which is not defined. The innermost scope is searched first in name resolution. Consider using a leading '.'(i.e., "(.
 )#GameUI_Disconnect_PureServer_ClientExtra
 )#GameUI_Disconnect_RemoteProblem_BadCrypt
@@ -821,11 +871,11 @@ $tIP
 *Unknown item*
 *Vc>L
 *\n"host_computationtime_std_deviation
-*tg8*df8*4e8*
+*\tV_ZSTD_decompress
 +Alts
 +\n'SPAWN_GROUP_CREATE_CLIENT_ONLY_ENTITIES
 +\n\rReservedRange
-, %d depth-only alpha-tested
+, %s alpha-tested
 , name%Y
 , not just within "
 ,#Player_DisconnectReason_CompetitiveCooldown
@@ -887,6 +937,7 @@ $tIP
 .CSVCMsg_GameEvent.key_t
 .EProtoDebugVisiblity:
 .PLACEHOLDER_VALUE
+.QuantizedFloatEncoderAlias_t
 .SignonState_t
 .bss
 .data
@@ -957,9 +1008,9 @@ $tIP
 0123456789ABCDEF
 0123456789abcdef
 0123456789abcdefghijklmnopqrstuvwxyz
+08@HRP
 0: spheres, 1: cubes
 0:<\n\fdelta_ignore
-0\tV_fmodf
 0x%02X
 0x%04X
 0x%08X
@@ -967,7 +1018,6 @@ $tIP
 0x%08X [override]
 0x%08X,%d
 0x%08X/
-0x%p
 0xDDDDDDDD
 1#IND
 1#INF
@@ -997,6 +1047,7 @@ $tIP
 3>N;kU
 3Z5\nNa
 4 (tab skip)
+4%d
 4-wide
 4. I am double clickable
 5?PlotX() needs to be called between BeginPlot() and EndPlot()!
@@ -1016,9 +1067,9 @@ $tIP
 8Csinf
 8\foQS
 8\n\textension
+8\tV_acosf
 999
 9>powf
-9BAb
 9\n\noneof_decl
 : DrawCmd: +%d (in child window), Scroll: (%.f/%.f) (%.f/%.f)
 : DrawCmd: +%d (in same window)
@@ -1041,6 +1092,8 @@ $tIP
 <ROOT>
 <UNKNOWN ID: %d>
 <Unknown>
+<\ng_pMemAlloc
+<\tV_atan2f
 <b>Viewport X</b>=%d <b>Y</b>=%d <b>Width</b>=%d <b>Height</b>=%d  <b>MinZ</b>=%.3f <b>MaxZ</b>=%.3f
 <empty member name>
 <font color="red">Display lists discarded</font>
@@ -1115,6 +1168,8 @@ $tIP
 =uvz?
 =v?ke
 >0G??Ou
+>\ng_pThreadPool
+>\tV_atanf
 >c<yXH?B
 >fff>
 >fff?
@@ -1127,6 +1182,7 @@ $tIP
 >qxs?{7
 >uYL>
 ?!5WOo
+?0x%p
 ?333?333?fff?
 ?7{KV\nU
 ?8UUUUU
@@ -1134,7 +1190,6 @@ $tIP
 ???
 ?@En[vP
 ?Bxt>
-?IS_TRANSLUCENT 
 ?Label1
 ?N]TUUU
 ?None
@@ -1145,7 +1200,6 @@ $tIP
 ?WUUUUU
 ?XXXXXXXXXXXXXXXX
 ?\vxMW
-?alpha
 ?expf
 ?fff?
 ?fff?333?
@@ -1155,13 +1209,15 @@ $tIP
 ?lZE
 ?qBJ
 ?rAj
+?sc_use_clear_subrect
 ?sqrt
+?success
 ?ysB
 @08@HPX`hpx
 @HPX
 @HPX&I
-@HPX`hv 
-@Show
+@HPX`hv
+@Hide
 @^8U)zj
 @fff>fff>fff>fff>
 @fffff
@@ -1253,7 +1309,6 @@ ANIMATION_SNAPSHOT_CLIENT_SIMULATION
 ANIMATION_SNAPSHOT_FINAL_COMPOSITE
 ANIMATION_SNAPSHOT_MAX
 ANIMATION_SNAPSHOT_SERVER_SIMULATION
-AO Proxies: %d (%d drawcalls)\n
 AO*AG
 AOProxies
 APPSYSTEM: In ConnectInterfaces(), s_nRegistrationCount is %d!\n
@@ -1271,9 +1326,11 @@ Aacutesmall
 Abibliophobia
 About Dear ImGui
 Absquatulate
+Acc
 Access violation - no RTTI data!
 Acircumflex
 Acircumflexsmall
+AcquireImGuiLock
 AcquireSRWLockExclusive
 AcquireSRWLockShared
 Action
@@ -1323,7 +1380,6 @@ AggregateSceneObjectDesc
 AggregateSceneObjectManifest
 Agrave
 Agravesmall
-AhH
 Ai1B
 AiAtA
 Air
@@ -1393,6 +1449,7 @@ Another bullet point
 Anti-aliased fill
 Anti-aliased lines
 Anti-aliased lines use texture
+Any request for a duplicate dispatch/mesh shader primitive in an outputbuffer must previously set the dispatch buffer
 AnyHit0
 AnyHit1
 AnyHit2
@@ -1412,6 +1469,7 @@ Apply to regular windows: amount which we enforce to keep visible when moving ne
 Apr
 Apricot
 April
+Aqc
 Aquarium
 AreFileApisANSI
 Aring
@@ -1447,6 +1505,7 @@ Attempted to alias unknown rendering pipeline\n
 Attempted to change an alias of a non-aliasable rendering pipeline\n
 Attempted to register duplicate rendering pipeline name %s\n
 Attempted to unregister unknown rendering pipeline name %s\n
+Auc
 Audio file
 Aug
 August
@@ -1516,7 +1575,6 @@ BC6H
 BDF
 BF>^G
 BFBQB[Bb
-BFe
 BG/FG draw lists
 BGR565
 BGR888
@@ -1528,17 +1586,16 @@ BGRX8888
 BGRX8888_LINEAR
 BITMAP
 BK!qg\tW
+BLAS
 BLAS %d
 BLAS Compaction
 BLAS build requires %i bytes, we only have %i\n
-BLAS builds: %u (%s triangles); Dynamic builds: %u (%s triangles); %u compactions; %s scratch mem\n
-BOV
-BPL
-BSV
+BLAS dynamic
+BSc
 BU\vS
 BVD.Bz
 BVH::Build( void (*customGetAABB)( .. ), instCount ), instCount == 0.
-BZe
+B\tV_atoi
 Bachman
 BackUp() can only be called after a successful Next().
 Backend Flags
@@ -1585,7 +1642,6 @@ Beatrice
 Beet
 Beetroot
 Begin has already been called without an intervening render
-Begin to finish rendering views : %f\n
 BeginDragDropSourceItem() needs to be called within an itemized context!
 BeginGroup() basically locks the horizontal position for new line. EndGroup() bundles the whole group so that you can use "item" functions such as IsItemHovered()/IsItemActive() or SameLine() etc. on the whole group.
 BeginLegendPopup() needs to be called within an itemized context!
@@ -1600,7 +1656,6 @@ BenchmarkService001
 Bernard
 Betty
 Between 100x100 and 500x500
-Bfe
 Bg\vF\r
 BiBr
 Bias for LOD selection of instanced meshes
@@ -1707,6 +1762,7 @@ C##Instances
 C++ lambdas can be passed as function pointers as well!
 C6FaceSkyboxObjectDesc
 C:\buildworker\csgo_rel_win64\build\_build_\scenesystem\_vpc_scenesystem\default\win64\_msvc_\Retail\scenesystem.pdb
+C:\buildworker\csgo_rel_win64\build\src\public\scenesystem\sceneobject.h
 C:\buildworker\csgo_rel_win64\build\src\public\tier0\tslist.h
 C:\buildworker\csgo_rel_win64\build\src\public\tier0\utldict.h
 C:\buildworker\csgo_rel_win64\build\src\public\tier0\utlrbtree.h
@@ -1741,9 +1797,9 @@ CAN_RENDER_INTO_SST
 CAP_HEIGHT
 CAST_SHADOWS_ENABLED 
 CAggregateSceneObject
-CAggregateSceneObject::GatherData(686): 
+CAggregateSceneObject::GatherData(700): 
 CAggregateSceneObjectDesc
-CAggregateSceneObjectDesc::GpuCullPrimitivesInView(), C:\buildworker\csgo_rel_win64\build\src\scenesystem\aggregatedesc.cpp:1970
+CAggregateSceneObjectDesc::GpuCullPrimitivesInView(), C:\buildworker\csgo_rel_win64\build\src\scenesystem\aggregatedesc.cpp:2091
 CAmbientOcclusionProxySceneObjectDesc
 CAnimatableSceneObjectDesc
 CAnimationDecodeContext::AddAnimationDecodeDesc ran out of allocator memory (1)\n
@@ -1752,10 +1808,11 @@ CAnimationDecodeContext::AddAnimationDecodeDesc ran out of allocator memory (3)\
 CBarnLightObjectDescGpu
 CBaseSceneObjectDesc
 CBlitTextureToBackBufferLayer
-CBuildSparseShadowTree::GenerateSSTTiles(758): 
+CBuildSparseShadowTree::GenerateSSTTiles(766): 
 CCC
 CCCC
 CCCCCCCCCCCC
+CCK
 CCMTAtlasDesc::CreateTexture(116): 
 CCharacterDecalRendererDesc
 CDV
@@ -1833,6 +1890,7 @@ CHECK failed: target_ != NULL:
 CHECK failed: this == other_mutator: 
 CHECK failed: uninterpreted_options_field != nullptr: 
 CHECK failed: unknown_fields->SerializeToString(outstr): 
+CHairRenderManager: missing call to UpdateHairContext() - skipping hair for model '%s' in view '%s' (flags 0x%x, FOV %f), layer '%s'.\n
 CID
 CID Type 1
 CIDCount
@@ -1840,6 +1898,7 @@ CIDFontName
 CIDFontType
 CIDFontVersion
 CIDMapOffset
+CIL
 CImGuiRenderer::UpdateTexture
 CInstancedMeshSceneObjectDesc
 CInstancedMeshSceneObjectDesc::OnBeginRenderingFrame
@@ -1863,6 +1922,7 @@ CMemAllocSystemInitialize
 CMesh Cannot create packed input layout, because the bone indices are out of range (0x%X)\n
 CMesh Cannot create packed input layout, too many blend weights per vertex %d, max %d\n
 CMeshBuilderSceneObjectDesc
+CMeshPrimitiveOutputBuffer::Next
 CMonitorObjectDesc
 CMsgPlayerInfo
 CMsgQuaternion
@@ -1909,6 +1969,7 @@ CQuadRendererLayout
 CRC64_ProcessBuffer
 CSM%d
 CSM%i "%s" (%s)
+CSM%i Skybox "%s"
 CSSDSEndFrameViewInfo
 CSSDSMsg_EndFrame
 CSSDSMsg_LayerBase
@@ -1920,17 +1981,18 @@ CSSDSMsg_ViewTargetList
 CSSTCopyDepthQuadRenderer
 CSVCMsgList_GameEvents
 CSVCMsg_GameEvent
-CSceneLPVSampleGridObjectDescriptor::Create(151): 
+CSceneLPVSampleGridObjectDescriptor::Create(156): 
 CSceneObjectDesc
+CSceneSystem::AcquireImGuiLock
 CSceneSystem::ComputeScratchTargetActualSize
 CSceneSystem::CreateStaticShape(322): 
 CSceneSystem::DeleteObjectForReal
 CSceneSystem::DeleteSceneObject
 CSceneSystem::FrameUpdate
-CSceneSystem::GenerateCompositeMorphTextureAtlas(5559): Expecting 1 renderable pass for material "%s" but found %d!\n
+CSceneSystem::GenerateCompositeMorphTextureAtlas(5343): Expecting 1 renderable pass for material "%s" but found %d!\n
 CSceneSystem::InitGfxObjects
-CSceneSystem::InitGfxObjects(968): 
-CSceneSystem::Thread_CullView(), C:\buildworker\csgo_rel_win64\build\src\scenesystem\scenesystem.cpp:3298
+CSceneSystem::InitGfxObjects(969): 
+CSceneSystem::Thread_CullView(), C:\buildworker\csgo_rel_win64\build\src\scenesystem\scenesystem.cpp:3044
 CSceneViewDebugOverlays: Cannot call AddToViewAndRetireStaleOverlays and pass in no abs time unless the overlay was created with the SCENE_VIEW_DEBUG_OVERLAY_TYPE_RELATIVE_TIMING flag!\n
 CSceneViewDebugOverlays::AddToView
 CSceneViewDebugOverlays::AgeList
@@ -1957,6 +2019,7 @@ CTSQueue<class CSceneDrawList *,0>::Push
 CTSQueue<class CSceneObject *,0>::Push
 CTextureDisplayer
 CType
+CULLING
 CURRENTLY APPENDING
 CUtlBlockVector<class CPackNode,int,class CMemAllocAllocator>::GrowCount
 CUtlDict<int,class CDefFastCaselessStringLess>::Insert
@@ -1983,10 +2046,11 @@ CUtlVector
 CVar
 CWD>~3
 CWa
+C\tV_atoi64
 Cabbage
 Cache dynamic BLAS if geometry has not changed
 Cached Fog
-Cached Light %p: failed to allocate %ix%i shadow from atlas (%i failed this frame, freed %i lru rects)\n
+Cached Light %p (%s): failed to allocate %ix%i shadow from atlas (%i failed this frame, freed %i lru rects)\n
 Cached: %s, LRU %i, Age %i
 Cacute
 Calabash
@@ -2045,7 +2109,6 @@ CbC
 Ccaron
 Ccedilla
 Ccedillasmall
-Cdb
 Cedillasmall
 Celcuce
 Celery
@@ -2313,8 +2376,8 @@ CreateFileA
 CreateFileMappingW
 CreateFileW
 CreateInterface
-CreateManyQuadsIndexBuffer(539): 
-CreateNxNTesselatedIndexBuffer(517): 
+CreateManyQuadsIndexBuffer(540): 
+CreateNxNTesselatedIndexBuffer(518): 
 CreateThread
 CreateWindowExW
 Creating VB/IB/BLAS for %d meshes... 
@@ -2323,7 +2386,6 @@ Cross
 Crosshairs
 Cruz
 Csmall
-Ctb
 Ctrl 
 Ctrl + click in the plot area to draw points.
 Ctrl modifier to preserve and toggle selection.
@@ -2354,7 +2416,6 @@ Cube
 CubeMapDebugColors
 Cucumber
 CullParams_t
-Culling: %s objects pre-cull (%s tested), %s passing culling\n
 Cumulative
 Current
 Current mouse cursor = %d: %s
@@ -2377,7 +2438,6 @@ CustomTexture0
 CustomTexture1
 Cut
 Cycles focus between the game window and undocked imgui windows
-D%c
 D&D4a
 D16_SHADOW
 D16_UNORM
@@ -2387,9 +2447,12 @@ D24_UNORM_S8_UINT
 D32FS8
 D32_FLOAT
 D32_FLOAT_S8X24_UINT
-DAD
+DBW
+DCd
 DDD
 DDDD
+DDc
+DDf
 DEBUG_BREAK 
 DEFAULT_CHAR
 DEFAULT_WRITE_PATH
@@ -2400,7 +2463,7 @@ DEPTH_STENCIL_ATTACHMENT_WRITE_BIT
 DEPTH_STENCIL_READ_ONLY_OPTIMAL
 DESTINATION
 DEVICE_FONT_NAME
-DEd
+DEc
 DFGirl-W6-WIN-BF
 DFGothic-EB
 DFGyoSho-Lt
@@ -2413,8 +2476,8 @@ DFKaiSho-SB
 DFKaiShu
 DFKaiShu-Md-HK-BF
 DFMing-Bd-HK-BF
-DFc
-DHD
+DFa
+DHe
 DISK
 DJD
 DLC
@@ -2426,13 +2489,14 @@ DLCRoundBold
 DND_DEMO_CELL
 DND_LEFT
 DND_RIGHT
+DNK
 DO NOT PARSE: fields may be stripped and missing.\n
 DOES_NOT_ACCEPT_DECALS 
-DPc
+DOc
+DPd
 DRAW_INDIRECT
-DTX
-DTb
-DUe
+DSe
+DUa
 DWDbDgD
 DWIDTH
 DXT1
@@ -2440,9 +2504,9 @@ DXT1_ONEBITALPHA
 DXT3
 DXT5
 DXT5_NM
-DXa
 DYN
-DaN
+DYe
+DZc
 Daikon
 Dark
 Data
@@ -2454,6 +2518,7 @@ Data_Branch1xy
 Data_Branch1zBranch2x
 Data_Branch2yz
 Days
+Ddb
 Dear ImGui %s (%d)
 Dear ImGui 1.92.5 (19250)
 Dear ImGui Debug Log
@@ -2532,7 +2597,8 @@ Detail Depth
 Details
 DevMsg
 Developed by Omar Cornut and all Dear ImGui contributors.
-Dfa
+DfO
+Dia
 Diamond
 Dieresissmall
 Digital Plots
@@ -2564,6 +2630,7 @@ DisableShadows_t
 Disabled
 Disabled Alpha
 Disabled item
+Disables use of illumination volume (may cause precomputed lighting errors)
 Disk
 Disk-shaped light
 Display Mode
@@ -2575,6 +2642,7 @@ Distance to cull the AO proxy as a factor of size
 DistanceField Atlas Debugger
 DistanceFieldAtlas.vtex
 Diverging
+DlR
 DmDs
 DockId: %X%s\n
 DockId: 0x%04X, DockOrder: %d, Act: %d, Vis: %d
@@ -2612,6 +2680,7 @@ Down
 DownArrow
 Downsample2x
 Downsample4x
+DpO
 Drag
 Drag Lines
 Drag Me
@@ -2643,7 +2712,6 @@ DragRect() needs to be called between BeginPlot() and EndPlot()!
 Dragging
 Dragging %d objects
 Drags
-Draw Calls
 Draw Channels
 Draw Proxy: qh:%p org:<%d,%d,%d> (frame:%d)\n
 Draw frame with background (e.g. for CollapsingHeader)
@@ -2663,23 +2731,27 @@ DrawMaterialQuad(68): Material %s cannot render in mode %s but is being asked to
 DrawShadowMapsForLight
 Drawing aggregates without valid meshlets, please recompile the map!
 Drawing instanced meshes without meshlets, please recompile the map!
+Draws/Dispatches
 Dsmall
+Dtc
 DualHull
 Dummy
 Dump a list of the objects in a sceneworld (Usage: sc_dumpworld <world_index>)
 Dump debug info
 Dump the objects in a sceneworld into a 3d geoview buffer (Usage: sc_dumpworld3d <world_index>)
+Dxe
 Dynamic
 Dynamic Decals
-Dynamic Shadow %d
 Dynamic list with Delete key support.
 Dynamically adjust shadow resolution
+Dze
 E+E\HTH\HfHrH
 E3EAEL
 E>nEA
 EARLY_FRAGMENT_TESTS
 EEE
 EEEE
+EGG
 EJj
 EMG %d
 EMG Signal
@@ -2688,7 +2760,6 @@ ENDCHAR
 ENDFONT
 ENDPROPERTIES
 END_SPACE
-ENb
 ENetworkDisconnectionReason
 EProtoDebugVisiblity
 ERROR
@@ -2701,7 +2772,6 @@ ESceneObjectMeshletVisualization
 ESceneObjectVisualization
 ESceneViewDebugOverlaysListenerDataType_t
 ESilhouetteType_t
-ETU
 EXE
 EXPORTSYSTEM_INTERFACE_VERSION_001
 E[\rn?gc
@@ -2809,7 +2879,7 @@ EnvironmentMaps have different textures, lightbinner requires everything to be a
 Equal
 Equal Axes
 Equal constraint applies to axis pairs (e.g ImAxis_X1/Y1, ImAxis_X2/Y2)
-Erb
+Erc
 Error Bars
 Error Handling
 Error loading barn light: %s\n
@@ -2870,6 +2940,7 @@ Examples/Simple layout
 Exceeded compacted draws buffer size [buffer %i, used %i], @peted should implement resizing\n
 Exceeded maximum number visible environment maps: %i, %i maximum\n
 Exceeded maximum number visible lpvs: %i, %i maximum\n
+Exceeding maximum number of fog volumes: %i, max %i\n
 Exceeding number of envmaps: MAX %i, found %i\n
 Exceeds Maximum Package Depth
 Exclude Outliers
@@ -2923,7 +2994,7 @@ FACE_NAME
 FAMILY_NAME
 FAQ
 FATAL
-FAb
+FBf
 FDArray
 FDBytes
 FEMh\f
@@ -2941,9 +3012,9 @@ FORCE_UINT
 FORWARD_LAYER_ONLY 
 FOUNDRY
 FRAGMENT_SHADER
+FRAME
 FSType
 FTF
-FTe
 FULL_NAME
 F\n%NETWORK_DISCONNECT_DISCONNECT_BY_USER
 F\n\foptimize_for
@@ -2961,13 +3032,11 @@ FamilyOtherBlues
 Fancy
 Faster lines using texture data. Require backend to render with bilinear filtering (not point/nearest filtering).
 FbFi
-Fde
 Feature is currently in Beta. Please read comments in imgui.h
 Features:
 Feb
 February
 FfW?
-Fge
 Field "
 Field "$0" uses reserved number $1.
 Field does not match message type.
@@ -3025,7 +3094,6 @@ Final Exam
 FindClose
 FindFirstFileExW
 FindNextFileW
-Finish to complete : %f\n
 FinishRenderingViews has been called without a call to begin!!!
 Fire
 First argument to Swap() (of type "
@@ -3070,8 +3138,6 @@ Focus on X
 Focus on Y
 Focus on Z
 Fog
-Fog tile: %i since used, %i since rendered
-Fog: %d volumes visible, %d culled [%d frustum, %d dist, %d PVS]\n
 FogTile
 Folder
 FoliageAnimation
@@ -3145,7 +3211,9 @@ Frozen columns
 Frozen rows
 Frust+Illum
 Frustum
+Fsc
 Fsmall
+FtL
 Full-width:
 FullName
 Fullscreen
@@ -3170,22 +3238,20 @@ GDB3
 GDBytes
 GDI32.dll
 GENERAL
-GEb
+GEOMETRY
 GGGG
 GLOBAL
 GOOGL
 GO\fQ
 GPB
 GPGTB
+GPU
 GPU Animated Vertex Cache allocation too large! Requested: %d, max allowed: %d\nUse smaller draw calls or increase cache buffer block size\n
+GPU Culled Prims
 GPU Instance Mem  : %s allocated, %s written, %s used
-GPU Instance Mem  : %s written, %s used, %s allocated\n
 GPU Memory Size
-GPU Meshlet Mem   : %s written, %s used, %s allocated\n
-GPU Particle Mem   : %s written, %s used, %s allocated\n
 GPU Time: %.2f ms
 GPU Transform Mem : %s allocated, %s written, %s used
-GPU Transform Mem : %s written, %s used, %s allocated\n
 GPUProfiler
 GPUSort
 GW\fI
@@ -3223,6 +3289,7 @@ GamepadRStickUp
 GamepadStart
 Gap
 Gbreve
+GdS
 General
 Generate Huge Data (~500MB!)
 GenerateCompositeMorphTextureAtlas
@@ -3320,7 +3387,6 @@ GfZ+?p
 Gfx
 Gingrich
 Giving access to some ImGuiStyle value in this demo for convenience.
-GjU
 Gk\rC
 Global Alpha
 GlobalAlloc
@@ -3337,7 +3403,7 @@ GpuCull-PrepareReculling
 GpuLightBinnerManifest
 GpuLightBinnerStartupManifest
 GpuRecull
-GrO
+GrS
 GrabMinSize
 GrabRounding
 Gradient
@@ -3370,32 +3436,28 @@ HAMMER_PREFAB_STENCIL_LAYER
 HAMMER_SELECTION_STENCIL_LAYER 
 HAS_AO_PROXIES 
 HAS_OVERLAY 
-HBb
-HCa
+HCc
 HCg
+HDd
 HELP
-HGd
 HH:mm:ss
 HHHH
+HHc
 HISTORY
-HJe
-HKe
-HMd
+HJg
 HO#Cq
 HOP##1
 HOP##2
-HPL
-HQ<b
-HQb
+HPa
 HSV
 HSV encoded colors
 HSV shown as HSV##1
 HSV shown as RGB##1
+HSa
 HTH
-HTX
 HW Does not support occlusion queries!\n
 HW\nC
-HaZ
+HYd
 Haddock
 Hair Cull and Compute Segment Depth For Sort
 Hair Debug Settings
@@ -3412,10 +3474,8 @@ Hand
 Handle ImGuiBackendFlags_RendererHasVtxOffset for 16-bit indices in your backend.
 HasField
 HasRange: %s
-HbZ
-Hbe
-HcZ
-Hca
+Hce
+Hdc
 Header
 Header with a close button
 HeaderActive
@@ -3449,12 +3509,8 @@ Here, all circle data is stored in a single interleaved buffer:
 Hex
 Hex and octal numbers must be integers.
 Hex-encode non-ASCII
-HfL
-HgV
-Hha
 Hidden
 HiddenTabBar
-Hide
 Hide Filtered
 Hide tab bar###HideTabBar
 Hierarchy lines
@@ -3470,7 +3526,6 @@ Histogram 2D
 Histogram##2
 History
 Hit-testing is by default performed in item submission order, which generally is perceived as 'back-to-front'.\n\nBy using SetNextItemAllowOverlap() you can notify that an item may be overlapped by another. Doing so alters the hovering logic: items using AllowOverlap mode requires an extra frame to accept hovered state.
-Hld
 Ho\thwh
 Hogs
 Hold Alt to expand box selection horizontally.
@@ -3509,16 +3564,16 @@ HoveredWindow->Root: '%s'
 HoveredWindow: '%s'
 HoveredWindowUnderMovingWindow: '%s'
 Hovering the colored canvas will override io.WantCaptureXXX fields.\nNotice how normally (when set to none), the value of io.WantCaptureKeyboard would be false when hovering and true when clicking.
-HqZ
+Hqa
 Hs\vH
 Hsmall
 HuaTianKaiTi?
 HuaTianSongTi?
 Hungarumlautsmall
-Hwc
+Hvg
+Hwg
 HxS
 HyH
-Hyd
 Hyperlink
 I am a a tooltip for a disabled item.
 I am a fancy tooltip
@@ -3557,7 +3612,9 @@ INITY
 INPUT_ATTACHMENT_READ_BIT
 INVALID_CPPTYPE
 IOCDw\v
+IPJ
 IPulseSystem_001
+IRT
 IRV
 ISO 8601
 ISOLatin1Encoding
@@ -3565,6 +3622,7 @@ ISSUES_QUERIES
 IS_DISABLED 
 IS_LOADED 
 IS_OPAQUE 
+IS_TRANSLUCENT 
 ITALIC_ANGLE
 ITEM: Button
 ITEM: Checkbox
@@ -3582,12 +3640,11 @@ ITEM: Text
 ITEM: TreeNode
 ITEM: TreeNode w/ ImGuiTreeNodeFlags_OpenOnDoubleClick
 ITEMS
-IUJ
+IXc
 IYI
-IZF
-IZb
 I\n NETWORK_DISCONNECT_STEAM_DROPPED
 I\n%NETWORK_DISCONNECT_REJECT_HIDDEN_GAME
+I\tV_cosf
 IaIrI
 Iacute
 Iacutesmall
@@ -3980,21 +4037,18 @@ ItemInnerSpacing
 ItemSpacing
 Items
 Items (%d)
-IxG
 J Bush
+J%f
 J?JH
 JC&F
 JJJJ
-JRe
+JQK
 JSType
-JXU
 JZJ{.
 J\n NETWORK_DISCONNECT_SNAPSHOTERROR
 J\n'NETWORK_DISCONNECT_DISCONNECT_BY_SERVER
-J\tV_isdigit_str
 Jan
 January
-Jee
 Jet
 JnK
 Jo%H
@@ -4016,13 +4070,14 @@ KEYBOARD/GAMEPAD/MOUSE KEYS
 KFX
 KKKK
 KKKKKKK
-KMb
 KO Blahblah
 KPH
+KPK
 KPX
 KPY
 KUMUX
 KV3 save transfer failed: %s
+KWS
 K\n!NETWORK_DISCONNECT_INTERNAL_ERROR
 K\n#NETWORK_DISCONNECT_TICKMSG_OVERFLOW
 K\n$NETWORK_DISCONNECT_STEAM_AUTHINVALID
@@ -4064,8 +4119,8 @@ Keys released:
 Kiwi
 KnG
 Knl
+Kpc
 Ksmall
-L%a
 L'LZa
 L0L:LA
 L>ev
@@ -4075,34 +4130,35 @@ LABEL_OPTIONAL
 LABEL_REPEATED
 LABEL_REQUIRED
 LATE_FRAGMENT_TESTS
-LAe
+LAf
 LCIDToLocaleName
 LCMapStringEx
 LCMapStringW
+LDe
 LEVERAGE\nBUZZWORD
-LFe
+LGd
 LIGHTBINNER
+LIGHTING & SHADOWS
 LINEAR_D24S8
-LIe
-LJa
+LJc
 LLLLLLL
+LNa
+LNb
 LOD Debugging
 LOG_GENERAL
-LOd
+LOa
 LPVIndex
-LRd
-LSb
-LTX
+LRb
 LU\fF
 LWG>
 LWW>
+LWY
 LWd
-LXe
-LYe
 L\n!NETWORK_DISCONNECT_HLTVRESTRICTED
 L\n!NETWORK_DISCONNECT_KICKED_SUICIDE
 L\n!NETWORK_DISCONNECT_LOOPDEACTIVATE
 LaLj
+Lab
 Label
 Label1
 Label2
@@ -4111,7 +4167,6 @@ Label4
 Label5
 Label: %s
 LabelPadding
-Lac
 LanguageGroup
 LastRequest = time: %.2f, frame: %d
 LastSelectionSize = %d
@@ -4137,8 +4192,9 @@ Layout/Scrolling/Vertical
 Layout/Text Baseline Alignment
 Layout/Text Clipping
 Layout/Widgets Width
-Lce
-Leaked drawlists : %d!!!!!\n
+Lbe
+Lde
+Lea
 LeaveCriticalSection
 Left
 Left-click drag on axis labels to pan an individual axis.
@@ -4165,7 +4221,6 @@ Lettuce
 Liars
 Light
 Light %p: failed to allocate %ix%i shadow %s from atlas (%i failed this frame, freed %i lru rects)\n
-Light %p: failed to re-allocate %ix%i shadow from atlas\n
 Light Bounds Debugger
 Light Cookies
 LightBinner
@@ -4175,7 +4230,6 @@ LightProbeVolumeDebugColors
 LightProbeVolumeDebugColors_%s
 LightmapUV
 LightmapUVW
-Lights in view (unshadowed+shadowed): %d+%d omni, %d+%d spot, %d+%d barn %d env %d lpv.
 Like this one
 Likelyhood we'll re-allocate a timesliced shadowmap (to try to improve packing)
 Limits
@@ -4216,6 +4270,10 @@ List root nodes
 List the object class names known by scenesystem\n
 ListBox
 Lists:
+Lka
+Lkc
+Lla
+LmZ
 Load a nice font for better results!
 Load all
 LoadColor
@@ -4228,6 +4286,7 @@ Loaded
 Loader
 Loader: '%s'
 Loading %d resources... 
+Loc
 Local Time
 LocalFlags
 LocalFlagsInWindows
@@ -4237,6 +4296,7 @@ Localize_001
 Location
 LockDynamicConstantBuffer failed in CAmbientOcclusionProxySceneObjectDesc::DrawArray!!!\n
 LockDynamicConstantBuffer failed in CSceneUtils::FilterTexture!!!\n
+Loe
 Log
 Log Plot
 Log Scale
@@ -4261,14 +4321,18 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 Low level command to set the flags byte associated with an object class. sc_SetClassFlags <classname> <value>\n
 Low:   $%.2f
+Lpe
 LrMDM
-LrZ
 Ls?q
 Lslash
 Lslashsmall
 Lsmall
-Lyb
+Lub
+Lud
+Lvb
+Lzb
 MATCHFRAMEWORK_001
+MATERIALS
 MATERIAL_SUPPORTS_SHADOWS 
 MAX_SPACE
 MESSAGE FROM DEAR IMGUI
@@ -4360,7 +4424,6 @@ Markers and Text
 Master disable flag (also hide from context menu)
 Material %s - cannot find raytrace shader!\n
 Material change on single-material desc
-Material changes: 
 MaterialUtils_001
 Max
 Max Height (in Lines)
@@ -4405,6 +4468,8 @@ Meshbuilder2
 Meshbuilder2IndexData
 Meshbuilder2VertexData
 Meshlet
+MeshletBoundsRefit
+MeshletBoundsRefitContext
 Message does not support reflection (type 
 Message is too deep, the parser exceeded the configured recursion limit of 
 Message missing required fields: 
@@ -4470,7 +4535,6 @@ Missing PopStyleVar()
 Missing TreePop()
 Missing field: FileDescriptorProto.name.
 Missing name.
-Mixed Shadow %d
 Mixed items
 MjMs
 ModAlt
@@ -4534,9 +4598,9 @@ Move
 Move %s
 Move your mouse to change the data!
 MovingWindow: '%s'
-MqI
 Msg
 Msmall
+Mtc
 Multi-Axis Plot
 Multi-Select
 Multi-Select (advanced)
@@ -4587,7 +4651,6 @@ MyPopup
 MyTabBar
 MyTag
 MyVec2
-Mzb
 N Bins
 N-gon sides
 N/(AO
@@ -4598,8 +4661,8 @@ NAN
 NAN(IND)
 NAN(SNAN)
 NAV,FOCUS
-NAb
 NB: Cursor & selection are preserved when refocusing last used item in code.
+NBH
 NDV
 NEEDS_DIRTY_UPDATE 
 NEEDS_DYNAMIC_REFLECTION
@@ -4635,9 +4698,8 @@ NETWORK_DISCONNECT_STEAM_TICKET
 NETWORK_DISCONNECT_TIMEDOUT
 NETWORK_DISCONNECT_UNUSUAL
 NETWORK_DISCONNECT_USERCMD
+NGf
 NI>R
-NLe
-NOL
 NONE
 NORM_SPACE
 NOTICE
@@ -4648,15 +4710,14 @@ NO_SIDE_EFFECTS
 NO_Z_PREPASS 
 NQ?s
 NULL
-NUe
 NVP
 NV_NULL
 N\n"NETWORK_DISCONNECT_HLTVUNAVAILABLE
 N\n"NETWORK_DISCONNECT_KICKED_TK_START
 N\n"NETWORK_DISCONNECT_KICKED_VOTEDOFF
 N\n#NETWORK_DISCONNECT_REJECTED_BY_GAME
+N\tV_exp2f
 NaN Values
-Nae
 Name
 Name: %s
 NameOffset: %d
@@ -4777,33 +4838,22 @@ Ntildesmall
 Num Dummy Items (Demo Scrolling)
 NumLock
 Number of cascades in sunlight shadow
-Number of contexts created: 
-Number of cull boxes: %d\n
-Number of display lists submitted: 
-Number of jobs used to render: 
 Number of lines
-Number of objects culled by cull boxes: %d\n
-Number of objects starting to fade: 
-Number of objects tested against cull boxes: %d (%lluus)\n
-Number of pushconstant sets: 
-Number of rendertarget binds: 
-Number of resolves: %d\n
 Number of targets (%d) exceeds maximum (%d).  List of targets:\n
-Number of unique materials in the frame: 
-Number of views allocated : %d\n
-Number of views rendered: %d (%d with world traversals)\n
 Numbers starting with leading zero must be in octal.
+NvG
+NvK
 O5OFO\OgO
 OAk
 OBJs
 OCCLUSION_RECULLED 
-OEO
-OEQ
 OEsmall
 OK Blahblah
+OLD
 OOOOOOO
 OQOV
-ORb
+OQV
+ORG
 OS\td
 OZQ%
 O\n%NETWORK_DISCONNECT_REJECT_BADPASSWORD
@@ -4833,7 +4883,6 @@ October
 Odieresis
 Odieresissmall
 Oem102
-Ofb
 Off
 Offset
 Offset %.2f
@@ -4867,6 +4916,7 @@ Only available if ScrollX is disabled.
 Only makes a difference if the popup is larger than the combo
 Only using TableNextColumn(), which tends to be convenient for tables where every cell contains the same type of contents.\n This is also more similar to the old NextColumn() function of the Columns API, and provided to facilitate the Columns->Tables API transition.
 OpOti
+OpT
 Opaque
 Open
 Open '%s'
@@ -4937,19 +4987,23 @@ Override. Old default was 45.
 Override. Old value was 1.0
 Overrides the map's fog settings (-1 populates fog_ vars with map's values)
 P+\fGj
-P08Np
+P08JP?!
 P@HPX`hpx\f
 PAP
 PAPU
+PBd
 PCC
 PCF
-PDP
+PCf
+PDD
 PDT
-PEa
+PDg
 PFR
+PFf
+PFg
+PGH
 PG\f 3n
-PGc
-PIK
+PGg
 PIO
 PIPELINE_SPECIFIC_0 
 PIPELINE_SPECIFIC_1 
@@ -4959,36 +5013,37 @@ PIPELINE_SPECIFIC_4
 PIPELINE_SPECIFIC_5 
 PIPELINE_SPECIFIC_6 
 PIXEL_SIZE
-PIc
-PJb
+PIa
+PJS
+PJe
 PK/G
 PLACEHOLDER_VALUE
-PLK
-PMU
+PMK
+PMc
 PMingLiU
+PNe
+POA
 POINT_SIZE
 POSITION
 PPN
 PPNe
-PPO
-PPc
+PQe
 PRESSED
 PRE_RASTERIZATION_SHADERS
+PRK
 PROGRAMMER GUIDE:
-PSI
 PST
-PSa
-PSe
-PTX
-PVV
-PXO
+PSf
+PTb
 PX`hpx
-PYJ
-PYX
+PXc
+PYQ
+PYe
 PZN
 P\n#NETWORK_DISCONNECT_BADRELAYPASSWORD
 P\n#NETWORK_DISCONNECT_RELIABLEOVERFLOW
 P\n#NETWORK_DISCONNECT_SNAPSHOTOVERFLOW
+P\tV_expf
 PackId: 0x%X (%dx%d rect at %d,%d)
 Package name is too long
 Packed rects: %d, area: about %d px ~%dx%d px
@@ -5010,7 +5065,6 @@ ParentNode
 ParentWindow
 ParentWindowForFocusRoute
 ParticleSystemMgr003
-Particles: %d systems rendered in %d draw calls, %d meshlets and %d material binds\n
 Pass
 Passing ImGuiHoveredFlags_ForTooltip to IsItemHovered() is the preferred way to standardize tooltip activation details across your application. You may however decide to use custom flags for a specific tooltip instance.
 Password Input
@@ -5021,23 +5075,20 @@ PathTracingShaderBindingTable
 Pauciloquent
 Pause
 Pause Streaming Activity Graph
-Pcd
 PdJ
-Pdd
-PeU
+PeP
 Pear
 Pen
 Pen Pressure: %.1f
 Penumbra size multiplier for shadow sampling, reduces fog shadow aliasing
-Per-frame scratch memory used: %s (high watermark %s)\n
 PerVertexLighting
 PerViewLightProbeVolumeConstantBuffer_t
 PerViewLightingConstantBufferGpu_t
 Percentage of the transition between two lods we will apply a dither
 Period
 Perry
-Pga
-Phc
+PfG
+Phd
 Physics
 PhysicsBuilderMgr001
 PiYG
@@ -5056,6 +5107,9 @@ Pixels visible: %d (qh:%p) (frame:%d)\n
 Pixels visible: %d (qh:%p) Pixels possible: %d (qh:%p) (frame:%d)\n
 Pixels: %f
 PixelsToPlot() needs to be called between BeginPlot() and EndPlot()!
+PjP
+Pjc
+PkT
 Plasma
 Plat_CPUTickFrequency
 Plat_ExitProcess
@@ -5105,8 +5159,6 @@ Plotting
 Plum
 Plus
 PmXh]=b
-PoZ
-Pof
 Pointers cannot be used as numeric values
 Points
 PolitiFact: Who Lies More?
@@ -5143,8 +5195,8 @@ PostDecalForwardDynamic
 PostDecalForwardNoDecals
 PostProcessVertexLayout
 PostProcessingSystem_001
-PpQ
-PqW
+PrT
+Prb
 Pre Step
 Press Ctrl+A and see who receives it!
 Press ESC to abort picking.
@@ -5164,6 +5216,8 @@ Printing unusually long amount of text.
 Prints out the overall extra data allocation counts
 Priority
 Private
+ProceduralGeometry
+ProceduralGeometry Updates
 Processed
 ProggyClean.ttf
 Programmer error: %d visible items with conflicting ID!
@@ -5179,24 +5233,25 @@ PropertyEditorSystem_001
 Protobuf: %s(%d): %s\n
 Protocol Buffer map usage error:\n
 Protocol Buffer reflection usage error:\n  Method      : google::protobuf::Reflection::
-Pse
 Psmall
-PuJ
 PushID
 PushPlotClipRect() needs to be called between BeginPlot() and EndPlot()!
-PvE
-PvO
 PvP
-PwQ
+PwR
+PwT
+Pwc
+PxR
 Pxd
-Pye
+Pxe
+PyP
+PzE
 Q)Q7QWQ
 Q=QH
 QAf?
+QFc
+QGS
 QUAD
 QUAD_WIDTH
-QUF
-QZb
 Q\n&NETWORK_DISCONNECT_REJECT_BADCHALLENGE
 Q\n&NETWORK_DISCONNECT_TEMPENTMSG_OVERFLOW
 Q\n*NETWORK_DISCONNECT_CLIENT_CONSISTENCY_FAIL
@@ -5204,15 +5259,13 @@ Q\n+NETWORK_DISCONNECT_CLIENT_UNABLE_TO_CRC_MAP
 Q\n,NETWORK_DISCONNECT_REJECT_SERVERAUTHDISABLED
 Q_Qd
 Qc\nE
-QhX
-Qjb
-QrD
 Qsmall
 Quad-shaped light
 Qualitative
 Qualitative: %s
 Quantity
 Quantization of dynamically computed shadow size
+QuantizedFloatEncoderAlias_t
 QueryPerformanceCounter
 QueryPerformanceFrequency
 Querying
@@ -5220,8 +5273,10 @@ Querying Item Status (Edited/Active/Hovered etc.)
 Querying Window Status (Focused/Hovered etc.)
 Quit
 Quit generating Sparse Shadow Tree - no valid sunlight\n
+QxL
 QyQ
 R%R<RqS
+R%c
 R10G10B10A2_TYPELESS
 R10G10B10A2_UINT
 R10G10B10A2_UNORM
@@ -5321,14 +5376,17 @@ RAW_SUPERSCRIPT_Y
 RAW_UNDERLINE_POSITION
 RAW_UNDERLINE_THICKNESS
 RAW_X_HEIGHT
+RAY TRACING
 RAY_TRACING_SHADER
 REACTION
 REFLECTS 
 RELATIVE_SETWIDTH
 RELATIVE_WEIGHT
+RENDER DEVICE
 RESOLUTION
 RESOLUTION_X
 RESOLUTION_Y
+REf
 RFRQR\Rf
 RG11_EAC
 RG1616F
@@ -5347,8 +5405,7 @@ RGBA8888
 RGBA8888_LINEAR
 RGBA8888_UINT
 RGBX8888
-RKe
-RRO
+RHf
 RSDS
 RTProxy Layout
 RTProxyBLAS
@@ -5365,7 +5422,6 @@ Ray trace shader material %s - has no default mode!\n
 Ray trace shader material %s has invalid RayTypeCount %d - must be between 1 and %d\n
 RayGen
 RaytraceLightBins
-RbL
 Reached an unintended state: CPPTYPE_MESSAGE
 Reached impossible case in HasBit().
 Reached maximum recursion limit for nested messages.
@@ -5479,6 +5535,7 @@ ResizeNWSE
 ResizeX 
 ResizeY 
 ResizedColumn: %d, ReorderColumn: %d, HeldHeaderColumn: %d
+Resizing Vertex Cache Buffer from %s -> %s\n
 Resizing lock-free scratch allocation pool to %s.\n
 Resolution of character decal texture.
 Resolve vel volume
@@ -5487,6 +5544,7 @@ Resource
 Resource %s was created but never accessed\n
 ResourceCompiler/BakedLighting/DisableCullingForShadows
 ResourceCompiler/BakedLighting/LPVAtlas
+ResourceCompiler/WorldRendererBuilder/BakePrecomputedShadows
 ResourceCompiler/WorldRendererBuilder/UseStaticEnvMapForObjectsWithLightingOrigin
 ResourceCompilerSystem001
 ResourceHandleUtils001
@@ -5500,7 +5558,6 @@ ReturnJobManualEventToPool
 Reversed
 Revert
 Revert Ref
-Rge
 Rice
 Rich
 Right
@@ -5559,6 +5616,18 @@ SCENEOBJECT_VIS_MATERIAL
 SCENEOBJECT_VIS_NONE
 SCENEOBJECT_VIS_OBJECT
 SCENEOBJECT_VIS_TEXTURE_SIZE
+SCENESYSTEM INTERNALS
+SCENE_STATS_ALL
+SCENE_STATS_CULLING
+SCENE_STATS_DEFAULT
+SCENE_STATS_FRAME
+SCENE_STATS_GEOMETRY
+SCENE_STATS_INTERNALS
+SCENE_STATS_LIGHTING
+SCENE_STATS_MATERIALS
+SCENE_STATS_NONE
+SCENE_STATS_RAYTRACING
+SCENE_STATS_RENDERDEVICE
 SDBytes
 SDp
 SETWIDTH_NAME
@@ -5662,7 +5731,7 @@ SceneGfxResources_RayTracing
 SceneLPVDebugGridObjectDesc
 SceneLPVDebugGridObjectVB
 SceneObjects
-SceneObjects drawn: %s in %s draw calls and %s meshlet dispatches\n
+SceneStatsSections_t
 SceneSystem
 SceneSystem/Aggregates/Debug Visualizer
 SceneSystem/Aggregates/Draw Aggregates
@@ -5934,15 +6003,13 @@ Shaded Plots##
 Shader depth bias applied to shadow receiver (Note this conflicts with renderstate depth bias, both now default to 0)
 Shading Atlas
 Shadow
+Shadow Atlas
 Shadow Atlas Debugger
 Shadow strength %.2f (%.2f fog), penumbra %.2f, filter radius %i\n
 ShadowAtlas
 ShadowDepth
 ShadowTile Atlas Debugger
-ShadowTiles: %02i%% lights used, %s conservative, %s final\n
-ShadowTiles: %02i%% tiles used, %s all lit, %s all shadow, %s penumbra\n
 Shadows
-Shape %i\nSpeed Multiplier %.2f
 Shape %i\nStrength %.2f\nExponent %.2f
 Share Items
 Shared FreeType Loader Flags:  0x%08X
@@ -5959,6 +6026,7 @@ Should not reach here.
 Should we straighten face island if the displacement is this much? (inches)
 Should we try to straighten an island of faces deviating from their average normal (tangent)?
 Should we try to straighten two faces connected to this edge? (tangent)
+Show
 Show "Debug Break" buttons in other sections (io.ConfigDebugIsDebuggerPresent)
 Show 2nd header
 Show Axes Rects
@@ -6059,6 +6127,7 @@ Sliders (reverse)
 Small buttons
 SmallButton
 SmallButton()
+SmartPropsSystem_001
 SmoothNormals
 Snickersnee
 Solo
@@ -6116,6 +6185,7 @@ SpotShadowDepth
 Sqrt
 Square
 Ssmall
+StL
 Stack depth limit hit (%d)
 Stacked 1
 Stacked 2
@@ -6220,35 +6290,35 @@ SystemRoot
 Syu\tWY
 T H E Z O C Q S
 T#T.Tk
-T%a
-T%c
 T>gaW?:]f?AHV>'
-TCe
+TAa
+TAd
 TEST
 TEST##1
 TEST##2
 TETNTc
-THd
-THe
-TLAS: %s instances, %s geometries, %s instances size culled\n
-TMd
+TId
+TIe
+TKb
+TLAS
 TOOLSCENE_OVERLAY_LAYER 
 TOOLS_UNLIT_LAYER 
-TPR
-TPe
+TQV
 TRANSFER
 TRANSFER_DST_OPTIMAL
 TRANSFER_READ_BIT
 TRANSFER_SRC_OPTIMAL
 TRANSFER_WRITE_BIT
-TRa
 TTT[
-TTX
 TUBE
 TUBE_WITH_END_CAPS
 TUUU
 TUUUU
-TYX
+TUb
+TVc
+TWY
+TXb
+TYS
 T\n%NETWORK_DISCONNECT_KICKED_TEAMHURTING
 T\n%NETWORK_DISCONNECT_KICKED_TEAMKILLING
 T\n%NETWORK_DISCONNECT_LOCALPROBLEM_OTHER
@@ -6328,12 +6398,13 @@ Tailor
 TanFrameQuat
 Target
 Target RowBg0 to override the alternating odd/even colors,\nTarget RowBg1 to blend with them.
-Tca
 Tcommaaccent
 Template view factory "%s" was registered twice!\n
 Temporal filtering weight
 TerminateProcess
+Test aggregate fragments against culling boxes individually instead of per aggregate.
 Test how different widgets react and impact the work rectangle growing when horizontal scrolling is enabled.\n\nUse 'Metrics->Tools->Show windows rectangles' to visualize rectangles.
+Test instanced mesh instances against info_visibility_box culling boxes.
 Test paragraph %d:
 Test tree node as drag source
 Test type
@@ -6363,6 +6434,7 @@ Texture Area: about %d px ~%dx%d px
 Texture Memory
 Texture Visualizer
 Textures
+Tgd
 Thanks for clicking me!
 The "Examples" menu above leads to more demo contents.
 The "Tools" menu above gives access to: About Box, Style Editor,\nand Metrics/Debugger (general purpose Dear ImGui debugging tool).
@@ -6447,6 +6519,7 @@ Time Scale
 Time Series
 TimeSlicedShadow
 Timer took %.4f
+Timesliced shadow rendering is enabled for view %s, but no shadow atlas id is set: this will corrupt shadows\n
 Tint
 TinyBVH Fatal Error: %s at %s:%d
 TinyBVHFatalError
@@ -6458,21 +6531,19 @@ TitleBg
 TitleBgActive
 TitleBgCollapsed
 TitleText
-Tjc
+Tlb
 TlsAlloc
 TlsFree
 TlsGetValue
 TlsSetValue
-Tma
+Tna
 To +INF
 To -INF
 To Clipboard
 To Ref
 To TTY
 To call IM_DEBUG_BREAK() %s:
-Toa
 Tob
-Toc
 Toggle display of box around text
 Toggle the use of dotted/dashed debugoverlay lines to indicate source
 Toggle..
@@ -6483,6 +6554,7 @@ Toggles GPU vis of instanced meshes
 Toggles density culling (if enabled)
 Toggles fade support for instanced meshes
 Toggles motion vector support for instanced meshes
+Toggles whether mesh shader instanced can batch on reflectivity
 Tomato
 ToneMapping
 TonemapManifest
@@ -6518,6 +6590,7 @@ Top-right
 Total : %d (%ukb)\n
 TouchExtraPadding
 TouchScreen
+Tpa
 TraceRays
 Track
 Track %d
@@ -6528,6 +6601,7 @@ Transient
 Translucent
 TranslucentScreenSpace
 Transparency
+Trd
 Tree
 Tree Nodes
 Tree in column
@@ -6542,7 +6616,6 @@ TreeNode
 TreeNode (w/ double-click)
 TreeNode() is technically supported but... using this correctly is more complicated (you need some sort of linear/random access to your tree, which is suited to advanced trees setups already implementing filters and clipper. We will work toward simplifying and demoing this.\n\nFor now the tree demo is actually a little bit meaningless because it is an empty tree with only root nodes.
 Trees
-Triangles rendered: %s\n
 Tried to merge messages of different types 
 Tris
 True
@@ -6550,12 +6623,10 @@ TrueType
 Trump
 TryAcquireSRWLockExclusive
 Tsmall
-Tub
 Tube light with end caps
 Tube light without end caps
 Tue
 Tuesday
-Twd
 Twilight
 Two
 Two items: Hello
@@ -6567,6 +6638,7 @@ Type appears to be in generated pool but wasn't
 Type is already registered: 
 TypingSelect
 TypingSelect (%d)
+Tzc
 U+%04X
 U+%04X-U+%04X: %d codepoints in %d inputs
 U+%04X..U+%04X (%d %s)
@@ -6598,8 +6670,6 @@ U:\thirdpartycode\nonredist\protobuf\protobuf-3.21.8\src\google\protobuf\text_fo
 U:\thirdpartycode\nonredist\protobuf\protobuf-3.21.8\src\google\protobuf\wire_format.cc
 U:\thirdpartycode\nonredist\protobuf\protobuf-3.21.8\src\google\protobuf\wire_format_lite.cc
 UA>N0Wl
-UAD
-UAb
 UEUeUt
 UG\vHs\vI@
 UID: 0x%08X
@@ -6615,6 +6685,7 @@ UNUSED
 USER GUIDE:
 USER32.dll
 USER:\nHold Shift or use mouse to select text.\nCtrl+Left/Right to word jump.\nCtrl+A or Double-Click to select all.\nCtrl+X,Ctrl+C,Ctrl+V for clipboard.\nCtrl+Z to undo, Ctrl+Y/Ctrl+Shift+Z to redo.\nEscape to revert.\n\nPROGRAMMER:\nYou can use the ImGuiInputTextFlags_CallbackResize facility if you need to wire InputText() to a dynamic string type. See misc/cpp/imgui_stdlib.h for an example (this is not demonstrated in imgui_demo.cpp).
+USES_CS_SKINNING
 USES_PAYLOAD
 USES_SHADOW_FAST_PATH
 UTF-8
@@ -6640,12 +6711,12 @@ Udieresis
 Udieresissmall
 Ugrave
 Ugravesmall
+Ukc
 Unable to AddTextureToSet( %s ): %s\n
 Unable to AddTextureToSet( %s ): Loading Texture failed\n
 Unable to cycle forground window, '%s' isn't in window list\n
 Unable to reload texture %s into textureset: %s\n
 Unable to reload texture %s into textureset: couldn't load from disk\n
-Unbatchable material draws: 
 Uncertain Data
 UnderlinePosition
 UnderlineThickness
@@ -6679,6 +6750,7 @@ UnsavedMarker
 Unsupported
 Unsupported KV3 basic type '%s' (%d)!
 Unsupported: type mismatch
+Uoc
 UpArrow
 Update delay for shadow size
 Update hysteresis for shadow size
@@ -6735,12 +6807,12 @@ V:%3d
 VApplication001
 VAsyncFileSystem2_001
 VAvi001
+VBf
 VBik001
 VConComm001
 VERTEX_ATTRIBUTE_READ_BIT
 VERTEX_INPUT
 VEngineCvar007
-VFe
 VFileSystem017
 VGO
 VIEWMODEL_LAYER 
@@ -6788,7 +6860,6 @@ V_StringToVector4D
 V_StringToVectorWS
 V_UInt64ToString_Unsafe
 V_UInt8ToString_Unsafe
-V_UnqualifiedFileName
 Validate
 Value
 Value = %.3f <-- (1) right-click this text
@@ -6808,14 +6879,12 @@ Value out of range for int64 option "
 Value out of range for uint32 option "
 Values
 Variables
-Vbe
 Ve\fK
 Vector2f
 VerSetConditionMask
 Version
 Vert:
 VertCount
-Vertex Cache: %u updates in %u dispatches updating %u vertices\n
 VertexCache
 VertexColorPos_t
 VertexColorUVPos_t
@@ -6852,6 +6921,7 @@ ViewportPos=%d,%d\n
 ViewportPos=%i,%i
 Viewports
 Viewports (%d)
+Views: %d, shadow %d (fog-only %d)  |  CPU: %02.01fms, shadow %02.01fms (fog-only %01.01fms)
 Viridis
 VirtualTextureMgrManifest
 VisBuilder_001
@@ -6871,6 +6941,7 @@ Voxelize Tangents
 Vqj
 Vrad3_001
 Vsmall
+Vxc
 W$W>WBWSW
 WANTS_FRAMEBUFFER_COPY_TEXTURE 
 WANTS_PROBE_LIGHTING 
@@ -6880,8 +6951,10 @@ WARNING: ImDrawIdx is 16-bit and ImGuiBackendFlags_RendererHasVtxOffset is false
 WARNING: Trying to create a CRenderContextPtr without a valid context.\n
 WEIGHT
 WEIGHT_NAME
+WET
 WINDOWING
 WS hair verts
+WWc
 W\n,NETWORK_DISCONNECT_REJECT_CONNECT_FROM_LOBBY
 W\n,NETWORK_DISCONNECT_REJECT_RESERVED_FOR_LOBBY
 WaNd?
@@ -6899,6 +6972,7 @@ Warning: Font scaling will NOT be smooth, because\nImGuiBackendFlags_RendererHas
 Warning: Sizing Constraints won't work if the window is docked!
 Warning: owning Window is inactive. This DrawList is not being rendered!
 Water
+WaterRTProxy
 Watermelon
 Waves
 We are colorizing cells to B1->C2 here.
@@ -6926,6 +7000,7 @@ When drawing circle primitives with "num_segments == 0" tessellation will be cal
 When not specified explicitly, user can right-click the picker to change mode.
 When sorting is enabled: allow no sorting, disable default sorting. TableGetSortSpecs() may return specs where (SpecsCount == 0).
 When sorting is enabled: hold shift when clicking headers to sort on multiple column. TableGetSortSpecs() may return specs where (SpecsCount > 1).
+Which stats groups to show
 While inputting text:\n
 While loading '%s'\n
 WideCharToMultiByte
@@ -7063,7 +7138,6 @@ With border:
 With keyboard navigation enabled:
 With the ImGuiColorEditFlags_NoInputs flag you can hide all the slider/text inputs.\nWith the ImGuiColorEditFlags_NoLabel flag you can pass a non-empty label which will only be used for the tooltip and picker popup.
 Without border:
-Wlb
 Word Wrapping
 Word-wrapping
 WorkRect
@@ -7080,6 +7154,7 @@ Wrap width
 WriteConsoleW
 WriteFile
 Wsmall
+WxL
 X-Axis
 X-Axis %d
 X-Axis %d [0x%08X]
@@ -7089,43 +7164,41 @@ X-Axis index out of bounds!
 X/Y = %.0f px
 X24_TYPELESS_G8_UINT
 X32_TYPELESS_G8X24_UINT
-XAA
-XBb
 XCXVXac
-XDe
-XFb
+XCd
+XGc
+XHd
 XHeight
 XIXP
 XInputGetCapabilities
 XInputGetState
-XRc
-XTX
-XTa
+XNb
+XPK
 XUID
+XUd
 XVN
-XWc
-XYX
-XYd
-XZb
+XXa
+XXc
 X\n'NETWORK_DISCONNECT_BADSPECTATORPASSWORD
 X\n'NETWORK_DISCONNECT_DIFFERENTCLASSTABLES
 X\n'NETWORK_DISCONNECT_KICKED_NOSTEAMTICKET
 X\n(NETWORK_DISCONNECT_INVALID_MESSAGE_ERROR
 X_HEIGHT
-Xad
-XbZ
-XcH
-XcZ
-Xcc
-XeZ
-Xeb
-Xnb
+X`hrP
+XeW
+Xea
+Xia
+Xic
+XlO
+Xld
+XmZ
 Xo1 WB
-XoZ
-XpP
-XrZ
+Xpd
+Xsa
 Xsmall
 XtI
+Xxb
+Xyc
 Y-Axis
 Y-Axis %d
 Y-Axis %d [0x%08X]
@@ -7136,7 +7209,7 @@ Y-Axis index out of bounds!
 Y>kX>
 Y>kX>M
 Y?fff?33s?
-YLA
+YHc
 YLYVh
 YSN[RUZP>8c7NXNZdPE4\HNKLY_
 Y\n)NETWORK_DISCONNECT_NO_PEER_GROUP_HANDLERS
@@ -7150,6 +7223,7 @@ YeYii
 Yellow
 Yes
 Yes, you can\ndrag this!
+Yjc
 You can also call ImGui::DebugTextEncoding() from your code with a given string to test that your UTF-8 encoding settings are correct.
 You can also call ImGui::LogText() to output directly to the log without a visual output.
 You can also call ImGui::ShowDebugLogWindow() from your code.
@@ -7170,25 +7244,21 @@ Your current configuration is:
 Ysmall
 Z-google.golang.org/protobuf/types/descriptorpb
 Z>wg}?0
-ZAP
+ZBW
 ZDZUZ]Zj
-ZQe
 Z\n(NETWORK_DISCONNECT_KICKED_HOSTAGEKILLING
 Z\n(NETWORK_DISCONNECT_KICKED_INSECURECLIENT
 Z\n(NETWORK_DISCONNECT_REMOTE_CERTNOTTRUSTED
 Z\n*NETWORK_DISCONNECT_REJECT_INVALIDKEYLENGTH
 Z\n+NETWORK_DISCONNECT_CONNECT_REQUEST_TIMEDOUT
-ZcO
+Z\tV_fmodf
 Zcaron
 Zcaronsmall
-Zde
 Zero-area light
-Zhe
 Zo\fn
 Zoom %f\n
 Zoom Constraints
 Zoom and pan the X-axis. Disable Stems to see a difference in fit.
-ZqV
 Zsmall
 [%04d] Window
 [%05d] [%s] Hello, current time is %.1f, here's a word: '%s'\n
@@ -7329,7 +7399,9 @@ Zsmall
 \n\fTYPE_FIXED32
 \n\fTYPE_FIXED64
 \n\fTYPE_MESSAGE
+\n\fclan_officer
 \n\fdouble_value
+\n\fencode_flags
 \n\fis_extension
 \n\fis_localonly
 \n\fjava_package
@@ -7368,8 +7440,12 @@ Zsmall
 \n\rpreviouslevel
 \n\rreserved_name
 \n\rtick_interval
+\n\tbit_count
 \n\tjson_name
 \n\tmap_entry
+\n\tmax_coord
+\n\tmax_value
+\n\tmin_value
 \n\tname_part
 \n\ttickcount
 \n\ttype_name
@@ -7385,12 +7461,14 @@ Zsmall
 \n\vTYPE_UINT32
 \n\vTYPE_UINT64
 \n\vallow_alias
+\n\vclan_member
 \n\vis_headless
 \n\vmax_clients
 \n\voneof_index
 \n\voutput_type
 \n\vsource_file
 \n\vspawn_count
+\n_MakeGlobalSymbol
 \nh?oT
 \nk>oB
 \r%\r1\rB\rQ\rZ\rf\rr\r~\r
@@ -7400,20 +7478,22 @@ Zsmall
 \r\n\tJS_STRING
 \r\n\tTYPE_BOOL
 \r\n\tTYPE_ENUM
-\r\ng_pThreadPool
 \r\r\r\r\r\r
 \t \t$\t6\tI\tY\th\ts\tz\t
 \tLayer %d "%s": %d inputs, %d outputs\n
 \tLayer %d "%s"\n
 \tRT %dx%d %s %dx MSAA used by %s\n
 \tTarget %d "%s": [FMT-> %s] [MSAA-> %s] [%s size : %d %d]\n
-\tV_ZSTD_decompress
-\tV_acosf
-\tV_atan2f
-\tV_atanf
-\tV_atoi
-\tV_atoi64
-\tV_cosf
+\tV_UnqualifiedFileName
+\tV_log2_uint
+\tV_log2f
+\tV_logf
+\tV_powf
+\tV_qsort
+\tV_qsort_s
+\tV_roundf
+\tV_sincosf
+\tV_sinf
 \tV_snprintf
 \tV_sscanf
 \tV_stricmp_fast
@@ -7432,23 +7512,17 @@ Zsmall
 \t\t\tHRT = %llX, MSAA = %s\n
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tUnknown
 \t\tviewport TopLeftX: %d TopLeftY: %d Width: %d Height: %d\n
-\t_MakeGlobalSymbol
-\t_V_strncmp
-\t_V_strncpy
-\t_V_strnicmp_fast
 \tcQr
 \tkE>fvw
 \v"\v,\v9\vE\vR\v[\ve\vr\v
 \vDC\vL
 \vMn1Y?
-\v\ng_pMemAlloc
 \x%02x
 ]\n,NETWORK_DISCONNECT_REJECT_INVALIDRESERVATION
 ^RfN>
 ^\n*NETWORK_DISCONNECT_KICKED_CONVICTEDACCOUNT
 ^\n*NETWORK_DISCONNECT_KICKED_UNTRUSTEDACCOUNT
 ^\n*NETWORK_DISCONNECT_LOCALPROBLEM_MANYRELAYS
-^\tV_log2_uint
 ^axb
 _AngledHeader
 _COL3F
@@ -7513,8 +7587,8 @@ _hypot
 _logb
 _nextafter
 _oD>Kg
+`Ize
 `RTTI
-`\tV_log2f
 `anonymous namespace'
 `copy constructor closure'
 `default constructor closure'
@@ -7553,11 +7627,10 @@ _oD>Kg
 `virtual displacement map'
 a'aCaYb"b8b
 aBt
-aBvp
-aIK
+aBv
 aJ!\vA
 aJaP
-aWG
+aZE
 a\ft/tOtet
 aaa1.c
 aaa2.cpp
@@ -7582,17 +7655,24 @@ address not available
 adieresis
 adobe
 aeam
+aggregate
 aggregate cullrequests
+aggregate meshlet indirect dispatch
+aggregate meshlet indirect dispatch recull
+aggregate meshlet overflow handling
 aggregate.fragmentCount
+aggregate.material_flags
 aggregate.material_name
 aggregate.meshletCount
 aggregate.model_name
+aggregate.object_flags
 aggregate_value
 aggregates
 agrave
 ahoj
 albedo for LPV debug grid
 aliasing
+allocated
 allowed in proto3.
 allowed_from_client
 alphatest
@@ -7602,18 +7682,34 @@ ampersandsmall
 analog_%d
 analog_0
 analog_1
+animatable meshlet overflow handling
+animatable object cull request
+animatable scene object
+animatable visibility indices
+animatable.gpucull.%d
+animatable.gpucull.%d.blend_weight_count
+animatable.gpucull.%d.curve_basis_count
+animatable.gpucull.%d.dispatch_index
+animatable.gpucull.%d.model_name
+animatable.gpucull.%d.num_meshlets
+animatable.material_name
+animatable.meshletCount
+animatable.model_name
+animatable.object_flags
+animatable.objecttype_flags
+animatable.vertexCache
+animated
 another one of those tree node...
 another popup
+ao proxies
 ao_proxy_box_list
 ao_proxy_capsule_list
 apple
 approxequal
-arD
 argument list too long
 argument out of domain
 aring
 array
-asO
 asciicircum
 asciitilde
 asin
@@ -7624,16 +7720,17 @@ atan2
 atilde
 autofitter
 avg %f
+axq
 b%d
 b%d (%.02f secs)
 bBbMb
 bDisableDynamicRefractionMap
+bGS
 bNeedsDynamicReflectionMap
 bReflectDynamicObjectsOnly
 bTbm
-bVV
-b\tV_logf
 b^be
+backface
 backslash
 bad address
 bad allocation
@@ -7645,13 +7742,13 @@ bad function call
 bad locale name
 bad message
 bad_weak_ptr
-bae
 baked_shadow_index
 baked_shadow_light_id
 bar
 barn
 barnlightconstants
 bars
+base
 base scene object
 base scene object cull request
 baseobject.material_name
@@ -7667,12 +7764,14 @@ batchlist.descriptor
 batchlist.flags_str
 batchlist.flags_uint
 batchlist.last_batch_break
+batchlist.view_gpu_cull_id
 bbb2.cpp
 bbbb
 bdf
 begin
 benb_32028_2897001788_0_expectfail
 bentnormal
+bhc
 binary
 binary_bc
 binary_blob
@@ -7684,6 +7783,7 @@ blendweight
 blendweights
 blue
 bmys
+boE
 boECdpECdpECdpECdp
 bodygroup
 bonename
@@ -7708,7 +7808,6 @@ bullet
 button
 bwb~
 by %s
-byb
 bytes
 c7cPc
 c>cG
@@ -7723,6 +7822,7 @@ canvas
 caron
 cascade %d%s
 casing swap
+cb updates
 cc_enable_arenas
 cc_generic_services
 ccaron
@@ -7741,6 +7841,8 @@ cff
 cff-load
 cfg/imgui_%s
 cfg_infos
+cfog
+changes
 char const* GetGameInfoString(char const*, char const*, char*, uint64_t) (demangled)
 char const* V_stristr_fast(char const*, char const*) (demangled)
 char*
@@ -7838,7 +7940,7 @@ class CNETMsg_SplitScreenUser (demangled)
 class CNETMsg_StringCmd (demangled)
 class CNETMsg_Tick (demangled)
 class CParallelProcessLauncher::CParallelLambdaJob<`private: void CSceneSystem::Thread_CullView(CSceneView*, CViewDrawList*)'::`2'::<lambda_1> > (demangled)
-class CParallelProcessLauncher::CParallelLambdaJob<`public: virtual void CAggregateSceneObjectDesc::GpuCullPrimitivesInView(EGpuCullPhase, IRenderContext*, ISceneView const*, ISceneLayer const*, CMeshDrawPrimitive_t*, unsigned int, SceneSystemPerFrameStats_t*)'::`24'::<lambda_1> > (demangled)
+class CParallelProcessLauncher::CParallelLambdaJob<`public: virtual void CAggregateSceneObjectDesc::GpuCullPrimitivesInView(EGpuCullPhase, IRenderContext*, ISceneView const*, ISceneLayer const*, CMeshDrawPrimitive_t*, unsigned int, SceneSystemPerFrameStats_t*)'::`30'::<lambda_1> > (demangled)
 class CParallelProcessLauncher::CParallelLambdaJob<`void ParallelFor<1, `public: virtual void CAggregateSceneObjectDesc::OnBeginRenderingFrame(void)'::`2'::<lambda_1> >(int, int, char const*, `public: virtual void CAggregateSceneObjectDesc::OnBeginRenderingFrame(void)'::`2'::<lambda_1>&&, int, int, JobPriority_t)'::`12'::<lambda_1> > (demangled)
 class CParallelProcessorAbstract<CParallelProcessor<CSceneObject*, CFuncJobItemProcessor<CSceneObject*>, 1> > (demangled)
 class CParallelProcessorAbstract<CParallelProcessor<GenerateTileWorkUnit_t, CMemberFuncJobItemProcessor<GenerateTileWorkUnit_t, CBuildSparseShadowTree, CBuildSparseShadowTree>, 1> > (demangled)
@@ -8000,18 +8102,19 @@ class IVConCommDataReceived (demangled)
 class IVDataResourceListener (demangled)
 class IVolumetricFog (demangled)
 class IWindController (demangled)
+class QuantizedFloatEncoderAlias_t (demangled)
 class `private: bool CRenderBatchList::CanBatchWithPrevousPrimitive(CMeshDrawPrimitive_t*)'::`18'::<lambda_2> (demangled)
 class `private: bool CRenderBatchList::CanBatchWithPrevousPrimitive(CMeshDrawPrimitive_t*)'::`21'::<lambda_3> (demangled)
 class `private: bool CRenderBatchList::CanBatchWithPrevousPrimitive(CMeshDrawPrimitive_t*)'::`27'::<lambda_4> (demangled)
 class `private: bool CRenderBatchList::CanBatchWithPrevousPrimitive(CMeshDrawPrimitive_t*)'::`30'::<lambda_5> (demangled)
 class `private: bool CRenderBatchList::CanBatchWithPrevousPrimitive(CMeshDrawPrimitive_t*)'::`33'::<lambda_6> (demangled)
 class `private: bool CRenderBatchList::CanBatchWithPrevousPrimitive(CMeshDrawPrimitive_t*)'::`7'::<lambda_1> (demangled)
-class `private: void CBaseSceneObjectDesc::DrawArrayMeshlets(IRenderContext*, CMeshDrawPrimitive_t*, int, ISceneView const*, ISceneLayer*, SceneSystemPerFrameStats_t&)'::`4'::<lambda_1> (demangled)
 class `private: void CLightBinnerGPU::GatherHammerLights(void)'::`2'::<lambda_1> (demangled)
 class `private: void CLightBinnerGPU::GatherIndirectBounceLights(void)'::`2'::<lambda_1> (demangled)
 class `private: void CLightBinnerGPU::GatherIndirectBounceLights(void)'::`2'::<lambda_2> (demangled)
 class `private: void CRenderBatchList::DrawCurrentPrimitives(void)'::`2'::<lambda_1> (demangled)
 class `private: void CRenderBatchList::DrawCurrentPrimitives(void)'::`2'::<lambda_2> (demangled)
+class `private: void CSceneSystem::KickoffBatchList(std::shared_ptr<CViewDrawList>, CSceneLayer*, DrawListVector_t&, ISceneObjectDesc::GeneratePrimitivesArgs_t&, bool)'::`5'::<lambda_1> (demangled)
 class `private: void CSceneSystem::ReleaseLayerDependents(std::shared_ptr<CViewDrawList> const&, CSceneLayer*)'::`11'::<lambda_1> (demangled)
 class `private: void CSceneSystem::ReleaseLayerDependents(std::shared_ptr<CViewDrawList> const&, CSceneLayer*)'::`11'::<lambda_2> (demangled)
 class `private: void CSceneSystem::ReleaseLayerDependents(std::shared_ptr<CViewDrawList> const&, CSceneLayer*)'::`11'::<lambda_3> (demangled)
@@ -8022,23 +8125,28 @@ class `private: void CSceneSystem::Thread_RenderLayerDrawList(std::shared_ptr<CV
 class `private: void CSceneSystem::Thread_RenderView(CSceneView*)'::`63'::<lambda_2> (demangled)
 class `private: void CSceneSystem::Thread_RenderView(CSceneView*)'::`67'::<lambda_3> (demangled)
 class `private: void CSceneSystem::Thread_RenderView(CSceneView*)'::`71'::<lambda_4> (demangled)
+class `protected: void CBaseSceneObjectDesc::DrawArrayMeshlets(IRenderContext*, CMeshDrawPrimitive_t*, int, ISceneView const*, ISceneLayer*, SceneSystemPerFrameStats_t&)'::`4'::<lambda_1> (demangled)
 class `protected: void CLightBinnerGPU::AddEnvironmentMapsForView(CSceneView*)'::`5'::<lambda_1> (demangled)
 class `protected: void CLightBinnerGPU::AddLightProbeVolumesForView(CSceneView*)'::`5'::<lambda_1> (demangled)
 class `protected: void CLightBinnerGPU::DebugLightProbeVolumeGrid(CSceneView*)'::`2'::<lambda_2> (demangled)
 class `protected: void CLightBinnerGPU::DebugLightProbeVolumeGrid(CSceneView*)'::`7'::<lambda_1> (demangled)
 class `protected: void CSceneObjectDesc::DrawInstances(IRenderContext*, CSceneObjectDesc::PerInstanceParams_t*, int, CMeshDrawPrimitive_t*, IMaterial2const*, IMaterialMode*, CSceneObjectDesc::MaterialBindState_t*, bool, SceneSystemPerFrameStats_t&, ISceneLayer*, PerInstancePackedShaderData_t*, int)'::`2'::<lambda_1> (demangled)
-class `protected: void CSceneSystem::SubmitAllDisplayLists(SwapChainHandle_t__*)'::`11'::<lambda_3> (demangled)
-class `protected: void CSceneSystem::SubmitAllDisplayLists(SwapChainHandle_t__*)'::`11'::<lambda_4> (demangled)
+class `protected: void CSceneSystem::SubmitAllDisplayLists(SwapChainHandle_t__*)'::`23'::<lambda_3> (demangled)
+class `protected: void CSceneSystem::SubmitAllDisplayLists(SwapChainHandle_t__*)'::`23'::<lambda_4> (demangled)
+class `protected: void CSceneSystem::SubmitAllDisplayLists(SwapChainHandle_t__*)'::`36'::<lambda_5> (demangled)
 class `public: CSmartPtr<CThreadedJob, CRefCountAccessor> IThreadPool::QueueJobWithFlags<`private: void CSceneSystem::Thread_RenderLayerDrawList(std::shared_ptr<CViewDrawList>, CSceneLayer*, CRenderBatchList*, EBatchStartFlags_t, DrawListVector_t const&)'::`15'::<lambda_2> >(char const*, JobPriority_t, unsigned int, `private: void CSceneSystem::Thread_RenderLayerDrawList(std::shared_ptr<CViewDrawList>, CSceneLayer*, CRenderBatchList*, EBatchStartFlags_t, DrawListVector_t const&)'::`15'::<lambda_2>&&)'::`2'::CLambdaJob (demangled)
-class `public: `private: void CSceneSystem::Thread_RenderViewLayer(std::shared_ptr<CViewDrawList>, CSceneLayer*)'::`2'::<lambda_1>::operator()(bool) const'::`5'::<lambda_1> (demangled)
 class `public: `protected: void CLightBinnerGPU::DebugLightProbeVolumeGrid(CSceneView*)'::`2'::<lambda_2>::operator()(CSceneLightProbeVolumeObject*) const'::`16'::<lambda_2> (demangled)
 class `public: `protected: void CLightBinnerGPU::DebugLightProbeVolumeGrid(CSceneView*)'::`2'::<lambda_2>::operator()(CSceneLightProbeVolumeObject*) const'::`8'::<lambda_1> (demangled)
 class `public: `protected: void CLightBinnerGPU::DebugLightProbeVolumeGrid(CSceneView*)'::`7'::<lambda_1>::operator()(CSceneLightProbeVolumeObject*) const'::`5'::<lambda_1> (demangled)
 class `public: virtual void CAggregateSceneObjectDesc::DrawArray(IRenderContext*, CMeshDrawPrimitive_t*, int, ISceneView const*, ISceneLayer*, SceneSystemPerFrameStats_t&)'::`6'::<lambda_1> (demangled)
+class `public: virtual void CAnimatableSceneObjectDesc::GpuCullPrimitivesInView(EGpuCullPhase, IRenderContext*, ISceneView const*, ISceneLayer const*, CMeshDrawPrimitive_t*, unsigned int, SceneSystemPerFrameStats_t*)'::`2'::<lambda_1> (demangled)
 class `public: virtual void CInstancedMeshSceneObjectDesc::DrawArray(IRenderContext*, CMeshDrawPrimitive_t*, int, ISceneView const*, ISceneLayer*, SceneSystemPerFrameStats_t&)'::`6'::<lambda_2> (demangled)
+class `public: void CAnimatableSceneObjectDesc::DrawPrimitive(IRenderContext*, CMeshDrawPrimitive_t*, IMaterial2const*, IMaterialMode*, DrawValues_t&, bool, SceneSystemPerFrameStats_t&, ISceneLayer*)'::`2'::<lambda_1> (demangled)
+class `public: void CAnimatableSceneObjectDesc::DrawPrimitiveMeshlets(IRenderContext*, ISceneView const*, CMeshDrawPrimitive_t*, IMaterial2const*, IMaterialMode*, bool, SceneSystemPerFrameStats_t&, ISceneLayer*)'::`2'::<lambda_1> (demangled)
 class `public: void CInstancedMeshSceneObjectDesc::DrawArrayMeshlets(IRenderContext*, CMeshDrawPrimitive_t*, int, ISceneView const*, ISceneLayer*, SceneSystemPerFrameStats_t&)'::`10'::<lambda_1> (demangled)
 class `public: void CSceneSystem::GenerateVertexCacheUpdateTasks(CUtlVector<CSmartPtr<CThreadFuture<CDisplayList*>, CRefCountAccessor>, int, CUtlVectorMemory_Growable<CSmartPtr<CThreadFuture<CDisplayList*>, CRefCountAccessor>, int, 0> >&, bool, bool)'::`10'::<lambda_2> (demangled)
 class `public: void CSceneSystem::GenerateVertexCacheUpdateTasks(CUtlVector<CSmartPtr<CThreadFuture<CDisplayList*>, CRefCountAccessor>, int, CUtlVectorMemory_Growable<CSmartPtr<CThreadFuture<CDisplayList*>, CRefCountAccessor>, int, 0> >&, bool, bool)'::`13'::<lambda_3> (demangled)
+class `public: void CSceneSystem::GenerateVertexCacheUpdateTasks(CUtlVector<CSmartPtr<CThreadFuture<CDisplayList*>, CRefCountAccessor>, int, CUtlVectorMemory_Growable<CSmartPtr<CThreadFuture<CDisplayList*>, CRefCountAccessor>, int, 0> >&, bool, bool)'::`16'::<lambda_4> (demangled)
 class `public: void CSceneSystem::GenerateVertexCacheUpdateTasks(CUtlVector<CSmartPtr<CThreadFuture<CDisplayList*>, CRefCountAccessor>, int, CUtlVectorMemory_Growable<CSmartPtr<CThreadFuture<CDisplayList*>, CRefCountAccessor>, int, 0> >&, bool, bool)'::`7'::<lambda_1> (demangled)
 class `public: void CSceneView::AtFinish(void)'::`5'::<lambda_1> (demangled)
 class `std::shared_ptr<IReadBufferCallback> DoNotDeleteReadCallback<IReadBufferCallback>(IReadBufferCallback*)'::`2'::<lambda_1> (demangled)
@@ -8130,25 +8238,25 @@ class google::protobuf::io::ZeroCopyInputStream (demangled)
 class google::protobuf::io::ZeroCopyOutputStream (demangled)
 class std::_Facet_base (demangled)
 class std::_Func_base<CDisplayList*> (demangled)
-class std::_Func_base<CUtlVector<std::pair<char const*, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, CUtlVectorMemory_Growable<std::pair<char const*, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, 0> > > (demangled)
+class std::_Func_base<CUtlVector<std::pair<CUtlString, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, CUtlVectorMemory_Growable<std::pair<CUtlString, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, 0> > > (demangled)
 class std::_Func_base<void, CEnvMapSceneObject*> (demangled)
 class std::_Func_base<void, CSceneBarnLightObject*> (demangled)
 class std::_Func_base<void, CSceneLightObject*> (demangled)
 class std::_Func_base<void, CSceneLightProbeVolumeObject*> (demangled)
 class std::_Func_base<void, CSceneObject*> (demangled)
 class std::_Func_base<void> (demangled)
-class std::_Func_impl_no_alloc<`private: bool CRenderBatchList::CanBatchWithPrevousPrimitive(CMeshDrawPrimitive_t*)'::`18'::<lambda_2>, CUtlVector<std::pair<char const*, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, CUtlVectorMemory_Growable<std::pair<char const*, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, 0> > > (demangled)
-class std::_Func_impl_no_alloc<`private: bool CRenderBatchList::CanBatchWithPrevousPrimitive(CMeshDrawPrimitive_t*)'::`21'::<lambda_3>, CUtlVector<std::pair<char const*, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, CUtlVectorMemory_Growable<std::pair<char const*, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, 0> > > (demangled)
-class std::_Func_impl_no_alloc<`private: bool CRenderBatchList::CanBatchWithPrevousPrimitive(CMeshDrawPrimitive_t*)'::`27'::<lambda_4>, CUtlVector<std::pair<char const*, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, CUtlVectorMemory_Growable<std::pair<char const*, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, 0> > > (demangled)
-class std::_Func_impl_no_alloc<`private: bool CRenderBatchList::CanBatchWithPrevousPrimitive(CMeshDrawPrimitive_t*)'::`30'::<lambda_5>, CUtlVector<std::pair<char const*, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, CUtlVectorMemory_Growable<std::pair<char const*, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, 0> > > (demangled)
-class std::_Func_impl_no_alloc<`private: bool CRenderBatchList::CanBatchWithPrevousPrimitive(CMeshDrawPrimitive_t*)'::`33'::<lambda_6>, CUtlVector<std::pair<char const*, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, CUtlVectorMemory_Growable<std::pair<char const*, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, 0> > > (demangled)
-class std::_Func_impl_no_alloc<`private: bool CRenderBatchList::CanBatchWithPrevousPrimitive(CMeshDrawPrimitive_t*)'::`7'::<lambda_1>, CUtlVector<std::pair<char const*, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, CUtlVectorMemory_Growable<std::pair<char const*, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, 0> > > (demangled)
-class std::_Func_impl_no_alloc<`private: void CBaseSceneObjectDesc::DrawArrayMeshlets(IRenderContext*, CMeshDrawPrimitive_t*, int, ISceneView const*, ISceneLayer*, SceneSystemPerFrameStats_t&)'::`4'::<lambda_1>, CUtlVector<std::pair<char const*, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, CUtlVectorMemory_Growable<std::pair<char const*, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, 0> > > (demangled)
+class std::_Func_impl_no_alloc<`private: bool CRenderBatchList::CanBatchWithPrevousPrimitive(CMeshDrawPrimitive_t*)'::`18'::<lambda_2>, CUtlVector<std::pair<CUtlString, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, CUtlVectorMemory_Growable<std::pair<CUtlString, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, 0> > > (demangled)
+class std::_Func_impl_no_alloc<`private: bool CRenderBatchList::CanBatchWithPrevousPrimitive(CMeshDrawPrimitive_t*)'::`21'::<lambda_3>, CUtlVector<std::pair<CUtlString, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, CUtlVectorMemory_Growable<std::pair<CUtlString, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, 0> > > (demangled)
+class std::_Func_impl_no_alloc<`private: bool CRenderBatchList::CanBatchWithPrevousPrimitive(CMeshDrawPrimitive_t*)'::`27'::<lambda_4>, CUtlVector<std::pair<CUtlString, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, CUtlVectorMemory_Growable<std::pair<CUtlString, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, 0> > > (demangled)
+class std::_Func_impl_no_alloc<`private: bool CRenderBatchList::CanBatchWithPrevousPrimitive(CMeshDrawPrimitive_t*)'::`30'::<lambda_5>, CUtlVector<std::pair<CUtlString, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, CUtlVectorMemory_Growable<std::pair<CUtlString, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, 0> > > (demangled)
+class std::_Func_impl_no_alloc<`private: bool CRenderBatchList::CanBatchWithPrevousPrimitive(CMeshDrawPrimitive_t*)'::`33'::<lambda_6>, CUtlVector<std::pair<CUtlString, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, CUtlVectorMemory_Growable<std::pair<CUtlString, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, 0> > > (demangled)
+class std::_Func_impl_no_alloc<`private: bool CRenderBatchList::CanBatchWithPrevousPrimitive(CMeshDrawPrimitive_t*)'::`7'::<lambda_1>, CUtlVector<std::pair<CUtlString, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, CUtlVectorMemory_Growable<std::pair<CUtlString, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, 0> > > (demangled)
 class std::_Func_impl_no_alloc<`private: void CLightBinnerGPU::GatherHammerLights(void)'::`2'::<lambda_1>, void, CSceneLightObject*> (demangled)
 class std::_Func_impl_no_alloc<`private: void CLightBinnerGPU::GatherIndirectBounceLights(void)'::`2'::<lambda_1>, void, CSceneLightObject*> (demangled)
 class std::_Func_impl_no_alloc<`private: void CLightBinnerGPU::GatherIndirectBounceLights(void)'::`2'::<lambda_2>, void, CSceneBarnLightObject*> (demangled)
-class std::_Func_impl_no_alloc<`private: void CRenderBatchList::DrawCurrentPrimitives(void)'::`2'::<lambda_1>, CUtlVector<std::pair<char const*, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, CUtlVectorMemory_Growable<std::pair<char const*, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, 0> > > (demangled)
-class std::_Func_impl_no_alloc<`private: void CRenderBatchList::DrawCurrentPrimitives(void)'::`2'::<lambda_2>, CUtlVector<std::pair<char const*, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, CUtlVectorMemory_Growable<std::pair<char const*, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, 0> > > (demangled)
+class std::_Func_impl_no_alloc<`private: void CRenderBatchList::DrawCurrentPrimitives(void)'::`2'::<lambda_1>, CUtlVector<std::pair<CUtlString, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, CUtlVectorMemory_Growable<std::pair<CUtlString, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, 0> > > (demangled)
+class std::_Func_impl_no_alloc<`private: void CRenderBatchList::DrawCurrentPrimitives(void)'::`2'::<lambda_2>, CUtlVector<std::pair<CUtlString, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, CUtlVectorMemory_Growable<std::pair<CUtlString, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, 0> > > (demangled)
+class std::_Func_impl_no_alloc<`private: void CSceneSystem::KickoffBatchList(std::shared_ptr<CViewDrawList>, CSceneLayer*, DrawListVector_t&, ISceneObjectDesc::GeneratePrimitivesArgs_t&, bool)'::`5'::<lambda_1>, void> (demangled)
 class std::_Func_impl_no_alloc<`private: void CSceneSystem::ReleaseLayerDependents(std::shared_ptr<CViewDrawList> const&, CSceneLayer*)'::`11'::<lambda_1>, void> (demangled)
 class std::_Func_impl_no_alloc<`private: void CSceneSystem::ReleaseLayerDependents(std::shared_ptr<CViewDrawList> const&, CSceneLayer*)'::`11'::<lambda_2>, void> (demangled)
 class std::_Func_impl_no_alloc<`private: void CSceneSystem::ReleaseLayerDependents(std::shared_ptr<CViewDrawList> const&, CSceneLayer*)'::`11'::<lambda_3>, void> (demangled)
@@ -8159,22 +8267,27 @@ class std::_Func_impl_no_alloc<`private: void CSceneSystem::Thread_RenderLayerDr
 class std::_Func_impl_no_alloc<`private: void CSceneSystem::Thread_RenderView(CSceneView*)'::`63'::<lambda_2>, void> (demangled)
 class std::_Func_impl_no_alloc<`private: void CSceneSystem::Thread_RenderView(CSceneView*)'::`67'::<lambda_3>, void> (demangled)
 class std::_Func_impl_no_alloc<`private: void CSceneSystem::Thread_RenderView(CSceneView*)'::`71'::<lambda_4>, void> (demangled)
+class std::_Func_impl_no_alloc<`protected: void CBaseSceneObjectDesc::DrawArrayMeshlets(IRenderContext*, CMeshDrawPrimitive_t*, int, ISceneView const*, ISceneLayer*, SceneSystemPerFrameStats_t&)'::`4'::<lambda_1>, CUtlVector<std::pair<CUtlString, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, CUtlVectorMemory_Growable<std::pair<CUtlString, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, 0> > > (demangled)
 class std::_Func_impl_no_alloc<`protected: void CLightBinnerGPU::AddEnvironmentMapsForView(CSceneView*)'::`5'::<lambda_1>, void, CEnvMapSceneObject*> (demangled)
 class std::_Func_impl_no_alloc<`protected: void CLightBinnerGPU::AddLightProbeVolumesForView(CSceneView*)'::`5'::<lambda_1>, void, CSceneLightProbeVolumeObject*> (demangled)
 class std::_Func_impl_no_alloc<`protected: void CLightBinnerGPU::DebugLightProbeVolumeGrid(CSceneView*)'::`2'::<lambda_2>, void, CSceneLightProbeVolumeObject*> (demangled)
 class std::_Func_impl_no_alloc<`protected: void CLightBinnerGPU::DebugLightProbeVolumeGrid(CSceneView*)'::`7'::<lambda_1>, void, CSceneLightProbeVolumeObject*> (demangled)
-class std::_Func_impl_no_alloc<`protected: void CSceneObjectDesc::DrawInstances(IRenderContext*, CSceneObjectDesc::PerInstanceParams_t*, int, CMeshDrawPrimitive_t*, IMaterial2const*, IMaterialMode*, CSceneObjectDesc::MaterialBindState_t*, bool, SceneSystemPerFrameStats_t&, ISceneLayer*, PerInstancePackedShaderData_t*, int)'::`2'::<lambda_1>, CUtlVector<std::pair<char const*, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, CUtlVectorMemory_Growable<std::pair<char const*, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, 0> > > (demangled)
-class std::_Func_impl_no_alloc<`protected: void CSceneSystem::SubmitAllDisplayLists(SwapChainHandle_t__*)'::`11'::<lambda_3>, CDisplayList*> (demangled)
-class std::_Func_impl_no_alloc<`protected: void CSceneSystem::SubmitAllDisplayLists(SwapChainHandle_t__*)'::`11'::<lambda_4>, CDisplayList*> (demangled)
-class std::_Func_impl_no_alloc<`public: `private: void CSceneSystem::Thread_RenderViewLayer(std::shared_ptr<CViewDrawList>, CSceneLayer*)'::`2'::<lambda_1>::operator()(bool) const'::`5'::<lambda_1>, void> (demangled)
+class std::_Func_impl_no_alloc<`protected: void CSceneObjectDesc::DrawInstances(IRenderContext*, CSceneObjectDesc::PerInstanceParams_t*, int, CMeshDrawPrimitive_t*, IMaterial2const*, IMaterialMode*, CSceneObjectDesc::MaterialBindState_t*, bool, SceneSystemPerFrameStats_t&, ISceneLayer*, PerInstancePackedShaderData_t*, int)'::`2'::<lambda_1>, CUtlVector<std::pair<CUtlString, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, CUtlVectorMemory_Growable<std::pair<CUtlString, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, 0> > > (demangled)
+class std::_Func_impl_no_alloc<`protected: void CSceneSystem::SubmitAllDisplayLists(SwapChainHandle_t__*)'::`23'::<lambda_3>, CDisplayList*> (demangled)
+class std::_Func_impl_no_alloc<`protected: void CSceneSystem::SubmitAllDisplayLists(SwapChainHandle_t__*)'::`23'::<lambda_4>, CDisplayList*> (demangled)
+class std::_Func_impl_no_alloc<`protected: void CSceneSystem::SubmitAllDisplayLists(SwapChainHandle_t__*)'::`36'::<lambda_5>, CDisplayList*> (demangled)
 class std::_Func_impl_no_alloc<`public: `protected: void CLightBinnerGPU::DebugLightProbeVolumeGrid(CSceneView*)'::`2'::<lambda_2>::operator()(CSceneLightProbeVolumeObject*) const'::`16'::<lambda_2>, void> (demangled)
 class std::_Func_impl_no_alloc<`public: `protected: void CLightBinnerGPU::DebugLightProbeVolumeGrid(CSceneView*)'::`2'::<lambda_2>::operator()(CSceneLightProbeVolumeObject*) const'::`8'::<lambda_1>, void> (demangled)
 class std::_Func_impl_no_alloc<`public: `protected: void CLightBinnerGPU::DebugLightProbeVolumeGrid(CSceneView*)'::`7'::<lambda_1>::operator()(CSceneLightProbeVolumeObject*) const'::`5'::<lambda_1>, void> (demangled)
-class std::_Func_impl_no_alloc<`public: virtual void CAggregateSceneObjectDesc::DrawArray(IRenderContext*, CMeshDrawPrimitive_t*, int, ISceneView const*, ISceneLayer*, SceneSystemPerFrameStats_t&)'::`6'::<lambda_1>, CUtlVector<std::pair<char const*, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, CUtlVectorMemory_Growable<std::pair<char const*, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, 0> > > (demangled)
-class std::_Func_impl_no_alloc<`public: virtual void CInstancedMeshSceneObjectDesc::DrawArray(IRenderContext*, CMeshDrawPrimitive_t*, int, ISceneView const*, ISceneLayer*, SceneSystemPerFrameStats_t&)'::`6'::<lambda_2>, CUtlVector<std::pair<char const*, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, CUtlVectorMemory_Growable<std::pair<char const*, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, 0> > > (demangled)
-class std::_Func_impl_no_alloc<`public: void CInstancedMeshSceneObjectDesc::DrawArrayMeshlets(IRenderContext*, CMeshDrawPrimitive_t*, int, ISceneView const*, ISceneLayer*, SceneSystemPerFrameStats_t&)'::`10'::<lambda_1>, CUtlVector<std::pair<char const*, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, CUtlVectorMemory_Growable<std::pair<char const*, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, 0> > > (demangled)
+class std::_Func_impl_no_alloc<`public: virtual void CAggregateSceneObjectDesc::DrawArray(IRenderContext*, CMeshDrawPrimitive_t*, int, ISceneView const*, ISceneLayer*, SceneSystemPerFrameStats_t&)'::`6'::<lambda_1>, CUtlVector<std::pair<CUtlString, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, CUtlVectorMemory_Growable<std::pair<CUtlString, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, 0> > > (demangled)
+class std::_Func_impl_no_alloc<`public: virtual void CAnimatableSceneObjectDesc::GpuCullPrimitivesInView(EGpuCullPhase, IRenderContext*, ISceneView const*, ISceneLayer const*, CMeshDrawPrimitive_t*, unsigned int, SceneSystemPerFrameStats_t*)'::`2'::<lambda_1>, CUtlVector<std::pair<CUtlString, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, CUtlVectorMemory_Growable<std::pair<CUtlString, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, 0> > > (demangled)
+class std::_Func_impl_no_alloc<`public: virtual void CInstancedMeshSceneObjectDesc::DrawArray(IRenderContext*, CMeshDrawPrimitive_t*, int, ISceneView const*, ISceneLayer*, SceneSystemPerFrameStats_t&)'::`6'::<lambda_2>, CUtlVector<std::pair<CUtlString, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, CUtlVectorMemory_Growable<std::pair<CUtlString, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, 0> > > (demangled)
+class std::_Func_impl_no_alloc<`public: void CAnimatableSceneObjectDesc::DrawPrimitive(IRenderContext*, CMeshDrawPrimitive_t*, IMaterial2const*, IMaterialMode*, DrawValues_t&, bool, SceneSystemPerFrameStats_t&, ISceneLayer*)'::`2'::<lambda_1>, CUtlVector<std::pair<CUtlString, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, CUtlVectorMemory_Growable<std::pair<CUtlString, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, 0> > > (demangled)
+class std::_Func_impl_no_alloc<`public: void CAnimatableSceneObjectDesc::DrawPrimitiveMeshlets(IRenderContext*, ISceneView const*, CMeshDrawPrimitive_t*, IMaterial2const*, IMaterialMode*, bool, SceneSystemPerFrameStats_t&, ISceneLayer*)'::`2'::<lambda_1>, CUtlVector<std::pair<CUtlString, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, CUtlVectorMemory_Growable<std::pair<CUtlString, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, 0> > > (demangled)
+class std::_Func_impl_no_alloc<`public: void CInstancedMeshSceneObjectDesc::DrawArrayMeshlets(IRenderContext*, CMeshDrawPrimitive_t*, int, ISceneView const*, ISceneLayer*, SceneSystemPerFrameStats_t&)'::`10'::<lambda_1>, CUtlVector<std::pair<CUtlString, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, CUtlVectorMemory_Growable<std::pair<CUtlString, std::variant<bool, float, int, uint64_t, CUtlString, Vec4D<float>, RenderResourceHandle_t__*, std::monostate> >, int, 0> > > (demangled)
 class std::_Func_impl_no_alloc<`public: void CSceneSystem::GenerateVertexCacheUpdateTasks(CUtlVector<CSmartPtr<CThreadFuture<CDisplayList*>, CRefCountAccessor>, int, CUtlVectorMemory_Growable<CSmartPtr<CThreadFuture<CDisplayList*>, CRefCountAccessor>, int, 0> >&, bool, bool)'::`10'::<lambda_2>, CDisplayList*> (demangled)
 class std::_Func_impl_no_alloc<`public: void CSceneSystem::GenerateVertexCacheUpdateTasks(CUtlVector<CSmartPtr<CThreadFuture<CDisplayList*>, CRefCountAccessor>, int, CUtlVectorMemory_Growable<CSmartPtr<CThreadFuture<CDisplayList*>, CRefCountAccessor>, int, 0> >&, bool, bool)'::`13'::<lambda_3>, CDisplayList*> (demangled)
+class std::_Func_impl_no_alloc<`public: void CSceneSystem::GenerateVertexCacheUpdateTasks(CUtlVector<CSmartPtr<CThreadFuture<CDisplayList*>, CRefCountAccessor>, int, CUtlVectorMemory_Growable<CSmartPtr<CThreadFuture<CDisplayList*>, CRefCountAccessor>, int, 0> >&, bool, bool)'::`16'::<lambda_4>, CDisplayList*> (demangled)
 class std::_Func_impl_no_alloc<`public: void CSceneSystem::GenerateVertexCacheUpdateTasks(CUtlVector<CSmartPtr<CThreadFuture<CDisplayList*>, CRefCountAccessor>, int, CUtlVectorMemory_Growable<CSmartPtr<CThreadFuture<CDisplayList*>, CRefCountAccessor>, int, 0> >&, bool, bool)'::`7'::<lambda_1>, CDisplayList*> (demangled)
 class std::_Func_impl_no_alloc<`public: void CSceneView::AtFinish(void)'::`5'::<lambda_1>, CDisplayList*> (demangled)
 class std::_Func_impl_no_alloc<void (*)(CSceneObject*), void, CSceneObject*> (demangled)
@@ -8234,6 +8347,7 @@ click here
 click on a button to set focus
 client_streaming
 closefile
+clutter
 codegen_delta_encoder
 coincident
 collinear_mightfail
@@ -8266,6 +8380,7 @@ compacted draw count
 compacted drawindirectargs
 compaction requests
 compressedtangentframe
+computes
 concave
 connection aborted
 connection already in progress
@@ -8306,6 +8421,7 @@ csm_sst_max_visible_dist
 csm_sst_pushback_distance
 csm_sst_shadow_focus_region_maxz
 csm_sst_shadow_focus_region_minz
+csm_sst_vertical_depth_shear_enable
 csm_viewdir_shadow_bias
 csm_viewmodel_max_shadow_dist
 csm_viewmodel_max_visible_dist
@@ -8324,15 +8440,16 @@ custom_size
 cvars
 cwc
 d6d?a
-dCe
 dGa
-dHd
 dId
-dOd
 dRL>
-dTa
-dYX
-dZa
+dRa
+dRc
+dSd
+dUb
+dWY
+dXd
+dYb
 d\n-NETWORK_DISCONNECT_KICKED_COMPETITIVECOOLDOWN
 d\n-NETWORK_DISCONNECT_LOCALPROBLEM_NETWORKCONFIG
 d]dbdpdyd
@@ -8341,7 +8458,7 @@ daggerdbl
 darkening-parameters
 data
 data%d
-dbe
+dcb
 dcroat
 dddd
 dddd, MMMM dd, yyyy
@@ -8373,13 +8490,12 @@ degenerate
 degree
 delete
 deleted by %s
+density
 depth pass
 depth to increment candidate plane values per iteration to satisfy selection.
 desktop.ini
 destination address required
 device or resource busy
-dfc
-dga
 dhdl3
 dieresis
 diff_encode_field
@@ -8389,8 +8505,9 @@ digital_1
 dimensions
 directory not empty
 display very important message here!
+dist
 divide
-dld
+djb
 docs/BACKENDS.md
 dollar
 dollarinferior
@@ -8399,7 +8516,8 @@ dollarsuperior
 dotaccent
 dotlessi
 double
-dpa
+dpd
+dqb
 drag double
 drag double log
 drag float
@@ -8429,15 +8547,20 @@ drawcounts
 drawindirectargs
 drawindirectargs_recull
 drawmaterialquad2
+draws
 drop here##0
 drop here##1
+dsd
 dsuperior
-dtA
+dtC
 dual_lobe_roughness_0
 dual_lobe_roughness_1
 dual_lobe_roughness_mix
+due
 dummybuffer
 dup
+dxd
+dyb
 e e%e.e=eM
 e>US
 eEk
@@ -8457,6 +8580,7 @@ eightoldstyle
 eightsuperior
 ellipsis
 emdash
+emissive
 emissive_lighting_boost
 empty
 empty distance tree with lengths
@@ -8489,7 +8613,6 @@ expected_long_tick_reason
 extend .$0 {\n
 extendee
 extension_range
-eyP
 eye_data_list
 eye_target
 eye_target_bone_index
@@ -8523,8 +8646,6 @@ f(x) = sin(x+.5)*100+200
 f5J5J5J5J5J5J5J5J5J5J5J5J5J5J5J5Jx
 f?yu
 fD>b
-fKe
-fOV
 fWfc
 fWi?
 fabs
@@ -8588,9 +8709,10 @@ float32
 float64
 floor
 florin
+fmK
 fmod
 fog volumes
-fog_cached_shadow_atlas
+fog_cached
 fog_color
 fog_hdrcolorscale
 fog_override
@@ -8610,6 +8732,7 @@ freeze_rows
 fresnel_exponent
 frexp
 frustum
+full sets
 fullscreenquad
 func
 function not supported
@@ -8618,11 +8741,17 @@ g5g>gK
 gBV
 gWy
 gZgnhKhWhci
+g_binLightsSet
+g_groomResourcesDescSet
+g_lightBinnerGpuSet
+g_rtxCameraDescSet
+g_sceneDescriptorSet
 gamemode
 gbreve
 gd>Z
 generic
 germandbls
+gkL
 global_scale = ~%0.2f
 glyf
 glyph
@@ -8659,6 +8788,7 @@ google.protobuf.UInt64Value
 google.protobuf.Value
 google.protobuf.bridge.MessageSet
 google/protobuf/descriptor.proto
+gpu mem
 grave
 greater
 greaterequal
@@ -8668,25 +8798,16 @@ guillemotright
 guilsinglleft
 guilsinglright
 gxg
-h%a
 h>1my
 h>4hp?
-hFd
-hGa
-hIe
-hKa
-hNT
-hNa
-hNd
-hNe
-hOe
-hWd
-hXc
-hYX
-hYb
+hBf
+hKb
+hMg
+hSb
+hSc
+hTd
+hWa
 h\n,NETWORK_DISCONNECT_REMOTE_TIMEOUT_CONNECTING
-haZ
-had
 hair
 hairdensityaccumvolume
 hairdummybuffer
@@ -8708,7 +8829,7 @@ heat2
 hello
 hello, world
 hexadecimal
-hhd
+hgc
 hierarchy
 hihat-c
 hihat-o
@@ -8719,9 +8840,10 @@ hitgroup_shader_%p
 hj>>d
 hl?S
 hlW
-hlf
+hla
+hld
 hltv_replay_flags
-hoZ
+hmZ
 horizontal
 horizontal split
 host unreachable
@@ -8729,14 +8851,12 @@ host_computationtime
 host_frame_dropped_pct_x10
 host_unfiltered_frametime
 hostname
-hpZ
 hpx
 hpz
-hqV
-hqZ
-hrZ
+hqg
+hrd
+hsc
 hsv
-htV
 https://github.com/epezent/implot
 https://github.com/ocornut/imgui
 https://github.com/ocornut/imgui/blob/master/docs/BACKENDS.md
@@ -8752,12 +8872,13 @@ https://github.com/ocornut/imgui/wiki/Multi-Select
 https://github.com/ocornut/imgui/wiki/Useful-Extensions
 https://www.dearimgui.com/faq/
 hue
+hug
 hullivr_edge_merge_tan
 hullivr_faceisland_merge_disp
 hullivr_faceisland_merge_tan
 hullivr_version
 hungarumlaut
-hyP
+hxg
 hyphen
 hypheninferior
 hyphensuperior
@@ -8765,11 +8886,9 @@ h}?fN
 i < V_ARRAYSIZE( s_szMissShaderNames )
 i(i4i:iP
 i>VF
-iHb
-iQN
+iST
 iacute
 ibl
-icH
 icircumflex
 id_unused
 idempotency_level
@@ -8777,7 +8896,6 @@ identifier removed
 identifier_value
 idieresis
 idk
-igb
 ignore
 igrave
 illegal byte sequence
@@ -8812,6 +8930,7 @@ inf
 infinity
 info
 ini
+initial
 inity
 inner_width
 inner_width (when ScrollX active)
@@ -8837,6 +8956,7 @@ input u32
 input u32 hex
 input u64
 input u8
+instance
 instance buffer
 instance cull stats
 instance cull stats shadow
@@ -8846,6 +8966,7 @@ instanced mesh data
 instanced meshlet indirect dispatch
 instanced meshlet indirect dispatch debug
 instanced meshlet indirect dispatch recull
+instanced meshlet overflow handling
 instancedmesh.material_name
 instancedmesh.max_instances
 instancedmesh.model_name
@@ -8855,6 +8976,7 @@ instancedmesh.objectflags
 instanceidbuffer
 instanceidbuffer2
 instances
+instmesh
 int
 int GetGameInfoInt(char const*, int) (demangled)
 int V_strnlen(char const*, int) (demangled)
@@ -8964,9 +9086,10 @@ item view
 items_count
 items_type (first column)
 iti
+ivc
 izi
+jAf
 jDjK
-jPV
 jVg
 jasonm_433ce42d
 java_generate_equals_and_hash
@@ -8974,13 +9097,12 @@ java_generic_services
 java_multiple_files
 java_outer_classname
 java_string_check_utf8
-jfe
-jiV
-job
+jpY!
+jsG
 json_name = "
 jstype
 jstype is only allowed on int64, uint64, sint64, fixed64 or sfixed64 fields.
-jvV
+jzc
 k k.k;m
 k;J;J;J;J;J;J;J;J;J;J;J;J;J;J;J;Jx
 k=yI
@@ -9019,22 +9141,21 @@ kick
 known
 ko\tB
 ktk
-lAb
-lAc
-lAd
+kyK
+lBc
+lCd
 lEd/
+lEf
 lElblrl
-lIc
-lKd
 lKlV
-lRb
-lRd
-lVd
+lQd
+lWY
 lWi]
-lYX
+lYe
 lZb
 laQ
 label
+lad
 last used by %s
 lazy
 lb_allow_shadow_rotation
@@ -9105,12 +9226,11 @@ lb_time_sliced_shadow_map_rendering_enable
 lb_timesliced_shadows_dynamic_size
 lb_use_ellipsoid_bounds
 lb_use_illumination_silhouette
-lcc
-lda
+lb_use_illumination_volume
+lbd
 ldexp
 leading_comments
 leading_detached_comments
-leb
 left pane
 legacy_host_loss
 lenBuildCharArray
@@ -9118,9 +9238,6 @@ lenIV
 less
 lessequal
 leveltransition
-lfb
-lia
-lib
 light AABB: %i clusters
 light frustum & illum bounds: %i clusters
 light frustum: %i clusters
@@ -9150,13 +9267,15 @@ longeeer
 lowprecisionuv
 lowprecisionuv1
 lozenge
-lrb
 lslash
 lsuperior
+ltb
 ltuo
+lva
+lye
 mFm
+mGc
 mL\tfm\t 
-mPb
 mRmom}m
 m\nXo
 m\tm9e
@@ -9208,6 +9327,7 @@ m_nRequestedHeight
 m_nRequestedWidth
 m_nViewId
 m_nWidth
+m_pDuplicateDispatchPrimitives != nullptr
 m_poseParams
 m_processingType
 m_qOrientation
@@ -9282,6 +9402,7 @@ materials/dev/hair_sim_cs.vmat
 materials/dev/imgui.vmat
 materials/dev/lpv_debug_grid.vmat
 materials/dev/luminaire.vmat
+materials/dev/meshlet_refit_cs.vmat
 materials/dev/morphcomposite.vmat
 materials/dev/occlusionproxy.vmat
 materials/dev/occlusionproxy_countdraw.vmat
@@ -9322,15 +9443,17 @@ maxdate
 maximum_size_bytes
 maxp
 maxtime
-meV
 medium
 mergedindices
 mesh
 mesh_calculate_curvature_smooth_invert
 mesh_calculate_curvature_smooth_pass_count
 mesh_calculate_curvature_smooth_weight
+meshlet
 meshlet buffer
 meshlet input layouts
+meshlet refit requests
+meshlets
 meshsystem
 message
 message size
@@ -9348,10 +9471,7 @@ model %s, alloc [%i,%i %ix%i]
 model_default_preview_sequence_name
 modf
 morphcomposite
-mpQ
 msaa copy
-msindirectdispatchargs
-msindirectdispatchargsrecull
 msuperior
 multi-masters
 multiply
@@ -9366,15 +9486,17 @@ mypicker
 n r x z o e s c
 n03>Pu
 n>log2
+nCf
 nCompressedSize == nUncompressedSize
+nDf
+nFf
+nGf
 nIndex < m_RenderTargets.Count()
+nLG
 nPnq
 nPrevTransformBufferIndex < V_ARRAYSIZE( m_transformBufferSlotsForIndex )
-nTe
 nTries < 10000000
-nZe
 n\n0NETWORK_DISCONNECT_KICKED_VACNETABNORMALBEHAVIOR
-n\tV_powf
 n]?iJ
 n^nf
 name
@@ -9407,8 +9529,6 @@ network_connection.proto">\n\nCMsgVector
 network_connection_detail_token
 network_connection_token
 networkbasetypes.proto
-nge
-nhe
 nine
 nineinferior
 nineoldstyle
@@ -9459,10 +9579,12 @@ o?GS
 oEoOoZoaozo
 oI>O7
 oI>b
-o\tV_qsort
+oJD
+oaT
 oacute
 obj %d
 objc_class_prefix
+objects
 obwQ4
 occlusionproxyvb
 ocircumflex
@@ -9473,7 +9595,6 @@ offset_origin
 ogonek
 ograve
 ohoq
-omP
 onI
 one
 onedotenleader
@@ -9515,32 +9636,37 @@ owM&
 owner dead
 p q g j y
 p#p7pP
-p08@H^p
-p0j`g
+p0jP
 p@HPX`h\f
+pCa
+pDB
+pEP
+pES
+pEe
+pFa
+pFp
 pFx
-pGQ
-pGb
-pIa
-pJQ
-pJc
-pKb
-pKc
-pKe
-pMT
-pMc
-pNQ
+pIc
+pJL
+pJd
+pKK
+pKg
+pLg
+pMd
+pNP
 pOC
 pOm
-pRT
-pRV
-pSX
-pTD
-pUc
-pVc
-pYJ
-pZJ
-p\tV_qsort_s
+pQK
+pQT
+pSD
+pUJ
+pVa
+pXK
+pYR
+pYa
+pZd
+pZe
+pac
 package
 packed
 paragraph
@@ -9555,7 +9681,9 @@ parentnamefixup
 parse
 parsing
 partialdiff
+particle
 particle data buffer
+particles
 passes
 password
 password (clear)
@@ -9564,13 +9692,9 @@ password123
 path
 path_trace_light_flags
 pbP
-pbZ
+pcS
 pc\nAG\vI
-pce
 pcf
-pde
-pec
-pee
 per instance data
 percent
 period
@@ -9581,25 +9705,23 @@ permission denied
 permutations
 perthousand
 pervertexlighting
-pff
 pfr
 pfr-metrics
-pgO
-pgf
+pgd
 php_class_prefix
 php_generic_services
 php_metadata_namespace
 picker
 piq
 pixelvis_debug
-pkf
+pjA
+pjb
+plW
 players_networkids
 plots
 plus
 plusminus
-pnR
-pnp
-poA
+pma
 point0
 point1
 pos2Dtex2D
@@ -9611,11 +9733,10 @@ postscript-font-name
 postscript-info
 posxyz
 pow
-ppJ
+pqc
 precision for depth compression at SST leaf nodes.
 prediction_sync
 prepi
-prev layer not found
 private: bool CMemoryStack::MaybeCommitTo(unsigned char*) (demangled)
 private: void CAtomicMutex::AcquireLock(unsigned int) (demangled)
 private: void CSplitString::Split(char const*, int, char const**, int, bool) (demangled)
@@ -9635,10 +9756,13 @@ proto3
 proto3_optional
 protocol error
 protocol not supported
+psR
 psaux
+psg
 pshinter
 psnames
-pta
+ptc
+puR
 public: CMemoryStack::CMemoryStack(void) (demangled)
 public: CMemoryStack::~CMemoryStack(void) (demangled)
 public: CPoolAllocator::CPoolAllocator(unsigned int) (demangled)
@@ -9702,6 +9826,7 @@ public: int CUtlString::Format(char const*, ...) (demangled)
 public: int CUtlString::FormatV(char const*, char*) (demangled)
 public: int KeyValues::GetInt(char const*, int) const (demangled)
 public: static void (* VProfScopeHelper<0, 0>::EnterScopeInternalBudgetFlags(char const*, VProfBudgetGroupCallSite&, CUtlSourceLocation const&))(void) (demangled)
+public: static void (* VProfScopeHelper<3, 0>::EnterScopeInternal(char const*, CUtlSourceLocation const&))(void) (demangled)
 public: void CBufferString::MoveFrom(CBufferString&) (demangled)
 public: void CBufferString::Purge(int) (demangled)
 public: void CBufferString::SetPtr(char*, int, int, bool, bool) (demangled)
@@ -9731,24 +9856,27 @@ public: void CUtlString::SetLength(int) (demangled)
 public: void* CUtlMemoryPoolBase::Alloc(void) (demangled)
 public: void* CUtlScratchMemoryPool::AllocAligned(int, int) (demangled)
 public_dependency
+pud
 pup
 purecall
 put
-pwG
-pwJ
-pwS
+pwR
+pxa
 pxs
 pxs?
 pxs?{7
+pyP
+pyT
 py_generic_services
+pze
 q4qIqQ
-qMF
 qS>g?h3
+qSc
 qVJ
-qYb
 qYqaqnq
 qangle
 quadLayout
+quantized_float_encoder_aliases
 question
 questiondown
 questiondownsmall
@@ -9763,15 +9891,13 @@ quotesinglbase
 quotesingle
 qxq
 r*r4r;
-rAe
-rIe
-rJe
-rLL
+rIE
+rQc
 rQr\
-rUe
-rXe
 r\tVr.>T
 r_allow_onesweep_gpusort
+r_animatable_mesh_shaders
+r_animatable_mesh_shaders_visualize_bounds
 r_aoproxy_cull_dist
 r_aoproxy_default_ambient_strength
 r_aoproxy_default_light_cone_angles
@@ -9790,7 +9916,6 @@ r_character_decal_resolution
 r_cubemap_debug_colors
 r_directional_lightmaps
 r_dopixelvisibility
-r_draw_overlays
 r_drawpixelvisibility
 r_fallback_texture_lod_scale
 r_force_thick_hair
@@ -9848,10 +9973,10 @@ range int
 range int (no bounds)
 raster1
 ratio = %.3f
-rbe
 read
 read FAQ "About ID Stack System"
 read only file system
+recull
 reculldispatchargs
 recullrequests
 red
@@ -9861,7 +9986,6 @@ rendertarget_
 rendertarget_dscratch_%d_%d_%d.vtex
 rendertarget_r11g11b10f_%d_%d
 rendertarget_scratch_16161616F_mip_%d_%d
-rendertarget_ssao_depth_%d_%d
 rendertargets
 repeated
 required
@@ -9893,13 +10017,12 @@ rtx_force_default_hitgroup
 rtx_random_samples.vtex
 rtx_texture_resolution
 rupiah
+rwc
 s&sg
 s1s:sHsX
 s5J5J5J5J5J5J5J5J5J5J5J5J5J5J5J5Jx
-sCR
 sHF'
-sOV
-sQO
+sPG
 s_hScrambledHalton != GENERIC_DATA_HANDLE_INVALID
 savegamefilename
 sc_aggregate_bvh
@@ -9907,6 +10030,7 @@ sc_aggregate_bvh_threshold
 sc_aggregate_debug_draw_meshlets
 sc_aggregate_debug_draw_meshlets_bounds
 sc_aggregate_debug_visualizer
+sc_aggregate_fragment_culling_boxes
 sc_aggregate_fragment_merging
 sc_aggregate_gpu_culling
 sc_aggregate_gpu_culling_conservative_bounds
@@ -9950,6 +10074,7 @@ sc_dumpworld3d %d
 sc_enable_discard
 sc_extended_stats
 sc_fade_distance_scale_override
+sc_fog_cull
 sc_force_lod_level
 sc_force_materials_batchable
 sc_force_single_display_list_per_layer
@@ -9963,6 +10088,7 @@ sc_instanced_gpu_culling_show_culled
 sc_instanced_material_solo
 sc_instanced_mesh_enable
 sc_instanced_mesh_gpu_culling
+sc_instanced_mesh_gpu_culling_boxes
 sc_instanced_mesh_gpu_density_culling
 sc_instanced_mesh_gpu_occlusion_culling
 sc_instanced_mesh_gpu_vis_culling
@@ -9970,6 +10096,7 @@ sc_instanced_mesh_lod_bias
 sc_instanced_mesh_lod_bias_shadow
 sc_instanced_mesh_motion_vectors
 sc_instanced_mesh_opaque_fade
+sc_instanced_mesh_shadows_batch_across_materials
 sc_instanced_mesh_size_cull_bias
 sc_instanced_mesh_size_cull_bias_shadow
 sc_instanced_mesh_solo
@@ -9979,12 +10106,12 @@ sc_layer_batch_threshold_fullsort
 sc_list_extradata_allocations
 sc_listworlds
 sc_max_framebuffer_copies_per_layer
+sc_mesh_allow_batch_across_primitives
 sc_mesh_backface_culling
 sc_mesh_gpu_occlusion_culling
 sc_mesh_gpu_volume_culling
 sc_mesh_mesh_shaders
 sc_mesh_shadows_batch_across_materials
-sc_mesh_use_pmb
 sc_no_cull
 sc_no_vis
 sc_only_render_opaque
@@ -10007,8 +10134,8 @@ sc_show_view_profiler
 sc_showclasses
 sc_skip_traversal
 sc_spew_cmt_usage
+sc_stats_sections
 sc_throw_away_all_layers
-sc_use_clear_subrect
 sc_view_profiler_frame_averaging
 sc_visualize_batches
 sc_visualize_sceneobjects
@@ -10046,6 +10173,7 @@ scrolling
 sdf
 seaborn style
 section
+seen this frame
 semicolon
 serializing
 server_ip_address
@@ -10066,7 +10194,7 @@ sfnt-table
 sfnts
 shaded pass
 shadow
-shadow_atlas
+shadow_atlas_%dx%d.vtex
 shadowtile_hairvolumeinfo
 shcore.dll
 show_headers
@@ -10084,6 +10212,7 @@ sixoldstyle
 sixsuperior
 size
 sizeof(size_t): %d, sizeof(ImDrawIdx): %d, sizeof(ImDrawVert): %d
+skinnedmeshletcache
 skinnedvertexcache
 sky_bounce
 sky_bounce_scale
@@ -10194,7 +10323,6 @@ start
 state not recoverable
 static const ImU32 %s_Data[%d] = {\n
 stats
-stats_display
 stb_truetype
 steamid
 steamlearn_count
@@ -10225,7 +10353,6 @@ style.TableAngledHeadersTextAlign
 style.WindowBorderSize: %.2f
 style.WindowPadding: %.2f,%.2f
 subtype mismatch
-success
 summation
 summedstats
 sun_light_min_brightness
@@ -10234,17 +10361,17 @@ synthetic_default
 t/2 Wjc\tt1
 t1cid
 t5tF
-tEb
+tBa
+tDc
 tFb
-tFd
+tGe
 tKa
-tRe
-tSN
-tSX
+tKe
+tOc
+tPa
 tUt[
-tXb
-tYX
-tYe
+tWY
+t\tV_isdigit_str
 tabbar
 table
 table1
@@ -10268,16 +10395,16 @@ table_scrollx
 table_scrolly
 table_share_lineheight
 table_sorting
-tae
 tail
 take min of lb_dynamic_shadow_resolution and barnlight shadowmapsize as base shadowmapsize
 tan
 tangent
 tangentu_signv
 tanh
-tcb
 tcommaaccent
+teV
 tesidx
+tested
 tests1
 texcoord
 text
@@ -10291,8 +10418,8 @@ textures/dev/brdf_lut.vtex
 textures/dev/brdf_multiscatter_lut.vtex
 textures/dev/ggx_integrate_brdf_lut_schlick.vtex
 textures/dev/scrambled_halton.vdata
-tfc
 tgG
+tha
 the actual field type (for enums T should be the generated enum 
 the global scope
 this cell %d
@@ -10306,7 +10433,6 @@ threeoldstyle
 threequarters
 threequartersemdash
 threesuperior
-tic
 tick
 tied
 tier0.dll
@@ -10316,7 +10442,9 @@ timed out
 times
 tint_color
 tlt~
-tna
+tmc
+tme
+tob
 tom-hi
 tom-low
 tom-mid
@@ -10327,7 +10455,7 @@ too many files open in system
 too many length or distance symbols
 too many links
 too many symbolic link levels
-tqc
+tqb
 trademark
 trailing_comments
 transform
@@ -10343,14 +10471,14 @@ truetype-engine
 tsuperior
 tt-cmaps
 tt-glyf
+tvO
+tvb
 two
 twodotenleader
 twoinferior
 twooldstyle
 twosuperior
 twothirds
-tya
-tyd
 type
 type or int32_t).
 type.googleapis.com/
@@ -10360,12 +10488,10 @@ type42
 u v x z o e s c
 u,uEu
 uKu`
-uRb
-u\tV_roundf
+uTG
 uacute
 ucircumflex
 udieresis
-ufb
 ugrave
 uint
 uint16
@@ -10374,6 +10500,7 @@ uint64
 uint64s
 uluzu
 unable to register all schema data: %s\n
+unbatchable
 underscore
 undo_point: %d, redo_point: %d, undo_char_point: %d, redo_char_point: %d
 undopoints
@@ -10381,6 +10508,7 @@ unicode#0x0001
 uniform_sky_color
 unimplemented type: 
 uninterpreted_option
+unique mats
 unknown
 unknown compression method
 unknown error
@@ -10391,17 +10519,19 @@ unused
 unverified_lazy
 uon
 uppercase
+usc
+used
 userid
 uv x offset during copy to cascade.
 uv y offset during copy to cascade.
+uvG
 uvtangent
 v8vUb
-vKL
-vLe
-vOe
+vHf
 val_bool
 val_byte
 val_long
+validate
 value
 value too large
 valve_map_field
@@ -10419,8 +10549,10 @@ vertexbuffer
 vertical
 vertical split
 very_fast
+vfx evals
 viewport
 views
+vis
 vnvyv
 void (*)(CSceneObject*) (demangled)
 void Assert_ConditionFailed_Fatal(_AssertCompileTimeConstantStruct_t const&) (demangled)
@@ -10428,6 +10560,7 @@ void Assert_ConditionFailed_Fatal(_AssertCompileTimeConstantStruct_t const&, cha
 void DevMsg(char const*, ...) (demangled)
 void ThreadAtomicNotifyOne(unsigned int const*) (demangled)
 void_context
+vol
 volume_fog_debug_volumes
 volume_fog_density_scale
 volume_fog_depth
@@ -10444,6 +10577,7 @@ volume_fog_width
 volumetric fog
 volumetric_fog.vtex
 vt_sim_streaming_delay_ms
+vzH
 wDwNwYw`wy
 wH>r
 wXC
@@ -10460,6 +10594,7 @@ wellknown_checker_2x2.vtex
 wellknown_depth_d32_black.vtex
 wellknown_depth_d32_white.vtex
 wellknown_grey_1x1
+wellknown_grey_1x1x1
 wellknown_one_16bit_1x1
 wellknown_one_array_16bit_1x1x1
 wellknown_opaque_black_2x2x2
@@ -10476,7 +10611,6 @@ wind_noise_0.vtex
 wind_noise_1.vtex
 wind_state_0.vtex
 wind_state_1.vtex
-wind_system_debug_volumes
 wind_system_default_resolution_xy
 wind_system_default_resolution_z
 wind_system_default_sample_min_spacing
@@ -10489,54 +10623,50 @@ world_offset_angle
 world_offset_pos
 worldgroupname
 write
+written
 wrong protocol type
 wrong submessage type
-wxK
 x%ixAA
 x-axis
 x>xoxyx~
+xBd
+xEa
 xF%\nD
-xFe
-xHd
+xHa
+xIL
 xIxRx[xe
-xLL
-xLc
-xPV
-xPe
-xQa
-xSX
+xJg
 xT?V
-xYX
-xZa
-xaZ
-xbb
-xcZ
+xUb
+xWe
+xXd
+xYc
 xca
-xdb
-xfe
-xff
+xda
+xfa
 xge
-xiV
 xinput1_1.dll
 xinput1_2.dll
 xinput1_3.dll
 xinput1_4.dll
 xinput9_1_0.dll
-xka
-xmc
-xoZ
-xpa
-xrZ
-xtO
-xtZ
-xta
+xlW
+xmZ
+xnc
+xoT
+xoa
+xpb
+xrg
+xsb
+xse
 xuid
-xvV
-xvb
 xxA
+xyc
 y'y6y?yMa
 y-axis
-yFO
+yDD
+yEK
+yGH
 yLM
 yUk
 yZygy
@@ -10544,22 +10674,20 @@ yacute
 ycg
 ydieresis
 yen
-yfP
 ymyx
 you can drag analog plots over the rising/falling digital edge.
-yrb
+yqc
+yze
 z<zRz_zvz
-zAb
+zAf
+zBf
 zCzI
-zDe
 zMt
 zW>w
 z\n8NETWORK_DISCONNECT_LOCALPROBLEM_HOSTEDSERVERPRIMARYRELAY
-z\tV_sincosf
 zcaron
 zero
 zeroinferior
 zerooldstyle
 zerosuperior
-|\tV_sinf
 };\nImPlotColormap %s = ImPlot::AddColormap("%s", %s_Data, %d);

@@ -1,17 +1,17 @@
 <!-- xml reconstructed by Source 2 Viewer 19.2.0.0 - https://valveresourceformat.github.io -->
 <root>
 	<styles>
-		<include src="s2r://panorama/styles/csgostyles.vcss_c" />
-		<include src="s2r://panorama/styles/scoreboard.vcss_c" />
+		<include src="s2r://panorama/styles/csgostyles.vcss" />
+		<include src="s2r://panorama/styles/scoreboard.vcss" />
 	</styles>
 	<scripts>
-		<include src="s2r://panorama/scripts/common/formattext.vts_c" />
-		<include src="s2r://panorama/scripts/common/gamerules_constants.vts_c" />
-		<include src="s2r://panorama/scripts/mock_adapter.vts_c" />
-		<include src="s2r://panorama/scripts/rating_emblem.vts_c" />
-		<include src="s2r://panorama/scripts/match_stakes.vts_c" />
-		<include src="s2r://panorama/scripts/context_menus/context_menu_playercard.vts_c" />
-		<include src="s2r://panorama/scripts/scoreboard.vts_c" />
+		<include src="s2r://panorama/scripts/common/formattext.vts" />
+		<include src="s2r://panorama/scripts/common/gamerules_constants.vts" />
+		<include src="s2r://panorama/scripts/mock_adapter.vts" />
+		<include src="s2r://panorama/scripts/rating_emblem.vts" />
+		<include src="s2r://panorama/scripts/match_stakes.vts" />
+		<include src="s2r://panorama/scripts/context_menus/context_menu_playercard.vts" />
+		<include src="s2r://panorama/scripts/scoreboard.vts" />
 	</scripts>
 	<snippets>
 		<snippet name="snippet_sb-label-set-container">
@@ -282,9 +282,10 @@
 		<snippet name="snippet_scoreboard__classic-timeline--no-half-time-scores">
 			<Panel class="sb-timeline">
 				<Frame snippet="snippet_scoreboard-classic__no-half-time-scores" />
-				<Panel style="width:100%;">
+				<Panel style="width:650px;">
 					<Panel hittest="true" id="id-sb-timeline__segments" class="sb-timeline__segments" onmouseover="$.DispatchEvent(&apos;Scoreboard_Casualties_OnMouseOver&apos;)" onmouseout="$.DispatchEvent(&apos;Scoreboard_Casualties_OnMouseOut&apos;)" />
 				</Panel>
+				<Frame snippet="snippet_scoreboard-classic__round-loss-bonus-money" id="id-sb-timeline__round-loss-bonus-money" />
 			</Panel>
 		</snippet>
 		<snippet name="snippet_scoreboard__classic-spacer">
@@ -465,7 +466,7 @@
 			<Panel data-stat="name">
 				<Label id="name" html="true" class="sb-team-tint stratum-medium" text="{g:player_name:player_slot}" />
 				<Panel id="id-sb-name__nameicons" class="spectator-hidden">
-					<Frame id="jsRatingEmblem" api="gamestate" src="s2r://panorama/layout/rating_emblem.vxml_c" />
+					<Frame id="jsRatingEmblem" api="gamestate" src="s2r://panorama/layout/rating_emblem.vxml" />
 					<Image id="id-sb-name__commendations__leader" class="hidden sb-team-tint" src="s2r://panorama/images/icons/ui/leader.vsvg" />
 					<Image id="id-sb-name__commendations__teacher" class="hidden sb-team-tint" src="s2r://panorama/images/icons/ui/teacher.vsvg" />
 					<Image id="id-sb-name__commendations__friendly" class="hidden sb-team-tint" src="s2r://panorama/images/icons/ui/smile.vsvg" />
@@ -478,7 +479,7 @@
 				<CSGOHonorIcon id="jsHonorIcon" class="" do_fx="true" />
 				<Label id="name" html="true" class="sb-team-tint stratum-medium" text="{g:player_name:player_slot}" />
 				<Panel id="id-sb-name__nameicons" class="spectator-hidden">
-					<Frame id="jsRatingEmblem" src="s2r://panorama/layout/rating_emblem.vxml_c" />
+					<Frame id="jsRatingEmblem" src="s2r://panorama/layout/rating_emblem.vxml" />
 				</Panel>
 			</Panel>
 		</snippet>
@@ -487,7 +488,7 @@
 				<CSGOHonorIcon id="jsHonorIcon" class="" do_fx="true" />
 				<Label id="name" html="true" class="sb-team-tint stratum-medium" text="{g:player_name:player_slot}" />
 				<Panel id="id-sb-name__nameicons" class="spectator-hidden">
-					<Frame id="jsRatingEmblem" src="s2r://panorama/layout/rating_emblem.vxml_c" />
+					<Frame id="jsRatingEmblem" src="s2r://panorama/layout/rating_emblem.vxml" />
 				</Panel>
 			</Panel>
 		</snippet>
@@ -638,13 +639,13 @@
 					<Frame snippet="stat--KILLS" data-set="0" />
 					<Frame snippet="stat--DEATHS" data-set="0" />
 					<Frame snippet="stat--ASSISTS" data-set="0" />
-					<Frame snippet="stat--MVPS" data-set="0" />
-					<Frame snippet="stat--HSP" data-set="1" />
-					<Frame snippet="stat--KDR" data-set="1" />
-					<Frame snippet="stat--ADR" data-set="1" />
+					<Frame snippet="stat--HSP" data-set="0" />
+					<Frame snippet="stat--MVPS" data-set="1" />
 					<Frame snippet="stat--UTILITYDAMAGE" data-set="1" />
 					<Frame snippet="stat--ENEMIESFLASHED" data-set="1" />
-					<Frame snippet="stat--SCORE" />
+					<Frame snippet="stat--KDR" data-set="1" />
+					<Frame snippet="stat--ADR" data-set="1" />
+					<Frame snippet="stat--DAMAGE" />
 				</Panel>
 				<Frame snippet="stat--REPORT" />
 				<Frame snippet="stat--COMMEND" />

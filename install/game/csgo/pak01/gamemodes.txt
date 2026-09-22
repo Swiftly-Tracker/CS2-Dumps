@@ -352,6 +352,51 @@
 						"mg_casualdelta"	"1"
 					}
 				}
+				"rush"
+				{
+					"value"			  	"6"
+					"nameID"			"#SFUI_GameModeRush"
+					"descID"			"#SFUI_GameModeRushDesc"
+					"descID_List"		"#SFUI_GameModeRushDescList"
+					"uid"				"2"
+					"maxplayers"		"6"
+
+					"show_rich_presence_map_game"  "#SFUI_Lobby_StatusRichPresenceSeparator_rush"
+					"show_rich_presence_map_watch" "#SFUI_Lobby_StatusRichPresenceSeparator_rush"
+					"show_rich_presence_map_review" "#SFUI_Lobby_StatusRichPresenceSeparator_rush"
+				
+					// These are the descriptive ui elements to display in the information box on.
+					// These key/values should be pairs of strings.  The "key" will appear in the left
+					// column, the "value" will appear in the right column.
+					"ui"
+					{
+						"0"		{ "label" "#SFUI_CashColon"				"value" "$800" }
+						"1"		{ "label" "#SFUI_WinMatchColon"			"value" "30 #SFUI_Rounds" }
+						"2"		{ "label" "#SFUI_TimePerRoundColon"		"value" "2 #SFUI_Minutes" }
+						"3"		{ "label" "#SFUI_BuyTimeColon"			"value" "45 #SFUI_Seconds" }
+						"4"		{ "label" "#SFUI_SpectateColon"			"value" "#SFUI_SpectateTeamOnly" }
+						"5"		{ "label" "#SFUI_BotsColon"				"value" "#SFUI_BotDifficulty3" }
+					}
+
+					// These are the configs that get executed when a game mode of this type is created
+					"exec"
+					{
+						"exec" "gamemode_rush.cfg"
+						"exec_offline" "gamemode_rush_offline.cfg"
+					}
+					
+					// Map groups for offline modes
+					"mapgroupsSP"
+					{
+						"mg_rush_001"		""
+					}
+
+					// Map groups for online modes
+					"mapgroupsMP"
+					{
+						"mg_rush_001"		""
+					}
+				}
 			}	
 		}
 
@@ -1073,6 +1118,18 @@
 			}
 		}
 	
+		"mg_rush_001"
+		{
+			"imagename"				"mapgroup-rush"
+			"nameID"				"#SFUI_Mapgroup_rush"
+			"tooltipID"				"#SFUI_MapGroup_Tooltip_Desc_rush"
+			"name"					"mg_rush_001"
+			"icon_image_path"		"map_icons/mapgroup_icon_rush"
+			"maps"
+			{
+				"rush_001"		""
+			}
+		}
 		"mg_lowgravity"
 		{
 			"imagename"				"mapgroup-demolition"
@@ -4641,6 +4698,31 @@
 			"imagename"				"map-dz_junglety-overall"
 			"default_game_type"		"6" // freeforall 
 			"default_game_mode"		"0" // survival
+			"t_arms"				"models/weapons/t_arms_phoenix.vmdl"
+			"t_models"
+			{
+				"tm_jumpsuit_varianta"	""
+				"tm_jumpsuit_variantb"	""
+				"tm_jumpsuit_variantc"	""
+			}
+			"ct_arms"			"models/weapons/ct_arms_st6.vmdl"
+			"ct_models"
+			{
+				"ctm_st6"		""
+				"ctm_st6_variantA"	""
+				"ctm_st6_variantB"	""
+				"ctm_st6_variantC"	""
+				"ctm_st6_variantD"	""
+			}
+		}
+
+		"rush_001"
+		{
+			"nameID"				"#SFUI_Map_rush_001"
+			"name"					"rush_001"
+			"imagename"				"map-mirage-overall"
+			"default_game_type"		"0" // classic
+			"default_game_mode"		"6" // rush
 			"t_arms"				"models/weapons/t_arms_phoenix.vmdl"
 			"t_models"
 			{

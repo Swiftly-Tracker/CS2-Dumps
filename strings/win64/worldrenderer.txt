@@ -26,12 +26,15 @@
  Complete Object Locator'
  LinePos:
  Type Descriptor'
+ \n_V_strncmp
  delete
  delete[]
  new
  noexcept
  volatile
+!\n_V_strncpy
 """
+#\n_V_strnicmp_fast
 $Ib?s
 %cmaps%c
 %d %d %d %d
@@ -121,6 +124,7 @@ $Ib?s
 .CRT$XPZ
 .CRT$XTA
 .CRT$XTZ
+.\ng_Mathlib_GammaToLinearByteTable
 .bss
 .data
 .data$r
@@ -157,21 +161,17 @@ $Ib?s
 .xdata
 .xdata$x
 /2GG>!B
-/\tV_fmodd
 /src/
 0 = Density corresponds to blade existance, 1 = Density corresponds to blade height, 2 = Both 0 and 1
 0 = Off, 1 = Low, 2 = Med, 3 = high, 4 = ultra
 0123456789abcdefghijklmnopqrstuvwxyz
-0\tV_fmodf
 1#IND
 1#INF
 1#QNAN
 1#SNAN
 1:1: Tokens : ( T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | TOK_COLON | OPEN_BRACE | CLOSE_BRACE | OPEN_PAREN | CLOSE_PAREN | OPEN_BRACKET | CLOSE_BRACKET | SEMICOLON | OP_EQUAL | COMMA | DOUBLE_AND | NEGATIVE_TOK | DOUBLE_OR | LITERAL_TRUE | LITERAL_FALSE | POS_INTLITERAL | POS_FLOATLITERAL | SCOPE_QUALIFIER | ID | DOUBLE_QUOTED_STRING | SINGLE_QUOTED_STRING | SINGLE_LINE_COMMENT | ML_COMMENT | WS | UNRECOGNIZED );
 3>N;kU
-3\tV_fpclassifyd
 488:1: POS_FLOATLITERAL : ( ( DIGIT )+ '.' ( DIGIT )* ( EXPONENT )? | '.' ( DIGIT )+ ( EXPONENT )? | ( DIGIT )+ EXPONENT );
-4\tV_fprintf
 5J5J5J5J5J5J5J5J5J5J5J5J5J5J5J5Jx
 6\fXO>\ntA
 8Csinf
@@ -183,6 +183,7 @@ $Ib?s
 <EOF>
 <EOR>
 <Unknown>
+<\ng_pMemAlloc
 <array: %u elements>
 <binary blob: %u bytes>
 <ellipsis>
@@ -202,13 +203,16 @@ $Ib?s
 <unknown KV3 basic type '%s' (%d)>
 <unknown>
 =imb;D
+>\ng_pThreadPool
 ?8bunz8
 ?@En[vP
 ?UUUUUU
+?\tV_atof
 ?expf
 ?qBJ
 ?rAj
 ?ysB
+@\tV_atofloat32
 @^8U)zj
 A>pP&
 AABB_t
@@ -287,6 +291,7 @@ BGRA8888
 BGRA8888_LINEAR
 BGRX8888
 BGRX8888_LINEAR
+B\tV_atoi
 Bad KV3 data for resource '%s': %s\n
 Bad array index %d (array has %d elements)
 Bad dynamic_cast!
@@ -334,6 +339,7 @@ BinaryProperties_GetValue
 Blue
 Bnc
 Boolean
+Break node reached a Method-call boundary without finding an enclosing loop.
 Breakpoint Log [%u]
 Breakpoint Log [%u] - %s
 C:\buildworker\csgo_rel_win64\build\_build_\worldrenderer\_vpc_worldrenderer\default\win64\_msvc_\Retail\worldrenderer.pdb
@@ -343,7 +349,6 @@ C:\buildworker\csgo_rel_win64\build\src\mathlib\extended\generic_expr.g
 C:\buildworker\csgo_rel_win64\build\src\public\tier0\threadtoolstypes.h
 C:\buildworker\csgo_rel_win64\build\src\public\tier0\tslist.h
 C:\buildworker\csgo_rel_win64\build\src\public\tier0\utldict.h
-C:\buildworker\csgo_rel_win64\build\src\public\tier0\utlmap.h
 C:\buildworker\csgo_rel_win64\build\src\public\tier0\utlrbtree.h
 C:\buildworker\csgo_rel_win64\build\src\worldrenderer\grasstilesceneobject.cpp
 C:\buildworker\csgo_rel_win64\build\src\worldrenderer\worldrenderermgr.cpp
@@ -352,6 +357,7 @@ CEmptyEntityInstance
 CEntityAttributeTable
 CEntityComponent
 CEntityComponentHelper
+CEntityComponent_API
 CEntityHandle
 CEntityIOOutput
 CEntityIdentity
@@ -369,7 +375,7 @@ CEntityKeyValues::LoadFromKV3
 CEntityKeyValues::Unserialize: Invalid version! Expected %d, encountered %d!\n
 CEntityOutputTemplate
 CGrassTileObjectDesc
-CGrassTileObjectDesc::CreateGrass(1345): 
+CGrassTileObjectDesc::CreateGrass(1338): 
 CHandle
 CKMeansClustering::AssignVectorsToClusters(), C:\buildworker\csgo_rel_win64\build\src\mathlib\kmeansclustering.cpp:159
 CKV3Arena::Root
@@ -385,6 +391,7 @@ CNetworkSerializerClassInfo::Get( %s ) failed!\n
 CNetworkUtlVectorBase
 CNetworkVarChainer
 COMMA
+CPulseArgumentPack
 CPulseCell_
 CPulseCell_Base
 CPulseCell_BaseFlow
@@ -397,7 +404,6 @@ CPulseCell_BaseYieldingInflow::BaseFlow_CancelElegantly
 CPulseCell_BaseYieldingInflow::BaseFlow_CancelImmediately
 CPulseCell_BaseYieldingInflow::BaseFlow_WakeElegantly
 CPulseCell_BaseYieldingInflow::BaseFlow_WakeImmediately
-CPulseCell_FireCursors::Cancel
 CPulseCell_Inflow_BaseEntrypoint
 CPulseCell_Inflow_EntOutputHandler
 CPulseCell_Inflow_EventHandler
@@ -406,52 +412,30 @@ CPulseCell_Inflow_Method
 CPulseCell_Inflow_Method '%s' --> Chunk%d: %s
 CPulseCell_Inflow_ObservableVariableListener
 CPulseCell_Inflow_Wait
-CPulseCell_Inflow_Wait::Abort
-CPulseCell_Inflow_Wait::ImmediateWake
 CPulseCell_Inflow_Wait::Wait
 CPulseCell_Inflow_Yield
-CPulseCell_Inflow_Yield::Abort
 CPulseCell_Inflow_Yield::Pause
-CPulseCell_Inflow_Yield::Resume
-CPulseCell_IntervalTimer::StopTimer
 CPulseCell_Outflow_CycleOrdered
 CPulseCell_Outflow_CycleOrdered::Run
 CPulseCell_Outflow_CycleRandom
 CPulseCell_Outflow_CycleRandom::Run
 CPulseCell_Outflow_CycleShuffled
 CPulseCell_Outflow_CycleShuffled::Run
-CPulseCell_Outflow_ListenForAnimgraphTag::Cancel
-CPulseCell_Outflow_ListenForEntityOutput::Cancel
-CPulseCell_Outflow_NPCAccompanyEntity::Cancel
-CPulseCell_Outflow_NPCFollowTarget::Cancel
-CPulseCell_Outflow_NPCLeadPlayer::Cancel
-CPulseCell_Outflow_NPCScriptedIdle::Cancel
-CPulseCell_Outflow_NPCScriptedIdle::CancelElegantly
-CPulseCell_Outflow_NPCScriptedMoveTo::Cancel
-CPulseCell_Outflow_NPCUseScriptedAbility::Cancel
-CPulseCell_Outflow_PlaySequence::Cancel
-CPulseCell_Outflow_PlaySequence::CancelAtInterrupt
-CPulseCell_Outflow_PlayVCD::Cancel
-CPulseCell_Outflow_PlayVCD::CancelAtInterrupt
-CPulseCell_Outflow_PlayVOLine::Cancel
-CPulseCell_Outflow_ScriptedSequence::Cancel
-CPulseCell_PlaySequence::Cancel
+CPulseCell_ReturnValues
+CPulseCell_ReturnValues::HandleReturnValues
 CPulseCell_Step_CallExternalMethod
 CPulseCell_Step_CallExternalMethod::Run
-CPulseCell_Step_CallExternalMethod::StopWaiting
 CPulseCell_Step_DebugLog
 CPulseCell_Step_DebugLog::Run
 CPulseCell_Step_PublicOutput
 CPulseCell_Step_PublicOutput::Run
-CPulseCell_Timeline::Stop
 CPulseCell_Value_RandomFloat
 CPulseCell_Value_RandomFloat::Eval
 CPulseCell_Value_RandomInt
 CPulseCell_Value_RandomInt::Eval
-CPulseCell_WaitForObservable::Cancel
 CPulseExecCursor
+CPulseInputParamMap
 CPulseRuntimeMethodArg
-CPulseValueFullType
 CPulse_ResumePoint
 CRenderBufferBinding
 CSOAContainer::SetAttributeType - ERROR, trying to change type of previously-defined attribute %d!\n
@@ -480,7 +464,6 @@ CUtlLeanVectorImpl<class CUtlLeanVectorBase<struct EntityKeyValueData_t,int,clas
 CUtlMemoryBlockAllocator<char,class CMemAllocAllocator>::AddPage
 CUtlMemoryBlockAllocator<char,class CMemAllocAllocator>::Alloc
 CUtlOrderedMap
-CUtlOrderedMap<class PulseCursorID_t,struct PulseGraphExecutionHistoryCursorDesc_t *,class CDefLess<class PulseCursorID_t>,int>::FindElement
 CUtlRBTreeBase
 CUtlString
 CUtlStringToken
@@ -494,9 +477,9 @@ CVariantDefaultAllocator
 CVoxelVisibility
 CWD>~3
 CWorld::CacheNodes
-CWorldNode::CreateExtraVertexStreams(376): 
+CWorldNode::CreateExtraVertexStreams(399): 
 CWorldNode::GrassFileCreateManifest
-CWorldNode::HandleThrottledGrassTileLoading(1452): 
+CWorldNode::HandleThrottledGrassTileLoading(1489): 
 CWorldRendererMgr::CreateWorld
 CWorldRendererMgr::CreateWorld_Internal( %s ):  Blocking load because marked for deletion during load\n
 CWorldRendererMgr::ServiceWorldRequests long frame: %fms\n
@@ -508,7 +491,6 @@ Cannot allocate abstract class
 Cannot convert KV3 type '%s' (%u) to a string token
 Cannot destruct abstract class
 Cannot reference domain '%s' from '%s'\n
-Cannot reinterpret instance (actual: %s) from (original) %s to (desired) %s
 Cannot run script: NULL script name\n
 Cast of %s loses value information (returning %s)\n
 Causes each execution cursor to pause at this node for a fixed period of time. Each cursor will wake up and resume execution when the time expires, unless aborted or early-woken.
@@ -526,6 +508,7 @@ ClutterSceneObjectDesc
 ClutterSceneObject_t
 ClutterTile_t
 Color
+Color Consistency Partition %d MinBright %f
 CommandLine
 CompressBlocksBC1
 CompressBlocksBC3
@@ -545,7 +528,7 @@ CreateEntity
 CreateFileW
 CreateInterface
 CreateThreadpoolWork
-Creating %i scene objects for node %i\n
+Creating %i scene objects for world node\n
 Cursor[ ptr:%p | id:%d | graph:%p ]: Completed with result:%d\n
 Cursor[ ptr:%p | id:%d | graph:%p ]: Register observer:%d\n
 CxO
@@ -579,6 +562,7 @@ Deletion List:\n
 DemoUpconverterVersion001
 Destroy
 DevMsg
+Dho
 Did not execute '%s' because the 'Target' object was missing
 Disallowed variable name: %s
 DisconnectOutput
@@ -621,7 +605,6 @@ EncodeBC7Blocks
 EncodePointer
 EngineServiceMgr001
 EntComponentInfo_t
-EntInput_t
 EnterCriticalSection
 Entity Handle
 Entity Load Unserialize
@@ -640,6 +623,60 @@ ExtractModuleMetadata
 Extraneous token
 F>qUxv
 FEMh\f
+FIELD_AMMO_INDEX
+FIELD_BOOLEAN
+FIELD_CHARACTER
+FIELD_COLOR32
+FIELD_DIRECTION_VECTOR_WORLDSPACE
+FIELD_EHANDLE
+FIELD_EMBEDDED
+FIELD_FLOAT32
+FIELD_GLOBALSYMBOL
+FIELD_HMATERIAL
+FIELD_HMODEL
+FIELD_HPARTICLESYSTEMDEFINITION
+FIELD_HPOSTPROCESSING
+FIELD_HRENDERTEXTURE
+FIELD_HVDATA
+FIELD_INT16
+FIELD_INT32
+FIELD_INT64
+FIELD_MODIFIER_HANDLE
+FIELD_NETWORK_ORIGIN_CELL_QUANTIZED_VECTOR
+FIELD_NETWORK_ORIGIN_CELL_QUANTIZED_VECTORWS
+FIELD_NETWORK_QUANTIZED_FLOAT
+FIELD_NETWORK_QUANTIZED_VECTOR
+FIELD_NETWORK_QUANTIZED_VECTORWS
+FIELD_POSITION_VECTOR
+FIELD_QANGLE
+FIELD_QANGLE_WORLDSPACE
+FIELD_QUATERNION
+FIELD_QUATERNION_WORLDSPACE
+FIELD_SOUNDNAME
+FIELD_STRING
+FIELD_TICK
+FIELD_TIME
+FIELD_UINT16
+FIELD_UINT32
+FIELD_UINT64
+FIELD_UINT8
+FIELD_UTLSTRING
+FIELD_UTLSTRINGTOKEN
+FIELD_VECTOR
+FIELD_VECTOR2D
+FIELD_VECTOR4D
+FIELD_VOID
+FTYPEDESC_ADDED_KEYFIELD
+FTYPEDESC_ADDITIONAL_FIELDS
+FTYPEDESC_ENUM
+FTYPEDESC_EXPLICIT_BASE
+FTYPEDESC_GEN_ARRAY_KEYNAMES_0
+FTYPEDESC_GEN_ARRAY_KEYNAMES_1
+FTYPEDESC_KEY
+FTYPEDESC_NONE
+FTYPEDESC_PROCEDURAL_KEYFIELD
+FTYPEDESC_PTR
+FTYPEDESC_REMOVED_KEYFIELD
 Fail to schedule the chore!
 Failed to activate script entity %s of type %s: script entity instance is null\n
 Failed to allocate a lexer for '%s'. (Out of memory?)
@@ -675,15 +712,15 @@ FloatBitMap_t::InitializeDummyRow
 FloatBitMap_t::LoadFromBuffer: Received improper buffer size, skipping!\n
 FloatBitMap_t::LoadFromBuffer: Unsupported color format, skipping!\n
 FloatBitMap_t::LoadFromFloatBitmap: Received improper bitmap size, skipping!\n
-FloatBitMap_t::WriteToBuffer(1191): Unsupported color format "%s", skipping!\n
+FloatBitMap_t::WriteToBuffer(1195): Unsupported color format "%s", skipping!\n
 FloatBitMap_t::WriteToBuffer: Received improper buffer size %s (expecting %s), skipping!\n
-FloatBitMap_t::WriteToBufferBC7_bc7e(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2124
-FloatBitMap_t::WriteToBufferBC7_ispctexcomp(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2236
-FloatBitMap_t::WriteToBufferDXT_atitc(1249): Error! Temp texture is %d bytes when ATI's lib requires %d bytes!\n
-FloatBitMap_t::WriteToBufferDXT_atitc(1334): Unsupported output color format "%s"!\n
-FloatBitMap_t::WriteToBufferDXT_atitc(1343): Error! Allocated %llu bytes when ATI's lib requires %d bytes!\n
-FloatBitMap_t::WriteToBufferDXT_atitc(1351): Error %d returned from ATI_TC_ConvertTexture()!\n
-FloatBitMap_t::WriteToBufferETC(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2360
+FloatBitMap_t::WriteToBufferBC7_bc7e(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2146
+FloatBitMap_t::WriteToBufferBC7_ispctexcomp(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2258
+FloatBitMap_t::WriteToBufferDXT_atitc(1253): Error! Temp texture is %d bytes when ATI's lib requires %d bytes!\n
+FloatBitMap_t::WriteToBufferDXT_atitc(1338): Unsupported output color format "%s"!\n
+FloatBitMap_t::WriteToBufferDXT_atitc(1347): Error! Allocated %llu bytes when ATI's lib requires %d bytes!\n
+FloatBitMap_t::WriteToBufferDXT_atitc(1355): Error %d returned from ATI_TC_ConvertTexture()!\n
+FloatBitMap_t::WriteToBufferETC(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2382
 FlsAlloc
 FlsFree
 FlsGetValue
@@ -783,7 +820,6 @@ GetThreadLocalStackAllocator
 GetUserObjectInformationW
 GetValue
 GetVariantSaveDataOps
-GrassCopyTexture.vtex
 GrassDensity.vtex
 GrassDepth.vtex
 GrassObject
@@ -799,11 +835,14 @@ GrassTileVB
 GrassTint.vtex
 Green
 HH:mm:ss
+HMO
 HammerMapLoader001
+Handle Return Values
 HardCancel
 HelpSystem_001
 Hitbox indexing is incorrect for set %s, hitbox %s. Hitboxes will not be setup properly.\n
 HostStateMgr001
+HuO
 I could not work out what I was expecting, like so many of us these days!\n
 ID_CHAR
 IKV3TransferInterface_AllowRawStringTokenTransfer
@@ -851,7 +890,6 @@ InvokeMiniDumpHandler
 IsDebuggerPresent
 IsProcessorFeaturePresent
 IsValidCodePage
-IsValidIndex( i )
 Jan
 January
 Jul
@@ -952,7 +990,6 @@ MPulseValuePure
 MResourceTypeForInfoType
 MVDataNodeType
 MVDataOverlayType
-M\tV_isnand
 MapListService_001
 Mar
 March
@@ -1015,6 +1052,7 @@ No conversion from %s to string at the moment!\n
 No data
 No expression!
 No free conversion of %s variant to HSCRIPT right now\n
+No free conversion of %s variant to Vector right now\n
 No input data for '%s'. (Empty buffer.)
 NodeData_t
 None
@@ -1027,6 +1065,7 @@ OBJECT_TYPE_BLOCK_LIGHT
 OBJECT_TYPE_DISABLED_IN_LOW_QUALITY
 OBJECT_TYPE_DISABLE_VIS_CULLING
 OBJECT_TYPE_HAS_AGGREGATE_RTPROXY
+OBJECT_TYPE_HAS_EMISSIVE_GI
 OBJECT_TYPE_MODEL
 OBJECT_TYPE_MODEL_HAS_LODS
 OBJECT_TYPE_NEEDS_DYNAMIC_SHADOWS
@@ -1056,8 +1095,8 @@ OutputDebugStringW
 OverlayProjectionDirection
 PDT
 PIO
-PInstruction_t<42>::Run
 PInstruction_t<43>::Run
+PInstruction_t<44>::Run
 POS_FLOATLITERAL
 POS_INTLITERAL
 PST
@@ -1109,6 +1148,7 @@ Pause
 Pause the cursor at this point.
 PerVertexLighting
 PermEntityLumpData_t
+PhA
 Physics
 PhysicsBuilderMgr001
 PivotPaint
@@ -1123,6 +1163,7 @@ Plat_LoadModule
 Plat_NonFatalErrorFunc
 Plat_RegisterModule
 Pointers cannot be used as numeric values
+PooledLayout
 PostProcessingSystem_001
 Precache
 Precaches a specific resource
@@ -1146,6 +1187,7 @@ PulseValueType_t
 PushCurrentSkewBrightnessValuesToSceneObject
 PvP
 QAf?
+Quantize to %d Values
 QueryPerformanceCounter
 QueryPerformanceFrequency
 R%d%s%s
@@ -1211,7 +1253,6 @@ RemoveSelf
 Removes a connected script function from an I/O event on the passed entity.
 Removes a connected script function from an I/O event on this entity.
 Render the world.
-Render world node bounds
 RenderDevice003
 RenderDeviceMgr001
 RenderHardwareConfig002
@@ -1235,6 +1276,7 @@ Retrieve the private per-instance script-side data associated with an entity
 Retrieve the public script-side data associated with an entity
 Retrieve, creating if necessary, the private per-instance script-side data associated with an entity
 Retrieve, creating if necessary, the public script-side data associated with an entity
+Return
 RtlCaptureContext
 RtlLookupFunctionEntry
 RtlPcToFileHeader
@@ -1285,6 +1327,7 @@ Should we try to straighten an island of faces deviating from their average norm
 Should we try to straighten two faces connected to this edge? (tangent)
 Show or hide the specified world layer
 SleepConditionVariableSRW
+SmartPropsSystem_001
 SoftCancel
 SoundEvent
 SoundEvent Instance Handle
@@ -1367,12 +1410,14 @@ Unexpected end of file
 Unexpected node
 Unexpected token
 Unexpected token '%s' %s
+Unhandled type %s in VariantCompatibility_SetEntityVariantFromPulseVariant; defaulting to string
 UnhandledExceptionFilter
 Unknown
 Unknown exception
 Unknown lightmap texture: %s\n
 Unknown property %s
 Unknown variable %s
+Unmodified
 UnmountWorldVPK() --%s is at refcount %d\n
 Unsupported ETC image format %d.\n
 Unsupported Grass File Version. Expected %d. Found %d\n
@@ -1495,9 +1540,12 @@ World_t
 WriteConsoleW
 WriteFile
 Y>kX>M
+Y\tV_fmodd
+Z\tV_fmodf
 [*ncd>0
 [Index: 
 [aOni*{
+[m_pSemanticName
 [test]
 [thunk]:
 [unknown]
@@ -1506,34 +1554,33 @@ Y>kX>M
 \nLoaded List:\n
 \nPending List:\n
 \n\n\n
+\n_MakeGlobalSymbol
+\n_MakeGlobalSymbolCaseSensitive
+\n_V_StringAfterPrefix
 \nh?oT
 \nk>oB
-\r\ng_pThreadPool
 \r\r\r\r\r\r
 \t The lexer was matching from line %d, offset %d, which\n\t 
-\tV_atof
-\tV_atofloat32
-\tV_atoi
+\tV_powf
+\tV_qsort_s
+\tV_sincosf
 \tV_snprintf
 \tV_stricmp_fast
 \tWarning
 \tWorld: %s
 \t\t\t
-\t\t\tNodes Loaded: %d / %d\n
+\t\t\tWorld Node Loaded: %s\n
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t_MakeGlobalSymbol
-\t_MakeGlobalSymbolCaseSensitive
-\t_V_StringAfterPrefix
-\t_V_strncmp
-\t_V_strncpy
-\t_V_strnicmp_fast
 \tcQr
-\tg_Mathlib_GammaToLinearByteTable
 \tkE>fvw
-\v\ng_pMemAlloc
+\vPhA
 \v\v\v
+]\tV_fpclassifyd
 ^RfN>
+^\tV_fprintf
 _Target
+__PROCEDURAL
+__UNKNOWN__
 __based(
 __cdecl
 __clrcall
@@ -1546,7 +1593,6 @@ __int64
 __int8
 __m_BaseFlow_WhileActive__
 __pascal
-__populated_from_schema_modules
 __ptr64
 __restrict
 __stdcall
@@ -1635,6 +1681,7 @@ bad exception
 bad file descriptor
 bad function call
 bad message
+base
 bc7e.dll
 bc7e_compress
 bc7e_init
@@ -1679,6 +1726,8 @@ class CConCommandMemberAccessor<CWorldRendererMgr> (demangled)
 class CDefScriptAccessorBase (demangled)
 class CDefaultIntrospectedToKV3TypeManager<1819441014, World_t> (demangled)
 class CEmptySequence (demangled)
+class CEntityAPIModuleMetadataProvider (demangled)
+class CEntityClassInfoModuleMetadataProvider (demangled)
 class CEntityComponent (demangled)
 class CEntityComponentHelper (demangled)
 class CEntityComponentHelperReferenced<CScriptComponent> (demangled)
@@ -1914,6 +1963,7 @@ connections
 const
 const 
 cosf
+cpp_name
 cpu
 cross device link
 cstring
@@ -1945,6 +1995,7 @@ eF>t
 eLK(w
 eO@R
 edit_context_override
+edited_as_type
 editor
 editor_canvas_item_spec
 effortblocks = %d\n
@@ -1953,6 +2004,8 @@ ekv_%08x
 entindex
 entity2
 entityIdentityNameChanged
+entity_api
+entity_api_designname_to_base
 entity_log_load_unserialize
 entity_lump_list
 entity_lump_spew
@@ -1960,6 +2013,7 @@ entity_lump_spew %s %s
 enum 
 enum(signed), 
 enum, 
+enum_or_datamap
 executable format error
 expect_default_outflow
 expected_return_type
@@ -1970,11 +2024,15 @@ fD>b
 fWi?
 false
 fast
+field_flags
+field_type
+fields
 file exists
 file too large
 filename too long
 filesystem_stdio
 final %s\n
+fingerprint
 fixed_array
 flDurationSec
 flMax
@@ -2068,7 +2126,6 @@ m_Bounds
 m_BoundsWs
 m_BufferData
 m_CScriptComponent
-m_ChildNodeIndices
 m_DecodedSize
 m_Description
 m_EnclosedClusterListBlock
@@ -2090,9 +2147,11 @@ m_NodeBlock
 m_OutflowRegisterMap
 m_Outparams
 m_PathIndex
+m_PulseArguments
 m_RegionBlock
 m_RegisterMap
 m_ReturnType
+m_ReturnValues
 m_SourceOutflowName
 m_Type
 m_VBData
@@ -2113,7 +2172,6 @@ m_bHasBakedGeometryFlag
 m_bHasLightmaps
 m_bHasTransform
 m_bIsPublic
-m_bSHLightmaps
 m_bakedLightingInfo
 m_bakedShadows
 m_boundLs
@@ -2134,13 +2192,13 @@ m_fMaxObjectScale
 m_fSwitchDistances
 m_flBeginCullSize
 m_flDelay
+m_flEmissiveLightingBoost
 m_flEndCullSize
 m_flFadeEndDistance
 m_flFadeStartDistance
 m_flFireTime
 m_flGridSize
 m_flMinDrawVolumeSize
-m_flMinimumDistance
 m_flags
 m_fragmentTransforms
 m_grassFileName
@@ -2188,10 +2246,12 @@ m_nInstruction
 m_nLODGroupMask
 m_nLODOverride
 m_nLODSetupIndex
+m_nLPVEncoding
 m_nLastInstance
 m_nLayer
 m_nLightHash
 m_nLightProbeVolumePrecomputedHandshake
+m_nLightmapEncoding
 m_nLightmapGameVersionNumber
 m_nLightmapVersionNumber
 m_nMapHash
@@ -2200,7 +2260,6 @@ m_nObjectTypeFlags
 m_nOffset
 m_nOverlayRenderOrder
 m_nPVSBytesPerCluster
-m_nParent
 m_nPriority
 m_nRuntimeIndex
 m_nSceneObjectIndex
@@ -2242,7 +2301,6 @@ m_pNext
 m_pNextByClass
 m_pPrev
 m_pPrevByClass
-m_pSemanticName
 m_pTarget
 m_pTargetInput
 m_paramMap
@@ -2265,6 +2323,7 @@ m_vMaxBounds
 m_vMinBounds
 m_vOrigin
 m_vTintColor
+m_vTintColorSRGB
 m_vTransform
 m_vVertexExtentLs
 m_vVertexOriginLs
@@ -2300,7 +2359,6 @@ n03>Pu
 nMax
 nMin
 nTries < 10000000
-n\tV_powf
 n]?iJ
 name
 nan
@@ -2355,11 +2413,11 @@ owner dead
 pFx
 pMessage
 pOC
-p\tV_qsort_s
 param
 particlesystem
 pass %u\n
 permission denied
+phA
 pointer, 
 polymorphic_dependent_arg
 position
@@ -2394,6 +2452,7 @@ public: CUtlString CUtlString::Replace(char const*, char const*, bool) const (de
 public: CUtlString CUtlString::Slice(int, int) const (demangled)
 public: CUtlString CUtlString::StripExtension(void) const (demangled)
 public: CUtlString& CUtlString::operator+=(char const*) (demangled)
+public: CUtlString::CUtlString(CBufferString const&) (demangled)
 public: CUtlSymbol CUtlSymbolTable::AddString(char const*, bool*) (demangled)
 public: CUtlSymbol CUtlSymbolTable::Find(char const*) const (demangled)
 public: CUtlSymbolTable::CUtlSymbolTable(int, int, bool) (demangled)
@@ -2404,6 +2463,7 @@ public: TSLNodeBase_t* CTSListBase::Pop(void) (demangled)
 public: bool CThreadSyncObject::Wait(unsigned int) (demangled)
 public: bool CUtlBuffer::CheckArbitraryPeekGet(int, int&) (demangled)
 public: bool CUtlString::IsEqual_FastCaseInsensitive(char const*) const (demangled)
+public: bool CUtlString::operator==(CUtlString const&) const (demangled)
 public: char const* CBufferString::AppendConcat(int, char const* const*, int const*, bool) (demangled)
 public: char const* CBufferString::ExtractFileBase(char const*, bool) (demangled)
 public: char const* CBufferString::ExtractFilePath(char const*, bool) (demangled)
@@ -2448,6 +2508,7 @@ public: void CUtlString::SetDirect(char const*, int) (demangled)
 public: void CUtlString::TrimRight(char const*) (demangled)
 public: void CUtlSymbolTable::RemoveAll(void) (demangled)
 public: void* CUtlScratchMemoryPool::AllocAligned(int, int) (demangled)
+pulse_cursor_infinite_loop_detection_threshold
 pulse_feature_tag
 pulse_inflows
 pulse_inparams
@@ -2474,7 +2535,6 @@ r_grass_vertex_lighting
 r_lightmap_set
 r_lightmap_size
 r_lightmap_size_directional_irradiance
-r_render_world_node_bounds
 r_world_frame_load_threshold_ms
 r_world_wind_dir
 r_world_wind_frequency_grass
@@ -2504,7 +2564,6 @@ s5J5J5J5J5J5J5J5J5J5J5J5J5J5J5J5Jx
 sHF'
 sc_allow_precomputed_vismembers
 scenesystem
-scope_to_dependency_name
 scripts/vscripts/
 scripts/vscripts/%s
 selector_has_specificity
@@ -2609,7 +2668,6 @@ vectorws
 version
 very_fast
 virtual 
-visible_scopes
 vmap
 vmat
 vmdl
@@ -2623,6 +2681,7 @@ volatile
 vpcf
 vpk:%s:
 wXC
+w\tV_isnand
 wchar_t
 weakhandle, 
 world renderer - 
@@ -2640,9 +2699,9 @@ xT?V
 yLM
 yUk
 ycg
+yes
 yields
 z>AlignedByteArray not properly aligned\n
-z\tV_sincosf
 { className = 'IsWaitNode IsControlFlowNode' item_factory = 'InflowWait' }
 { standard_yielding_flow = true }
 {flat}

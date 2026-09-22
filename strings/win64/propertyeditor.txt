@@ -14,13 +14,16 @@
  RELEASE
  REPEAT
  Type Descriptor'
+ \n_V_strncmp
  delete
  delete[]
  new
  {NO ELEMENT}
+!\n_V_strncpy
 !m_bInEditorRebuild
 !root
 """
+#\n_V_strnicmp_fast
 #rowlist{ border: 0px }
 %1 Range:
 %1 [W = %2, C = %3, Instance = %4, Mode = %5]
@@ -63,10 +66,12 @@
 (Filter)
 (Mixed values)
 (Multiple-select not supported)
+(Name Filter)
 (No Domain!)
 (No Elements)
 (None)
 (Property Name Filter)
+(Shift+Enter to add a new line)
 * ForceRescanOfActiveKeys
 * Rehandling active codes
 * { font-size: 10px }
@@ -136,7 +141,6 @@
 .xdata$x
 /src/
 0123456789abcdefghijklmnopqrstuvwxyz
-0\tV_fmodf
 0x%p
 0x%p = %s '%s'
 1AcceptColorInternal(FatColor_t)
@@ -173,12 +177,14 @@
 1OnDeleteClicked()
 1OnEditReturnPressed()
 1OnEditorClosed()
+1OnFilterChanged()
 1OnFilterTextChanged(QString)
 1OnFooterMouseEvent()
 1OnGradientChanged(bool)
 1OnGradientEditorChanged(bool)
 1OnGradientEditorEscape()
 1OnIndexChanged()
+1OnIntersectionModeChanged()
 1OnItemHighlighted(int)
 1OnMapKeyIndexChanged( int )
 1OnMenuAboutToShow()
@@ -215,10 +221,7 @@
 1ReverseGradient()
 1SelectFirstItemAfterFilter()
 1SetAlphaEditFromSlider(int)
-1SetBothTangents(int,int)
 1SetColor( QColor )
-1SetIncomingTangent(int,int)
-1SetOutgoingTangent(int,int)
 1TermIncrementalOperation()
 1ToggleFlyout()
 1UpdateAttributesFromEditor_OneShot_IfModified()
@@ -237,7 +240,6 @@
 1trigger()
 2AttributeFilterChanged()
 2ColorPicked(QColor)
-2CurveEdited()
 2DownArrowPressed()
 2EditorClosed()
 2EscapeWithNoSelection()
@@ -249,7 +251,6 @@
 2OnColorPicked(FatColor_t)
 2OnCurveUpdated()
 2OnDownPressed()
-2OnFocusOut()
 2PickCancelled()
 2PopupClosed()
 2SelectionChanged()
@@ -261,20 +262,20 @@
 2currentColorChanged( QColor )
 2currentIndexChanged( int )
 2currentIndexChanged(int)
+2dataChanged( const QModelIndex &, const QModelIndex & )
 2editingFinished()
 2focusChanged( QWidget *, QWidget * )
 2focusChanged(QWidget*,QWidget*)
 2highlighted(int)
 2mapped(bool)
 2mapped(int)
-2mapped(int,int)
 2rejected()
 2returnPressed()
 2sliderPressed()
 2sliderReleased()
 2stateChanged(int)
 2textChanged( QString )
-2textChanged()
+2textChanged( const QString & )
 2textChanged(QString)
 2textEdited(QString)
 2textEdited(const QString &)
@@ -283,9 +284,9 @@
 2triggered()
 2valueChanged(int)
 3>N;kU
-3\tV_fpclassifyd
 5J5J5J5J5J5J5J5J5J5J5J5J5J5J5J5Jx
 : Add
+:\tV_asinf
 ;J;J;J;J;J;J;J;J;J;J;J;J;J;J;J;Jx
 <MIXED TYPES>
 <MIXED>
@@ -293,6 +294,7 @@
 <Mixed Types>
 <Multiple Different Values>
 <NONE>
+<\ng_pMemAlloc
 <array: %u elements>
 <binary blob: %u bytes>
 <br><font color='red'>This field is required and should not be empty!</font>
@@ -312,10 +314,10 @@
 =imb;D
 ???
 ?UUUUUU
+?\tV_atof
 ?fff?
 ?qBJ
 ?ysB
-@InputBindSystem
 @^8U)zj
 A>pP&
 ABCDEFGHIJKLMNOPQRSTUVWXYZ
@@ -329,12 +331,12 @@ Accepted
 Access violation - no RTTI data!
 AcquireSRWLockExclusive
 Active Window Widget
+Add Point
 Add to Array
 Add to Map
 AddColor
 Addr
 Address
-AlignedByteArray not properly aligned\n
 Alpha:
 Alt
 AnimGraphEditorUtils001
@@ -358,6 +360,7 @@ August
 BEGIN_INCREMENTAL
 BF>^G
 BUTTON
+B\tV_atoi
 BackGroundFill_t
 BackGroundStyle_t
 Background
@@ -375,6 +378,8 @@ Break
 C:\buildworker\csgo_rel_win64\build\_build_\propertyeditor\_vpc_propertyeditor\default\win64\_msvc_\Retail\propertyeditor.pdb
 C:\buildworker\csgo_rel_win64\build\src\propertyeditor\qpropertyeditor.cpp
 C:\buildworker\csgo_rel_win64\build\src\public\tier0\utldict.h
+C:\buildworker\csgo_rel_win64\build\src\qcontrols\inputglobalhotkeys.cpp
+C:\buildworker\csgo_rel_win64\build\src\qcontrols\qcurveeditor.cpp
 CGlobalHotkeyCommands
 CInputBindManager::HandleInputCode recursion depth got too deep.\n
 CKV3Arena::Root
@@ -411,10 +416,13 @@ CQAttributeEditor_EditboxTransform
 CQAttributeEditor_EditboxVector12
 CQAttributeEditor_EditboxVector2
 CQAttributeEditor_EditboxVector3
+CQAttributeEditor_EditboxVector3WithSliders
 CQAttributeEditor_EditboxVector4
+CQAttributeEditor_EditboxVector4WithSliders
 CQAttributeEditor_EditboxVector6
 CQAttributeEditor_EditboxVector8
 CQAttributeEditor_EditboxVectorBase
+CQAttributeEditor_EditboxVectorWithSliders
 CQAttributeEditor_Flags
 CQAttributeEditor_Gradient
 CQAttributeEditor_GradientWithAlpha
@@ -530,6 +538,7 @@ CQTreeWidgetWithHover
 CQWidgetDebugHighlight
 CQWidgetDebugger
 CQWidgetWithEnterLeaveSignals
+CURVE_TANGENT_FLAT
 CURVE_TANGENT_FREE
 CURVE_TANGENT_LINEAR
 CURVE_TANGENT_MIRROR
@@ -559,6 +568,7 @@ Checkbox
 Children
 Class
 Class data is a '%s', not a table\n
+ClassName
 Clear
 Clear Array
 Clear History
@@ -597,7 +607,6 @@ Copy Curve
 Copy Gradient
 CopyColor
 CopyColorSetToClipboard
-CopyCurveToClipboard
 CopyGradient
 CopySelectedAttributes
 CorExitProcess
@@ -626,9 +635,12 @@ Default Colors
 Default Expand/Collapse
 Del
 DelayedSetFilter
+Delete Point
+Delete Points
 Delete Selected Stop
 Delete Widget
 DeleteCriticalSection
+DeleteSelection
 DemoUpconverterVersion001
 Description
 Designable
@@ -691,6 +703,7 @@ Ease Out Sine
 EatEscapeKeyPress
 EconItemToolModel_001
 Edit...
+EditPoint
 EditWithButton
 EditWithFloatSlider
 EditWithIntSlider
@@ -704,6 +717,7 @@ EditboxVector3
 EditboxVector4
 EditboxVector6
 EditboxVector8
+EditboxVectorWithSliders
 EditingCancelled
 EditingFinished
 EditingStarted
@@ -750,6 +764,8 @@ Failed to save unsupported class
 FatColor_t
 Feb
 February
+File
+FileLine
 Filter type/description:
 Filter:
 FilterApplied
@@ -760,6 +776,7 @@ FindNextFileW
 Fixed
 Flags
 FlagsChanged
+Flat
 FlattenedSerializersVersion001
 FlsAlloc
 FlsFree
@@ -780,6 +797,7 @@ FocusLeft
 Follow user preference
 FontManager_001
 Found existing value when inserting into dict - replacing existing value with new value. If this is intended behavior, use InsertOrReplace. If leaving existing values alone is intended, use InsertIfNotFound.
+FrameCurve
 Free
 FreeEnvironmentStringsW
 FreeLibrary
@@ -861,6 +879,7 @@ IPropertyEditorInternal
 IPropertyModificationListener
 IPulseSystem_001
 IToolFrameListener
+I\tV_cosf
 IgnoreConsoleKeypress
 Ignored
 ImageAbsPathBrowse
@@ -876,6 +895,7 @@ Input
 Input Binding Error
 Input Debugger [%1]
 Input Sequence
+InputBindSystem
 InputService_001
 InputStackSystemVersion001
 InputSystemVersion001
@@ -942,7 +962,6 @@ MWheelDn
 MWheelLeft
 MWheelRight
 MWheelUp
-M\tV_isnand
 MapListService_001
 MapViewOfFile
 Mar
@@ -962,8 +981,10 @@ Minimum
 MinimumExpanding
 Mirror
 Mixed
-ModalPointEdit
 ModelDocUtils001
+ModifierAxisLock
+ModifierInsertPoint
+ModifierSelectToggle
 Mon
 Monday
 Mouse4
@@ -976,8 +997,10 @@ MouseLeave
 MouseMove
 Move Down
 Move Up
+MovePoint
 Msg
 MultiByteToWideChar
+Multiselect: Show Common (Intersection)
 NO COMMAND TARGET
 NONE
 NO_UI
@@ -1013,6 +1036,7 @@ No signal '%s'
 No slot '%s'
 NoAttr
 NoEditor
+Noop
 Nov
 November
 Num
@@ -1074,6 +1098,7 @@ OnHexChanged
 OnIndexChanged
 OnInteractiveColorChanged
 OnInteractiveFinished
+OnIntersectionModeChanged
 OnItemDoubleClicked
 OnItemHighlighted
 OnListUpArrow
@@ -1117,12 +1142,14 @@ OpenMutexA
 Orientation
 Outgoing
 Output
+OverideHelpContextName
 Overwrite With Current
 P4File
 PDT
 PIO
 PLATFORM
 PST
+PanView
 PanoramaTextServices001
 PanoramaUIClient001
 PanoramaUIEngine001
@@ -1133,7 +1160,6 @@ Paste Curve
 Paste Gradient
 PasteColor
 PasteColorSetFromClipboard
-PasteCurveFromClipboard
 PasteGradient
 PasteSelectedAttributes
 Path: 
@@ -1230,7 +1256,6 @@ RGBA\t%1\t%2\t%3\t%4
 RMouse
 RMouseDoubleClick
 RSDS 
-R\fp4O\f
 Radio
 RaiseException
 RandomFloat
@@ -1323,6 +1348,7 @@ ScrToggle
 SelectAll
 SelectAllOnClickFocus
 SelectFirstItemAfterFilter
+SelectPoint
 SelectionAddToggleModifier
 SelectionChanged
 SelectionMultipleModifier
@@ -1333,7 +1359,6 @@ ServerToolsInfo_001
 Set All Incoming Tangents
 Set All Outgoing Tangents
 Set All Tangents
-SetAllTangents
 SetAlphaEditFromSlider
 SetBackFillEmpty
 SetBackFillHill
@@ -1344,7 +1369,6 @@ SetBackStyleArea
 SetBackStyleCapsule
 SetBackStyleSlot
 SetBackgroundEnabledDBG
-SetBothTangents
 SetColor
 SetColorAt
 SetColorSetSize
@@ -1354,14 +1378,12 @@ SetDragStart
 SetFileNameText
 SetFilePointerEx
 SetFilter
-SetIncomingTangent
 SetLabelCenter
 SetLabelHidden
 SetLabelLeft
 SetLabelRight
 SetLabelText
 SetLastError
-SetOutgoingTangent
 SetRange
 SetShowAsTickMarkEnabled
 SetShowCursorDuringDrag
@@ -1389,6 +1411,7 @@ ShowConsole
 ShowEditor
 ShowFullHelpForBindableCommandUnderMouse
 ShowInputDebugger
+ShowMenu
 ShowWidgetDebugger
 Signal '%s' not compatible with slot '%s'
 Sine
@@ -1396,6 +1419,7 @@ Size
 SizePolicy
 SizePolicy array must have two elements
 SleepConditionVariableSRW
+SmartPropsSystem_001
 SoundOpSystem001
 SoundOpSystemEdit001
 SoundService_001
@@ -1481,7 +1505,6 @@ UpdateLineEditFromSlider
 UpdateMenu
 UpdateSliderFromLineEdit
 UpdateWidgetState
-Use shift-click to add new control points
 UtlRBTree_FailedInsertDuplicate
 UtlVectorMemory_Alloc
 UtlVectorMemory_CalcNewAllocationCount
@@ -1534,7 +1557,6 @@ V_StringToVector2D
 V_StringToVector4D
 V_StringToVectorWS
 V_UInt64ToString_Unsafe
-V_UnqualifiedFileName
 Value
 ValueChanged
 ValueEdited
@@ -1546,6 +1568,7 @@ Vis:1
 VisBuilder_001
 Visit Developer Help URL
 Vrad3_001
+W offset
 WARNING
 WARNING: VNotify abandoned after too many attempts:\n%s\n
 WIDGET DEBUGGER DELETING widget: 0x%p\n
@@ -1568,6 +1591,9 @@ X offset
 Y offset
 Yaw: rotation around Z axis
 Z offset
+Z\tV_fmodf
+ZoomIn
+ZoomOut
 [Default] Determine a lifespan based on the warning/error state of the group
 [Default] General information
 [NO_ACTION]
@@ -1578,27 +1604,27 @@ Z offset
 \f\n?cmp@QVariant@@QEBA_NAEBV1@@Z
 \f\n?deselect@QLineEdit@@QEAAXXZ
 \n\r?heightForWidth@QBoxLayout@@UEBAHH@Z
+\n_MakeGlobalSymbol
+\n_V_StringAfterPrefix
 \r\f?focusInEvent@QLineEdit@@MEAAXPEAVQFocusEvent@@@Z
 \r\r?heightForWidth@QGridLayout@@UEBAHH@Z
 \r\r\r\r\r\r
 \rtext
-\tV_asinf
-\tV_atof
-\tV_atoi
-\tV_cosf
+\tV_UnqualifiedFileName
+\tV_log10f
+\tV_modfd
+\tV_powf
+\tV_qsort
+\tV_qsort_s
+\tV_roundf
+\tV_sinf
 \tV_sscanf
 \tV_stricmp_fast
 \tV_strspn
 \tWarning
-\t_MakeGlobalSymbol
-\t_V_StringAfterPrefix
-\t_V_strncmp
-\t_V_strncpy
-\t_V_strnicmp_fast
 \tkE>fvw
 \v\f?focusInEvent@QGroupBox@@MEAAXPEAVQFocusEvent@@@Z
-\v\ng_pMemAlloc
-]\tV_log10f
+]\tV_fpclassifyd
 ^#?([0-9A-Fa-f]{6}|[0-9A-Fa-f]{3})
 ^#?([0-9A-Fa-f]{8}|[0-9A-Fa-f]{6}|[0-9A-Fa-f]{4}|[0-9A-Fa-f]{3})$
 __IsValveCQTabbedStyle
@@ -1676,9 +1702,7 @@ bAccepted
 bDirty
 bDuringInteractiveEdit
 bFinal
-bIncoming
 bOperationFinished
-bOutgoing
 bTriggerLatentRebuild (rebuilding) = %d\n
 bVal
 background
@@ -1695,6 +1719,7 @@ bad message
 before
 binary
 binary_blob
+bind_targets
 binding
 black
 blue
@@ -1721,16 +1746,18 @@ checkstate
 children
 choice_str
 class CBaseAppSystem<IPropertyEditorSystem> (demangled)
+class CBaseBindTargetDescriptor (demangled)
+class CBaseBindableCommand (demangled)
 class CBaseDynamicWidgetFactory (demangled)
 class CBaseInternalPropertyAttributeEditorFactory (demangled)
 class CBasePropItem (demangled)
 class CBaseVModuleMetadataProvider (demangled)
 class CBindTargetDescriptor<CGlobalHotkeyCommands> (demangled)
-class CBindTargetDescriptor<CGlobalHotkeyCommands>::CSpecificTargetBindableCommand (demangled)
+class CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand (demangled)
+class CBindTargetDescriptor<CQCurveEditorWidget> (demangled)
+class CBindTargetDescriptor<CQCurveEditorWidget>::CBindableCommand (demangled)
 class CBindTargetDescriptor<CQPropertyEditor> (demangled)
-class CBindTargetDescriptor<CQPropertyEditor>::CSpecificTargetBindableCommand (demangled)
-class CBindTargetDescriptorBase (demangled)
-class CBindableCommand (demangled)
+class CBindTargetDescriptor<CQPropertyEditor>::CBindableCommand (demangled)
 class CDynamicWidgetFactory<CQDraggableWidgetList> (demangled)
 class CDynamicWidgetFactory<CQFilteredTreeWidget> (demangled)
 class CDynamicWidgetFactory<CQTreeWidgetWithHover> (demangled)
@@ -1763,7 +1790,9 @@ class CDynamicWidgetFactory_Custom<QToolBar> (demangled)
 class CDynamicWidgetFactory_Custom<QToolButton> (demangled)
 class CDynamicWidgetFactory_Orientation<QHeaderView> (demangled)
 class CDynamicWidgetFactory_Orientation<QSplitter> (demangled)
+class CEditboxVectorWithSlidersFactory (demangled)
 class CGlobalHotkeyCommands (demangled)
+class CInputBindTargetMetadataProvider (demangled)
 class CInternalPropertyAttributeEditorFactory<CQAttributeEditor_Checkbox> (demangled)
 class CInternalPropertyAttributeEditorFactory<CQAttributeEditor_Color> (demangled)
 class CInternalPropertyAttributeEditorFactory<CQAttributeEditor_ColorAlpha> (demangled)
@@ -1833,10 +1862,13 @@ class CQAttributeEditor_EditboxTransform (demangled)
 class CQAttributeEditor_EditboxVector12 (demangled)
 class CQAttributeEditor_EditboxVector2 (demangled)
 class CQAttributeEditor_EditboxVector3 (demangled)
+class CQAttributeEditor_EditboxVector3WithSliders (demangled)
 class CQAttributeEditor_EditboxVector4 (demangled)
+class CQAttributeEditor_EditboxVector4WithSliders (demangled)
 class CQAttributeEditor_EditboxVector6 (demangled)
 class CQAttributeEditor_EditboxVector8 (demangled)
 class CQAttributeEditor_EditboxVectorBase (demangled)
+class CQAttributeEditor_EditboxVectorWithSliders (demangled)
 class CQAttributeEditor_Flags (demangled)
 class CQAttributeEditor_Gradient (demangled)
 class CQAttributeEditor_GradientWithAlpha (demangled)
@@ -1863,7 +1895,6 @@ class CQColorWidget (demangled)
 class CQComboBoxNoWheelFocusStealing (demangled)
 class CQConnectHelper_bool (demangled)
 class CQConnectHelper_int (demangled)
-class CQConnectHelper_intint (demangled)
 class CQCurveEditorWidget (demangled)
 class CQCurveEditorWithRange (demangled)
 class CQDragOverlayWidget (demangled)
@@ -2017,30 +2048,14 @@ class `bool ApplyAttributeValuePairs(CQPropertyEditor*, KeyValues3const*, CUtlVe
 class `bool ApplyAttributeValuePairs(CQPropertyEditor*, KeyValues3const*, CUtlVector<CBasePropItem*, int, CUtlVectorMemory_Growable<CBasePropItem*, int, 0> > const&)'::`2'::<lambda_1> (demangled)
 class `bool MakeAttributeListString(CQPropertyEditor*, CUtlVector<CBasePropItem*, int, CUtlVectorMemory_Growable<CBasePropItem*, int, 0> > const&, CUtlString*)'::`2'::<lambda_2> (demangled)
 class `private: bool CQPropRow::HasCustomCommandListChanged(void) const'::`2'::<lambda_1> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`10'::<lambda_8> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`11'::<lambda_9> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`12'::<lambda_10> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`13'::<lambda_11> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`14'::<lambda_12> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`15'::<lambda_13> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`16'::<lambda_14> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`17'::<lambda_15> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`3'::<lambda_1> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`4'::<lambda_2> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`5'::<lambda_3> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`6'::<lambda_4> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`7'::<lambda_5> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`8'::<lambda_6> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`9'::<lambda_7> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CQPropertyEditor::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`12'::<lambda_5> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CQPropertyEditor::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`13'::<lambda_6> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CQPropertyEditor::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`14'::<lambda_7> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CQPropertyEditor::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`5'::<lambda_1> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CQPropertyEditor::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`6'::<lambda_2> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CQPropertyEditor::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`7'::<lambda_3> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CQPropertyEditor::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`8'::<lambda_4> (demangled)
-class `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance (demangled)
-class `public: static CBindTargetDescriptorBase* CQPropertyEditor::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance (demangled)
+class `public: CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand& CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand::SetFunction<void (CGlobalHotkeyCommands::*)(int, int), int, int>(BindableCommandStage_t, void (CGlobalHotkeyCommands::*)(int, int), int, int)'::`2'::<lambda_1> (demangled)
+class `public: CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand& CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand::SetFunction<void (CGlobalHotkeyCommands::*)(void)>(BindableCommandStage_t, void (CGlobalHotkeyCommands::*)(void))'::`2'::<lambda_1> (demangled)
+class `public: CBindTargetDescriptor<CQCurveEditorWidget>::CBindableCommand& CBindTargetDescriptor<CQCurveEditorWidget>::CBindableCommand::SetFunction<void (CQCurveEditorWidget::*)(int), int>(BindableCommandStage_t, void (CQCurveEditorWidget::*)(int), int)'::`2'::<lambda_1> (demangled)
+class `public: CBindTargetDescriptor<CQCurveEditorWidget>::CBindableCommand& CBindTargetDescriptor<CQCurveEditorWidget>::CBindableCommand::SetFunction<void (CQCurveEditorWidget::*)(void)>(BindableCommandStage_t, void (CQCurveEditorWidget::*)(void))'::`2'::<lambda_1> (demangled)
+class `public: CBindTargetDescriptor<CQPropertyEditor>::CBindableCommand& CBindTargetDescriptor<CQPropertyEditor>::CBindableCommand::SetFunction<void (CQPropertyEditor::*)(void)>(BindableCommandStage_t, void (CQPropertyEditor::*)(void))'::`2'::<lambda_1> (demangled)
+class `public: static CBaseBindTargetDescriptor* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance (demangled)
+class `public: static CBaseBindTargetDescriptor* CQCurveEditorWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance (demangled)
+class `public: static CBaseBindTargetDescriptor* CQPropertyEditor::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance (demangled)
 class `void AppendCommandsFromItemAndFlattenedChildren(CBasePropItem*, CUtlVector<PropEdCustomCommand_t, int, CUtlVectorMemory_Growable<PropEdCustomCommand_t, int, 0> >*, CUtlVector<CBasePropItem*, int, CUtlVectorMemory_Growable<CBasePropItem*, int, 0> >*)'::`2'::<lambda_1> (demangled)
 class std::_Func_base<bool, PropEdCustomCommand_t const&> (demangled)
 class std::_Func_base<void, CBasePropItem*, KeyValues3const*> (demangled)
@@ -2048,6 +2063,7 @@ class std::_Func_base<void, CBasePropItem*> (demangled)
 class std::_Func_base<void, CGlobalHotkeyCommands*> (demangled)
 class std::_Func_base<void, CQBindableCommandPushButton*, CBaseDynamicWidgetFactory::InitContext_t const&> (demangled)
 class std::_Func_base<void, CQBindableCommandToolButton*, CBaseDynamicWidgetFactory::InitContext_t const&> (demangled)
+class std::_Func_base<void, CQCurveEditorWidget*> (demangled)
 class std::_Func_base<void, CQPropertyEditor*> (demangled)
 class std::_Func_base<void, QCheckBox*, CBaseDynamicWidgetFactory::InitContext_t const&> (demangled)
 class std::_Func_base<void, QDockWidget*, CBaseDynamicWidgetFactory::InitContext_t const&> (demangled)
@@ -2063,28 +2079,11 @@ class std::_Func_impl_no_alloc<`bool ApplyAttributeValuePairs(CQPropertyEditor*,
 class std::_Func_impl_no_alloc<`bool ApplyAttributeValuePairs(CQPropertyEditor*, KeyValues3const*, CUtlVector<CBasePropItem*, int, CUtlVectorMemory_Growable<CBasePropItem*, int, 0> > const&)'::`2'::<lambda_1>, void, CBasePropItem*, KeyValues3const*> (demangled)
 class std::_Func_impl_no_alloc<`bool MakeAttributeListString(CQPropertyEditor*, CUtlVector<CBasePropItem*, int, CUtlVectorMemory_Growable<CBasePropItem*, int, 0> > const&, CUtlString*)'::`2'::<lambda_2>, void, CBasePropItem*> (demangled)
 class std::_Func_impl_no_alloc<`private: bool CQPropRow::HasCustomCommandListChanged(void) const'::`2'::<lambda_1>, bool, PropEdCustomCommand_t const&> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`10'::<lambda_8>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`11'::<lambda_9>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`12'::<lambda_10>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`13'::<lambda_11>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`14'::<lambda_12>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`15'::<lambda_13>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`16'::<lambda_14>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`17'::<lambda_15>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`3'::<lambda_1>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`4'::<lambda_2>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`5'::<lambda_3>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`6'::<lambda_4>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`7'::<lambda_5>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`8'::<lambda_6>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`9'::<lambda_7>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CQPropertyEditor::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`12'::<lambda_5>, void, CQPropertyEditor*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CQPropertyEditor::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`13'::<lambda_6>, void, CQPropertyEditor*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CQPropertyEditor::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`14'::<lambda_7>, void, CQPropertyEditor*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CQPropertyEditor::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`5'::<lambda_1>, void, CQPropertyEditor*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CQPropertyEditor::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`6'::<lambda_2>, void, CQPropertyEditor*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CQPropertyEditor::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`7'::<lambda_3>, void, CQPropertyEditor*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CQPropertyEditor::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`8'::<lambda_4>, void, CQPropertyEditor*> (demangled)
+class std::_Func_impl_no_alloc<`public: CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand& CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand::SetFunction<void (CGlobalHotkeyCommands::*)(int, int), int, int>(BindableCommandStage_t, void (CGlobalHotkeyCommands::*)(int, int), int, int)'::`2'::<lambda_1>, void, CGlobalHotkeyCommands*> (demangled)
+class std::_Func_impl_no_alloc<`public: CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand& CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand::SetFunction<void (CGlobalHotkeyCommands::*)(void)>(BindableCommandStage_t, void (CGlobalHotkeyCommands::*)(void))'::`2'::<lambda_1>, void, CGlobalHotkeyCommands*> (demangled)
+class std::_Func_impl_no_alloc<`public: CBindTargetDescriptor<CQCurveEditorWidget>::CBindableCommand& CBindTargetDescriptor<CQCurveEditorWidget>::CBindableCommand::SetFunction<void (CQCurveEditorWidget::*)(int), int>(BindableCommandStage_t, void (CQCurveEditorWidget::*)(int), int)'::`2'::<lambda_1>, void, CQCurveEditorWidget*> (demangled)
+class std::_Func_impl_no_alloc<`public: CBindTargetDescriptor<CQCurveEditorWidget>::CBindableCommand& CBindTargetDescriptor<CQCurveEditorWidget>::CBindableCommand::SetFunction<void (CQCurveEditorWidget::*)(void)>(BindableCommandStage_t, void (CQCurveEditorWidget::*)(void))'::`2'::<lambda_1>, void, CQCurveEditorWidget*> (demangled)
+class std::_Func_impl_no_alloc<`public: CBindTargetDescriptor<CQPropertyEditor>::CBindableCommand& CBindTargetDescriptor<CQPropertyEditor>::CBindableCommand::SetFunction<void (CQPropertyEditor::*)(void)>(BindableCommandStage_t, void (CQPropertyEditor::*)(void))'::`2'::<lambda_1>, void, CQPropertyEditor*> (demangled)
 class std::_Func_impl_no_alloc<`void AppendCommandsFromItemAndFlattenedChildren(CBasePropItem*, CUtlVector<PropEdCustomCommand_t, int, CUtlVectorMemory_Growable<PropEdCustomCommand_t, int, 0> >*, CUtlVector<CBasePropItem*, int, CUtlVectorMemory_Growable<CBasePropItem*, int, 0> >*)'::`2'::<lambda_1>, bool, PropEdCustomCommand_t const&> (demangled)
 class std::_Func_impl_no_alloc<void (*)(CQBindableCommandPushButton*, CBaseDynamicWidgetFactory::InitContext_t const&), void, CQBindableCommandPushButton*, CBaseDynamicWidgetFactory::InitContext_t const&> (demangled)
 class std::_Func_impl_no_alloc<void (*)(CQBindableCommandToolButton*, CBaseDynamicWidgetFactory::InitContext_t const&), void, CQBindableCommandToolButton*, CBaseDynamicWidgetFactory::InitContext_t const&> (demangled)
@@ -2121,6 +2120,7 @@ color
 colorSelected
 colors
 colspan
+commands
 connection aborted
 connection already in progress
 connection refused
@@ -2137,6 +2137,7 @@ dddd, MMMM dd, yyyy
 dddddd
 default
 defaultAction
+description
 dest
 destination address required
 device or resource busy
@@ -2153,7 +2154,6 @@ error
 event
 executable format error
 f5J5J5J5J5J5J5J5J5J5J5J5J5J5J5J5Jx
-f\tV_modfd
 false
 ffValueIn
 file exists
@@ -2186,6 +2186,7 @@ game:tools/images/common/bind_command_list.png
 game:tools/images/common/bind_command_target.png
 game:tools/images/common/browse.png
 game:tools/images/common/color_wheel_sm.png
+game:tools/images/common/curve_tangent_flat.png
 game:tools/images/common/curve_tangent_free.png
 game:tools/images/common/curve_tangent_linear.png
 game:tools/images/common/curve_tangent_mirror.png
@@ -2316,9 +2317,7 @@ nAlpha
 nDelayInMS
 nIndex
 nMode
-nPoint
 nSliderValue
-n\tV_powf
 name
 network down
 network reset
@@ -2348,7 +2347,6 @@ not connected
 not enough memory
 not supported
 null
-o\tV_qsort
 offsetDelta
 operation canceled
 operation in progress
@@ -2371,7 +2369,6 @@ pItem
 pOC
 pPresetAction
 pPrevFocusWidget
-p\tV_qsort_s
 permission denied
 pfm
 pickedColor
@@ -2900,6 +2897,7 @@ public: QBrush const& QPalette::highlightedText(void) const (demangled)
 public: QBrush const& QPalette::text(void) const (demangled)
 public: QBrush const& QPalette::window(void) const (demangled)
 public: QBrush const& QPalette::windowText(void) const (demangled)
+public: QBrush& QBrush::operator=(QBrush const&) (demangled)
 public: QBrush& QBrush::operator=(QBrush&&) (demangled)
 public: QBrush::QBrush(QColor const&, Qt::BrushStyle) (demangled)
 public: QBrush::QBrush(QGradient const&) (demangled)
@@ -3012,6 +3010,7 @@ public: QLayout::QLayout(QWidget*) (demangled)
 public: QLineEdit* QComboBox::lineEdit(void) const (demangled)
 public: QLineEdit::QLineEdit(QString const&, QWidget*) (demangled)
 public: QLineEdit::QLineEdit(QWidget*) (demangled)
+public: QLineF QLineF::translated(double, double) const (demangled)
 public: QLinearGradient::QLinearGradient(double, double, double, double) (demangled)
 public: QLinearGradient::~QLinearGradient(void) (demangled)
 public: QList<QAction*> QWidget::actions(void) const (demangled)
@@ -3074,13 +3073,13 @@ public: QPixmap::QPixmap(QString const&, char const*, QFlags<Qt::ImageConversion
 public: QPixmap::QPixmap(int, int) (demangled)
 public: QPixmap::QPixmap(void) (demangled)
 public: QPoint QDropEvent::pos(void) const (demangled)
-public: QPoint QMouseEvent::globalPos(void) const (demangled)
 public: QPoint QMouseEvent::pos(void) const (demangled)
 public: QPoint QPointF::toPoint(void) const (demangled)
 public: QPoint QRect::center(void) const (demangled)
 public: QPoint QWidget::mapFromGlobal(QPoint const&) const (demangled)
 public: QPoint QWidget::mapToGlobal(QPoint const&) const (demangled)
 public: QPoint QWidget::pos(void) const (demangled)
+public: QPointF QTransform::map(QPointF const&) const (demangled)
 public: QPolygon::QPolygon(void) (demangled)
 public: QPolygon::~QPolygon(void) (demangled)
 public: QProgressBar::QProgressBar(QWidget*) (demangled)
@@ -3101,6 +3100,10 @@ public: QRect QWidget::rect(void) const (demangled)
 public: QRect const QDesktopWidget::screenGeometry(QWidget const*) const (demangled)
 public: QRect::QRect(QPoint const&, QSize const&) (demangled)
 public: QRect::QRect(int, int, int, int) (demangled)
+public: QRectF QRectF::normalized(void) const (demangled)
+public: QRectF QRectF::operator&(QRectF const&) const (demangled)
+public: QRectF QTransform::mapRect(QRectF const&) const (demangled)
+public: QRectF::QRectF(QPointF const&, QPointF const&) (demangled)
 public: QRectF::QRectF(QRect const&) (demangled)
 public: QRegExp QSortFilterProxyModel::filterRegExp(void) const (demangled)
 public: QRegExp::QRegExp(QString const&, Qt::CaseSensitivity, QRegExp::PatternSyntax) (demangled)
@@ -3133,6 +3136,7 @@ public: QSplitterHandle::QSplitterHandle(Qt::Orientation, QSplitter*) (demangled
 public: QStackedLayout::QStackedLayout(void) (demangled)
 public: QStandardItem* QStandardItemModel::item(int, int) const (demangled)
 public: QStandardItem::QStandardItem(QString const&) (demangled)
+public: QStandardItem::QStandardItem(void) (demangled)
 public: QStandardItemModel::QStandardItemModel(QObject*) (demangled)
 public: QString QAbstractButton::text(void) const (demangled)
 public: QString QAction::statusTip(void) const (demangled)
@@ -3210,6 +3214,12 @@ public: QTextOption::~QTextOption(void) (demangled)
 public: QTimer::QTimer(QObject*) (demangled)
 public: QToolBar::QToolBar(QWidget*) (demangled)
 public: QToolButton::QToolButton(QWidget*) (demangled)
+public: QTransform QTransform::inverted(bool*) const (demangled)
+public: QTransform const& QPainter::deviceTransform(void) const (demangled)
+public: QTransform& QTransform::operator=(QTransform const&) (demangled)
+public: QTransform::QTransform(void) (demangled)
+public: QTransform::TransformationType QTransform::type(void) const (demangled)
+public: QTreeView::QTreeView(QWidget*) (demangled)
 public: QTreeWidget::QTreeWidget(QWidget*) (demangled)
 public: QTreeWidgetItem* QTreeWidget::invisibleRootItem(void) const (demangled)
 public: QTreeWidgetItem* QTreeWidget::itemAt(QPoint const&) const (demangled)
@@ -3264,7 +3274,7 @@ public: QWindow* QWidget::windowHandle(void) const (demangled)
 public: QWindow* QWindow::parent(void) const (demangled)
 public: QWindow* QWindow::transientParent(void) const (demangled)
 public: Qt::CaseSensitivity QSortFilterProxyModel::filterCaseSensitivity(void) const (demangled)
-public: Qt::CheckState QCheckBox::checkState(void) const (demangled)
+public: Qt::CheckState QStandardItem::checkState(void) const (demangled)
 public: Qt::DropAction QDrag::exec(QFlags<Qt::DropAction>) (demangled)
 public: Qt::FocusPolicy QWidget::focusPolicy(void) const (demangled)
 public: Qt::Orientation QSplitter::orientation(void) const (demangled)
@@ -3306,6 +3316,7 @@ public: bool QObject::blockSignals(bool) (demangled)
 public: bool QObject::isWidgetType(void) const (demangled)
 public: bool QObject::setProperty(char const*, QVariant const&) (demangled)
 public: bool QPainter::end(void) (demangled)
+public: bool QPainter::testRenderHint(QPainter::RenderHint) const (demangled)
 public: bool QPixmap::isNull(void) const (demangled)
 public: bool QRect::contains(QPoint const&, bool) const (demangled)
 public: bool QRectF::contains(QPointF const&) const (demangled)
@@ -3332,6 +3343,7 @@ public: bool QWidget::isActiveWindow(void) const (demangled)
 public: bool QWidget::isEnabled(void) const (demangled)
 public: bool QWidget::isHidden(void) const (demangled)
 public: bool QWidget::isVisible(void) const (demangled)
+public: bool QWidget::underMouse(void) const (demangled)
 public: char CUtlString::operator[](int) const (demangled)
 public: char const* CBufferString::FixSlashes(char) (demangled)
 public: char const* CBufferString::FixupPathName(char) (demangled)
@@ -3358,6 +3370,7 @@ public: double QColor::lightnessF(void) const (demangled)
 public: double QColor::redF(void) const (demangled)
 public: double QColor::valueF(void) const (demangled)
 public: double QDoubleSpinBox::value(void) const (demangled)
+public: double QPaintDevice::devicePixelRatioF(void) const (demangled)
 public: float QString::toFloat(bool*) const (demangled)
 public: int CBufferString::AppendFormat(char const*, ...) (demangled)
 public: int CBufferString::AppendFormatV(char const*, char*) (demangled)
@@ -3420,6 +3433,7 @@ public: static QColor QColorDialog::getColor(QColor const&, QWidget*, QString co
 public: static QCoreApplication* QCoreApplication::instance(void) (demangled)
 public: static QDesktopWidget* QApplication::desktop(void) (demangled)
 public: static QFlags<QMetaType::TypeFlag> QMetaType::typeFlags(int) (demangled)
+public: static QFlags<Qt::KeyboardModifier> QGuiApplication::queryKeyboardModifiers(void) (demangled)
 public: static QFont QFontDatabase::systemFont(QFontDatabase::SystemFont) (demangled)
 public: static QHashData const QHashData::shared_null (demangled)
 public: static QHashData::Node* QHashData::nextNode(QHashData::Node*) (demangled)
@@ -3510,6 +3524,7 @@ public: static void QTimer::singleShot(int, QObject const*, char const*) (demang
 public: static void QToolTip::showText(QPoint const&, QString const&, QWidget*) (demangled)
 public: static void QWidget::setTabOrder(QWidget*, QWidget*) (demangled)
 public: uint64_t QWidget::winId(void) const (demangled)
+public: unsigned int CUtlFilenameSymbolTable::FindFileName(char const*) const (demangled)
 public: unsigned int CUtlFilenameSymbolTable::FindOrAddFileName(char const*) (demangled)
 public: unsigned int QImage::pixel(int, int) const (demangled)
 public: virtual CCountedStringPool_CI::~CCountedStringPool_CI(void) (demangled)
@@ -3612,6 +3627,7 @@ public: virtual QMetaObject const* QTextEdit::metaObject(void) const (demangled)
 public: virtual QMetaObject const* QTimer::metaObject(void) const (demangled)
 public: virtual QMetaObject const* QToolBar::metaObject(void) const (demangled)
 public: virtual QMetaObject const* QToolButton::metaObject(void) const (demangled)
+public: virtual QMetaObject const* QTreeView::metaObject(void) const (demangled)
 public: virtual QMetaObject const* QVBoxLayout::metaObject(void) const (demangled)
 public: virtual QMetaObject const* QWidget::metaObject(void) const (demangled)
 public: virtual QMetaObject const* QWidgetAction::metaObject(void) const (demangled)
@@ -3728,6 +3744,7 @@ public: virtual QTextEdit::~QTextEdit(void) (demangled)
 public: virtual QTimer::~QTimer(void) (demangled)
 public: virtual QToolBar::~QToolBar(void) (demangled)
 public: virtual QToolButton::~QToolButton(void) (demangled)
+public: virtual QTreeView::~QTreeView(void) (demangled)
 public: virtual QTreeWidget::~QTreeWidget(void) (demangled)
 public: virtual QTreeWidgetItem* QTreeWidgetItem::clone(void) const (demangled)
 public: virtual QTreeWidgetItem::~QTreeWidgetItem(void) (demangled)
@@ -3873,6 +3890,7 @@ public: virtual int QTextEdit::qt_metacall(QMetaObject::Call, int, void**) (dema
 public: virtual int QTimer::qt_metacall(QMetaObject::Call, int, void**) (demangled)
 public: virtual int QToolBar::qt_metacall(QMetaObject::Call, int, void**) (demangled)
 public: virtual int QToolButton::qt_metacall(QMetaObject::Call, int, void**) (demangled)
+public: virtual int QTreeView::qt_metacall(QMetaObject::Call, int, void**) (demangled)
 public: virtual int QTreeWidget::qt_metacall(QMetaObject::Call, int, void**) (demangled)
 public: virtual int QVBoxLayout::qt_metacall(QMetaObject::Call, int, void**) (demangled)
 public: virtual int QWidget::devType(void) const (demangled)
@@ -3953,7 +3971,9 @@ public: virtual void QTreeView::keyboardSearch(QString const&) (demangled)
 public: virtual void QTreeView::reset(void) (demangled)
 public: virtual void QTreeView::scrollTo(QModelIndex const&, QAbstractItemView::ScrollHint) (demangled)
 public: virtual void QTreeView::selectAll(void) (demangled)
+public: virtual void QTreeView::setModel(QAbstractItemModel*) (demangled)
 public: virtual void QTreeView::setRootIndex(QModelIndex const&) (demangled)
+public: virtual void QTreeView::setSelectionModel(QItemSelectionModel*) (demangled)
 public: virtual void QTreeWidget::setSelectionModel(QItemSelectionModel*) (demangled)
 public: virtual void QTreeWidgetItem::read(QDataStream&) (demangled)
 public: virtual void QTreeWidgetItem::setData(int, int, QVariant const&) (demangled)
@@ -4011,6 +4031,7 @@ public: virtual void* QTextEdit::qt_metacast(char const*) (demangled)
 public: virtual void* QTimer::qt_metacast(char const*) (demangled)
 public: virtual void* QToolBar::qt_metacast(char const*) (demangled)
 public: virtual void* QToolButton::qt_metacast(char const*) (demangled)
+public: virtual void* QTreeView::qt_metacast(char const*) (demangled)
 public: virtual void* QTreeWidget::qt_metacast(char const*) (demangled)
 public: virtual void* QVBoxLayout::qt_metacast(char const*) (demangled)
 public: virtual void* QWidget::qt_metacast(char const*) (demangled)
@@ -4196,13 +4217,13 @@ public: void QPainter::drawEllipse(QPointF const&, double, double) (demangled)
 public: void QPainter::drawImage(int, int, QImage const&, int, int, int, int, QFlags<Qt::ImageConversionFlag>) (demangled)
 public: void QPainter::drawLine(int, int, int, int) (demangled)
 public: void QPainter::drawLines(QLine const*, int) (demangled)
+public: void QPainter::drawLines(QLineF const*, int) (demangled)
 public: void QPainter::drawPath(QPainterPath const&) (demangled)
 public: void QPainter::drawPixmap(QPointF const&, QPixmap const&) (demangled)
 public: void QPainter::drawPixmap(QRect const&, QPixmap const&) (demangled)
 public: void QPainter::drawPixmap(int, int, int, int, QPixmap const&) (demangled)
 public: void QPainter::drawPolygon(QPointF const*, int, Qt::FillRule) (demangled)
 public: void QPainter::drawPolygon(QPolygon const&, Qt::FillRule) (demangled)
-public: void QPainter::drawRect(QRect const&) (demangled)
 public: void QPainter::drawRect(int, int, int, int) (demangled)
 public: void QPainter::drawRects(QRect const*, int) (demangled)
 public: void QPainter::drawRects(QRectF const*, int) (demangled)
@@ -4233,6 +4254,7 @@ public: void QPainterPath::lineTo(QPointF const&) (demangled)
 public: void QPalette::setColor(QPalette::ColorRole, QColor const&) (demangled)
 public: void QPen::setCapStyle(Qt::PenCapStyle) (demangled)
 public: void QPen::setColor(QColor const&) (demangled)
+public: void QPen::setCosmetic(bool) (demangled)
 public: void QPen::setDashPattern(QVector<double> const&) (demangled)
 public: void QPen::setJoinStyle(Qt::PenJoinStyle) (demangled)
 public: void QPen::setStyle(Qt::PenStyle) (demangled)
@@ -4253,6 +4275,7 @@ public: void QScrollArea::setWidgetResizable(bool) (demangled)
 public: void QSizePolicy::setHorizontalStretch(int) (demangled)
 public: void QSizePolicy::setVerticalStretch(int) (demangled)
 public: void QSortFilterProxyModel::setFilterCaseSensitivity(Qt::CaseSensitivity) (demangled)
+public: void QSortFilterProxyModel::setFilterFixedString(QString const&) (demangled)
 public: void QSortFilterProxyModel::setFilterKeyColumn(int) (demangled)
 public: void QSortFilterProxyModel::setFilterRegExp(QString const&) (demangled)
 public: void QSplitter::addWidget(QWidget*) (demangled)
@@ -4260,7 +4283,9 @@ public: void QSplitter::setChildrenCollapsible(bool) (demangled)
 public: void QSplitter::setOrientation(Qt::Orientation) (demangled)
 public: void QSplitter::setSizes(QList<int> const&) (demangled)
 public: void QStackedLayout::setStackingMode(QStackedLayout::StackingMode) (demangled)
+public: void QStandardItem::setCheckState(Qt::CheckState) (demangled)
 public: void QStandardItem::setEditable(bool) (demangled)
+public: void QStandardItem::setFlags(QFlags<Qt::ItemFlag>) (demangled)
 public: void QStandardItem::setSelectable(bool) (demangled)
 public: void QStandardItem::setText(QString const&) (demangled)
 public: void QStandardItemModel::appendRow(QList<QStandardItem*> const&) (demangled)
@@ -4291,9 +4316,11 @@ public: void QTextDocument::drawContents(QPainter*, QRectF const&) (demangled)
 public: void QTextDocument::setDefaultTextOption(QTextOption const&) (demangled)
 public: void QTextDocument::setPlainText(QString const&) (demangled)
 public: void QTextDocument::setTextWidth(double) (demangled)
+public: void QTextEdit::insertPlainText(QString const&) (demangled)
 public: void QTextEdit::setAcceptRichText(bool) (demangled)
 public: void QTextEdit::setLineWrapMode(QTextEdit::LineWrapMode) (demangled)
 public: void QTextEdit::setPlainText(QString const&) (demangled)
+public: void QTextEdit::textChanged(void) (demangled)
 public: void QTextFormat::setBackground(QBrush const&) (demangled)
 public: void QTextFormat::setForeground(QBrush const&) (demangled)
 public: void QTextOption::setAlignment(QFlags<Qt::AlignmentFlag>) (demangled)
@@ -4307,9 +4334,13 @@ public: void QToolButton::setDefaultAction(QAction*) (demangled)
 public: void QToolButton::setMenu(QMenu*) (demangled)
 public: void QToolButton::setPopupMode(QToolButton::ToolButtonPopupMode) (demangled)
 public: void QToolButton::setToolButtonStyle(Qt::ToolButtonStyle) (demangled)
+public: void QToolButton::showMenu(void) (demangled)
 public: void QTreeView::hideColumn(int) (demangled)
+public: void QTreeView::setAllColumnsShowFocus(bool) (demangled)
 public: void QTreeView::setColumnWidth(int, int) (demangled)
 public: void QTreeView::setHeaderHidden(bool) (demangled)
+public: void QTreeView::setSortingEnabled(bool) (demangled)
+public: void QTreeView::setUniformRowHeights(bool) (demangled)
 public: void QTreeView::sortByColumn(int, Qt::SortOrder) (demangled)
 public: void QTreeWidget::clear(void) (demangled)
 public: void QTreeWidget::itemDoubleClicked(QTreeWidgetItem*, int) (demangled)
@@ -4389,7 +4420,6 @@ purecall
 qangle
 quiet
 r\tVr.>T
-r\vp4O\f
 range check failure
 read only file system
 rebuilding
@@ -4461,12 +4491,12 @@ tool_request_text
 tool_request_tool
 toolbarArea
 tools/colors/shared_colors.txt
+tools/keybindings/curveeditor_key_bindings.txt
 tools/keybindings/global_key_bindings.txt
 tools/keybindings/propertyeditor_key_bindings.txt
 top
 true
 type
-u\tV_roundf
 uint
 uint16
 uint32
@@ -4506,10 +4536,11 @@ void Assert_ConditionFailed_Fatal(_AssertCompileTimeConstantStruct_t const&) (de
 void ThreadAtomicNotifyOne(unsigned int const*) (demangled)
 void V_SplitString(char const*, char const*, CUtlVector<CUtlString, int, CUtlVectorMemory_Growable<CUtlString, int, 0> >&, bool) (demangled)
 void qBadAlloc(void) (demangled)
+w\tV_isnand
 waiting_group
 warn
 white
 wrapping
 wrong protocol type
 yes
-|\tV_sinf
+z>AlignedByteArray not properly aligned\n

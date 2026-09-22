@@ -12,6 +12,7 @@
  delete[]
  new
  took %0.3f sec, produced %d polys\n
+!\n_V_strncpy
 $Ib?s
 %0.2f
 %d %d %d %d
@@ -101,11 +102,14 @@ $Ib?s
 1#IND
 1#QNAN
 1#SNAN
+2\vpTN
 3>N;kU
-3\tV_fpclassifyd
 6\fXO>\ntA
+6\ng_flConfigMaxCoord
 8Csinf
+8\tV_acosf
 ;1#INF
+<\ng_pMemAlloc
 <array: %u elements>
 <binary blob: %u bytes>
 <empty member name>
@@ -140,6 +144,7 @@ $Ib?s
 >>NAVGEN: pass %d/%d: orig tris %d\n
 >>NAVGEN: stage %02d / %02d: 
 >>NAVGEN: stage %02d / %02d: %s, disabled\n
+>\ng_pThreadPool
 >m_nHullIdx
 ?8bunz8
 ?@En[vP
@@ -156,7 +161,6 @@ APPSYSTEM: In ConnectInterfaces(), s_nRegistrationCount is %d!\n
 AVOID
 Access violation - no RTTI data!
 AcquireSRWLockExclusive
-AcquireSRWLockShared
 AddJumps
 AlignedByteArray not properly aligned\n
 Already in the goal area
@@ -169,7 +173,7 @@ AppPolicyGetProcessTerminationMethod
 Apr
 April
 AreFileApisANSI
-Area too far
+Area outside detour limit
 AssetBrowserSystem_001
 AssetPreviewSystem_001
 AssetRenameSystem_001
@@ -364,6 +368,7 @@ GetSystemTimePreciseAsFileTime
 GetTempPath2W
 GetThreadLocalStackAllocator
 HH:mm:ss
+H\tV_cosd
 HammerMapLoader001
 HelpSystem_001
 Hide unless error/warning occurs
@@ -373,6 +378,7 @@ IKV3TransferInterface_ResourceLoad
 INF
 INavPathCost
 IPulseSystem_001
+I\tV_cosf
 Il?333333c?
 InitializeCriticalSectionAndSpinCount
 InitializeCriticalSectionEx
@@ -515,6 +521,7 @@ PanoramaUIClient001
 PanoramaUIEngine001
 ParticleSystemMgr003
 PathFind_NavAreaBuildPath
+Pathfind_NavAreaBuildPath
 PerVertexLighting
 Physics
 PhysicsBuilderMgr001
@@ -554,7 +561,6 @@ RegisterConVar: Unknown error registering convar "%s"!\n
 Release
 ReleaseMutex
 ReleaseSRWLockExclusive
-ReleaseSRWLockShared
 RemoveDegens
 RemovePolysMarkedNoNav
 RemoveSmallAreasOnEdge
@@ -599,6 +605,7 @@ Show areas that are potentially visible from the current nav area
 Show regardless of user setting
 Simplified Contours
 SleepConditionVariableSRW
+SmartPropsSystem_001
 SoundOpSystem001
 SoundOpSystemEdit001
 SoundService_001
@@ -619,6 +626,7 @@ Source2V8System001
 Space - CalcBlocks
 Space - building %d\n
 Space gen: %d / %d finished, %d cells\n
+Space gen: %d cells\n
 Sparse voxels
 SplitBottleneckPolys
 SplitBoundaryPolysWithConnections
@@ -720,7 +728,6 @@ V_StringToVector2D
 V_StringToVector4D
 V_StringToVectorWS
 V_UInt64ToString_Unsafe
-V_UnqualifiedFileName
 ValidateVertices
 ValveSMMem:%s
 ValveSMMut:%s
@@ -750,22 +757,18 @@ Y>kX>M
 [Default] Determine a lifespan based on the warning/error state of the group
 [Default] General information
 [aOni*{
-\ng_flConfigMaxCoord
+\n_MakeGlobalSymbol
 \nh?oT
 \nk>oB
-\r\ng_pThreadPool
 \r\r\r\r\r\r
-\tV_acosf
-\tV_cosd
-\tV_cosf
+\tV_UnqualifiedFileName
+\tV_qsort_s
 \tV_stricmp_fast
 \tV_vsnprintf
 \tWarning
-\t_MakeGlobalSymbol
-\t_V_strncpy
 \tcQr
 \tkE>fvw
-\v\ng_pMemAlloc
+]\tV_fpclassifyd
 ^RfN>
 __based(
 __cdecl
@@ -950,8 +953,8 @@ class `void CutTreeToPhysics(CNavTree&, int, float, bool, float, std::function<b
 class `void NavAdjacency::CollectAdjacentNodesAreas(CNavArea const&, CUtlVectorFixedGrowable<NavAreaAdj_t, 32, int>&, unsigned int)'::`24'::<lambda_1> (demangled)
 class `void NavAdjacency::CollectAdjacentNodesAreas(CNavArea const&, CUtlVectorFixedGrowable<NavAreaAdj_t, 32, int>&, unsigned int)'::`28'::<lambda_2> (demangled)
 class `void NavAdjacency::CollectAdjacentNodesAreas(CNavArea const&, CUtlVectorFixedGrowable<NavAreaAdj_t, 32, int>&, unsigned int)'::`63'::<lambda_3> (demangled)
-class `void NavGenRunSpaceBuild(CNavGenInput const&, IVPhysics2World const&, CNavGenOutput*)'::`17'::<lambda_2> (demangled)
 class `void NavGenRunSpaceBuild(CNavGenInput const&, IVPhysics2World const&, CNavGenOutput*)'::`2'::<lambda_1> (demangled)
+class `void NavGenRunSpaceBuild(CNavGenInput const&, IVPhysics2World const&, CNavGenOutput*)'::`21'::<lambda_2> (demangled)
 class `void RunBuildTree(CNavTree&, int, AABB_t const&, IVPhysics2World const&, CUtlHashtable<IPhysicsBody const*, empty_t, DefaultHashFunctor<IPhysicsBody const*>, DefaultEqualFunctor<IPhysicsBody const*>, CUtlLeanVector<CUtlHashtableEntry<IPhysicsBody const*, empty_t>, int, CMemAllocAllocator>, 1>*)'::`2'::<lambda_1> (demangled)
 class `void RunBuildTree(CNavTree&, int, AABB_t const&, IVPhysics2World const&, CUtlHashtable<IPhysicsBody const*, empty_t, DefaultHashFunctor<IPhysicsBody const*>, DefaultEqualFunctor<IPhysicsBody const*>, CUtlLeanVector<CUtlHashtableEntry<IPhysicsBody const*, empty_t>, int, CMemAllocAllocator>, 1>*)'::`2'::<lambda_2> (demangled)
 class rcContext (demangled)
@@ -1027,8 +1030,8 @@ class std::_Func_impl_no_alloc<`void CutTreeToPhysics(CNavTree&, int, float, boo
 class std::_Func_impl_no_alloc<`void NavAdjacency::CollectAdjacentNodesAreas(CNavArea const&, CUtlVectorFixedGrowable<NavAreaAdj_t, 32, int>&, unsigned int)'::`24'::<lambda_1>, void, CNavArea*> (demangled)
 class std::_Func_impl_no_alloc<`void NavAdjacency::CollectAdjacentNodesAreas(CNavArea const&, CUtlVectorFixedGrowable<NavAreaAdj_t, 32, int>&, unsigned int)'::`28'::<lambda_2>, void, CNavArea*> (demangled)
 class std::_Func_impl_no_alloc<`void NavAdjacency::CollectAdjacentNodesAreas(CNavArea const&, CUtlVectorFixedGrowable<NavAreaAdj_t, 32, int>&, unsigned int)'::`63'::<lambda_3>, void, NavIndirectDst_t const&> (demangled)
-class std::_Func_impl_no_alloc<`void NavGenRunSpaceBuild(CNavGenInput const&, IVPhysics2World const&, CNavGenOutput*)'::`17'::<lambda_2>, void> (demangled)
 class std::_Func_impl_no_alloc<`void NavGenRunSpaceBuild(CNavGenInput const&, IVPhysics2World const&, CNavGenOutput*)'::`2'::<lambda_1>, void> (demangled)
+class std::_Func_impl_no_alloc<`void NavGenRunSpaceBuild(CNavGenInput const&, IVPhysics2World const&, CNavGenOutput*)'::`21'::<lambda_2>, void> (demangled)
 class std::_Func_impl_no_alloc<`void RunBuildTree(CNavTree&, int, AABB_t const&, IVPhysics2World const&, CUtlHashtable<IPhysicsBody const*, empty_t, DefaultHashFunctor<IPhysicsBody const*>, DefaultEqualFunctor<IPhysicsBody const*>, CUtlLeanVector<CUtlHashtableEntry<IPhysicsBody const*, empty_t>, int, CMemAllocAllocator>, 1>*)'::`2'::<lambda_1>, bool, int, Vec3D<float> const*> (demangled)
 class std::_Func_impl_no_alloc<`void RunBuildTree(CNavTree&, int, AABB_t const&, IVPhysics2World const&, CUtlHashtable<IPhysicsBody const*, empty_t, DefaultHashFunctor<IPhysicsBody const*>, DefaultEqualFunctor<IPhysicsBody const*>, CUtlLeanVector<CUtlHashtableEntry<IPhysicsBody const*, empty_t>, int, CMemAllocAllocator>, 1>*)'::`2'::<lambda_2>, bool, AABB_t const&> (demangled)
 class std::_Func_impl_no_alloc<std::_Binder<std::_Unforced, Vec3D<float> (CNavGenPolyProcessor::*)(VectorWS const&, Vec3D<float> const*), CNavGenPolyProcessor*, std::_Ph<1> const&, std::_Ph<2> const&>, Vec3D<float>, VectorWS const&, Vec3D<float> const*> (demangled)
@@ -1301,8 +1304,6 @@ owM&
 owner dead
 pFx
 pOC
-p\r0\fP!E
-p\tV_qsort_s
 permission denied
 position
 posxyz
@@ -1359,6 +1360,7 @@ qS>g?h3
 qVJ
 qangle
 quiet
+rSpaceInfo generating with %0.1f hull size\n
 r\tVr.>T
 radius used to raise/lower corners in nearby areas when raising/lowering corners.
 range check failure

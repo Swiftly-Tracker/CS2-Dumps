@@ -528,8 +528,6 @@ CBufferString::ToLowerFast(int) (demangled)
 CBufferString::TrimTail(char const*) (demangled)
 CBufferString::TruncateAt(int, bool) (demangled)
 CCallQueue::ParallelCallQueued(char const*, IThreadPool*) (demangled)
-CCharBufferFormatOutputStream::PutC(char) (demangled)
-CCharBufferFormatOutputStream::Terminate() (demangled)
 CDebugDrawQueueMgr (demangled)
 CDontUseThisGameSystem (demangled)
 CET
@@ -549,6 +547,12 @@ CGameAppSystem<ISource2Host, 0> (demangled)
 CGameModelInfo (demangled)
 CGameSystem2HostHook (demangled)
 CGameSystemEventDispatcher (demangled)
+CGridStringPrinter::DelimitedHeader(char, char const*, ...) (demangled)
+CGridStringPrinter::DelimitedPrint(char, char const*, ...) (demangled)
+CGridStringPrinter::SetColumnHeader(int, char const*) (demangled)
+CGridStringPrinter::SetColumnJustification(int, bool) (demangled)
+CGridStringPrinter::SetString(int, int, char const*) (demangled)
+CGridStringPrinter::Spew(int, char const*) const (demangled)
 CHECK failed: !AllocPolicy(): 
 CHECK failed: !HasUnknownFieldsTag(): 
 CHECK failed: !InRealOneof(field): 
@@ -981,6 +985,7 @@ CUtlString::Set(char const*) (demangled)
 CUtlString::SetDirect(char const*, int) (demangled)
 CUtlString::SetLength(int) (demangled)
 CUtlString::StripExtension() const (demangled)
+CUtlString::TrimRight(char const*) (demangled)
 CUtlString::complete object constructor(CBufferString const&) (demangled)
 CUtlStringList::SplitString(char const*, char const* const*, int) (demangled)
 CUtlSymbolTable::AddString(char const*, bool*) (demangled)
@@ -1169,7 +1174,6 @@ FormatTo(IFormatOutputStream*, CFormatStringElement, bool) (demangled)
 FormatTo(IFormatOutputStream*, CFormatStringElement, double) (demangled)
 FormatTo(IFormatOutputStream*, CFormatStringElement, float) (demangled)
 FormatTo(IFormatOutputStream*, CFormatStringElement, int) (demangled)
-FormatTo(IFormatOutputStream*, CFormatStringElement, std::basic_string_view<char, std::char_traits<char> >) (demangled)
 FormatTo(IFormatOutputStream*, CFormatStringElement, unsigned int) (demangled)
 FormatTo(IFormatOutputStream*, CFormatStringElement, void const*) (demangled)
 Found invalid proto option data for: 
@@ -1323,8 +1327,6 @@ June
 Key in map fields cannot be enum types.
 Key in map fields cannot be float/double, bytes or message types.
 KeyValueCache001
-KeyValues3: pre-allocated array memory is too small for %u elements (%u bytes available, %u bytes needed)\n
-KeyValues3: pre-allocated table memory is too small for %u members (%u bytes available, %u bytes needed)\n
 KeyValues::=(KeyValues const&) (demangled)
 KeyValues::CreateNewKey() (demangled)
 KeyValues::FindAndDeleteSubKey(char const*) (demangled)
@@ -1379,12 +1381,10 @@ LocalServerClientAccess001
 Localize_001
 LoggingSystem_CurrentStateIndex
 LoggingSystem_GetChannel
-LoggingSystem_GetChannelColor
 LoggingSystem_IsChannelEnabled
 LoggingSystem_Log
 LoggingSystem_Log(int, LoggingSeverity_t, Color, char const*, ...) (demangled)
 LoggingSystem_Log(int, LoggingSeverity_t, LoggingRareOptions_t const&, char const*, ...) (demangled)
-LoggingSystem_LogDirect(int, LoggingSeverity_t, Color, LoggingMetaData_t const*, char const*) (demangled)
 LoggingSystem_PopLoggingState
 LoggingSystem_PushLoggingState
 LoggingSystem_RegisterBackdoorLoggingListener
@@ -1472,6 +1472,7 @@ NavGameTest001
 Need space between identifier and decimal point.
 Need space between number and identifier.
 NetworkClientService_001
+NetworkCodeGen
 NetworkMessagesVersion001
 NetworkP2PService_001
 NetworkServerService_001
@@ -1593,7 +1594,7 @@ Plat_Printf
 Plat_RedirectThisProcessStdioToFile(int, unsigned int) (demangled)
 Plat_RelativeTicks
 Plat_SetActiveWindow
-Plat_SetGameDirectories
+Plat_SetGameDirectory
 Plat_ShutdownCOM
 Plat_TickDiffMilliSecF
 Plat_UUIDToString
@@ -1609,6 +1610,7 @@ Protobuf: %s(%d): %s\n
 Protocol Buffer map usage error:\n
 Protocol Buffer reflection usage error:\n  Method      : google::protobuf::Reflection::
 QPI
+QuantizedFloatEncoderAlias_t (demangled)
 RESOURCE_EXHAUSTED
 RandomFloat
 Reached an unintended state: CPPTYPE_MESSAGE
@@ -1689,6 +1691,7 @@ Should we try to straighten two faces connected to this edge? (tangent)
 Show diff only.
 Show diff with matching filter substring only.
 SinglePlayerSharedMemory001
+SmartPropsSystem_001
 Some options could not be correctly parsed using the proto descriptors compiled into this binary.\nUnparsed options: 
 SoundOpSystem001
 SoundOpSystemEdit001
@@ -3014,6 +3017,10 @@ bool (__gnu_cxx::__normal_iterator<, > const&, __gnu_cxx::__normal_iterator<, >)
 bool (std::__cxx11::basic_string<, , > const&, const*) std::!=<char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<, , > const&, const*) (demangled)
 bool (std::__cxx11::basic_string<, , > const&, const*) std::==<char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<, , > const&, const*) (demangled)
 bool (std::__cxx11::basic_string<, , > const&, std::__cxx11::basic_string<, , > const) std::==<char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<, , > const&, std::__cxx11::basic_string<, , > const) (demangled)
+bool (std::__detail::_Compiler<std::regex_traits<char> >::_BracketState&(char), std::__detail::_BracketMatcher<std::regex_traits<char>, , >&) std::__detail::_Compiler<std::regex_traits<char> >::_M_expression_term<(bool)0, (bool)0>(std::__detail::_Compiler<std::regex_traits<char> >::_BracketState&, std::__detail::_BracketMatcher<std::regex_traits<char>, , >&)::{lambda(char)#0}::() const (demangled)
+bool (std::__detail::_Compiler<std::regex_traits<char> >::_BracketState&(char), std::__detail::_BracketMatcher<std::regex_traits<char>, , >&) std::__detail::_Compiler<std::regex_traits<char> >::_M_expression_term<(bool)0, (bool)1>(std::__detail::_Compiler<std::regex_traits<char> >::_BracketState&, std::__detail::_BracketMatcher<std::regex_traits<char>, , >&)::{lambda(char)#0}::() const (demangled)
+bool (std::__detail::_Compiler<std::regex_traits<char> >::_BracketState&(char), std::__detail::_BracketMatcher<std::regex_traits<char>, , >&) std::__detail::_Compiler<std::regex_traits<char> >::_M_expression_term<(bool)1, (bool)0>(std::__detail::_Compiler<std::regex_traits<char> >::_BracketState&, std::__detail::_BracketMatcher<std::regex_traits<char>, , >&)::{lambda(char)#0}::() const (demangled)
+bool (std::__detail::_Compiler<std::regex_traits<char> >::_BracketState&(char), std::__detail::_BracketMatcher<std::regex_traits<char>, , >&) std::__detail::_Compiler<std::regex_traits<char> >::_M_expression_term<(bool)1, (bool)1>(std::__detail::_Compiler<std::regex_traits<char> >::_BracketState&, std::__detail::_BracketMatcher<std::regex_traits<char>, , >&)::{lambda(char)#0}::() const (demangled)
 bool (std::__detail::_Compiler<std::regex_traits<char> >::_BracketState&, std::__detail::_BracketMatcher<std::regex_traits<char>, , >&) std::__detail::_Compiler<std::regex_traits<char> >::_M_expression_term<(bool)0, (bool)0>(std::__detail::_Compiler<std::regex_traits<char> >::_BracketState&, std::__detail::_BracketMatcher<std::regex_traits<char>, , >&) (demangled)
 bool (std::__detail::_Compiler<std::regex_traits<char> >::_BracketState&, std::__detail::_BracketMatcher<std::regex_traits<char>, , >&) std::__detail::_Compiler<std::regex_traits<char> >::_M_expression_term<(bool)0, (bool)1>(std::__detail::_Compiler<std::regex_traits<char> >::_BracketState&, std::__detail::_BracketMatcher<std::regex_traits<char>, , >&) (demangled)
 bool (std::__detail::_Compiler<std::regex_traits<char> >::_BracketState&, std::__detail::_BracketMatcher<std::regex_traits<char>, , >&) std::__detail::_Compiler<std::regex_traits<char> >::_M_expression_term<(bool)1, (bool)0>(std::__detail::_Compiler<std::regex_traits<char> >::_BracketState&, std::__detail::_BracketMatcher<std::regex_traits<char>, , >&) (demangled)
@@ -3086,10 +3093,10 @@ char () std::__detail::_AnyMatcher<std::regex_traits<char>, (bool)0, (bool)0, (b
 char () std::__detail::_AnyMatcher<std::regex_traits<char>, (bool)0, (bool)0, (bool)1>::()() const::__nul (demangled)
 char () std::__detail::_AnyMatcher<std::regex_traits<char>, (bool)0, (bool)1, (bool)0>::()() const::__nul (demangled)
 char () std::__detail::_AnyMatcher<std::regex_traits<char>, (bool)0, (bool)1, (bool)1>::()() const::__nul (demangled)
-char () std::__detail::_Executor<char const*(), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)0>::_M_is_line_terminator const (demangled)
-char () std::__detail::_Executor<char const*(), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)0>::_M_is_word const::__s (demangled)
-char () std::__detail::_Executor<char const*(), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)1>::_M_is_line_terminator const (demangled)
-char () std::__detail::_Executor<char const*(), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)1>::_M_is_word const::__s (demangled)
+char () std::__detail::_Executor<__gnu_cxx::__normal_iterator<char const*(), std::string>, std::allocator<std::sub_match<__gnu_cxx::__normal_iterator<char const*, std::string> > >, std::regex_traits<char>, (bool)0>::_M_is_line_terminator const (demangled)
+char () std::__detail::_Executor<__gnu_cxx::__normal_iterator<char const*(), std::string>, std::allocator<std::sub_match<__gnu_cxx::__normal_iterator<char const*, std::string> > >, std::regex_traits<char>, (bool)0>::_M_is_word const::__s (demangled)
+char () std::__detail::_Executor<__gnu_cxx::__normal_iterator<char const*(), std::string>, std::allocator<std::sub_match<__gnu_cxx::__normal_iterator<char const*, std::string> > >, std::regex_traits<char>, (bool)1>::_M_is_line_terminator const (demangled)
+char () std::__detail::_Executor<__gnu_cxx::__normal_iterator<char const*(), std::string>, std::allocator<std::sub_match<__gnu_cxx::__normal_iterator<char const*, std::string> > >, std::regex_traits<char>, (bool)1>::_M_is_word const::__s (demangled)
 char () std::__detail::_RegexTranslatorBase<std::regex_traits<char>, (bool)0, (bool)1>::_M_transform() const (demangled)
 char () std::__detail::_RegexTranslatorBase<std::regex_traits<char>, (bool)1, (bool)1>::_M_transform() const (demangled)
 char () std::__detail::_Scanner<char>::_M_eat_class() (demangled)
@@ -3824,8 +3831,8 @@ long
 long () __gnu_cxx::__normal_iterator<std::Catalog_info* const*(), std::vector<std::Catalog_info*, std::allocator<std::Catalog_info*> > >::+= (demangled)
 long () __gnu_cxx::__normal_iterator<std::Catalog_info**(), std::vector<std::Catalog_info*, std::allocator<std::Catalog_info*> > >::+ const (demangled)
 long () __gnu_cxx::__normal_iterator<std::Catalog_info**(), std::vector<std::Catalog_info*, std::allocator<std::Catalog_info*> > >::+= (demangled)
-long () std::__detail::_Executor<char const*(), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)0>::_M_lookahead (demangled)
-long () std::__detail::_Executor<char const*(), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)1>::_M_lookahead (demangled)
+long () std::__detail::_Executor<__gnu_cxx::__normal_iterator<char const*(), std::string>, std::allocator<std::sub_match<__gnu_cxx::__normal_iterator<char const*, std::string> > >, std::regex_traits<char>, (bool)0>::_M_lookahead (demangled)
+long () std::__detail::_Executor<__gnu_cxx::__normal_iterator<char const*(), std::string>, std::allocator<std::sub_match<__gnu_cxx::__normal_iterator<char const*, std::string> > >, std::regex_traits<char>, (bool)1>::_M_lookahead (demangled)
 long () std::basic_filebuf<char, std::char_traits<char> >::_M_set_buffer() (demangled)
 long () std::basic_filebuf<wchar_t, std::char_traits<wchar_t> >::_M_set_buffer() (demangled)
 long () std::basic_istream<wchar_t, std::char_traits<wchar_t> >::ignore() (demangled)
@@ -3938,7 +3945,6 @@ please implement MergeFrom for your type.
 plus-sign
 poll
 position
-posix_memalign
 posxyz
 prev
 print
@@ -4379,15 +4385,13 @@ std::__detail::_CharMatcher<std::regex_traits<char>, false, false> (demangled)
 std::__detail::_CharMatcher<std::regex_traits<char>, false, true> (demangled)
 std::__detail::_CharMatcher<std::regex_traits<char>, true, false> (demangled)
 std::__detail::_CharMatcher<std::regex_traits<char>, true, true> (demangled)
-std::__detail::_Executor<char const*(long), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)0>::_M_dfs::_Match_mode std::__detail::_Executor<char const*(long), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)0>::_M_dfs (demangled)
-std::__detail::_Executor<char const*(long), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)0>::_M_handle_alternative::_Match_mode std::__detail::_Executor<char const*(long), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)0>::_M_handle_alternative (demangled)
-std::__detail::_Executor<char const*(long), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)0>::_M_handle_backref::_Match_mode std::__detail::_Executor<char const*(long), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)0>::_M_handle_backref (demangled)
-std::__detail::_Executor<char const*(long), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)0>::_M_handle_repeat::_Match_mode std::__detail::_Executor<char const*(long), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)0>::_M_handle_repeat (demangled)
-std::__detail::_Executor<char const*(long), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)0>::_M_handle_word_boundary::_Match_mode std::__detail::_Executor<char const*(long), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)0>::_M_handle_word_boundary (demangled)
-std::__detail::_Executor<char const*(long), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)0>::_M_rep_once_more::_Match_mode std::__detail::_Executor<char const*(long), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)0>::_M_rep_once_more (demangled)
-std::__detail::_Executor<char const*(long), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)1>::_M_dfs::_Match_mode std::__detail::_Executor<char const*(long), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)1>::_M_dfs (demangled)
-std::__detail::_Executor<char const*(long), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)1>::_M_handle_backref::_Match_mode std::__detail::_Executor<char const*(long), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)1>::_M_handle_backref (demangled)
-std::__detail::_Executor<char const*(long), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)1>::_M_rep_once_more::_Match_mode std::__detail::_Executor<char const*(long), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)1>::_M_rep_once_more (demangled)
+std::__detail::_Executor<__gnu_cxx::__normal_iterator<char const*(long), std::string>, std::allocator<std::sub_match<__gnu_cxx::__normal_iterator<char const*, std::string> > >, std::regex_traits<char>, (bool)0>::_Match_mode std::__detail::_Executor<__gnu_cxx::__normal_iterator<char const*(long), std::string>, std::allocator<std::sub_match<__gnu_cxx::__normal_iterator<char const*, std::string> > >, std::regex_traits<char>, (bool)0>::_M_dfs (demangled)
+std::__detail::_Executor<__gnu_cxx::__normal_iterator<char const*(long), std::string>, std::allocator<std::sub_match<__gnu_cxx::__normal_iterator<char const*, std::string> > >, std::regex_traits<char>, (bool)0>::_Match_mode std::__detail::_Executor<__gnu_cxx::__normal_iterator<char const*(long), std::string>, std::allocator<std::sub_match<__gnu_cxx::__normal_iterator<char const*, std::string> > >, std::regex_traits<char>, (bool)0>::_M_handle_alternative (demangled)
+std::__detail::_Executor<__gnu_cxx::__normal_iterator<char const*(long), std::string>, std::allocator<std::sub_match<__gnu_cxx::__normal_iterator<char const*, std::string> > >, std::regex_traits<char>, (bool)0>::_Match_mode std::__detail::_Executor<__gnu_cxx::__normal_iterator<char const*(long), std::string>, std::allocator<std::sub_match<__gnu_cxx::__normal_iterator<char const*, std::string> > >, std::regex_traits<char>, (bool)0>::_M_handle_backref (demangled)
+std::__detail::_Executor<__gnu_cxx::__normal_iterator<char const*(long), std::string>, std::allocator<std::sub_match<__gnu_cxx::__normal_iterator<char const*, std::string> > >, std::regex_traits<char>, (bool)0>::_Match_mode std::__detail::_Executor<__gnu_cxx::__normal_iterator<char const*(long), std::string>, std::allocator<std::sub_match<__gnu_cxx::__normal_iterator<char const*, std::string> > >, std::regex_traits<char>, (bool)0>::_M_rep_once_more (demangled)
+std::__detail::_Executor<__gnu_cxx::__normal_iterator<char const*(long), std::string>, std::allocator<std::sub_match<__gnu_cxx::__normal_iterator<char const*, std::string> > >, std::regex_traits<char>, (bool)1>::_Match_mode std::__detail::_Executor<__gnu_cxx::__normal_iterator<char const*(long), std::string>, std::allocator<std::sub_match<__gnu_cxx::__normal_iterator<char const*, std::string> > >, std::regex_traits<char>, (bool)1>::_M_dfs (demangled)
+std::__detail::_Executor<__gnu_cxx::__normal_iterator<char const*(long), std::string>, std::allocator<std::sub_match<__gnu_cxx::__normal_iterator<char const*, std::string> > >, std::regex_traits<char>, (bool)1>::_Match_mode std::__detail::_Executor<__gnu_cxx::__normal_iterator<char const*(long), std::string>, std::allocator<std::sub_match<__gnu_cxx::__normal_iterator<char const*, std::string> > >, std::regex_traits<char>, (bool)1>::_M_handle_backref (demangled)
+std::__detail::_Executor<__gnu_cxx::__normal_iterator<char const*(long), std::string>, std::allocator<std::sub_match<__gnu_cxx::__normal_iterator<char const*, std::string> > >, std::regex_traits<char>, (bool)1>::_Match_mode std::__detail::_Executor<__gnu_cxx::__normal_iterator<char const*(long), std::string>, std::allocator<std::sub_match<__gnu_cxx::__normal_iterator<char const*, std::string> > >, std::regex_traits<char>, (bool)1>::_M_rep_once_more (demangled)
 std::__detail::_Prime_rehash_policy::_M_need_rehash(unsigned long, unsigned long, unsigned long) const (demangled)
 std::__detail::_Prime_rehash_policy::_M_next_bkt(unsigned long) const (demangled)
 std::__detail::_State<char>() std::__detail::_NFA<std::regex_traits<char> >::_M_insert_state() (demangled)
@@ -4516,8 +4520,6 @@ std::allocator<char> const&() std::__cxx11::basic_string<char, std::char_traits<
 std::allocator<char> const&() std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::complete object constructor() (demangled)
 std::allocator<char>&(unsigned long) std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_S_allocate(unsigned long) (demangled)
 std::allocator<std::Catalog_info* const>&() std::vector<std::Catalog_info*(), std::allocator<std::Catalog_info*> >::_S_max_size (demangled)
-std::allocator<std::regex_traits<char>::_RegexMask> const&() std::vector<std::regex_traits<char>::_RegexMask(), std::allocator<std::regex_traits<char>::_RegexMask> >::base object constructor (demangled)
-std::allocator<std::regex_traits<char>::_RegexMask> const&() std::vector<std::regex_traits<char>::_RegexMask(), std::allocator<std::regex_traits<char>::_RegexMask> >::complete object constructor (demangled)
 std::allocator<wchar_t> const&() std::__cxx11::basic_string<wchar_t, std::char_traits<wchar_t>, std::allocator<wchar_t> >::base object constructor() (demangled)
 std::allocator<wchar_t> const&() std::__cxx11::basic_string<wchar_t, std::char_traits<wchar_t>, std::allocator<wchar_t> >::complete object constructor() (demangled)
 std::allocator<wchar_t>&(unsigned long) std::__cxx11::basic_string<wchar_t, std::char_traits<wchar_t>, std::allocator<wchar_t> >::_S_allocate(unsigned long) (demangled)
@@ -7367,7 +7369,6 @@ void () std::__detail::_Compiler<std::regex_traits<char> >::_M_insert_character_
 void () std::__detail::_Compiler<std::regex_traits<char> >::_M_insert_character_class_matcher<(bool)1, (bool)1>() (demangled)
 void () std::__detail::_Compiler<std::regex_traits<char> >::_M_pop() (demangled)
 void () std::__detail::_Compiler<std::regex_traits<char> >::_M_quantifier() (demangled)
-void () std::__detail::_Compiler<std::regex_traits<char> >::_M_quantifier()()::{lambda()#0}::() const (demangled)
 void () std::__detail::_Compiler<std::regex_traits<char> >::_M_try_char() (demangled)
 void () std::__detail::_NFA<std::regex_traits<char> >::_M_insert_dummy() (demangled)
 void () std::__detail::_NFA<std::regex_traits<char> >::_M_insert_subexpr_begin() (demangled)
@@ -8145,7 +8146,6 @@ void google::protobuf::stringpiece_internal::StringPiece::remove_prefix(google::
 void*&() std::basic_istream<wchar_t, std::char_traits<wchar_t> >::>>() (demangled)
 vsnprintf
 vtable for 
-vtable for CCharBufferFormatOutputStream (demangled)
 vtable for __cxxabiv1::__class_type_info (demangled)
 vtable for __cxxabiv1::__forced_unwind (demangled)
 vtable for __cxxabiv1::__foreign_exception (demangled)

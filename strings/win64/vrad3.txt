@@ -31,6 +31,13 @@
   Ss=%d, Se=%d, Ah=%d, Al=%d
   Update Block Endpoints
   [GPU memory usage (WDDM): %s / %s (rendersystem: %s)]\n
+  farfield atlas %dx%dx%d (%d rows), %s resident\n
+  farfield bricks [%d, %d)...
+  farfield dilate pass %d: filled %lld samples\n
+  farfield dilate: %u samples still solid\n
+  farfield fireflies: clamped %u of %llu samples (%.3f%%) at %.1fx\n
+  farfield: %d bricks (%.1f MB) over budget, coarsening by %.3f\n
+  farfield: budget of %.1fmb exceeds the atlas limit, capping at %.1fmb\n
  !"#$%%&'()*+,-../0123456789:;<=>?@ABCDEFGHIJKLLMNOPQRSTUVWXY[]_`bdefhjlnprtvz|~
  !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`ABCDEFGHIJKLMNOPQRSTUVWXYZ{|}~
  !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
@@ -43,9 +50,11 @@
  Base Class Descriptor at (
  Class Hierarchy Descriptor'
  Complete Object Locator'
+ Done (%.2f seconds)\n
  Done.  Removed %i fireflies in %2.1fs\n
  LZWSetupDecode
  Type Descriptor'
+ \n_V_strncmp
  bn0s}Q_@r~aoPq
  clean
  delete
@@ -54,6 +63,7 @@
  receiver regenerated
  uncorrected errors
 !AxU
+!\n_V_strncpy
 """
 "%s": Bad mode
 "%s": Information lost writing value (%g) as (unsigned) RATIONAL
@@ -98,9 +108,9 @@ $timer
 %1x
 %6.2f %6.2f %6.2f %.3f %.3f %.3f\n
 %A Is
-%\tV_expd
 %d %d %d %d
 %d Known commands:\n
+%d mesh instances\n
 %d/%d (%.2f%%) Pixel charts aliased to other luxels.\n
 %dS
 %d_%lld_%x.dmx
@@ -134,6 +144,7 @@ $timer
 %s channel
 %s compression support is not configured
 %s encoding %s %d format %s %d %s\n
+%s mesh positions (%s verts), %s mesh indices (%s verts)\n
 %s(%d) : %s\n
 %s(%s) = %s
 %s.piw
@@ -200,9 +211,13 @@ $timer
 %s: wrong data type %d for "%s"; tag ignored
 %s: zlib error: %s
 %sEOL padding
+%s_%s_z%02i%s.exr
+%s_sh2_dc%s.exr
+%s_sh2_l1%s.exr
+%s_solid_z%02i.exr
 %suncompressed data
+&*kk<*kk<*kk<*kk<333?333?
 &Sgw
-'\tV_fclose
 (None)
 (null)
 *** Converter error - element "%s" already has a non-int attribute "%s"!\n
@@ -218,10 +233,8 @@ $timer
 *****************: Cannot call CAppSystemDict::AddSystems without initializing first!\n
 *LANGUAGE*
 *StO9>T
-+\tV_fflush
 , channels = 
 , height = 
-,,,
 ---- dmxconvert cmdline ----\n
 ---- dmxconvert output ----\n
 -con_logfile
@@ -232,8 +245,11 @@ $timer
 -indexlights
 -mips
 -noinvert
+-raw
 -repack
+-suffix
 -vulkan
+.  Done (%.2f seconds)\n
 ...
 ../src/shaders
 ..\content
@@ -261,7 +277,7 @@ $timer
 .CRT$XPZ
 .CRT$XTA
 .CRT$XTZ
-.\tV_fileno
+.\ng_Mathlib_GammaToLinearByteTable
 .bss
 .data
 .data$r
@@ -318,11 +334,8 @@ $timer
 1#QNAN
 1#SNAN
 16-byte data pool
-2\tV_fopenUTF8
 3>N;kU
-3\tV_fpclassifyd
 4-byte data pool
-4\tV_fprintf
 5;FJ$,XEK4<
 5J5J5J5J5J5J5J5J5J5J5J5J5J5J5J5Jx
 5sfm_v8
@@ -333,8 +346,11 @@ $timer
 8b  16-May-2010
 8b?fE
 ;J;J;J;J;J;J;J;J;J;J;J;J;J;J;J;Jx
+;\tV_atan2d
 <!-- DMXVersion
 <Iwi>y
+<\ng_pMemAlloc
+<\tV_atan2f
 <no failure reason set>
 <undefined>
 <unknown>
@@ -343,16 +359,18 @@ $timer
 >$jh?ckm
 >5UP?X
 >AYK?
+>\ng_pThreadPool
 >nkY?
 ?DmeChannelsClip
-?SSE and SSE2 are required.
+?EncodeBC7Blocks
 ?UNKNOWN
 ?UUUUUU
-?\tV_ftell
+?\tV_atof
 ?qBJ
 ?vtex
 ?ysB
 @Integer overflow in %s
+@\tV_atofloat32
 @^8U)zj
 A game file appears to be missing or corrupted.  In the Steam client go to the game's properties.  In the 'Local Files' tab select 'Verify Integrity of Game Cache' to have Steam double-check the game's installation.
 A>pP&
@@ -368,7 +386,6 @@ ATI1N
 ATI2N
 ATI_TC_CalculateBufferSize_Wrapper
 ATI_TC_ConvertTexture_Wrapper
-A\tV_fwrite
 AcquireSRWLockExclusive
 ActiveArea
 AddMatrixToMatrix
@@ -388,7 +405,6 @@ Alpha Fade Out Random
 Alpha Fade and Decay
 Alpha Random
 Alpha decoder initialization failed.
-AmbientCubes
 Ameliorate Block Compression Artifacts\n
 AmeliorateBlockCompressionArtefacts_FillBlocks(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightmap_ameliorate_bc_artefacts.cpp:435
 AmeliorateBlockCompressionArtefacts_SanitizeLineCharts(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightmap_ameliorate_bc_artefacts.cpp:526
@@ -433,7 +449,7 @@ AssetRenameSystem_001
 AssetSystem001
 AssetSystemTest001
 At marker 0x%02x, recovery action %d
-AtlasToVolumeTextureConversion(3537): Error! Unable to parse grid/slice count from volume atlas filename: %s\n
+AtlasToVolumeTextureConversion(3572): Error! Unable to parse grid/slice count from volume atlas filename: %s\n
 Attachments
 Attempted to add two format updaters with the same file format (%s)!\n
 Attempted to add two legacy updaters with the same file format (%s)!\n
@@ -461,11 +477,13 @@ BGRA8888_LINEAR
 BGRX8888
 BGRX8888_LINEAR
 BKbhTb~XBK!;
+B\tV_atoi
 Backing store not supported
 Bad code word
 BadFaxLines
-BakeLightProbeImage_Dilate(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightprobevolume.cpp:282
+BakeLightProbeImage_Dilate(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightprobevolume.cpp:424
 BakedLODBuilderMgr001
+BakedLightProbeImage_DilateIrradianceSH(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightprobevolume.cpp:554
 BaselineExposure
 BaselineNoise
 BaselineSharpness
@@ -513,10 +531,11 @@ C:\buildworker\csgo_rel_win64\build\src\public\tier0\tslist.h
 C:\buildworker\csgo_rel_win64\build\src\public\tier0\utlblockvector.h
 C:\buildworker\csgo_rel_win64\build\src\public\tier0\utldict.h
 C:\buildworker\csgo_rel_win64\build\src\public\tier0\utlrbtree.h
+C:\buildworker\csgo_rel_win64\build\src\tier2\utlstreambuffer.cpp
 C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3.h
+C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_farfieldprobevolume.cpp
 C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_gpu.cpp
 C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightmap_ameliorate_bc_artefacts.cpp
-C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightprobevolume.cpp
 CAppSystemDict::Connect( %-32s ) %8.3f msec
 CAppSystemDict::Init   ( %-32s ) %8.3f msec
 CAppSystemDict::LoadModuleInPath( %-23s ) %8.3f msec
@@ -656,11 +675,15 @@ CUtlMemoryBlockAllocator<struct TexelCoord_t,class CMemAllocAllocator>::AddPage
 CUtlMemoryBlockAllocator<struct UtlRBTreeNode_t<struct CDmElementSerializationDictionary::ElementInfo_t,int>,class CMemAllocAllocator>::AddPage
 CUtlMemoryBlockAllocator<struct VertexAndFace_t,class CMemAllocAllocator>::AddPage
 CUtlMemoryBlockAllocator<struct `public: virtual void __cdecl CVrad3Command_lightmap_ameliorate_block_compression_artefacts::Run(int,char const * *)'::`2'::PlacementRequest_t,class CMemAllocAllocator>::AddPage
-CUtlOctree
 CUtlRBTreeBase
 CUtlStreamBuffer does not support TEXT_BUFFER's use CUtlBuffer\n
+CUtlStreamBuffer::FileWrite
+CUtlStreamBuffer::GrowAllocatedSize
+CUtlStreamBuffer::StreamPutOverflow
 CUtlSymbolTableLarge element limit of %u exceeded\n
 CVisibilityMgr
+CVrad3Command_farfield_compute_bricks::Run
+CVrad3Command_farfield_write_atlas::Run
 CVrad3Command_lightmap_ameliorate_block_compression_artefacts::Run(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightmap_ameliorate_bc_artefacts.cpp:1088
 CVrad3Command_lightmap_ameliorate_block_compression_artefacts::Run(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightmap_ameliorate_bc_artefacts.cpp:1180
 CVrad3Command_lightmap_ameliorate_block_compression_artefacts::Run(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightmap_ameliorate_bc_artefacts.cpp:1280
@@ -679,27 +702,25 @@ CVrad3Command_lightmap_ameliorate_block_compression_artefacts::Run(), C:\buildwo
 CVrad3Command_lightmap_ameliorate_block_compression_artefacts::Run(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightmap_ameliorate_bc_artefacts.cpp:816
 CVrad3Command_lightmap_ameliorate_block_compression_artefacts::Run(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightmap_ameliorate_bc_artefacts.cpp:843
 CVrad3Command_lightmap_ameliorate_block_compression_artefacts::Run::<lambda_24>::operator ()(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightmap_ameliorate_bc_artefacts.cpp:1946
-CVrad3Command_lightmap_image_dilate_over_invalid_jfa::Run(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightmap.cpp:623
-CVrad3Command_lightmap_image_dilate_over_invalid_jfa::Run(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightmap.cpp:699
-CVrad3Command_lightmap_image_dilate_over_invalid_jfa::Run(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightmap.cpp:725
-CVrad3Command_lightmap_image_encode_ahd::Run(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightmap.cpp:1960
-CVrad3Command_lightmap_image_encode_sh2::Run(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightmap.cpp:2143
-CVrad3Command_lightmap_image_fill_gutters::Run(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightmap.cpp:778
-CVrad3Command_lightmap_image_filter_median::Run(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightmap.cpp:960
-CVrad3Command_lightmap_image_remove_fireflies::Run(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightmap.cpp:1109
-CVrad3Command_lpv_image_ambient_occlusion::Run(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightprobevolume.cpp:908
-CVrad3Command_lpv_image_median_filter::Run(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightprobevolume.cpp:1144
-CVrad3Command_lpv_image_median_filter_fog::Run(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightprobevolume.cpp:1304
-CVrad3Command_lpv_image_remove_fireflies::Run(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightprobevolume.cpp:970
-CVrad3Command_lpv_write_light_octree::Run
-CVrad3Command_path_trace_triangles_gpu::Run(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_gpu.cpp:3417
+CVrad3Command_lightmap_image_dilate_over_invalid_jfa::Run(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightmap.cpp:654
+CVrad3Command_lightmap_image_dilate_over_invalid_jfa::Run(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightmap.cpp:730
+CVrad3Command_lightmap_image_dilate_over_invalid_jfa::Run(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightmap.cpp:756
+CVrad3Command_lightmap_image_encode_ahd::Run(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightmap.cpp:1991
+CVrad3Command_lightmap_image_encode_sh2::Run(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightmap.cpp:2174
+CVrad3Command_lightmap_image_fill_gutters::Run(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightmap.cpp:809
+CVrad3Command_lightmap_image_filter_median::Run(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightmap.cpp:991
+CVrad3Command_lightmap_image_remove_fireflies::Run(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightmap.cpp:1140
+CVrad3Command_lpv_image_ambient_occlusion::Run(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightprobevolume.cpp:1133
+CVrad3Command_lpv_image_median_filter::Run(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightprobevolume.cpp:1563
+CVrad3Command_lpv_image_median_filter_fog::Run(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightprobevolume.cpp:1723
+CVrad3Command_path_trace_triangles_gpu::Run(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_gpu.cpp:4262
 CVrad3Command_sceneinfo_gpu::Run
-CVrad3Command_uber_weld::Run(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightmap.cpp:2528
-CVrad3Command_uber_weld::Run(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightmap.cpp:2635
-CVrad3Command_uber_weld::Run(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightmap.cpp:2653
-CVrad3Command_uber_weld::Run::<lambda_2>::operator ()(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightmap.cpp:2560
-CVrad3Command_uber_weld::Run::<lambda_5>::operator ()(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightmap.cpp:2599
-CVrad3LightmapImage::InitMip(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightmap.cpp:214
+CVrad3Command_uber_weld::Run(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightmap.cpp:2559
+CVrad3Command_uber_weld::Run(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightmap.cpp:2666
+CVrad3Command_uber_weld::Run(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightmap.cpp:2684
+CVrad3Command_uber_weld::Run::<lambda_2>::operator ()(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightmap.cpp:2591
+CVrad3Command_uber_weld::Run::<lambda_5>::operator ()(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightmap.cpp:2630
+CVrad3LightmapImage::InitMip(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightmap.cpp:245
 CZT
 Calculating hash for each luxel
 CalibrationIlluminant1
@@ -708,7 +729,7 @@ CameraCalibration1
 CameraCalibration2
 CameraSerialNumber
 Can not read scanlines from a tiled image
-Can't find '%s'
+Can't read '%s'
 Cannot flood fill light probe volume %d - no empty space near center\n
 Cannot flood fill light probe volume - invalid center\n
 Cannot handle different per-sample values for field "%s"
@@ -718,9 +739,13 @@ Cannot quantize to more than %d colors
 Cannot read TIFF header
 Cannot reconstruct lineOffset table in DecodeEXRImage.
 Cannot run executable from '_build_' intermediate dir: %s
+Cannot serialize kv3: %s\n
 Cannot transcode due to multiple use of quantization table %d
 Cannot unserialize a prefix element here (type "$prefix_element$")
 Cannot write directory, out of space
+Cannot write farfield atlas to '%s'\n
+Cannot write farfield solid mask to '%s'\n
+Cannot write kv3 to '%s'\n
 Caution: quantization tables are too coarse for baseline JPEG
 CellLength
 CellWidth
@@ -745,6 +770,7 @@ CloseHandle
 CloseLid
 CloseThreadpoolWork
 Closed temporary file %s
+Color Consistency Partition %d MinBright %f
 Color Fade
 Color Light From Control Point
 Color Random
@@ -767,6 +793,7 @@ Compression algorithm does not support random access
 Compression scheme %u %s decoding is not implemented
 Compression scheme %u %s encoding is not implemented
 Compute block %d/%d on GPU... 
+Compute farfield lighting, %d bricks...\n
 ComputeLightmapPackingGeometryCordonMask - too many triangles (%u)\n
 Computing single-pixel chart aliases
 ConVars
@@ -789,6 +816,7 @@ Could not write %s - no irradiance channel.\n
 Couldn't find routine '%s'\n
 Counting luxels sharing hash value
 Create In Hierarchy
+CreateDocument failed
 CreateFileW
 CreateInterface
 CreateThread
@@ -855,6 +883,7 @@ Deflate
 DeleteCriticalSection
 DemoUpconverterVersion001
 Dependencies
+Dho
 Did not find %s in VRAD3_PATH. Will not repack.\n
 Didn't expect more than one scan
 Didn't find enough free disk space to extend the pagefile: \n   Estimated %llumb CPU, %llumb GPU needed\n   Pagefile free %llumb, need ~%llumb additional, maximum %llumb disk free\n
@@ -902,6 +931,7 @@ DmeJoint
 DmeLight
 DmeLog
 DmeLogLayer
+DmeMaya
 DmeModel
 DmePackColorOperator
 DmeParticleOperator
@@ -949,6 +979,7 @@ DmeVertexData
 DocumentName
 Done (%.2f seconds)
 Done (%.2f seconds)\n
+Done.  Changed (%.1f%%) samples, %.1f seconds.\n
 Done\n
 DotRange
 Driver version below recommended version. Required: %d.%d.%d.%d Got: %d.%d.%d.%d
@@ -972,10 +1003,10 @@ EconItemToolModel_001
 EditGameClassProps
 Element uses unknown element type %s\n
 Empty JPEG image (DNL not supported)
+Empty gameinfo file '%s'
 Empty input file
 EmptyClipboard
 EncodeBC6Blocks
-EncodeBC7Blocks
 EncodePointer
 Encountered a circular dependency with library %s!\n
 Encountered an element array attribute '%s' while reading the prefix element
@@ -1009,16 +1040,23 @@ Error writing directory count
 Error writing directory link
 Error! Test image does not match validation image! Please check your math to ensure path tracing has proper convergence characteristics!\n
 Error: %s has too few argments, should be %s <compute_width> <compute_height> <compute_depth>\n
-Error: %s has too few argments, should be %s <filename> <nProbeIter>\n
+Error: %s has too few argments, should be %s <exr_prefix>\n
+Error: %s has too few argments, should be %s <filename> [-suffix <suffix>]\n
+Error: %s has too few argments, should be %s <filename> [exr_prefix]\n
 Error: %s has too few argments, should be %s <filename>\n
 Error: %s has too few argments, should be %s <ground_truth_filename>\n
 Error: %s has too few argments, should be %s <shadowsfile>\n
 Error: %s has too few argments, should be %s start_x start_y start_z end_x end_y end_z [minspp] [maxspp] [err]\n
 Error: %s has too few arguments, should be %s <ahdColorFilename> <ahdDirectionFilename>\n
 Error: %s has too few arguments, should be %s <filename>\n
+Error: %s has too few arguments, should be %s <megabytes>\n
 Error: %s has too few arguments, should be %s <width> <height> <blocksize>\n
 Error: %s has too few arguments, should be lightmap_image_write_convergence <filename>\n
 Error: %s has too many arguments, should be %s <dcFilename> [rFilename] [gFilename] [bFilename]\n
+Error: %s needs farfield_compute_bricks to run first\n
+Error: %s needs farfield_compute_lighting to run first\n
+Error: %s needs farfield_voxelize_bricks (or farfield_compute_lighting) to run first\n
+Error: %s takes [spp] [bricks_per_batch], the atlas is written by farfield_write_atlas now\n
 Error: %s\n
 Error: Failed to get absolute path for output directory.\n
 Error: Failed to make absolute path for %s\n
@@ -1026,8 +1064,13 @@ Error: Failed to write %s\n
 Error: Must specify -script <vrad3 script file>.\n
 Error: combo has too few argments, should be combo <D_COMBO> <value>\n
 Error: failed to read %s\n
+Error: farfield needs %d bricks but the atlas only holds %d (%d per row x %d rows)\n
+Error: farfield_box has too few arguments, should be farfield_box <minx> <miny> <minz> <maxx> <maxy> <maxz>\n
+Error: farfield_cells has too few arguments, should be farfield_cells <num_cells_x> <num_cells_y> <num_cells_z>\n
+Error: farfield_local_to_world has too few arguments, should be farfield_local_to_world <m00> ... <m23>\n
 Error: init_camera_from_scene has too few argments, should be init_camera_from_scene <camera_name>\n
 Error: invalid compute size %d x %d x %d\n
+Error: invalid farfield batch %d of %d bricks\n
 Error: lightmap_analyze_image_error failed to unserialize %s\n
 Error: lightmap_analyze_image_error has too few arguments, should be lightmap_analyze_image_error <reference_lightmap>\n
 Error: lightmap_image_write_ao has too few arguments, should be lightmap_image_write_ao <filename>\n
@@ -1046,6 +1089,7 @@ Error: lightmap_write_mean has too few arguments, should be lightmap_write_mean 
 Error: lpv_box has too few argments, should be lpv_box <minx> <miny> <minz> <maxx> <maxy> <maxz>\n
 Error: lpv_cells has too few argments, should be lpv_cells <num_cells_x> <num_cells_y> <num_cells_z>\n
 Error: lpv_local_to_world has too few argments, should be lpv_local_to_world <m00> ... <m23>\n
+Error: lpv_type has too few arguments, should be lpv_type cube|sh2\n
 Error: must run lightmap_image_gpu prior to lightmap_load_block_gpu\n
 Error: path_trace_triangles_gpu has too few arguments, should be path_trace_triangles_gpu <inputfile> <outputfile> <vertexcount> <minspt> <maxspt> <errortol> <smoothing>\n
 Error: path_trace_triangles_gpu_init has too few arguments, should be path_trace_triangles_gpu_init <maxtriangles>\n
@@ -1060,6 +1104,7 @@ Error: sort_test_gpu - failed at position %d got: %u expected: %u\n
 Error: sort_test_gpu - sort failed! bad payload at position %d got: %u expected: %u\n
 Error: test image and ground truth image are different sizes - %s is %dx%d, expected %dx%d\n
 Error: unknown type for lightmap_type '%s'\n
+Error: unknown type for lpv_type '%s'\n
 EstimateStripByteCounts
 EstimatedMaxCPUMemUsageMB
 EstimatedMinGPUMemUsageMB
@@ -1107,8 +1152,17 @@ Failed to parse channel info.\n
 Failed to read %s\n
 Failed to read attribute.\n
 Failed to unserialize lightmap image: %s\n
-Failed to write %s!\n
 Failed to write %s\n
+FarFieldCellSamples
+Farfield dilate...
+Farfield firefly filter at %.1fx...\n
+Farfield lighting: %d bricks, %d spp, %d per batch...\n
+Farfield median filter, pass %i...
+Farfield resampling borders...\n
+Farfield voxelizing %d bricks...\n
+FarfieldBricks
+FarfieldLuxels
+FarfieldSolidMask
 Fax3Decode1D
 Fax3Decode2D
 Fax3DecodeRLE
@@ -1149,20 +1203,20 @@ FloatBitMap_t::CopyFloatBitmap: Received NULL pointer!\n
 FloatBitMap_t::InitializeDummyRow
 FloatBitMap_t::LoadFromBuffer: Received improper buffer size, skipping!\n
 FloatBitMap_t::LoadFromBuffer: Unsupported color format, skipping!\n
-FloatBitMap_t::LoadFromFile(3729): Error! Slice %d format %dx%dx%d Attr(%d) != previous slices of %dx%d Attr(%d) for %s\n
+FloatBitMap_t::LoadFromFile(3764): Error! Slice %d format %dx%dx%d Attr(%d) != previous slices of %dx%d Attr(%d) for %s\n
 FloatBitMap_t::LoadFromFloatBitmap: Received improper bitmap size, skipping!\n
-FloatBitMap_t::LoadFromTGA(2678): Error loading %s\n
+FloatBitMap_t::LoadFromTGA(2713): Error loading %s\n
 FloatBitMap_t::WriteInMemoryEXRFast
 FloatBitMap_t::WriteInMemoryEXRFast(), C:\buildworker\csgo_rel_win64\build\src\bitmap\tinyexr_impl.cpp:170
-FloatBitMap_t::WriteToBuffer(1191): Unsupported color format "%s", skipping!\n
+FloatBitMap_t::WriteToBuffer(1195): Unsupported color format "%s", skipping!\n
 FloatBitMap_t::WriteToBuffer: Received improper buffer size %s (expecting %s), skipping!\n
-FloatBitMap_t::WriteToBufferBC7_bc7e(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2124
-FloatBitMap_t::WriteToBufferBC7_ispctexcomp(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2236
-FloatBitMap_t::WriteToBufferDXT_atitc(1249): Error! Temp texture is %d bytes when ATI's lib requires %d bytes!\n
-FloatBitMap_t::WriteToBufferDXT_atitc(1334): Unsupported output color format "%s"!\n
-FloatBitMap_t::WriteToBufferDXT_atitc(1343): Error! Allocated %llu bytes when ATI's lib requires %d bytes!\n
-FloatBitMap_t::WriteToBufferDXT_atitc(1351): Error %d returned from ATI_TC_ConvertTexture()!\n
-FloatBitMap_t::WriteToBufferETC(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2360
+FloatBitMap_t::WriteToBufferBC7_bc7e(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2146
+FloatBitMap_t::WriteToBufferBC7_ispctexcomp(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2258
+FloatBitMap_t::WriteToBufferDXT_atitc(1253): Error! Temp texture is %d bytes when ATI's lib requires %d bytes!\n
+FloatBitMap_t::WriteToBufferDXT_atitc(1338): Unsupported output color format "%s"!\n
+FloatBitMap_t::WriteToBufferDXT_atitc(1347): Error! Allocated %llu bytes when ATI's lib requires %d bytes!\n
+FloatBitMap_t::WriteToBufferDXT_atitc(1355): Error %d returned from ATI_TC_ConvertTexture()!\n
+FloatBitMap_t::WriteToBufferETC(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2382
 Floating point "Predictor" not supported with %d data format
 FlsAlloc
 FlsFree
@@ -1290,7 +1344,7 @@ Hammer temp export
 HammerMapLoader001
 HammerPathTraceWorld
 HelpSystem_001
-HelperLoadFbmByFileExtension(3509): Error! Unknown file type for %s\n
+HelperLoadFbmByFileExtension(3544): Error! Unknown file type for %s\n
 Horizontal differencing "Predictor" not supported with %d-bit samples
 HostComputer
 HostStateMgr001
@@ -1302,6 +1356,7 @@ IMAGE_FORMAT_NV12
 INF
 IPulseSystem_001
 ISO JBIG
+I\tV_cosf
 IgnoreChildProcesses
 IiGM>nw
 Illegal to wait on a task in a Windows Runtime STA
@@ -1420,7 +1475,6 @@ KeyValuesSystem
 Keys
 Knm
 L>ev
-LAYEREDGAMEROOT
 LCIDToLocaleName
 LCMapStringEx
 LCMapStringW
@@ -1430,9 +1484,12 @@ LOG_DEVELOPER
 LOG_DEVELOPER_CONSOLE
 LOG_GENERAL
 LPV Ambient Occlude... 
+LPV Encode SH2... 
+LPV Mark Occupied...
 LPV Median Filter Fog Indirect (%dx%d)... 
 LPV Median Filter Indirect (%dx%d)... 
-LPV Remove Fireflies (ratio=%f)...
+LPV Remove Fireflies AHD (ratio=%f)...
+LPV Remove Fireflies SH2 (ratio=%f)...
 LPV Resolve... 
 LPVSolidMask
 LZW
@@ -1447,7 +1504,6 @@ LZWDecodeCompat: Wrong length of decoded string: data probably corrupted at scan
 LZWPreDecode
 LZWSetupEncode
 Last two rows as percentage of total size %f %%:\n
-LayeredGameRoot
 LayeredOnMod
 LeM
 Leaking %i elements\n
@@ -1475,6 +1531,8 @@ LipsV
 Lkh9Fgc^A
 LoadEXRImageFromMemory failed! Error message: %s\n
 LoadFromInMemoryEXR( %s ) failed.\n
+LoadFromPSD: Unable to load %s: %s\n
+LoadFromPSD: Unable to read file %s\n
 LoadLibraryExW
 Loading %s block %d (%dx%d)... 
 Loading %s... 
@@ -1509,6 +1567,8 @@ LoggingSystem_ResetBackdoorLoggingState
 LoggingSystem_ResetCurrentLoggingState
 LoggingSystem_SetChannelVerbosity
 LoggingSystem_UnregisterLoggingListener
+LpvImageRemoveFirefliesAmbientCube(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightprobevolume.cpp:1367
+LpvImageRemoveFirefliesSH2(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3_lightprobevolume.cpp:1206
 LuxelChartIDs.vtex
 M8MF
 MATCHFRAMEWORK_001
@@ -1533,6 +1593,14 @@ MapListService_001
 MapNode
 Mar
 March
+MarkOccupiedGrids
+MarkOccupiedIndices
+MarkOccupiedInstanceTriangleOffsets
+MarkOccupiedInstances
+MarkOccupiedMask
+MarkOccupiedMaskCopy
+MarkOccupiedVertices
+MarkOccupiedVoxelsGPU: a single mesh exceeds the voxelize budget (%u v, %u i) - raise LPV_MARK_OCCUPIED_VERTEX/INDEX_BUDGET_BYTES\n
 MaskedAreas
 Match Particle Velocities
 MaterialSystem2
@@ -1610,6 +1678,7 @@ NetworkSystemVersion001
 Newline in string literal
 No closing */ before end of file
 No display adapters found. Falling back to software rasterizer. (nAdapterCount=%d, nAdapter=%d)\n
+No game directory specified
 No know mod!
 No space for "TransferFunction" tag
 No space for LZW code table
@@ -1657,6 +1726,7 @@ OIDN_DEVICE_TYPE_UNKOWN
 OYX
 OZQ%
 OZw3(?
+O\tV_expd
 Obtained EMS handle %u
 Obtained XMS handle %u
 Oct
@@ -1709,12 +1779,14 @@ PanoramaUIClient001
 PanoramaUIEngine001
 ParallelForSharedCode
 ParseEXRHeaderFromMemory failed! Error message: %s\n
+ParseImageDataSection failed
 Particle Configuration File
 ParticleSystemMgr003
 Path Trace Triangles... spp=[%i...%i], err=%.02f
 Path Tracing
 PathRemoveFileSpecA
 Payload
+Pdu"
 Photometric tag is missing, assuming data is YCbCr
 Photometric tag value assumed incorrect, assuming data is YCbCr instead of RGB
 PhotometricInterpretation
@@ -1776,15 +1848,17 @@ Plat_SetActiveWindow
 Plat_SetDesktopNotifyIconPath
 Plat_SetEnv
 Plat_SetFullscreenMinimizeOnFocusLoss
-Plat_SetGameDirectories
+Plat_SetGameDirectory
 Plat_SetWindowIcon
 Plat_ShutdownCOM
 Plat_TickDiffMilliSecF
+Plat_TickDiffSecF
 Plat_UnloadModule
 Plat_UnloadSDL
 Plat_VirtualAlloc
 Plat_VirtualFree
 Plat_WindowToOsSpecificHandle
+Pls"
 Pmg
 Position Along Path Random
 Position Along Path Sequential
@@ -1813,8 +1887,10 @@ Procedural
 ProcessBC6HResults
 PropertyEditorSystem_001
 Q2XXR
+Q\tV_fclose
 Qkkbal
 Quantization table 0x%02x was not defined
+Quantize to %d Values
 Quantizing to %d = %d*%d*%d colors
 Quantizing to %d colors
 QueryPerformanceCounter
@@ -1943,6 +2019,7 @@ RtlPcToFileHeader
 RtlUnwind
 RtlUnwindEx
 RtlVirtualUnwind
+RtxSampledRenderResourcesDescSet
 Rtx_Sampled_Renderer_Complete
 Run
 SAXPY2
@@ -1966,9 +2043,11 @@ SGILogEncode
 SHADER_SOURCE
 SHADER_SOURCE_MOD
 SHADER_SOURCE_ROOT
+SHARC: allocated %u entries (%.1fmb)\n
 SKyu
 SMaxSampleValue
 SMinSampleValue
+SSE and SSE2 are required.
 Sample Validation and Fixup
 SampleFormat
 SamplesPerPixel
@@ -2017,6 +2096,7 @@ ShadowScale
 ShowInsufficientPageFileMessageBox
 ShowLowAvailableVirtualMemoryMessageBox
 SleepConditionVariableSRW
+SmartPropsSystem_001
 Smoothing not supported with nonstandard sampling ratios
 Software
 SoundOpSystem001
@@ -2046,6 +2126,7 @@ StatsService_001
 SteamAudio001
 StereoFlip
 StoNits
+StreamPutOverflow
 StripByteCounts
 StripOffsets
 SubIFD
@@ -2054,7 +2135,6 @@ SubmitThreadpoolWork
 Sun
 Sunday
 Suspension not allowed here
-Sxz
 Symbol table:  %d entries %llu bytes\n
 System
 TIFFAppendToStrip
@@ -2148,6 +2228,7 @@ UMx
 USER32.dll
 UUUUUU
 UVWQ8888
+U\tV_fflush
 Unable find required entry points in %s\n
 Unable to Start Game
 Unable to create render device for %s!\n
@@ -2175,6 +2256,7 @@ Unknown data format %d for LogLuv compression
 Unknown encoding %d for LogLuv compression
 Unknown exception
 Unknown variable '%s'\n
+Unmodified
 UnmountAddon: Failed to find %s search path.\n
 Unrecognized component IDs %d %d %d, assuming YCbCr
 Unserialize
@@ -2191,7 +2273,6 @@ Unserialize: Unexpected format '%s' reading file '%s' - expected format '%s'\n
 Unsupported ETC image format %d.\n
 Unsupported JPEG data precision %d
 Unsupported JPEG process: SOF type 0x%02x
-Unsupported PSD color mode!\n
 Unsupported color conversion request
 Unsupported marker type 0x%02x
 UokOP
@@ -2268,7 +2349,6 @@ V_StringToVector2D
 V_StringToVector4D
 V_StringToVectorWS
 V_StripSurroundingQuotes
-V_UnqualifiedFileName
 Validation succeeded - test image matches %s\n
 Valve Map File
 Vc0a
@@ -2288,14 +2368,18 @@ Video
 Virtual array controller messed up
 Virual volume texture file
 VisBuilder_001
+Voxelize Farfield Probe Volume...
 Voxelize Light Probe Volume...
 Vrad3-VertexLight
+Vrad3-Voxelize
 Vrad3_001
 WARNING: Trying to create a CRenderContextPtr without a valid context.\n
 WARNING: You are trying to mount an addon (%s) in tools mode that is different from the addon tools mode was launched with (%s).\n
 WARNING: unable to remove '%s'\n
 WaitForSingleObjectEx
 WakeAllConditionVariable
+Warning: farfield lighting with no bricks allocated\n
+Warning: farfield voxelization with no bricks allocated\n
 Warning: thumbnail image size does not match data length %u
 Warning: unknown JFIF revision number %d.%02d
 Wed
@@ -2316,8 +2400,9 @@ Write results to lightmap image...
 Write to EMS failed
 Write to XMS failed
 WriteConsoleW
+WriteFarfieldBrickSolidEXR
 WriteFile
-WriteLightmapImage(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3.h:845
+WriteLightmapImage(), C:\buildworker\csgo_rel_win64\build\src\utils\vrad3\vrad3.h:896
 Writing %s
 Writing %s... \n
 Wrong JPEG library version: library is %d, caller expects %d
@@ -2325,6 +2410,8 @@ Wrote %s (%dx%dx%d).\n
 Wrote %s (%i fireflies)\n
 Wrote %s.\n
 Wrote %s\n
+Wrote %s_solid_zNN.exr\n
+Wrote %s_{%s, %s, %s, %s}_zNN%s.exr (%d slices)\n
 Wrote image to %s\n
 Wrote test image to %s\n
 XClipPathUnits
@@ -2332,6 +2419,7 @@ XMLPacket
 XPosition
 XResolution
 XYZ, Luv
+X\tV_fileno
 XhL
 XsBI
 YCbCrCoefficients
@@ -2360,27 +2448,44 @@ Zjz\v
 [%d] Pushing undo '%s'\n
 [%s] Forced dmxconvert - Finished [%s] in %0.2f secs. Please re-save or upconvert this asset!\n
 [aOni*{
+\\tV_fopenUTF8
 \f\f\f
 \n# Faces\n
 \n# Lightmap UVs\n
 \n# Vertices\n
+\n***ASSERT FAILED*** Image data section has too many channels (%d).
+\n***ASSERT FAILED*** Pointer is null.
+\n***ERROR*** [DecompressRle] Malformed RLE data encountered
+\n***ERROR*** [ImageData] Unhandled bits per channel: %u.
+\n***ERROR*** [ImageData] Unhandled compression type %u.
+\n***ERROR*** [PSD] Document does not contain an image data section.
+\n***ERROR*** [PsdExtract] File seems to be corrupt, reserved bytes are not zero.
+\n***ERROR*** [PsdExtract] File seems to be corrupt, signature does not match "8BPS".
+\n***ERROR*** [PsdExtract] File seems to be corrupt, version does not match 1 or 2.
 \nFailed to read %s - %s\n
 \nIHDRPLTEIDATIENDtRNScHRMgAMAiCCPsBITsRGBtEXtzTXtiTXtbKGDhISTpHYssPLTtIMEoFFseXIf
 \n\n\n
+\n_V_MakeAbsolutePath
+\n_V_StringAfterPrefix
+\n_V_StringAfterPrefixCaseSensitive
+\n_V_strEndsWith
 \ndummyfilename.tif
-\r\ng_pThreadPool
 \r\r\r\r\r\r
 \rmj>zjZ
 \rwhr
 \t%s: %.2fs\n
 \t@@@@@@@@@@@@@@@@{N{N{N{N{N{N{N{N
 \tNAN encountered in element '%s' guid %s attribute '%s'!\n
-\tV_atan2d
-\tV_atan2f
-\tV_atof
-\tV_atofloat32
-\tV_atoi
-\tV_cosf
+\tV_UnqualifiedFileName
+\tV_log2f
+\tV_logd
+\tV_logf
+\tV_powd
+\tV_powf
+\tV_qsort
+\tV_qsort_s
+\tV_roundf
+\tV_sincosf
 \tV_snprintf
 \tV_sscanf
 \tV_sscanf_s
@@ -2391,19 +2496,13 @@ Zjz\v
 \tWorldsize_Init
 \t\t\t
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t_V_MakeAbsolutePath
-\t_V_StringAfterPrefix
-\t_V_StringAfterPrefixCaseSensitive
-\t_V_strEndsWith
-\t_V_strncmp
-\t_V_strncpy
 \tcQr
-\tg_Mathlib_GammaToLinearByteTable
 \tkE>fvw
-\v\ng_pMemAlloc
 \v\v\v
 ] Done (%.2f seconds)
 ]Gsfm_v2
+]\tV_fpclassifyd
+^\tV_fprintf
 ^oEZ_
 _TIFFMergeFieldInfo
 _TIFFSetupFieldInfo
@@ -2438,7 +2537,6 @@ _root_keyname
 _volumeatlas_
 _wjb
 `RTTI
-`\tV_log2f
 `anonymous namespace'
 `copy constructor closure'
 `default constructor closure'
@@ -2474,17 +2572,18 @@ _wjb
 `vector vbase copy constructor iterator'
 `vftable'
 `virtual displacement map'
-a\tV_logd
 abcdefghijklmnopqrstuvwxyz
 acos
 activeBookmarkSet
 addoninfo.txt
 addonroot
-addonroot_language
+addonroot_audiolanguage
+addonroot_uilanguage
 address family not supported
 address in use
 address not available
 ahd
+allocation
 alpha
 alpha_fade
 alpha_fade_in_random
@@ -2492,6 +2591,7 @@ alpha_fade_out_random
 alpha_random
 already connected
 ambientOcclusionMode
+ambient_cube
 ambientcolor2
 ambientcolor3
 angle
@@ -2528,7 +2628,6 @@ autoTime
 auto_time
 axis
 axisSystem
-b\tV_logf
 back to tangent space
 background
 backgroundMap
@@ -2567,6 +2666,7 @@ binary_array
 binary_seqids
 binary_v
 bind
+bitmap output needs an 8 bit document
 blendColor
 blendMaxPathOpacity
 blendTransition
@@ -2585,10 +2685,10 @@ bool Assert_ConditionFailed(_AssertCompileTimeConstantStruct_t const&, char cons
 bool GetGameInfoBool(char const*, bool) (demangled)
 bool LoadKV3(KeyValues3*, CUtlString*, char const*, KV3ID_t const&, char const*, unsigned int) (demangled)
 bool LoadKV3FromFile(CKV3Arena*, CUtlString*, char const*, char const*, KV3ID_t const&, unsigned int) (demangled)
-bool LoadKV3FromFile(KeyValues3*, CUtlString*, char const*, char const*, KV3ID_t const&, unsigned int) (demangled)
 bool LoadKV3FromKV1Text_Translated(KeyValues3*, CUtlString*, char const*, KV1TextEscapeBehavior_t, KV1ToKV3Translation_t const*, int, char const*, bool, unsigned int) (demangled)
 bool LooksLikeKV3TextData(void const*, int, KV3ID_t*, char*, int) (demangled)
 bool Plat_RedirectThisProcessStdioToFile(int, unsigned int) (demangled)
+bool SaveKV3(KV3ID_t const&, KV3ID_t const&, KeyValues3const*, CUtlString*, CUtlBuffer*, unsigned int) (demangled)
 bool log
 bool_array
 boolean
@@ -2600,6 +2700,7 @@ box_mins
 boxproject_maxs
 boxproject_mins
 branch gameinfo
+bricks
 brightness
 brightness_units
 brightnessscale
@@ -2622,7 +2723,12 @@ cannotgravitypunt
 castshadows
 ceil
 cellConfiguration
+cell_count
+cell_descriptors
 cellsNodeID
+cells_x
+cells_y
+cells_z
 channel
 channels
 char const* V_stristr_fast(char const*, char const*) (demangled)
@@ -2793,9 +2899,8 @@ class CParallelProcessLauncher::CParallelLambdaJob<`public: virtual void CVrad3C
 class CParallelProcessLauncher::CParallelLambdaJob<`public: virtual void CVrad3Command_lightmap_image_filter_median::Run(int, char const**)'::`2'::<lambda_1> > (demangled)
 class CParallelProcessLauncher::CParallelLambdaJob<`public: virtual void CVrad3Command_lightmap_image_remove_fireflies::Run(int, char const**)'::`4'::<lambda_1> > (demangled)
 class CParallelProcessLauncher::CParallelLambdaJob<`public: virtual void CVrad3Command_lpv_image_ambient_occlusion::Run(int, char const**)'::`2'::<lambda_2> > (demangled)
-class CParallelProcessLauncher::CParallelLambdaJob<`public: virtual void CVrad3Command_lpv_image_median_filter::Run(int, char const**)'::`7'::<lambda_1> > (demangled)
+class CParallelProcessLauncher::CParallelLambdaJob<`public: virtual void CVrad3Command_lpv_image_median_filter::Run(int, char const**)'::`10'::<lambda_1> > (demangled)
 class CParallelProcessLauncher::CParallelLambdaJob<`public: virtual void CVrad3Command_lpv_image_median_filter_fog::Run(int, char const**)'::`2'::<lambda_1> > (demangled)
-class CParallelProcessLauncher::CParallelLambdaJob<`public: virtual void CVrad3Command_lpv_image_remove_fireflies::Run(int, char const**)'::`6'::<lambda_1> > (demangled)
 class CParallelProcessLauncher::CParallelLambdaJob<`public: virtual void CVrad3Command_path_trace_triangles_gpu::Run(int, char const**)'::`29'::<lambda_3> > (demangled)
 class CParallelProcessLauncher::CParallelLambdaJob<`public: virtual void CVrad3Command_uber_weld::Run(int, char const**)'::`33'::<lambda_1> > (demangled)
 class CParallelProcessLauncher::CParallelLambdaJob<`public: virtual void CVrad3Command_uber_weld::Run(int, char const**)'::`34'::<lambda_9> > (demangled)
@@ -2804,6 +2909,9 @@ class CParallelProcessLauncher::CParallelLambdaJob<`public: void CVrad3LightmapI
 class CParallelProcessLauncher::CParallelLambdaJob<`void AmeliorateBlockCompressionArtefacts_FillBlocks(int)'::`2'::<lambda_1> > (demangled)
 class CParallelProcessLauncher::CParallelLambdaJob<`void AmeliorateBlockCompressionArtefacts_SanitizeLineCharts(void)'::`2'::<lambda_1> > (demangled)
 class CParallelProcessLauncher::CParallelLambdaJob<`void BakeLightProbeImage_Dilate(void)'::`2'::<lambda_1> > (demangled)
+class CParallelProcessLauncher::CParallelLambdaJob<`void BakedLightProbeImage_DilateIrradianceSH(void)'::`2'::<lambda_1> > (demangled)
+class CParallelProcessLauncher::CParallelLambdaJob<`void LpvImageRemoveFirefliesAmbientCube(float, char const*)'::`6'::<lambda_1> > (demangled)
+class CParallelProcessLauncher::CParallelLambdaJob<`void LpvImageRemoveFirefliesSH2(float, char const*)'::`4'::<lambda_2> > (demangled)
 class CParallelProcessLauncher::CParallelLambdaJob<`void ParallelFor<1, `bool ImageLoader::ConvertFromBC6h<BGRA8888_t, 1>(unsigned char const*, BGRA8888_t*, int, int)'::`2'::<lambda_1> >(int, int, char const*, `bool ImageLoader::ConvertFromBC6h<BGRA8888_t, 1>(unsigned char const*, BGRA8888_t*, int, int)'::`2'::<lambda_1>&&, int, int, JobPriority_t)'::`12'::<lambda_1> > (demangled)
 class CParallelProcessLauncher::CParallelLambdaJob<`void ParallelFor<1, `bool ImageLoader::ConvertFromBC6h<RGBA16161616F_t, 0>(unsigned char const*, RGBA16161616F_t*, int, int)'::`2'::<lambda_1> >(int, int, char const*, `bool ImageLoader::ConvertFromBC6h<RGBA16161616F_t, 0>(unsigned char const*, RGBA16161616F_t*, int, int)'::`2'::<lambda_1>&&, int, int, JobPriority_t)'::`12'::<lambda_1> > (demangled)
 class CParallelProcessLauncher::CParallelLambdaJob<`void ParallelFor<1, `bool ImageLoader::ConvertFromBC6h<RGBA32323232F_t, 0>(unsigned char const*, RGBA32323232F_t*, int, int)'::`2'::<lambda_1> >(int, int, char const*, `bool ImageLoader::ConvertFromBC6h<RGBA32323232F_t, 0>(unsigned char const*, RGBA32323232F_t*, int, int)'::`2'::<lambda_1>&&, int, int, JobPriority_t)'::`12'::<lambda_1> > (demangled)
@@ -2812,7 +2920,12 @@ class CParallelProcessLauncher::CParallelLambdaJob<`void ParallelFor<1, `bool Im
 class CParallelProcessLauncher::CParallelLambdaJob<`void ParallelFor<1, `bool ImageLoader::ConvertFromBC7<RGBA8888_t>(unsigned char const*, RGBA8888_t*, int, int)'::`2'::<lambda_1> >(int, int, char const*, `bool ImageLoader::ConvertFromBC7<RGBA8888_t>(unsigned char const*, RGBA8888_t*, int, int)'::`2'::<lambda_1>&&, int, int, JobPriority_t)'::`12'::<lambda_1> > (demangled)
 class CParallelProcessLauncher::CParallelLambdaJob<`void ParallelFor<1, `protected: bool FloatBitMap_t::WriteToBufferBC6H_ispctexcomp(void*, uint64_t, FloatBitmapEncodeSettings_t const&) const'::`12'::<lambda_1> >(int, int, char const*, `protected: bool FloatBitMap_t::WriteToBufferBC6H_ispctexcomp(void*, uint64_t, FloatBitmapEncodeSettings_t const&) const'::`12'::<lambda_1>&&, int, int, JobPriority_t)'::`12'::<lambda_1> > (demangled)
 class CParallelProcessLauncher::CParallelLambdaJob<`void ParallelFor<1, `public: `protected: bool FloatBitMap_t::WriteToBufferBC6H_ispctexcomp_highest_quality_tweaked(void*, uint64_t) const'::`2'::<lambda_2>::operator()(void) const'::`2'::<lambda_1> >(int, int, char const*, `public: `protected: bool FloatBitMap_t::WriteToBufferBC6H_ispctexcomp_highest_quality_tweaked(void*, uint64_t) const'::`2'::<lambda_2>::operator()(void) const'::`2'::<lambda_1>&&, int, int, JobPriority_t)'::`12'::<lambda_1> > (demangled)
+class CParallelProcessLauncher::CParallelLambdaJob<`void ParallelFor<1, `public: virtual void CVrad3Command_farfield_dilate::Run(int, char const**)'::`9'::<lambda_2> >(int, int, char const*, `public: virtual void CVrad3Command_farfield_dilate::Run(int, char const**)'::`9'::<lambda_2>&&, int, int, JobPriority_t)'::`12'::<lambda_1> > (demangled)
+class CParallelProcessLauncher::CParallelLambdaJob<`void ParallelFor<1, `public: virtual void CVrad3Command_farfield_filter_fireflies::Run(int, char const**)'::`2'::<lambda_4> >(int, int, char const*, `public: virtual void CVrad3Command_farfield_filter_fireflies::Run(int, char const**)'::`2'::<lambda_4>&&, int, int, JobPriority_t)'::`12'::<lambda_1> > (demangled)
+class CParallelProcessLauncher::CParallelLambdaJob<`void ParallelFor<1, `public: virtual void CVrad3Command_farfield_median_filter::Run(int, char const**)'::`6'::<lambda_1> >(int, int, char const*, `public: virtual void CVrad3Command_farfield_median_filter::Run(int, char const**)'::`6'::<lambda_1>&&, int, int, JobPriority_t)'::`12'::<lambda_1> > (demangled)
+class CParallelProcessLauncher::CParallelLambdaJob<`void ParallelFor<1, `public: virtual void CVrad3Command_farfield_resample_borders::Run(int, char const**)'::`2'::<lambda_2> >(int, int, char const*, `public: virtual void CVrad3Command_farfield_resample_borders::Run(int, char const**)'::`2'::<lambda_2>&&, int, int, JobPriority_t)'::`12'::<lambda_1> > (demangled)
 class CParallelProcessLauncher::CParallelLambdaJob<`void ParallelFor<1, `public: void CSOAContainer::IterateRows<`public: void FloatBitMap_t::TransformRGB<`void AnalyzeImageError(char const*, FloatBitMap_t&, FloatBitMap_t&)'::`2'::<lambda_1> >(`void AnalyzeImageError(char const*, FloatBitMap_t&, FloatBitMap_t&)'::`2'::<lambda_1>&&)'::`2'::<lambda_1> >(`public: void FloatBitMap_t::TransformRGB<`void AnalyzeImageError(char const*, FloatBitMap_t&, FloatBitMap_t&)'::`2'::<lambda_1> >(`void AnalyzeImageError(char const*, FloatBitMap_t&, char const*)'::`2'::<lambda_1>&&)'::`2'::<lambda_1>&&, bool)'::`9'::<lambda_1> >(int, int, char const*, `public: void CSOAContainer::IterateRows<`public: void FloatBitMap_t::TransformRGB<`void AnalyzeImageError(char const*, FloatBitMap_t&, FloatBitMap_t&)'::`2'::<lambda_1> >(`void AnalyzeImageError(char const*, FloatBitMap_t&, FloatBitMap_t&)'::`2'::<lambda_1>&&)'::`2'::<lambda_1> >(`public: void FloatBitMap_t::TransformRGB<`void AnalyzeImageError(char const*, FloatBitMap_t&, FloatBitMap_t&)'::`2'::<lambda_1> >(`void AnalyzeImageError(char const*, FloatBitMap_t&, FloatBitMap_t&)'::`2'::<lambda_1>&&)'::`2'::<lambda_1>&&, bool)'::`9'::<lambda_1>&&, int, int, JobPriority_t)'::`12'::<lambda_1> > (demangled)
+class CParallelProcessLauncher::CParallelLambdaJob<`void ParallelFor<1, `void AllocateFarfieldBricks(CUtlGrid const&, CUtlVector<unsigned char, int, CUtlVectorMemory_Growable<unsigned char, int, 0> > const&, CUtlVector<FarfieldBrick_t, int, CUtlVectorMemory_Growable<FarfieldBrick_t, int, 0> >&)'::`2'::<lambda_3> >(int, int, char const*, `void AllocateFarfieldBricks(CUtlGrid const&, CUtlVector<unsigned char, int, CUtlVectorMemory_Growable<unsigned char, int, 0> > const&, CUtlVector<FarfieldBrick_t, int, CUtlVectorMemory_Growable<FarfieldBrick_t, int, 0> >&)'::`2'::<lambda_3>&&, int, int, JobPriority_t)'::`12'::<lambda_1> > (demangled)
 class CParallelProcessLauncher::CParallelLambdaJob<`void WriteLightmapImage<`public: virtual void CVrad3Command_lightmap_image_show_valid_luxels::Run(int, char const**)'::`2'::<lambda_1> >(char const*, CVrad3LightmapImage const&, FBMAttributeMask_t, `public: virtual void CVrad3Command_lightmap_image_show_valid_luxels::Run(int, char const**)'::`2'::<lambda_1>)'::`2'::<lambda_1> > (demangled)
 class CParallelProcessLauncher::CParallelLambdaJob<`void WriteLightmapImage<`public: virtual void CVrad3Command_lightmap_image_write_ahd::Run(int, char const**)'::`2'::<lambda_1> >(char const*, CVrad3LightmapImage const&, FBMAttributeMask_t, `public: virtual void CVrad3Command_lightmap_image_write_ahd::Run(int, char const**)'::`2'::<lambda_1>)'::`2'::<lambda_1> > (demangled)
 class CParallelProcessLauncher::CParallelLambdaJob<`void WriteLightmapImage<`public: virtual void CVrad3Command_lightmap_image_write_ao::Run(int, char const**)'::`2'::<lambda_1> >(char const*, CVrad3LightmapImage const&, FBMAttributeMask_t, `public: virtual void CVrad3Command_lightmap_image_write_ao::Run(int, char const**)'::`2'::<lambda_1>)'::`2'::<lambda_1> > (demangled)
@@ -2825,6 +2938,7 @@ class CParallelProcessLauncher::CParallelLambdaJob<`void WriteLightmapImage<`pub
 class CParallelProcessLauncher::CParallelLambdaJob<`void WriteLightmapImage<`public: virtual void CVrad3Command_lightmap_image_write_tangent::Run(int, char const**)'::`2'::<lambda_1> >(char const*, CVrad3LightmapImage const&, FBMAttributeMask_t, `public: virtual void CVrad3Command_lightmap_image_write_tangent::Run(int, char const**)'::`2'::<lambda_1>)'::`2'::<lambda_1> > (demangled)
 class CParallelProcessLauncher::CParallelLambdaJob<`void WriteLightmapImage<`public: void CVrad3LightmapImage::Serialize(char const*)'::`7'::<lambda_3> >(char const*, CVrad3LightmapImage const&, FBMAttributeMask_t, `public: void CVrad3LightmapImage::Serialize(char const*)'::`7'::<lambda_3>)'::`2'::<lambda_1> > (demangled)
 class CPostConnectCallback (demangled)
+class CPsdBufferFile (demangled)
 class CRefCountServiceBase<CRefMT> (demangled)
 class CRefCounted1<IRefCounted, CRefCountServiceBase<CRefMT> > (demangled)
 class CRtxSampledRenderer (demangled)
@@ -2990,11 +3104,26 @@ class CVrad3Command_determinism_check_done (demangled)
 class CVrad3Command_determinism_check_record (demangled)
 class CVrad3Command_determinism_check_replay (demangled)
 class CVrad3Command_exit (demangled)
+class CVrad3Command_farfield_box (demangled)
+class CVrad3Command_farfield_cells (demangled)
+class CVrad3Command_farfield_compute_bricks (demangled)
+class CVrad3Command_farfield_compute_lighting (demangled)
+class CVrad3Command_farfield_dilate (demangled)
+class CVrad3Command_farfield_filter_fireflies (demangled)
+class CVrad3Command_farfield_local_to_world (demangled)
+class CVrad3Command_farfield_max_memory (demangled)
+class CVrad3Command_farfield_median_filter (demangled)
+class CVrad3Command_farfield_resample_borders (demangled)
+class CVrad3Command_farfield_voxelize_bricks (demangled)
+class CVrad3Command_farfield_write_atlas (demangled)
+class CVrad3Command_farfield_write_brick_voxelization (demangled)
+class CVrad3Command_farfield_write_cell_voxelization (demangled)
 class CVrad3Command_gpu_init (demangled)
 class CVrad3Command_lightmap_ameliorate_block_compression_artefacts (demangled)
 class CVrad3Command_lightmap_analyze_image_error (demangled)
 class CVrad3Command_lightmap_compute_block_gpu (demangled)
 class CVrad3Command_lightmap_export_packing_geometry_to_obj (demangled)
+class CVrad3Command_lightmap_free_memory (demangled)
 class CVrad3Command_lightmap_image_consolidate_small_charts (demangled)
 class CVrad3Command_lightmap_image_dilate_over_invalid_jfa (demangled)
 class CVrad3Command_lightmap_image_encode_ahd (demangled)
@@ -3028,7 +3157,9 @@ class CVrad3Command_lpv_cells (demangled)
 class CVrad3Command_lpv_compute_block_fog_gpu (demangled)
 class CVrad3Command_lpv_compute_block_gpu (demangled)
 class CVrad3Command_lpv_flood_fill (demangled)
+class CVrad3Command_lpv_free_memory (demangled)
 class CVrad3Command_lpv_image_ambient_occlusion (demangled)
+class CVrad3Command_lpv_image_encode_sh2 (demangled)
 class CVrad3Command_lpv_image_filter_ambient_cube_oidn (demangled)
 class CVrad3Command_lpv_image_filter_sh2_oidn (demangled)
 class CVrad3Command_lpv_image_fog_gpu (demangled)
@@ -3043,9 +3174,10 @@ class CVrad3Command_lpv_image_write_fog (demangled)
 class CVrad3Command_lpv_image_write_sh2 (demangled)
 class CVrad3Command_lpv_init (demangled)
 class CVrad3Command_lpv_local_to_world (demangled)
+class CVrad3Command_lpv_mark_occupied_gpu (demangled)
+class CVrad3Command_lpv_type (demangled)
 class CVrad3Command_lpv_voxelize_gpu (demangled)
 class CVrad3Command_lpv_write_debug_voxelization (demangled)
-class CVrad3Command_lpv_write_light_octree (demangled)
 class CVrad3Command_path_trace_triangles_gpu (demangled)
 class CVrad3Command_path_trace_triangles_gpu_init (demangled)
 class CVrad3Command_path_trace_triangles_gpu_shutdown (demangled)
@@ -3116,6 +3248,7 @@ class `float MatrixMath::InnerProduct<0>(float const*, float const*, int)'::`5':
 class `float MatrixMath::InnerProduct<1>(float const*, float const*, int)'::`5'::<lambda_1> (demangled)
 class `private: bool CMaterialSystem2AppSystemDict::SetupMaterialSystem(void)'::`2'::<lambda_1> (demangled)
 class `public: CSmartPtr<CThreadedJob, CRefCountAccessor> IThreadPool::QueueJobWithFlags<`public: bool CVrad3LightmapImage::Unserialize(char const*)'::`16'::<lambda_3> >(char const*, JobPriority_t, unsigned int, `public: bool CVrad3LightmapImage::Unserialize(char const*)'::`16'::<lambda_3>&&)'::`2'::CLambdaJob (demangled)
+class `public: virtual void CVrad3Command_farfield_compute_lighting::Run(int, char const**)'::`2'::<lambda_2> (demangled)
 class `public: void CRtxSampledRenderer::Render(CFrustum const&, IRenderContext*)'::`2'::<lambda_1> (demangled)
 class `public: void CSOAContainer::FillAttr(int, float)'::`13'::<lambda_1> (demangled)
 class `public: void `public: virtual void CVrad3Command_path_trace_triangles_gpu::Run(int, char const**)'::`29'::<lambda_3>::operator()(int) const'::`5'::<lambda_1> (demangled)
@@ -3128,6 +3261,9 @@ class `void MatrixMath::SAXPY2<0>(float, std::span<float const, -1>, std::span<f
 class `void MatrixMath::SAXPY2<1>(float, std::span<float const, -1>, std::span<float, -1>, float, std::span<float const, -1>, std::span<float, -1>)'::`5'::<lambda_1> (demangled)
 class `void MatrixMath::ScaleMatrix<0, CVariableMatrix>(CVariableMatrix&, float)'::`2'::<lambda_1> (demangled)
 class `void MatrixMath::ScaleMatrix<1, CVariableMatrix>(CVariableMatrix&, float)'::`2'::<lambda_1> (demangled)
+class psd::Allocator (demangled)
+class psd::File (demangled)
+class psd::MallocAllocator (demangled)
 class std::_Associated_state<int> (demangled)
 class std::_Associated_state<unsigned int> (demangled)
 class std::_Deferred_async_state<unsigned int> (demangled)
@@ -3138,6 +3274,7 @@ class std::_Fake_no_copy_callable_adapter<void (Etc::Image::*)(unsigned int, uns
 class std::_Func_base<unsigned char> (demangled)
 class std::_Func_base<unsigned int> (demangled)
 class std::_Func_base<void, float const*> (demangled)
+class std::_Func_base<void, int, int, FarfieldLuxel_t const*, int> (demangled)
 class std::_Func_base<void, int, int> (demangled)
 class std::_Func_base<void> (demangled)
 class std::_Func_impl<<lambda_5a9ef80d79df7873994019ff15dceae5>, std::allocator<int>, void> (demangled)
@@ -3153,6 +3290,7 @@ class std::_Func_impl<std::_Fake_no_copy_callable_adapter<void (Etc::Image::*)(u
 class std::_Func_impl_no_alloc<`float MatrixMath::InnerProduct<0>(float const*, float const*, int)'::`5'::<lambda_1>, void, int, int> (demangled)
 class std::_Func_impl_no_alloc<`float MatrixMath::InnerProduct<1>(float const*, float const*, int)'::`5'::<lambda_1>, void, int, int> (demangled)
 class std::_Func_impl_no_alloc<`private: bool CMaterialSystem2AppSystemDict::SetupMaterialSystem(void)'::`2'::<lambda_1>, void> (demangled)
+class std::_Func_impl_no_alloc<`public: virtual void CVrad3Command_farfield_compute_lighting::Run(int, char const**)'::`2'::<lambda_2>, void, int, int, FarfieldLuxel_t const*, int> (demangled)
 class std::_Func_impl_no_alloc<`public: void CRtxSampledRenderer::Render(CFrustum const&, IRenderContext*)'::`2'::<lambda_1>, void> (demangled)
 class std::_Func_impl_no_alloc<`public: void CSOAContainer::FillAttr(int, float)'::`13'::<lambda_1>, void> (demangled)
 class std::_Func_impl_no_alloc<`public: void `public: virtual void CVrad3Command_path_trace_triangles_gpu::Run(int, char const**)'::`29'::<lambda_3>::operator()(int) const'::`5'::<lambda_1>, void, float const*> (demangled)
@@ -3209,6 +3347,7 @@ class std::system_error (demangled)
 class type_info (demangled)
 classname
 clearDecals
+cmyk document with non 8 bit channels
 collision_type
 collisionmesh
 color
@@ -3230,6 +3369,8 @@ colors
 colorsIndices
 combo
 compileAsOverride
+composite channel data missing
+composite has too few channels for its color mode
 compression
 connection aborted
 connection already in progress
@@ -3260,6 +3401,7 @@ create from parent particles
 create_dir_hierarchy
 create_raytrace_pipeline
 cross device link
+cube
 current directory
 curve info
 curvetypes
@@ -3365,9 +3507,33 @@ falloff
 falloff_left
 falloff_right
 false
+farfield allocation FAILED validation: %d uncovered, %d under-served cells\n
+farfield allocation: %d bricks, %s (max %d bricks / %s), coarsen=%f\n
+farfield borders
+farfield brick voxelization: %u of %d samples solid (%.1f%%)\n
+farfield dilate
+farfield fireflies
+farfield lighting: %lld luxels, %lld black (%.1f%%), mean DC %.4f, max DC %.4f\n
+farfield median
+farfield: %d bricks but we can only store %i in an atlas\n
+farfield: cell (%d,%d,%d) wants level %d but its finest brick is level %d\n
+farfield: cell (%d,%d,%d) wants level %d but no brick covers it\n
+farfield_box
+farfield_cells
+farfield_compute_bricks
+farfield_compute_lighting
+farfield_dilate
+farfield_filter_fireflies
+farfield_local_to_world
+farfield_max_memory
+farfield_median_filter
+farfield_resample_borders
+farfield_voxelize_bricks
+farfield_write_atlas
+farfield_write_brick_voxelization
+farfield_write_cell_voxelization
 fast_strobe
 fbx2dmx
-fff?333?
 file error
 file exists
 file too large
@@ -3420,10 +3586,16 @@ future
 future already retrieved
 fvP
 gWu
+g_rtxAccelSet
+g_vrad3FarfieldSet
+g_vrad3LightmapSet
+g_vrad3LpvSet
+g_vrad3SampleValidationSet
 game
-game_language
+game_audiolanguage
 game_lowviolence
 game_nontools
+game_uilanguage
 gameinfo
 gameinfo.gi
 gameinfo_branchspecific.gi
@@ -3462,6 +3634,7 @@ host unreachable
 houdini
 hue
 hwe
+i\tV_ftell
 i]Wb
 iak
 identifier removed
@@ -3474,6 +3647,9 @@ incorrect data check
 incorrect header check
 incorrect length check
 index_count
+indexed document with more than 2 channels
+indexed document with no usable palette
+indexed document with non 8 bit indices
 indices
 indirectlight
 inf
@@ -3486,6 +3662,7 @@ inputsystem
 instance_file
 instance_parm
 instance_variable
+instances
 insufficient memory
 int
 int FioReadFileToBuffer(char const*, CUtlBuffer*, int) (demangled)
@@ -3542,6 +3719,7 @@ jointWeightsIndices
 jpf
 k;J;J;J;J;J;J;J;J;J;J;J;J;J;J;J;Jx
 k=yI
+k\tV_fwrite
 kaE
 kdz
 kernel32
@@ -3571,6 +3749,7 @@ left_edge_active
 left_edge_curvetype
 left_edge_value
 leftvaluechannel
+level
 lifespan_decay
 lifetime_random
 light
@@ -3590,6 +3769,8 @@ lightmap_analyze_image_error
 lightmap_block_converged.vtex
 lightmap_compute_block_gpu
 lightmap_export_packing_geometry_to_obj
+lightmap_free_memory
+lightmap_free_memory: released %.1f MB (+packing geo)\n
 lightmap_image_consolidate_small_charts
 lightmap_image_dilate_over_invalid_jfa
 lightmap_image_encode_ahd
@@ -3639,7 +3820,10 @@ lpv_cells
 lpv_compute_block_fog_gpu
 lpv_compute_block_gpu
 lpv_flood_fill
+lpv_free_memory
+lpv_free_memory: released %.1f MB\n
 lpv_image_ambient_occlusion
+lpv_image_encode_sh2
 lpv_image_filter_ambient_cube_oidn
 lpv_image_filter_sh2_oidn
 lpv_image_fog_gpu
@@ -3654,11 +3838,11 @@ lpv_image_write_fog
 lpv_image_write_sh2
 lpv_init
 lpv_local_to_world
+lpv_mark_occupied_gpu
+lpv_type
 lpv_voxelize_gpu
 lpv_write_debug_voxelization
-lpv_write_light_octree
 m\nXo
-m\tV_powd
 m_fMoveTo
 m_pVertexData
 maintain position along path
@@ -3675,6 +3859,8 @@ material_name
 materialgroup
 materials/dev/rtx/debug_visualization.vmat
 materials/dev/rtx/pathtracer.vmat
+materials/dev/vrad3/farfield_metrics.vmat
+materials/dev/vrad3/farfield_raytrace.vmat
 materials/dev/vrad3/lightmap_generate_small_chart_samples.vmat
 materials/dev/vrad3/lightmap_rasterize.vmat
 materials/dev/vrad3/lightmap_raytrace.vmat
@@ -3683,11 +3869,13 @@ materials/dev/vrad3/lightmap_test_converged.vmat
 materials/dev/vrad3/lightmap_vertexlight_reduce.vmat
 materials/dev/vrad3/lpv_raytrace.vmat
 materials/dev/vrad3/lpv_test_converged.vmat
+materials/dev/vrad3/mark_occupied_voxels.vmat
 materials/dev/vrad3/vertexlight_raytrace.vmat
 materials/dev/vrad3/vertexlight_test_converged.vmat
 materialsystem2
 matrix
 matrix_array
+max
 maxMemoryMB
 maxThrust
 max_thrust
@@ -3706,6 +3894,7 @@ meshes[ i ] != nullptr
 meshlet_count
 message size
 midpoint
+min
 minThrust
 min_thrust
 mod
@@ -3741,7 +3930,6 @@ n03>Pu
 nDataSize > 0
 nLayoffState
 nTries < 10000000
-n\tV_powf
 name
 name_delta
 nan
@@ -3754,6 +3942,7 @@ network reset
 network unreachable
 no buffer space
 no child process
+no composite (not saved with Maximize Compatibility)
 no link
 no lock available
 no memory during frame initialization.
@@ -3797,10 +3986,10 @@ nullptr
 numTimeSteps
 o KPBf
 oY.o<
-o\tV_qsort
 obwQ4
 ofA?
 officialaddonroot
+offseTime
 offset
 offsetTime
 oidnCommitDevice
@@ -3849,7 +4038,6 @@ output
 owM&
 owner dead
 ownerlog
-p>pL#
 pEnd->x <= g_LightProbeGrid.NumCellsX()
 pEnd->y <= g_LightProbeGrid.NumCellsY()
 pEnd->z <= g_LightProbeGrid.NumCellsZ()
@@ -3859,7 +4047,6 @@ pStart->x < pEnd->x
 pStart->y < pEnd->y
 pStart->z < pEnd->z
 pTq
-p\tV_qsort_s
 pack_sharedvb
 parentConstraint
 particle
@@ -3876,8 +4063,9 @@ path_trace_triangles_gpu_init
 path_trace_triangles_gpu_shutdown
 path_trajectory
 pattern
-pc64 Aug 24 2026 15:14:04
+pc64 Sep 21 2026 13:52:38
 pcf
+perforce.inf
 permission denied
 physics
 physicsSimplificationError
@@ -3886,6 +4074,7 @@ pinEnabled
 pin_enabled
 pivotOffset
 pixelAspectRatio
+pls"
 pointentityclass
 pos
 posTolerance
@@ -3928,7 +4117,6 @@ prop_physics_respawnable
 propdataname
 protected: bool CUtlBuffer::CheckGet(int) (demangled)
 protected: bool CUtlBuffer::CheckPut(int) (demangled)
-protected: bool CUtlBuffer::GetOverflow(int) (demangled)
 protected: char const* CKeyValues_Data::Internal_GetString(char const*, char*, uint64_t) (demangled)
 protected: void CUtlBuffer::AddNullTermination(void) (demangled)
 protected: void CUtlBuffer::SetOverflowFuncs(bool (CUtlBuffer::*)(int), bool (CUtlBuffer::*)(int)) (demangled)
@@ -4091,6 +4279,7 @@ range
 range check failure
 rawControlNames
 read only file system
+read past end of file (truncated/corrupt)
 red
 refOrientation
 remap_scalar
@@ -4198,10 +4387,9 @@ sfm_v7
 sfm_v9
 sh radiance L0
 sh radiance c%i
-sh2_b_%s.exr
-sh2_dc_%s.exr
-sh2_g_%s.exr
-sh2_r_%s.exr
+sh1_b
+sh1_g
+sh1_r
 shadow_color_day
 shadow_color_night
 shadow_cull_mode
@@ -4210,6 +4398,10 @@ shadow_secondary_color_night
 shadowtextureheight
 shadowtexturewidth
 shape
+sharc
+sharc accumulation
+sharc hash entries
+sharc resolved
 shared
 shlwapi
 should_leave_corpse
@@ -4370,7 +4562,6 @@ true
 type
 t|AO
 uUv
-u\tV_roundf
 uber_weld
 uint16
 uint32
@@ -4384,7 +4575,14 @@ unknown
 unknown compression method
 unknown error
 unknown header flags set
+unknown reason
 unnamed
+unsupported bits per channel
+unsupported color mode: bitmap
+unsupported color mode: duotone
+unsupported color mode: lab
+unsupported color mode: multichannel
+unsupported color mode: unknown
 upAxis
 useEdgeInfo
 use_basevertex
@@ -4499,8 +4697,8 @@ x0Ysqx
 x=%? y=%? vTruth=%? vTest=%?
 ycg
 zZg
-z\tV_sincosf
 zero
+zero sized document
 {kHw
 |BDmeElement
 ~}|{zyxwvutsrqponmlkjihgfedcba`_^]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)('&%$#"! 

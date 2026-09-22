@@ -32,10 +32,10 @@
  #Valve_Reject_Connect_From_Lobby
  #Valve_Reject_Reserved_For_Lobby
  (08@HPX`hpx
- (08@HPX`j 
- (08@HPXb0
- (08@HPZ 
- (0X`hpz0
+ (08@HPX`j
+ (08@HPXb@
+ (08@HPZ
+ (0X`hpz@
  :score average_contribution  :payloadformat {  payload0 {  :score mvp_awards :format int  :upload sum  }  payload1 {  :score rounds_played  :format int  :upload sum  }  payload2 {  :score total_contribution  :format int  :upload sum  }  payload3 {  :score kills  :format int  :upload sum  }  payload4 {  :score deaths  :format int  :upload sum  }  payload5 {  :score damage  :format int  :upload sum  }  } 
  :score kd_ratio  :payloadformat {  payload0 {  :score kills :format int  :upload sum  }  payload1 {  :score deaths  :format int  :upload sum  }  payload2 {  :score rounds_played  :format int  :upload sum  }  payload3 {  :score shots_fired  :format int  :upload sum  }  payload4 {  :score head_shots  :format int  :upload sum  }  payload5 {  :score shots_hit  :format int  :upload sum  }  } 
  :score num_rounds  :scoresum 1  :payloadformat {  payload0 {  :score time_played  :format uint64  :upload sum  }  payload1 {  :score time_played_ct  :format uint64  :upload sum  }  payload2 {  :score time_played_t  :format uint64  :upload sum  }  payload3 {  :score total_medals  :format int  :upload last  }  } 
@@ -110,6 +110,7 @@
 !#Player_DisconnectReason_TK_Start
 !#Player_DisconnectReason_VotedOff
 !.google.protobuf.EnumValueOptions
+!\n_V_strncpy
 !m_bNeedsSort
 " because it is missing required fields: 
 " conflicts with field "
@@ -239,6 +240,7 @@
 #Valve_Reject_Background_Map
 #Valve_Reject_Hidden_Game
 #Valve_Reject_Single_Player
+#\n_V_strnicmp_fast
 #empty#
 $#GameUI_Disconnect_BadServerPassword
 $#GameUI_Disconnect_ConnectionFailure
@@ -279,6 +281,7 @@ $tIJobs/Coroutines
 %#Player_DisconnectReason_NoSteamLogin
 %02X
 %\n k_EGCMsgAccountPhoneNumberChange
+%\n k_EGCMsgAppCheersGetAllowedTypes
 %\n k_EGCMsgGCAccountVacStatusChange
 %\n!GCClientLauncherType_PERFECTWORLD
 %\n!k_ECommunityItemAttribute_Invalid
@@ -420,6 +423,7 @@ $tIJobs/Coroutines
 ,j.b0^2`4^6`8^:f<
 ,sv_load_test
 -#GameUI_Disconnect_LocalProblem_NetworkConfig
+-\n(k_EGCMsgAppCheersGetAllowedTypesResponse
 -\n\tAttribute
 -inf
 ...<truncated>...
@@ -464,6 +468,7 @@ $tIJobs/Coroutines
 .GCConnectionStatus
 .GCProtoBufMsgSrc
 .PLACEHOLDER_VALUE
+.QuantizedFloatEncoderAlias_t
 .SignonState_t
 .\n)k_EGCMsgGetGamePersonalDataEntriesRequest
 .\n)k_EGCMsgMasterSetClientMsgRoutingResponse
@@ -524,6 +529,7 @@ $tIJobs/Coroutines
 0:<\n\fdelta_ignore
 0\n,GCConnectionStatus_NO_SESSION_IN_LOGON_QUEUE
 0\n,k_ECommunityItemAttribute_CommunityItemAppID
+0\ng_VProfCurrentProfile
 1 = allow searches for dedicated servers
 1 = pretend like search is going, but abort after some time
 1#IND
@@ -567,6 +573,7 @@ $tIJobs/Coroutines
 :sort
 :upload
 <\n\ncategories
+<\ng_pMemAlloc
 <no failure reason set>
 <undefined>
 =\n NETWORK_DISCONNECT_CLIENT_NO_MAP
@@ -578,8 +585,7 @@ $tIJobs/Coroutines
 @08@HPX`hpx
 @HPX
 @HPX&I
-@HPX`hv@
-@HVP
+@HPX`hv
 @\n\fSingleObject
 @workshop
 A file with this name is already in the pool.
@@ -641,6 +647,7 @@ BFrameFuncDispatchCompletedWorkItems
 BFrameFuncResumeSleepingJobs
 BFrameFuncResumeYieldingJobs
 BVD.Bz
+B\tV_atoi
 BackUp() can only be called after a successful Next().
 Bad dynamic_cast!
 Bad read pointer - no RTTI data!
@@ -910,6 +917,7 @@ Created CMatchSessionOnlineTeamSearch:\n
 Created DS searcher\n
 Created lobby id: 0x%llx\n
 DO NOT PARSE: fields may be stripped and missing.\n
+D\tV_atoui64
 DebugDrawQueueManager001
 Dec
 December
@@ -1302,7 +1310,6 @@ IsProcessorFeaturePresent
 IsValidCodePage
 IsValidLocale
 IsValidLocaleName
-ItX
 ItemDescriptionsLanguageBlock
 JSType
 J\n NETWORK_DISCONNECT_SNAPSHOTERROR
@@ -1604,6 +1611,7 @@ Plat_TicksAfterMicroSecs
 PlayerLocal::UpdateLeaderboardData for %s ...\n
 PlayerLocal::UpdateLeaderboardData for %s finished.\n
 PlayerManager::OnGameUsersChanged\n
+Pnp
 PostProcessingSystem_001
 PredictionDiffManager001
 PropertyEditorSystem_001
@@ -1615,10 +1623,12 @@ Q\n&NETWORK_DISCONNECT_TEMPENTMSG_OVERFLOW
 Q\n*NETWORK_DISCONNECT_CLIENT_CONSISTENCY_FAIL
 Q\n+NETWORK_DISCONNECT_CLIENT_UNABLE_TO_CRC_MAP
 Q\n,NETWORK_DISCONNECT_REJECT_SERVERAUTHDISABLED
+QuantizedFloatEncoderAlias_t
 QueryPerformanceCounter
 QueueConnect
 RP for %s\n
 RSDS
+R\fp\M
 RaiseException
 RandomFloat
 RandomInt
@@ -1737,6 +1747,7 @@ Skill%dFormula
 Skill%dRange
 SleepConditionVariableSRW
 Sleeping
+SmartPropsSystem_001
 Snooze
 Some options could not be correctly parsed using the proto descriptors compiled into this binary.\nUnparsed options: 
 SoundOpSystem001
@@ -1973,7 +1984,6 @@ V_StringToVector
 V_StringToVector2D
 V_StringToVector4D
 V_StringToVectorWS
-V_UnqualifiedFileName
 Value must be "true" or "false" for boolean option "
 Value must be identifier for boolean option "
 Value must be identifier for enum-valued option "
@@ -2059,6 +2069,7 @@ Z\n+NETWORK_DISCONNECT_CONNECT_REQUEST_TIMEDOUT
 \n0CProductInfo_SetRichPresenceLocalization_Request
 \n1CCommunity_GetGamePersonalDataCategories_Response
 \n1CQuest_PublisherAddCommunityItemsToPlayer_Request
+\nPDB
 \nParsing attempt:  
 \n\fCNETMsg_Tick
 \n\fEGCSystemMsg
@@ -2070,8 +2081,10 @@ Z\n+NETWORK_DISCONNECT_CONNECT_REQUEST_TIMEDOUT
 \n\fTYPE_FIXED64
 \n\fTYPE_MESSAGE
 \n\faccount_name
+\n\fclan_officer
 \n\fcontributors
 \n\fdouble_value
+\n\fencode_flags
 \n\ffile_version
 \n\fgroup_fields
 \n\fgroup_values
@@ -2141,12 +2154,16 @@ Z\n+NETWORK_DISCONNECT_CONNECT_REQUEST_TIMEDOUT
 \n\rtick_interval
 \n\rvalidate_only
 \n\tattribute
+\n\tbit_count
 \n\tdir_index
 \n\tgame_data
 \n\tgceresult
 \n\tjson_name
 \n\tlongitude
 \n\tmap_entry
+\n\tmax_coord
+\n\tmax_value
+\n\tmin_value
 \n\tname_part
 \n\treplytogc
 \n\trule_type
@@ -2167,6 +2184,7 @@ Z\n+NETWORK_DISCONNECT_CONNECT_REQUEST_TIMEDOUT
 \n\vagreementid
 \n\vallow_alias
 \n\vbalance_url
+\n\vclan_member
 \n\vis_headless
 \n\vis_verified
 \n\vmax_clients
@@ -2177,30 +2195,26 @@ Z\n+NETWORK_DISCONNECT_CONNECT_REQUEST_TIMEDOUT
 \n\vsource_file
 \n\vspawn_count
 \n\vtime_cached
-\ng_VProfCurrentProfile
+\n_V_StringAfterPrefix
+\n_V_strncat
 \r\n\tCODE_SIZE
 \r\n\tJS_NORMAL
 \r\n\tJS_NUMBER
 \r\n\tJS_STRING
 \r\n\tTYPE_BOOL
 \r\n\tTYPE_ENUM
+\r\n_V_FileBase
 \r\r\r\r\r\r
 \tTypeCache for %d (%d objects):\n
-\tV_atoi
-\tV_atoui64
+\tV_UnqualifiedFileName
+\tV_qsort_s
 \tV_snprintf
 \tV_sscanf
 \tV_stricmp_fast
 \tV_vsnprintf
 \tWarning
-\t_V_FileBase
-\t_V_StringAfterPrefix
-\t_V_strncat
-\t_V_strncpy
-\t_V_strnicmp_fast
 \tcQr
 \tkE>fvw
-\v\ng_pMemAlloc
 ]\n,NETWORK_DISCONNECT_REJECT_INVALIDRESERVATION
 ^\n*NETWORK_DISCONNECT_KICKED_CONVICTEDACCOUNT
 ^\n*NETWORK_DISCONNECT_KICKED_UNTRUSTEDACCOUNT
@@ -2334,7 +2348,6 @@ cc_generic_services
 ceil
 char const* V_stristr_fast(char const*, char const*) (demangled)
 checkpoint
-cl_clanid
 cl_names_debug
 clan
 clan_preferred
@@ -2586,6 +2599,7 @@ class Player<IPlayerLocal> (demangled)
 class PlayerFriend (demangled)
 class PlayerLocal (demangled)
 class PlayerManager (demangled)
+class QuantizedFloatEncoderAlias_t (demangled)
 class `protected: CSysSessionBase::CSysSessionBase(KeyValues*)'::`2'::<lambda_1> (demangled)
 class google::protobuf::DescriptorBuilder::OptionInterpreter::AggregateOptionFinder (demangled)
 class google::protobuf::DescriptorDatabase (demangled)
@@ -2866,14 +2880,9 @@ fvP
 game
 game/apr
 game/ark
-game/clanID
 game/clanid
-game/clanname
-game/clantag
 game/dlcrequired
 game/hosted
-game/jclanid
-game/jclantag
 game/jfriend
 game/loc
 game/map
@@ -2970,7 +2979,7 @@ hostendgame
 hostinit
 hostname
 hpx
-hpz0
+hpz@
 iController
 idempotency_level
 identifier removed
@@ -3034,6 +3043,7 @@ k_ECommunityItemClass_Scene
 k_EGCMsgAchievementAwarded
 k_EGCMsgAddFreeLicense
 k_EGCMsgAddFreeLicenseResponse
+k_EGCMsgAppCheersReceived
 k_EGCMsgAppInfoUpdated
 k_EGCMsgCheckFriendship
 k_EGCMsgCheckFriendshipResponse
@@ -3043,6 +3053,8 @@ k_EGCMsgDirectServiceMethod
 k_EGCMsgFindAccounts
 k_EGCMsgGenericReply
 k_EGCMsgGetAccountDetails
+k_EGCMsgGetClanDetails
+k_EGCMsgGetClanDetailsResponse
 k_EGCMsgGetCommands
 k_EGCMsgGetCommandsResponse
 k_EGCMsgGetEmailTemplate
@@ -3078,6 +3090,8 @@ k_EGCMsgPostAlert
 k_EGCMsgPreTestSetup
 k_EGCMsgReceiveInterAppMessage
 k_EGCMsgRecordSupportAction
+k_EGCMsgReportMetrics
+k_EGCMsgReportMetricsResponse
 k_EGCMsgSendEmail
 k_EGCMsgSendEmailResponse
 k_EGCMsgSendHTTPRequest
@@ -3355,7 +3369,6 @@ options
 options/action
 options/anytypemode
 options/bypasslobby
-options/clanid
 options/conteammatch
 options/createreason
 options/dcFriendsRed
@@ -3372,10 +3385,8 @@ outofdate_subscribed_caches
 owM&
 owner dead
 p@HPX`h\f
-pFP
 pFx
 pOC
-p\tV_qsort_s
 package
 packed
 panorama
@@ -3539,10 +3550,12 @@ py_generic_services
 qVJ
 qangle
 qos
+quantized_float_encoder_aliases
 queue_position
 quickmatch
 quit
 r\tVr.>T
+r\vp\M
 random
 range check failure
 ratelimit
@@ -3579,6 +3592,7 @@ rtime32_gc_welcome_timestamp
 rule_description
 run
 runxuid
+rush
 savegamefilename
 scale
 schema_description
@@ -3773,6 +3787,7 @@ val_bool
 val_byte
 val_long
 valid
+validate
 value
 value too large
 valve_map_field

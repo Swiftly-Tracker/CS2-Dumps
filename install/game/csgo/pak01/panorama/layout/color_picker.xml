@@ -1,12 +1,46 @@
 <!-- xml reconstructed by Source 2 Viewer 19.2.0.0 - https://valveresourceformat.github.io -->
 <root>
 	<styles>
-		<include src="s2r://panorama/styles/csgostyles.vcss_c" />
-		<include src="s2r://panorama/styles/color_picker.vcss_c" />
+		<include src="s2r://panorama/styles/csgostyles.vcss" />
+		<include src="s2r://panorama/styles/color_picker.vcss" />
 	</styles>
 	<CSColorPicker>
-		<CSColorPickerSaturationValue id="SaturationValueSelector" />
-		<CSColorPickerHue id="HueSelector" />
-		<TextEntry unlocalized="true" id="HexRgb" placeholder="" maxchars="7" />
+		<Panel class="color-picker-hue-sat-section">
+			<CSColorPickerSaturationValue id="SaturationValueSelector" />
+			<CSColorPickerHue id="HueSelector" />
+			<Panel class="color-picker-alpha-slider-section">
+				<Slider id="color-picker-alpha-slider" class="HorizontalSlider bid_amount_slider" direction="horizontal" />
+			</Panel>
+		</Panel>
+		<Panel class="top-bottom-flow">
+			<Panel class="color-picker-color-box-container">
+				<Label class="color-picker-value-row__title" text="#settings_new" />
+				<Panel id="color-box-new" class="color-picker-color-box" />
+			</Panel>
+			<Panel class="color-picker-color-box-container bottom-margin-16">
+				<Panel id="color-box-current" class="color-picker-color-box" />
+				<Label class="color-picker-value-row__title" text="#XP_Bonus_RankUp_Old" />
+			</Panel>
+			<Panel class="color-picker-value-row">
+				<Label class="color-picker-value-row__title" text="R" />
+				<TextEntry unlocalized="true" id="rVal" placeholder="" maxchars="3" textmode="numeric" />
+			</Panel>
+			<Panel class="color-picker-value-row">
+				<Label class="color-picker-value-row__title" text="G" />
+				<TextEntry unlocalized="true" id="gVal" placeholder="" maxchars="3" textmode="numeric" />
+			</Panel>
+			<Panel class="color-picker-value-row">
+				<Label class="color-picker-value-row__title" text="B" />
+				<TextEntry unlocalized="true" id="bVal" placeholder="" maxchars="3" textmode="numeric" />
+			</Panel>
+			<Panel class="color-picker-value-row">
+				<Label class="color-picker-value-row__title" text="# " />
+				<TextEntry unlocalized="true" id="HexRgb" placeholder="" maxchars="7" />
+			</Panel>
+			<Panel class="color-picker-value-row color-picker-alpha-value-row">
+				<Label class="color-picker-value-row__title" text="A " />
+				<TextEntry unlocalized="true" id="AlphaVal" placeholder="" maxchars="3" textmode="numeric" />
+			</Panel>
+		</Panel>
 	</CSColorPicker>
 </root>

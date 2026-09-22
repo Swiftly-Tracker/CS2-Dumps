@@ -69,6 +69,7 @@
 !#Player_DisconnectReason_TK_Start
 !#Player_DisconnectReason_VotedOff
 !.google.protobuf.EnumValueOptions
+!\n_V_strncpy
 !m_bNeedsSort
 !m_hParam.IsValid()
 " because it is missing required fields: 
@@ -346,6 +347,7 @@ $schemasystem/schema_enable_defines.h
 .CSVCMsg_GameEvent.key_t
 .EProtoDebugVisiblity:
 .PLACEHOLDER_VALUE
+.QuantizedFloatEncoderAlias_t
 .SignonState_t
 .bss
 .data
@@ -422,6 +424,7 @@ $schemasystem/schema_enable_defines.h
 9\n\noneof_decl
 : Tried to copy from a message with a different type. to: 
 : failed to parse contents
+<\ng_pMemAlloc
 <no failure reason set>
 <undefined>
 =\n NETWORK_DISCONNECT_CLIENT_NO_MAP
@@ -440,6 +443,7 @@ $schemasystem/schema_enable_defines.h
 A file with this name is already in the pool.
 A protocol message was rejected because it was too big (more than 
 A>pP&
+AA:P;
 ABCDEFGHIJKLMNOPQRSTUVWXYZ
 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/
 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_
@@ -1140,9 +1144,11 @@ Q\n&NETWORK_DISCONNECT_TEMPENTMSG_OVERFLOW
 Q\n*NETWORK_DISCONNECT_CLIENT_CONSISTENCY_FAIL
 Q\n+NETWORK_DISCONNECT_CLIENT_UNABLE_TO_CRC_MAP
 Q\n,NETWORK_DISCONNECT_REJECT_SERVERAUTHDISABLED
+QuantizedFloatEncoderAlias_t
 QueryPerformanceCounter
 RSDS\ra`G\v\v
-R\vpD
+R\fpx
+R\vpL
 RaiseException
 Reached an unintended state: CPPTYPE_MESSAGE
 Reached impossible case in HasBit().
@@ -1233,6 +1239,7 @@ Show diff only.
 Show diff with matching filter substring only.
 SinglePlayerSharedMemory001
 SleepConditionVariableSRW
+SmartPropsSystem_001
 Some options could not be correctly parsed using the proto descriptors compiled into this binary.\nUnparsed options: 
 SoundOpSystem001
 SoundOpSystemEdit001
@@ -1414,7 +1421,6 @@ VertexPaintBlendParams
 VertexPaintBlendParams1
 VertexPaintTintColor
 VisBuilder_001
-Vpc
 Vrad3_001
 WARNING
 W\n,NETWORK_DISCONNECT_REJECT_CONNECT_FROM_LOBBY
@@ -1433,6 +1439,7 @@ X\n'NETWORK_DISCONNECT_BADSPECTATORPASSWORD
 X\n'NETWORK_DISCONNECT_DIFFERENTCLASSTABLES
 X\n'NETWORK_DISCONNECT_KICKED_NOSTEAMTICKET
 X\n(NETWORK_DISCONNECT_INVALID_MESSAGE_ERROR
+Xf@y
 Y>kX>M
 Y\n)NETWORK_DISCONNECT_NO_PEER_GROUP_HANDLERS
 Y\n*NETWORK_DISCONNECT_STRINGTABLEMSG_OVERFLOW
@@ -1472,7 +1479,9 @@ Z\n+NETWORK_DISCONNECT_CONNECT_REQUEST_TIMEDOUT
 \n\fTYPE_FIXED32
 \n\fTYPE_FIXED64
 \n\fTYPE_MESSAGE
+\n\fclan_officer
 \n\fdouble_value
+\n\fencode_flags
 \n\fis_extension
 \n\fis_localonly
 \n\fjava_package
@@ -1511,8 +1520,12 @@ Z\n+NETWORK_DISCONNECT_CONNECT_REQUEST_TIMEDOUT
 \n\rpreviouslevel
 \n\rreserved_name
 \n\rtick_interval
+\n\tbit_count
 \n\tjson_name
 \n\tmap_entry
+\n\tmax_coord
+\n\tmax_value
+\n\tmin_value
 \n\tname_part
 \n\ttickcount
 \n\ttype_name
@@ -1528,12 +1541,14 @@ Z\n+NETWORK_DISCONNECT_CONNECT_REQUEST_TIMEDOUT
 \n\vTYPE_UINT32
 \n\vTYPE_UINT64
 \n\vallow_alias
+\n\vclan_member
 \n\vis_headless
 \n\vmax_clients
 \n\voneof_index
 \n\voutput_type
 \n\vsource_file
 \n\vspawn_count
+\n_MakeGlobalSymbol
 \nh?oT
 \nk>oB
 \r\n\tCODE_SIZE
@@ -1543,13 +1558,11 @@ Z\n+NETWORK_DISCONNECT_CONNECT_REQUEST_TIMEDOUT
 \r\n\tTYPE_BOOL
 \r\n\tTYPE_ENUM
 \r\r\r\r\r\r
+\tV_qsort_s
 \tV_stricmp_fast
 \tWarning
-\t_MakeGlobalSymbol
-\t_V_strncpy
 \tcQr
 \tkE>fvw
-\v\ng_pMemAlloc
 ]\n,NETWORK_DISCONNECT_REJECT_INVALIDRESERVATION
 ^RfN>
 ^\n*NETWORK_DISCONNECT_KICKED_CONVICTEDACCOUNT
@@ -1770,6 +1783,7 @@ class ISaveRestoreDataMgr (demangled)
 class ISequence (demangled)
 class ISinglePlayerSharedMemory (demangled)
 class ISource2Host (demangled)
+class QuantizedFloatEncoderAlias_t (demangled)
 class google::protobuf::DescriptorBuilder::OptionInterpreter::AggregateOptionFinder (demangled)
 class google::protobuf::DescriptorDatabase (demangled)
 class google::protobuf::DescriptorProto (demangled)
@@ -1948,6 +1962,7 @@ extend .$0 {\n
 extendee
 extension_range
 fD>b
+fPk
 fWi?
 f_test
 fabs
@@ -2182,7 +2197,6 @@ owner dead
 p@HPX`h\f
 pFx
 pOC
-p\tV_qsort_s
 package
 packed
 parentnamefixup
@@ -2234,7 +2248,9 @@ py_generic_services
 qS>g?h3
 qVJ
 qangle
+quantized_float_encoder_aliases
 r\tVr.>T
+r\vpx
 range check failure
 read only file system
 registered: 
@@ -2337,10 +2353,10 @@ unordered_map/set too long
 untrusted_delta_max
 unverified_lazy
 userid
-vPL
 val_bool
 val_byte
 val_long
+validate
 value
 value too large
 valve_demo_1

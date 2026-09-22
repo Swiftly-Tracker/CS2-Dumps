@@ -37,10 +37,10 @@
  #Valve_Reject_Reserved_For_Lobby
  %dms faster than direct ping of %dms
  (08@HPX`hpx
- (08@HPX`j0
- (08@HPXb
- (08@HPZ0
- (0X`hpz
+ (08@HPX`j
+ (08@HPXb 
+ (08@HPZ
+ (0X`hpz 
  - keeping around as cacheable shared connection
  = { <proto text format> }". To set fields within it, use syntax like "
  Base Class Array'
@@ -105,6 +105,7 @@
 !#Player_DisconnectReason_TK_Start
 !#Player_DisconnectReason_VotedOff
 !.google.protobuf.EnumValueOptions
+!\n_V_strncpy
 !m_NetworkChangeTagCallback.IsEmpty()
 !m_bNeedsSort
 " because it is missing required fields: 
@@ -231,6 +232,7 @@
 #Valve_Reject_Hidden_Game
 #Valve_Reject_Single_Player
 #\n\npause_type
+#\n_V_strnicmp_fast
 $#GameUI_Disconnect_BadServerPassword
 $#GameUI_Disconnect_ConnectionFailure
 $#GameUI_Disconnect_MessageParseError
@@ -423,7 +425,7 @@ $schemasystem/schema_enable_defines.h
 (\t"9\n\fCCLCMsg_Move
 (\t"<\n\fCSVCMsg_Menu
 (\t"\r\n\vCNETMsg_NOP"'\n
-(\v2 .ProtoFlattenedSerializerField_t:
+(\v2 .ProtoFlattenedSerializerField_t
 (\v2 .google.protobuf.DescriptorProto
 (\v2!.CSVCMsg_GameSessionConfiguration
 (\v2!.google.protobuf.EnumValueOptions"
@@ -453,6 +455,7 @@ $schemasystem/schema_enable_defines.h
 (\v21.CMsgSource2PlayStatsPackedRecordList.SteamIDList
 (\v21.CSVCMsg_PacketEntities.outofpvs_entity_updates_t
 (\v22.CSVCMsg_PacketEntities.non_transmitted_entities_t
+(\v22.ProtoFlattenedSerializerField_t.proto_enum_info_t
 (\v24.ProtoFlattenedSerializerField_t.polymorphic_field_t
 (\v25.CSource2Metrics_MatchPerfSummary_Notification.Client
 (\v26.google.protobuf.EnumDescriptorProto.EnumReservedRange
@@ -485,6 +488,7 @@ $schemasystem/schema_enable_defines.h
 + include
 +\n'SPAWN_GROUP_CREATE_CLIENT_ONLY_ENTITIES
 +\n\rReservedRange
++\ng_BitBuf_BitWriteMasks
 , not just within "
 , now outside range
 ,#Player_DisconnectReason_CompetitiveCooldown
@@ -565,7 +569,9 @@ $schemasystem/schema_enable_defines.h
 .ESource2PlayStatsFieldType
 .ESplitScreenMessageType
 .PLACEHOLDER_VALUE
+.ProtoCoordSizeParams_t:
 .ProtoFlattenedSerializer_t
+.QuantizedFloatEncoderAlias_t
 .RequestPause_t
 .SignonState_t
 .VoiceDataFormat_t:
@@ -633,7 +639,6 @@ $schemasystem/schema_enable_defines.h
 0123456789abcdefghijklmnopqrstuvwxyz
 0:<\n\fdelta_ignore
 0\n\vserializers
-0vHN
 1#IND
 1#INF
 1#QNAN
@@ -663,6 +668,8 @@ $schemasystem/schema_enable_defines.h
 : failed to parse contents
 ::Storage_t
 ;\n\frecord_types
+<\ng_pMemAlloc
+<\tV_atan2f
 <classname> <fieldname>:  spew why field was excluded from networking for classname.
 <empty member name>
 <no failure reason set>
@@ -670,17 +677,16 @@ $schemasystem/schema_enable_defines.h
 <unknown>
 =\n NETWORK_DISCONNECT_CLIENT_NO_MAP
 =imb;D
+>\ng_pThreadPool
 ???
 ?UUUUUU
 ?qBJ
 ?ysB
 @08@HPX`hpx
-@08NHN
 @HPX
 @HPX&I
-@HPX`hvPh
-@HV`v
-@nHN
+@HPX`hv`
+@HVp
 A file with this name is already in the pool.
 A protocol message was rejected because it was too big (more than 
 A>pP&
@@ -742,6 +748,7 @@ BAL
 BF>^G
 BVD.Bz
 B\n\nfield_defs
+B\tV_atoi
 BackUp() can only be called after a successful Next().
 BakedLODBuilderMgr001
 BenchmarkService001
@@ -924,7 +931,7 @@ CNetChan::BUF_RELIABLE
 CNetChan::BUF_UNRELIABLE
 CNetChan::BUF_VOICE
 CNetChan::ParseMessages
-CNetChan::ProcessMessages
+CNetChan::ProcessMessages::<lambda_1>::operator ()
 CNetChan::SendNetMessage: SerializeAbstract for message %s failed!\n
 CNetChan::SendNetMessage: Trying to send message %s, which is an invalid category for this channel!\n
 CNetChan::SendNetMessage: Unable to send message %s, buffer is full!\n
@@ -1154,6 +1161,7 @@ DTI: can't Flush(), no data to write.\n
 DTI: enabled from command line.\n
 DTI: was unable to open file '%s' for write!\n
 DTI: wrote client stats into %s. Session duration = %0.2f seconds, rowcount %d.\n
+D\tV_atoui64
 DebugCallback
 Dec
 December
@@ -1272,7 +1280,6 @@ FALSE
 FATAL
 FEMh\f
 FLT_MAX
-FTO
 F\n%NETWORK_DISCONNECT_DISCONNECT_BY_USER
 F\n\foptimize_for
 Failed to complete WSACleanup = 0x%x.\n
@@ -1462,7 +1469,10 @@ INetworkSystem::RegisterNetworkCategory: all categories must have ids between 0-
 IPulseSystem_001
 I\n NETWORK_DISCONNECT_STEAM_DROPPED
 I\n%NETWORK_DISCONNECT_REJECT_HIDDEN_GAME
+I\n\rvar_enum_info
 IdempotencyLevel
+If processing messages from a client takes more than N ms, drop them
+If processing messages from a client takes more than N ms, warn
 If set, only net_showmsg spew for data inbound on this socket name e.g. client, server, etc.
 Ignoring extension "
 Illegal jstype for int64, uint64, sint64, fixed64 or sfixed64 field: 
@@ -1723,7 +1733,6 @@ Need space between number and identifier.
 Net graph %s\n
 Net status for host %s:\n
 NetChan %s ProcessMessages has taken more than %dms to process %d messages.  (Current message type: '%s')\n
-NetChan %s ProcessMessages tok %dms to process %d messages.\n
 NetChanFlowIncomingAck
 NetChanRecv
 NetChanRecvMisdelivery
@@ -1817,8 +1826,6 @@ Order,'From','To',Bits\n
 OutSeqNum
 OutSeqNumAck
 Overrides IP for multihomed hosts
-P08JP
-P08NHN
 P@HPX`hpx\f
 PACKET_STATUS_DROPPED
 PACKET_STATUS_INVALID
@@ -1889,6 +1896,7 @@ Print detailed network statistics for each network connection
 ProcessOverride encountered unknown directive NetworkOverrideType_t(%d)\n
 Processing
 PropertyEditorSystem_001
+ProtoCoordSizeParams_t
 ProtoFlattenedSerializerField_t
 ProtoFlattenedSerializer_t
 Protobuf: %s(%d): %s\n
@@ -1924,6 +1932,7 @@ Q\n&NETWORK_DISCONNECT_TEMPENTMSG_OVERFLOW
 Q\n*NETWORK_DISCONNECT_CLIENT_CONSISTENCY_FAIL
 Q\n+NETWORK_DISCONNECT_CLIENT_UNABLE_TO_CRC_MAP
 Q\n,NETWORK_DISCONNECT_REJECT_SERVERAUTHDISABLED
+QuantizedFloatEncoderAlias_t
 Quaternion
 QuaternionStorage
 QueryPerformanceCounter
@@ -1938,7 +1947,6 @@ REPLAY_EVENT_VICTORY
 RP_PAUSE
 RP_TOGGLEPAUSE
 RSDS
-R\vp,L
 RadianEuler
 RaiseException
 RandomFloat
@@ -2067,6 +2075,7 @@ Show messages for large packets only: <size>
 Shows current network status
 Shows net channel info
 SleepConditionVariableSRW
+SmartPropsSystem_001
 Socket '%s' bound to '%s' [%s]:\n
 Socket '%s' listening for %s on port %d:\n
 Socket '%s' listening for SDR on port %d virtual port %d\n
@@ -2402,6 +2411,7 @@ Z\n(NETWORK_DISCONNECT_REMOTE_CERTNOTTRUSTED
 Z\n*NETWORK_DISCONNECT_REJECT_INVALIDKEYLENGTH
 Z\n+NETWORK_DISCONNECT_CONNECT_REQUEST_TIMEDOUT
 [ Net Message Info: %s ]\n
+[%s] DISCONNECTING. ProcessMessages has taken more than %dms to process %d messages.  (Current message type: '%s')\n
 [%s] Queued message count %d exceeds limit of %s=%d.  Allowing due to engine_frametime_warnings_enable=false\n
 [%s] high frame misdelivery %.1f%%, %d/%d of %d frames dropped/reordered, %.0fms ping, %.0fms peak jitter\n
 [%s] misdelivery %.1f%%, %d/%d of %d frames dropped/reordered, %.0fms ping\n
@@ -2458,6 +2468,7 @@ Z\n+NETWORK_DISCONNECT_CONNECT_REQUEST_TIMEDOUT
 \n\fautoexec_cfg
 \n\favg_data_out
 \n\favg_loss_out
+\n\fclan_officer
 \n\fcommand_line
 \n\fcommand_logs
 \n\fdouble_value
@@ -2507,6 +2518,7 @@ Z\n+NETWORK_DISCONNECT_CONNECT_REQUEST_TIMEDOUT
 \n\nTYPE_INT64
 \n\n\n
 \n\naddon_name
+\n\nangle_bits
 \n\nboxed_type
 \n\nclass_name
 \n\ncmd_number
@@ -2591,7 +2603,9 @@ Z\n+NETWORK_DISCONNECT_CONNECT_REQUEST_TIMEDOUT
 \n\tjson_name
 \n\tlow_value
 \n\tmap_entry
+\n\tmax_coord
 \n\tmax_value
+\n\tmin_value
 \n\tname_part
 \n\tosversion
 \n\tproximity
@@ -2620,6 +2634,7 @@ Z\n+NETWORK_DISCONNECT_CONNECT_REQUEST_TIMEDOUT
 \n\vavg_ping_ms
 \n\vbaseline_nr
 \n\vbytes_total
+\n\vclan_member
 \n\vclient_tick
 \n\vdelay_value
 \n\vdev_padding
@@ -2661,6 +2676,8 @@ Z\n+NETWORK_DISCONNECT_CONNECT_REQUEST_TIMEDOUT
 \n\vuint32_vals
 \n\vuint64_vals
 \n\vvoice_level
+\n_MakeGlobalSymbol
+\n_MakeGlobalSymbolCaseSensitive
 \rBytes
 \r\n\tCODE_SIZE
 \r\n\tJS_NORMAL
@@ -2670,7 +2687,6 @@ Z\n+NETWORK_DISCONNECT_CONNECT_REQUEST_TIMEDOUT
 \r\n\tTYPE_BOOL
 \r\n\tTYPE_ENUM
 \r\n\tsvc_Print
-\r\ng_pThreadPool
 \r\r\r\r\r\r
 \tCannotBeNetworked        = %s\n
 \tCategory Mask            = %08X\n
@@ -2679,26 +2695,19 @@ Z\n+NETWORK_DISCONNECT_CONNECT_REQUEST_TIMEDOUT
 \tGroup                    = '%s'\n
 \tGroup ID                 = %u\n
 \tID                       = %s\n
-\tV_atan2f
-\tV_atoi
-\tV_atoui64
+\tV_qsort_s
+\tV_sincosf
 \tV_snprintf
 \tV_sscanf
 \tV_stricmp_fast
 \tV_vsnprintf
 \tWarning
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t_MakeGlobalSymbol
-\t_MakeGlobalSymbolCaseSensitive
-\t_V_strncpy
-\t_V_strnicmp_fast
 \tcQr
-\tg_BitBuf_BitWriteMasks
 \tkE>fvw
 \vCPlayerSlot
 \vInSeqNum
 \vMsgTick
-\v\ng_pMemAlloc
 \vbasetypes.h
 ]\n,NETWORK_DISCONNECT_REJECT_INVALIDRESERVATION
 ^\n*NETWORK_DISCONNECT_KICKED_CONVICTEDACCOUNT
@@ -2746,7 +2755,6 @@ _nextafter
 `managed vector constructor iterator'
 `managed vector copy constructor iterator'
 `managed vector destructor iterator'
-`nHN
 `omni callsig'
 `placement delete closure'
 `placement delete[] closure'
@@ -2765,7 +2773,7 @@ _nextafter
 `vector vbase copy constructor iterator'
 `vftable'
 `virtual displacement map'
-aBvHN
+aBv(
 abcdefghijklmnopqrstuvwxyz
 acos
 activated
@@ -3076,9 +3084,12 @@ class NetMessagePacketStart (demangled)
 class NetMessagePacketStart_t (demangled)
 class NetMessageSplitscreenUserChanged (demangled)
 class NetMessageSplitscreenUserChanged_t (demangled)
+class ProtoCoordSizeParams_t (demangled)
 class ProtoFlattenedSerializerField_t (demangled)
 class ProtoFlattenedSerializerField_t_polymorphic_field_t (demangled)
+class ProtoFlattenedSerializerField_t_proto_enum_info_t (demangled)
 class ProtoFlattenedSerializer_t (demangled)
+class QuantizedFloatEncoderAlias_t (demangled)
 class `private: void CFlattenedSerializers::OnShowPermutations(CCommandContext const&, CCommand const&)'::`13'::<lambda_1> (demangled)
 class google::protobuf::DescriptorBuilder::OptionInterpreter::AggregateOptionFinder (demangled)
 class google::protobuf::DescriptorDatabase (demangled)
@@ -3269,7 +3280,12 @@ context(0x%p)
 convars
 cookie
 coord
+coord_fractional_bits
+coord_fractional_bits_mp
+coord_integer_bits
+coord_integer_bits_mp
 coord_integral
+coord_size_params
 cos
 cosh
 count
@@ -3305,6 +3321,7 @@ deleted
 delta
 delta >= 1u
 delta_error
+delta_processed
 depth %2d: %d serializers\n
 destination address required
 details
@@ -3391,6 +3408,7 @@ filesystem_stdio
 fixed array
 fixed32
 fixed64
+fixed8
 flags
 float
 float32
@@ -3472,7 +3490,7 @@ host_unfiltered_frametime
 hostip
 hostname
 hpx
-hpz
+hpz 
 huge
 idempotency_level
 identified %d entity related c++ field shadowing issues:\n
@@ -3525,6 +3543,7 @@ is_hltv
 is_listenserver_host
 is_loadsavegame
 is_multiplayer
+is_signed_enum
 ishltv
 items
 jVg
@@ -3612,9 +3631,16 @@ mode
 modf
 msg_data
 msg_type
+msgproc_usec_avg_max
+msgproc_usec_avg_p50
+msgproc_usec_avg_p95
+msgproc_usec_avg_p99
+msgproc_usec_max
+msgproc_usec_p50
+msgproc_usec_p95
+msgproc_usec_p99
 n03>Pu
 nBits != 32
-nHN
 nIndex != m_priorityToOrderMap.InvalidIndex()
 nPriority != NETWORK_FIELD_CHANGE_DEFAULT_PRIORITY
 n\n0NETWORK_DISCONNECT_KICKED_VACNETABNORMALBEHAVIOR
@@ -3737,6 +3763,7 @@ non_transmitted_entities
 non_transmitted_entities_t
 none
 normal
+normal_fractional_bits
 noscale
 not a directory
 not a socket
@@ -3788,13 +3815,10 @@ outofpvs_entity_updates_t
 override_operator_name
 owM&
 owner dead
-p08@H^HN
-p>HN
 p@HPX`h\f
 pFx
 pOC
 p\rP\f0!h
-p\tV_qsort_s
 package
 packed
 packet_loss_pct
@@ -3823,7 +3847,6 @@ players_networkids
 pmInfoDest.m_pFlattenedSerializer
 pmInfoDest.m_unPolymorphicTypeId == pmInfoSource.m_unPolymorphicTypeId
 pmInfoSource.m_pFlattenedSerializer
-pnHN
 pointer
 pointer field
 polymorphic
@@ -3870,6 +3893,7 @@ proto
 proto2
 proto3
 proto3_optional
+proto_enum_info_t
 protocol
 protocol error
 protocol not supported
@@ -3982,6 +4006,11 @@ qangle
 qangle_pitch_yaw
 qangle_precise
 quality
+quantized_float_encoder_aliases
+queuedmsgs_max
+queuedmsgs_p50
+queuedmsgs_p95
+queuedmsgs_p99
 r\tVr.>T
 ram_physical_total_mb
 range check failure
@@ -4127,6 +4156,8 @@ struct std::ctype_base (demangled)
 subtype mismatch
 success
 sv_listen_directudp
+sv_net_client_message_process_time_ms_drop
+sv_net_client_message_process_time_ms_warn
 svc_Broadcast_Command
 svc_ClearAllStringTables
 svc_CmdKeyValues
@@ -4243,13 +4274,12 @@ userid
 using_varint_bitcounts
 utcdatetime_vals
 utlvector
-v@vector2
-vHN
 val_bool
 val_byte
 val_long
 valid
 valid poly %s [%u]
+validate
 value
 value too large
 valve_map_field
@@ -4258,6 +4288,7 @@ var_encoder_sym
 var_name
 var_serializer_sym
 vector too long
+vector2
 vector3
 vector4
 vector<bool> too long
@@ -4282,5 +4313,4 @@ xdigit
 xuid
 ycg
 z\n8NETWORK_DISCONNECT_LOCALPROBLEM_HOSTEDSERVERPRIMARYRELAY
-z\tV_sincosf
 zero

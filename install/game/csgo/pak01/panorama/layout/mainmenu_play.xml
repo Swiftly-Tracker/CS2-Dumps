@@ -1,25 +1,25 @@
 <!-- xml reconstructed by Source 2 Viewer 19.2.0.0 - https://valveresourceformat.github.io -->
 <root>
 	<styles>
-		<include src="s2r://panorama/styles/csgostyles.vcss_c" />
-		<include src="s2r://panorama/styles/mainmenu.vcss_c" />
-		<include src="s2r://panorama/styles/mainmenu_play.vcss_c" />
-		<include src="s2r://panorama/styles/leaderboard.vcss_c" />
-		<include src="s2r://panorama/styles/particle_controls.vcss_c" />
+		<include src="s2r://panorama/styles/csgostyles.vcss" />
+		<include src="s2r://panorama/styles/mainmenu.vcss" />
+		<include src="s2r://panorama/styles/mainmenu_play.vcss" />
+		<include src="s2r://panorama/styles/leaderboard.vcss" />
+		<include src="s2r://panorama/styles/particle_controls.vcss" />
 	</styles>
 	<scripts>
-		<include src="s2r://panorama/scripts/common/scheduler.vts_c" />
-		<include src="s2r://panorama/scripts/avatar.vts_c" />
-		<include src="s2r://panorama/scripts/particle_controls.vts_c" />
-		<include src="s2r://panorama/scripts/util_gamemodeflags.vts_c" />
-		<include src="s2r://panorama/scripts/common/formattext.vts_c" />
-		<include src="s2r://panorama/scripts/common/icon.vts_c" />
-		<include src="s2r://panorama/scripts/common/licenseutil.vts_c" />
-		<include src="s2r://panorama/scripts/common/sessionutil.vts_c" />
-		<include src="s2r://panorama/scripts/operation/operation_util.vjs_c" />
-		<include src="s2r://panorama/scripts/mainmenu_play.vts_c" />
-		<include src="s2r://panorama/scripts/controlslibrary.vts_c" />
-		<include src="s2r://panorama/scripts/operation/operation_main.vjs_c" />
+		<include src="s2r://panorama/scripts/common/scheduler.vts" />
+		<include src="s2r://panorama/scripts/avatar.vts" />
+		<include src="s2r://panorama/scripts/particle_controls.vts" />
+		<include src="s2r://panorama/scripts/util_gamemodeflags.vts" />
+		<include src="s2r://panorama/scripts/common/formattext.vts" />
+		<include src="s2r://panorama/scripts/common/icon.vts" />
+		<include src="s2r://panorama/scripts/common/licenseutil.vts" />
+		<include src="s2r://panorama/scripts/common/sessionutil.vts" />
+		<include src="s2r://panorama/scripts/operation/operation_util.vjs" />
+		<include src="s2r://panorama/scripts/mainmenu_play.vts" />
+		<include src="s2r://panorama/scripts/controlslibrary.vts" />
+		<include src="s2r://panorama/scripts/operation/operation_main.vjs" />
 	</scripts>
 	<snippets>
 		<snippet name="MapGroupSelection">
@@ -33,7 +33,7 @@
 				<Label id="MapGroupNewTag" class="map-selection-info__new stratum-medium-italic hidden" text="#SFUI_Workshop_New_Map" />
 				<Panel id="MapSelectionButton" class="map-selection-btn-container" hittest="false">
 					<Panel id="MapGroupCollectionMultiIcons" class="map-selection-btn__groupmap-icons" />
-					<Frame id="jsRatingEmblem" src="s2r://panorama/layout/rating_emblem.vxml_c" class="map-selection-btn__ratingemblem" />
+					<Frame id="jsRatingEmblem" src="s2r://panorama/layout/rating_emblem.vxml" class="map-selection-btn__ratingemblem" />
 					<Panel class="map-selection-btn__wins">
 						<Image class="map-selection-btn__wins__image" textureheight="22" texturewidth="-1" src="s2r://panorama/images/icons/ui/trophy.vsvg" />
 						<Label class="map-selection-btn__wins__label" text="{s:map-win-count}" />
@@ -97,19 +97,34 @@
 				</Panel>
 			</Panel>
 		</snippet>
+		<snippet name="MapSelectionContainer_official_rush">
+			<Panel class="map-selection-list-rush hidden">
+				<Panel class="play-menu-mapandlbs-container">
+					<Panel id="MapTile" class="coop-map-tile" />
+					<Panel id="FriendLeaderboards" />
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="MapSelectionContainer_listen_rush">
+			<Panel class="map-selection-list-rush hidden">
+				<Panel class="play-menu-mapandlbs-container">
+					<Panel id="MapTile" class="coop-map-tile" />
+				</Panel>
+			</Panel>
+		</snippet>
 		<snippet name="MapSelectionContainer_premier">
 			<Panel class="map-selection-list-premier hidden">
 				<Panel class="left-right-flow no-lock" style="height: fill-parent-flow( 1.0 ); width: 100%;">
 					<Panel class="premier-side left">
 						<Panel class="premier-inner left">
-							<Frame id="jsParty" lbtype="party" class="playmenu--premier__party" registerforreadyevents="true" src="s2r://panorama/layout/leaderboard.vxml_c" />
-							<Frame id="jsPremierMapWinRecord" class="premier-play-menu-mapwinrecord" registerforreadyevents="true" src="s2r://panorama/layout/premier_mapwinrecord.vxml_c" />
+							<Frame id="jsParty" lbtype="party" class="playmenu--premier__party" registerforreadyevents="true" src="s2r://panorama/layout/leaderboard.vxml" />
+							<Frame id="jsPremierMapWinRecord" class="premier-play-menu-mapwinrecord" registerforreadyevents="true" src="s2r://panorama/layout/premier_mapwinrecord.vxml" />
 						</Panel>
 					</Panel>
 					<Panel class="premier-side right">
 						<Panel class="premier-inner right top-bottom-flow">
-							<Frame id="jsSeasonProgress" class="premier-season-progress" registerforreadyevents="true" src="s2r://panorama/layout/premier_season_progress.vxml_c" />
-							<Frame id="jsLeaderboard" lbtype="general" class="playmenu--premier__leaderboard" registerforreadyevents="true" src="s2r://panorama/layout/leaderboard.vxml_c" />
+							<Frame id="jsSeasonProgress" class="premier-season-progress" registerforreadyevents="true" src="s2r://panorama/layout/premier_season_progress.vxml" />
+							<Frame id="jsLeaderboard" lbtype="general" class="playmenu--premier__leaderboard" registerforreadyevents="true" src="s2r://panorama/layout/leaderboard.vxml" />
 						</Panel>
 					</Panel>
 				</Panel>
@@ -216,15 +231,15 @@
 					<Panel id="PlayTypeTopNav" class="full-height horizontal-center left-right-flow">
 						<RadioButton id="Play-official" group="playtype" data-type="official" class="content-navbar__tabs__btn" onactivate="PlayMenu.OnPressOfficialServers();">
 							<Label text="#play_setting_online" />
-							<Panel id="GameModeAlert" class="navbar-btn__notification-dot hidden" />
+							<Frame id="GameModeAlert" class="dot hidden" src="s2r://panorama/layout/btn_alert.vxml" />
 						</RadioButton>
 						<RadioButton id="Play-listen" group="playtype" data-type="listen" class="content-navbar__tabs__btn" onactivate="PlayMenu.OnPressListenServers();">
 							<Label text="#play_setting_offline" />
-							<Panel id="GameModeAlert" class="navbar-btn__notification-dot hidden" />
+							<Frame id="GameModeAlert" class="dot hidden" src="s2r://panorama/layout/btn_alert.vxml" />
 						</RadioButton>
 						<RadioButton id="PlayWorkshop" group="playtype" data-type="workshop" class="content-navbar__tabs__btn" onactivate="PlayMenu.OnPressWorkshop();">
 							<Label text="#play_setting_workshop" />
-							<Panel id="GameModeAlert" class="navbar-btn__notification-dot hidden" />
+							<Frame id="GameModeAlert" class="dot hidden" src="s2r://panorama/layout/btn_alert.vxml" />
 						</RadioButton>
 						<Button id="PlayCommunity" class="mainmenu-top-navbar__radio-iconbtn" data-type="workshop" onactivate="PlayMenu.OnPressServerBrowser();" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;PlayCommunity&apos;, &apos;#play_setting_community&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();">
 							<Image class="mainmenu-top-navbar__radio-btn__icon" src="s2r://panorama/images/icons/ui/community_servers.vsvg" />
@@ -236,15 +251,19 @@
 				<Panel id="GameModeSelectionRadios" class="left-right-flow vertical-center horizontal-center full-height">
 					<RadioButton id="premier" group="gamemodes" class="content-navbar__tabs__btn">
 						<Label text="#SFUI_GameModePremier" />
-						<Panel id="GameModeAlert" class="navbar-btn__notification-dot hidden" />
+						<Frame id="GameModeAlert" class="dot hidden" src="s2r://panorama/layout/btn_alert.vxml" />
 					</RadioButton>
 					<RadioButton id="competitive" group="gamemodes" class="content-navbar__tabs__btn">
 						<Label text="#SFUI_GameModeCompetitive" />
-						<Panel id="GameModeAlert" class="navbar-btn__notification-dot hidden" />
+						<Frame id="GameModeAlert" class="dot hidden" src="s2r://panorama/layout/btn_alert.vxml" />
 					</RadioButton>
 					<RadioButton id="scrimcomp2v2" group="gamemodes" class="content-navbar__tabs__btn">
 						<Label text="#SFUI_GameModeScrimComp2v2" />
-						<Panel id="GameModeAlert" class="navbar-btn__notification-dot hidden" />
+						<Frame id="GameModeAlert" class="dot hidden" src="s2r://panorama/layout/btn_alert.vxml" />
+					</RadioButton>
+					<RadioButton id="rush" group="gamemodes" class="content-navbar__tabs__btn">
+						<Label text="#SFUI_GameModeRush" />
+						<Frame id="GameModeAlert" class="dot hidden" src="s2r://panorama/layout/btn_alert.vxml" />
 					</RadioButton>
 					<Panel class="mainmenu-top-navbar__play_seperator" />
 					<RadioButton id="casual" group="gamemodes" class="content-navbar__tabs__btn">
@@ -272,7 +291,7 @@
 							<Panel id="play-lobby-leader-panel" class="play-lobby-leader-container">
 								<CSGOAvatarImage id="lobby-leader-avatar" class="lobby-leader-avatar" />
 								<Panel class="top-bottom-flow vertical-center">
-									<Label id="play-lobby-leader-text" class="lobby-leader-text stratum-regular-condensed fontSize-ml" />
+									<Label id="play-lobby-leader-text" class="lobby-leader-text stratum-regular-condensed fontSize-ml" html="true" />
 									<Label text="#play_lobbyleader_setting" class="stratum-light fontSize-sm" />
 								</Panel>
 							</Panel>
@@ -311,16 +330,16 @@
 							<Panel class="gamemode-settings-sidebar__options bottom-padding-large" id="id-play-menu-practicesettings-container">
 								<Label text="#practicesettings_title" class="map-selection__quick-selection-set-title" />
 								<TooltipPanel tooltip="#tooltip_permission_settings_explain" class="vertical-center">
-									<Frame id="PermissionsSettings" class="btn-toggle-slider--playmenu" src="s2r://panorama/layout/slider_toggle.vxml_c" />
+									<Frame id="PermissionsSettings" class="btn-toggle-slider--playmenu" src="s2r://panorama/layout/slider_toggle.vxml" />
 								</TooltipPanel>
 								<TooltipPanel id="id-play-menu-practicesettings-grenades-tooltip" tooltip="#practicesettings_grenades_tooltip" class="vertical-center">
-									<Frame id="id-play-menu-practicesettings-grenades" class="btn-toggle-slider--playmenu" src="s2r://panorama/layout/slider_toggle.vxml_c" />
+									<Frame id="id-play-menu-practicesettings-grenades" class="btn-toggle-slider--playmenu" src="s2r://panorama/layout/slider_toggle.vxml" />
 								</TooltipPanel>
 								<TooltipPanel id="id-play-menu-practicesettings-infammo-tooltip" tooltip="#practicesettings_infammo_tooltip" class="vertical-center">
-									<Frame id="id-play-menu-practicesettings-infammo" class="btn-toggle-slider--playmenu" src="s2r://panorama/layout/slider_toggle.vxml_c" />
+									<Frame id="id-play-menu-practicesettings-infammo" class="btn-toggle-slider--playmenu" src="s2r://panorama/layout/slider_toggle.vxml" />
 								</TooltipPanel>
 								<TooltipPanel id="id-play-menu-practicesettings-infwarmup-tooltip" tooltip="#practicesettings_infwarmup_tooltip" class="vertical-center">
-									<Frame id="id-play-menu-practicesettings-infwarmup" class="btn-toggle-slider--playmenu" src="s2r://panorama/layout/slider_toggle.vxml_c" />
+									<Frame id="id-play-menu-practicesettings-infwarmup" class="btn-toggle-slider--playmenu" src="s2r://panorama/layout/slider_toggle.vxml" />
 								</TooltipPanel>
 								<Button id="PlayMenulLeaderboards" class="play-menu-option-btn" style="horizontal-align:left;">
 									<Image texturewidth="-1" textureheight="28" src="s2r://panorama/images/icons/ui/graph.vsvg" />
@@ -328,7 +347,7 @@
 								</Button>
 								<Panel id="id-play-menu-practicesettings-annotations" class="top-bottom-flow">
 									<TooltipPanel tooltip="#practicesettings_annotations_tooltip" class="">
-										<Frame id="id-play-menu-practicesettings-annotations" class="btn-toggle-slider--playmenu" src="s2r://panorama/layout/slider_toggle.vxml_c" />
+										<Frame id="id-play-menu-practicesettings-annotations" class="btn-toggle-slider--playmenu" src="s2r://panorama/layout/slider_toggle.vxml" />
 									</TooltipPanel>
 									<Panel class="left-right-flow full-width">
 										<TooltipPanel tooltip="#practicesettings_annotations_dropdown_tooltip" class="full-width">
@@ -410,7 +429,7 @@
 								</Panel>
 							</Panel>
 						</Panel>
-						<Frame id="id-playmenu-mission-panel" src="s2r://panorama/layout/mission_tile_playmenu.vxml_c" />
+						<Frame id="id-playmenu-mission-panel" src="s2r://panorama/layout/mission_tile_playmenu.vxml" />
 					</Panel>
 				</Panel>
 			</Panel>

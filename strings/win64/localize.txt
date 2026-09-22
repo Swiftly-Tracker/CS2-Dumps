@@ -20,9 +20,11 @@
  Class Hierarchy Descriptor'
  Complete Object Locator'
  Type Descriptor'
+ \n_V_strncmp
  delete
  delete[]
  new
+!\n_V_strncpy
 !plural: handler %s for %s does not have quantity handling
 !plural: loc token %s does not have a plural quantity
 !plural: loc token %s not found
@@ -148,6 +150,7 @@
 #Valve_SelectLanguage_Turkish
 #Valve_SelectLanguage_Ukrainian
 #Valve_SelectLanguage_Vietnamese
+#\n_V_strnicmp_fast
 %02d
 %04d
 %04d_%02d_%02d_%02d_%02d_%02d
@@ -229,11 +232,11 @@
 /resource/valve_
 /src/
 3>N;kU
-3\tV_fpclassifyd
 :foo
 :help
 :name_ref
 :shorthelp
+<\ng_pMemAlloc
 <all localization info removed>
 <compatibility token '%s' does not have gender information>
 <compile request with a different syntax>
@@ -559,6 +562,7 @@ PhysicsBuilderMgr001
 Plat_ExitProcess
 Plat_FatalError
 Plat_GetTime
+Plat_IsFile
 Plat_IsInDebugSession
 Plat_IsInTestMode
 Plat_MessageBox
@@ -611,6 +615,7 @@ SetStdHandle
 SetUnhandledExceptionFilter
 Simplified_Chinese
 SleepConditionVariableSRW
+SmartPropsSystem_001
 SoundOpSystem001
 SoundOpSystemEdit001
 SoundService_001
@@ -642,6 +647,7 @@ TerminateProcess
 TestScriptMgr001
 TextLayout_001
 Thai
+ThreadSleep
 Thu
 Thursday
 TlsAlloc
@@ -698,10 +704,6 @@ V_StringToInt32
 V_StringToInt64Limit
 V_UChar32ToUTF8
 V_UInt64ToString_Unsafe
-V_UTF16ToUChar32
-V_UTF8ToUChar32
-V_UTF8ToUTF16
-V_UnqualifiedFileName
 V_strStartsWith( pFound, pExpected )
 Vietnamese
 VisBuilder_001
@@ -717,19 +719,22 @@ WriteFile
 [!s:notavar]
 [!s:notpresent]
 [END]
+\n_V_StringAfterPrefix
+\n_V_StringAfterPrefixCaseSensitive
 \resource\valve_
+\tV_UTF16ToUChar32
+\tV_UTF8ToUChar32
+\tV_UTF8ToUTF16
+\tV_UnqualifiedFileName
+\tV_powd
+\tV_qsort_s
 \tV_stricmp_fast
 \tV_vsnprintf
 \tWarning
-\t_V_StringAfterPrefix
-\t_V_StringAfterPrefixCaseSensitive
-\t_V_strncmp
-\t_V_strncpy
-\t_V_strnicmp_fast
 \tkE>fvw
-\v\ng_pMemAlloc
 \{s:foo} {s:bar}
 \{s:foo} {} {,:} {s:} {s:bar} extra
+]\tV_fpclassifyd
 __based(
 __cdecl
 __clrcall
@@ -884,7 +889,6 @@ latam
 localize
 localize.dll
 log10
-m\tV_powd
 many
 missing required ',' after selection type
 missing required ',' or '}' after substitution variable (do you have unusual characters in your substitution token name?)
@@ -922,7 +926,6 @@ pExpected == nullptr
 pFx
 pLocalize->FindLocVariableReferenceText( pString ) == pFound
 pOC
-p\tV_qsort_s
 parse error: %s at position %lld (context: "%s>>>%s<<<%s")
 pl_PL
 plural
@@ -956,6 +959,7 @@ public: char const* CBufferString::ExtendPath(char const*, char, bool) (demangle
 public: char const* CBufferString::FixSlashes(char) (demangled)
 public: char const* CBufferString::Insert(int, char const*, int, bool) (demangled)
 public: char const* CBufferString::RemoveAt(int, int) (demangled)
+public: char const* CBufferString::RemoveFilePath(void) (demangled)
 public: char const* CBufferString::ShortenPath(bool) (demangled)
 public: char const* CBufferString::TrimTail(char const*) (demangled)
 public: char const* CBufferString::TruncateAt(int, bool) (demangled)

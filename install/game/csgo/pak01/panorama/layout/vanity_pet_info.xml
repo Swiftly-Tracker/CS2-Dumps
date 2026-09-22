@@ -1,0 +1,80 @@
+<!-- xml reconstructed by Source 2 Viewer 19.2.0.0 - https://valveresourceformat.github.io -->
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/csgostyles.vcss" />
+		<include src="s2r://panorama/styles/vanity_pet_info.vcss" />
+	</styles>
+	<scripts>
+		<include src="s2r://panorama/scripts/common/characteranims.vts" />
+	</scripts>
+	<Panel useglobalcontext="true" class="vanity-pet-info" hittest="true">
+		<Panel id="id-vanity-pet-hitbox" class="vanity-pet-mouse-over-box" hittest="true" />
+		<Panel class="top-bottom-flow horizontal-center">
+			<Panel id="id-pet-food-warning" class="pet-progress-food-warning">
+				<Image id="id-pet-food-warning-icon" src="s2r://panorama/images/icons/ui/warning.vsvg" textureheight="24" texturewidth="-1" />
+				<Label id="id-pet-food-warning-label" class="stratum-regular pet-progress-food-warning__hint" text="{s:pet_name}" />
+			</Panel>
+			<Panel class="pet-progress">
+				<Panel id="id-pet-milestone-egg" class="pet-progress-milestone" onmouseover="UiToolkitAPI.ShowTextTooltip(&apos;id-pet-milestone-egg&apos;, &apos;#pet_milestone_egg&apos;);" onmouseout="UiToolkitAPI.HideTextTooltip();">
+					<Panel class="pet-progress-timer dark" />
+					<Panel id="id-pet-progress-timer" class="pet-progress-timer" />
+					<Image class="" src="s2r://panorama/images/icons/ui/pet_egg.vsvg" textureheight="24" texturewidth="-1" />
+				</Panel>
+				<Panel id="id-pet-milestone-chick" class="pet-progress-milestone" onmouseover="UiToolkitAPI.ShowTextTooltip(&apos;id-pet-milestone-chick&apos;, &apos;#pet_milestone_chick&apos;);" onmouseout="UiToolkitAPI.HideTextTooltip();">
+					<Panel class="pet-progress-timer dark" />
+					<Panel id="id-pet-progress-timer" class="pet-progress-timer" />
+					<Image class="" src="s2r://panorama/images/icons/ui/pet_chick.vsvg" textureheight="24" texturewidth="-1" />
+				</Panel>
+				<Panel id="id-pet-milestone-pullet" class="pet-progress-milestone" onmouseover="UiToolkitAPI.ShowTextTooltip(&apos;id-pet-milestone-pullet&apos;, &apos;#pet_milestone_pullet&apos;);" onmouseout="UiToolkitAPI.HideTextTooltip();">
+					<Panel class="pet-progress-timer dark" />
+					<Panel id="id-pet-progress-timer" class="pet-progress-timer" />
+					<Image class="" src="s2r://panorama/images/icons/ui/pet_pullet.vsvg" textureheight="24" texturewidth="-1" />
+				</Panel>
+				<Panel id="id-pet-milestone-hen" class="pet-progress-milestone" onmouseover="UiToolkitAPI.ShowTextTooltip(&apos;id-pet-milestone-hen&apos;, &apos;#pet_milestone_hen&apos;);" onmouseout="UiToolkitAPI.HideTextTooltip();">
+					<Panel class="pet-progress-timer dark" />
+					<Panel id="id-pet-progress-timer" class="pet-progress-timer" />
+					<Image class="" src="s2r://panorama/images/icons/ui/pet_hen.vsvg" textureheight="24" texturewidth="-1" />
+				</Panel>
+			</Panel>
+			<Panel class="vanity-pet-actions-row">
+				<Panel id="vanity-pet-actions" class="vanity-pet-info-actions">
+					<Panel class="left-right-flow width-fit-children vertical-center horizontal-center">
+						<Button id="id-zoom-in-pet" onmouseover="UiToolkitAPI.ShowTextTooltip(&apos;id-zoom-in-pet&apos;, &apos;#pet_tooltip_zoom_in&apos;);" onmouseout="UiToolkitAPI.HideTextTooltip();">
+							<Image textureheight="20" texturewidth="-1" src="s2r://panorama/images/icons/ui/expand_video.vsvg" />
+						</Button>
+						<Button id="id-zoom-out-pet" onmouseover="UiToolkitAPI.ShowTextTooltip(&apos;id-zoom-out-pet&apos;, &apos;#pet_tooltip_zoom_out&apos;);" onmouseout="UiToolkitAPI.HideTextTooltip();">
+							<Image textureheight="20" texturewidth="-1" src="s2r://panorama/images/icons/ui/shrink_video.vsvg" />
+						</Button>
+						<Button id="id-inspect-pet" onmouseover="UiToolkitAPI.ShowTextTooltip(&apos;id-inspect-pet&apos;, &apos;#pet_tooltip_inspect&apos;);" onmouseout="UiToolkitAPI.HideTextTooltip();">
+							<Image textureheight="20" texturewidth="-1" src="s2r://panorama/images/icons/ui/zoom_in.vsvg" />
+						</Button>
+						<Button id="id-name-pet" onmouseout="UiToolkitAPI.HideTextTooltip();">
+							<Image textureheight="20" texturewidth="-1" src="s2r://panorama/images/icons/ui/edit_label.vsvg" />
+						</Button>
+						<Button id="id-photo-booth" onmouseover="UiToolkitAPI.ShowTextTooltip(&apos;id-photo-booth&apos;, &apos;#pet_tooltip_photo_booth&apos;);" onmouseout="UiToolkitAPI.HideTextTooltip();">
+							<Image textureheight="20" texturewidth="-1" src="s2r://panorama/images/icons/ui/photo.vsvg" />
+						</Button>
+						<Panel id="id-name-input" class="vanity-pet-info__name-input">
+							<TextEntry id="id-name-input-text" class="vanity-pet-info__text-entry" placeholder="#nameable_textentry_placeholder" onfocus="" oncancel="VanityPetInfo.CancelTextEntry();" ontextentrychange="VanityPetInfo.OnEntryChanged();" />
+							<Panel class="vanity-pet-info__text-entry__actions">
+								<Button id="id-name-input-text-submit" onmouseover="UiToolkitAPI.ShowTextTooltip(&apos;id-name-input-text-submit&apos;, &apos;#pet_tooltip_name_submit&apos;);" onmouseout="UiToolkitAPI.HideTextTooltip();">
+									<Image textureheight="14" texturewidth="-1" src="s2r://panorama/images/icons/ui/check.vsvg" />
+								</Button>
+								<Button id="id-name-input-text-cancel" onmouseover="UiToolkitAPI.ShowTextTooltip(&apos;id-name-input-text-cancel&apos;, &apos;#pet_tooltip_name_cancel&apos;);" onmouseout="UiToolkitAPI.HideTextTooltip();">
+									<Image textureheight="14" texturewidth="-1" src="s2r://panorama/images/icons/ui/exit.vsvg" />
+								</Button>
+								<Button id="id-name-input-text-back" onmouseover="UiToolkitAPI.ShowTextTooltip(&apos;id-name-input-text-back&apos;, &apos;#pet_tooltip_name_back&apos;);" onmouseout="UiToolkitAPI.HideTextTooltip();">
+									<Image textureheight="14" texturewidth="-1" src="s2r://panorama/images/icons/ui/back.vsvg" />
+								</Button>
+							</Panel>
+						</Panel>
+						<Button id="id-pet-book" onmouseover="UiToolkitAPI.ShowTextTooltip(&apos;id-pet-book&apos;, &apos;#pet_tooltip_book&apos;);" onmouseout="UiToolkitAPI.HideTextTooltip();">
+							<Image textureheight="24" texturewidth="-1" src="s2r://panorama/images/icons/ui/pet_book.vsvg" />
+						</Button>
+					</Panel>
+				</Panel>
+			</Panel>
+			<Label id="id-pet-name" class="stratum-medium-condensed fontSize-ml fontcolor-white vanity-pet-name" text="{s:pet_name}" />
+		</Panel>
+	</Panel>
+</root>

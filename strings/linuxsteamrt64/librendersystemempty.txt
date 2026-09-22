@@ -730,6 +730,7 @@ CPoolAllocator::complete object destructor() (demangled)
 CPooledIndexBuffer (demangled)
 CPooledVertexBuffer (demangled)
 CPostConnectCallback (demangled)
+CPsdBufferFile (demangled)
 CRC32_ProcessBuffer
 CReadGPUBuffer (demangled)
 CRefCountServiceBase<CRefMT> (demangled)
@@ -784,6 +785,7 @@ CTextureEmpty (demangled)
 CTextureManagerBase (demangled)
 CTextureManagerBase::MN_AddAsyncTextureBitsHookupJob(CTextureBase*, CTextureManagerBase::AsyncTextureHookupData_t const&)::{lambda()#1} (demangled)
 CTextureManagerBase::MarkAsyncUpdatedThisFrame - Invalid texture handle.\n
+CTextureManagerBase::ReadCompiledTextureMips(CWeakHandle<InfoForResourceTypeCTextureBase>, int, int, int, ImageFormat, std::shared_ptr<IReadTexturePixelsCallback>)::{lambda(IAsyncResourceDataRequest*, std::unique_ptr<IAsyncProcessedDataResult, std::default_delete<IAsyncProcessedDataResult> >)#1} (demangled)
 CTextureManagerEmpty (demangled)
 CThreadEvent (demangled)
 CThreadEvent::Set() (demangled)
@@ -828,7 +830,7 @@ CUtlBuffer::SeekPut(CUtlBuffer::SeekType_t, int) (demangled)
 CUtlBuffer::SetBigEndian(bool) (demangled)
 CUtlBuffer::SetExternalBuffer(void*, int, int, CUtlBuffer::BufferFlags_t) (demangled)
 CUtlBuffer::SetOverflowFuncs(bool (CUtlBuffer::*)(int), bool (int)) (demangled)
-CUtlBuffer::Swap(CUtlBuffer&, bool) (demangled)
+CUtlBuffer::Swap(CUtlBuffer&) (demangled)
 CUtlBuffer::WriteToFile(char const*, bool) (demangled)
 CUtlBuffer::base object constructor(int, int, CUtlBuffer::BufferFlags_t) (demangled)
 CUtlBuffer::complete object constructor(int, int, CUtlBuffer::BufferFlags_t) (demangled)
@@ -845,6 +847,7 @@ CUtlString::+=(CUtlString const&) (demangled)
 CUtlString::+=(char const*) (demangled)
 CUtlString::+=(char) (demangled)
 CUtlString::=(CBufferString const&) (demangled)
+CUtlString::==(CBufferString const&) const (demangled)
 CUtlString::==(CUtlString const&) const (demangled)
 CUtlString::Acquire(CBufferString*, bool) (demangled)
 CUtlString::Append(char const*) (demangled)
@@ -928,6 +931,7 @@ Corrupt JPEG data: premature end of data segment
 Could not decode alpha data.
 CpuId
 CreateConstantBufferInternal
+CreateDocument failed
 CreateInterface
 CreateNewThreadPool
 CumulativeSumToAverageRow_C
@@ -1026,6 +1030,7 @@ Failed to save video settings config to '%s'\n
 Features
 Feb
 February
+FfJi
 FileKeys
 FileSystem
 FillAttr
@@ -1459,8 +1464,6 @@ June
 KNQ\r
 Keeping resolution of (%dx%d)\n
 KeyValueCache001
-KeyValues3: pre-allocated array memory is too small for %u elements (%u bytes available, %u bytes needed)\n
-KeyValues3: pre-allocated table memory is too small for %u members (%u bytes available, %u bytes needed)\n
 KeyValues::FindKey(HKeySymbol) (demangled)
 KeyValues::FindKey(char const*) const (demangled)
 KeyValues::FindKey(char const*, bool) (demangled)
@@ -1756,6 +1759,7 @@ PanoramaUIClient001
 PanoramaUIEngine001
 ParallelForSharedCode
 ParseEXRHeaderFromMemory() failed! Error message: %s\n
+ParseImageDataSection failed
 ParticleSystemMgr003
 PhysicsBuilderMgr001
 Plat_CPUTickFrequency
@@ -1968,6 +1972,16 @@ RandomFloat
 Read failed on temporary file
 Read from EMS failed
 Read from XMS failed
+ReadCompiledTextureMips: callback for %s is still using mip %d, but that data is about to be recycled\n
+ReadCompiledTextureMips: cannot convert %s from %s to %s\n
+ReadCompiledTextureMips: could not create a read request for %s\n
+ReadCompiledTextureMips: could not decode passthrough %s\n
+ReadCompiledTextureMips: mip %d of %s did not decompress (%d of %d bytes)\n
+ReadCompiledTextureMips: mip %d of %s is %d bytes on disk but %d uncompressed\n
+ReadCompiledTextureMips: mip %d of %s runs past the data we read\n
+ReadCompiledTextureMips: mip %d of %s wants pages out to byte %lld but only %llu were read\n
+ReadCompiledTextureMips: no texture data for %s\n
+ReadCompiledTextureMips: short read for %s, wanted %lld bytes of mips but got %llu\n
 Red
 RegisterConCommand: Unknown error registering con command "%s"!\n
 RegisterConVar: Unknown error registering convar "%s"!\n
@@ -1996,6 +2010,8 @@ RenderUtils_001
 Rendersystem/SheetCacheTextureCols
 Rendersystem/SheetCacheTextureRows
 Requested feature was omitted at compile time
+Resizing IBPool from %s -> %s\n
+Resizing VBPool from %s -> %s\n
 ResourceCompilerSystem001
 ResourceHandleUtils001
 ResourceManifestRegistry001
@@ -2244,7 +2260,9 @@ SetRow_ERMS
 SetRow_X86
 Setting max texture resolution to: %dx%d\n
 SheetSequenceIntegerId_t
+Show RenderDoc overlay
 Size
+SmartPropsSystem_001
 Smoothing not supported with nonstandard sampling ratios
 SobelRow_Any_SSE2
 SobelRow_C
@@ -2559,6 +2577,8 @@ UYVYToYRow_Any_SSE2
 UYVYToYRow_C
 UYVYToYRow_SSE2
 Unable to find swapchain named %s
+Unable to load psd: %s\n
+Unable to read compiled texture "%s" (Error: %s)\n
 Unavailable
 Unexpected marker 0x%02x
 Unexpected null character in regular expression
@@ -2817,6 +2837,15 @@ ZFP compression is not supported.
 Zjz\v
 [abi:
 [friend]
+\n***ASSERT FAILED*** Image data section has too many channels (%d).
+\n***ASSERT FAILED*** Pointer is null.
+\n***ERROR*** [DecompressRle] Malformed RLE data encountered
+\n***ERROR*** [ImageData] Unhandled bits per channel: %u.
+\n***ERROR*** [ImageData] Unhandled compression type %u.
+\n***ERROR*** [PSD] Document does not contain an image data section.
+\n***ERROR*** [PsdExtract] File seems to be corrupt, reserved bytes are not zero.
+\n***ERROR*** [PsdExtract] File seems to be corrupt, signature does not match "8BPS".
+\n***ERROR*** [PsdExtract] File seems to be corrupt, version does not match 1 or 2.
 \n\n\n
 \rmj>zjZ
 \t\t\t
@@ -3625,6 +3654,7 @@ basic_string_view::substr
 bej
 bind_textdomain_codeset
 bindtextdomain
+bitmap output needs an 8 bit document
 blank
 blocking issue in occlusion queries!!\n
 bool
@@ -3962,12 +3992,15 @@ chunkCount
 circumflex
 clock_gettime
 close
+cmyk document with non 8 bit channels
 cntrl
 co_await 
 colon
 color
 comma
 commercial-at
+composite channel data missing
+composite has too few channels for its color mode
 compression
 const_cast
 construction vtable for 
@@ -4062,7 +4095,7 @@ float&() std::basic_istream<wchar_t, std::char_traits<wchar_t> >::>>() (demangle
 float32
 float64
 floatbitmap.cpp
-floatbitmap.cpp(1191): Unsupported color format "%s", skipping!\n
+floatbitmap.cpp(1195): Unsupported color format "%s", skipping!\n
 floatbitmap.cpp(518): Conversion not supported yet!\n
 fopen
 fopen64
@@ -4190,6 +4223,9 @@ immediate
 incorrect data check
 incorrect header check
 incorrect length check
+indexed document with more than 2 channels
+indexed document with no usable palette
+indexed document with non 8 bit indices
 initializer for module 
 int
 int () CUniformRandomStreamImpl<CThreadNullMutex>::complete object constructor() (demangled)
@@ -4443,6 +4479,7 @@ new[](unsigned long, std::nothrow_t const&) (demangled)
 new[](unsigned long, void*) (demangled)
 newline
 nine
+no composite (not saved with Maximize Compatibility)
 no memory during frame initialization.
 noexcept
 non-transaction clone for 
@@ -4474,6 +4511,9 @@ pm"U
 png/jpg
 print
 printf
+psd::Allocator (demangled)
+psd::File (demangled)
+psd::MallocAllocator (demangled)
 pthread_cond_broadcast
 pthread_cond_destroy
 pthread_cond_signal
@@ -4511,6 +4551,7 @@ r_renderdoc_auto_shader_pdbs
 r_renderdoc_capture_frame
 r_renderdoc_capture_window_vulkan
 r_renderdoc_open_captures
+r_renderdoc_show_overlay
 r_renderdoc_validation_error_capture_limit
 r_texture_hookup_uses_threadpool
 r_texture_nonstreaming_load
@@ -4531,6 +4572,7 @@ rdrand
 rdrnd
 rdseed
 read
+read past end of file (truncated/corrupt)
 realloc
 reference temporary #
 regex error
@@ -6642,23 +6684,23 @@ terminate called after throwing an instance of '
 terminate called recursively\n
 terminate called without an active exception\n
 texturebase.cpp
-texturebase.cpp(2339):Error loading texture: %s\n
-texturebase.cpp(3097):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
-texturebase.cpp(3100):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
-texturebase.cpp(3133):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
-texturebase.cpp(3136):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
-texturebase.cpp(3158):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
-texturebase.cpp(3161):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
-texturebase.cpp(3181):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
-texturebase.cpp(3184):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
-texturebase.cpp(3204):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
-texturebase.cpp(3207):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
-texturebase.cpp(3229):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
-texturebase.cpp(3232):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
-texturebase.cpp(3244):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
-texturebase.cpp(3247):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
-texturebase.cpp(3259):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
-texturebase.cpp(3262):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
+texturebase.cpp(2911):Error loading texture: %s\n
+texturebase.cpp(3695):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
+texturebase.cpp(3698):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
+texturebase.cpp(3731):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
+texturebase.cpp(3734):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
+texturebase.cpp(3756):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
+texturebase.cpp(3759):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
+texturebase.cpp(3779):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
+texturebase.cpp(3782):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
+texturebase.cpp(3802):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
+texturebase.cpp(3805):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
+texturebase.cpp(3827):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
+texturebase.cpp(3830):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
+texturebase.cpp(3842):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
+texturebase.cpp(3845):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
+texturebase.cpp(3857):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
+texturebase.cpp(3860):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
 this
 this 
 thread initialization failed.
@@ -7047,6 +7089,7 @@ uninitialized __any_string
 unknown
 unknown compression method
 unknown header flags set
+unknown reason
 unsigned
 unsigned __int128
 unsigned char
@@ -7291,6 +7334,12 @@ unsigned short (wchar_t) std::ctype<wchar_t>::do_is(wchar_t) const (demangled)
 unsigned short const*(bool, unsigned long) std::ctype<char>::base object constructor(bool, unsigned long) (demangled)
 unsigned short const*(bool, unsigned long) std::ctype<char>::complete object constructor(bool, unsigned long) (demangled)
 unsigned short&() std::basic_istream<wchar_t, std::char_traits<wchar_t> >::>>() (demangled)
+unsupported bits per channel
+unsupported color mode: bitmap
+unsupported color mode: duotone
+unsupported color mode: lab
+unsupported color mode: multichannel
+unsupported color mode: unknown
 upper
 uyO
 vIK \f3
@@ -7356,10 +7405,12 @@ void () std::_Head_base<(unsigned long)1, std::default_delete<std::__future_base
 void () std::_Head_base<(unsigned long)1, std::default_delete<std::thread::_State()>, (bool)1>::base object constructor (demangled)
 void () std::_Head_base<(unsigned long)1, std::default_delete<std::thread::_State()>, (bool)1>::complete object constructor (demangled)
 void () std::_Sp_counted_base<(__gnu_cxx::_Lock_policy())2>::_M_add_ref_lock_nothrow (demangled)
+void () std::_Sp_counted_base<(__gnu_cxx::_Lock_policy())2>::_M_destroy (demangled)
 void () std::_Sp_counted_base<(__gnu_cxx::_Lock_policy())2>::_M_get_use_count const (demangled)
 void () std::_Sp_counted_base<(__gnu_cxx::_Lock_policy())2>::_M_release_last_use (demangled)
 void () std::_Sp_counted_base<(__gnu_cxx::_Lock_policy())2>::_M_release_last_use_cold (demangled)
 void () std::_Sp_counted_base<(__gnu_cxx::_Lock_policy())2>::_M_weak_release (demangled)
+void () std::_Sp_counted_ptr<std::nullptr_t, (__gnu_cxx::_Lock_policy())2>::_M_dispose (demangled)
 void () std::_Sp_counted_ptr_inplace<std::__detail::_NFA<std::regex_traits<char> >(), std::allocator<void>, (__gnu_cxx::_Lock_policy)2>::_M_destroy (demangled)
 void () std::_Sp_counted_ptr_inplace<std::__detail::_NFA<std::regex_traits<char> >(), std::allocator<void>, (__gnu_cxx::_Lock_policy)2>::_M_dispose (demangled)
 void () std::_Sp_counted_ptr_inplace<std::__detail::_NFA<std::regex_traits<char> >(), std::allocator<void>, (__gnu_cxx::_Lock_policy)2>::base object destructor (demangled)
@@ -8849,6 +8900,7 @@ xdigit
 y != __null
 zZg
 zero
+zero sized document
 {default arg#
 {kHw
 {lambda

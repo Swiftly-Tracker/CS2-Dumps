@@ -1,0 +1,451 @@
+/* Prettified by Source 2 Viewer 19.2.0.0 - https://valveresourceformat.github.io */
+
+.vanity-pet-info
+{
+	transform-origin: 50% 100%;
+	visibility: collapse;
+	x:-150px;
+	y:-180px;
+	width: 300px;
+	height: 200px;
+	overflow: noclip;
+	transition-property: background-color, x, y;
+	transition-duration: .1s;
+	transition-timing-function: ease-in-out;
+}
+
+.vanity-pet-info.show
+{
+	visibility: visible;
+}
+
+.vanity-pet-info .vanity-pet-mouse-over-box
+{
+	vertical-align: bottom;
+	horizontal-align: center;
+	width: 80px;
+	height: 80px;
+}
+
+.vanity-pet-info.is-grown
+{
+	width: 300px;
+	height: 360px;
+	x:-150px;
+	y:-320px;
+}
+
+.vanity-pet-info.is-grown .vanity-pet-mouse-over-box
+{
+	width: 180px;
+	height: 240px;
+}
+
+.vanity-pet-info.is-zoomed.vanity-pet-info
+{
+	width: 320px;
+	height: 380px;
+	x:-180px;
+	y:-250px;
+}
+
+.vanity-pet-info.is-zoomed.vanity-pet-info .vanity-pet-mouse-over-box
+{
+	width: 320px;
+	height: 320px;
+}
+
+.vanity-pet-info.is-zoomed.vanity-pet-info.is-grown
+{
+	width: 500px;
+	height: 690px;
+	x:-250px;
+	y:-600px;
+}
+
+.vanity-pet-info.is-zoomed.vanity-pet-info.is-grown .vanity-pet-mouse-over-box
+{
+	width: 500px;
+	height: 580px;
+}
+
+.vanity-pet-actions-row
+{
+	flow-children: right;
+	horizontal-align: center;
+}
+
+.vanity-pet-clock-timer
+{
+	vertical-align: center;
+	horizontal-align: center;
+	tooltip-position:top;
+	margin: 0px 8px;
+}
+
+.vanity-pet-clock-timer .vanity-pet-clock-timer__inner
+{
+	height: 14px;
+	width: 14px;
+	background-color: rgba(126, 126, 126, 0.15);
+	border-radius: 50%;
+	margin: 9px 0px 0px 0px;
+	horizontal-align: center;
+	clip:radial(50% 50%, 0deg, 45deg);
+}
+
+.vanity-pet-clock-timer Image
+{
+	img-shadow: 0px 0px 0px 2 rgba(0, 0, 0, 0.733);
+}
+
+.vanity-pet-info-actions
+{
+	padding: 6px;
+	width: fit-children;
+	visibility: collapse;
+	background-color: rgba(126, 126, 126, 0.15);
+	flow-children: down;
+	border-radius: 8px;
+	transition-property: width;
+	transition-duration: .2s;
+	transition-timing-function: ease-in-out;
+}
+
+.vanity-pet-info-actions Image
+{
+	transition-property: img-shadow;
+	transition-duration: .2s;
+	transition-timing-function: ease-in-out;
+}
+
+.vanity-pet-info-actions Button
+{
+	margin: 0px 6px;
+	vertical-align: center;
+	tooltip-position: bottom;
+}
+
+.vanity-pet-info-actions Button:hover
+{
+	sound: "UIPanorama.mainmenu_rollover";
+}
+
+.vanity-pet-info-actions Button:hover Image
+{
+	img-shadow: 0px 0px 8px 1 rgba(0, 0, 0, 0.2);
+	vertical-align: center;
+	wash-color: black;
+}
+
+.vanity-pet-info-actions Button:active
+{
+	sound: "UIPanorama.submenu_select";
+}
+
+.vanity-pet-info__name-input TextEntry
+{
+	width: 0px;
+	background-color: rgba(0, 0, 0, 0.329);
+	border: 0px solid white;
+	color: white;
+	font-family: Stratum2, "Arial Unicode MS";
+	font-size: 14px;
+	height: 26px;
+	vertical-align: center;
+	transition-property: width;
+	transition-duration: 0.2s;
+	padding: 4px;
+}
+
+.vanity-pet-info__name-input TextEntry #PlaceholderText
+{
+	transition-property: opacity;
+	transition-duration: 0.2s;
+	color: rgba(255, 255, 255, 0.438);
+	font-size: 14px;
+	horizontal-align: left;
+	opacity: 1;
+	font-family: Stratum2, "Arial Unicode MS";
+	transition-property: opacity;
+	transition-duration: 0.2s;
+}
+
+.vanity-pet-info__name-input TextEntry.HasInput #PlaceholderText
+{
+	opacity: 0;
+}
+
+.vanity-pet-info__name-input TextEntry:focus
+{
+	border: 1px solid rgba(255, 255, 255, 0.603);
+}
+
+.vanity-pet-info__name-input .vanity-pet-info__text-entry__actions
+{
+	flow-children: right;
+	horizontal-align: right;
+	vertical-align: center;
+	width: 0px;
+	transition-property: width;
+	transition-duration: .5s;
+}
+
+.vanity-pet-info__name-input .vanity-pet-info__text-entry__actions Button
+{
+	margin: 0px 3px;
+}
+
+.vanity-pet-info__name-input .vanity-pet-info__text-entry__actions Button:disabled,.vanity-pet-info__name-input .vanity-pet-info__text-entry__actions Button:disabled:hover
+{
+	opacity: .25;
+}
+
+.vanity-pet-info__name-input .vanity-pet-info__text-entry__actions #id-name-input-text-back
+{
+	border-left: 1px solid rgba(255, 255, 255, 0.555);
+	margin: 0px 0px;
+	padding-left: 3px;
+}
+
+.vanity-pet-name
+{
+	max-height: 24px;
+	max-width: 260px;
+	color: white;
+	horizontal-align:center;
+	text-align: center;
+	opacity-mask: url("s2r://panorama/images/masks/fade-right_png.vtex");
+	visibility: collapse;
+}
+
+.pet-progress-food-warning
+{
+	flow-children: down;
+	horizontal-align:center;
+	visibility: collapse;
+	margin-bottom: 16px;
+}
+
+.pet-progress-food-warning .pet-progress-food-warning__hint
+{
+	color: rgb(255, 255, 255);
+	font-size: 14px;
+	horizontal-align:center;
+	text-align: center;
+	text-shadow: 1px 1px 1px 1.5 #000000b0;
+	visibility: collapse;
+}
+
+.pet-progress-food-warning Image
+{
+	visibility: collapse;
+	horizontal-align:center;
+	img-shadow: 1px 1px 3px 2px #000000;
+}
+
+.low-food .pet-progress-food-warning .pet-progress-food-warning__hint,.needs-food .pet-progress-food-warning .pet-progress-food-warning__hint
+{
+	visibility: visible;
+}
+
+.low-food .pet-progress-food-warning Image,.needs-food .pet-progress-food-warning Image
+{
+	visibility: visible;
+}
+
+.hover-show.needs-food .pet-progress
+{
+	visibility: collapse;
+}
+
+.name-update
+{
+	animation-name: name-update-anim;
+	animation-duration: .3s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: 1;
+}
+
+@keyframes 'name-update-anim'
+{
+	0%
+	{
+		transform: translateY(0px);
+		brightness: 1;
+	}
+	
+	50%
+	{
+		transform: translateY(-8px);
+		brightness: 3;
+	}
+	
+	100%
+	{
+		transform: translateY(0px);
+		brightness: 1;
+	}
+	
+}
+
+.text-entry-active TextEntry
+{
+	width: 260px;
+	transition-property: width;
+	transition-duration: 0.2s;
+}
+
+.text-entry-active .vanity-pet-info__text-entry__actions
+{
+	width: 64px;
+	transition-property: width;
+	transition-duration: 0s;
+}
+
+.text-entry-active #id-inspect-pet,.text-entry-active #id-name-pet,.text-entry-active #id-zoom-out-pet,.text-entry-active #id-zoom-in-pet,.text-entry-active #id-pet-book,.text-entry-active #id-photo-booth
+{
+	width: 0px;
+	margin: 0px;
+	visibility: collapse;
+	transition-property: width;
+	transition-duration: 0.2s;
+}
+
+.hover-show .vanity-pet-info-actions,.hover-show .vanity-pet-clock-timer,.hover-show .pet-progress-food-warning,.hover-show .pet-progress
+{
+	visibility: visible;
+}
+
+.hover-show .vanity-pet-name.has-name
+{
+	visibility: visible;
+}
+
+#id-zoom-out-pet
+{
+	visibility: collapse;
+}
+
+.is-zoomed #id-zoom-in-pet
+{
+	visibility: collapse;
+}
+
+.is-zoomed #id-zoom-out-pet
+{
+	visibility: visible;
+}
+
+.hide-during-zoom
+{
+	animation-name: hide-during-zoom;
+	animation-duration: 1.5s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: 1;
+}
+
+.pet-progress
+{
+	flow-children: right;
+	margin-top: 8px;
+	visibility: collapse;
+	horizontal-align:center;
+}
+
+.pet-progress .pet-progress-milestone
+{
+	background-color: rgba(126, 126, 126, 0.15);
+	border-radius: 50%;
+	margin: 4px;
+	width: 42px;
+	height: 42px;
+	opacity: .6;
+	vertical-align: center;
+	horizontal-align: center;
+	visibility: collapse;
+}
+
+.pet-progress .pet-progress-milestone Image
+{
+	vertical-align: center;
+	horizontal-align: center;
+	width: 100%;
+	height: 100%;
+	padding: 9px;
+}
+
+.pet-progress .pet-progress-milestone .pet-progress-timer
+{
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+	background-image: url("s2r://panorama/images/icons/xpshop_tracker_progress_bar.vsvg");
+	background-size: 100% 100%;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+}
+
+.pet-progress .pet-progress-milestone .pet-progress-timer.dark
+{
+	wash-color: grey;
+	z-index: 1;
+	visibility: visible;
+}
+
+.pet-progress .pet-progress-milestone .pet-progress-bar
+{
+	flow-children: right;
+	vertical-align: bottom;
+	horizontal-align: center;
+	margin-bottom: 2px;
+}
+
+.pet-progress .pet-progress-milestone .pet-progress-bar .pet-progress-bar-segment
+{
+	height: 4px;
+	width: 6px;
+	background-color:grey;
+	margin:1px;
+}
+
+.pet-progress .pet-progress-milestone .pet-progress-bar .pet-progress-bar-segment.filled
+{
+	background-color: white;
+}
+
+.pet-progress .pet-progress-milestone.active
+{
+	width: 42px;
+	height: 42px;
+	opacity: 1;
+	visibility: visible;
+}
+
+.pet-progress .pet-progress-milestone.no-radius
+{
+	border-radius: 8px;
+}
+
+@keyframes 'hide-during-zoom'
+{
+	0%
+	{
+		opacity: 0;
+		width: 0px;
+	}
+	
+	90%
+	{
+		opacity: 0;
+		width: fit-children;
+	}
+	
+	100%
+	{
+		opacity: 1;
+		width: fit-children;
+	}
+	
+}
+

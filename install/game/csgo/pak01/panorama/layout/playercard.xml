@@ -1,16 +1,16 @@
 <!-- xml reconstructed by Source 2 Viewer 19.2.0.0 - https://valveresourceformat.github.io -->
 <root>
 	<styles>
-		<include src="s2r://panorama/styles/csgostyles.vcss_c" />
-		<include src="s2r://panorama/styles/mainmenu.vcss_c" />
-		<include src="s2r://panorama/styles/playercard.vcss_c" />
+		<include src="s2r://panorama/styles/csgostyles.vcss" />
+		<include src="s2r://panorama/styles/mainmenu.vcss" />
+		<include src="s2r://panorama/styles/playercard.vcss" />
 	</styles>
 	<scripts>
-		<include src="s2r://panorama/scripts/rating_emblem.vts_c" />
-		<include src="s2r://panorama/scripts/common/teamcolor.vts_c" />
-		<include src="s2r://panorama/scripts/common/sessionutil.vts_c" />
-		<include src="s2r://panorama/scripts/avatar.vts_c" />
-		<include src="s2r://panorama/scripts/playercard.vts_c" />
+		<include src="s2r://panorama/scripts/rating_emblem.vts" />
+		<include src="s2r://panorama/scripts/common/teamcolor.vts" />
+		<include src="s2r://panorama/scripts/common/sessionutil.vts" />
+		<include src="s2r://panorama/scripts/avatar.vts" />
+		<include src="s2r://panorama/scripts/playercard.vts" />
 	</scripts>
 	<snippets>
 		<snippet name="PlayerCardSkillGroup">
@@ -25,7 +25,7 @@
 		<snippet name="PlayerCardRatingEmblem">
 			<Panel class="player-card-skillgroup player-card-border hidden">
 				<Panel class="player-card-rating__icon-container">
-					<Frame src="s2r://panorama/layout/rating_emblem.vxml_c" />
+					<Frame src="s2r://panorama/layout/rating_emblem.vxml" />
 				</Panel>
 				<Panel class="player-card-rating__labels">
 					<Label id="jsRatingText" class="player-card__text-subtitle player-card__text-subtitle--multiline stratum-medium" text="{s:rating-text}" html="true" />
@@ -46,7 +46,7 @@
 						<Panel id="JsPlayerCardName" class="player-card-row__name">
 							<Panel class="full-width left-right-flow">
 								<CSGOHonorIcon id="jsHonorIcon" class="vertical-center" do_fx="true" />
-								<Label id="JsPlayerName" class="player-card__text stratum-regular-condensed" text="{g:player_name:cn:oc:x:xuid}" html="true" />
+								<Label id="JsPlayerName" class="player-card__text stratum-regular-condensed" text="#friends_name_playercard" html="true" />
 							</Panel>
 							<Panel id="FlairCarouselAndControls" class="playercard-flair-carousel-container">
 								<Carousel id="FlairCarousel" class="playercard-flair-carousel" panels-visible="1" hittest="false" />
@@ -94,7 +94,8 @@
 								<Panel class="player-card-xpbar__bar" />
 								<Panel id="JsPlayerXpBarInner" class="player-card-xpbar__bar--inner" />
 							</Panel>
-							<Image class="player-card-xpbar__care-package" src="s2r://panorama/images/icons/care_package.vsvg" texturewidth="20" textureheight="-1" />
+							<Image class="player-card-xpbar__care-package" src="s2r://panorama/images/icons/care_package.vsvg" texturewidth="18" textureheight="-1" />
+							<Image class="player-card-xpbar__pet_feed" src="s2r://panorama/images/icons/ui/pet_feed.vsvg" texturewidth="18" textureheight="-1" />
 						</Panel>
 					</Panel>
 				</Panel>

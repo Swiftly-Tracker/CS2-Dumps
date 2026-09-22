@@ -71,6 +71,7 @@
  [REQUIRES SAVING]
  [SESSION TEMPORARY]
  [default = $0
+ \n_V_strncmp
  a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
  and %i other users
  args were given.  Full format string was: "
@@ -106,6 +107,7 @@
 !.google.protobuf.EnumValueOptions
 !IsText()
 !\n\twhitelist
+!\n_V_strncpy
 !contains
 !float<
 !float<=
@@ -235,6 +237,7 @@
 #LoadoutSlot_Melee
 #LoadoutSlot_Misc
 #LoadoutSlot_MusicKit
+#LoadoutSlot_Pet
 #LoadoutSlot_Rifle
 #LoadoutSlot_SMG
 #LoadoutSlot_Secondary
@@ -247,6 +250,7 @@
 #SFUI_ProPlayer_%s
 #TF_UnknownStyle
 #\n\rinterior_item
+#\n_V_strnicmp_fast
 #ebe2ca
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 $0  extend .$1 {\n
@@ -276,7 +280,9 @@ $\n\tword_list
 %1 children: \n
 %1 properties: \n
 %1x%2
+%7X
 %\n k_EGCMsgAccountPhoneNumberChange
+%\n k_EGCMsgAppCheersGetAllowedTypes
 %\n k_EGCMsgGCAccountVacStatusChange
 %\n k_EMsgGCDeliverGiftResponseGiver
 %\n k_EMsgGCRemoveMakersMarkResponse
@@ -297,9 +303,11 @@ $\n\tword_list
 %d5
 %dS
 %d_%d_%d_%d_%d.tmp
+%gX
 %lf
 %lld
 %llu
+%oX
 %s %s %s %s
 %s (Chance = %d)
 %s - Perforce unavailable: %s \n
@@ -377,22 +385,21 @@ $\n\tword_list
 '\n"k_EMsgGCItemPreviewRequestResponse
 '\n#k_EProtoDebugVisibility_ValveServer
 '\n\fglobal_stats
-'\tV_fclose
 (0`hpx
-(AWX
+(AeX
+(AfX
 (Documents Filter - Use | for OR, space for AND)
+(EMX
+(ExX
 (Expecting %s)
 (Expecting EOF)
 (Filter)
-(IEX
-(IfX
-(MuX
-(MvX
+(IuX
+(IyX
 (No Active Session)
 (None)
 (Outliner Filter)
-(QMX
-(UqX
+(QKX
 (YwX
 (\f"(\n&CMsgGCCStrike15_v2_ClientRequestOffers"\\n(CMsgGCCStrike15_v2_ClientRequestSouvenir
 (\f"6\n#CSOAccountKeychainRemoveToolCharges
@@ -538,17 +545,15 @@ $\n\tword_list
 (cannot determine missing fields for lite message)
 (channel = 
 (default)
-(eXX
+(eCX
 (end of input).\n\t This indicates a poorly specified lexer RULE\n\t or unterminated input element such as: "STRING["]\n
-(iDX
-(iOX
-(ioX
-(iqY
+(iEX
 (merge 
-(mlX
 (null)
-(uKX
-(yrX
+(ueX
+(uyX
+(yGX
+(ycX
 )", which is not defined. The innermost scope is searched first in name resolution. Consider using a leading '.'(i.e., "(.
 )\n!penalty_account_id_sessions_green
 )\n$k_EMsgGCCStrike15_v2_ClientPollState
@@ -567,6 +572,7 @@ $\n\tword_list
 * ForceRescanOfActiveKeys
 * Rehandling active codes
 * { font-size: 10px }
+*%\n\tEGCPetMsg
 ***
 *.econitem
 *J\n\tQuestType
@@ -631,6 +637,7 @@ $\n\tword_list
 -> Success (%d attempts)\n
 -BH>t
 -Stop: 
+-\n(k_EGCMsgAppCheersGetAllowedTypesResponse
 -\n(k_EMsgGCCStrike15_v2_ClientCommendPlayer
 -\n(k_EMsgGCCStrike15_v2_ClientNetworkConfig
 -\n(k_EMsgGCCStrike15_v2_ClientRequestOffers
@@ -812,7 +819,6 @@ $\n\tword_list
 /\n*k_EMsgGCCStrike15_v2_GC2ClientNotifyXPShop
 /\n*k_EMsgGCCStrike15_v2_VolatileShopSubscribe
 /\n+k_ECommunityItemAttribute_CommunityItemType
-/\tV_fmodd
 /keychains
 /musickits
 /paintkits
@@ -983,8 +989,6 @@ $\n\tword_list
 2\n-k_EMsgGCCStrike15_v2_GiftsLeaderboardResponse
 2\n.QuestType"
 2\n\nline_items
-2\tV_fopenUTF8
-2\vpLa;
 2aboutToShow()
 2activated( int )
 2changed()
@@ -1021,7 +1025,6 @@ $\n\tword_list
 3\n.k_EMsgGCCStrike15_v2_PlayerOverwatchCaseUpdate
 3\n/k_ECommunityItemAttribute_ProfileModiferEnabled
 3\n\fper_map_rank
-3\tV_fpclassifyd
 488:1: POS_FLOATLITERAL : ( ( DIGIT )+ '.' ( DIGIT )* ( EXPONENT )? | '.' ( DIGIT )+ ( EXPONENT )? | ( DIGIT )+ EXPONENT );
 4\n/k_EGCItemCustomizationNotification_ApplySticker
 4\n/k_EGCItemCustomizationNotification_NameBaseItem
@@ -1031,7 +1034,6 @@ $\n\tword_list
 4\n/k_EMsgGCCStrike15_v2_GC2ServerReservationUpdate
 4\n/k_EMsgGCCStrike15_v2_GetEventFavorites_Response
 4\n/k_EMsgGCCStrike15_v2_MatchmakingGC2ClientUpdate
-4\tV_fprintf
 5J5J5J5J5J5J5J5J5J5J5J5J5J5J5J5Jx
 5\n0k_EGCItemCustomizationNotification_ApplyKeychain
 5\n0k_EGCItemCustomizationNotification_CasketInvFull
@@ -1067,7 +1069,6 @@ $\n\tword_list
 7\n2k_EMsgGCCStrike15_v2_GCToClientSteamdatagramTicket
 7\n2k_EMsgGCCStrike15_v2_PlayerOverwatchCaseAssignment
 7\n\tenum_type
-7\tV_fread
 8Csinf
 8\n3k_EGCItemCustomizationNotification_ActivateFanToken
 8\n3k_EGCItemCustomizationNotification_GenerateSouvenir
@@ -1075,7 +1076,6 @@ $\n\tword_list
 8\n3k_EMsgGCCStrike15_v2_ClientVarValueNotificationInfo
 8\n3k_EMsgGCCStrike15_v2_ServerVarValueNotificationInfo
 8\n\textension
-8mOW
 9>-memory-
 9\n4k_EMsgGCCStrike15_v2_MatchEndRewardDropsNotification
 9\n4k_EMsgGCCStrike15_v2_MatchListRequestLiveGameForUser
@@ -1114,7 +1114,7 @@ $\n\tword_list
 <UNKNOWN>
 <Unknown>
 <\n\ncategories
-<\tV_fseek
+<\ng_pMemAlloc
 <a href="%1">%2</a>
 <array: %u elements>
 <binary blob: %u bytes>
@@ -1151,11 +1151,12 @@ $\n\tword_list
 ?8bunz8
 ???
 ?@En[vP
+?CompositeMaterialInputContainer_t
 ?No data
 ?UUUUUU
 ?\n:k_EMsgGCCStrike15_v2_Client2GCEconPreviewDataBlockResponse
 ?\n:k_EMsgGCCStrike15_v2_MatchListRequestTournamentPredictions
-?\tV_ftell
+?\tV_atof
 ?expf
 ?fff?
 ?qBJ
@@ -1164,9 +1165,10 @@ $\n\tword_list
 @08@HPX`hpx
 @HPX
 @HPX&I
-@HPX`hvp
+@HPX`hv
 @\n\fSingleObject
 @\n\vserver_type
+@\tV_atofloat32
 @^8U)zj
 A file with this name is already in the pool.
 A new location must be selected in order to save the file.
@@ -1182,10 +1184,8 @@ ANY
 APPSYSTEM: In ConnectInterfaces(), s_nRegistrationCount is %d!\n
 ARRAY_MEMBERS_VIA_PARENT
 ARRAY_PARENT_ONLY
-AUX
 A\n<k_EGCItemCustomizationNotification_ClientRedeemMissionReward
 A\n\nannotation
-A\tV_fwrite
 About &Qt 
 About...
 AcceptIfItemPicked
@@ -1309,15 +1309,15 @@ August
 BACKSLASH_CHAR
 BAL
 BF>^G
-BLZ
 BUTTON
 BVD.Bz
-BZZ
+B\tV_atoi
 BackGroundFill_t
 BackGroundStyle_t
 BackUp() can only be called after a successful Next().
 Background
 Backspace
+Bad GD variable type
 Bad checkstate (expected eg. 'PartiallyChecked')
 Bad class description
 Bad dynamic_cast!
@@ -1343,7 +1343,6 @@ Base recognizer function recoverFromMismatchedSet called by unknown parser type 
 Base recognizer function recoverFromMismatchedToken called by unknown parser type - provide override for this function\n
 BaseEditor
 BaseTextureOverride
-BbX
 Begin mouse capture [%i]: %s\n
 BenchmarkService001
 Between the attribute label and editor
@@ -1397,6 +1396,9 @@ C:\buildworker\csgo_rel_win64\build\src\public\tier0\utlbuffer.h
 C:\buildworker\csgo_rel_win64\build\src\public\tier0\utldict.h
 C:\buildworker\csgo_rel_win64\build\src\public\tier0\utlrbtree.h
 C:\buildworker\csgo_rel_win64\build\src\public\zip\zip_utils.cpp
+C:\buildworker\csgo_rel_win64\build\src\qcontrols\inputglobalhotkeys.cpp
+C:\buildworker\csgo_rel_win64\build\src\tools\cs2_item_editor\cs2_item_editor_session.cpp
+C:\buildworker\csgo_rel_win64\build\src\tools\toolutils2\qbaseeditorwnd.cpp
 C:\buildworker\csgo_rel_win64\build\src\tools\toolutils2\toolattr_propertydomain.cpp
 CAttribute_String
 CBaseEditorSession::Revert - Perforce unavailable: %s\n
@@ -1523,6 +1525,7 @@ CLOSE_BRACKET
 CLOSE_PAREN
 CMemAllocSystemInitialize
 CMsgAccountDetails
+CMsgAckPetEvent
 CMsgAcknowledgeRentalExpiration
 CMsgAdjustEquipSlot
 CMsgAdjustEquipSlots
@@ -1845,6 +1848,7 @@ CUtlDict<class CEconLootListDefinition,class CDefFastCaselessStringLess>::Insert
 CUtlDict<class CStickerKit *,class CDefFastCaselessStringLess>::Insert
 CUtlDict<class CUtlVector<class CItemLevelingDefinition,int,class CUtlVectorMemory_Growable<class CItemLevelingDefinition,int,0> > *,class CDefFastCaselessStringLess>::Insert
 CUtlDict<class CUtlVector<struct `public: virtual bool __cdecl CCS2EconNode_UnusualLootList::LoadKeysInternal(class KeyValues3 const *)'::`21'::LootListWeaponAttribute_t,int,class CUtlVectorMemory_Growable<struct `public: virtual bool __cdecl CCS2EconNode_UnusualLootList::LoadKeysInternal(class KeyValues3 const *)'::`21'::LootListWeaponAttribute_t,int,0> >,class CDefFastCaselessStringLess>::Insert
+CUtlDict<class KeyValues3 *,class CDefFastCaselessStringLess>::Insert
 CUtlDict<class QAction *,class CDefFastCaselessStringLess>::Insert
 CUtlDict<struct AchievementAward_t *,class CDefFastCaselessStringLess>::Insert
 CUtlDict<struct CQInputBindEditor::BindingContextInfo_t *,class CDefFastCaselessStringLess>::Insert
@@ -1922,6 +1926,7 @@ Choose Team
 Circular visibility dependency '%s' found in '%s'.\n
 Class
 Class data is a '%s', not a table\n
+ClassName
 Clear All
 Clear History
 ClearField
@@ -1968,7 +1973,6 @@ Composite Material Assembly Procedures
 CompositeMaterialAssemblyProcedure_t
 CompositeMaterialEditorPoint_t
 CompositeMaterialInputContainerSourceType_t
-CompositeMaterialInputContainer_t
 CompositeMaterialInputLooseVariableType_t
 CompositeMaterialInputLooseVariable_t
 CompositeMaterialInputTextureType_t
@@ -2028,29 +2032,26 @@ CurveEditor()
 Custom Paint Job
 Custom Paint Job Extended
 CustomCharacter
-DDJ
 DEFAULT_WRITE_PATH
-DEJ
-DFD
-DGD
+DGZ
+DHY
 DIGIT
-DNV
 DO NOT PARSE: fields may be stripped and missing.\n
 DOUBLE_AND
 DOUBLE_OR
 DOUBLE_QUOTED_STRING
 DOUBLE_QUOTE_CHAR
-DVY
-DWY
+DOW
+DUE
 D\n\vreservation
-DaX
+D\tV_atoui64
+DaY
 DataCenterPing
 Data_Branch1xy
 Data_Branch1zBranch2x
 Data_Branch2yz
 Date Modified
-DcY
-DdW
+DcX
 Death Cam
 Debug Focus Widget
 Debug Widget Under Mouse
@@ -2088,14 +2089,12 @@ Designable
 DetailedSearchStatistic
 DevOnly Tag
 Development Only
-DgX
-DhZ
+DiY
 Didn't expect '=' for non-flags non-choices variable %s
 Disallowed variable name: %s
 Discrete Loot List
 Discrete Set
-DjW
-DnX
+DmY
 Do not show in the row (but maybe show in context menu)
 DockWidgetArea
 Documents
@@ -2103,9 +2102,6 @@ Done.
 Double-save to Member '%s'
 Down
 DownArrowPressed
-DpW
-DqV
-DrY
 DragFinished
 DragOffsetRelativeEnd
 DragOffsetRelativeStart
@@ -2115,7 +2111,8 @@ DragUpdated
 Draw Text
 Drop Chance
 DropInfo
-DuX
+DtY
+DuZ
 DualHull
 DummyNoOp
 Duplicate Skirmish mode definition id %d
@@ -2133,6 +2130,7 @@ Duplicate kill eater score type index %u.
 Duplicate leveling data block named "%s".
 Duplicate lootlist name (%s) found!
 Duplicate music definition id %d
+Duplicate pet definition id %d
 Duplicate prefab name (%s)
 Duplicate quality value (%d)
 Duplicate rarity value (%d)
@@ -2140,8 +2138,7 @@ Duplicate recipe definition (%d)
 Duplicate sound material value (%d)
 Duplicate sticker kit ID %d
 Duplicate sticker kit name '%s'
-DvX
-DwV
+DzZ
 E&xit
 E>nEA
 EClientReportingVersion
@@ -2179,12 +2176,13 @@ E\n\fongoingmatch
 Early exit
 EarlyInit_Tier0
 EatEscapeKeyPress
+Econ item %s
 EconItemToolModel_001
 Edit
 EditingCancelled
 EditingFinished
 EditingStarted
-EhX
+ElX
 Element.%s
 Element.CompMatMutatorCondition_t
 Element.CompMatPropertyMutator_t
@@ -2227,7 +2225,7 @@ EnumValueDescriptorProto
 EnumValueOptions
 EnumWindows
 Enums must contain at least one value.
-ErX
+EqX
 Error
 Error (problem that prevents task success)
 Error Parsing PaintData in %s! \n
@@ -2240,7 +2238,6 @@ Error, duplicate class '%s'. Use @OverrideClass to add keys to an existing class
 Error: missing 'filter_type' key in @VisGroupFilter specification
 Error: missing 'group' key in @VisGroupFilter specification
 Error: unknown vis group filter type: '%s' in @VisGroupFilter specification
-EsX
 Esc
 EscapePressed
 Exceeds Maximum Package Depth
@@ -2329,7 +2326,6 @@ ExtractModuleMetadata
 Extraneous token
 F>qUxv
 FATAL
-FAZ
 FEMh\f
 FGD Variable %s has bad default value %d (has bits set that are not valid choices)
 FOLDER
@@ -2391,6 +2387,7 @@ FieldSize
 Fields in the same oneof must be defined consecutively. "$0" cannot be defined before the completion of the "$1" oneof definition.
 Fields of oneofs must themselves have label LABEL_OPTIONAL.
 Fields with proto3_optional set must be a member of a one-field oneof
+File
 File '%s' not found.\n
 File already exists in database: 
 File appears to be in generated pool but wasn't registered: 
@@ -2398,6 +2395,7 @@ File is already registered:
 File recursively imports itself: 
 FileDescriptorProto
 FileDescriptorSet
+FileLine
 FileOptions
 Files that do not use optimize_for = LITE_RUNTIME cannot import files which do use this option.  This file is not lite, but it imports "
 Files with optimize_for = LITE_RUNTIME cannot define services unless you set both options cc_generic_services and java_generic_services to false.
@@ -2407,7 +2405,7 @@ Filter with dependent items
 Filter:
 FilterApplied
 Filtering
-Final K Vs
+Final KVs
 Find Suffix
 Find:
 FindClose
@@ -2602,78 +2600,58 @@ Grid layout should be an array of arrays
 Group
 GroupMatchTeamPick
 Groups are not supported in proto3 syntax.
+GtX
 Gunsmith
 Gunsmith Case Hardening
 Gunsmith Extended
 H.FM
-HAQ
-HBT
-HCR
-HCU
-HDE
-HDJ
-HER
-HFJ
-HFR
+HAB
+HAS
+HBE
+HBR
+HBS
+HBU
+HDR
+HDS
+HEE
 HFS
-HGD
+HFY
 HGS
-HGT
 HH:mm:ss
-HHD
-HHJ
-HIS
+HHB
 HJR
-HJS
-HKR
-HLR
-HLT
 HLU
-HME
-HMX
-HNL
-HOA
-HQQ
+HLY
+HMB
+HMW
+HNT
+HOB
 HQT
-HQU
-HQW
-HRK
-HSP
-HSQ
-HST
+HSR
+HSX
+HSY
 HTR
-HVS
+HUB
+HUg
+HVR
 HVT
-HWR
+HWB
+HWE
+HWS
 HWU
-HXR
-HXZ
-HYT
-HYW
-HaE
 HaR
-HaZ
 HammerEntityPicker()
 HammerMapLoader001
 HasField
-HbQ
-HbR
-HcE
-HcQ
-HcT
-HdK
-HeE
-HeS
-HeU
+HbZ
+HdS
+HdU
+HeT
 Help
 HelpSystem_001
 Hex and octal numbers must be integers.
-HfE
-HfS
-HgE
-HhK
+HhR
 HhT
-HhU
 Hidden Set
 Hidden set
 Hide unless error/warning occurs
@@ -2683,42 +2661,39 @@ Highlight reel definition %s: invalid "tournament event id"
 Highlight reel definition %s: invalid "tournament event stage id"
 Highlight reel definition %s: invalid "tournament event team id"
 Highlight reel definition %s: missing "id"
-HkQ
+HjW
 HkT
-HkU
-HmT
-HmU
-HnR
-HnW
+HlS
+HmR
+HnS
+HnT
+HnY
+HoU
 Home
 HostStateMgr001
 HoverItemChanged
-HpR
-HqR
-HrQ
-HrT
-HrU
-HrV
-HsQ
+HpT
+HqU
+HqV
+HsR
 HtL
-HuR
 HuS
-HwT
-HxE
-HyE
-HyQ
+HuT
+HuU
+HwE
+HxR
 HydroGraphic
 Hydrographic
 Hydrographic Extended
 HzE
-HzS
-HzU
+HzT
 I could not work out what I was expecting, like so many of us these days!\n
 IAssetFileListener
 ICON
 IDEMPOTENCY_UNKNOWN
 ID_CHAR
 IEconItemInterface
+IFX
 IGNORE
 IHelpChangeListener
 IIconGenerationCallback
@@ -2745,6 +2720,7 @@ IToolFrameworkAudioSettingsListener
 I\n\fItemPosition
 I\n\fdata_per_map
 Icon
+Icon Base
 Icon Generation
 Icon Generation - %1 Icons
 Icon Generation Failure: CONTENT resides in read-only search path '%s'.\n
@@ -2764,6 +2740,9 @@ Il?333333c?
 Illegal jstype for int64, uint64, sint64, fixed64 or sfixed64 field: 
 Import 
 Import "
+In '%s', attempting to replace subkey '%s' with a value (type %u)
+In '%s', attempting to replace value key '%s' (type %u) with a subkey
+In '%s', unhandled data type %u for KeyValues inheritance!
 Include
 Include Coupon
 Include Hidden
@@ -2837,6 +2816,7 @@ Integer4
 InterlockedFlushSList
 InterlockedPushEntrySList
 Interpreting non ascii codepoint %d.
+Invalid %s: %s
 Invalid 'dockWidgetArea (%s)
 Invalid 'toolbarArea' (%s)
 Invalid CONTENT path '%s'.\n\n%s
@@ -2920,16 +2900,16 @@ Items
 IxD
 JKF
 JSType
-JUZ
-JYZ
-J\tV_isdigit_str
+JWZ
 Jan
 January
+JkZ
 Jul
 July
 Jump to Item
 Jun
 June
+JxZ
 KERNEL32.dll
 KV3 save transfer failed: %s
 KV3 syntax error: %s
@@ -2965,7 +2945,6 @@ KeychainKit_Default
 KeychainKit_Missinglink
 KillEaterRank
 Kit "[%s]" specified, but doesn't exist!! You're probably missing an entry in items_paintkits.txt or items_stickerkits.txt or need to run with -use_local_item_data\n
-L%X
 L>ev
 L?UUUUUUU?
 LABEL_OPTIONAL
@@ -2974,18 +2953,15 @@ LABEL_REQUIRED
 LCIDToLocaleName
 LCMapStringEx
 LCMapStringW
+LDY
 LEFT
-LEJ
-LEZ
-LFD
-LGD
 LINE_CONTINUATION
 LITERAL_FALSE
 LITERAL_TRUE
-LLX
-LMZ
+LLZ
 LMouse
 LMouseDoubleClick
+LNX
 LOG_GENERAL
 LOOSE_VARIABLE_TYPE_BOOLEAN
 LOOSE_VARIABLE_TYPE_COLOR4
@@ -3002,10 +2978,10 @@ LOOSE_VARIABLE_TYPE_RESOURCE_MATERIAL
 LOOSE_VARIABLE_TYPE_RESOURCE_TEXTURE
 LOOSE_VARIABLE_TYPE_STRING
 LOOSE_VARIABLE_TYPE_SYSTEMVAR
+LRX
 LT_KEYCHAIN_KITS
 LT_PAINT_KITS
 LT_STICKER_KITS
-LVV
 LWG>
 LWW>
 L\n\nserverinfo
@@ -3017,16 +2993,18 @@ LaunchEngineTool
 Layout Side To Side
 Layout Top To Bottom
 Layout XML
-LcW
+LcZ
+LeX
 LeaveCriticalSection
 Left
 Lexer encountered %d error(s)
+LhZ
 LightmapUV
 LightmapUVW
 Line: 
 LinkedEntityClass
 List Type
-LlZ
+LjX
 LoadLibraryExW
 LocString
 LocString()
@@ -3057,9 +3035,9 @@ Loot list %s: Item definition index "%s" (%d) was not found\n
 Loot list %s: Missing "additional_drop" loot list name\n
 Loot list %s: all entries for additional drops must be loot lists, "%s" was not\n
 Lost Round
-LqV
-LqX
-LxW
+LpY
+LvY
+LwV
 M/d/yyyy h:mm AP
 MATCHFRAMEWORK_001
 MATCH_FILTER_MATERIAL_ATTRIBUTE_EQUALS
@@ -3091,7 +3069,6 @@ MWheelDn
 MWheelLeft
 MWheelRight
 MWheelUp
-M\tV_isnand
 Main Menu
 MapKey::GetBoolValue
 MapKey::GetInt32Value
@@ -3153,8 +3130,6 @@ Messages can't have default values!
 Messages can't have default values.
 MethodDescriptorProto
 MethodOptions
-MgX
-MhX
 MinSize
 MinSizeHint
 Minimum
@@ -3171,7 +3146,6 @@ Missing token
 Missing token %s
 Missinglink
 MissionTemplateList
-MnX
 Mnt
 Model
 Model Preview State
@@ -3272,6 +3246,7 @@ Note that enum values use C++ scoping rules, meaning that enum values are siblin
 Nothing to do!\n
 Nov
 November
+NrZ
 Num
 Num0
 Num1
@@ -3293,6 +3268,7 @@ NumToggle
 Number of Start Action Cues
 Number of Start Round Cues
 Numbers starting with leading zero must be in octal.
+NzX
 OPEN_BRACE
 OPEN_BRACKET
 OPEN_PAREN
@@ -3441,73 +3417,61 @@ Orientation
 OrigMat
 Other Tools
 Outliner
+OverideHelpContextName
 OverlayProjectionDirection
+OyX
+P08Jp4!
 P@HPX`hpx\f
-PAS
-PAT
-PBS
-PCT
-PCZ
-PDA
-PDQ
+PAE
+PCB
+PCE
+PDE
 PDT
-PDV
-PEQ
-PES
-PET
-PEU
-PFE
-PFV
-PGD
-PGE
-PGJ
-PGL
-PHR
+PDU
+PDZ
+PER
+PEY
+PGT
+PGU
+PHX
 PIO
-PIQ
-PIR
-PIT
-PJQ
-PKQ
-PKZ
+PIW
+PJL
+PJS
+PKT
 PLACEHOLDER_VALUE
 PLATFORM
-PLE
-PLS
-PLa;
-PMQ
-PMV
-PNT
-PNU
+PLT
+PMR
+PMS
+PMT
 PNY
-PNZ
-POL
 POS_FLOATLITERAL
 POS_INTLITERAL
 PPN
 PPNe
-PQJ
-PQW
+PPW
+PQB
+PRE
 PROXY
-PRS
+PSE
 PST
-PSU
-PTT
-PUP
-PUS
-PUW
-PVQ
-PVU
-PWT
-PXS
-PXW
+PSX
+PSZ
+PTB
+PTL
+PTU
+PUE
+PUR
+PUg
+PVZ
 PX`hpx
-PYR
 PYS
+PYU
 PZN
 P\n\nattributes
-PaQ
-PaS
+PaU
+PaY
 Pack item "%s" included in more than one pack bundle - not allowed!
 Package name is too long
 Paint Kit
@@ -3557,42 +3521,30 @@ Path
 Path Overflow, must be less than 260 characters.
 Patina
 Patina Extended
-PbE
-PbU
-PcS
-PcX
-PdE
-PdR
-PeR
-PeT
+PbT
 Pearlescence Mask
 Pedestal Model
 PerVertexLighting
-PfR
-PfX
+Pet definition %s: missing "name"
+Pet definition %s: name must be a positive integer
+PfT
+PfU
 PgDn
-PgQ
-PgR
-PgU
+PgS
 PgUp
-PgY
-PhR
+PgW
 PhS
 Physics
 PhysicsBuilderMgr001
-PiR
 PiS
+PiT
 PiU
 Picks
 PivotPaint
-PjQ
-PjR
+PjA
 PjS
-PjY
-PkR
-PlQ
-PlR
-PlU
+PkK
+PlT
 Plat_ExitProcess
 Plat_FatalError
 Plat_FloatTime
@@ -3613,10 +3565,8 @@ PlayerDecalDigitalSignature
 PlayerMedalsInfo
 PlayerQuestData
 PlayerRankingInfo
-PmW
-PnX
-PoR
-PoU
+PmL
+PoS
 Pointers cannot be used as numeric values
 Policy
 Pop Input Variable Queue
@@ -3625,10 +3575,11 @@ PopupOpened
 Pos
 Position
 PostProcessingSystem_001
-PpS
-PpZ
-PrS
-Pre Generation K Vs
+PpR
+PpW
+PrT
+PrU
+Pre Generation KVs
 Pre-Generated Output Material
 Preferred
 Preview
@@ -3654,28 +3605,23 @@ PropertyEditorSystem_001
 Protobuf: %s(%d): %s\n
 Protocol Buffer map usage error:\n
 Protocol Buffer reflection usage error:\n  Method      : google::protobuf::Reflection::
-PsV
-PtQ
+PsS
 PtS
-PtT
-PtU
 Publish
 Publish '%1'
 Publish: %s\n
 Published ID
-PvE
 PvP
-PvQ
 PvR
 PvS
-PwE
-PwR
+PvZ
+PwT
+PwU
 PwX
-PxJ
-PxR
-PyR
-PyT
-PzR
+PwZ
+PxS
+PyY
+PzV
 QAbstractButton*
 QAction
 QAf?
@@ -3686,6 +3632,7 @@ QFrame
 QGroupBox
 QHeaderViewHorizontal
 QHeaderViewVertical
+QLX
 QLabel
 QLabel { padding: 0px; font-weight: bold; }
 QLineEdit
@@ -3721,11 +3668,13 @@ QWidget
 QWidget { padding: 0px; background-color: transparent; }
 QWidget { padding: 2px; background-color : #4fb44f; color : black; }
 QWidget { padding: 2px; background-color : #5991e4; color : black; }
+QWidget { padding: 2px; background-color : #808080; color : black; }
 QWidget { padding: 2px; background-color : #b26262; color : black; }
 QWidget { padding: 2px; background-color : #e9ce93; color : black; }
 QWidget { padding: 2px;\t\t\t\t\t\t\t\t\t\t\t  }
 QWidget*
-QaX
+Q\tV_fclose
+QfX
 Qt5Core.dll
 Qt5Gui.dll
 Qt5Widgets.dll
@@ -3738,7 +3687,6 @@ Quality definition %s: missing "hex_color"
 Quality definition any: The quality name "any" is a reserved keyword and cannot be used.
 QueryPerformanceCounter
 Quest reward lootlist %d '%s' already exists, cannot add '%s'.
-RBZ
 RDO_AB
 RELEASE
 RIGHT
@@ -3746,7 +3694,6 @@ RMouse
 RMouseDoubleClick
 ROOT
 RSDS]
-R\vpLa;
 RaiseException
 Random Roll Input Variables
 Random attributes '%s': Attribute definition "%s" was not found
@@ -3834,6 +3781,7 @@ Reverted %d file(s).
 Reverted %d file(s).  %d file(s) were not reverted!
 Reverting %d file(s).  Please wait...
 Revolving lootlist %d '%s' already exists, cannot add '%s'.
+RiZ
 RichItemList_Accept
 RichItemList_Reject
 Right
@@ -3845,6 +3793,7 @@ RtlLookupFunctionEntry
 RtlPcToFileHeader
 RtlUnwindEx
 RtlVirtualUnwind
+RvX
 S>$hkDh$h>[2
 SCOPE_QUALIFIER
 SEMICOLON
@@ -4018,6 +3967,7 @@ SizePolicy
 SizePolicy array must have two elements
 Skirmish mode %d cannot use gamemode: %s\n
 SleepConditionVariableSRW
+SmartPropsSystem_001
 Solid Color
 Solid Color Case Hardening
 Solid Color Extended
@@ -4119,17 +4069,15 @@ Synced %d file(s).  %d file(s) were not synced!
 Syncing %d file(s).  Please wait...
 Synthetic oneofs must be after all other oneofs
 System Variable
-TBX
-TCJ
-TDJ
-TEJ
-TFD
-TGD
-THX
-TOA
+TEZ
+TKY
 TOK_COLON
+TOZ
+TRY
 TUUUU
+TUY
 TXT (*.txt)
+TZX
 T\n\tlanguages
 Tab
 TabStyle_t
@@ -4139,7 +4087,7 @@ TanFrameQuat
 Target Attr: '%s' != '%s'
 Target Attr: '%s' == '%s'
 Target Instance Material
-Target K Vs
+Target KVs
 Target Material
 Target Material Attribute Equals
 Target Material Attribute Exists
@@ -4161,7 +4109,6 @@ Target must use Shader: '%s'
 Target name must NOT contain: '%s'
 Target name must contain: '%s'
 TargetCastForModify
-TcY
 TermIncrementalOperation
 TerminateProcess
 TernaryConditional
@@ -4177,7 +4124,7 @@ Texture Compilation Vtex Template
 Texture Generation Instructions
 Texture Runtime Resource Path
 Texture Type
-ThX
+TgX
 The JSON camel-case name of field "
 The [proto3_optional=true] option may only be set on proto3fields, not 
 The bundle "%s" contains some, but not all pack items required specified by pack bundle "%s."
@@ -4210,13 +4157,11 @@ Thu
 Thursday
 Times New Roman
 Timing Text File
-TkY
+TlW
 TlsAlloc
 TlsFree
 TlsGetValue
 TlsSetValue
-TnP
-TnZ
 To the left of the attribute label
 To the right of the attribute editor
 Toggle Selected
@@ -4237,9 +4182,6 @@ TournamentEvent
 TournamentMatchSetup
 TournamentPlayer
 TournamentTeam
-TpV
-TpY
-TrW
 Track Mouse & Focus
 Tried to merge messages of different types 
 True
@@ -4247,7 +4189,7 @@ TryAcquireSRWLockExclusive
 TrySendVNotify - SendKV3 failed\n
 Tue
 Tuesday
-TvZ
+TyV
 Type
 Type appears to be in generated pool but wasn't 
 Type is already registered: 
@@ -4284,13 +4226,13 @@ UNKNOWN_ENUM_VALUE_%s_%d
 UNRECOGNIZED
 URLString
 URLString()
+URX
 USER32.dll
 UUUUUU
 UVScale
 UnInvalid
 UnNegate
 UnNot
-UnW
 Unable to create writable CONTENT path at '%s'.
 Unable to delete file '%s'.
 Unable to delete read-only file '%s'.
@@ -4324,6 +4266,7 @@ UnhandledExceptionFilter
 Unimplemented type: 
 Uninterpreted option is missing name or value.
 UninterpretedOption
+Unknown GDIVType_t %u
 Unknown Path Class
 Unknown Token
 Unknown class '%s' specified by @exclude
@@ -4368,6 +4311,7 @@ UtlVectorMemory_FailedAllocation
 VApplication001
 VAsyncFileSystem2_001
 VAvi001
+VBZ
 VBik001
 VConComm001
 VConsole
@@ -4385,7 +4329,6 @@ VNotify Abandoned (Not enabled)\n
 VNotify Sent\n
 VNotify StartProcess failed!\n
 VNotify: %s\n
-VOZ
 VPhysics2_Interface_001
 VProcessUtils002
 VProfService_001
@@ -4396,7 +4339,17 @@ VScriptManager010
 VStringTokenSystem001
 VTOOLDICTIONARY003
 VWebm001
+VYZ
 V_AppearsToBeANumber
+V_CheckStringToBool
+V_CheckStringToColor
+V_CheckStringToFloat32
+V_CheckStringToInt32
+V_CheckStringToQAngle
+V_CheckStringToUint32
+V_CheckStringToVector
+V_CheckStringToVector2D
+V_CheckStringToVector4D
 V_DoubleToString_Unsafe
 V_FixSlashes
 V_FloatToString_Unsafe
@@ -4428,7 +4381,6 @@ V_StringToVectorWS
 V_StripLeadingSlash
 V_UInt32ToString_Unsafe
 V_UInt64ToString_Unsafe
-V_UnqualifiedFileName
 Valid Content Absolute Path
 Valid External Path
 Valid Game Absolute Path
@@ -4475,7 +4427,6 @@ Vis:1
 VisBuilder_001
 Visit Developer Help URL
 Visit the developer help URL (%1)
-VqZ
 Vrad3_001
 W Max
 W Min
@@ -4530,101 +4481,99 @@ Writeable
 X Max
 X Min
 X Value
-X%X
-XAW
-XAX
-XBQ
-XBU
-XCE
-XCS
-XDR
-XEE
-XFJ
-XFZ
-XGQ
+XBE
+XCR
+XDM
+XDT
+XEB
+XEU
+XEW
+XFB
+XGB
 XGR
-XGZ
-XHD
-XHY
-XKE
+XHB
+XHT
+XIU
 XKS
-XLK
-XLQ
-XNQ
-XNS
-XOR
-XOU
-XPQ
-XPR
+XLS
+XLY
+XMB
+XMZ
+XOS
+XOT
 XPT
-XPU
 XQS
-XQX
-XSP
-XSR
-XSZ
+XRX
+XSU
+XSW
 XTS
-XUK
-XUR
+XUB
+XUS
 XUT
-XWS
-XWZ
-XXQ
-XXT
+XVE
+XVS
+XVU
+XVY
+XWE
+XXS
+XXZ
 XZP
 XZP%c %d
-XZS
+XZT
 X\n\tTeamStats
 X\n\vFantasyTeam
-XaK
-XbS
-XbT
-XcV
-XdU
-XeE
-XfE
-Xfp
-XgE
-XiT
-XiV
-XiW
-XjU
-XlS
-XnK
-XnR
-XnS
-XoQ
-XoS
+XaA
+XcU
+XdR
+XdT
+XeR
+XeS
+XfR
+XhY
+XjR
+XjT
+XlQ
+XlU
+XmT
+XnU
+XoT
 XpProgressData
+XpS
+XpU
 XqS
-XqU
-XsS
-XsV
-XtD
-XuR
-XvT
-XvU
+XqW
+XrQ
+XrS
+XrV
+XsQ
+XtT
+XtU
+XwQ
+XwR
 XwS
-XxE
-XxS
-XxW
-XzE
-XzT
+XwW
+XxQ
+XyR
+XyS
+XyT
+XyZ
 Y Max
 Y Min
 Y Value
 Y>kX>M
+YMX
 YYYY
 YYYY-MM-DD
 YYYY-MM-DD hh:mm:ss
-YcX
+Y\tV_fmodd
 Yes: Checkout, resolve conflicts later.
 Z Max
 Z Min
 Z Value
 Z-google.golang.org/protobuf/types/descriptorpb
+ZJZ
 Zip system failure.\n
-ZtZ
+ZuZ
 [*ncd>0
 [Default] Determine a lifespan based on the warning/error state of the group
 [Default] General information
@@ -4641,11 +4590,11 @@ ZtZ
 [thunk]:
 \U%08x
 \\n\tlanguages
+\\tV_fopenUTF8
 \f\f?columnCount@QStandardItemModel@@UEBAHAEBVQModelIndex@@@Z
 \f\f?focusInEvent@QLabel@@MEAAXPEAVQFocusEvent@@@Z
 \f\n EGCItemCustomizationNotification
 \f\n?deselect@QLineEdit@@QEAAXXZ
-\fpLa;
 \n    Actual    : 
 \n    Field type: 
 \n    near %s\n    
@@ -4810,7 +4759,6 @@ ZtZ
 \n\nchange_num
 \n\ncmd_leader
 \n\ncurrent_xp
-\n\ncustomname
 \n\ncyber_cafe
 \n\ndependency
 \n\ndeprecated
@@ -4935,6 +4883,7 @@ ZtZ
 \n\rvolatile_shop
 \n\taccountid
 \n\tattribute
+\n\tclan_tags
 \n\tcode_type
 \n\tdef_index
 \n\tdir_index
@@ -5026,6 +4975,7 @@ ZtZ
 \n\vcpus_online
 \n\vcustom_desc
 \n\vcustom_name
+\n\vcustomnames
 \n\vdesc_inputs
 \n\vdescription
 \n\vegg_item_id
@@ -5055,6 +5005,7 @@ ZtZ
 \n\vother_pos_z
 \n\voutput_type
 \n\vperfcounter
+\n\vpet_item_id
 \n\vplayer_desc
 \n\vplayer_flag
 \n\vplayer_name
@@ -5086,6 +5037,13 @@ ZtZ
 \n\vvalue_bytes
 \n\vxp_category
 \n\vyoutube_url
+\n_MakeGlobalSymbol
+\n_MakeGlobalSymbolCaseSensitive
+\n_V_StrSubst
+\n_V_StringAfterPrefix
+\n_V_StringAfterPrefixCaseSensitive
+\n_V_hextobinary
+\n_V_strEndsWith
 \nh?oT
 \nk>oB
 \r\f?focusInEvent@QLineEdit@@MEAAXPEAVQFocusEvent@@@Z
@@ -5099,10 +5057,12 @@ ZtZ
 \r\r\r\r\r\r
 \rtext
 \t The lexer was matching from line %d, offset %d, which\n\t 
-\tV_atof
-\tV_atofloat32
-\tV_atoi
-\tV_atoui64
+\tV_UnqualifiedFileName
+\tV_log10f
+\tV_powf
+\tV_qsort
+\tV_qsort_s
+\tV_roundf
 \tV_snprintf
 \tV_sscanf
 \tV_stricmp_fast
@@ -5111,24 +5071,13 @@ ZtZ
 \tV_tmpnam
 \tV_vsnprintf
 \tWarning
-\t_MakeGlobalSymbol
-\t_MakeGlobalSymbolCaseSensitive
-\t_V_ComposeFileName
-\t_V_StrSubst
-\t_V_StringAfterPrefix
-\t_V_StringAfterPrefixCaseSensitive
-\t_V_hextobinary
-\t_V_strEndsWith
-\t_V_strncmp
-\t_V_strncpy
-\t_V_strnicmp_fast
+\t\n_V_ComposeFileName
 \tcQr
 \tkE>fvw
 \v\f?focusInEvent@QGroupBox@@MEAAXPEAVQFocusEvent@@@Z
-\v\ng_pMemAlloc
-\vpLa;
-]\tV_log10f
+]\tV_fpclassifyd
 ^RfN>
+^\tV_fprintf
 _%s.tmp
 _1355_37.png
 _CustomCommand
@@ -5163,6 +5112,7 @@ __unaligned
 __vectorcall
 _addons
 _autosave
+_base
 _cabs
 _capsule
 _class
@@ -5181,7 +5131,9 @@ _oD>Kg
 _sm.png
 _sticker_capsule
 _toolsautosave
-`IrY
+`IcX
+`MSX
+`QjX
 `RTTI
 `adjustor{
 `anonymous namespace'
@@ -5234,6 +5186,7 @@ _toolsautosave
 `vtordispex{
 `vtordisp{
 aBv
+a\tV_fread
 abandon
 abandoned_match
 abcdefghijklmnopqrstuvwxyz
@@ -5348,7 +5301,6 @@ autoexpand
 autoexpand_self
 autoexpand_self_class
 autograph
-avX
 axis
 b_switched_teams
 background
@@ -5372,18 +5324,19 @@ base_gcmessages.proto
 baseclass
 baseitem
 baseitem_defidx
-bcZ
 begin
 bentnormal
 biased
 binary
 binary_blob
+bind_targets
 bindable_command_buttons
 binding
 bits
 blendindices
 blendweight
 blendweights
+blobdata
 body_substring_keys
 body_substring_values
 bodygroupchoices
@@ -5416,10 +5369,10 @@ bottom
 brass_eject_model
 break
 broken pipe
+btE
 bucketed
 bundle
 button_zone
-bwZ
 bytes
 bytestring
 cable
@@ -5467,6 +5420,8 @@ char8_t
 charges
 cheating_penalty_level
 checkstate
+chicken_egg
+chicken_feed
 children
 choice_group
 choice_name
@@ -5477,6 +5432,7 @@ choreoanchorclass
 cl_decryptdata_key
 cl_decryptdata_key_pub
 clan_id
+clan_tag
 class 
 class AccountActivity (demangled)
 class CAttributeIterator_GetTypedAttributeValue<CAttribute_String, CAttribute_String> (demangled)
@@ -5486,6 +5442,8 @@ class CAttributeIterator_GetTypedAttributeValue<float, float> (demangled)
 class CAttributeIterator_GetTypedAttributeValue<unsigned int, unsigned int> (demangled)
 class CAttribute_String (demangled)
 class CBaseAppSystem<IToolSystem2> (demangled)
+class CBaseBindTargetDescriptor (demangled)
+class CBaseBindableCommand (demangled)
 class CBaseConcreteToolAttr<CCapsuleStickerKit, CCS2EconNode_StickerCapsule> (demangled)
 class CBaseConcreteToolAttr<CCaseKey, CCS2EconNode_CommunityCase> (demangled)
 class CBaseConcreteToolAttr<CCasePaintKit, CCS2EconNode_CommunityCase> (demangled)
@@ -5756,13 +5714,11 @@ class CBaseToolSystem2 (demangled)
 class CBaseUndoable (demangled)
 class CBaseVModuleMetadataProvider (demangled)
 class CBindTargetDescriptor<CCS2ItemEditorSession> (demangled)
-class CBindTargetDescriptor<CCS2ItemEditorSession>::CSpecificTargetBindableCommand (demangled)
+class CBindTargetDescriptor<CCS2ItemEditorSession>::CBindableCommand (demangled)
 class CBindTargetDescriptor<CGlobalHotkeyCommands> (demangled)
-class CBindTargetDescriptor<CGlobalHotkeyCommands>::CSpecificTargetBindableCommand (demangled)
+class CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand (demangled)
 class CBindTargetDescriptor<CQSessionCycleWidget> (demangled)
-class CBindTargetDescriptor<CQSessionCycleWidget>::CSpecificTargetBindableCommand (demangled)
-class CBindTargetDescriptorBase (demangled)
-class CBindableCommand (demangled)
+class CBindTargetDescriptor<CQSessionCycleWidget>::CBindableCommand (demangled)
 class CBufferStream (demangled)
 class CCS2EconNode_CaseKey (demangled)
 class CCS2EconNode_Coin (demangled)
@@ -6240,6 +6196,7 @@ class CGenericExpr_TernaryConditional (demangled)
 class CGenericExpr_Unary (demangled)
 class CGenericExpr_VariableReference (demangled)
 class CGlobalHotkeyCommands (demangled)
+class CInputBindTargetMetadataProvider (demangled)
 class CItemSelectionCriteria::CCondition (demangled)
 class CItemSelectionCriteria::CFloatCondition (demangled)
 class CItemSelectionCriteria::CSetCondition (demangled)
@@ -6250,6 +6207,7 @@ class CKV3TransferLoadContext (demangled)
 class CKV3TransferSaveContext (demangled)
 class CModuleMetadataProvider_ResourceManifests (demangled)
 class CMsgAccountDetails (demangled)
+class CMsgAckPetEvent (demangled)
 class CMsgAcknowledgeRentalExpiration (demangled)
 class CMsgAdjustEquipSlot (demangled)
 class CMsgAdjustEquipSlots (demangled)
@@ -6929,7 +6887,6 @@ class IToolEventDispatcherLifetimeListener (demangled)
 class IToolFrameListener (demangled)
 class IToolFrameworkAudioSettingsListener (demangled)
 class IToolSystem2 (demangled)
-class ITypedPropertyEditDomain<HToolAttrTableInstance, IBaseToolAttr*> (demangled)
 class IUndoable (demangled)
 class IVDataExternalToolContextProvider (demangled)
 class IWriteStream (demangled)
@@ -7026,37 +6983,15 @@ class TournamentTeam (demangled)
 class Vec3D<float> (demangled)
 class WatchableMatchInfo (demangled)
 class XpProgressData (demangled)
+class `public: CBindTargetDescriptor<CCS2ItemEditorSession>::CBindableCommand& CBindTargetDescriptor<CCS2ItemEditorSession>::CBindableCommand::SetFunction<void (CCS2ItemEditorSession::*)(void)>(BindableCommandStage_t, void (CCS2ItemEditorSession::*)(void))'::`2'::<lambda_1> (demangled)
+class `public: CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand& CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand::SetFunction<void (CGlobalHotkeyCommands::*)(int, int), int, int>(BindableCommandStage_t, void (CGlobalHotkeyCommands::*)(int, int), int, int)'::`2'::<lambda_1> (demangled)
+class `public: CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand& CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand::SetFunction<void (CGlobalHotkeyCommands::*)(void)>(BindableCommandStage_t, void (CGlobalHotkeyCommands::*)(void))'::`2'::<lambda_1> (demangled)
+class `public: CBindTargetDescriptor<CQSessionCycleWidget>::CBindableCommand& CBindTargetDescriptor<CQSessionCycleWidget>::CBindableCommand::SetFunction<void (CQSessionCycleWidget::*)(bool), bool>(BindableCommandStage_t, void (CQSessionCycleWidget::*)(bool), bool)'::`2'::<lambda_1> (demangled)
+class `public: CBindTargetDescriptor<CQSessionCycleWidget>::CBindableCommand& CBindTargetDescriptor<CQSessionCycleWidget>::CBindableCommand::SetFunction<void (CQSessionCycleWidget::*)(void)>(BindableCommandStage_t, void (CQSessionCycleWidget::*)(void))'::`2'::<lambda_1> (demangled)
 class `public: SchemaReservation_t* CCS2ItemEditorSystem::RequestSchemaReservation(CCS2ItemEditorNode*, char const*, char const*, char const*)'::`2'::<lambda_2> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CCS2ItemEditorSession::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`10'::<lambda_8> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CCS2ItemEditorSession::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`3'::<lambda_1> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CCS2ItemEditorSession::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`4'::<lambda_2> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CCS2ItemEditorSession::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`5'::<lambda_3> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CCS2ItemEditorSession::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`6'::<lambda_4> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CCS2ItemEditorSession::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`7'::<lambda_5> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CCS2ItemEditorSession::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`8'::<lambda_6> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CCS2ItemEditorSession::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`9'::<lambda_7> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`10'::<lambda_8> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`11'::<lambda_9> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`12'::<lambda_10> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`13'::<lambda_11> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`14'::<lambda_12> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`15'::<lambda_13> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`16'::<lambda_14> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`17'::<lambda_15> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`3'::<lambda_1> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`4'::<lambda_2> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`5'::<lambda_3> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`6'::<lambda_4> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`7'::<lambda_5> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`8'::<lambda_6> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`9'::<lambda_7> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CQSessionCycleWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`3'::<lambda_1> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CQSessionCycleWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`3'::<lambda_2> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CQSessionCycleWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`4'::<lambda_3> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CQSessionCycleWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`5'::<lambda_4> (demangled)
-class `public: static CBindTargetDescriptorBase* CCS2ItemEditorSession::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance (demangled)
-class `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance (demangled)
-class `public: static CBindTargetDescriptorBase* CQSessionCycleWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance (demangled)
+class `public: static CBaseBindTargetDescriptor* CCS2ItemEditorSession::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance (demangled)
+class `public: static CBaseBindTargetDescriptor* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance (demangled)
+class `public: static CBaseBindTargetDescriptor* CQSessionCycleWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance (demangled)
 class charNode (demangled)
 class google::protobuf::DescriptorBuilder::OptionInterpreter::AggregateOptionFinder (demangled)
 class google::protobuf::DescriptorDatabase (demangled)
@@ -7166,34 +7101,12 @@ class std::_Func_base<void, QTableWidget*, CBaseDynamicWidgetFactory::InitContex
 class std::_Func_base<void, QToolBar*, CBaseDynamicWidgetFactory::InitContext_t const&> (demangled)
 class std::_Func_base<void, QToolButton*, CBaseDynamicWidgetFactory::InitContext_t const&> (demangled)
 class std::_Func_base<void, char const*, char const*, int64_t, unsigned int> (demangled)
+class std::_Func_impl_no_alloc<`public: CBindTargetDescriptor<CCS2ItemEditorSession>::CBindableCommand& CBindTargetDescriptor<CCS2ItemEditorSession>::CBindableCommand::SetFunction<void (CCS2ItemEditorSession::*)(void)>(BindableCommandStage_t, void (CCS2ItemEditorSession::*)(void))'::`2'::<lambda_1>, void, CCS2ItemEditorSession*> (demangled)
+class std::_Func_impl_no_alloc<`public: CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand& CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand::SetFunction<void (CGlobalHotkeyCommands::*)(int, int), int, int>(BindableCommandStage_t, void (CGlobalHotkeyCommands::*)(int, int), int, int)'::`2'::<lambda_1>, void, CGlobalHotkeyCommands*> (demangled)
+class std::_Func_impl_no_alloc<`public: CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand& CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand::SetFunction<void (CGlobalHotkeyCommands::*)(void)>(BindableCommandStage_t, void (CGlobalHotkeyCommands::*)(void))'::`2'::<lambda_1>, void, CGlobalHotkeyCommands*> (demangled)
+class std::_Func_impl_no_alloc<`public: CBindTargetDescriptor<CQSessionCycleWidget>::CBindableCommand& CBindTargetDescriptor<CQSessionCycleWidget>::CBindableCommand::SetFunction<void (CQSessionCycleWidget::*)(bool), bool>(BindableCommandStage_t, void (CQSessionCycleWidget::*)(bool), bool)'::`2'::<lambda_1>, void, CQSessionCycleWidget*> (demangled)
+class std::_Func_impl_no_alloc<`public: CBindTargetDescriptor<CQSessionCycleWidget>::CBindableCommand& CBindTargetDescriptor<CQSessionCycleWidget>::CBindableCommand::SetFunction<void (CQSessionCycleWidget::*)(void)>(BindableCommandStage_t, void (CQSessionCycleWidget::*)(void))'::`2'::<lambda_1>, void, CQSessionCycleWidget*> (demangled)
 class std::_Func_impl_no_alloc<`public: SchemaReservation_t* CCS2ItemEditorSystem::RequestSchemaReservation(CCS2ItemEditorNode*, char const*, char const*, char const*)'::`2'::<lambda_2>, void, char const*, char const*, int64_t, unsigned int> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CCS2ItemEditorSession::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`10'::<lambda_8>, void, CCS2ItemEditorSession*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CCS2ItemEditorSession::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`3'::<lambda_1>, void, CCS2ItemEditorSession*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CCS2ItemEditorSession::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`4'::<lambda_2>, void, CCS2ItemEditorSession*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CCS2ItemEditorSession::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`5'::<lambda_3>, void, CCS2ItemEditorSession*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CCS2ItemEditorSession::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`6'::<lambda_4>, void, CCS2ItemEditorSession*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CCS2ItemEditorSession::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`7'::<lambda_5>, void, CCS2ItemEditorSession*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CCS2ItemEditorSession::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`8'::<lambda_6>, void, CCS2ItemEditorSession*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CCS2ItemEditorSession::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`9'::<lambda_7>, void, CCS2ItemEditorSession*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`10'::<lambda_8>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`11'::<lambda_9>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`12'::<lambda_10>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`13'::<lambda_11>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`14'::<lambda_12>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`15'::<lambda_13>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`16'::<lambda_14>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`17'::<lambda_15>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`3'::<lambda_1>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`4'::<lambda_2>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`5'::<lambda_3>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`6'::<lambda_4>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`7'::<lambda_5>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`8'::<lambda_6>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`9'::<lambda_7>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CQSessionCycleWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`3'::<lambda_1>, void, CQSessionCycleWidget*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CQSessionCycleWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`3'::<lambda_2>, void, CQSessionCycleWidget*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CQSessionCycleWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`4'::<lambda_3>, void, CQSessionCycleWidget*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CQSessionCycleWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`5'::<lambda_4>, void, CQSessionCycleWidget*> (demangled)
 class std::_Func_impl_no_alloc<bool (*)(HToolAttrTableInstance, IBaseToolAttr const*), bool, HToolAttrTableInstance, IBaseToolAttr const*> (demangled)
 class std::_Func_impl_no_alloc<bool (*)(HToolAttrTableInstance, IBaseToolAttr const*, CUtlString*), bool, HToolAttrTableInstance, IBaseToolAttr const*, CUtlString*> (demangled)
 class std::_Func_impl_no_alloc<void (*)(CQBindableCommandPushButton*, CBaseDynamicWidgetFactory::InitContext_t const&), void, CQBindableCommandPushButton*, CBaseDynamicWidgetFactory::InitContext_t const&> (demangled)
@@ -7287,6 +7200,7 @@ colors
 colspan
 com.google.protobufB
 command
+commands
 common
 commonitem
 communication_cooldown
@@ -7368,17 +7282,13 @@ custom_type
 customorigin
 customorigin_follow
 customplayer
-dBY
-dEJ
-dFD
-dFW
-dGD
-dGW
-dKE
+dEY
 dRL>
-dSZ
-dTZ
-dVX
+dUX
+dXY
+dYY
+dZW
+dZZ
 darkColors
 data
 data_center_id
@@ -7404,6 +7314,7 @@ decal
 decltype(auto)
 decodable
 default
+default value
 defaultAction
 default_color
 default_drop_quantity
@@ -7444,8 +7355,7 @@ destination address required
 developer
 device or resource busy
 devonly/
-dgZ
-diW
+dfX
 di_A
 di_B
 di_C
@@ -7463,9 +7373,7 @@ discrete_set_
 display_items_defidx
 display_seed
 distance
-djY
-dlX
-dnW
+dlW
 doItemsLayout
 do_A
 do_B
@@ -7484,8 +7392,10 @@ drop
 drop_chance
 drop_sound
 drop_type
+dtE
+dtV
+dtW
 duel__class_lock
-dxZ
 eEk
 eF>t
 eLK(w
@@ -7504,7 +7414,6 @@ element_name_key_friendly_name_map
 elevated_state
 elevated_timestamp
 eligible_for_community_market
-emW
 enabled
 encryption_key
 encryption_key_pub
@@ -7531,7 +7440,6 @@ entries
 entryid
 enum
 enum 
-epX
 equip_conflicts
 equip_region
 equip_regions
@@ -7579,6 +7487,8 @@ eyes_follow
 f5J5J5J5J5J5J5J5J5J5J5J5J5J5J5J5Jx
 fD>b
 fWi?
+f\tV_fseek
+faZ
 fabs
 failping_account_id_sessions
 failready_account_id_sessions
@@ -7591,9 +7501,9 @@ false:?\n
 false:A\n
 fan_shield
 fast
+feZ
 featured_display_item_defidx
 ffValueIn
-fgd_metadata_merge
 field
 file
 file exists
@@ -7639,6 +7549,7 @@ flValue
 flVaue
 flagchoices
 flags
+flags value
 flair0
 flexible_loadout_category
 flexible_loadout_default
@@ -7653,11 +7564,12 @@ float==
 float>
 float>=
 float_floor_to_integer
+floatchoices
+floatchoices choice
 floor
 flowing
 flying_courier_effect
 fmod
-foZ
 fontfamily
 fontstyle
 force_gc_to_generate
@@ -7825,51 +7737,43 @@ gs_location_id
 gs_ping
 gungameprogressive
 gungametrbomb
+h5RX
 h>1my
+hAE
 hAR
-hAU
-hCQ
-hDJ
-hDS
+hAW
+hBS
+hCS
+hDE
+hDU
+hEE
 hES
-hET
-hFE
-hFJ
-hFV
-hGD
-hHD
-hHQ
-hHR
-hIR
-hIV
-hJT
-hLE
-hMQ
-hMR
-hNR
-hNU
-hOA
-hOS
-hOT
-hOV
-hQJ
-hRQ
+hFZ
+hGS
+hHU
+hIS
+hIU
+hJS
+hKR
+hLT
+hMB
+hPS
+hQR
 hTT
-hVS
-hWT
-hXV
-hYS
-haT
+hUU
+hWR
+hWS
+hYT
+hZU
+haS
 halfgridsnap
 handle
-hbQ
+hbR
+hbU
 hbox
-hcR
-hcU
+hcS
+hcT
 hcenter
-hdR
-heE
-heR
 headerColor
 heavy
 heavy0
@@ -7881,15 +7785,11 @@ heavy5
 hero
 hexColor
 hex_color
-hfE
-hfR
 hfT
-hgE
+hfW
 hgR
-hgS
-hhR
-hiR
-hiU
+hgU
+hiT
 hidden
 hidden_when_false
 hidden_when_true
@@ -7897,16 +7797,15 @@ hide_bodygroups_deployed_only
 highlight_reel
 highlight_reels
 hitbox
-hjR
-hkQ
 hkR
-hlK
+hkS
 hlR
-hlU
-hmD
-hmQ
+hlS
+hlT
+hmU
+hmX
 hmY
-hoV
+hnR
 holiday_restriction
 horizontalPolicy
 horizontalStretch
@@ -7914,29 +7813,28 @@ horizontal_header
 horizontal_header_labels
 host unreachable
 hours
-hpS
-hpU
-hpY
 hpx
 hpz
-hqK
-hqT
-hrR
-htS
-huT
-huU
+hqL
+hrL
+hrY
+hsT
+hsU
+htB
 hullivr_edge_merge_tan
 hullivr_faceisland_merge_disp
 hullivr_faceisland_merge_tan
 hullivr_version
-hwE
-hxE
 hxQ
-hyE
-hzE
-hzV
+hxT
+hyQ
+hyW
+hzQ
+hzS
 iValueIn
+i\tV_ftell
 icon
+icon_base
 icon_default_image
 icon_path
 icon_path_range:%u:%u
@@ -7991,6 +7889,7 @@ int16
 int32
 int64
 intchoices
+intchoices choice
 integer
 interrupted
 intmap
@@ -8070,30 +7969,27 @@ items/assets
 items/inventory_image_data.vdata
 items_game_url
 ivalue
-jBX
+jGZ
+jSZ
 jVg
 java_generate_equals_and_hash
 java_generic_services
 java_multiple_files
 java_outer_classname
 java_string_check_utf8
-jkZ
-jnW
 join_ipp
 jointeam %d
 jpg
 jpg, png, tga
-jrZ
 jsZ
 json_favorites
 json_name = "
 jstype
 jstype is only allowed on int64, uint64, sint64, fixed64 or sfixed64 fields.
 jump_to_item
-jyZ
 k;J;J;J;J;J;J;J;J;J;J;J;J;J;J;J;Jx
 k=yI
-kFX
+k\tV_fwrite
 k_ECommunityItemAttribute_Level
 k_ECommunityItemClass_Badge
 k_ECommunityItemClass_Emoticon
@@ -8104,6 +8000,7 @@ k_ECommunityItemClass_Scene
 k_EGCMsgAchievementAwarded
 k_EGCMsgAddFreeLicense
 k_EGCMsgAddFreeLicenseResponse
+k_EGCMsgAppCheersReceived
 k_EGCMsgAppInfoUpdated
 k_EGCMsgCheckFriendship
 k_EGCMsgCheckFriendshipResponse
@@ -8115,6 +8012,8 @@ k_EGCMsgFailedToCreate
 k_EGCMsgFindAccounts
 k_EGCMsgGenericReply
 k_EGCMsgGetAccountDetails
+k_EGCMsgGetClanDetails
+k_EGCMsgGetClanDetailsResponse
 k_EGCMsgGetCommands
 k_EGCMsgGetCommandsResponse
 k_EGCMsgGetEmailTemplate
@@ -8151,6 +8050,8 @@ k_EGCMsgPostAlert
 k_EGCMsgPreTestSetup
 k_EGCMsgReceiveInterAppMessage
 k_EGCMsgRecordSupportAction
+k_EGCMsgReportMetrics
+k_EGCMsgReportMetricsResponse
 k_EGCMsgResponseDenied
 k_EGCMsgResponseInvalid
 k_EGCMsgResponseNoMatch
@@ -8192,6 +8093,7 @@ k_EInitSystemResult_Mismatch
 k_EInitSystemResult_None
 k_EInitSystemResult_NotFound
 k_EInitSystemResult_Success
+k_EMsgGCAckPetEvent
 k_EMsgGCAdjustEquipSlotsManual
 k_EMsgGCAdjustEquipSlotsShuffle
 k_EMsgGCApplyConsumableEffects
@@ -8351,23 +8253,12 @@ killeaterscoretype
 killeatervalue
 killer_account_id
 kills
-kmW
 knives
-lBZ
-lCZ
-lEJ
-lFD
-lGD
-lJW
-lJY
-lKE
-lKX
-lPV
-lRZ
-lVW
-lYX
-lZY
+lCX
+lHB
+lLX
 laQ
+laY
 label
 labelPos
 labelText
@@ -8382,10 +8273,10 @@ latitude
 launcher
 launcher_mismatch_sessions
 lazy
-lbW
 ldQ
+ldW
 ldexp
-leW
+leX
 leaderboard_name
 leaderboard_name_status
 leaderboard_safe_name
@@ -8400,16 +8291,14 @@ length
 level
 level_data
 lexer->mTokens(): Error: No lexer rules were added to the lexer yet!\n
-lgJ
-liY
+lgX
 lifespan
 limit_description_to_number_rnd
 limited
 link
 list
 list_type
-ljX
-lnP
+llX
 load
 loadondemand
 lobby_id
@@ -8451,10 +8340,10 @@ lostround
 loud
 lowprecisionuv
 lowprecisionuv1
-lpV
-lsV
-mOW
-mVX
+ltX
+lyX
+lzY
+mUX
 m\nXo
 m_AlbumImage
 m_AssociatedSet
@@ -8484,6 +8373,7 @@ m_EndOfMatch
 m_FinalKVs
 m_FirstSaleDate
 m_FriendlyName
+m_IconBase
 m_Image
 m_Input
 m_InputMacros
@@ -8807,10 +8697,9 @@ nColumn
 nDelayInMS
 nExitCode
 nIndex
+nQZ
 nRow
 nToolId
-nVZ
-n\tV_powf
 n]?iJ
 name
 name='%s'
@@ -8822,7 +8711,6 @@ nan(snan)
 navlink
 navlinkclass
 nby
-ndZ
 near '%c' :\n
 near char(%#02X) :\n
 negative
@@ -8835,7 +8723,6 @@ newValue
 new_slot
 next_rarity
 nextmatch_title
-njZ
 no buffer space
 no child process
 no link
@@ -8880,7 +8767,6 @@ num_item_presets not set!
 number
 o?GS
 oI>O7
-o\tV_qsort
 objc_class_prefix
 objects
 objects_modified
@@ -8918,6 +8804,9 @@ options
 orientation
 origin
 original
+originating_classname
+originating_filename
+originating_linenumber
 outliner_filter
 outliner_settings
 outofdate_subscribed_caches
@@ -8935,70 +8824,59 @@ owcaseid
 owner dead
 owner_only
 owns_polymorphic_data
+p0j@L!
 p@HPX`h\f
-pAQ
+pBB
+pBE
+pBU
 pButton
 pCE
-pCL
-pCS
-pCU
+pCT
 pCurrentFocusWidget
-pDE
-pDJ
+pDS
+pDX
 pData
-pER
-pEW
+pET
+pEU
 pEvent
-pFR
-pFS
-pFU
+pFE
 pFilter
 pFx
-pGD
-pGQ
-pGS
-pGT
-pGV
-pHE
-pIS
-pIU
+pGB
+pGR
+pGW
+pGX
+pHR
+pHW
 pItem
-pJS
+pJR
 pJU
-pKR
-pKS
-pLQ
-pLR
-pLT
-pLU
-pLY
-pLa;
-pMD
-pNQ
+pKU
+pLS
+pMU
 pOC
 pOR
+pOS
 pOU
-pPQ
-pPR
+pPB
+pPZ
 pPrevFocusWidget
-pQT
-pQU
+pRE
 pResultKV
-pTS
-pTW
-pUT
-pUU
-pWQ
-pWR
-pWS
+pSB
+pTR
+pUE
+pVB
+pVR
+pVT
+pVZ
+pWB
+pWE
+pWU
 pWidget
-pXQ
-pXR
-p\tV_qsort_s
-paE
+pXB
+pXS
 paR
-paS
-paY
 package
 packed
 packetid
@@ -9056,14 +8934,17 @@ payload
 payment_row_usd
 payment_rules/0/workshop_revenue_share
 payment_us_usd
-pbE
-pbR
-pbX
-pcE
-pcQ
-pcT
-pdE
-peU
+pbD
+pbW
+pcK
+pcL
+pcX
+pdR
+pdS
+pdT
+pdU
+peL
+peR
 pearlescent
 pedestal display model
 pedestal_display_model
@@ -9073,16 +8954,14 @@ penalty_seconds
 pennant_item_id
 period
 permission denied
+pet
+pet_definitions
+pet_food_expiration_date
+pet_gcmessages.proto
+pet_gcmessages.proto"&\n
 petindex
-pfQ
-pfS
-pfY
-pgD
-pgW
-phS
-phT
-phX
-phZ
+pfR
+pgT
 phone_id
 phongalbedoboost
 phongexponent
@@ -9090,8 +8969,6 @@ phongintensity
 php_class_prefix
 php_generic_services
 php_metadata_namespace
-piS
-piX
 pick
 pick_all_attributes
 pickids
@@ -9101,10 +8978,9 @@ picks__deprecated
 ping
 pings
 pips
-pjS
-pjU
-pkT
-plS
+pjT
+plK
+plU
 player
 player_capacity
 player_location
@@ -9116,9 +8992,11 @@ players
 players_humans
 players_online
 players_searching
-pmU
-pnW
+pmR
+pmT
+pnS
 png
+poU
 point
 point_follow
 point_follow_substepped
@@ -9137,9 +9015,9 @@ postprocessing
 posxyz
 pow
 ppT
-pqY
-prU
-prX
+ppU
+prQ
+prR
 pre_match_data
 predictions_pct
 prefab
@@ -9660,12 +9538,10 @@ proto3_optional
 protocol error
 protocol not supported
 psQ
-psS
-psX
 psid
+ptR
 puQ
-puS
-puW
+puT
 public: 
 public: CCountedStringPool_CI::CCountedStringPool_CI(void) (demangled)
 public: CExpressionEvaluator::CExpressionEvaluator(void) (demangled)
@@ -10095,6 +9971,7 @@ public: bool CBufferString::StartsWith(char const*) const (demangled)
 public: bool CExpressionEvaluator::EvaluateAsUnmarkedSymbols(bool&, char const*, bool (*)(char const*, void*), void (*)(char const*, void*), void*, void*) (demangled)
 public: bool CUtlBuffer::Get(void*, int) (demangled)
 public: bool CUtlBuffer::ParseToken(char const*, char const*, CBufferString*) (demangled)
+public: bool CUtlString::IsEqual_CaseSensitive(char const*) const (demangled)
 public: bool CUtlString::IsEqual_FastCaseInsensitive(char const*) const (demangled)
 public: bool CUtlString::operator==(CBufferString const&) const (demangled)
 public: bool CUtlString::operator==(CUtlString const&) const (demangled)
@@ -10884,6 +10761,7 @@ public: void CUtlString::TrimLeft(char const*) (demangled)
 public: void CUtlString::TrimRight(char const*) (demangled)
 public: void CUtlSymbolTable::RemoveAll(void) (demangled)
 public: void KeyValues::AddSubKey(KeyValues*) (demangled)
+public: void KeyValues::Clear(void) (demangled)
 public: void KeyValues::MergeFrom(KeyValues const*, KeyValues::MergeKeyValuesOp_t) (demangled)
 public: void KeyValues::RecursiveSaveToFile(CUtlBuffer&, int, bool, bool) const (demangled)
 public: void KeyValues::SetColor(char const*, Color) (demangled)
@@ -11264,15 +11142,11 @@ public_list_contents
 public_profile
 publish_to_workshop
 purecall
-pvE
-pwS
-pwT
-pwU
-pxJ
-pyQ
+pvS
+pwE
+pwQ
 py_generic_services
 pzT
-pzU
 qS>g?h3
 qVJ
 qangle
@@ -11294,8 +11168,7 @@ questid
 queue_position
 quiet
 quit\n
-rEZ
-rSX
+rYZ
 r\tVr.>T
 random_attribute_templates
 random_attributes
@@ -11420,9 +11293,9 @@ rtdelay
 rtime
 rtime32_gc_welcome_timestamp
 rule_description
+ryZ
 s5J5J5J5J5J5J5J5J5J5J5J5J5J5J5J5Jx
 sHF'
-sWX
 same_name_family_aggregate
 scale
 scale_bone_relative
@@ -11715,6 +11588,7 @@ struct `public: static void CCS2EconNode_DiscreteSet::GetAttributeTable_CCS2Econ
 struct `public: static void CCS2EconNode_DiscreteSet::GetAttributeTable_CCS2EconNode_DiscreteSet(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, 0> >*)'::`3'::CAttr_no_member (demangled)
 struct `public: static void CCS2EconNode_DiscreteSet::GetAttributeTable_CCS2EconNode_DiscreteSet(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, 0> >*)'::`4'::CAttr_no_member (demangled)
 struct `public: static void CCS2EconNode_KeychainKit::GetAttributeTable_CCS2EconNode_KeychainKit(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, 0> >*)'::`2'::CAttr_m_Description (demangled)
+struct `public: static void CCS2EconNode_KeychainKit::GetAttributeTable_CCS2EconNode_KeychainKit(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, 0> >*)'::`2'::CAttr_m_IconBase (demangled)
 struct `public: static void CCS2EconNode_KeychainKit::GetAttributeTable_CCS2EconNode_KeychainKit(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, 0> >*)'::`2'::CAttr_m_Image (demangled)
 struct `public: static void CCS2EconNode_KeychainKit::GetAttributeTable_CCS2EconNode_KeychainKit(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, 0> >*)'::`2'::CAttr_m_ItemNameFriendly (demangled)
 struct `public: static void CCS2EconNode_KeychainKit::GetAttributeTable_CCS2EconNode_KeychainKit(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, 0> >*)'::`2'::CAttr_m_Model (demangled)
@@ -12045,16 +11919,12 @@ syntax
 synthetic_default
 system
 system_package
-tEJ
-tFD
-tFY
-tHW
-tMY
-tNW
-tOJ
-tOW
-tUV
-tYY
+tAX
+tLW
+tMX
+tUX
+tWZ
+t\tV_isdigit_str
 tabStyle
 tabify
 table
@@ -12080,6 +11950,7 @@ target_steam_id
 taxonomy
 taxonomy/table_display
 taxonomy/wall_display
+tcY
 team
 team_id
 team_spawn_count
@@ -12098,6 +11969,7 @@ textColor
 text_block
 texture
 tga
+thY
 the actual field type (for enums T should be the generated enum 
 the global scope
 thirdperson_default
@@ -12121,9 +11993,8 @@ timeplayedconsecutively
 timing
 tint_
 tint_id
-tlX
-tlY
-tmW
+tjX
+tmZ
 toggleViewAction
 token
 tokens
@@ -12185,14 +12056,16 @@ tournament_tag
 tournament_team_id
 tournament_teams
 tournamentinfo
-tpX
 trace_id
 trade_ban_expiration
 trailing_comments
+transform
 transparent_background
 true
 trusted
-tuZ
+tsV
+tuV
+tuY
 tv_info
 tv_local_clients
 tv_local_proxies
@@ -12209,6 +12082,8 @@ tv_slots
 tv_time
 tv_watch_password
 twitch_streams_version
+txV
+txZ
 txn_country_code
 txn_id
 type
@@ -12219,8 +12094,6 @@ type_id
 type_name
 type_tool
 typename
-uYX
-u\tV_roundf
 uid model
 uint
 uint16
@@ -12248,6 +12121,7 @@ upgrade_item_id
 upgraded_defidx
 upnext
 uptodate_subscribed_caches
+urY
 url
 usable
 usable_gc
@@ -12261,10 +12135,10 @@ userEdit
 userdata
 userstatchanges
 uses_essence
+utX
 utility
 utility_success
-vAZ
-vXX
+vUZ
 v\n,associated_workshop_file_for_direct_payments
 vacbanned_account_id_sessions
 val
@@ -12320,6 +12194,7 @@ verticalStretch
 vertical_header
 very_fast
 vffValueSetIn
+vgZ
 victim_account_id
 view_model_exponent_override_size
 viewers_external_steam
@@ -12334,6 +12209,7 @@ vmdl
 vmesh
 vmt_overrides
 vmt_path
+vnZ
 vnotify_ui
 void
 void 
@@ -12365,11 +12241,13 @@ vote_starting_side
 vpcf
 vphzc
 vpost
+vrZ
 vsky
 vsnap
 vsncheck_account_id_sessions
 vtex
 wXC
+w\tV_isnand
 waiting_account_id_sessions
 waiting_group
 warn
@@ -12422,100 +12300,84 @@ wrapping
 writable_func
 wrong protocol type
 wrong submessage type
-xAS
-xBR
-xBS
-xDR
-xEU
-xFJ
-xGE
-xHD
-xHJ
-xIQ
+xAB
+xAU
+xBE
+xBZ
+xCR
+xDE
+xER
+xFB
+xGB
+xHB
 xIR
-xIT
-xJQ
-xJR
-xKE
-xKK
-xKQ
-xLS
-xLV
-xMK
-xNS
-xNT
-xOA
-xPK
-xPS
-xQR
+xKS
+xMB
+xMR
+xMS
+xPR
 xQS
+xQT
+xRE
 xRS
-xRV
-xRX
-xSK
+xSE
 xST
-xSU
 xT?V
-xUS
-xUX
-xVQ
-xVR
-xVT
-xXS
+xTS
+xTU
+xUR
+xVE
+xXR
+xXT
 xYR
-xYT
-xZX
-xbU
-xcS
-xeE
+xYS
+xYY
+xaU
+xbT
+xcD
 xeT
-xfE
-xfW
-xgE
-xgQ
-xhD
-xhU
-xiD
-xiW
-xmR
-xmS
-xoL
-xoR
-xoU
-xoY
-xpQ
+xfS
+xfU
+xgS
+xhS
+xhT
+xiS
+xjS
+xnT
+xoS
+xoW
 xpR
 xp_progress_data
 xp_trail_level
 xp_trail_remaining
 xp_trail_timestamp_refresh
 xp_trail_xp_needed
-xrS
-xsW
-xtR
-xtT
-xtU
+xqY
+xrT
+xrU
+xrX
+xsS
+xtD
+xtS
+xuR
+xuS
 xvR
-xvS
-xvU
-xwR
-xxE
-xxR
-xyR
-xyT
+xwS
+xwT
+xxS
 xzE
+xzY
+yKX
 yLM
 yUk
-ybX
 ycg
 yellow
 yes
-yjX
 youtube_account_name
-ysX
 yyyy-MM-dd
 zoom_in_sound
 zoom_out_sound
+zpZ
 {flat}
 {for 
 {images}/

@@ -1,0 +1,725 @@
+/* Prettified by Source 2 Viewer 19.2.0.0 - https://valveresourceformat.github.io */
+
+@define BookShiftX: translateX( -96px );
+.PopupPanel
+{
+	width: 100%;
+	max-width: 100%;
+	height: 100%;
+	background-color: none;
+	box-shadow: none;
+	border: 0px solid rgba(0,0,0,0);
+	padding: 0px;
+	flow-children: none;
+}
+
+.pet-book-stage
+{
+	width: 100%;
+	height: 100%;
+	flow-children: none;
+	background-color: rgba(0, 0, 0, 0.85);
+}
+
+.pet-book-row-center
+{
+	flow-children: right;
+	horizontal-align: center;
+	vertical-align: center;
+	transform: BookShiftX;
+}
+
+.pet-book
+{
+	flow-children: none;
+	perspective: 3200px;
+	perspective-origin: 50% 50%;
+}
+
+.book-page
+{
+	horizontal-align: left;
+	vertical-align: center;
+	overflow: clip;
+}
+
+.book-page-left
+{
+	box-shadow: -2px 4px 8px 0px rgba(0, 0, 0, 0.2);
+}
+
+.book-page-right
+{
+	box-shadow: 2px 4px 8px 0px rgba(0, 0, 0, 0.2);
+}
+
+.book-leaf
+{
+	horizontal-align: right;
+	transform-origin: 0% 50%;
+	flow-children: none;
+	z-index: 10;
+	opacity: 0;
+	background-color: rgb(241, 241, 241);
+}
+
+.book-leaf-face
+{
+	width: 100%;
+	height: 100%;
+}
+
+.book-leaf-back
+{
+	transform: scale3d( -1, 1, 1 );
+}
+
+.book-leaf-shade
+{
+	width: 100%;
+	height: 100%;
+	background-color: rgb(0, 0, 0);
+	opacity: 0;
+}
+
+.book-leaf-cast
+{
+	horizontal-align: left;
+	vertical-align: center;
+	z-index: 6;
+	opacity: 0;
+	background-color: gradient( linear, 0% 0%, 100% 0%, from( rgba(0,0,0,0.55) ), color-stop( 0.45, rgba(0,0,0,0.18) ), to( rgba(0,0,0,0) ) );
+}
+
+.book-gutter
+{
+	width: 70px;
+	horizontal-align: center;
+	vertical-align: center;
+	z-index: 5;
+	opacity: 0;
+	background-color: gradient( linear, 0% 0%, 100% 0%, from( rgba(0,0,0,0) ), color-stop( 0.5, rgba(0,0,0,0.28) ), to( rgba(0,0,0,0) ) );
+}
+
+.pb-page-inner
+{
+	width: 100%;
+	height: 100%;
+}
+
+.pb-cover
+{
+	width: 100%;
+	height: 100%;
+	flow-children: down;
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #789b89 ), to( #587667 ) );
+	background-image: url("s2r://panorama/images/pet_book/bookcover_psd.vtex");
+	background-img-opacity: .4;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	padding: 40px;
+}
+
+.pb-cover__frame
+{
+	width: 100%;
+	height: 100%;
+	flow-children: down;
+	vertical-align: center;
+	horizontal-align: center;
+	border: 3px solid rgba(214, 189, 143, 0.7);
+	padding: 24px;
+}
+
+.pb-cover__title
+{
+	font-family: Stratum2 Condensed, "Arial Unicode MS";
+	font-size: 54px;
+	color: rgb(233, 214, 178);
+	text-align: center;
+	horizontal-align: center;
+	vertical-align: center;
+	text-transform: uppercase;
+}
+
+.pb-cover__subtitle
+{
+	font-size: 18px;
+	color: rgba(233, 214, 178, 0.5);
+	text-align: center;
+	horizontal-align: center;
+	margin-top: 16px;
+}
+
+.pb-back
+{
+	width: 100%;
+	height: 100%;
+	flow-children: none;
+	background-color: rgb(244, 241, 233);
+}
+
+.pb-back__label
+{
+	font-family: Stratum2 Condensed, "Arial Unicode MS";
+	font-size: 40px;
+	color: rgb(120, 104, 82);
+	horizontal-align: center;
+	vertical-align: center;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.pet-book-bar
+{
+	flow-children: down;
+	horizontal-align: center;
+	vertical-align: bottom;
+	margin-bottom: 26px;
+	transform: BookShiftX;
+}
+
+.pet-book-bar .pet-book-bar__buttons
+{
+	flow-children: right;
+	horizontal-align: center;
+	padding: 5px 10px;
+	border-radius: 6px;
+	background-color: rgba(0, 0, 0, 0.55);
+}
+
+.pet-book-bar .pet-book-bar__action-hint
+{
+	horizontal-align: center;
+	text-align: center;
+	margin-bottom: 32px;
+}
+
+.pet-book-hint
+{
+	horizontal-align: center;
+	vertical-align: bottom;
+	margin-bottom: 96px;
+	transform: BookShiftX;
+	font-size: 16px;
+	color: rgba(255, 255, 255, 0.55);
+	text-align: center;
+	transition-property: opacity;
+	transition-duration: .2s;
+	transition-timing-function: ease-out;
+}
+
+.pet-book-arrow
+{
+	width: 28px;
+	height: 28px;
+	margin: 0px 6px;
+	vertical-align: center;
+	border-radius: 3px;
+}
+
+.pet-book-arrow .pet-book-arrow__icon
+{
+	transform: rotatez( 90deg );
+	vertical-align: center;
+	horizontal-align: center;
+}
+
+.pet-book-arrow .pet-book-arrow__icon.left
+{
+	transform: rotatez( -90deg );
+}
+
+.pet-book-arrow:hover
+{
+	background-color: rgba(255, 255, 255, 0.2);
+}
+
+.pet-book-arrow:disabled
+{
+	opacity: 0.15;
+}
+
+.pet-book-counter
+{
+	vertical-align: center;
+	min-width: 64px;
+	margin-left: 8px;
+}
+
+.pet-book-counter Label
+{
+	font-family: Stratum2 Condensed, "Arial Unicode MS";
+	font-size: 22px;
+	color: rgba(255, 255, 255, 0.8);
+	horizontal-align: center;
+	vertical-align: center;
+}
+
+.pet-book-bar__chapters
+{
+	flow-children: right;
+	vertical-align: center;
+}
+
+.pet-book-chapter,.pb-free-btn
+{
+	height: 28px;
+	min-width: 28px;
+	margin-right: 24px;
+	border-radius: 3px;
+}
+
+.pet-book-chapter Image,.pb-free-btn Image
+{
+	horizontal-align: center;
+	vertical-align: center;
+}
+
+.pet-book-chapter .RadioBox,.pb-free-btn .RadioBox
+{
+	visibility: collapse;
+}
+
+.pet-book-chapter:hover,.pb-free-btn:hover
+{
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+.pet-book-chapter:selected,.pet-book-chapter:selected:hover,.pb-free-btn:selected,.pb-free-btn:selected:hover
+{
+	background-color: rgb(255, 255, 255);
+}
+
+.pet-book-chapter:selected Image,.pet-book-chapter:selected:hover Image,.pb-free-btn:selected Image,.pb-free-btn:selected:hover Image
+{
+	wash-color: black;
+}
+
+.pet-book-chapter:last-child,.pb-free-btn:last-child
+{
+	margin-right: 0px;
+}
+
+.pet-book-open-btn
+{
+	horizontal-align: center;
+	vertical-align: bottom;
+	margin-bottom: 26px;
+	transform: BookShiftX;
+	height: 38px;
+	min-width: 190px;
+	border-radius: 4px;
+	background-color: rgba(255, 255, 255, 0.12);
+}
+
+.pet-book-open-btn Label
+{
+	font-size: 18px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	color: white;
+	horizontal-align: center;
+	vertical-align: center;
+}
+
+.pet-book-open-btn:hover
+{
+	background-color: rgba(255, 255, 255, 0.28);
+}
+
+.pet-book-buttons
+{
+	flow-children: right;
+	horizontal-align: right;
+	vertical-align: bottom;
+	margin-right: 16px;
+	margin-bottom: 22px;
+	z-index: 200;
+}
+
+.pet-book-buttons .PopupButton
+{
+	margin-left: 12px;
+}
+
+.pb-page
+{
+	width: 100%;
+	height: 100%;
+	padding: 30px 20px 24px 20px;
+	flow-children: down;
+	background-color: rgb(241, 241, 241);
+	background-image: url("s2r://panorama/images/pet_book/paper_texture_png.vtex");
+	background-img-opacity: .3;
+	background-size: 40%;
+	background-repeat: repeat;
+	background-position: 50% 50%;
+}
+
+.pb-page__title-image
+{
+	height: 64px;
+	horizontal-align: center;
+}
+
+.pb-page__subtitle
+{
+	font-size: 20px;
+	color: rgba(48, 45, 42, 0.85);
+	text-align: center;
+	horizontal-align: center;
+	margin-bottom: 20px;
+}
+
+.pb-page__caption
+{
+	color: rgb(26, 23, 21);
+	font-size: 18px;
+	text-align: center;
+	horizontal-align: center;
+	letter-spacing: 1px;
+}
+
+.pb-page__paragraph
+{
+	padding:24px;
+	color: rgb(26, 23, 21);
+	font-size: 18px;
+	line-height: 28px;
+	text-overflow: shrink;
+}
+
+.pb-slot--full
+{
+	width: 480px;
+	height: 400px;
+}
+
+.pb-slot--full-page
+{
+	width: 100%;
+	height: 100%;
+}
+
+.pb-slot--wide
+{
+	width: 512px;
+	height: 300px;
+}
+
+.pb-slot--quad
+{
+	width: 252px;
+	height: 283px;
+	margin: 4px;
+}
+
+.pb-page__dressing
+{
+	opacity: 0;
+	transition-property: opacity;
+	transition-duration: .3s;
+	transition-timing-function: ease-out;
+}
+
+.pb-dressed .pb-page__dressing
+{
+	opacity: 1;
+}
+
+.pb-page--background,.pb-page--background-tiled
+{
+	width: 100%;
+	height: 100%;
+	ignore-parent-flow: true;
+	background-position: 50% 50%;
+}
+
+.pb-page--background
+{
+	background-repeat: no-repeat;
+}
+
+.pb-page--background-tiled
+{
+	background-repeat: repeat;
+}
+
+.pb-slot
+{
+	horizontal-align: center;
+	background-color: rgba(0, 0, 0, 0.05);
+	border: 5px dashed rgb(143, 143, 141);
+	flow-children: none;
+	overflow: noclip;
+}
+
+.pb-slot:hover
+{
+	background-color: rgba(0, 0, 0, 0.2);
+	border: 5px dashed rgb(109, 108, 107);
+}
+
+.pb-slot__hint
+{
+	width: 70%;
+	horizontal-align: center;
+	vertical-align: center;
+	text-align: center;
+	font-size: 18px;
+	color: rgba(50, 40, 27, 0.518);
+}
+
+.pb-slot__clip
+{
+	width: 100%;
+	height: 100%;
+	overflow: clip clip;
+}
+
+.pb-slot__image
+{
+	horizontal-align: center;
+	vertical-align: center;
+}
+
+.pb-slot--filled
+{
+	background-color: none;
+	border: 0px solid rgba(0, 0, 0, 0);
+	box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.15);
+}
+
+.pb-slot--filled .pb-slot__hint
+{
+	visibility: collapse;
+}
+
+.pb-slot--filled:hover
+{
+	background-color: none;
+	border: 0px solid rgba(0, 0, 0, 0);
+}
+
+.pb-slot__frame-btn
+{
+	width: 32px;
+	height: 32px;
+	padding: 2px;
+	horizontal-align: right;
+	vertical-align: bottom;
+	margin: 12px;
+	border-radius: 4px;
+	background-color: rgba( 0, 0, 0, .55 );
+	z-index: 5;
+	visibility: collapse;
+	opacity: 0;
+	transition-property: opacity;
+	transition-duration: .2s;
+	transition-timing-function: ease-out;
+}
+
+.pb-slot__frame-btn Image
+{
+	horizontal-align: center;
+	vertical-align: center;
+}
+
+.pb-slot--filled:hover .pb-slot__frame-btn
+{
+	visibility: visible;
+	opacity: 1;
+}
+
+.pb-slot--framing
+{
+	z-index: 3;
+}
+
+.pb-frame-bar
+{
+	visibility: collapse;
+	flow-children: down;
+	width: 260px;
+	padding: 12px;
+	border-radius: 6px;
+	background-color: rgba( 20, 20, 20, .92 );
+	z-index: 20;
+}
+
+.pb-frame-bar .pb-frame-bar__row
+{
+	flow-children: right;
+	width: 100%;
+	margin-bottom: 8px;
+}
+
+.pb-frame-bar .pb-frame-bar__icon
+{
+	width: 16px;
+	vertical-align: center;
+	margin-right: 10px;
+}
+
+.pb-frame-bar .pb-frame-bar__icon--turned
+{
+	transform: rotateZ( 90deg );
+}
+
+.pb-frame-bar .pb-frame-bar__row--off .pb-frame-bar__icon
+{
+	opacity: .15;
+}
+
+.pb-frame-bar Slider
+{
+	width: fill-parent-flow( 1 );
+	vertical-align: center;
+	height: 28px;
+}
+
+.pb-frame-bar--open
+{
+	visibility: visible;
+}
+
+.pb-slot--eligible
+{
+	border: 5px dashed rgb(255, 255, 255);
+}
+
+.pb-library
+{
+	width: 148px;
+	height: 80%;
+	flow-children: down;
+	horizontal-align: right;
+	vertical-align: center;
+	margin-right: 32px;
+	padding: 10px;
+	border-radius: 6px;
+	background-color: rgba(75, 75, 75, .6);
+	background-image: url("s2r://panorama/images/backgrounds/bluedots_large_png.vtex");
+	background-size: backgroundDotsSize;
+	background-img-opacity: .01;
+	border-radius: 8px;
+}
+
+.pb-library__booth-btn
+{
+	width: 48px;
+	height: 48px;
+	padding: 6px;
+	margin: 8px;
+	border-radius: 6px;
+	tooltip-position: left;
+	horizontal-align: center;
+}
+
+.pb-library__booth-btn Image
+{
+	horizontal-align: center;
+	vertical-align: center;
+}
+
+.pb-library__booth-btn:hover
+{
+	sound: "UIPanorama.store_item_rollover";
+	background-color: rgba(140, 140, 140, .8);
+}
+
+.pb-slot--drag-over
+{
+	background-color: rgba(255, 255, 255, 0.434);
+}
+
+.pb-drag-image
+{
+	width: 80px;
+	height: 60px;
+	opacity: .85;
+}
+
+.pb-hint-growth,.pb-hint-zoom,.pb-hint-stage,.pb-hint-pose,.pb-hint-filter,.pb-hint-activity,.pb-hint-headwear
+{
+	font-weight: bold;
+}
+
+.pb-hint-unmet
+{
+	color: rgba(220, 90, 70, 1.0);
+}
+
+.pb-slot--drag-reject
+{
+	border: 5px dashed rgba(220, 90, 70, 0.9);
+	background-color: rgba(220, 90, 70, 0.10);
+}
+
+.pb-page-inner .pb-page .pb-slot.pb-slot--filled.pb-slot--drag-reject
+{
+	border: 5px dashed rgba(220, 90, 70, 0.9);
+	background-color: rgba(220, 90, 70, 0.10);
+	box-shadow: none;
+}
+
+.pb-slot--reject
+{
+	animation-name: pb-slot-reject-anim;
+	animation-duration: .4s;
+	animation-timing-function: ease-out;
+	animation-iteration-count: 1;
+}
+
+@keyframes 'pb-slot-reject-anim'
+{
+	0%
+	{
+		background-color: rgba(220, 90, 70, 0.35);
+	}
+	
+	100%
+	{
+		background-color: rgba(220, 90, 70, 0.0);
+	}
+	
+}
+
+.pb-slot--dropped
+{
+	animation-name: pb-slot-drop-anim;
+	animation-duration: .22s;
+	animation-timing-function: ease-out;
+	animation-iteration-count: 1;
+}
+
+@keyframes 'pb-slot-drop-anim'
+{
+	0%
+	{
+		transform: scale3d( 1.14, 1.14, 1 );
+		opacity: 0;
+	}
+	
+	70%
+	{
+		transform: scale3d( 0.98, 0.98, 1 );
+		opacity: 1;
+	}
+	
+	100%
+	{
+		transform: scale3d( 1, 1, 1 );
+		opacity: 1;
+	}
+	
+}
+
+.pb-drag-image--remove
+{
+	opacity: .4;
+	saturation: .25;
+}
+

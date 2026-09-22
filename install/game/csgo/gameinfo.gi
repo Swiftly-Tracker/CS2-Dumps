@@ -182,7 +182,7 @@
 		"snd_steamaudio_enable_pathing"						"1"
 		"snd_steamaudio_source_pathing_debug"				"0"
 		"snd_steamaudio_max_probes_customdata"				"12000"
-		"snd_steamaudio_baked_occlusion_mode"				"4"
+		"snd_steamaudio_baked_occlusion_mode"				"6"
 		"snd_steamaudio_load_reverb_data"					"0"
 		"snd_steamaudio_load_pathing_data"					"0"
 		"snd_steamaudio_load_dimensions_data"				"0"
@@ -190,12 +190,24 @@
 		"snd_steamaudio_load_occlusion_data"				"0"
 		"snd_use_baked_occlusion"							"0"
 		"snd_steamaudio_use_soundblocking_shapes_only"		"0"
-		"snd_steamaudio_baked_occlusion_reflection_factor"	"1.0"
-		"snd_steamaudio_baked_occlusion_pathing_exponent"	"0.2"
+		"snd_steamaudio_baked_occlusion_pathing_exponent"			"0.2"
+		"snd_steamaudio_baked_occlusion_probelookup_usealternate"	"1"
+		"snd_steamaudio_baked_dimensions_probelookup_usealternate"	"1"
+		"snd_steamaudio_baked_occlusion_reflection_factor"			"10"
+		"snd_steamaudio_enabe_append_probes_to_cover_navmesh"		"1"
+		"snd_steamaudio_debug_cover_navmesh_probe_size_scale"		"1.0"
+		"snd_steamaudio_custombake_occlusion_numsimulations"		"2"
+		"snd_steamaudio_custombake_occlusion_bidirectional"			"1"
+		"snd_steamaudio_baked_occlusion_reflection_regularization"	"1e-4"
+		"snd_steamaudio_diagnostic_baked_occlusion_single_probe"	"-1"
+		"snd_steamaudio_baked_occlusion_air_absorption_coefficient"		"0.006"
+		"snd_steamaudio_baked_occlusion_spatialfilter_mode"				"1"
+		"snd_steamaudio_baked_occlusion_spatialfilter_radius_factor"	"2.0"
+		"snd_steamaudio_occlusionvisualization_sampleheight"			"1.5"
+		"snd_steamaudio_occlusionvisualization_sampleradius"			"4.0"
 
 		"snd_event_browser_default_stack"			"csgo_mega"
 		"snd_event_browser_default_vsnd_field"		"public.vsnd_files_track_01"
-
 
 		// Need much tighter sound clock sync
 		"snd_delay_sound_ms_max"	"40"
@@ -244,6 +256,65 @@
 	Sounds
 	{
 		HierarchicalEncodingFiles	 "1"
+	}
+
+	ResourceCompiler
+	{
+		SteamAudio
+		{
+			ReverbDefaults
+			{
+				GridGenerationType	"0"						// 0: Automatic, Everywhere, 1: Automatic, Use Probe Generation Volume, 2: Manual
+				FilterUsingVolumes	"1"						// Filter Using Probe Exclusion Volumes ( boolean )
+				FilterUsingNavMesh	"0"						// Filter Using NavMesh
+				GridSpacing			"3.0"
+				HeightAboveFloor	"1.5"
+				RebakeOption		"1"						// 0: cleanup, 1: manual, 2: auto
+				NumRays				"32768"
+				NumBounces			"64"
+				IRDuration			"1.0"
+				AmbisonicsOrder		"1"
+				ClusteringEnabled	"0"
+				ClusteringCubemapResolution	"16.0"
+				ClusteringDepthThreshold	"10.0"
+				CompressionEnabled	"0"
+				CompressionQuality	"0.95"
+			}
+			PathingDefaults
+			{
+				GridGenerationType	"0"						// 0: Automatic, Everywhere, 1: Automatic, Use Probe Generation Volume, 2: Manual
+				FilterUsingVolumes	"1"						// Filter Using Probe Exclusion Volumes ( boolean )
+				FilterUsingNavMesh	"0"						// Filter Using NavMesh
+				GridSpacing			"3.0"
+				HeightAboveFloor	"1.5"
+				RebakeOption		"1"						// 0: cleanup, 1: manual, 2: auto
+				NumVisSamples		"1"
+				ProbeVisRadius		"0"
+				ProbeVisThreshold	"0.1"
+				ProbeVisPathRange	"1000.0"
+			}
+			CustomDataDefaults
+			{
+				GridGenerationType	"0"						// 0: Automatic, Everywhere, 1: Automatic, Use Probe Generation Volume, 2: Manual
+				FilterUsingVolumes	"1"						// Filter Using Probe Exclusion Volumes ( boolean )
+				FilterUsingNavMesh	"0"						// Filter Using NavMesh
+				GridSpacing			"3.0"
+				HeightAboveFloor	"1.5"
+				RebakeOption		"1"						// 0: cleanup, 1: manual, 2: auto
+				BakeOcclusion		"0"						// 0: Disabled, 1: Enabled
+				BakeDimensions		"0"						// 0: Disabled, 1: Enabled
+				BakeMaterials		"0"						// 0: Disabled, 1: Enabled
+				OcclusionPathing			"1"
+				OcclusionReflection			"0"
+				OcclusionReflectionRays		"16384"
+				OcclusionReflectionBounces	"16"
+				DimensionsOutsideThreshold	".1"
+				DimensionsOutsideFieldOrder "1"
+				DimensionsInsideThreshold	"1"
+				DimensionsSizeThreshold		"128"
+				DimensionsInsideSizeFieldOrder	".1"
+			}
+		}
 	}
 
 	// Temporarily allowing this because the particle files that are tripping this up ALSO crash PET so I 
@@ -326,6 +397,7 @@
 			"include"       "models"
 			"include"       "panorama/images/overheadmaps"
 			"include"       "panorama/images/map_icons"
+			"include"       "panorama/images/custom_game"
 			"include"       "panorama/layout/custom_game"
 			"include"       "panorama/styles/custom_game"
 			"include"       "particles"

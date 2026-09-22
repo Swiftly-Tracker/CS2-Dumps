@@ -6,10 +6,12 @@
     %u unfinished blocks\n
     Component %d: %dhx%dv q=%d
     Component %d: dc=%d ac=%d
+    T%d: '%s' (%s) EditorID:%d%s\n
     with %d x %d thumbnail image
    Changed:  %s\n
    Notified: %s\n
   Bad Fax Lines: %lu\n
+  Bank%d: %d temp vars (%d bytes)\n
   Brightness Offset
   Brightness Scale
   C%d:I%-2d {F=%-10d,V=%-10d,S=%-20.20s} 
@@ -90,6 +92,9 @@
  Type Descriptor'
  Vector b
  [*OBSERVABLE*]
+ [loop body, break -> C%d:I%d]
+ \n_V_strncmp
+ and 
  bn0s}Q_@r~aoPq
  clean
  delete
@@ -98,8 +103,15 @@
  receiver regenerated
  uncorrected errors
 !AxU
+!\n_V_strncpy
 !root
 """
+"%.*s" is #defined in terms of itself
+"%.*s" is not a valid integer
+"%.*s" is too long to be a #define name
+"%s" is #defined as "%s", which is not an integer or the name of another #define
+"%s" is #defined as multiple values ("%s" in %s and as "%s" in %s), it cannot be used in a rule
+"%s" is not an integer and is not #defined in this shader or anything it includes
 "%s": Bad mode
 "%s": Information lost writing value (%g) as (unsigned) RATIONAL
 "Limit Count: " + m_nLimitCount
@@ -119,11 +131,15 @@
 #30FFFF
 #CfU7
 #FFFF30
+#\n_V_strnicmp_fast
 #bML"
+#define
+#else
+#endif
+#if defined(__cplusplus)
 #include
 #line
 $Ib?s
-$\tV_exp2f
 %.100s: Can not read TIFF directory
 %01d
 %02d
@@ -139,7 +155,6 @@ $\tV_exp2f
 %1x%2
 %1x%2 (%3x%4)
 %A Is
-%\tV_expd
 %c%c%c%c%c%c
 %c%c%c%c%c%c%c%c
 %d %d %d %d
@@ -149,12 +164,12 @@ $\tV_exp2f
 %d InvokeBindings:\n
 %d OutputConnections:\n
 %d PublicOutputs:\n
+%d TempVarBanks:\n
 %d Vars:\n
 %d instruction(s)\n
 %d register(s) %d byte(s)\n
 %dS
 %daT
-%dx%d, Lowest:%dx%d, Mips:%d, %s, %s
 %f %f %f %f
 %hu
 %ld%c
@@ -178,6 +193,7 @@ $\tV_exp2f
 %s called on a pool arena (no root available)\n
 %s compression support is not configured
 %s%02d:%02d
+%s%dx%d, Lowest:%dx%d, Mips:%d, %s, %s
 %s%s "%s"%s\n
 %s%s: DynamicWidget: %s\n
 %s() isn't a known function.
@@ -201,7 +217,6 @@ $\tV_exp2f
 %s: Error writing SubIFD directory link
 %s: Failed to allocate space for list of custom values
 %s: Failed to read directory at offset %u
-%s: Input vector has incorrect length\n
 %s: Invalid %stag "%s" (not supported by codec)
 %s: Invalid InkNames value; expecting %d names, found %d
 %s: Invalid strip byte count %lu, strip %lu
@@ -251,9 +266,7 @@ $\tV_exp2f
 %s[line %d:%d] 
 %s\t%s "%s"\n
 %suncompressed data
-%vsB,
 %x3
-%x4
 &?PPPPPPP?
 &Cancel
 &Close
@@ -267,7 +280,6 @@ $\tV_exp2f
 &Tools
 &View
 &Yes
-&\tV_expf
 'exists'
 'return'
 (Custom Colors Disabled)
@@ -285,13 +297,14 @@ $\tV_exp2f
 (channel = 
 (end of input).\n\t This indicates a poorly specified lexer RULE\n\t or unterminated input element such as: "STRING["]\n
 (null)
+(unnamed)
 * ForceRescanOfActiveKeys
 * Rehandling active codes
 * { font-size: 10px }
 ***
-*** CVfx::GenerateUiFeatureHiddenRuleErrorIndices(8241): Programmer Error! NULL pointer passed into function!\n
-*** CVfx::GenerateUiFeatureHiddenRuleErrorIndices(8267): Programmer Error! Non feature rule found in feature rule array!\n
-*** CVfx::StartupSanityCheck(7031): Programmer Error! The order of VfxVariableSourceType_t does not match s_shaderVariableSource!\n
+*** CVfx::GenerateUiFeatureHiddenRuleErrorIndices(8646): Programmer Error! NULL pointer passed into function!\n
+*** CVfx::GenerateUiFeatureHiddenRuleErrorIndices(8672): Programmer Error! Non feature rule found in feature rule array!\n
+*** CVfx::StartupSanityCheck(7445): Programmer Error! The order of VfxVariableSourceType_t does not match s_shaderVariableSource!\n
 *** Error adding variable to array!\n
 *** Error masking unused parts! Equal sign not found after token "%s"! (line %d)\n
 *** Error! Multiple dynamic combos are putting the same constant (%s) in different descriptor sets. This won't work correctly.\n
@@ -300,10 +313,10 @@ $\tV_exp2f
 *** Error! Multiple dynamic combos are putting the same texure (%s) in different descriptor set slots. This won't work correctly.\n
 *** Problem remapping texture reference!\n
 *** Test failure: "%s"
-*** VfxPopulateSourceCache(1097): Error opening file "%s"!\n\n
-*** VfxPopulateSourceCache(1105): Error opening file "%s"!\n\n
-*** VfxReadAndPrepForCrc(1255): Source cache incomplete, file "%s" missing!\n\n
-*** VfxReadAndPrepForCrc(1267): Error masking unused parts for "%s"!\n\n
+*** VfxPopulateSourceCache(1209): Error opening file "%s"!\n\n
+*** VfxPopulateSourceCache(1217): Error opening file "%s"!\n\n
+*** VfxReadAndPrepForCrc(1369): Source cache incomplete, file "%s" missing!\n\n
+*** VfxReadAndPrepForCrc(1381): Error masking unused parts for "%s"!\n\n
 *.vfx
 *.vmat
 *MOVE=>
@@ -348,6 +361,7 @@ $\tV_exp2f
 .CRT$XPZ
 .CRT$XTA
 .CRT$XTZ
+.\ng_Mathlib_GammaToLinearByteTable
 .bss
 .data
 .data$r
@@ -402,12 +416,10 @@ $\tV_exp2f
 // THIS FILE IS AUTO-GENERATED\n
 /2GG>!B
 /TF<)VGy#WH
-/\tV_fmodd
 /src/
 /yQA
 0123456789abcdefghijklmnopqrstuvwxyz
 0=Wrap,1=Mirror,2=Clamp,3=Border,4=MirrorOnce
-0\tV_fmodf
 0x%p
 0x%p = %s '%s'
 1#IND
@@ -483,7 +495,6 @@ $\tV_exp2f
 1OnCopyPathToClipboardAction()
 1OnCurrentColorChanged()
 1OnDefaults()
-1OnDeferredUpdateWidgets()
 1OnDetachFromReference()
 1OnDragColorOverwrite()
 1OnDragColorSwap()
@@ -708,25 +719,29 @@ $\tV_exp2f
 2valueChanged(int)
 333333
 3>N;kU
-3\tV_fpclassifyd
 488:1: POS_FLOATLITERAL : ( ( DIGIT )+ '.' ( DIGIT )* ( EXPONENT )? | '.' ( DIGIT )+ ( EXPONENT )? | ( DIGIT )+ EXPONENT );
-4\tV_fprintf
 5;FJ$,XEK4<
 5J5J5J5J5J5J5J5J5J5J5J5J5J5J5J5Jx
 6\fXO>\ntA
 7&F|If
+7\tV_acosd
 8"3hrf
 8Csinf
+8\tV_acosf
 8b  16-May-2010
+9\tV_asind
 : Add
 : lexer error %d :\n\t%s at offset %d, 
 ;J;J;J;J;J;J;J;J;J;J;J;J;J;J;J;Jx
+;\tV_atan2d
 <%f %f %f %f>
 <DOWN>
 <EOF>
 <EOR>
 <NONE>
 <Unknown>
+<\ng_pMemAlloc
+<\tV_atan2f
 <array: %u elements>
 <b>%1 already specifies '%2' as:</b>
 <b>%s : %s<br>
@@ -756,35 +771,38 @@ $\tV_exp2f
 <h2>Material Editor Tool - MET</h2><p>Copyright &copy; Valve Corporation.<p>Version: %1.%2<p>Build: %3 %4<p>Qt Version: %5
 <invalid>
 <missing 
+<missing>
 <no failure reason set>
 <no text for the token>
 <nobr><i>%s</i></nobr>
 <none>
 <none>\n
 <pointer>
-<qt>%s</qt>
 <table: %u members>
 <undefined>
 <unknown KV3 basic type '%s' (%d)>
 <unknown>
 == PulseGraphDef ==\n
+=> TempVarBank: Bank%d\n
+=\tV_atand
 =imb;D
+>\ng_pThreadPool
 ?8bunz8
 ???
 ??? - Unmapped Type
 ?@En[vP
 ?ParseEXRHeaderFromMemory() failed! Error message: %s\n
-?RGBA8888
 ?UUUUUU
+?\tV_atof
 ?expf
 ?qBJ
 ?rAj
 ?ysB
 @Integer overflow in %s
+@\tV_atofloat32
 @^8U)zj
 @fff>fff>fff>fff>
 A string associated with this Cursor, to use later for remote Kill or Wait requests. Cursors can have any number of Tags associated with them.
-A%mB,
 A>pP&
 ABCDEFGHIJKLMNOPQRSTUVWXYZ
 ABGR8888
@@ -872,9 +890,12 @@ AnalogBalance
 And
 And R%d <- R%d && R%d
 Angle
+AngleA
+AngleB
 AngularSpan
 Anim Sequence
 AnimGraphEditorUtils001
+Animation 2
 AnimationSystemUtils_001
 AnimationSystem_001
 Annotate Favorite...
@@ -889,15 +910,17 @@ AppPolicyGetShowDeveloperDiagnostic
 AppPolicyGetWindowingModel
 Application transferred too few scanlines
 Application transferred too many scanlines
+Applies 'Local' on top of 'Base'. Inverse of 'Get Relative Transform'
+Applies B in A's local space.
 Apply the same tag we're waiting on to the resulting cursor upon wait completion. Can be used to wait on our result cursor with the same tag.
 Apr
 April
 Arc Cos
-Arc Cosine of input value. Input must be -1.0, 1.0 range. Output in radians, from 0 to 
+Arc Cosine of input value. Input must be -1.0, 1.0 range. Output in radians, from 0 to pi
 Arc Sin
-Arc Sine of input value. Input must be -1.0, 1.0 range. Output in radians, from -
+Arc Sine of input value. Input must be -1.0, 1.0 range. Output in radians, from -pi/2 to pi/2
 Arc Tan
-Arc Tangent of input value. Input can be any real number. Output in radians, from -
+Arc Tangent of input value. Input can be any real number. Output in radians, from -pi/2 to pi/2
 ArcCos input out of range (-1, 1)
 ArcSin input out of range (-1, 1)
 Are we currently running unit tests?
@@ -909,13 +932,13 @@ Array Concatenate
 Array Count
 Array Find Element Matching
 Array First N Elements
+Array Has Element Matching
 Array Insert
 Array Remove Element Matching
 Array Remove Index
 Array Remove Invalid Elements
 Array Set Count
 Array Shuffle
-Array support.
 Artist
 AsShotICCProfile
 AsShotNeutral
@@ -934,7 +957,7 @@ Async Call Method (Child Cursor) C%d:I%d
 Async Outflow (Child Cursor) C%d:I%d
 Asynchronous - This node executes independently using a new Cursor. Formerly 'Fire and Forget'. Equivalent to scheduling using an additional 'Fire Child Cursors' node.
 At marker 0x%02x, recovery action %d
-AtlasToVolumeTextureConversion(3537): Error! Unable to parse grid/slice count from volume atlas filename: %s\n
+AtlasToVolumeTextureConversion(3572): Error! Unable to parse grid/slice count from volume atlas filename: %s\n
 Attempting to register the command %s for context %s multiple times\n
 Attributes
 Attributes Used:
@@ -955,6 +978,7 @@ BACKSLASH_CHAR
 BAL
 BC6H
 BF>^G
+BGB
 BGR565
 BGR888
 BGRA1010102
@@ -964,10 +988,9 @@ BGRA8888_LINEAR
 BGRX8888
 BGRX8888_LINEAR
 BKbhTb~XBK!;
-BLENDINDICES
-BLENDWEIGHT
 BOOLLITERAL
 BUTTON
+B\tV_atoi
 BackGroundFill_t
 BackGroundStyle_t
 Background
@@ -976,6 +999,7 @@ Backspace
 Bad array index %d (array has %d elements)
 Bad checkstate (expected eg. 'PartiallyChecked')
 Bad code word
+Bad count in ArraySetCount (%d)
 Bad dynamic_cast!
 Bad horizontalPolicy "%s"
 Bad max in ArrayFirstNElements (%d)
@@ -986,6 +1010,7 @@ Bad sequence in GetSequenceActivityName() for model '%s'!\n
 Bad verticalPolicy "%s"
 BadFaxLines
 BakedLODBuilderMgr001
+Base
 Base Flow  Cancel After
 Base Flow  Cancel Elegantly
 Base Flow  Cancel Immediately
@@ -1011,14 +1036,13 @@ BaseDomain
 BaselineExposure
 BaselineNoise
 BaselineSharpness
-Basic math support.
-Basic string support.
 BayerGreenSplit
 Begin mouse capture [%i]: %s\n
 Begin testing a condition composed of Observable values. Continues checking until canceled.
 Begin testing a condition composed of Observable variable references. Continues checking until true.
 BenchmarkService001
 BestQualityScale
+BhB
 BinAdd
 BinDiv
 BinEq
@@ -1038,8 +1062,6 @@ Binding removed due to active drag: %s
 Bits/sample must be 1 for Group 3/4 encoding/decoding
 BitsPerSample
 BitsPerSample tag is missing, assuming 8 bits per sample
-BjB
-BlC
 BlackLevel
 BlackLevelDeltaH
 BlackLevelDeltaV
@@ -1055,6 +1077,7 @@ Blur6
 Blur7
 Blur8
 Blur9
+BnB
 Bnc
 Bogus DAC index %d
 Bogus DAC value 0x%x
@@ -1072,6 +1095,7 @@ Bool (expression) =
 Boolean
 Box
 Break
+Break node reached a Method-call boundary without finding an enclosing loop.
 Breakpoint Log [%u]
 Breakpoint Log [%u] - %s
 Brightness Adjustments
@@ -1080,7 +1104,7 @@ Browse...
 Buffer Size: 
 Buffer passed to JPEG library is too small
 BuildWatch
-ByC
+ByA
 Bzw
 C-Yn
 C:\buildworker\csgo_rel_win64\build\_build_\tools\met\_vpc_met\default\win64\_msvc_\Retail\met.pdb
@@ -1088,8 +1112,9 @@ C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp
 C:\buildworker\csgo_rel_win64\build\src\mathlib\extended\generic_expr.g
 C:\buildworker\csgo_rel_win64\build\src\public\tier0\tslist.h
 C:\buildworker\csgo_rel_win64\build\src\public\tier0\utldict.h
-C:\buildworker\csgo_rel_win64\build\src\public\tier0\utlmap.h
 C:\buildworker\csgo_rel_win64\build\src\public\tier0\utlrbtree.h
+C:\buildworker\csgo_rel_win64\build\src\qcontrols\inputglobalhotkeys.cpp
+C:\buildworker\csgo_rel_win64\build\src\tier2\utlstreambuffer.cpp
 C:\buildworker\csgo_rel_win64\build\src\toolrenderutils\toolmatsysutils.cpp
 C:\buildworker\csgo_rel_win64\build\src\toolrenderutils\toolstandardmodels.cpp
 C:\buildworker\csgo_rel_win64\build\src\tools\met\materialeditor.cpp
@@ -1098,6 +1123,7 @@ C:\buildworker\csgo_rel_win64\build\src\tools\toolutils2\toolrenderutils.cpp
 C:\buildworker\csgo_rel_win64\build\src\vfx\compiletargetexpr.g
 C:\buildworker\csgo_rel_win64\build\src\vfx\vfx_common.cpp
 C:\buildworker\csgo_rel_win64\build\src\vfx\vfxexpr.g
+CALL_TO_PULSE
 CBasePulseGraphInstance
 CBufferString
 CCIR601 sampling not implemented yet
@@ -1127,7 +1153,6 @@ CLOSE_BRACE
 CLOSE_BRACKET
 CLOSE_PAREN
 CMemAllocSystemInitialize
-COLOR
 COMMA
 COMMAND_TEXT_MODE_BUTTON
 COMMAND_TEXT_MODE_ICON
@@ -1152,6 +1177,7 @@ CPulseArraylib::ArrayConcatenate
 CPulseArraylib::ArrayCount
 CPulseArraylib::ArrayFindElementMatching
 CPulseArraylib::ArrayFirstNElements
+CPulseArraylib::ArrayHasElementMatching
 CPulseArraylib::ArrayInsert
 CPulseArraylib::ArrayRemoveElementMatching
 CPulseArraylib::ArrayRemoveIndex
@@ -1178,7 +1204,6 @@ CPulseCell_BooleanSwitchState::Activate
 CPulseCell_CursorQueue
 CPulseCell_CursorQueue::Wait
 CPulseCell_FireCursors
-CPulseCell_FireCursors::Cancel
 CPulseCell_FireCursors::Start
 CPulseCell_FireCursors::StopWaiting
 CPulseCell_Inflow_BaseEntrypoint
@@ -1193,20 +1218,15 @@ CPulseCell_Inflow_Method '%s' --> Chunk%d: %s
 CPulseCell_Inflow_ObservableVariableListener
 CPulseCell_Inflow_ObservableVariableListener '%s'.'%s (%u)' --> Chunk%d: %s
 CPulseCell_Inflow_Wait
-CPulseCell_Inflow_Wait::Abort
-CPulseCell_Inflow_Wait::ImmediateWake
 CPulseCell_Inflow_Wait::Wait
 CPulseCell_Inflow_Yield
-CPulseCell_Inflow_Yield::Abort
 CPulseCell_Inflow_Yield::Pause
-CPulseCell_Inflow_Yield::Resume
 CPulseCell_InlineNodeSkipSelector
 CPulseCell_InlineNodeSkipSelector::ProcessSelector
 CPulseCell_IntervalTimer
 CPulseCell_IntervalTimer::CursorState_t
 CPulseCell_IntervalTimer::OnInterval
 CPulseCell_IntervalTimer::Start
-CPulseCell_IntervalTimer::StopTimer
 CPulseCell_IsRequirementValid
 CPulseCell_IsRequirementValid::CheckRequirement
 CPulseCell_IsRequirementValid::Criteria_t
@@ -1223,35 +1243,22 @@ CPulseCell_Outflow_CycleRandom::Run
 CPulseCell_Outflow_CycleShuffled
 CPulseCell_Outflow_CycleShuffled::InstanceState_t
 CPulseCell_Outflow_CycleShuffled::Run
-CPulseCell_Outflow_ListenForAnimgraphTag::Cancel
-CPulseCell_Outflow_ListenForEntityOutput::Cancel
-CPulseCell_Outflow_NPCAccompanyEntity::Cancel
-CPulseCell_Outflow_NPCFollowTarget::Cancel
-CPulseCell_Outflow_NPCLeadPlayer::Cancel
-CPulseCell_Outflow_NPCScriptedIdle::Cancel
-CPulseCell_Outflow_NPCScriptedIdle::CancelElegantly
-CPulseCell_Outflow_NPCScriptedMoveTo::Cancel
-CPulseCell_Outflow_NPCUseScriptedAbility::Cancel
-CPulseCell_Outflow_PlaySequence::Cancel
-CPulseCell_Outflow_PlaySequence::CancelAtInterrupt
-CPulseCell_Outflow_PlayVCD::Cancel
-CPulseCell_Outflow_PlayVCD::CancelAtInterrupt
-CPulseCell_Outflow_PlayVOLine::Cancel
-CPulseCell_Outflow_ScriptedSequence::Cancel
 CPulseCell_PickBestOutflowSelector
 CPulseCell_PickBestOutflowSelector::ProcessSelector
-CPulseCell_PlaySequence::Cancel
+CPulseCell_RaceCursors
+CPulseCell_RaceCursors::Start
+CPulseCell_RaceCursors::StopWaiting
+CPulseCell_ReturnValues
+CPulseCell_ReturnValues::HandleReturnValues
 CPulseCell_Step_CallExternalMethod
 CPulseCell_Step_CallExternalMethod '%s'
 CPulseCell_Step_CallExternalMethod::Run
-CPulseCell_Step_CallExternalMethod::StopWaiting
 CPulseCell_Step_DebugLog
 CPulseCell_Step_DebugLog::Run
 CPulseCell_Step_PublicOutput
 CPulseCell_Step_PublicOutput::Run
 CPulseCell_Timeline
 CPulseCell_Timeline::Start
-CPulseCell_Timeline::Stop
 CPulseCell_Timeline::TimelineEvent_t
 CPulseCell_Unknown
 CPulseCell_Value_Curve
@@ -1266,7 +1273,6 @@ CPulseCell_WaitForCursorsWithTag
 CPulseCell_WaitForCursorsWithTag::Wait
 CPulseCell_WaitForCursorsWithTagBase
 CPulseCell_WaitForObservable
-CPulseCell_WaitForObservable::Cancel
 CPulseCell_WaitForObservable::Start
 CPulseCursorFuncs
 CPulseCursorFuncs::AnyOtherCursorsHaveTag
@@ -1293,6 +1299,8 @@ CPulseMathlib::ArcTan
 CPulseMathlib::CeilingFloat
 CPulseMathlib::ClampFloat
 CPulseMathlib::ClampInt
+CPulseMathlib::ComposeAngles
+CPulseMathlib::ComposeTransforms
 CPulseMathlib::Cos
 CPulseMathlib::CrossProductVector
 CPulseMathlib::Deg2Rad
@@ -1303,13 +1311,19 @@ CPulseMathlib::FloatToGameTime
 CPulseMathlib::FloorFloat
 CPulseMathlib::Frac
 CPulseMathlib::GameTimeToFloat
+CPulseMathlib::GetRelativeTransform
 CPulseMathlib::IntegerDivide
+CPulseMathlib::InverseRotateVector
+CPulseMathlib::InverseTransformVector
 CPulseMathlib::IsValidVector
 CPulseMathlib::IsValidWorldVector
 CPulseMathlib::LengthVector
 CPulseMathlib::LengthVector2D
+CPulseMathlib::LerpAngle
 CPulseMathlib::LerpFloat
+CPulseMathlib::LerpTransform
 CPulseMathlib::LerpVector
+CPulseMathlib::LerpWorldTransform
 CPulseMathlib::LerpWorldVector
 CPulseMathlib::Log
 CPulseMathlib::Log10
@@ -1335,6 +1349,9 @@ CPulseMathlib::RSqrt
 CPulseMathlib::Rad2Deg
 CPulseMathlib::RandomWorldPosition
 CPulseMathlib::RemapClampedFloat
+CPulseMathlib::RotateVector
+CPulseMathlib::RotateVectorToWorld
+CPulseMathlib::RotateWorldVectorToLocal
 CPulseMathlib::RoundFloat
 CPulseMathlib::Saturate
 CPulseMathlib::SignFloat
@@ -1351,13 +1368,22 @@ CPulseMathlib::SplitWorldVector
 CPulseMathlib::SqrFloat
 CPulseMathlib::SqrInt
 CPulseMathlib::Sqrt
-CPulseMathlib::StringsAreEqualCaseSensitive
 CPulseMathlib::Tan
+CPulseMathlib::TransformInverse
+CPulseMathlib::TransformVector
+CPulseMathlib::TransformVectorToWorld
+CPulseMathlib::TransformWorldVectorToLocal
 CPulseMathlib::VectorToWorldVector
+CPulseMathlib::WorldTransformInverse
 CPulseMathlib::WorldVectorToVector
 CPulseObservableExpression
 CPulseRuntimeMethodArg
 CPulseStringlib
+CPulseStringlib::Format1
+CPulseStringlib::Format2
+CPulseStringlib::Format3
+CPulseStringlib::Format4
+CPulseStringlib::Format5
 CPulseStringlib::FormatDurationStringFromSeconds
 CPulseStringlib::StringLength
 CPulseStringlib::StringsAreEqualCaseSensitive
@@ -1368,6 +1394,7 @@ CPulseTestScriptLib::IsInTestMode
 CPulseTestScriptLib::RegisterTestCheckpoint
 CPulseTestScriptLib::TestModeAssertTrue
 CPulseValueFullType
+CPulseVariant
 CPulse_BlackboardReference
 CPulse_CallInfo
 CPulse_Chunk
@@ -1380,6 +1407,8 @@ CPulse_OutputConnection
 CPulse_PublicOutput
 CPulse_RegisterInfo
 CPulse_ResumePoint
+CPulse_TempVarBankDefinition
+CPulse_TempVarInfo
 CPulse_Variable
 CQAngularSpanControl
 CQAngularSpanPreviewWidget
@@ -1528,8 +1557,10 @@ CTSQueue corruption
 CTSQueue: Misaligned queue\n
 CTSQueue<class std::function<void __cdecl(void)> *,0>::Push
 CURSOR_ADD_TAG
+CURSOR_CREATE_CHILD
 CURSOR_REMOVE_TAG
 CURSOR_RETIRED
+CURVE_TANGENT_FLAT
 CURVE_TANGENT_FREE
 CURVE_TANGENT_LINEAR
 CURVE_TANGENT_MIRROR
@@ -1539,6 +1570,7 @@ CUtlBlockVector<class CVfxStaticComboData,int,class CMemAllocAllocator>::GrowCou
 CUtlDict<class CQTitledGroupBox *,class CDefFastCaselessStringLess>::Insert
 CUtlDict<class QVBoxLayout *,class CDefFastCaselessStringLess>::Insert
 CUtlDict<struct CQInputBindEditor::BindingContextInfo_t *,class CDefFastCaselessStringLess>::Insert
+CUtlDict<struct CVfxDefineTable::Define_t,class CDefStringLess>::Insert
 CUtlLeanVector
 CUtlLeanVectorBase<struct UtlRBTreeNode_t<struct CUtlOrderedMapBase<class CUtlString,bool,class CDefFastCaselessStringLess,unsigned short>::Node_t,unsigned short>,unsigned short,class CMemAllocAllocator>::EnsureCapacity
 CUtlLeanVectorBase<struct UtlRBTreeNode_t<struct CUtlOrderedMapBase<unsigned __int64,bool,class CDefLess<unsigned __int64>,unsigned int>::Node_t,unsigned int>,unsigned int,class CMemAllocAllocator>::EnsureCapacity
@@ -1548,27 +1580,27 @@ CUtlLeanVectorImpl<class CUtlLeanVectorBase<struct CPulse_RegisterInfo,int,class
 CUtlLeanVectorImpl<class CUtlLeanVectorBase<struct CUtlMemoryBlockAllocator<char,class CMemAllocAllocator>::MemPage_t,int,class CMemAllocAllocator>,struct CUtlMemoryBlockAllocator<char,class CMemAllocAllocator>::MemPage_t,int>::EnsureUnusedCapacity
 CUtlLeanVectorImpl<class CUtlLeanVectorBase<struct CUtlMemoryBlockAllocator<class CVfxStaticComboData,class CMemAllocAllocator>::MemPage_t,int,class CMemAllocAllocator>,struct CUtlMemoryBlockAllocator<class CVfxStaticComboData,class CMemAllocAllocator>::MemPage_t,int>::EnsureUnusedCapacity
 CUtlLeanVectorImpl<class CUtlLeanVectorBase<struct PGDInstruction_t,int,class CMemAllocAllocator>,struct PGDInstruction_t,int>::InsertBeforeGetPtr
+CUtlLeanVectorImpl<class CUtlLeanVectorFixedGrowableBase<struct VfxVariableIndexData_t,2,int,class CMemAllocAllocator>,struct VfxVariableIndexData_t,int>::AddMultipleToTail
 CUtlLeanVectorImpl<class CUtlLeanVectorFixedGrowableBase<unsigned char,12,short,class CMemAllocAllocator>,unsigned char,short>::AddMultipleToTail
 CUtlLinkedList overflow! (exhausted index range)\n
 CUtlMemoryBlockAllocator<char,class CMemAllocAllocator>::AddPage
 CUtlMemoryBlockAllocator<char,class CMemAllocAllocator>::Alloc
 CUtlMemoryBlockAllocator<class CVfxStaticComboData,class CMemAllocAllocator>::AddPage
 CUtlOrderedMap
-CUtlOrderedMap<class PulseCursorID_t,struct PulseGraphExecutionHistoryCursorDesc_t *,class CDefLess<class PulseCursorID_t>,int>::FindElement
 CUtlRBTreeBase
 CUtlStreamBuffer does not support TEXT_BUFFER's use CUtlBuffer\n
+CUtlStreamBuffer::FileWrite
+CUtlStreamBuffer::GrowAllocatedSize
+CUtlStreamBuffer::StreamPutOverflow
 CUtlString
 CUtlSymbolTableLarge element limit of %u exceeded\n
 CUtlVector
 CUtlVectorFixedGrowable
-CVfx::CreateFromVcs(7750): Error opening file %s\n
-CVfx::CreateFromVcs(7783): VCS3 %s Load Failure: %s\n
-CVfx::CreateFromVcs(7796): VCS3 %s Load Failure: %s\n
-CVfx::CreateFromVcs(7825): VCS %s Unserialize hit EOF\n
+CVfx::CreateFromVcs(8164): Error opening file %s\n
+CVfx::CreateFromVcs(8197): VCS3 %s Load Failure: %s\n
+CVfx::CreateFromVcs(8210): VCS3 %s Load Failure: %s\n
+CVfx::CreateFromVcs(8239): VCS %s Unserialize hit EOF\n
 CVfx::ParseResourceFileHeader
-CVfxProgramData::CalcStaticComboIdFromValues
-CVfxProgramData::FindOrCreateStaticComboDataInCache(4364): Error! Ref count !=0 for static combo data cache entry!\n
-CVfxStaticComboData::Decompress
 CWD>~3
 CZT
 Cache Status Changed
@@ -1592,7 +1624,6 @@ Cannot quantize to more than %d colors
 Cannot read TIFF header
 Cannot reconstruct lineOffset table in DecodeEXRImage.
 Cannot reference domain '%s' from '%s'\n
-Cannot reinterpret instance (actual: %s) from (original) %s to (desired) %s
 Cannot specify 'dock' when root is not a QMainWindow (%s)
 Cannot specify toolbarArea when root is not a QMainWindow (%s)
 Cannot split dock - sibling QDockWidget not found (%s)
@@ -1624,6 +1655,7 @@ ChangeReferenceAction
 CharacterSetBuild
 Check Requirement
 Check Type
+Check if any element of 'a' compares equal to 'element'.
 Check if any yielded cursors on the graph already have the given tag.
 Check if the cursor already has the given tag.
 CheckBox
@@ -1646,6 +1678,7 @@ Clamp value to range (float)
 Clamp value to range (int)
 Class
 Class data is a '%s', not a table\n
+ClassName
 CleanFaxData
 Clear
 Clear All
@@ -1657,6 +1690,7 @@ ClientServerSharedHandleSystem001
 ClientToolsInfo_001
 ClipPath
 Close
+Close (Esc)
 Close the group automatically after a short wait (good for 'success' messages)
 Close the group automatically when the associated parent process exits (good for sticky 'error' messages)
 Close the material.
@@ -1667,6 +1701,7 @@ Closed temporary file %s
 Code
 Collapse All Groups
 Color
+Color Consistency Partition %d MinBright %f
 ColorCorrection
 ColorDialogFinished
 ColorMap
@@ -1688,13 +1723,15 @@ CompareStringEx
 CompareStringW
 Compile Target Expression
 CompileMaterial: %s, %s%s\n\n
-CompileShadersForFeatureCombo
 CompileTargets
 Compiled Textures
+Compiled texture arrived as %s rather than %s, preview will be incorrect.\n
 Completed
 CompleterClosed
 CompleterOpened
 Component index %d: mismatching sampling ratio %d:%d, %d:%d, %c
+Compose Angles
+Compose Transforms
 CompressBlocksBC1
 CompressBlocksBC3
 CompressBlocksBC6H
@@ -1704,7 +1741,7 @@ Compression / Streaming
 Compression algorithm does not support random access
 Compression scheme %u %s decoding is not implemented
 Compression scheme %u %s encoding is not implemented
-Computes 2 ( 2.71...) raised to a power
+Computes 2 raised to a power
 Computes e ( 2.71...) raised to a power
 Condition to evaluate when any of its dependent values change.
 Configure Material Editor Options.
@@ -1747,6 +1784,7 @@ Courier
 Courier New
 Create a new material.
 Create new Reference file?
+CreateDocument failed
 CreateFileW
 CreateInterface
 CreateThreadpoolWork
@@ -1754,6 +1792,7 @@ Cross Product Vector
 Cross Product of Vector a x Vector b
 Ctrl
 Ctrl+C
+Ctrl+F
 Ctrl+N
 Ctrl+O
 Ctrl+Q
@@ -1794,7 +1833,6 @@ DOUBLE_AND
 DOUBLE_OR
 DOUBLE_QUOTED_STRING
 DOUBLE_QUOTE_CHAR
-DSB
 DXT1
 DXT1_ONEBITALPHA
 DXT3
@@ -1810,7 +1848,7 @@ Data_Branch1xy
 Data_Branch1zBranch2x
 Data_Branch2yz
 DateTime
-DeC
+DdB
 Debug Focus Widget
 Debug Widget Under Mouse
 DebugTreeHover
@@ -1887,15 +1925,16 @@ DetailPropsEnabled
 DevShader
 Developer Options
 DeveloperDebug
+Dho
 Did not execute '%s' because the 'Target' object was missing
 Didn't expect more than one scan
 Direction3D
+Disabled due to current value of 
 Disallowed variable name: %s
 Disk
 Div R%d <- R%d / R%d
 Divide by zero!
 Do not stop the current yielding node, but do not continue to the next node afterwards.
-DoNotCastShadows
 DockWidgetArea
 DocumentName
 Domain: %s\n
@@ -1911,7 +1950,6 @@ DragOffsetRelativeStart
 DragOffsetRelativeUpdate
 DragStarted
 DragUpdated
-DtC
 DualHull
 DummyNoOp
 Dump all new particles, optional name substring.
@@ -1920,12 +1958,12 @@ DumpModeDecode: Not enough data for scanline %d
 Dynamic Expression
 Dynamic Expression Editor - %1
 Dynamic combo %s referenced in expression doesn't exist.
+Dynamic shader compile failed "%s" (%s%s)!\n
 DynamicCombo
 DynamicComboFromFeature
 DynamicComboRule
 DynamicExpressions
 DynamicParams
-DzC
 E&xit
 E<G&Iw
 E>nEA
@@ -2029,21 +2067,17 @@ Entity Render Attributes:
 EntityName
 EntityRenderAttributeSelected
 Enum
-Enum support.
 EnumSystemLocalesEx
 EnumSystemLocalesW
 Eq R%d <- R%d == R%d
 Error
 Error (problem that prevents task success)
 Error Evaluating!
+Error Loading!
 Error Sanitizing: "%s"\n
-Error decompressing static combo data (%i)\n
-Error decompressing static combo data (meta)\n
-Error decompressing static combo data\n
 Error fetching data for field "%s"
 Error fetching directory count
 Error fetching directory link
-Error finding static combo data in VCS file!\n
 Error flushing data before directory write
 Error loading expected MET configuration: "%s"\n
 Error loading material: %s\n
@@ -2087,14 +2121,11 @@ ExtraSamples
 ExtractModuleMetadata
 Extraneous token
 F>qUxv
-FCC
-FDB
 FEATURES
 FEMh\f
+FKB
 FLOATLITERAL
 FLOATSUFFIX
-FMC
-FYB
 F_WETNESS
 Fade Duration: 
 Fade Start Time: 
@@ -2145,20 +2176,25 @@ FeaturesVariablesSplitFactor
 Feb
 February
 FfW?
+FiB
 FieldOfViewCotangent
+File
 File Not Found!
 File has not been opened!\n
 File not open for reading
+FileLine
+FileSystem
 FileTimeToSystemTime
 FillAttr
 FillOrder
 Filter:
 FilterApplied
 Filtered Magnification
+Find Variable...
 Find all the yielded cursors on this graph and cancel them.
 Find all the yielded cursors on this graph with the matching tag and cancel them.
 Find all the yielded cursors on this graph with the matching tag and wake them.
-Find first element 'a' which compare equal to 'element' and return its index.
+Find first element 'a' which compare equal to 'element' and return its index. Returns -1 if not found.
 Find:
 FindClose
 FindFirstFileExW
@@ -2169,6 +2205,7 @@ Fired when the observable boolean is true, and killed when false.
 Fixed
 FixupResourceName: Illegal full path passed in ("%s")!\n
 FixupResourceName: Illegal path, missing extension passed in ("%s")!\n
+Flat
 FlattenedSerializersVersion001
 Float
 Float (expression) = 
@@ -2182,17 +2219,17 @@ FloatBitMap_t::ConvertLinearToGamma(607): Conversion not supported yet!\n
 FloatBitMap_t::InitializeDummyRow
 FloatBitMap_t::LoadFromBuffer: Received improper buffer size, skipping!\n
 FloatBitMap_t::LoadFromBuffer: Unsupported color format, skipping!\n
-FloatBitMap_t::LoadFromFile(3729): Error! Slice %d format %dx%dx%d Attr(%d) != previous slices of %dx%d Attr(%d) for %s\n
-FloatBitMap_t::LoadFromTGA(2678): Error loading %s\n
-FloatBitMap_t::WriteToBuffer(1191): Unsupported color format "%s", skipping!\n
+FloatBitMap_t::LoadFromFile(3764): Error! Slice %d format %dx%dx%d Attr(%d) != previous slices of %dx%d Attr(%d) for %s\n
+FloatBitMap_t::LoadFromTGA(2713): Error loading %s\n
+FloatBitMap_t::WriteToBuffer(1195): Unsupported color format "%s", skipping!\n
 FloatBitMap_t::WriteToBuffer: Received improper buffer size %s (expecting %s), skipping!\n
-FloatBitMap_t::WriteToBufferBC7_bc7e(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2124
-FloatBitMap_t::WriteToBufferBC7_ispctexcomp(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2236
-FloatBitMap_t::WriteToBufferDXT_atitc(1249): Error! Temp texture is %d bytes when ATI's lib requires %d bytes!\n
-FloatBitMap_t::WriteToBufferDXT_atitc(1334): Unsupported output color format "%s"!\n
-FloatBitMap_t::WriteToBufferDXT_atitc(1343): Error! Allocated %llu bytes when ATI's lib requires %d bytes!\n
-FloatBitMap_t::WriteToBufferDXT_atitc(1351): Error %d returned from ATI_TC_ConvertTexture()!\n
-FloatBitMap_t::WriteToBufferETC(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2360
+FloatBitMap_t::WriteToBufferBC7_bc7e(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2146
+FloatBitMap_t::WriteToBufferBC7_ispctexcomp(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2258
+FloatBitMap_t::WriteToBufferDXT_atitc(1253): Error! Temp texture is %d bytes when ATI's lib requires %d bytes!\n
+FloatBitMap_t::WriteToBufferDXT_atitc(1338): Unsupported output color format "%s"!\n
+FloatBitMap_t::WriteToBufferDXT_atitc(1347): Error! Allocated %llu bytes when ATI's lib requires %d bytes!\n
+FloatBitMap_t::WriteToBufferDXT_atitc(1355): Error %d returned from ATI_TC_ConvertTexture()!\n
+FloatBitMap_t::WriteToBufferETC(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2382
 Floating point "Predictor" not supported with %d data format
 Floor - round float down to nearest integer
 Floor Float
@@ -2220,8 +2257,18 @@ Follow user preference
 FontManager_001
 Force Compile To Disk
 Format Duration String From Seconds
+Format encountered } without matching { at column %d
+Format expected number or } at column %d
+Format expected } after number at column %d
+Format invalid index %d at column %d
+Format1
+Format2
+Format3
+Format4
+Format5
 Found existing value when inserting into dict - replacing existing value with new value. If this is intended behavior, use InsertOrReplace. If leaving existing values alone is intended, use InsertIfNotFound.
 Found infinite loop to %s when resolving material layer %i
+FrB
 Frac
 Fractional component (ie. returns 0.34 for 12.34)
 Fractional sampling not implemented yet
@@ -2250,9 +2297,9 @@ GET_BLACKBOARD_REFERENCE
 GET_CONST
 GET_CONST_INLINE_STORAGE
 GET_DOMAIN_VALUE
+GET_TEMPVAR
 GET_VAR
 GET_VAR_DETACH
-GLSL.std.450
 GPSIFDOffset
 Game Blackboards: 
 Game Time
@@ -2266,6 +2313,7 @@ GameUIService_001
 General Options
 Generate a random float between min and max (inclusive)
 Generate a random integer between min and max (inclusive)
+Get Relative Transform
 GetACP
 GetActiveWindow
 GetArrayElement R%d <- R%d[ R%d ]
@@ -2327,6 +2375,7 @@ GetSystemMetrics
 GetSystemTimeAsFileTime
 GetSystemTimePreciseAsFileTime
 GetTempPath2W
+GetTempVar R%d <- 
 GetThreadLocalStackAllocator
 GetTimeFormatEx
 GetTimeZoneInformation
@@ -2353,30 +2402,29 @@ Grid layout should be an array of arrays
 Group3Options
 Group4Options
 GroupDefaultCollapseState_%s
+H%E
 HAC K  Unused Binding
+HAr@
 HEADER
 HEXINTEGERLITERAL
 HEX_DIGIT
-HGD
+HGC
 HH:mm:ss
-HJD
 HJN
-HPA
+HRE
 HRp
-HUC
-HUE
-HWD
+HSD
 HXD
-HaB
+H\tV_cosd
 HalftoneHints
 Hammer Surface Properties
 Hammer Texturing
 HammerMapLoader001
+Handle Return Values
 HardCancel
 Has All Flags
 Has Any Flags
-HdA
-HdC
+HdR
 Height
 Height Variance: 
 Height texture is constant-valued
@@ -2387,28 +2435,32 @@ Help for Dynamic Expressions
 HelpIdPrefix_Default
 HelpIdPrefix_LayeredProperty
 HelpSystem_001
-HelperLoadFbmByFileExtension(3509): Error! Unknown file type for %s\n
+HelperLoadFbmByFileExtension(3544): Error! Unknown file type for %s\n
 Hex:
+HfE
+HiE
 Hide unless error/warning occurs
 High
 Highest
+Hir@
 History
 History - %1
 History Settings
 History_%i
-HkE
-HmB
-HnA
 Home
 Horizontal differencing "Predictor" not supported with %d-bit samples
 HostComputer
 HostStateMgr001
 Hotspot Mode:
 HoverItemChanged
-HtB
+HtE
 HtL
+HuA
 Huffman code size table overflow
 Huffman table 0x%02x was not defined
+HyD
+HzD
+HzE
 I could not work out what I was expecting, like so many of us these days!\n
 I/O Failure! Could Not Read File.
 IAssetSelectionListener
@@ -2427,9 +2479,7 @@ IKV3TransferInterface_Worldspace_Save
 IMAGE_FORMAT_IMC2
 IMAGE_FORMAT_NV12
 IMMEDIATE_HALT
-IND)ind)sqrtf
 INF
-INITY
 INT
 INTEGERLITERAL
 INTERNAL ERROR: Cannot convert or reinterpret from %s to %s
@@ -2437,7 +2487,6 @@ INVALID
 IPulseInstanceLoadAPI
 IPulseInstanceSaveAPI
 IPulseSystem_001
-ISGN
 ISO JBIG
 IS_DIRECTX
 IS_PC
@@ -2447,6 +2496,7 @@ IToolFrameListener
 IToolFrameworkAudioSettingsListener
 IToolsResourceListener
 IVDataResourceListener
+I\tV_cosf
 If (R%d) Jump to Instr I%d
 If (R%d) Leap to Chunk C%d
 If specified, each wait interval will vary randomly between WaitInterval this value
@@ -2463,7 +2513,6 @@ ImageDescription
 ImageFullLength
 ImageFullWidth
 ImageLength
-ImageLoader::ConvertImageFormat for compiled texture, preview will be incorrect.\n
 ImageWidth
 Images (
 Import To "%1"
@@ -2556,6 +2605,8 @@ Invalid scan script at entry %d
 Invalid size: %s
 Invalid tile size x : 
 Invalid tile size y : 
+Inverse Rotate Vector
+Inverse Transform Vector
 Invert
 Invoke '%s' failed with code %d
 Invoke Cell%d [eid=%d] %s%s
@@ -2568,18 +2619,15 @@ Is Valid World Vector
 IsDebuggerPresent
 IsProcessorFeaturePresent
 IsValidCodePage
-IsValidIndex( i )
 IsValidLocale
 IsValidLocaleName
 ItemActivated
 J%f%f%f%f%f%f%f%f
-JFB
 JFIF APP0 marker: version %d.%02d, density %dx%d  %d
 JFIF extension marker: JPEG-compressed thumbnail image, length %u
 JFIF extension marker: RGB thumbnail image, length %u
 JFIF extension marker: palette thumbnail image, length %u
 JFIF extension marker: type 0x%02x, length %u
-JHC
 JMk
 JPEG
 JPEG datastream contains no image
@@ -2590,14 +2638,15 @@ JUMP
 JUMP_COND
 Jan
 January
-JnB
-JqC
+JjA
+JtB
 Jul
 July
 Jump to Instr I%d
 JumpOrLeap( C%d:I%d )
 Jun
 June
+JwB
 KERNEL32.dll
 KNQ\rMO
 Keep a history of all instructions run on a per graph basis.
@@ -2630,6 +2679,7 @@ LITERAL_TRUE
 LMouse
 LMouseDoubleClick
 LOG_GENERAL
+LOOP_BREAK
 LTE
 LTE_FLOAT
 LTE_GAMETIME
@@ -2678,17 +2728,18 @@ Length (magnitude) of Vector2D
 Length Vector
 Length Vector2 D
 LensInfo
+Lerp Angle
 Lerp Float
+Lerp Transform
 Lerp Vector
+Lerp World Transform
 Lerp World Vector
 Less R%d <- R%d < R%d
 LessEq R%d <- R%d <= R%d
 Lexer encountered %d error(s)
 Lexer encountered %i errors parsing compile targets expression "%s"\n
 LhX
-Library for interacting with pulse cursors.
 Light
-LightSim_DiffuseAlbedoTexture
 LightmapUV
 LightmapUVW
 Limit Count
@@ -2697,13 +2748,19 @@ Line:
 Linear
 LinearResponseLimit
 LinearizationTable
+LkA
 Lkh9Fgc^A
+LmA
 LoadEXRImageFromMemory failed! Error message: %s\n
 LoadEXRImageFromMemory() failed! Error message: %s\n
 LoadFromInMemoryEXR( %s ) failed.\n
+LoadFromPSD: Unable to load %s: %s\n
+LoadFromPSD: Unable to read file %s\n
 LoadKV3ObjectInPlace error: %s\n
 LoadLibraryExW
+Local
 LocalServerClientAccess001
+LocalVector
 LocaleNameToLCID
 Localize_001
 LocalizedCameraModel
@@ -2729,9 +2786,6 @@ LoggingSystem_PushLoggingState
 LoggingSystem_RegisterLoggingChannel
 LoggingSystem_RegisterLoggingListener
 LoggingSystem_SetLoggingResponsePolicy
-LrB
-LtA
-LuB
 M8MF
 MATCHFRAMEWORK_001
 MAX_ALLOC_CHUNK is wrong, please fix
@@ -2787,6 +2841,7 @@ MPulseEditorCanvasItemSpecKV3
 MPulseEditorHeaderIcon
 MPulseExpressionAlias
 MPulseFGDSkipField
+MPulseFunctionAddsCursorTag
 MPulseFunctionHiddenInTool
 MPulseLegacyName
 MPulsePolymorphicDependentArg
@@ -2808,9 +2863,6 @@ MWheelLeft
 MWheelRight
 MWheelUp
 MYS
-M\tV_isnand
-MainPs
-MainVs
 Make
 Make Angle
 Make Angle From Forward Vector
@@ -2830,6 +2882,8 @@ Make a Vector2D from component parts.
 Make a World Vector from component parts.
 Make an Angle from a Forward Vector
 Make an Angle from component parts
+MakeOrthonormalForward
+MakeOrthonormalRight
 MakerNoteSafety
 Manual History Captures Only.
 ManualStateCapturesOnly
@@ -2898,7 +2952,6 @@ MeshSystem001
 MeshUtils001
 MessageBoxA
 MessageBoxW
-Microsoft (R) HLSL Shader Compiler 9.29.952.3111
 Min Float
 Min Int
 MinSampleValue
@@ -2947,7 +3000,7 @@ Mute Tools
 Mvc
 N>O=I9
 N>VF
-N@Bad count in ArraySetCount (%d)
+N@__FireCursorsParent__
 NAN
 NAN(IND)
 NAN(SNAN)
@@ -2979,17 +3032,17 @@ NE_VEC3
 NE_VEC3WS
 NE_VEC4
 NJ2"v
-NNB
 NO COMMAND TARGET
 NONE
 NOP
-NORMAL
 NOT
 NO_FLAGS
 NQ?s
 NULL CELL 
 NULL VP8Io parameter in VP8Decode().
 NV_NULL
+NXB
+N\tV_exp2f
 Name
 Natural logarithm (base e)
 NavGameTest001
@@ -2998,7 +3051,6 @@ Navigate To File
 NavigateToFile
 NeXT
 NeXTDecode: Not enough data for scanline %ld
-NeedsLightProbe
 Neg R%d <- -R%d
 Neq R%d <- R%d != R%d
 NetworkClientService_001
@@ -3016,8 +3068,9 @@ NewAction
 NewFileAction
 NewValueAccepted
 Newline in string literal
+Next match (Enter)
 Nice
-NmC
+NnA
 No Active Material.
 No Active Material. Open Or Select A Material.
 No Active Shader.
@@ -3036,7 +3089,9 @@ No closing */ before end of file
 No conversion from KV3 to variant type %d (%s)
 No data
 No expression!
+No height texture to preview
 No input data for '%s'. (Empty buffer.)
+No matches
 No signal '%s'
 No slot '%s'
 No space for "TransferFunction" tag
@@ -3052,7 +3107,6 @@ No support for converting user data format to LogL
 No support for converting user data format to LogLuv
 No type icon specified. Add icon to "%1"
 No valid vcs file found for shader %s\n
-NoZPrepass
 No\nPreview\nAvailable
 NodeID %d port '%s' called from C%d:I%d
 None
@@ -3071,7 +3125,7 @@ Not enough
 Not implemented yet
 Nov
 November
-NtC
+NpB
 Num
 Num0
 Num1
@@ -3092,6 +3146,7 @@ NumMul
 NumSub
 NumToggle
 NumberOfInks
+NzB
 OCTAL_ESC
 OPEN_BRACE
 OPEN_BRACKET
@@ -3100,6 +3155,7 @@ OP_EQUAL
 OYX
 OZQ%
 OZw3(?
+O\tV_expd
 Observable
 Obtained EMS handle %u
 Obtained XMS handle %u
@@ -3166,7 +3222,6 @@ OnCopyGroupVariables
 OnCopyPathToClipboardAction
 OnCurrentColorChanged
 OnDefaults
-OnDeferredUpdateWidgets
 OnDetachFromReference
 OnDownPressed
 OnDragColorOverwrite
@@ -3342,38 +3397,45 @@ OutflowWithRequirements_t
 Output aborted.
 Output file write error --- out of disk space?
 OutputDebugStringW
+OverideHelpContextName
 OverlayProjectionDirection
 Override Inherited Variable...
 Overwrite
 Overwrite With Current
 P4File
-PAB
 PANEL_ID
 PC SM 5.0 (D3D11)
 PC SM 5.0 (VULKAN)
 PC SM 6.0 (VULKAN)
+PCD
 PC_SM_5_0
 PC_SM_5_0_VULKAN
 PC_SM_6_0_VULKAN
+PDB
 PDT
-PED
-PEE
+PGC
 PGDInstruction_t
-PHD
 PIO
-PInstruction_t<42>::Run
 PInstruction_t<43>::Run
+PInstruction_t<44>::Run
+PKD
 PLATFORM
 PLAT_
+PLE
+PMB
+PND
 PNG\r\n
-POSITION
+POE
 POS_FLOATLITERAL
 POS_INTLITERAL
+PQD
 PRIVATE
 PROGRAM
+PSD
 PST
 PS_RENDER_STATE
 PS_RTX
+PUE
 PULSE_CALL_ASYNC_FIRE
 PULSE_CALL_SYNC
 PURH
@@ -3414,12 +3476,9 @@ PVAL_VEC3
 PVAL_VEC3_WORLDSPACE
 PVAL_VEC4
 PVAL_VOID
-PVC
-PVE
-PWD
-PXC
 PXD
-PZC
+PYE
+P\tV_expf
 PackBits
 PackBitsDecode: Not enough data for scanline %ld
 PackBitsDecode: discarding %ld bytes to avoid buffer overrun
@@ -3438,6 +3497,7 @@ Parent VMDL
 Parent XML
 Parent XML Panel
 ParseEXRHeaderFromMemory failed! Error message: %s\n
+ParseImageDataSection failed
 Parser encountered %d error(s)
 Parser encountered %i errors parsing compile targets expression "%s"\n
 Particle Binding
@@ -3456,10 +3516,7 @@ Path Not Set.
 Path Overflow, must be less than 260 characters.
 Pause
 Pause the cursor at this point.
-PdC#
 PerVertexLighting
-PerViewConstantBufferVR_t
-PerViewConstantBuffer_t
 PgDn
 PgUp
 Photometric tag is missing, assuming data is YCbCr
@@ -3478,7 +3535,8 @@ PickColor
 Pitch
 PivotPaint
 PixarLog
-PlB
+PjB
+PjC
 PlanarConfiguration
 Planarconfig tag value assumed incorrect, assuming data is contig instead of chunky
 Plat_ExitProcess
@@ -3499,6 +3557,7 @@ Plat_LoadModule
 Plat_NonFatalErrorFunc
 Plat_RegisterModule
 Pmg
+PnE
 Pointers cannot be used as numeric values
 Policy
 PopupClosed
@@ -3522,6 +3581,7 @@ Preview - %1
 Preview Size: 
 PreviewModel
 Previous
+Previous match (Shift+Enter)
 Primary
 PrimaryChromaticities
 PrimaryToolBar
@@ -3532,13 +3592,14 @@ Proceed Immediately.
 Process Selector
 ProcessBC6HResults
 Program MD5 is out of date with features! %s\n
-Programmer Error! Static combo not loaded!\n
 PropWorldOrigin
 Properties
 Properties...
 Property '%s.%s' not writable
 Property For Wet Areas:
 PropertyEditorSystem_001
+PsC
+PuE
 Pull From Global Browser
 PullSelectionFromGlobalBrowser
 Pulse
@@ -3574,6 +3635,8 @@ PulseRuntimeInvokeIndex_t
 PulseRuntimeOutputIndex_t
 PulseRuntimeRegisterIndex_t
 PulseRuntimeStateOffset_t
+PulseRuntimeTempVarBankIndex_t
+PulseRuntimeTempVarIndex_t
 PulseRuntimeVarIndex_t
 PulseSelectorOutflowList_t
 PulseSymbol_t
@@ -3582,6 +3645,10 @@ PulseVariableKeysSource_t
 Push To Global Browser
 PushSelectionToGlobalBrowser
 PvP
+PwA
+PyD
+PyE
+PzD
 Q2XXR
 QAction
 QAction*
@@ -3634,6 +3701,7 @@ Qt5Gui.dll
 Qt5Widgets.dll
 QtMetaTypePrivate::QSequentialIterableImpl
 Quantization table 0x%02x was not defined
+Quantize to %d Values
 Quantizing to %d = %d*%d*%d colors
 Quantizing to %d colors
 QueryPerformanceCounter
@@ -3653,11 +3721,11 @@ R8G8B8_ETC2
 R8G8_UINT
 R8_UINT
 R9G9B9E5_FLOAT
-RDEFH
 REINTERPRET_INSTANCE
 REQUIREMENT_FAIL
 REQUIREMENT_PASS
 RESIZED
+RETURN
 RETURN_VALUE
 RETURN_VOID
 RG11_EAC
@@ -3673,14 +3741,14 @@ RGBA16161616
 RGBA16161616F
 RGBA32323232F
 RGBA32323232_UINT
+RGBA8888
 RGBA8888_LINEAR
 RGBA8888_UINT
 RGBA\t%1\t%2\t%3\t%4
 RGBX8888
+RLB
 RMouse
 RMouseDoubleClick
-RRB
-RSC
 RSDSt8
 RST%d
 RTX
@@ -3700,7 +3768,6 @@ Range Max
 Range Min
 Raw Output
 RawDataUniqueID
-RcC
 ReSelectOnReturn
 Read failed on temporary file
 Read from EMS failed
@@ -3786,14 +3853,21 @@ ResourceManifestRegistry001
 ResourceSystem013
 Restore the image's original size.
 Result
+Return
 Return the number of elements in the array.
 Returns -1 or 0 or 1 based on the sign of the argument
 Returns -1.0 or 0.0 or 1.0 based on the sign of the argument
+Returns a local transform that you could put back into 'Compose Transforms' to recover 'Offset'
 Returns a random position centered on vCenter with random min and max radius
+Returns interpolated value between A and B based on frac 0.0 - 1.0 (angle)
 Returns interpolated value between A and B based on frac 0.0 - 1.0 (float)
+Returns interpolated value between A and B based on frac 0.0 - 1.0 (transform)
 Returns interpolated value between A and B based on frac 0.0 - 1.0 (vector)
+Returns interpolated value between A and B based on frac 0.0 - 1.0 (world transform)
 Returns interpolated value between A and B based on frac 0.0 - 1.0 (world vector)
 Returns the constant pi (3.14...)
+Returns the inverse of a transform.
+Returns the inverse of a world transform.
 Returns true if the Vector is valid
 Returns true if the World Vector is valid
 Returns up to the maximum requested elements. Never grows the array (unlike SetCount).
@@ -3805,10 +3879,18 @@ RichTIFFIPTC
 Right
 Right Mouse (Average)
 Roll
+Rotate Vector
+Rotate Vector To World
+Rotate World Vector To Local
+Rotate a relative vector by a local transform, not including position or scale.
+Rotate a relative vector into a world direction, not including position or scale.
+Rotate a vector by the inverse of a local transform, not including position or scale. Inverse of 'Rotate Vector'.
+Rotate a world direction vector into a local direction, not including position or scale.
 Round - round float up or down to integer
 Round Float
 Row pixels integer overflow (rowpixels %u)
 RowsPerStrip
+RrA
 RsTextureAddressMode_t
 RtlCaptureContext
 RtlLookupFunctionEntry
@@ -3817,7 +3899,7 @@ RtlUnwind
 RtlUnwindEx
 RtlVirtualUnwind
 Run
-RzC
+RxA
 S>$hkDh$h>[2
 SBK
 SCALE
@@ -3831,6 +3913,8 @@ SCALE_VEC4
 SCOPE_QUALIFIER
 SEMICOLON
 SET_BLACKBOARD_REFERENCE
+SET_TEMPVAR
+SET_TEMPVAR_OBSERVABLE
 SET_VAR
 SET_VAR_ARRAY_ELEMENT_1D
 SET_VAR_OBSERVABLE
@@ -3842,7 +3926,6 @@ SGILogDataFmt
 SGILogEncode
 SHADER_SOURCE
 SHADER_SOURCE_ROOT
-SHEXt[
 SHRUNK
 SIG_ApplyExpression
 SIG_BrowseShadersAccept
@@ -3888,13 +3971,10 @@ SLIDER_VALTEXT_LEFT
 SLIDER_VALTEXT_RIGHT
 SMaxSampleValue
 SMinSampleValue
-SNAN)
 SORT_BY_NUMBER_OF_VALID_CRITERIA
 SORT_BY_OUTFLOW_INDEX
-SPV_KHR_storage_buffer_storage_class
 SSE and SSE2 are required.
 STANDIN: %1
-STAT
 STRING_CHAR
 SUB
 SUB_FLOAT
@@ -3908,11 +3988,10 @@ SUB_VEC3WS_VEC3WS
 SUB_VEC4
 SUPPORTS_CS
 SUPPORTS_GS
-SV_ClipDistance
-SV_Position
-SV_Target
 SYNC_WAIT_FOR_COMPLETION
 S_EXECUTION_REORDERING
+S_GPU_DEVICE_ID
+S_GPU_VENDOR_ID
 S_MOLTEN_VK
 S_REVERSE_DEPTH_BUFFER
 S_SHADER_QUALITY
@@ -3966,6 +4045,7 @@ SchemaTestExternal_Two_001
 Scopes: %s\n
 ScrLk
 ScrToggle
+Search for material variables.
 Seek error at scanline %lu
 Seek failed on temporary file
 Select Best Exit
@@ -3975,7 +4055,7 @@ SelectFirstItemAfterFilter
 Selected %d colors for quantization
 Send an e-mail to GraphicsDev.
 Sep
-Sep  9 2026
+Sep 21 2026
 September
 SerializedEntitiesVersion001
 ServerToolsInfo_001
@@ -4016,6 +4096,7 @@ SetTabStyleBar
 SetTabStyleBrick
 SetTabStyleLine
 SetTabStyleNone
+SetTempVar 
 SetUnhandledExceptionFilter
 SetValueCenter
 SetValueHidden
@@ -4107,6 +4188,7 @@ SleepConditionVariableSRW
 Slider
 Slider2
 SliderValueChanged
+SmartPropsSystem_001
 Smoothing not supported with nonstandard sampling ratios
 SoftCancel
 Software
@@ -4131,7 +4213,6 @@ Source2Server001
 Source2V8System001
 Space
 Span
-Spawning %d compile jobs\n
 Spline
 Split Angle
 Split Color
@@ -4172,6 +4253,7 @@ StoNits
 Stop Waiting
 Stop the node action without any wind-down, then proceed afterwards.
 Stop without any wind-down.
+StreamPutOverflow
 String
 String Length
 String( %s )
@@ -4192,6 +4274,7 @@ SubsurfaceProfile
 Sun
 Sunday
 SupportsMappingDimensions
+Suppress
 Suppress Compilation
 SuppressVNotifyMessages
 Surface Properties
@@ -4207,9 +4290,6 @@ Sys
 System Material Attributes
 SystemAttributes
 SystemTimeToTzSpecificLocalTime
-TANGENT
-TEXCOORD
-TIB
 TIFFAppendToStrip
 TIFFClientOpen
 TIFFFetchDirectory
@@ -4232,10 +4312,7 @@ TIFFTileRowSize
 TIFFVStripSize
 TIFFVTileSize
 TOK_COLON
-TQB
-TRC
 TUUUU
-TZB
 Tab
 TabName%d
 TabOrder
@@ -4245,11 +4322,13 @@ Tag %d
 Tag Cursor
 Tag Self When Complete
 Tag Value
+Takes a format string that and 1-5 arguments to insert into that string.<br>Format string can look like, for example, <tt>"Hello {} my name is {}"</tt> to reference arguments 0 and 1 implcictly.<br>Or <tt>"Hello {0} my name is {1}"</tt> to reference arguments 0 and 1 explicitly.<br>Use <tt>{{</tt> and <tt>}}</tt> for literal brace characters.<br>
 Tan
 TanFrameQuat
 Tangent of angle. Input in radians, output in radians
 TargetPrinter
 TcM
+TeB
 Terminate()
 TerminateProcess
 TernaryConditional
@@ -4257,7 +4336,6 @@ Test Handle
 Test Mode Assert True
 TestCheckpoint: %s
 TestScriptMgr001
-Testing script helpers.
 TexCoord
 Text Color
 TextLayout_001
@@ -4276,11 +4354,8 @@ TexturePreviewFilteredMagnification
 TextureSheetData
 TextureSize
 TextureWrapModes
-TfB
-TgA
-TgB
-ThC
 The filename may only contain lower case alphanumeric characters, dashes, and underscores.
+The shader doesn't use this with the material's current settings.
 This convar is being accessed prior to ConVar_Register being called
 This function cannot be called on a default constructed task
 This is a BigTIFF file.  This format not supported\nby this version of libtiff.
@@ -4299,7 +4374,6 @@ ThumbnailCRC32
 ThunderDecode: %s data at scanline %ld (%lu != %lu)
 ThunderScan
 Thursday
-TiC
 TileByteCounts
 TileDepth
 TileLength
@@ -4310,7 +4384,6 @@ TlsAlloc
 TlsFree
 TlsGetValue
 TlsSetValue
-TnC
 Toggle Favorite
 Toggle favorite status.
 Too many color components: %d, max %d
@@ -4329,18 +4402,28 @@ ToolTips
 Tools  
 Tools audio currently muted
 ToolsStartup
-TpA
-TqB
 Track Mouse & Focus
 TransferFunction
 Transform
+Transform Inverse
+Transform Vector
+Transform Vector To World
+Transform World Vector To Local
+Transform a relative vector by a local transform, including position and scale.
+Transform a relative vector into worldspace, including position and scale.
+Transform a vector by the inverse of a local transform, including position and scale. Inverse of 'Transform Vector'.
+Transform a worldspace vector into a relative vector, including position and scale.
+TransformA
+TransformB
 True
 Truncated header.
 TryAcquireSRWLockExclusive
 TrySendVNotify - SendKV3 failed\n
+TsA
 Tue
 Tuesday
 Turn a time in seconds into a display string. NOT localized.
+TvB
 Type
 Typesafe Int
 Typesafe Int64
@@ -4360,11 +4443,14 @@ UnNegate
 UnNot
 Unable find required entry points in %s\n
 Unable to load %s, error %d\n
+Unable to load psd: %s\n
 Unable to load shader config: %s\n
 Unable to load tooltips: %s\n
 Unable to parse vpk paths from shader %s\n
 Unable to read file %s\n
+Unable to read the compiled texture, preview will be missing.\n
 Unable to resolve material layer %i: %s\n
+Unable to start a read of the compiled texture, preview will be missing.\n
 UnderMouse
 Undo
 Unexpected character
@@ -4384,7 +4470,6 @@ Unknown Adobe color transform code %d
 Unknown DX level\n
 Unknown Error.
 Unknown Error. Send an e-mail to GraphicsDev.
-Unknown Format!
 Unknown Material Error (%d)
 Unknown Path Class
 Unknown Pathing. Save Material To Establish.
@@ -4399,6 +4484,7 @@ Unknown variable %s
 Unknown variable name %s.
 Unlimited
 UnmapViewOfFile
+Unmodified
 Unrecognized VFX UI Type (%d).
 Unrecognized VFX UI Type (%d). Send an e-mail to GraphicsDev.
 Unrecognized action class '%s'
@@ -4409,7 +4495,6 @@ Unsupported ETC image format %d.\n
 Unsupported JPEG data precision %d
 Unsupported JPEG process: SOF type 0x%02x
 Unsupported KV3 basic type '%s' (%d)!
-Unsupported PSD color mode!\n
 Unsupported VFX UI Type '%s'.
 Unsupported color conversion request
 Unsupported marker type 0x%02x
@@ -4439,12 +4524,12 @@ VApplication001
 VAsyncFileSystem2_001
 VAvi001
 VBik001
+VCB
 VCS3 %s Load Failure: Could not find DATA block\n
 VConComm001
 VConsole
 VDATA
 VData Choice
-VEC
 VEngineCvar007
 VFX_COMBO_ALIAS
 VFX_COMBO_DYNAMIC
@@ -4455,6 +4540,7 @@ VFX_PROGRAM_MAX
 VFX_RULE_ALLOW_NUM
 VFX_RULE_CHILD_OF
 VFX_RULE_REQUIRES
+VFX_RULE_SUPPRESS
 VFX_RULE_TYPE_DYNAMIC
 VFX_RULE_TYPE_FEATURE
 VFX_RULE_TYPE_MAX
@@ -4477,6 +4563,7 @@ VNotify: %s\n
 VPhysics2_Interface_001
 VProcessUtils002
 VProfService_001
+VQB
 VRenderDeviceSetupV001
 VS_MS_RTX
 VS_RTX
@@ -4495,12 +4582,12 @@ V_FloatToString_Unsafe
 V_GetFileExtension
 V_GetFileExtensionSafe
 V_Get_stderr
+V_Get_stdout
 V_Int16ToString_Unsafe
 V_Int32ToString_Unsafe
 V_Int64ToString_Unsafe
 V_Int8ToString_Unsafe
 V_IsAbsolutePath
-V_LZ4_decompress_safe
 V_PathContainsPath
 V_PathNamesAreEquivalent
 V_PrettifyMem
@@ -4531,7 +4618,6 @@ V_TryAndMakeFriendlyNameFromCppName
 V_UInt32ToString_Unsafe
 V_UInt64ToString_Unsafe
 V_UInt8ToString_Unsafe
-V_UnqualifiedFileName
 Valid Content Absolute Path
 Valid External Path
 Valid Game Absolute Path
@@ -4547,6 +4633,7 @@ ValveSMMut:%s
 Variable '%s' could not find subsection '%s' in reference file: %s\n
 Variable '%s' could not load reference path: %s [%s]\n
 Variable '%s' specified a circular (re-entrant) reference path: %s\n
+Variable name
 VariableChange_t
 VariableState
 Variables
@@ -4568,30 +4655,30 @@ VertexGenericIntegerData
 VertexPaintBlendParams
 VertexPaintBlendParams1
 VertexPaintTintColor
-VfC
 Vfx file "%s" has both compute shader and other shaders. Compute shaders must be the only shader type in a vfx file.\n
 VfxComboType_t
+VfxDynamicShaderCompile(), C:\buildworker\csgo_rel_win64\build\src\vfx\vfx_common.cpp:8821
 VfxLoadShaderSource(16): Cannot use absolute paths for shader includes. Found %s\n
 VfxLoadShaderSource(77): Cannot read file "%s"\n
 VfxLoadShaderSource(85): Cannot find include file %s\n
-VfxParseAndCompileExpression(597): : Failed to create input stream from "%s"\n
-VfxParseAndCompileExpression(605): : Failed to create lexer from "%s"\n
-VfxParseAndCompileExpression(613): : Failed to create token stream from "%s"\n
-VfxParseAndCompileExpression(621): : Failed to create parser from "%s"\n
+VfxParseAndCompileExpression(618): : Failed to create input stream from "%s"\n
+VfxParseAndCompileExpression(626): : Failed to create lexer from "%s"\n
+VfxParseAndCompileExpression(634): : Failed to create token stream from "%s"\n
+VfxParseAndCompileExpression(642): : Failed to create parser from "%s"\n
 VfxParseCompileTargetExpr(106): : Failed to create lexer from "%s"\n
 VfxParseCompileTargetExpr(114): : Failed to create token stream from "%s"\n
 VfxParseCompileTargetExpr(122): : Failed to create parser from "%s"\n
 VfxParseCompileTargetExpr(98): : Failed to create input stream from "%s"\n
 VfxRuleType_t
 VfxRule_t
-VhB
 Viewport
 Virtual array controller messed up
 Vis:0 
 Vis:1 
 VisBuilder_001
 Visit Developer Help URL
-VkC
+VlA
+VoB
 Void
 Vrad3_001
 WARNING
@@ -4637,6 +4724,7 @@ Win
 World Height:
 World Height: 
 World Transform
+World Transform Inverse
 World Vector
 World Vector To Vector
 World Width:
@@ -4647,6 +4735,7 @@ WorldMappingHeight2
 WorldMappingWidth
 WorldMappingWidth2
 WorldRendererMgr001
+WorldVector
 Writable
 Write error at scanline %lu
 Write failed on temporary file --- out of disk space?
@@ -4657,33 +4746,31 @@ WriteFile
 Wrong JPEG library version: library is %d, caller expects %d
 Wrong Variable Type '%s' for '%s'.
 X to the Y power
+XCD
 XClipPathUnits
-XFD
-XID
-XJB
-XMB
+XGC
+XJD
 XML
 XMLPacket
-XOC
+XPD
 XPosition
+XQD
 XResolution
-XTA
-XVD
-XWD
+XSD
+XTE
 XXD
 XYZ, Luv
-XZE
+XdR
 XhL
-XiB
-XlA
-XmA
-XoB
-XpD
+XlE
+XmE
 XqA
+XrE
 XsBI
-XtC
-XvB
-XxC
+XwE
+XxE
+XyD
+XzD
 Y>kX>M
 YCbCrCoefficients
 YCbCrPositioning
@@ -4691,30 +4778,32 @@ YCbCrSubsampling
 YClipPathUnits
 YPosition
 YResolution
+Y\tV_fmodd
 Yaw
 Yield, Resume=%s
 YpU_Z
 Yqq
 Z@&LHA'\r:C(
 ZFP compression is not supported.
-ZGC
+ZIB
 ZIPDecode
 ZIPEncode
 ZIPPostEncode
 ZIPSetupDecode
 ZIPSetupEncode
 ZIPVSetField
-ZKB
-ZQC
+Z\tV_fmodf
 Zjz\v
-ZqC
-ZsC
+ZoA
+ZzA
 [ Chunk%d ]
 [ written at chunk start last-read I%d ]
 [ written by I%d last-read I%d ]
 [%f %f %f %f]
 [***INVALID INSTRUCTION %d (%s)***]\n
 [*ncd>0
+[BREAK]
+[CPulseCell_ReturnValues]
 [Default] Determine a lifespan based on the warning/error state of the group
 [Default] General information
 [IMMEDIATE_HALT]
@@ -4752,6 +4841,7 @@ ZsC
 \n'%1' is from the Read-Only Mod '%2'.\n\nThe suggested alternate save path is\n'%3'.\n
 \n'%1' is overridden by a leafier Mod.\n\nThe suggested alternate save path is\n'%2'.\n
 \n*** %s "%s" in %s does not follow the 0..N format!\n\n
+\n*** %s "%s" in %s has a bad range: %s!\n\n
 \n*** %s "%s" in %s has max(%d) > 254!\n\n
 \n*** %s "%s" in %s has min(%d) < 0!\n\n
 \n*** %s "%s" in %s has min(%d) > max(%d)!\n\n
@@ -4759,14 +4849,14 @@ ZsC
 \n*** A feature alias in %s doesn't start with "F_"! Aborting shader compile!\n\n
 \n*** A feature in %s doesn't start with "F_"! Aborting shader compile!\n\n
 \n*** A static combo in %s doesn't start with "S_"! Aborting shader compile!\n\n
-\n*** CMaterialEditorTool::InitDynamicShaderCompileDLL(449): ERROR! Can't load %s, dynamic shader compile unavailable\n
-\n*** CVfx::ParseBoolFromFile(6330): Error opening file "%s"!\n\n
-\n*** CVfx::ParseCombosAndRulesFromFileHelper(6519): Error opening file "%s"!\n\n
-\n*** CVfx::ParseDescriptionFromFile(6415): Error opening file "%s"!\n\n
-\n*** CVfx::ParseFeaturesFromFile(6016): Error opening file "%s"!\n\n
-\n*** CVfx::ParseIncludeFiles(5975): Error opening include file in features list"%s"!\n\n
-\n*** CVfx::ParseModesFromFile(5825): Error opening file "%s"!\n\n
-\n*** CVfx::ParseVersionFromFile(6376): Error opening file "%s"!\n\n
+\n*** CMaterialEditorTool::InitDynamicShaderCompileDLL(452): ERROR! Can't load %s, dynamic shader compile unavailable\n
+\n*** CVfx::ParseBoolFromFile(6755): Error opening file "%s"!\n\n
+\n*** CVfx::ParseCombosAndRulesFromFileHelper(6952): Error opening file "%s"!\n\n
+\n*** CVfx::ParseDescriptionFromFile(6840): Error opening file "%s"!\n\n
+\n*** CVfx::ParseFeaturesFromFile(6441): Error opening file "%s"!\n\n
+\n*** CVfx::ParseIncludeFiles(6399): Error opening include file in features list"%s"!\n\n
+\n*** CVfx::ParseModesFromFile(6249): Error opening file "%s"!\n\n
+\n*** CVfx::ParseVersionFromFile(6801): Error opening file "%s"!\n\n
 \n*** Combo "%s" in %s doesn't match a known combo source!\n\n
 \n*** Combo "%s" in %s either does not follow the 0..N format, is not a valid dynamic combo name, or doesn't match an existing feature or mode argument!\n\n
 \n*** Combo "%s" in %s has arg %s that doesn't match an existing feature!\n\n
@@ -4780,7 +4870,7 @@ ZsC
 \n*** Error masking unused parts! Unknown text found. This is usually caused by a '{' or '}' not tabbed properly or an invalid declaration at the global scope. (line %d):\n%s\n\n
 \n*** Error parsing ==N for rule in %s! First arg to RequiresN cannot be ==0!\n\n
 \n*** Error parsing ==N for rule in %s! Not allowed on ChildOf. Use RequiresN instead.\n\n
-\n*** Error parsing ==N for rule in %s!\n\n
+\n*** Error parsing ==N for rule in %s: %s!\n\n
 \n*** Error parsing =N for mode %s in %s!\n\n
 \n*** Error parsing AllowN rule in %s! N must be >= 0!\n\n
 \n*** Error parsing AllowN rule in %s!\n\n
@@ -4800,6 +4890,9 @@ ZsC
 \n*** Error! Could not find static combo with name "%s" in %s!\n\n
 \n*** Error! Could not find static or dynamic combo with name "%s" in %s!\n\n
 \n*** Error! Rule error string must be quoted in %s!\n\n
+\n*** Error! Suppress rule in %s can only suppress combos of its own type! Put the condition first and suppress same-tier combos, or use RequiresN.\n\n
+\n*** Error! Suppress rule in %s must only suppress combos that are 0..x!\n\n
+\n*** Error! Suppress rule in %s needs a condition followed by at least one combo to suppress!\n\n
 \n*** Error! Too many args found in rule in %s!\n\n
 \n*** Error! Too many or too few arguments to a rule in %s!\n\n
 \n*** Feature "%s" in %s does not follow the 0..N format!\n\n
@@ -4819,8 +4912,17 @@ ZsC
 \n*** Unable to parse Version in HEADER section of %s!\n\n
 \n*** Unknown rule "%s" in %s!\n\n
 \n*** Unknown text found in FEATURES section in %s: "%s"\n\n
-\n*** VfxGetCompileTargetsFromVfxFile(1369): Error opening file "%s"!\n\n
-\n*** VfxGetUsedShaderProgramsFromVfxFile(1446): Error opening file "%s"!\n\n
+\n*** VfxGetCompileTargetsFromVfxFile(1484): Error opening file "%s"!\n\n
+\n*** VfxGetUsedShaderProgramsFromVfxFile(1561): Error opening file "%s"!\n\n
+\n***ASSERT FAILED*** Image data section has too many channels (%d).
+\n***ASSERT FAILED*** Pointer is null.
+\n***ERROR*** [DecompressRle] Malformed RLE data encountered
+\n***ERROR*** [ImageData] Unhandled bits per channel: %u.
+\n***ERROR*** [ImageData] Unhandled compression type %u.
+\n***ERROR*** [PSD] Document does not contain an image data section.
+\n***ERROR*** [PsdExtract] File seems to be corrupt, reserved bytes are not zero.
+\n***ERROR*** [PsdExtract] File seems to be corrupt, signature does not match "8BPS".
+\n***ERROR*** [PsdExtract] File seems to be corrupt, version does not match 1 or 2.
 \nCannot overwrite %1.\n
 \nCannot read file %1.\n
 \nCannot read material %1.\n
@@ -4863,23 +4965,31 @@ ZsC
 \nNo variables changed during import.\n
 \nNothing to import. Clipboard contents are empty.\n
 \nPS_RENDER_STATE
-\nPdC#
 \nRTX
 \nSuccess! All %1 materials processed.\n
 \nVCS file format is invalid for %s\n
 \nVCS file version is %d instead of %d for %s\n
+\nVfxDynamicShaderCompile(8902): Dynamic shader compile failed for %s in "%s"!\n
 \nYou have existing hosted materials.\nYou need to close ALL hosted materials before sanitization can proceed.\n
 \n\n\n
 \n\r?heightForWidth@QBoxLayout@@UEBAHH@Z
-\n\tV_ZSTD_getFrameContentSize
 \n\tVariableState\n
+\n_MakeGlobalSymbol
+\n_MakeGlobalSymbolCaseSensitive
+\n_V_SetExtension
+\n_V_StringAfterPrefix
+\n_V_StringAfterPrefixCaseSensitive
+\n_V_StripExtension
+\n_V_StripLastDir
+\n_V_strEndsWith
+\n_V_strcspn
+\n_V_strncat
 \nh?oT
 \nk>oB
 \r\f?focusInEvent@QLineEdit@@MEAAXPEAVQFocusEvent@@@Z
-\r\ng_pThreadPool
+\r\n_V_FileBase
 \r\r?heightForWidth@QGridLayout@@UEBAHH@Z
 \r\r\r\r\r\r
-\r\tV_acosd
 \rmj>zjZ
 \src\shaders\
 \t The lexer was matching from line %d, offset %d, which\n\t 
@@ -4895,27 +5005,28 @@ ZsC
 \tUiGroupName = %s\n
 \tUiName = %s\n
 \tUnusedVariables\n
-\tV_ZSTD_createDCtx
-\tV_ZSTD_createDDict_byReference
-\tV_ZSTD_decompress
-\tV_ZSTD_decompress_usingDDict
-\tV_ZSTD_freeDCtx
-\tV_ZSTD_getDictID_fromDDict
-\tV_acosf
-\tV_asind
-\tV_atan2d
-\tV_atan2f
-\tV_atand
-\tV_atof
-\tV_atofloat32
-\tV_atoi
-\tV_cosd
-\tV_cosf
+\tV_UnqualifiedFileName
+\tV_log10f
+\tV_log2f
+\tV_logd
+\tV_logf
+\tV_modfd
+\tV_powd
+\tV_powf
+\tV_qsort
+\tV_qsort_s
+\tV_roundf
+\tV_sincosf
+\tV_sind
+\tV_sinf
 \tV_snprintf
 \tV_sscanf
 \tV_stricmp_fast
 \tV_strlower_fast
 \tV_strspn
+\tV_strtof
+\tV_strtoi32
+\tV_strtoi64
 \tV_strtoui64
 \tV_strupper_fast
 \tV_tand
@@ -4923,33 +5034,16 @@ ZsC
 \tV_vsnprintf
 \tWarning
 \t\f?data@QString@@QEBAPEBVQChar@@XZ
+\t\n_V_ComposeFileName
 \t\t"%s" "%s"\n
 \t\tName = %s, Rule = %i, Enabled = %s\n
-\t\tV_ZSTD_getDictID_fromFrame
 \t\t\t
 \t\t\t"%s" "%s"\n
 \t\t\t"%s" %i\n
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t_MakeGlobalSymbol
-\t_MakeGlobalSymbolCaseSensitive
-\t_V_ComposeFileName
-\t_V_ExtractFileExtension
-\t_V_FileBase
-\t_V_SetExtension
-\t_V_StringAfterPrefix
-\t_V_StringAfterPrefixCaseSensitive
-\t_V_StripExtension
-\t_V_StripLastDir
-\t_V_strEndsWith
-\t_V_strcspn
-\t_V_strncat
-\t_V_strncmp
-\t_V_strncpy
-\t_V_strnicmp_fast
 \tbool = %i\n
 \tcQr
 \tenabled = %s\n
-\tg_Mathlib_GammaToLinearByteTable
 \tkE>fvw
 \tmin = %i, state = %i\n
 \toptions = %i\n
@@ -4957,15 +5051,16 @@ ZsC
 \trule = %i\n
 \tshader "%s.vfx"\n
 \v\f?focusInEvent@QGroupBox@@MEAAXPEAVQFocusEvent@@@Z
-\v\ng_pMemAlloc
+\v\n_V_ExtractFileExtension
 \v\v\v
-\vpdC#
-]\tV_log10f
+]\tV_fpclassifyd
 ^#?([0-9A-Fa-f]{6}|[0-9A-Fa-f]{3})
 ^#?([0-9A-Fa-f]{8}|[0-9A-Fa-f]{6}|[0-9A-Fa-f]{4}|[0-9A-Fa-f]{3})$
 ^RfN>
+^\tV_fprintf
 ^oEZ_
 _Aggregate
+_C:\buildworker\csgo_rel_win64\build\src\vfx\vfxexpr.g
 _Features
 _TIFFMergeFieldInfo
 _TIFFSetupFieldInfo
@@ -4981,10 +5076,10 @@ __FROM_ATTRIBUTE__
 __FeatureToBool__
 __FeatureToFloat__
 __FeatureToInt__
-__FireCursorsParent__
 __GroupName
 __IsValveCQTabbedStyle
 __OperationName
+__RaceCursorsParent__
 __RenderStateLiteral__
 __SET_BY_FEATURE_EQ__
 __SET_BY_FEATURE_NE__
@@ -5005,7 +5100,6 @@ __m_BaseFlow_WhileActive__
 __nElement
 __nRow
 __pascal
-__populated_from_schema_modules
 __ptr64
 __restrict
 __stdcall
@@ -5031,7 +5125,6 @@ _rtx
 _volumeatlas_
 _wjb
 `RTTI
-`\tV_log2f
 `anonymous namespace'
 `copy constructor closure'
 `default constructor closure'
@@ -5069,7 +5162,6 @@ _wjb
 `virtual displacement map'
 a:fulltype
 a:typeparam
-a\tV_logd
 abcdefghijklmnopqrstuvwxyz
 abs
 acceptedColor
@@ -5085,6 +5177,8 @@ allowed_api_features
 allowed_requirements
 alpha
 already connected
+ang
+ang2vec
 angle
 angles
 anyflags
@@ -5110,13 +5204,10 @@ bAccepted
 bChecked
 bCollapsed
 bExpanded
-bIC
 bInherit
-bLB
-bTB
+bRB
 bValue
 bWasAnObservableComputation
-b\tV_logf
 backed_by_variable
 background
 backgroundEnabled
@@ -5132,16 +5223,18 @@ bad function call
 bad locale name
 bad message
 bad partition length
-bbB
 bc7e.dll
 bc7e_compress
 bc7e_init
 bc7e_init_params
 bej
 bentnormal
+bfB
 binary
 binary_blob
+bind_targets
 binding
+bitmap output needs an 8 bit document
 black
 blendStateDesc
 blendindices
@@ -5174,7 +5267,6 @@ broken promise
 buffer
 buffer error
 byteaddressbuffer
-c$xe
 cannot parse filter header
 cannot parse partitions
 cannot parse picture header
@@ -5189,6 +5281,7 @@ change
 channels
 char const* V_stristr_fast(char const*, char const*) (demangled)
 checkstate
+childID
 children
 choice_name
 chunkCount
@@ -5216,18 +5309,19 @@ class <lambda_e0b623a606acfd10554dbddbb0c1a7da> (demangled)
 class <lambda_e7905d7dbd7cab7f9b19199433c4f5d3> (demangled)
 class <lambda_f25c37099038263181b5186a3fa41b37> (demangled)
 class CBaseAppSystem<IToolSystem2> (demangled)
+class CBaseBindTargetDescriptor (demangled)
+class CBaseBindableCommand (demangled)
 class CBaseDynamicWidgetFactory (demangled)
 class CBaseToolSystem2 (demangled)
 class CBaseVModuleMetadataProvider (demangled)
 class CBindTargetDescriptor<CGlobalHotkeyCommands> (demangled)
-class CBindTargetDescriptor<CGlobalHotkeyCommands>::CSpecificTargetBindableCommand (demangled)
-class CBindTargetDescriptorBase (demangled)
-class CBindableCommand (demangled)
+class CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand (demangled)
 class CBufferedErrorLoggingResponsePolicy (demangled)
 class CBufferedLoggingListener (demangled)
 class CCompileTargetExprOpCodeHandler (demangled)
 class CCompileTargetExprStackMachineBuilder (demangled)
 class CDefaultLoggingResponsePolicy (demangled)
+class CDynamicShaderCompileByteCode (demangled)
 class CDynamicWidgetFactory<CQDraggableWidgetList> (demangled)
 class CDynamicWidgetFactory<CQFilteredTreeWidget> (demangled)
 class CDynamicWidgetFactory<CQTreeWidgetWithHover> (demangled)
@@ -5273,6 +5367,7 @@ class CGenericExpr_TernaryConditional (demangled)
 class CGenericExpr_Unary (demangled)
 class CGenericExpr_VariableReference (demangled)
 class CGlobalHotkeyCommands (demangled)
+class CInputBindTargetMetadataProvider (demangled)
 class CInputLayoutRegistration_s_hColoredVertexLayout (demangled)
 class CIntOpEvaluator (demangled)
 class CKV3TransferContextBase (demangled)
@@ -5294,7 +5389,6 @@ class CParallelProcessLauncher::CParallelLambdaJob<`private: void CKMeansCluster
 class CParallelProcessLauncher::CParallelLambdaJob<`protected: bool FloatBitMap_t::WriteToBufferBC7_bc7e(void*, uint64_t, ImageFormat, FloatBitmapEncodeSettings_t const&) const'::`9'::<lambda_1> > (demangled)
 class CParallelProcessLauncher::CParallelLambdaJob<`protected: bool FloatBitMap_t::WriteToBufferBC7_ispctexcomp(void*, uint64_t, ImageFormat, FloatBitmapEncodeSettings_t const&) const'::`9'::<lambda_1> > (demangled)
 class CParallelProcessLauncher::CParallelLambdaJob<`protected: bool FloatBitMap_t::WriteToBufferETC(void*, uint64_t, ImageFormat, FloatBitmapEncodeSettings_t const&) const'::`9'::<lambda_1> > (demangled)
-class CParallelProcessLauncher::CParallelLambdaJob<`void ParallelFor<1, `bool CompileAllShadersForStaticCombo(uint64_t, CVfxStaticComboData&, CVfx&, VfxProgram_t, IVfx*)'::`2'::<lambda_1> >(int, int, char const*, `bool CompileAllShadersForStaticCombo(uint64_t, CVfxStaticComboData&, CVfx&, VfxProgram_t, IVfx*)'::`2'::<lambda_1>&&, int, int, JobPriority_t)'::`12'::<lambda_1> > (demangled)
 class CParallelProcessLauncher::CParallelLambdaJob<`void ParallelFor<1, `bool ImageLoader::ConvertFromBC6h<BGRA8888_t, 1>(unsigned char const*, BGRA8888_t*, int, int)'::`2'::<lambda_1> >(int, int, char const*, `bool ImageLoader::ConvertFromBC6h<BGRA8888_t, 1>(unsigned char const*, BGRA8888_t*, int, int)'::`2'::<lambda_1>&&, int, int, JobPriority_t)'::`12'::<lambda_1> > (demangled)
 class CParallelProcessLauncher::CParallelLambdaJob<`void ParallelFor<1, `bool ImageLoader::ConvertFromBC6h<RGBA16161616F_t, 0>(unsigned char const*, RGBA16161616F_t*, int, int)'::`2'::<lambda_1> >(int, int, char const*, `bool ImageLoader::ConvertFromBC6h<RGBA16161616F_t, 0>(unsigned char const*, RGBA16161616F_t*, int, int)'::`2'::<lambda_1>&&, int, int, JobPriority_t)'::`12'::<lambda_1> > (demangled)
 class CParallelProcessLauncher::CParallelLambdaJob<`void ParallelFor<1, `bool ImageLoader::ConvertFromBC6h<RGBA32323232F_t, 0>(unsigned char const*, RGBA32323232F_t*, int, int)'::`2'::<lambda_1> >(int, int, char const*, `bool ImageLoader::ConvertFromBC6h<RGBA32323232F_t, 0>(unsigned char const*, RGBA32323232F_t*, int, int)'::`2'::<lambda_1>&&, int, int, JobPriority_t)'::`12'::<lambda_1> > (demangled)
@@ -5303,7 +5397,9 @@ class CParallelProcessLauncher::CParallelLambdaJob<`void ParallelFor<1, `bool Im
 class CParallelProcessLauncher::CParallelLambdaJob<`void ParallelFor<1, `bool ImageLoader::ConvertFromBC7<RGBA8888_t>(unsigned char const*, RGBA8888_t*, int, int)'::`2'::<lambda_1> >(int, int, char const*, `bool ImageLoader::ConvertFromBC7<RGBA8888_t>(unsigned char const*, RGBA8888_t*, int, int)'::`2'::<lambda_1>&&, int, int, JobPriority_t)'::`12'::<lambda_1> > (demangled)
 class CParallelProcessLauncher::CParallelLambdaJob<`void ParallelFor<1, `protected: bool FloatBitMap_t::WriteToBufferBC6H_ispctexcomp(void*, uint64_t, FloatBitmapEncodeSettings_t const&) const'::`12'::<lambda_1> >(int, int, char const*, `protected: bool FloatBitMap_t::WriteToBufferBC6H_ispctexcomp(void*, uint64_t, FloatBitmapEncodeSettings_t const&) const'::`12'::<lambda_1>&&, int, int, JobPriority_t)'::`12'::<lambda_1> > (demangled)
 class CParallelProcessLauncher::CParallelLambdaJob<`void ParallelFor<1, `public: `protected: bool FloatBitMap_t::WriteToBufferBC6H_ispctexcomp_highest_quality_tweaked(void*, uint64_t) const'::`2'::<lambda_2>::operator()(void) const'::`2'::<lambda_1> >(int, int, char const*, `public: `protected: bool FloatBitMap_t::WriteToBufferBC6H_ispctexcomp_highest_quality_tweaked(void*, uint64_t) const'::`2'::<lambda_2>::operator()(void) const'::`2'::<lambda_1>&&, int, int, JobPriority_t)'::`12'::<lambda_1> > (demangled)
+class CParallelProcessLauncher::CParallelLambdaJob<`void VfxDynamicShaderCompile(CUtlVector<VfxDynamicShaderCompileTask_t, int, CUtlVectorMemory_Growable<VfxDynamicShaderCompileTask_t, int, 0> >&, IVfx*, IRuntimeShaderCreateCallbacks*, void (*)(int, bool, int))'::`2'::<lambda_1> > (demangled)
 class CPostConnectCallback (demangled)
+class CPsdBufferFile (demangled)
 class CPulseCell_Base (demangled)
 class CPulseCell_BaseFlow (demangled)
 class CPulseCell_BaseRequirement (demangled)
@@ -5329,6 +5425,8 @@ class CPulseCell_Outflow_CycleOrdered (demangled)
 class CPulseCell_Outflow_CycleRandom (demangled)
 class CPulseCell_Outflow_CycleShuffled (demangled)
 class CPulseCell_PickBestOutflowSelector (demangled)
+class CPulseCell_RaceCursors (demangled)
+class CPulseCell_ReturnValues (demangled)
 class CPulseCell_Step_CallExternalMethod (demangled)
 class CPulseCell_Step_DebugLog (demangled)
 class CPulseCell_Step_PublicOutput (demangled)
@@ -5373,6 +5471,7 @@ class CQColorWidget (demangled)
 class CQComboBoxNoWheelFocusStealing (demangled)
 class CQComboSliderWidget (demangled)
 class CQCompiledTextureWidget (demangled)
+class CQCompiledTextureWidget::CMipReadCallback (demangled)
 class CQCompiledTexturesWindow (demangled)
 class CQConnectHelper_int (demangled)
 class CQDecalAttributesWidget (demangled)
@@ -5463,6 +5562,8 @@ class CQWidgetDebuggerTreeItem (demangled)
 class CQWidgetList (demangled)
 class CQWorldMappingWidget (demangled)
 class CQtImageCache (demangled)
+class CRefCountServiceBase<CRefMT> (demangled)
+class CRefCounted<CRefCountServiceBase<CRefMT> > (demangled)
 class CSchemaInstallCallback (demangled)
 class CSchemaRegistration (demangled)
 class CSchemaRegistration_met (demangled)
@@ -5479,7 +5580,6 @@ class CTreeWidgetFilter_Regexp (demangled)
 class CUtlStackMachineBuilder (demangled)
 class CVNotifyErrorForwarder (demangled)
 class CVfxMaterialParamStackMachineBuilder (demangled)
-class CVfxShaderBuffer (demangled)
 class CVfxStackMachineBuilder (demangled)
 class Concurrency::details::_CancellationTokenCallback<<lambda_be3e5d9dce35d2c8dbfa8485373731d5> > (demangled)
 class Concurrency::details::_CancellationTokenRegistration (demangled)
@@ -5525,6 +5625,8 @@ class IPulseInstanceLoadAPI (demangled)
 class IPulseInstanceSaveAPI (demangled)
 class IPulseTypeQueriesForScope (demangled)
 class IQtImageCache (demangled)
+class IReadTexturePixelsCallback (demangled)
+class IRenderReadCallback (demangled)
 class IRenderShaderByteCode (demangled)
 class ISequence (demangled)
 class IShaderReloadListener (demangled)
@@ -5613,24 +5715,14 @@ class `anonymous namespace'::_ExceptionPtr_normal (demangled)
 class `anonymous namespace'::_ExceptionPtr_static<std::bad_alloc> (demangled)
 class `anonymous namespace'::_ExceptionPtr_static<std::bad_exception> (demangled)
 class `public: CAssetSelectionListenerHelper::CAssetSelectionListenerHelper(IAssetSelectionListener*)'::`1'::<lambda_2_> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`10'::<lambda_8> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`11'::<lambda_9> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`12'::<lambda_10> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`13'::<lambda_11> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`14'::<lambda_12> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`15'::<lambda_13> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`16'::<lambda_14> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`17'::<lambda_15> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`3'::<lambda_1> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`4'::<lambda_2> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`5'::<lambda_3> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`6'::<lambda_4> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`7'::<lambda_5> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`8'::<lambda_6> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`9'::<lambda_7> (demangled)
-class `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance (demangled)
+class `public: CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand& CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand::SetFunction<void (CGlobalHotkeyCommands::*)(int, int), int, int>(BindableCommandStage_t, void (CGlobalHotkeyCommands::*)(int, int), int, int)'::`2'::<lambda_1> (demangled)
+class `public: CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand& CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand::SetFunction<void (CGlobalHotkeyCommands::*)(void)>(BindableCommandStage_t, void (CGlobalHotkeyCommands::*)(void))'::`2'::<lambda_1> (demangled)
+class `public: static CBaseBindTargetDescriptor* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance (demangled)
 class `public: void CSOAContainer::FillAttr(int, float)'::`13'::<lambda_1> (demangled)
 class `public: void CSOAContainer::SrgbLinearToGamma(int)'::`9'::<lambda_1> (demangled)
+class psd::Allocator (demangled)
+class psd::File (demangled)
+class psd::MallocAllocator (demangled)
 class std::_Associated_state<int> (demangled)
 class std::_Associated_state<unsigned int> (demangled)
 class std::_Deferred_async_state<unsigned int> (demangled)
@@ -5673,21 +5765,8 @@ class std::_Func_impl_no_alloc<PulseBindingSchemaEnumTraits_t<PulseCursorWakePri
 class std::_Func_impl_no_alloc<PulseBindingSchemaEnumTraits_t<PulseDurationStringFormat_t>::<lambda_1>, CPulseValueFullType> (demangled)
 class std::_Func_impl_no_alloc<PulseBindingSchemaEnumTraits_t<PulseDurationStringFormat_t>::<lambda_2>, unsigned int> (demangled)
 class std::_Func_impl_no_alloc<`public: CAssetSelectionListenerHelper::CAssetSelectionListenerHelper(IAssetSelectionListener*)'::`1'::<lambda_2_>, void, AssetSelectionInfo_t const&> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`10'::<lambda_8>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`11'::<lambda_9>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`12'::<lambda_10>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`13'::<lambda_11>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`14'::<lambda_12>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`15'::<lambda_13>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`16'::<lambda_14>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`17'::<lambda_15>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`3'::<lambda_1>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`4'::<lambda_2>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`5'::<lambda_3>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`6'::<lambda_4>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`7'::<lambda_5>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`8'::<lambda_6>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`9'::<lambda_7>, void, CGlobalHotkeyCommands*> (demangled)
+class std::_Func_impl_no_alloc<`public: CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand& CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand::SetFunction<void (CGlobalHotkeyCommands::*)(int, int), int, int>(BindableCommandStage_t, void (CGlobalHotkeyCommands::*)(int, int), int, int)'::`2'::<lambda_1>, void, CGlobalHotkeyCommands*> (demangled)
+class std::_Func_impl_no_alloc<`public: CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand& CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand::SetFunction<void (CGlobalHotkeyCommands::*)(void)>(BindableCommandStage_t, void (CGlobalHotkeyCommands::*)(void))'::`2'::<lambda_1>, void, CGlobalHotkeyCommands*> (demangled)
 class std::_Func_impl_no_alloc<`public: void CSOAContainer::FillAttr(int, float)'::`13'::<lambda_1>, void> (demangled)
 class std::_Func_impl_no_alloc<`public: void CSOAContainer::SrgbLinearToGamma(int)'::`9'::<lambda_1>, void> (demangled)
 class std::_Func_impl_no_alloc<void (*)(CQBindableCommandPushButton*, CBaseDynamicWidgetFactory::InitContext_t const&), void, CQBindableCommandPushButton*, CBaseDynamicWidgetFactory::InitContext_t const&> (demangled)
@@ -5709,7 +5788,7 @@ class std::_Iostream_error_category2 (demangled)
 class std::_Packaged_state<unsigned int (void)> (demangled)
 class std::_Packaged_state<void (void)> (demangled)
 class std::_Ref_count_base (demangled)
-class std::_Ref_count_obj2<CVfxStaticComboData::DecompressedComboData_t> (demangled)
+class std::_Ref_count_obj2<CQCompiledTextureWidget::CMipReadCallback> (demangled)
 class std::_Ref_count_obj<Concurrency::details::_ExceptionHolder> (demangled)
 class std::_Ref_count_obj<Concurrency::details::_Task_impl<unsigned char> > (demangled)
 class std::_System_error (demangled)
@@ -5750,12 +5829,18 @@ class type_info (demangled)
 clear_group
 clicked
 client.dll
+cmyk document with non 8 bit channels
 collapseStateChanged
 color
 colorSelected
 colors
 colspan
 column
+commands
+composeAngles
+composeTransforms
+composite channel data missing
+composite has too few channels for its color mode
 compressedtangentframe
 compression
 configuration
@@ -5776,6 +5861,7 @@ core
 cos
 cosf
 cosh
+cross
 cross device link
 currentColorChanged
 curvature
@@ -5783,7 +5869,6 @@ custom_colors
 custom_fgd_type
 dQy/
 dRL>
-dWC
 darkColors
 data error
 data height too large.
@@ -5792,9 +5877,7 @@ data width too large.
 dataWindow
 data_height = 
 data_with or data_height too large. data_width: 
-ddB
 dddd, MMMM dd, yyyy
-deB
 debugger_can_create_instance
 decal
 default
@@ -5811,39 +5894,36 @@ device or resource busy
 direct_return_value_for
 directory not empty
 displayWindow
-djC
 dlBNvz!/u{1?cmR^
-dmC
+dmB
 doItemsLayout
 dock
 docked_widget
 domain_scope
+dot
 dot2
 dot3
 dot4
 double
 dpA
-dqA
-dqC
 dqe-KO{/3
-duC
 dummyfilename.tif
+dyB
 dynamicparams
 eEk
 eF>t
 eGn
 eLK(w
 eO@R
+edQ
 edit_context_override
 editor
 editor_canvas_item_spec
-edk
 effortblocks = %d\n
 ehandle
 element
 end_as_info
 end_group
-environmentmapped
 error
 event
 ewh/?y
@@ -5852,6 +5932,8 @@ executable format error
 exp
 exp2
 expect_default_outflow
+expected an integer or the name of a #define
+expected an integer, got "%.*s" ( #define names can be used in combo declarations and rules, but not in FEATURES )
 expected_return_type
 export
 expr
@@ -5861,18 +5943,16 @@ externaldescriptorset
 f5J5J5J5J5J5J5J5J5J5J5J5J5J5J5J5Jx
 fAj
 fD>b
-fOB
+fHB
 fP~V
-fUB
 fValue
 fWi?
-f\tV_modfd
 fabs
 false
 fast
+fdP
 features
 ffValueIn
-fff?+
 field_name
 file error
 file exists
@@ -5880,6 +5960,8 @@ file too large
 filePath
 filename too long
 filter
+fingerprint
+firstrenderstatelement < 0 : i = %d, frse = %d\n
 fixed_height
 fixed_size
 fixed_width
@@ -5930,6 +6012,7 @@ floating point predictor
 floor
 flowing
 fmod
+fmt
 font: 8pt;
 fontfamily
 fontstyle
@@ -5944,6 +6027,7 @@ for strip array
 forcebc3
 foreground
 forever
+fqB
 frac
 frexp
 friendly_name
@@ -5952,121 +6036,12 @@ function not supported
 future
 future already retrieved
 fvP
+fyA
 gBV
 gWu
-g_bFogTypeEnabled
 g_bLayerBlendEnable
 g_bLayerBlendEnable%i
-g_bOtherFxEnabled
-g_bRoughnessParams
-g_bStereoEnabled
-g_bTexCoordScaleByModel
-g_bUseSecondaryUvForDetailTexture
-g_bWrinkleOverride
 g_fl
-g_flDetailNormalStrength
-g_flDetailTexCoordRotation
-g_flDirectionalLightmapMinZ
-g_flDirectionalLightmapStrength
-g_flEnvMapScalar
-g_flFadeExponent
-g_flFarPlane
-g_flFogBlendToBackground
-g_flFogExponent
-g_flFogMaxDensity
-g_flFrame
-g_flHenyeyGreensteinCoeff
-g_flInvFogRange
-g_flLightBinnerFarPlane
-g_flLightMapScalar
-g_flMod2xIdentity
-g_flModelTintAmount
-g_flNearPlane
-g_flNegFogStartOverFogRange
-g_flPad2
-g_flStereoCameraIndex
-g_flTime
-g_flToneMapScalarGamma
-g_flToneMapScalarLinear
-g_flViewportMaxZ
-g_flViewportMinZ
-g_flWindAnimationAmplitudeX
-g_flWindAnimationAmplitudeY
-g_flWindAnimationAmplitudeZ
-g_flWindAnimationRate
-g_flWindAnimationVarianceInSpace
-g_flWrinkleOverride
-g_mVolFogFromWorld
-g_matProjectionToWorld
-g_matViewToProjection
-g_matWorldToProjection
-g_matWorldToProjectionMultiview
-g_matWorldToView
-g_matvCubeFogSkyWsToOs
-g_nScaleTexCoordUByModelScaleAxis
-g_nScaleTexCoordVByModelScaleAxis
-g_sTransformTexture
-g_tTransformTexture
-g_vAoProxyDownres
-g_vCameraAngles
-g_vCameraDirWs
-g_vCameraPositionWs
-g_vCameraPositionWsMultiview
-g_vCameraUpDirWs
-g_vClipPlane0
-g_vColorTint
-g_vCubeFogCullingParams
-g_vCubeFog_Height_Offset_Scale_Exponent_Log2Mip
-g_vCubeFog_Offset_Scale_Bias_Exponent
-g_vDepthPsToVsConversion
-g_vDetailNormalStrengthOffsetScale
-g_vDetailTexCoordOffset
-g_vDetailTexCoordScale
-g_vDetailTexCoordXform
-g_vFogColor
-g_vFrameBufferCopyInvSizeAndUvScale
-g_vGradientFogBiasAndScale
-g_vGradientFogColor_Opacity
-g_vGradientFogCullingParams
-g_vHighPrecisionLightingOffsetWs
-g_vInteractionProjectionOrigin
-g_vInteractionTriggerVolumeInvMins
-g_vInteractionTriggerVolumeWorldToVolumeScale
-g_vInteractionVolumeInvExtents
-g_vInvCMTDims
-g_vInvGBufferSize
-g_vInvProjRow3
-g_vInvViewportSize
-g_vMiddleEyePositionWs
-g_vMorphTextureAtlasSize
-g_vPerViewConstantExtraData0
-g_vPerViewConstantExtraData1
-g_vPerViewConstantExtraData2
-g_vPerViewConstantExtraData3
-g_vPositionKeyFramesInvDim
-g_vRenderTargetSize
-g_vSphericalVignetteBiasAndScale
-g_vSphericalVignetteColor_Opacity
-g_vSphericalVignetteOrigin_Exponent
-g_vTexCoordOffset
-g_vTexCoordScale
-g_vTexCoordScaleByModelU
-g_vTexCoordScaleByModelV
-g_vTexCoordScrollSpeed
-g_vViewportOffset
-g_vViewportSize
-g_vViewportToGBufferRatio
-g_vVolFogDitherScaleBias
-g_vVolFogPostWorldToFrustumBias
-g_vVolFogPostWorldToFrustumScale
-g_vVolFog_VolumeScale_Shift_Near_Range
-g_vWindDirection
-g_vWindStrengthFreqMulHighStrength
-g_vWireframeColor
-g_vWorldToCameraOffset
-g_vWorldToCameraOffsetMultiview
-g_vWrinkleScaleOffset
-g_vXenAnimation
 g_vec
 game/
 game:
@@ -6149,6 +6124,7 @@ game:tools/images/vconsole/appicon_dev.ico
 generic
 generic_node_category
 geometry
+getRelativeTransform
 gqr<
 green
 grid
@@ -6158,41 +6134,41 @@ group_label
 group_options_button
 group_title
 h>1my
-hDA
-hED
-hHB
-hHD
+hGC
+hJD
 hMaterial
+hPD
 hPU3
-hRA
+hSD
 hTarget
-hVD
 hXD
-hYD
-haB
+haE
 has_observable_context
+hbE
 hbox
 hcenter
-hdC
+heE
 header crc mismatch
 header_icon
-hfD
-hiA
 hidden
 hidden_in_tool
-hkR
+hjE
 horizontal differencing 
 horizontalPolicy
 horizontalStretch
 horizontal_header
 horizontal_header_labels
 host unreachable
+hpE
+htE
 hullivr_edge_merge_tan
 hullivr_faceisland_merge_disp
 hullivr_faceisland_merge_tan
 hullivr_version
+hvE
 hwe
-iEJA+
+hyD
+hzD
 iValueIn
 i]Wb
 iak
@@ -6209,11 +6185,13 @@ incorrect data check
 incorrect header check
 incorrect length check
 index
+indexed document with more than 2 channels
+indexed document with no usable palette
+indexed document with non 8 bit indices
 inf
 info
 inheritedVariableSources
 inheritedVariableValues
-inity
 insufficient memory
 int
 int V_UnicodeLength(char const*) (demangled)
@@ -6242,6 +6220,8 @@ invalid string position
 invalid vector subscript
 invalid window size
 invalid_parameter
+inverseRotateVector
+inverseTransformVector
 io error
 ios_base::badbit set
 ios_base::eofbit set
@@ -6261,14 +6241,13 @@ ispc_texcomp.dll
 italic
 j'Vlk
 jAf
-jBC
 jHq
+jVB
 jVg
-jcB
-jlC
+jZB
+jkB
 jpf
 jpg
-jzC
 k;J;J;J;J;J;J;J;J;J;J;J;J;J;J;J;Jx
 k=yI
 kDecalBlood
@@ -6282,13 +6261,7 @@ kdz
 knv
 koi
 l6qnk
-lCA
-lDB
-lDC
 lDa>
-lNB
-lXB
-lXC
 laQ
 lab
 labelPos
@@ -6298,8 +6271,6 @@ layer_shift_down
 layer_shift_up
 ldE
 ldexp
-leC
-leK
 left
 legacy_name_replacement
 legacy_names
@@ -6314,10 +6285,8 @@ lib_6_4
 lifespan
 lineOrder
 lineartogamma
-ljA
 ljw
 lmA
-lnB
 log
 log10
 log2
@@ -6325,10 +6294,8 @@ looks like this:\n\t\t%.*s\n
 loud
 lowprecisionuv
 lowprecisionuv1
-lsC
-ltC
+lvA
 m\nXo
-m\tV_powd
 m_Args
 m_BaseFlow_OnAfterCancel
 m_BaseFlow_WhileActive
@@ -6349,6 +6316,7 @@ m_Context
 m_Curve
 m_DefaultValue
 m_DependentObservableBlackboardReferences
+m_DependentObservableTempVars
 m_DependentObservableVars
 m_Description
 m_DestinationFlowNodeID
@@ -6409,6 +6377,7 @@ m_Registers
 m_RequiredRuntimeType
 m_RequirementNodeIDs
 m_ReturnType
+m_ReturnValues
 m_SequencePoint
 m_SequencePointName
 m_Shuffle
@@ -6422,6 +6391,8 @@ m_TagName
 m_TagValue
 m_TargetEntity
 m_TargetInput
+m_TempVarBanks
+m_TempVars
 m_TimelineEvents
 m_Type
 m_UiName
@@ -6448,6 +6419,7 @@ m_bAllowLayerOverride
 m_bAnd
 m_bCompleteOnNextWake
 m_bConditionValue
+m_bDeferBreak
 m_bDevShader
 m_bEnabled
 m_bFirstEvaluate
@@ -6525,6 +6497,8 @@ m_nAsyncCallMode
 m_nBlackboardIndex
 m_nBlackboardReference
 m_nBlackboardReferenceIdx
+m_nBreakDestChunk
+m_nBreakDestInstruction
 m_nByteCodeDataIdx
 m_nCallInfoIndex
 m_nCellIndex
@@ -6589,6 +6563,8 @@ m_nSortKeySubGroup
 m_nSortKeyVariable
 m_nSrcChunk
 m_nSrcInstruction
+m_nTempVarBank
+m_nTempVarIdx
 m_nTextureAutoFillCount
 m_nType
 m_nTypeSpecificBits
@@ -6643,7 +6619,6 @@ m_type
 m_uiType
 m_vDomainMaxs
 m_vDomainMins
-m_vGradientFogExponents
 m_value
 m_variableDescriptionArray
 m_variableDescriptionVersionHash
@@ -6651,7 +6626,6 @@ m_vec
 m_vecHistory
 m_vsInputSignatureArray
 m_vsInputSignatureIndexArray
-main
 map
 mapped
 mat_reloadshaders\n
@@ -6722,21 +6696,21 @@ models/editor/camera.vmdl
 modes
 modf
 monitor_pid
-mtj
 must be either LogLUV or LogL
 n$Kx
 n03>Pu
 nAlpha
-nBB
 nColumn
 nCount
 nCursorID
 nDelayInMS
 nDenominator
+nEB
 nEditorID
 nFirst
 nFormat
 nIndex
+nKB
 nKillPriority
 nLastValidEntryIdx
 nMax
@@ -6749,16 +6723,16 @@ nRemainderDigits
 nRemainderNoiseDigits
 nRetiredAtNodeID
 nRow
+nSB
 nSecond
 nSliderAction
 nSpawnNodeID
-nTC
 nTabIndex
 nToolId
 nTries < 10000000
 nValue
 nWakePriority
-n\tV_powf
+nYB
 n]?iJ
 name
 nan
@@ -6772,9 +6746,10 @@ network reset
 network unreachable
 newColor
 newValue
-niC
+niB
 no buffer space
 no child process
+no composite (not saved with Maximize Compatibility)
 no link
 no lock available
 no memory during frame initialization.
@@ -6788,7 +6763,6 @@ no such device
 no such device or address
 no such file or directory
 no such process
-noC
 nocompress
 node_name
 nolod
@@ -6805,8 +6779,8 @@ not connected
 not enough memory
 not supported
 notepad.exe
-nqC
-nsB
+nrA
+nrB
 nuS
 null
 null VP8Io passed to VP8GetHeaders()
@@ -6815,7 +6789,6 @@ o KPBf
 o?GS
 oI>O7
 oY.o<
-o\tV_qsort
 obwQ4
 offsetDelta
 onI
@@ -6836,51 +6809,52 @@ origin
 originalColor
 owM&
 owner dead
+p%E
+p>uX0
 pAction
+pBB
+pBE
 pCheckpointName
 pCurrentFocusWidget
 pDescription
 pEvent
-pFD
 pFilter
 pFx
-pID
+pGC
+pGE
+pHE
 pItem
+pJD
 pKD
 pMessage
 pMouseEvent
 pOC
+pPD
 pPrevFocusWidget
+pSD
 pTagName
 pTq
-pUE
-pVD
-pWD
 pWheelEvent
-pXA
 pXD
-pYD
-p\tV_qsort_s
+pXE
+paB
 param
 particle_debug_creation_filter
 particlesystem
 pass %u\n
 paste
-pdC#
+pcE
 permission denied
 pet_preview_gravity
 pet_preview_underwater
 pet_preview_wind
-pfD
 pfm
-phD
+phE
 pickedColor
 pixelAspectRatio
-pjE
-plD
-pmC
-pnD
+pkC
 png
+poE
 polymorphic_arg
 polymorphic_dependent_arg
 position
@@ -6891,6 +6865,7 @@ private: TSLNodeBase_t* CTSListBase::InternalPop(void) (demangled)
 private: bool QWidget::testAttribute_helper(Qt::WidgetAttribute) const (demangled)
 private: static QMetaObject::Connection QObject::connectImpl(QObject const*, void**, QObject const*, void**, QtPrivate::QSlotObjectBase*, Qt::ConnectionType, int const*, QMetaObject const*) (demangled)
 private: static QTypedArrayData<unsigned short>* QString::fromAscii_helper(char const*, int) (demangled)
+private: static void QTimer::singleShotImpl(int, Qt::TimerType, QObject const*, QtPrivate::QSlotObjectBase*) (demangled)
 private: virtual void QListWidget::setModel(QAbstractItemModel*) (demangled)
 private: virtual void QTableWidget::setModel(QAbstractItemModel*) (demangled)
 private: virtual void QTreeWidget::setModel(QAbstractItemModel*) (demangled)
@@ -7402,10 +7377,10 @@ protected: void CUtlBuffer::SetOverflowFuncs(bool (CUtlBuffer::*)(int), bool (CU
 protected: void QAbstractItemView::scheduleDelayedItemsLayout(void) (demangled)
 protocol error
 protocol not supported
+psE
 psd
 pseudo-
 pszPath
-puB
 public: CCountedStringPool_CI::CCountedStringPool_CI(void) (demangled)
 public: CDirTreeWatchManager::CDirTreeWatchManager(unsigned int) (demangled)
 public: CDirTreeWatchManager::~CDirTreeWatchManager(void) (demangled)
@@ -7554,6 +7529,7 @@ public: QIcon::QIcon(QPixmap const&) (demangled)
 public: QIcon::QIcon(QString const&) (demangled)
 public: QIcon::QIcon(void) (demangled)
 public: QIcon::~QIcon(void) (demangled)
+public: QImage QImage::scaled(QSize const&, Qt::AspectRatioMode, Qt::TransformationMode) const (demangled)
 public: QImage QImage::scaled(int, int, Qt::AspectRatioMode, Qt::TransformationMode) const (demangled)
 public: QImage QImageReader::read(void) (demangled)
 public: QImage QPixmap::toImage(void) const (demangled)
@@ -7654,6 +7630,7 @@ public: QPoint QMouseEvent::pos(void) const (demangled)
 public: QPoint QPointF::toPoint(void) const (demangled)
 public: QPoint QRect::center(void) const (demangled)
 public: QPoint QWidget::mapFromGlobal(QPoint const&) const (demangled)
+public: QPoint QWidget::mapTo(QWidget const*, QPoint const&) const (demangled)
 public: QPoint QWidget::mapToGlobal(QPoint const&) const (demangled)
 public: QPoint QWidget::pos(void) const (demangled)
 public: QPolygon::QPolygon(void) (demangled)
@@ -7857,6 +7834,7 @@ public: bool CUtlBuffer::CheckArbitraryPeekGet(int, int&) (demangled)
 public: bool CUtlBuffer::Get(void*, int) (demangled)
 public: bool CUtlString::IsEqual_CaseSensitive(char const*) const (demangled)
 public: bool CUtlString::IsEqual_FastCaseInsensitive(char const*) const (demangled)
+public: bool CUtlString::operator==(CBufferString const&) const (demangled)
 public: bool CUtlString::operator==(CUtlString const&) const (demangled)
 public: bool KeyValues::IsEqual(KeyValues*) (demangled)
 public: bool KeyValues::LoadFromBuffer(char const*, CUtlBuffer&, IFileSystem*, char const*, bool (*)(char const*, void*), IKeyValuesErrorSpew*, void*, char const*) (demangled)
@@ -8020,6 +7998,7 @@ public: int QTreeWidgetItem::childCount(void) const (demangled)
 public: int QTreeWidgetItem::columnCount(void) const (demangled)
 public: int QVariant::toInt(bool*) const (demangled)
 public: int QVariant::userType(void) const (demangled)
+public: int QWidget::y(void) const (demangled)
 public: int64_t QElapsedTimer::elapsed(void) const (demangled)
 public: static CUtlString CUtlString::PathJoin(char const*, char const*) (demangled)
 public: static CUtlString const& CUtlString::GetEmptyString(void) (demangled)
@@ -8109,6 +8088,7 @@ public: static int QMessageBox::question(QWidget*, QString const&, QString const
 public: static int QMessageBox::warning(QWidget*, QString const&, QString const&, QMessageBox::StandardButton, QMessageBox::StandardButton) (demangled)
 public: static int QMetaType::registerNormalizedType(QByteArray const&, void (*)(void*), void* (*)(void*, void const*), int, QFlags<QMetaType::TypeFlag>, QMetaObject const*) (demangled)
 public: static int QMetaType::registerNormalizedTypedef(QByteArray const&, int) (demangled)
+public: static void (* VProfScopeHelper<0, 0>::EnterScopeInternalBudgetFlags(char const*, VProfBudgetGroupCallSite&, CUtlSourceLocation const&))(void) (demangled)
 public: static void KeyValues::operator delete(void*) (demangled)
 public: static void QApplication::beep(void) (demangled)
 public: static void QArrayData::deallocate(QArrayData*, uint64_t, uint64_t) (demangled)
@@ -8806,6 +8786,7 @@ public: void QLayoutItem::setAlignment(QFlags<Qt::AlignmentFlag>) (demangled)
 public: void QLineEdit::editingFinished(void) (demangled)
 public: void QLineEdit::returnPressed(void) (demangled)
 public: void QLineEdit::selectAll(void) (demangled)
+public: void QLineEdit::setClearButtonEnabled(bool) (demangled)
 public: void QLineEdit::setCursorPosition(int) (demangled)
 public: void QLineEdit::setPlaceholderText(QString const&) (demangled)
 public: void QLineEdit::setReadOnly(bool) (demangled)
@@ -8890,6 +8871,7 @@ public: void QPainter::setPen(Qt::PenStyle) (demangled)
 public: void QPainter::setRenderHint(QPainter::RenderHint, bool) (demangled)
 public: void QPainterPath::lineTo(double, double) (demangled)
 public: void QPainterPath::moveTo(double, double) (demangled)
+public: void QPalette::setColor(QPalette::ColorGroup, QPalette::ColorRole, QColor const&) (demangled)
 public: void QPalette::setColor(QPalette::ColorRole, QColor const&) (demangled)
 public: void QPen::setColor(QColor const&) (demangled)
 public: void QPen::setWidth(int) (demangled)
@@ -9043,6 +9025,7 @@ public: void QWidget::setFocusPolicy(Qt::FocusPolicy) (demangled)
 public: void QWidget::setFont(QFont const&) (demangled)
 public: void QWidget::setForegroundRole(QPalette::ColorRole) (demangled)
 public: void QWidget::setGeometry(QRect const&) (demangled)
+public: void QWidget::setGeometry(int, int, int, int) (demangled)
 public: void QWidget::setLayout(QLayout*) (demangled)
 public: void QWidget::setMaximumHeight(int) (demangled)
 public: void QWidget::setMaximumSize(int, int) (demangled)
@@ -9072,6 +9055,7 @@ public: void const* QVariant::constData(void) const (demangled)
 public: void* CUtlScratchMemoryPool::AllocAligned(int, int) (demangled)
 public: void** QListData::append(void) (demangled)
 public: void** QListData::begin(void) const (demangled)
+pulse_cursor_infinite_loop_detection_threshold
 pulse_feature_tag
 pulse_inflows
 pulse_inparams
@@ -9083,15 +9067,16 @@ pulse_save_execution_history
 pulse_save_execution_history_limit
 pulse_system.dll
 purecall
-pwA
+pyD
+pzD
+pzE
 qS>g?h3
 qTp
 qVJ
 qangle
 quiet
 quit\n
-rFC
-rZC
+rAB
 r\tVr.>T
 r_freezeparticles
 r_limit_particle_job_duration
@@ -9105,6 +9090,7 @@ random_position
 range check failure
 rasterizerStateDesc
 read only file system
+read past end of file (truncated/corrupt)
 readonly_expr
 rebuild_propertyeditor_on_change
 rect
@@ -9125,6 +9111,9 @@ retval
 right
 root
 rotate2d
+rotateVector
+rotateVectorToLocal
+rotateVectorToWorld
 rotation2d
 round
 row
@@ -9141,8 +9130,6 @@ rwtexture1darray
 rwtexture2d
 rwtexture2darray
 rwtexture3d
-ryC
-rzB
 s5J5J5J5J5J5J5J5J5J5J5J5J5J5J5J5Jx
 sAmTb
 sHF'
@@ -9160,7 +9147,6 @@ samplerstateindex
 saturate
 sbh
 scanline
-scope_to_dependency_name
 screenWindowCenter
 screenWindowWidth
 script
@@ -9171,6 +9157,7 @@ selected
 selector_has_specificity
 self
 separator
+seqPoint
 server.dll
 setMaximum
 setMinimum
@@ -9197,7 +9184,6 @@ sliderReleased
 slot
 slow
 smoothstep
-snan)
 source_column
 source_file
 source_file_searchpath
@@ -9207,6 +9193,7 @@ split
 sprite
 sqr
 sqrt
+sqrtf
 stack buffer overrun (/GS failure)
 stacked
 stacked_one
@@ -9216,6 +9203,7 @@ std::pair
 step
 strBindingName
 strCellDesc
+strFormat
 strValue
 stream end
 stream error
@@ -9257,11 +9245,7 @@ suggestion_name
 supported_domains
 suppress_expr
 surfacePropertiesName
-tEB
-tJC
-tNC
-tPC
-tVC
+tXB
 tabStyle
 tabify
 table
@@ -9292,7 +9276,6 @@ tile
 tiles
 time
 timed out
-tjB
 to fetch array of rationals
 to fetch per-sample values
 to fetch strip tag
@@ -9328,15 +9311,16 @@ tools/met/met_tooltips.kv3
 tools_preview
 top
 transform
+transformInverse
+transformVector
+transformVectorToLocal
+transformVectorToWorld
 transparency
 true
-ttB
-tuA
 type
 type_restriction_is_enum_flags
 t|AO
 uUv
-u\tV_roundf
 uint
 uint16
 uint32
@@ -9349,7 +9333,14 @@ unknown
 unknown compression method
 unknown error
 unknown header flags set
+unknown reason
 unnamed_%2.2d
+unsupported bits per channel
+unsupported color mode: bitmap
+unsupported color mode: duotone
+unsupported color mode: lab
+unsupported color mode: multichannel
+unsupported color mode: unknown
 untitled(%1).vmat
 untitled.vmat
 updatedColor
@@ -9363,6 +9354,11 @@ vUu
 val
 value
 value too large
+value0
+value1
+value2
+value3
+value4
 value:fulltype
 valueChanged
 valueChangedByEdit
@@ -9373,6 +9369,11 @@ vcenter
 vcs
 vdata_editor
 vdata_outliner_name_expr
+vec
+vec2
+vec2ang
+vec2wvec
+vec4
 vecAncestorCursorIDs
 vecValue
 vecValueA
@@ -9394,7 +9395,7 @@ vfx
 vfx_dx11
 vfx_vulkan
 vfxc
-visible_scopes
+vgB
 vmat
 vmat_prefab
 vmdl
@@ -9417,9 +9418,9 @@ void ConColorMsg(Color const&, char const*, ...) (demangled)
 void FormatArgumentsToBuffer(IFormatOutputStream*, char const*, CTypeErasedFormattingWrapper const*, int) (demangled)
 void ThreadAtomicNotifyAll(unsigned int const*) (demangled)
 void ThreadAtomicNotifyOne(unsigned int const*) (demangled)
-void ThreadAtomicWait(unsigned int volatile*, unsigned int) (demangled)
 void V_SplitString(char const*, char const*, CUtlVector<CUtlString, int, CUtlVectorMemory_Growable<CUtlString, int, 0> >&, bool) (demangled)
 void qBadAlloc(void) (demangled)
+vpB
 vpcf
 vpk:
 vtex
@@ -9427,50 +9428,52 @@ w+OQvr
 w3Xc
 wHk
 wXC
+w\tV_isnand
 waiting_group
 warn
 white
 wn>Jj
+worldTransformInverse
 wrapping
 wrong protocol type
+wvec2vec
+wxform
 wyS]
 x0Ysqx
-xOA
+xGC
+xJD
+xPD
+xSD
 xT?V
-xUA
-xWA
+xWE
 xXD
-xYD
-xhA
-xkR
-xnC
-xqC
+xform
+xiE
+xmE
+xnA
+xnE
 xsA
-xxA
-xyB
+xyD
+xzB
+xzD
 yLM
 yUk
 ycg
 yes
 yields
 z>AlignedByteArray not properly aligned\n
-zCB
 zD(knN
-zUC
-zWB
 zZg
-z\tV_sincosf
-zkB
-zoB
-ztC
+zero sized document
+zuA
+zwA
 { className = 'IsControlFlowNode' }
 { className = 'IsStateNode' item_factory = 'BooleanSwitchState' }
 { className = 'IsWaitNode IsControlFlowNode' item_factory = 'InflowWait' }
 { className='IsControlFlowNode AllOutflowsInSpecialSection IsSelectorNode' create_special_outflows_section=true }
 { item_factory = 'IntervalTimer' }
 { standard_yielding_flow = true }
-{\tV_sind
 {kHw
-|\tV_sinf
+|BUnsupported PSD color mode!\n
 ~CModelInstance destructor: leaking softbody because physics world disappeared\n
 ~}|{zyxwvutsrqponmlkjihgfedcba`_^]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)('&%$#"! 

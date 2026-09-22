@@ -180,11 +180,11 @@ $ORIGIN
 %s allocation count overflow( add %llu + current %llu > max %llu )\n
 %s called on a pool arena (no root available)\n
 %s referencing %d missing resources:\n
-%s | %s:  discarded rule because of invalid criterion %i:  %s\n
+%s | %s: discarded rule because of invalid criterion %i:  %s\n
 %s%20s : %40s %5.3f\n
 %s(token %i) : %s
 %s(token %i, line %i, col %i) : %s\n
-%s/%s:  discarded rule because of invalid criterion %i:  %s\n
+%s/%s: discarded rule because of invalid criterion %i: %s\n
 %s: __pos (which is %zu) > __size (which is %zu)
 %s: __pos (which is %zu) > this->size() (which is %zu)
 %s: allocation of %u too large, max %u\n
@@ -229,6 +229,7 @@ $ORIGIN
 *(std::__cxx11::basic_string<wchar_t, std::char_traits<wchar_t>, std::allocator<wchar_t> > const&) std::__addressof<std::__cxx11::basic_string<wchar_t, std::char_traits<wchar_t>, std::allocator<wchar_t> > const(std::__cxx11::basic_string<wchar_t, std::char_traits<wchar_t>, std::allocator<wchar_t> > const&)> (demangled)
 *(std::__cxx11::basic_string<wchar_t, std::char_traits<wchar_t>, std::allocator<wchar_t> >&) std::__addressof<std::__cxx11::basic_string<wchar_t, std::char_traits<wchar_t>, std::allocator<wchar_t> >(std::__cxx11::basic_string<wchar_t, std::char_traits<wchar_t>, std::allocator<wchar_t> >&)> (demangled)
 +Retiming
+, not matched\n
 , score %4.2f\n
 -+xX0123456789abcdef0123456789ABCDEF
 -+xX0123456789abcdefABCDEF
@@ -238,11 +239,11 @@ $ORIGIN
 /dev/random
 /dev/urandom
 /src/
-888
 < WRITE DEFAULTS >
 <array: %u elements>
 <binary blob: %u bytes>
 <empty member name>
+<externally specified>
 <map_key>
 <map_value>
 <no failure reason set>
@@ -251,6 +252,7 @@ $ORIGIN
 <undefined>
 <unknown KV3 basic type '%s' (%d)>
 <unknown>
+?34IKV3TransferInterface_ResourceLoad
 ???CRR_Response bogus index
 ACK
 AE_CHOREO_LOOP
@@ -272,7 +274,6 @@ AddPage
 Additive
 AlignedByteArray not properly aligned\n
 Alloc
-Anchor
 Anchor Actor
 Anchor Is External
 Anim Clip
@@ -280,7 +281,6 @@ AnimClip Is Looping
 AnimClip Is Public
 AnimClip Public Name
 AnimClips:
-AnimGraph Parameter Controller
 AnimGraphEditorUtils001
 AnimGraphParameters
 AnimGraphValue
@@ -333,6 +333,7 @@ CBaseConcreteToolAttr<CUtlString, CChoreoEvent_GESTURE> (demangled)
 CBaseConcreteToolAttr<CUtlString, CChoreoEvent_INTERRUPT> (demangled)
 CBaseConcreteToolAttr<CUtlString, CChoreoEvent_LOCATOR> (demangled)
 CBaseConcreteToolAttr<CUtlString, CChoreoEvent_LOOKAT> (demangled)
+CBaseConcreteToolAttr<CUtlString, CChoreoEvent_PLAY_RESPONSE> (demangled)
 CBaseConcreteToolAttr<CUtlString, CChoreoEvent_PULSE_REQUIREMENT> (demangled)
 CBaseConcreteToolAttr<CUtlString, CChoreoEvent_SECTION> (demangled)
 CBaseConcreteToolAttr<CUtlString, CChoreoEvent_SEQUENCE> (demangled)
@@ -342,6 +343,7 @@ CBaseConcreteToolAttr<CUtlString, CChoreoScene> (demangled)
 CBaseConcreteToolAttr<ChoreoStrafeMode_t, CChoreoEvent_FACE> (demangled)
 CBaseConcreteToolAttr<HandshakeTagType_t, CChoreoEvent_EXTERNAL_ANIMGRAPH> (demangled)
 CBaseConcreteToolAttr<QAngle, CChoreoEvent_LOCATOR> (demangled)
+CBaseConcreteToolAttr<SharedMovementGait_t, CChoreoEvent_LOCATOR> (demangled)
 CBaseConcreteToolAttr<Vec3D<float>, CChoreoEvent_LOCATOR> (demangled)
 CBaseConcreteToolAttr<bool, CChoreoActor> (demangled)
 CBaseConcreteToolAttr<bool, CChoreoEvent_ANIM_CLIP> (demangled)
@@ -378,6 +380,7 @@ CBaseConcreteToolAttrValue<CUtlString, CChoreoEvent_GESTURE> (demangled)
 CBaseConcreteToolAttrValue<CUtlString, CChoreoEvent_INTERRUPT> (demangled)
 CBaseConcreteToolAttrValue<CUtlString, CChoreoEvent_LOCATOR> (demangled)
 CBaseConcreteToolAttrValue<CUtlString, CChoreoEvent_LOOKAT> (demangled)
+CBaseConcreteToolAttrValue<CUtlString, CChoreoEvent_PLAY_RESPONSE> (demangled)
 CBaseConcreteToolAttrValue<CUtlString, CChoreoEvent_PULSE_REQUIREMENT> (demangled)
 CBaseConcreteToolAttrValue<CUtlString, CChoreoEvent_SECTION> (demangled)
 CBaseConcreteToolAttrValue<CUtlString, CChoreoEvent_SEQUENCE> (demangled)
@@ -387,6 +390,7 @@ CBaseConcreteToolAttrValue<CUtlString, CChoreoScene> (demangled)
 CBaseConcreteToolAttrValue<ChoreoStrafeMode_t, CChoreoEvent_FACE> (demangled)
 CBaseConcreteToolAttrValue<HandshakeTagType_t, CChoreoEvent_EXTERNAL_ANIMGRAPH> (demangled)
 CBaseConcreteToolAttrValue<QAngle, CChoreoEvent_LOCATOR> (demangled)
+CBaseConcreteToolAttrValue<SharedMovementGait_t, CChoreoEvent_LOCATOR> (demangled)
 CBaseConcreteToolAttrValue<Vec3D<float>, CChoreoEvent_LOCATOR> (demangled)
 CBaseConcreteToolAttrValue<bool, CChoreoActor> (demangled)
 CBaseConcreteToolAttrValue<bool, CChoreoEvent_ANIM_CLIP> (demangled)
@@ -502,6 +506,9 @@ CChoreoEvent_LOOP::GetAttributeTable_CChoreoEvent_LOOP(CUtlVector<IBaseToolAttr*
 CChoreoEvent_MOOD (demangled)
 CChoreoEvent_MOOD_BODY (demangled)
 CChoreoEvent_PERMIT_RESPONSES (demangled)
+CChoreoEvent_PLAY_RESPONSE
+CChoreoEvent_PLAY_RESPONSE (demangled)
+CChoreoEvent_PLAY_RESPONSE::GetAttributeTable_CChoreoEvent_PLAY_RESPONSE(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_no_member (demangled)
 CChoreoEvent_PULSE_REQUIREMENT
 CChoreoEvent_PULSE_REQUIREMENT (demangled)
 CChoreoEvent_PULSE_REQUIREMENT::GetAttributeTable_CChoreoEvent_PULSE_REQUIREMENT(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_no_member (demangled)
@@ -541,6 +548,7 @@ CConcreteToolAttr<CUtlString, CChoreoEvent_GESTURE, void> (demangled)
 CConcreteToolAttr<CUtlString, CChoreoEvent_INTERRUPT, void> (demangled)
 CConcreteToolAttr<CUtlString, CChoreoEvent_LOCATOR, void> (demangled)
 CConcreteToolAttr<CUtlString, CChoreoEvent_LOOKAT, void> (demangled)
+CConcreteToolAttr<CUtlString, CChoreoEvent_PLAY_RESPONSE, void> (demangled)
 CConcreteToolAttr<CUtlString, CChoreoEvent_PULSE_REQUIREMENT, void> (demangled)
 CConcreteToolAttr<CUtlString, CChoreoEvent_SECTION, void> (demangled)
 CConcreteToolAttr<CUtlString, CChoreoEvent_SEQUENCE, void> (demangled)
@@ -550,6 +558,7 @@ CConcreteToolAttr<CUtlString, CChoreoScene, void> (demangled)
 CConcreteToolAttr<ChoreoStrafeMode_t, CChoreoEvent_FACE, void> (demangled)
 CConcreteToolAttr<HandshakeTagType_t, CChoreoEvent_EXTERNAL_ANIMGRAPH, void> (demangled)
 CConcreteToolAttr<QAngle, CChoreoEvent_LOCATOR, void> (demangled)
+CConcreteToolAttr<SharedMovementGait_t, CChoreoEvent_LOCATOR, void> (demangled)
 CConcreteToolAttr<Vec3D<float>, CChoreoEvent_LOCATOR, void> (demangled)
 CConcreteToolAttr<bool, CChoreoActor, void> (demangled)
 CConcreteToolAttr<bool, CChoreoEvent_ANIM_CLIP, void> (demangled)
@@ -586,6 +595,7 @@ CConcreteToolAttrGetSet<CUtlString, CChoreoEvent_GESTURE> (demangled)
 CConcreteToolAttrGetSet<CUtlString, CChoreoEvent_INTERRUPT> (demangled)
 CConcreteToolAttrGetSet<CUtlString, CChoreoEvent_LOCATOR> (demangled)
 CConcreteToolAttrGetSet<CUtlString, CChoreoEvent_LOOKAT> (demangled)
+CConcreteToolAttrGetSet<CUtlString, CChoreoEvent_PLAY_RESPONSE> (demangled)
 CConcreteToolAttrGetSet<CUtlString, CChoreoEvent_PULSE_REQUIREMENT> (demangled)
 CConcreteToolAttrGetSet<CUtlString, CChoreoEvent_SECTION> (demangled)
 CConcreteToolAttrGetSet<CUtlString, CChoreoEvent_SEQUENCE> (demangled)
@@ -595,6 +605,7 @@ CConcreteToolAttrGetSet<CUtlString, CChoreoScene> (demangled)
 CConcreteToolAttrGetSet<ChoreoStrafeMode_t, CChoreoEvent_FACE> (demangled)
 CConcreteToolAttrGetSet<HandshakeTagType_t, CChoreoEvent_EXTERNAL_ANIMGRAPH> (demangled)
 CConcreteToolAttrGetSet<QAngle, CChoreoEvent_LOCATOR> (demangled)
+CConcreteToolAttrGetSet<SharedMovementGait_t, CChoreoEvent_LOCATOR> (demangled)
 CConcreteToolAttrGetSet<Vec3D<float>, CChoreoEvent_LOCATOR> (demangled)
 CConcreteToolAttrGetSet<bool, CChoreoActor> (demangled)
 CConcreteToolAttrGetSet<bool, CChoreoEvent_ANIM_CLIP> (demangled)
@@ -642,6 +653,7 @@ CDefaultToolAttrTableForStruct<CChoreoEvent_LOOP> (demangled)
 CDefaultToolAttrTableForStruct<CChoreoEvent_MOOD> (demangled)
 CDefaultToolAttrTableForStruct<CChoreoEvent_MOOD_BODY> (demangled)
 CDefaultToolAttrTableForStruct<CChoreoEvent_PERMIT_RESPONSES> (demangled)
+CDefaultToolAttrTableForStruct<CChoreoEvent_PLAY_RESPONSE> (demangled)
 CDefaultToolAttrTableForStruct<CChoreoEvent_PULSE_REQUIREMENT> (demangled)
 CDefaultToolAttrTableForStruct<CChoreoEvent_REQUIREMENTS> (demangled)
 CDefaultToolAttrTableForStruct<CChoreoEvent_SECTION> (demangled)
@@ -693,7 +705,7 @@ CResponseRulesLegacyTextImporter::LoadFromBuffer:  Unknown entry type '%s', expe
 CResponseRulesTypeManager (demangled)
 CResponseSystem (demangled)
 CResponseSystem:  %s (%i rules, %i criteria, and %i responses)\n
-CResponseSystem:  failed to load %s\n
+CResponseSystem: failed to load %s\n
 CResponseSystem::Compare(char const*, Criteria*, bool)::{lambda(char const*, bool&)#1} (demangled)
 CResponseSystem::LoadFromFile took %f msec
 CST
@@ -730,6 +742,7 @@ CToolAttrGetSetAccess<CUtlString, CChoreoEvent_GESTURE> (demangled)
 CToolAttrGetSetAccess<CUtlString, CChoreoEvent_INTERRUPT> (demangled)
 CToolAttrGetSetAccess<CUtlString, CChoreoEvent_LOCATOR> (demangled)
 CToolAttrGetSetAccess<CUtlString, CChoreoEvent_LOOKAT> (demangled)
+CToolAttrGetSetAccess<CUtlString, CChoreoEvent_PLAY_RESPONSE> (demangled)
 CToolAttrGetSetAccess<CUtlString, CChoreoEvent_PULSE_REQUIREMENT> (demangled)
 CToolAttrGetSetAccess<CUtlString, CChoreoEvent_SECTION> (demangled)
 CToolAttrGetSetAccess<CUtlString, CChoreoEvent_SEQUENCE> (demangled)
@@ -739,6 +752,7 @@ CToolAttrGetSetAccess<CUtlString, CChoreoScene> (demangled)
 CToolAttrGetSetAccess<ChoreoStrafeMode_t, CChoreoEvent_FACE> (demangled)
 CToolAttrGetSetAccess<HandshakeTagType_t, CChoreoEvent_EXTERNAL_ANIMGRAPH> (demangled)
 CToolAttrGetSetAccess<QAngle, CChoreoEvent_LOCATOR> (demangled)
+CToolAttrGetSetAccess<SharedMovementGait_t, CChoreoEvent_LOCATOR> (demangled)
 CToolAttrGetSetAccess<Vec3D<float>, CChoreoEvent_LOCATOR> (demangled)
 CToolAttrGetSetAccess<bool, CChoreoActor> (demangled)
 CToolAttrGetSetAccess<bool, CChoreoEvent_ANIM_CLIP> (demangled)
@@ -763,6 +777,7 @@ CToolAttrGetSetAccess<int, CChoreoEvent_BaseLocalEvent> (demangled)
 CToolAttrGetSetAccess<int, CChoreoEvent_LOOP> (demangled)
 CToolEditContextQuery_Base (demangled)
 CToolEditContextQuery_String (demangled)
+CURVE_TANGENT_FLAT
 CURVE_TANGENT_FREE
 CURVE_TANGENT_LINEAR
 CURVE_TANGENT_MIRROR
@@ -828,7 +843,6 @@ CVertexKDTree::BuildMidpoint(float const*, int, int) (demangled)
 CVertexKDTree::BuildMidpointFromVertexSubSet(float const*, int, int const*, int) (demangled)
 CVertexKDTree::FindVertsInBox(CUtlVectorFixedGrowable<float const*&, (unsigned long)64, int>, Vec3D<float> const&, Vec3D<float> const&, int) const (demangled)
 CVertexKDTree::Nearest(Vec3D<float> const&, CUtlVectorFixedGrowable<float const*&, (unsigned long)64, int>) const (demangled)
-Call Pulse
 Cast of %s loses value information (returning %s)\n
 Catmull-Rom
 Catmull-Rom (Norm X)
@@ -851,10 +865,13 @@ Comment
 Complexity of regex match exceeded implementation limits
 ComputeMatcher(Criteria*, CResponseSystem*)::{lambda(char const*, bool&)#1} (demangled)
 Concept
+Concept Name
 Conflicting regex grammar options
 Copy Unbound Params From Actor
 Couldn't load KV3 for resource: %s
 CreateInterface
+Criteria
+Criteria Key/Value(s)
 DEFAULT
 DEL
 DISABLE
@@ -883,7 +900,6 @@ Dynamic Actor
 EET
 ENABLE
 ENQ
-ENTITYIO
 EOT
 ERROR: CUtlSymbolTableLarge element limit of %u exceeded\n
 ESC
@@ -926,7 +942,6 @@ External Animgraph
 External Animgraph Control
 External Graph: %s
 ExtractModuleMetadata
-FIRE token in response needs exactly three parameters.
 Face %s
 Face Actor
 FaceposerSectionPause
@@ -946,13 +961,15 @@ Facial Animation
 Failed to allocate an instance of a class of type '%s'
 Failed to apply FLC data to resource '%s': %s\n
 Failed to save unsupported class
+Fast
 Feb
 February
-Fire Entity I/O
+FindCriterionIndex
 Fixed Length
 FixedLength
 FixupResourceName: Illegal full path passed in ("%s")!\n
 FixupResourceName: Illegal path, missing extension passed in ("%s")!\n
+Flat
 FlattenedSerializersVersion001
 FoliageAnimation
 FontManager_001
@@ -980,6 +997,7 @@ GLIBC_2.3
 GLIBC_2.3.2
 GMT
 GNU
+Gait Override
 GameResourceServiceClientV001
 GameResourceServiceServerV001
 GameUIService_001
@@ -1019,7 +1037,6 @@ IFormatOutputStream::FormatMaskHelper(int, std::initializer_list<std::pair<int, 
 IFormatOutputStream::OutputIndentation() (demangled)
 IFormatOutputStream::PutRepeatedChar(char, int) (demangled)
 IKV3TransferInterface_ResourceLoad
-IKV3TransferInterface_ResourceLoad (demangled)
 IKV3TransferInterface_ResourceSave
 IPulseSystem_001
 IResourceTypeManager (demangled)
@@ -1032,6 +1049,7 @@ IToolAttrConcreteDataAccess<CUtlString> (demangled)
 IToolAttrConcreteDataAccess<ChoreoStrafeMode_t> (demangled)
 IToolAttrConcreteDataAccess<HandshakeTagType_t> (demangled)
 IToolAttrConcreteDataAccess<QAngle> (demangled)
+IToolAttrConcreteDataAccess<SharedMovementGait_t> (demangled)
 IToolAttrConcreteDataAccess<Vec3D<float> > (demangled)
 IToolAttrConcreteDataAccess<bool> (demangled)
 IToolAttrConcreteDataAccess<float> (demangled)
@@ -1041,6 +1059,7 @@ IToolAttr_TypedValue<CUtlString> (demangled)
 IToolAttr_TypedValue<ChoreoStrafeMode_t> (demangled)
 IToolAttr_TypedValue<HandshakeTagType_t> (demangled)
 IToolAttr_TypedValue<QAngle> (demangled)
+IToolAttr_TypedValue<SharedMovementGait_t> (demangled)
 IToolAttr_TypedValue<Vec3D<float> > (demangled)
 IToolAttr_TypedValue<bool> (demangled)
 IToolAttr_TypedValue<float> (demangled)
@@ -1049,8 +1068,11 @@ IToolAttr_Value (demangled)
 IToolsResourceListener (demangled)
 IUndoable (demangled)
 If left empty, will default to the owner entity of this scene, meaning that the relative position will actually be the world position
+If set, replaces manually-authored Relative Position/Orientation with world_OFFSET bone from the first frame of the specified clip. The offset is re-extracted from the clip as needed - it will track changes to the clip. (When active, shows the extracted values for relative position & orientation.)
+If true, the entity will be immediately moved to the destination
 If true, then this anchor will be exposed externally to the entity that owns this VCD
 Ignore External Lookats
+Ignore the lipsync data compiled into the vsnd, both embedded morph animation and phonemes.  Doesn't affect flex animation channels in the scene. NOTE: Requires mod specific support in game, see CChoreoComponent::IsLipsyncSuppressedForSound()
 Inert VModuleMetadata
 InputService_001
 InputStackSystemVersion001
@@ -1140,6 +1162,7 @@ LoopPlaybackRate
 MATCHFRAMEWORK_001
 MAX_RESPONSE_NAME
 MAX_RULE_NAME
+MAlternateSemanticName
 MGetKV3ClassDefaults
 MNotSaved
 MODEL_PROCESSING_SERVICES_INTERFACE_001
@@ -1157,6 +1180,7 @@ MaterialUtils_001
 Max Eye Weight
 Max Head Weight
 May
+Medium
 MemAlloc_AllocFunc
 MemAlloc_FreeFunc
 MemAlloc_StrDupFunc
@@ -1176,6 +1200,7 @@ Mood Body: %s
 Mood: %s
 MoodName
 Moods File
+Move To %s
 Movement
 Msg
 Multiple definitions for criteria '%s' [%u]\n
@@ -1211,11 +1236,11 @@ OverlayProjectionDirection
 POSIX
 PRINT
 PST
-PULSE
 PanoramaTextServices001
 PanoramaUIClient001
 PanoramaUIEngine001
 ParallelForSharedCode
+Parameter [%s=%s] 
 ParticleSystemMgr003
 Pause
 PerVertexLighting
@@ -1244,7 +1269,6 @@ PostProcessingSystem_001
 Print (for prototyping)
 PropWorldOrigin
 PropertyEditorSystem_001
-Public Graph: %s
 Public: %s
 Pulse Requirement
 Pulse Requirement Name
@@ -1253,10 +1277,8 @@ RESOURCE_TYPE_CHOREO_SCENE
 RESOURCE_TYPE_RESPONSE_RULES_LIST
 RESPONSE
 RESPONSEDOC_LIB
-RESPONSE_ENTITYIO
 RESPONSE_NONE
 RESPONSE_PRINT
-RESPONSE_PULSE
 RESPONSE_RESPONSE
 RESPONSE_RULES
 RESPONSE_SCENE
@@ -1278,8 +1300,7 @@ RenderDeviceMgr001
 RenderHardwareConfig002
 RenderService_001
 RenderUtils_001
-Req:Locator
-Requirements
+Requirements m_linkedEventIDs[%d] m_bWaitUntilEnd[%s] 
 Reset On End
 ResourceCompilerSystem001
 ResourceHandleUtils001
@@ -1334,12 +1355,17 @@ SerializedEntitiesVersion001
 ServerToolsInfo_001
 SetAnimClipByName
 SetExternalAnimgraphResource
+SetWorldOffsetReferenceClipByName
+SharedMovementGait_t
+Should Teleport
 Should we straighten face island if the displacement is this much? (inches)
 Should we try to straighten an island of faces deviating from their average normal (tangent)?
 Should we try to straighten two faces connected to this edge? (tangent)
 Simple Cubic
 SimplePlaybackRate
 Sine
+Slow
+SmartPropsSystem_001
 Sound Event
 SoundDelayOrSkip
 SoundEvent
@@ -1497,6 +1523,8 @@ Strafe Mode
 StrafeMode
 Sun
 Sunday
+Suppress Lipsync
+SuppressLipsync
 Sync Cycle To Time
 Sync Exit tag to next gesture Entry tag
 SyncToFollowingGesture
@@ -1514,6 +1542,7 @@ TanFrameQuat
 TargetCastForModify
 Task
 Task/Action handshake.
+Teleport to %s
 TestScriptMgr001
 TextBlock()
 TextLayout_001
@@ -1643,6 +1672,7 @@ V_frexpf
 V_isEntirelyWhitespace
 V_isnand
 V_logf
+V_modff
 V_powd
 V_powf
 V_qsort
@@ -1665,6 +1695,7 @@ VertexGenericIntegerData
 VertexPaintBlendParams
 VertexPaintBlendParams1
 VertexPaintTintColor
+VeryFast
 VisBuilder_001
 Volume Matches Event Ramp
 VolumeMatchesRamp
@@ -1676,10 +1707,14 @@ Wants Handshake
 Warning
 Wed
 Wednesday
+World Offset Reference Clip
 World contexts: '%s', 
+WorldOffsetReferenceClip
 WorldRendererMgr001
+Yes
 [abi:
 [friend]
+[unknown]
 \nFailed to save %s\n
 \nFailed to upconvert %s\n
 _CustomCommand
@@ -2445,7 +2480,6 @@ array
 asterisk
 auto
 auto:
-bFired
 backslash
 backspace
 bad_function_call
@@ -2637,6 +2671,7 @@ char const*() std::__timepunct<char>::_M_am_pm_format() const (demangled)
 char const*() std::basic_string_view<char, std::char_traits<char> >::base object constructor() (demangled)
 char const*() std::basic_string_view<char, std::char_traits<char> >::complete object constructor() (demangled)
 char const*() std::char_traits<char>::length() (demangled)
+char const*(CUtlSourceLocation const&) VProfScopeHelper<(int)3, (bool)0>::EnterScopeInternal(CUtlSourceLocation const&) (demangled)
 char const*(char const*) std::__cxx11::collate<char>::_M_compare(char const*) const (demangled)
 char const*(char const*) std::__cxx11::collate<char>::do_hash(char const*) const (demangled)
 char const*(char const*) std::__cxx11::collate<char>::do_transform(char const*) const (demangled)
@@ -2840,6 +2875,7 @@ construction vtable for
 copy_unbound_params_from_actor
 covariant return thunk to 
 criteria
+criteriaset.cpp
 criterion
 curvature
 curve_
@@ -2883,6 +2919,12 @@ double () std::basic_ostream<wchar_t, std::char_traits<wchar_t> >::<<() (demangl
 double&() std::basic_istream<wchar_t, std::char_traits<wchar_t> >::>>() (demangled)
 dynamic_actor
 dynamic_cast
+eCount
+eFast
+eInvalid
+eMedium
+eSlow
+eVeryFast
 easein
 easeinout
 easeout
@@ -2915,10 +2957,8 @@ face
 faceposer
 faceposermodel
 failed
-failed (+exclude rule)
 false
 fast
-fire
 firetrigger
 five
 fixedlength
@@ -2939,9 +2979,6 @@ float64
 followup_concept
 followup_contexts
 followup_delay
-followup_entityiodelay
-followup_entityioinput
-followup_entityiotarget
 followup_target
 form-feed
 four
@@ -2958,6 +2995,7 @@ g_nSequentialIndices<float> (demangled)
 g_nSequentialIndices<int> (demangled)
 g_pMemAlloc
 g_pThreadPool
+gait_override
 generic
 gesture
 getentropy
@@ -3187,7 +3225,6 @@ m_bMatchOnce
 m_bNoRepeat
 m_bNoScene
 m_bOverrideOnAppend
-m_bRequired
 m_bSequential
 m_bSpeakOnce
 m_bStopOnNonIdle
@@ -3214,21 +3251,19 @@ m_flWeight
 m_freeVariableValues
 m_hAnimClip
 m_hRoot
+m_hWorldOffsetReferenceClip
 m_handle
 m_iNode
-m_input
 m_matchExpr
 m_matchKey
 m_nIncomingTangent
 m_nLoopCount
-m_nNumPrefixedContexts
 m_nOutgoingTangent
 m_name
 m_notes
 m_odds
 m_pConceptFollowup
 m_pEmbeddedRule
-m_pEntityIOFollowup
 m_pFollowup
 m_pResponseFollowup
 m_params
@@ -3333,10 +3368,11 @@ permitresponses
 phys_res
 playback_time
 playoverscript
+playresponse
 plus-sign
 position
 position_relative
-posix_memalign
+post_requirement_duration
 posxyz
 predelay
 print
@@ -3420,6 +3456,7 @@ shifted_time
 short
 short () std::basic_ostream<wchar_t, std::char_traits<wchar_t> >::<<() (demangled)
 short&() std::basic_istream<wchar_t, std::char_traits<wchar_t> >::>>() (demangled)
+should_teleport
 show_vcd_file
 signed char
 simple_cubic
@@ -3775,14 +3812,12 @@ std::__detail::_CharMatcher<std::regex_traits<char>, true, true> (demangled)
 std::__detail::_Executor<char const*(long), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)0>::_M_dfs::_Match_mode std::__detail::_Executor<char const*(long), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)0>::_M_dfs (demangled)
 std::__detail::_Executor<char const*(long), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)0>::_M_handle_alternative::_Match_mode std::__detail::_Executor<char const*(long), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)0>::_M_handle_alternative (demangled)
 std::__detail::_Executor<char const*(long), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)0>::_M_handle_backref::_Match_mode std::__detail::_Executor<char const*(long), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)0>::_M_handle_backref (demangled)
-std::__detail::_Executor<char const*(long), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)0>::_M_handle_repeat::_Match_mode std::__detail::_Executor<char const*(long), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)0>::_M_handle_repeat (demangled)
 std::__detail::_Executor<char const*(long), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)0>::_M_handle_word_boundary::_Match_mode std::__detail::_Executor<char const*(long), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)0>::_M_handle_word_boundary (demangled)
 std::__detail::_Executor<char const*(long), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)0>::_M_rep_once_more::_Match_mode std::__detail::_Executor<char const*(long), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)0>::_M_rep_once_more (demangled)
 std::__detail::_Executor<char const*(long), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)1>::_M_dfs::_Match_mode std::__detail::_Executor<char const*(long), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)1>::_M_dfs (demangled)
 std::__detail::_Executor<char const*(long), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)1>::_M_handle_backref::_Match_mode std::__detail::_Executor<char const*(long), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)1>::_M_handle_backref (demangled)
 std::__detail::_Executor<char const*(long), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)1>::_M_rep_once_more::_Match_mode std::__detail::_Executor<char const*(long), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)1>::_M_rep_once_more (demangled)
 std::__detail::_State<char>() std::__detail::_NFA<std::regex_traits<char> >::_M_insert_state() (demangled)
-std::__detail::_StateSeq<std::regex_traits<char> > const&() std::deque<std::__detail::_StateSeq<std::regex_traits<char> >(), std::allocator<std::__detail::_StateSeq<std::regex_traits<char> > > >::push_back (demangled)
 std::__facet_shims::(anonymous namespace)::collate_shim<char> (demangled)
 std::__facet_shims::(anonymous namespace)::collate_shim<wchar_t> (demangled)
 std::__facet_shims::(anonymous namespace)::messages_shim<char> (demangled)
@@ -5315,6 +5350,7 @@ strrchr
 strstr
 strtold_l
 strtoul
+suppresslipsync
 synctofollowinggesture
 syscall
 system
@@ -7330,6 +7366,7 @@ wmemcmp
 wmemcpy
 wmemmove
 wmemset
+world_OFFSET
 xdigit
 zero
 zero_value

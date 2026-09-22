@@ -1,0 +1,26 @@
+<!-- xml reconstructed by Source 2 Viewer 19.2.0.0 - https://valveresourceformat.github.io -->
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/csgostyles.vcss" />
+		<include src="s2r://panorama/styles/mainmenu.vcss" />
+		<include src="s2r://panorama/styles/context_menus/context_menu_color_picker.vcss" />
+	</styles>
+	<scripts>
+		<include src="s2r://panorama/scripts/context_menus/context_menu_color_picker.vts" />
+	</scripts>
+	<Panel class="id-context-menu-color-picker" onload="ContextMenuColorPicker.Init()" oncancel="ContextMenuColorPicker.OnClose" acceptsfocus="true">
+		<Panel id="JsContextMenuSections" class="context-menu-color-picker">
+			<CSColorPicker id="id-color-picker" />
+		</Panel>
+		<Panel class="context-menu-btn-bar">
+			<Panel class="horizontal-align-right left-right-flow">
+				<Button id="id-color-picker-cancel" class="content-navbar__tabs__btn">
+					<Label text="#Store_CANCEL" />
+				</Button>
+				<Button id="id-color-picker-set" class="content-navbar__tabs__btn">
+					<Label text="#SFUI_Accept" />
+				</Button>
+			</Panel>
+		</Panel>
+	</Panel>
+</root>

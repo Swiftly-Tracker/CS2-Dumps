@@ -402,6 +402,16 @@
 							display_group = "advanced"
 						}
 					}
+					ambient_position_override = 
+					{
+						data_type = "int"
+						value = "-1"
+						_system_properties = 
+						{
+							display_group = "normal"
+							property_group = "Position"
+						}
+					}
 					use_world_position = 
 					{
 						data_type = "bool"
@@ -964,22 +974,24 @@
 							display_group = "advanced"
 						}
 					}
-					input_field3 = 
+					use_ambient_entity_position = 
 					{
 						value = "0.0"
-						data_type = "float"
+						data_type = "bool"
 						_system_properties = 
 						{
-							display_group = "advanced"
+							display_group = "normal"
+							property_group = "Position"
 						}
 					}
-					input_field4 = 
+					ambient_entity_name = 
 					{
-						value = "0.0"
-						data_type = "float"
+						value = ""
+						data_type = "string"
 						_system_properties = 
 						{
-							display_group = "advanced"
+							display_group = "normal"
+							property_group = "Position"
 						}
 					}
 					input_field5 = 
@@ -1125,6 +1137,16 @@
 						{
 							property_group = "Suppression"
 						}
+					}
+					input_field1 = 
+					{
+						value = "0.0"
+						data_type = "float"
+					}
+					input_field2 = 
+					{
+						value = "0.0"
+						data_type = "float"
 					}
 				}
 			},
@@ -1357,11 +1379,38 @@
 				input2 = "@uiposition_up.output"
 			},
 			{
-				name = "final_position"
+				name = "computed_position"
 				operator = "math_float3"
 				apply = "add"
 				input1 = "@randomize_position.output"
 				input2 = "@uiposition_calc.output"
+			},
+			{
+				name = "soundscape_find_entity"
+				operator = "game_find_entity_by_name"
+				execute_once = "1"
+				input_execute = "@public.use_ambient_entity_position"
+				entity_name = "@public.ambient_entity_name"
+			},
+			{
+				name = "soundscape_entity_info"
+				operator = "game_entity_info"
+				input_execute = "@soundscape_find_entity.output_success"
+				input_entity_index = "@soundscape_find_entity.output_entity_index"
+				execute_once = "1"
+			},
+			{
+				name = "soundscape_local_pos"
+				operator = "game_get_soundscape_local_position"
+				execute_once = "true"
+				input_position_index = "@public.ambient_position_override"
+			},
+			{
+				name = "final_position"
+				operator = "ctrl_switch_float3"
+				input1 = "@computed_position.output"
+				input_switch = "@soundscape_entity_info.output_success"
+				input2 = "@soundscape_entity_info.output_position"
 			},
 			{
 				name = "distance_to_source"
@@ -1532,13 +1581,13 @@
 				name = "set_builtins"
 				operator = "sos_set_builtins"
 				input_execute = "@dsp_bypass_off.output"
-				input_voicegraph = "csgo.voice_main"
+				input_voicegraph = "csgo_voice_main"
 			},
 			{
 				name = "set_builtins_dsp_bypass"
 				operator = "sos_set_builtins"
 				input_execute = "@public.dsp_bypass"
-				input_voicegraph = "csgo.dsp_bypass"
+				input_voicegraph = "csgo_dsp_bypass"
 			},
 			{
 				name = "convar_use_baked_occlusion"
@@ -1976,12 +2025,6 @@
 				input3 = "@public.retrigger_keepalive_override"
 				expression = "(_3 && _4) ? 0 : (_1+_2)"
 				input4 = "@public.enable_retrigger"
-			},
-			{
-				name = "calc_event_finished_or_stopped"
-				input_execute = "@public.enable_retrigger"
-				operator = "math_float"
-				apply = "add"
 			},
 			{
 				name = "event_terminator"
@@ -2538,8 +2581,8 @@
 			}
 			public = 
 			{
-				x = 19540.0
-				y = 2130.0
+				x = -3120.0
+				y = 2620.0
 			}
 			mixer = 
 			{
@@ -2638,8 +2681,8 @@
 			}
 			final_position = 
 			{
-				x = 7182.0
-				y = 1506.0
+				x = 7170.0
+				y = 1350.0
 			}
 			distance_to_source = 
 			{
@@ -3003,8 +3046,8 @@
 			}
 			calc_event_finished_or_stopped = 
 			{
-				x = 20910.0
-				y = 3210.0
+				x = 21160.0
+				y = 3600.0
 			}
 			event_terminator = 
 			{
@@ -3411,15 +3454,35 @@
 				x = -50.0
 				y = 2300.0
 			}
-			calc_event_finished_or_stopped_a = 
-			{
-				x = 21020.0
-				y = 2440.0
-			}
 			one_minus_occlusion = 
 			{
 				x = 4074.0
 				y = 6570.0
+			}
+			soundscape_find_entity = 
+			{
+				x = 740.0
+				y = 1250.0
+			}
+			computed_position = 
+			{
+				x = 7574.0
+				y = 1484.0
+			}
+			soundscape_local_pos = 
+			{
+				x = 1080.0
+				y = 900.0
+			}
+			set_culling_wait_time = 
+			{
+				x = 14196.0
+				y = 1092.0
+			}
+			soundscape_entity_info = 
+			{
+				x = 1500.0
+				y = 1050.0
 			}
 		}
 	}

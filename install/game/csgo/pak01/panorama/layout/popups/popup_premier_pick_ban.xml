@@ -1,9 +1,9 @@
 <!-- xml reconstructed by Source 2 Viewer 19.2.0.0 - https://valveresourceformat.github.io -->
 <root>
 	<styles>
-		<include src="s2r://panorama/styles/gamestyles.vcss_c" />
-		<include src="s2r://panorama/styles/popups/popup_premier_pick_ban.vcss_c" />
-		<include src="s2r://panorama/styles/hud/hudvoicestatus.vcss_c" />
+		<include src="s2r://panorama/styles/gamestyles.vcss" />
+		<include src="s2r://panorama/styles/popups/popup_premier_pick_ban.vcss" />
+		<include src="s2r://panorama/styles/hud/hudvoicestatus.vcss" />
 	</styles>
 	<scripts />
 	<snippets>
@@ -20,13 +20,14 @@
 			<Panel class="premier-pickban__map-btn" hittest="false">
 				<ToggleButton id="id-pickban-btn" class="premier-pickban__map-btn-container">
 					<Panel class="premier-pickban__map-btn-bg">
-						<Panel id="id-pickban-map-btn-bg" class="premier-pickban__map-btn-bg-image" />
-						<Panel class="premier-pickban__map-btn__map-fade" />
-						<Panel class="premier-pickban__map-btn__result" />
-						<Panel class="premier-pickban__map-btn__vote-container">
+						<Panel id="id-pickban-map-btn-bg" class="premier-pickban__map-btn-bg-image random-flash-effect" />
+						<Panel class="premier-pickban__map-btn__map-fade random-flash-effect" />
+						<Panel class="premier-pickban__map-btn__result random-flash-effect" />
+						<Panel class="premier-pickban__map-btn__vote-container random-flash-effect">
 							<Panel class="premier-pickban__map-btn__vote" />
 						</Panel>
 						<Label class="premier-pickban__map-btn__label stratum-medium-condensed fontSize-ml" text="{s:map-name}" />
+						<Label class="premier-pickban__map-btn__label_low stratum-medium-condensed fontSize-ml" text="{s:btm-line}" />
 					</Panel>
 					<Label class="premier-pickban__map-btn-status stratum-medium-condensed fontSize-l" text="{s:status}" />
 				</ToggleButton>
@@ -50,8 +51,8 @@
 						</Panel>
 					</Panel>
 				</Panel>
-				<Frame class="vertical-align-center" src="s2r://panorama/layout/rating_emblem.vxml_c" />
-				<Label class="premier-pickban__map-avatars__label stratum-regular-tf" text="{s:teammate_name}" html="true" />
+				<Frame class="vertical-align-center" src="s2r://panorama/layout/rating_emblem.vxml" />
+				<Label class="premier-pickban__map-avatars__label stratum-regular-tf" text="#friends_name_in_draft" html="true" />
 			</Panel>
 		</snippet>
 		<snippet name="small-avatar-opponent">
@@ -60,7 +61,7 @@
 				<Panel>
 					<Image id="id-avatar-opponent-avatar" class="premier-pickban__map-opponent-avatar" src="s2r://panorama/images/avatars/avatar_sub_01_psd.vtex" />
 				</Panel>
-				<Frame class="vertical-align-center" src="s2r://panorama/layout/rating_emblem.vxml_c" />
+				<Frame class="vertical-align-center" src="s2r://panorama/layout/rating_emblem.vxml" />
 			</Panel>
 		</snippet>
 	</snippets>
@@ -72,6 +73,7 @@
 				<Frame id="id-team-vote-phasebar-4" snippet="progress-section" data-phase="4" />
 				<Frame id="id-team-vote-phasebar-5" snippet="progress-section" data-phase="5" />
 				<Frame id="id-team-vote-phasebar-6" snippet="progress-section" data-phase="6" />
+				<Frame id="id-team-vote-phasebar-7" snippet="progress-section" data-phase="7" />
 			</Panel>
 			<Panel class="premier-pickban-phase-row">
 				<Panel id="id-pick-vote-team" class="premier-pickban__team">

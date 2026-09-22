@@ -6,8 +6,10 @@
     %u unfinished blocks\n
     Component %d: %dhx%dv q=%d
     Component %d: dc=%d ac=%d
+    T%d: '%s' (%s) EditorID:%d%s\n
     with %d x %d thumbnail image
   Bad Fax Lines: %lu\n
+  Bank%d: %d temp vars (%d bytes)\n
   C%d:I%-2d {F=%-10d,V=%-10d,S=%-20.20s} 
   CallInfo%d: %s\n
   Cell%d - NULL\n
@@ -84,6 +86,8 @@
  [ OPENED FOR INTEGRATE ]
  [ READ ONLY ]
  [*OBSERVABLE*]
+ [loop body, break -> C%d:I%d]
+ \n_V_strncmp
  bn0s}Q_@r~aoPq
  clean
  delete
@@ -95,6 +99,7 @@
  volatile
 !"Calling CBaseEditorApp::SetActiveSession on an unknown session"
 !AxU
+!\n_V_strncpy
 !root
 """
 "%s": Bad mode
@@ -112,9 +117,9 @@
 "screenWindowWidth" attribute not found in the header.
 # of channels is zero.\n
 #CfU7
+#\n_V_strnicmp_fast
 #bML"
 $Ib?s
-$\tV_exp2f
 %.100s: Can not read TIFF directory
 %.2f FPS (%.2fms%s)
 %.3f %.3f %.3f
@@ -135,7 +140,6 @@ $\tV_exp2f
 %1x%2
 %30s\t\t%5d\t\t%5d\n
 %A Is
-%\tV_expd
 %c%c%c%c%c%c
 %c%c%c%c%c%c%c%c
 %d %d %d %d
@@ -145,6 +149,7 @@ $\tV_exp2f
 %d InvokeBindings:\n
 %d OutputConnections:\n
 %d PublicOutputs:\n
+%d TempVarBanks:\n
 %d Vars:\n
 %d instruction(s)\n
 %d register(s) %d byte(s)\n
@@ -281,8 +286,6 @@ $\tV_exp2f
 &Version Control
 &View
 &Windows...
-&\tV_expf
-'\tV_fclose
 (Custom Colors Disabled)
 (Expecting %s)
 (Expecting EOF)
@@ -342,6 +345,7 @@ $\tV_exp2f
 .CRT$XPZ
 .CRT$XTA
 .CRT$XTZ
+.\ng_Mathlib_GammaToLinearByteTable
 .bss
 .data
 .data$r
@@ -387,12 +391,9 @@ $\tV_exp2f
 .xdata$x
 /2GG>!B
 /TF<)VGy#WH
-/\tV_fmodd
 /src/
 /yQA
-0%s
 0123456789abcdefghijklmnopqrstuvwxyz
-0\tV_fmodf
 0x%p
 0x%p = %s '%s'
 1#IND
@@ -581,7 +582,6 @@ $\tV_exp2f
 2Value1Changed( int )
 2Value2Changed( int )
 2WhitePointChanged( int )
-2\tV_fopenUTF8
 2aboutToShow()
 2accepted()
 2activated( int )
@@ -618,22 +618,23 @@ $\tV_exp2f
 2valueEdited()
 333333
 3>N;kU
-3\tV_fpclassifyd
 488:1: POS_FLOATLITERAL : ( ( DIGIT )+ '.' ( DIGIT )* ( EXPONENT )? | '.' ( DIGIT )+ ( EXPONENT )? | ( DIGIT )+ EXPONENT );
-4\tV_fprintf
 5;FJ$,XEK4<
 5J5J5J5J5J5J5J5J5J5J5J5J5J5J5J5Jx
 6\fXO>\ntA
+6\ng_flConfigMaxCoord
 7&F|If
+7\tV_acosd
 8"3hrf
-8%o
-8%s
 8Csinf
 8b  16-May-2010
 9>-memory-
+9\ng_flToolsDefaultFarZ
+9\tV_asind
 : Add
 : lexer error %d :\n\t%s at offset %d, 
 ;J;J;J;J;J;J;J;J;J;J;J;J;J;J;J;Jx
+;\tV_atan2d
 < %i, %i > -> < %i, %i > [ %i, %i ]
 <DOWN>
 <EOF>
@@ -641,6 +642,8 @@ $\tV_exp2f
 <NONE>
 <No recent files>
 <Unknown>
+<\ng_pMemAlloc
+<\tV_atan2f
 <array: %u elements>
 <binary blob: %u bytes>
 <br>%1<pre>"%2"</pre>is outside of the directory required for game content:<pre>"%3"\t</pre>
@@ -652,6 +655,7 @@ $\tV_exp2f
 <map_key>
 <map_value>
 <missing 
+<missing>
 <no failure reason set>
 <no text for the token>
 <non-RTTI type>
@@ -664,17 +668,23 @@ $\tV_exp2f
 <unknown KV3 basic type '%s' (%d)>
 <unknown>
 == PulseGraphDef ==\n
+=> TempVarBank: Bank%d\n
+=\tV_atand
 =imb;D
+>\ng_pThreadPool
+>\tV_atanf
 ?8bunz8
 ???
 ?@En[vP
 ?UNKNOWN
 ?UUUUUU
+?\tV_atof
 ?expf
 ?qBJ
 ?rAj
 ?ysB
 @Integer overflow in %s
+@\tV_atofloat32
 @^8U)zj
 @fff>fff>fff>fff>
 @spawn
@@ -767,7 +777,6 @@ Adobe APP14 marker: version %d, flags 0x%04x 0x%04x, transform %d
 AdobeDeflate
 After the real remainder, how many additional digits should we continue to append to create additional visual movement?
 Ahd=<c]^7if1Rjg
-Ahn
 AlignedByteArray not properly aligned\n
 All Files (*)
 All values connected to this node must be 'observable'. Variables on this graph will be automatically promoted to observable. Other value nodes must take an explicit context, look for those nodes with a corresponding icon.
@@ -782,15 +791,19 @@ AnalogBalance
 And
 And R%d <- R%d && R%d
 Angle
+AngleA
+AngleB
 Anim Sequence
 AnimGraphEditorUtils001
 AnimatableSceneObjectDesc
+Animation 2
 AnimationSystemUtils_001
 AnimationSystem_001
 AntiAliasStrength
 Any Other Cursors Have Tag
 Any cursors above this count will wait, up to the limit.
 Any extra waiting cursors will be terminated. -1 for infinite cursors.
+Any request for a duplicate dispatch/mesh shader primitive in an outputbuffer must previously set the dispatch buffer
 App
 AppPolicyGetProcessTerminationMethod
 AppPolicyGetShowDeveloperDiagnostic
@@ -799,6 +812,8 @@ AppRestoreToolSettings
 AppSaveToolSettings
 Application transferred too few scanlines
 Application transferred too many scanlines
+Applies 'Local' on top of 'Base'. Inverse of 'Get Relative Transform'
+Applies B in A's local space.
 Apply the same tag we're waiting on to the resulting cursor upon wait completion. Can be used to wait on our result cursor with the same tag.
 ApplyHighlightsPreset
 ApplyMidtonesPreset
@@ -806,11 +821,11 @@ ApplyShadowsPreset
 Apr
 April
 Arc Cos
-Arc Cosine of input value. Input must be -1.0, 1.0 range. Output in radians, from 0 to 
+Arc Cosine of input value. Input must be -1.0, 1.0 range. Output in radians, from 0 to pi
 Arc Sin
-Arc Sine of input value. Input must be -1.0, 1.0 range. Output in radians, from -
+Arc Sine of input value. Input must be -1.0, 1.0 range. Output in radians, from -pi/2 to pi/2
 Arc Tan
-Arc Tangent of input value. Input can be any real number. Output in radians, from -
+Arc Tangent of input value. Input can be any real number. Output in radians, from -pi/2 to pi/2
 ArcCos input out of range (-1, 1)
 ArcSin input out of range (-1, 1)
 Are we currently running unit tests?
@@ -823,13 +838,13 @@ Array Concatenate
 Array Count
 Array Find Element Matching
 Array First N Elements
+Array Has Element Matching
 Array Insert
 Array Remove Element Matching
 Array Remove Index
 Array Remove Invalid Elements
 Array Set Count
 Array Shuffle
-Array support.
 Artist
 AsShotICCProfile
 AsShotNeutral
@@ -848,7 +863,7 @@ Async Call Method (Child Cursor) C%d:I%d
 Async Outflow (Child Cursor) C%d:I%d
 Asynchronous - This node executes independently using a new Cursor. Formerly 'Fire and Forget'. Equivalent to scheduling using an additional 'Fire Child Cursors' node.
 At marker 0x%02x, recovery action %d
-AtlasToVolumeTextureConversion(3537): Error! Unable to parse grid/slice count from volume atlas filename: %s\n
+AtlasToVolumeTextureConversion(3572): Error! Unable to parse grid/slice count from volume atlas filename: %s\n
 Attempting to register the command %s for context %s multiple times\n
 Aug
 August
@@ -872,8 +887,8 @@ BKbhTb~XBK!;
 BLOOM_BLEND_ADD
 BLOOM_BLEND_BLUR
 BLOOM_BLEND_SCREEN
-BMp
 BUTTON
+B\tV_atoi
 BackBufferBlit
 BackGroundFill_t
 BackGroundStyle_t
@@ -885,6 +900,7 @@ Bad array index %d (array has %d elements)
 Bad autosave dir
 Bad checkstate (expected eg. 'PartiallyChecked')
 Bad code word
+Bad count in ArraySetCount (%d)
 Bad dynamic_cast!
 Bad horizontalPolicy "%s"
 Bad max in ArrayFirstNElements (%d)
@@ -900,7 +916,8 @@ Bad verticalPolicy "%s"
 Bad vmdl
 BadFaxLines
 BakedLODBuilderMgr001
-Bap
+BankID%d
+Base
 Base Flow  Cancel After
 Base Flow  Cancel Elegantly
 Base Flow  Cancel Immediately
@@ -927,8 +944,6 @@ BaseEditor
 BaselineExposure
 BaselineNoise
 BaselineSharpness
-Basic math support.
-Basic string support.
 BayerGreenSplit
 Begin mouse capture [%i]: %s\n
 Begin testing a condition composed of Observable values. Continues checking until canceled.
@@ -988,6 +1003,7 @@ Bogus virtual array access
 Boolean
 Boost Local Contrast
 Break
+Break node reached a Method-call boundary without finding an enclosing loop.
 Breakpoint Log [%u]
 Breakpoint Log [%u] - %s
 Brightness Fade
@@ -995,6 +1011,7 @@ Brightness Threshold
 Brightness/Contrast
 Brightness/Contrast %d
 Brightness:
+Bsr
 Btools_renderscenes
 Buffer passed to JPEG library is too small
 BuildParticleSimList
@@ -1006,18 +1023,27 @@ C:\buildworker\csgo_rel_win64\build\_build_\tools\postprocessingeditor\_vpc_post
 C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp
 C:\buildworker\csgo_rel_win64\build\src\mathlib\extended\generic_expr.g
 C:\buildworker\csgo_rel_win64\build\src\particleslib\particlemgr.cpp
+C:\buildworker\csgo_rel_win64\build\src\public\scenesystem\sceneobject.h
 C:\buildworker\csgo_rel_win64\build\src\public\tier0\tslist.h
 C:\buildworker\csgo_rel_win64\build\src\public\tier0\utlblockvector.h
 C:\buildworker\csgo_rel_win64\build\src\public\tier0\utldict.h
 C:\buildworker\csgo_rel_win64\build\src\public\tier0\utlmap.h
 C:\buildworker\csgo_rel_win64\build\src\public\tier0\utlrbtree.h
+C:\buildworker\csgo_rel_win64\build\src\qcontrols\inputglobalhotkeys.cpp
+C:\buildworker\csgo_rel_win64\build\src\tier2\utlstreambuffer.cpp
 C:\buildworker\csgo_rel_win64\build\src\toolrenderutils\toolmatsysutils.cpp
 C:\buildworker\csgo_rel_win64\build\src\toolrenderutils\toolstandardmodels.cpp
+C:\buildworker\csgo_rel_win64\build\src\tools\postprocessingeditor\postprocesseditorapp.cpp
+C:\buildworker\csgo_rel_win64\build\src\tools\postprocessingeditor\postprocesseditorsession.cpp
 C:\buildworker\csgo_rel_win64\build\src\tools\toolscene\lightingcontrolrig.cpp
+C:\buildworker\csgo_rel_win64\build\src\tools\toolscene\qtoolscenewidget.cpp
 C:\buildworker\csgo_rel_win64\build\src\tools\toolscene\toolscene_hitboxes.cpp
 C:\buildworker\csgo_rel_win64\build\src\tools\toolscene\toolscene_sky.cpp
 C:\buildworker\csgo_rel_win64\build\src\tools\toolutils2\baseeditorapp.cpp
+C:\buildworker\csgo_rel_win64\build\src\tools\toolutils2\bindablecamera.cpp
+C:\buildworker\csgo_rel_win64\build\src\tools\toolutils2\qbaseeditorwnd.cpp
 C:\buildworker\csgo_rel_win64\build\src\tools\toolutils2\toolrenderutils.cpp
+CALL_TO_PULSE
 CBaseEditorApp::SetActiveEditorSession
 CBaseEditorApp::~CBaseEditorApp
 CBaseEditorSession::Revert - Perforce unavailable: %s\n
@@ -1030,7 +1056,7 @@ CBasePulseGraphInstance::InitInstance_Internal( %s; %p ) %s\n
 CBasePulseGraphInstance::Shutdown( %s; %p ) %s\n
 CBasePulseGraphInstance::StartGraphReload( %p ) %s\n
 CBasePulseGraphInstance::~CBasePulseGraphInstance( %p )\n
-CBaseToolsModelInstance::CreateReversedIBs(4586): 
+CBaseToolsModelInstance::CreateReversedIBs(4790): 
 CBindableCamera
 CBloomLayer
 CBrightnessContrastColorCorrectionLayer
@@ -1077,6 +1103,7 @@ CLightingPreviewPopupUI
 CLocalContrastLayer
 CLocalExposureLayer
 CMemAllocSystemInitialize
+CMeshPrimitiveOutputBuffer::Next
 CModelPreviewAttachedModel
 CNewParticleEffect
 CNewParticleEffect::DetectChanges
@@ -1094,7 +1121,7 @@ CPP
 CParticleBindingRealPulse
 CParticleCollectionBindingInstance
 CParticleCollectionBindingInstance::HACK_UnusedBinding
-CParticleMgr::SimulateParticles(), C:\buildworker\csgo_rel_win64\build\src\particleslib\particlemgr.cpp:1166
+CParticleMgr::SimulateParticles(), C:\buildworker\csgo_rel_win64\build\src\particleslib\particlemgr.cpp:1167
 CParticleProperty
 CPh
 CPiecewiseCurve
@@ -1109,6 +1136,7 @@ CPulseArraylib::ArrayConcatenate
 CPulseArraylib::ArrayCount
 CPulseArraylib::ArrayFindElementMatching
 CPulseArraylib::ArrayFirstNElements
+CPulseArraylib::ArrayHasElementMatching
 CPulseArraylib::ArrayInsert
 CPulseArraylib::ArrayRemoveElementMatching
 CPulseArraylib::ArrayRemoveIndex
@@ -1135,7 +1163,6 @@ CPulseCell_BooleanSwitchState::Activate
 CPulseCell_CursorQueue
 CPulseCell_CursorQueue::Wait
 CPulseCell_FireCursors
-CPulseCell_FireCursors::Cancel
 CPulseCell_FireCursors::Start
 CPulseCell_FireCursors::StopWaiting
 CPulseCell_Inflow_BaseEntrypoint
@@ -1150,20 +1177,15 @@ CPulseCell_Inflow_Method '%s' --> Chunk%d: %s
 CPulseCell_Inflow_ObservableVariableListener
 CPulseCell_Inflow_ObservableVariableListener '%s'.'%s (%u)' --> Chunk%d: %s
 CPulseCell_Inflow_Wait
-CPulseCell_Inflow_Wait::Abort
-CPulseCell_Inflow_Wait::ImmediateWake
 CPulseCell_Inflow_Wait::Wait
 CPulseCell_Inflow_Yield
-CPulseCell_Inflow_Yield::Abort
 CPulseCell_Inflow_Yield::Pause
-CPulseCell_Inflow_Yield::Resume
 CPulseCell_InlineNodeSkipSelector
 CPulseCell_InlineNodeSkipSelector::ProcessSelector
 CPulseCell_IntervalTimer
 CPulseCell_IntervalTimer::CursorState_t
 CPulseCell_IntervalTimer::OnInterval
 CPulseCell_IntervalTimer::Start
-CPulseCell_IntervalTimer::StopTimer
 CPulseCell_IsRequirementValid
 CPulseCell_IsRequirementValid::CheckRequirement
 CPulseCell_IsRequirementValid::Criteria_t
@@ -1180,35 +1202,22 @@ CPulseCell_Outflow_CycleRandom::Run
 CPulseCell_Outflow_CycleShuffled
 CPulseCell_Outflow_CycleShuffled::InstanceState_t
 CPulseCell_Outflow_CycleShuffled::Run
-CPulseCell_Outflow_ListenForAnimgraphTag::Cancel
-CPulseCell_Outflow_ListenForEntityOutput::Cancel
-CPulseCell_Outflow_NPCAccompanyEntity::Cancel
-CPulseCell_Outflow_NPCFollowTarget::Cancel
-CPulseCell_Outflow_NPCLeadPlayer::Cancel
-CPulseCell_Outflow_NPCScriptedIdle::Cancel
-CPulseCell_Outflow_NPCScriptedIdle::CancelElegantly
-CPulseCell_Outflow_NPCScriptedMoveTo::Cancel
-CPulseCell_Outflow_NPCUseScriptedAbility::Cancel
-CPulseCell_Outflow_PlaySequence::Cancel
-CPulseCell_Outflow_PlaySequence::CancelAtInterrupt
-CPulseCell_Outflow_PlayVCD::Cancel
-CPulseCell_Outflow_PlayVCD::CancelAtInterrupt
-CPulseCell_Outflow_PlayVOLine::Cancel
-CPulseCell_Outflow_ScriptedSequence::Cancel
 CPulseCell_PickBestOutflowSelector
 CPulseCell_PickBestOutflowSelector::ProcessSelector
-CPulseCell_PlaySequence::Cancel
+CPulseCell_RaceCursors
+CPulseCell_RaceCursors::Start
+CPulseCell_RaceCursors::StopWaiting
+CPulseCell_ReturnValues
+CPulseCell_ReturnValues::HandleReturnValues
 CPulseCell_Step_CallExternalMethod
 CPulseCell_Step_CallExternalMethod '%s'
 CPulseCell_Step_CallExternalMethod::Run
-CPulseCell_Step_CallExternalMethod::StopWaiting
 CPulseCell_Step_DebugLog
 CPulseCell_Step_DebugLog::Run
 CPulseCell_Step_PublicOutput
 CPulseCell_Step_PublicOutput::Run
 CPulseCell_Timeline
 CPulseCell_Timeline::Start
-CPulseCell_Timeline::Stop
 CPulseCell_Timeline::TimelineEvent_t
 CPulseCell_Unknown
 CPulseCell_Value_Curve
@@ -1223,7 +1232,6 @@ CPulseCell_WaitForCursorsWithTag
 CPulseCell_WaitForCursorsWithTag::Wait
 CPulseCell_WaitForCursorsWithTagBase
 CPulseCell_WaitForObservable
-CPulseCell_WaitForObservable::Cancel
 CPulseCell_WaitForObservable::Start
 CPulseCursorFuncs
 CPulseCursorFuncs::AnyOtherCursorsHaveTag
@@ -1250,6 +1258,8 @@ CPulseMathlib::ArcTan
 CPulseMathlib::CeilingFloat
 CPulseMathlib::ClampFloat
 CPulseMathlib::ClampInt
+CPulseMathlib::ComposeAngles
+CPulseMathlib::ComposeTransforms
 CPulseMathlib::Cos
 CPulseMathlib::CrossProductVector
 CPulseMathlib::Deg2Rad
@@ -1260,13 +1270,19 @@ CPulseMathlib::FloatToGameTime
 CPulseMathlib::FloorFloat
 CPulseMathlib::Frac
 CPulseMathlib::GameTimeToFloat
+CPulseMathlib::GetRelativeTransform
 CPulseMathlib::IntegerDivide
+CPulseMathlib::InverseRotateVector
+CPulseMathlib::InverseTransformVector
 CPulseMathlib::IsValidVector
 CPulseMathlib::IsValidWorldVector
 CPulseMathlib::LengthVector
 CPulseMathlib::LengthVector2D
+CPulseMathlib::LerpAngle
 CPulseMathlib::LerpFloat
+CPulseMathlib::LerpTransform
 CPulseMathlib::LerpVector
+CPulseMathlib::LerpWorldTransform
 CPulseMathlib::LerpWorldVector
 CPulseMathlib::Log
 CPulseMathlib::Log10
@@ -1292,6 +1308,9 @@ CPulseMathlib::RSqrt
 CPulseMathlib::Rad2Deg
 CPulseMathlib::RandomWorldPosition
 CPulseMathlib::RemapClampedFloat
+CPulseMathlib::RotateVector
+CPulseMathlib::RotateVectorToWorld
+CPulseMathlib::RotateWorldVectorToLocal
 CPulseMathlib::RoundFloat
 CPulseMathlib::Saturate
 CPulseMathlib::SignFloat
@@ -1308,13 +1327,22 @@ CPulseMathlib::SplitWorldVector
 CPulseMathlib::SqrFloat
 CPulseMathlib::SqrInt
 CPulseMathlib::Sqrt
-CPulseMathlib::StringsAreEqualCaseSensitive
 CPulseMathlib::Tan
+CPulseMathlib::TransformInverse
+CPulseMathlib::TransformVector
+CPulseMathlib::TransformVectorToWorld
+CPulseMathlib::TransformWorldVectorToLocal
 CPulseMathlib::VectorToWorldVector
+CPulseMathlib::WorldTransformInverse
 CPulseMathlib::WorldVectorToVector
 CPulseObservableExpression
 CPulseRuntimeMethodArg
 CPulseStringlib
+CPulseStringlib::Format1
+CPulseStringlib::Format2
+CPulseStringlib::Format3
+CPulseStringlib::Format4
+CPulseStringlib::Format5
 CPulseStringlib::FormatDurationStringFromSeconds
 CPulseStringlib::StringLength
 CPulseStringlib::StringsAreEqualCaseSensitive
@@ -1325,6 +1353,7 @@ CPulseTestScriptLib::IsInTestMode
 CPulseTestScriptLib::RegisterTestCheckpoint
 CPulseTestScriptLib::TestModeAssertTrue
 CPulseValueFullType
+CPulseVariant
 CPulse_BlackboardReference
 CPulse_CallInfo
 CPulse_Chunk
@@ -1337,6 +1366,8 @@ CPulse_OutputConnection
 CPulse_PublicOutput
 CPulse_RegisterInfo
 CPulse_ResumePoint
+CPulse_TempVarBankDefinition
+CPulse_TempVarInfo
 CPulse_Variable
 CQAbstractPlotCurve
 CQAssetSelectionWidget
@@ -1472,6 +1503,9 @@ CToolRenderContext::PopTransform - matrix stack underflow
 CToolRenderContext::PushRenderMode - exceeded stack depth\n
 CToolRenderContext::PushTransform - busted through MAX_MATRIX_STACK_DEPTH (%d)
 CToolRenderContext::PushTransform - matrix stack underflow
+CToolScene::AddRenderLayers::<lambda_1>::operator ()
+CToolScene::AddRenderLayers::<lambda_2>::operator ()
+CToolScene::AddRenderLayers::<lambda_3>::operator ()
 CToolSceneAttachmentNames
 CToolSceneAttachments
 CToolSceneAxis
@@ -1495,8 +1529,10 @@ CToolSceneText
 CToolSceneTraceEnvironment::Draw_SetupIdForCurrentNode - Trying to draw with no node. You need to call Draw_SetCurrentNode() before drawing\n
 CToolsVisPopupUI
 CURSOR_ADD_TAG
+CURSOR_CREATE_CHILD
 CURSOR_REMOVE_TAG
 CURSOR_RETIRED
+CURVE_TANGENT_FLAT
 CURVE_TANGENT_FREE
 CURVE_TANGENT_LINEAR
 CURVE_TANGENT_MIRROR
@@ -1533,6 +1569,9 @@ CUtlOrderedMap
 CUtlOrderedMap<class PulseCursorID_t,struct PulseGraphExecutionHistoryCursorDesc_t *,class CDefLess<class PulseCursorID_t>,int>::FindElement
 CUtlRBTreeBase
 CUtlStreamBuffer does not support TEXT_BUFFER's use CUtlBuffer\n
+CUtlStreamBuffer::FileWrite
+CUtlStreamBuffer::GrowAllocatedSize
+CUtlStreamBuffer::StreamPutOverflow
 CUtlString
 CUtlSymbolTableLarge element limit of %u exceeded\n
 CUtlVector
@@ -1575,7 +1614,6 @@ Cannot quantize to more than %d colors
 Cannot read TIFF header
 Cannot reconstruct lineOffset table in DecodeEXRImage.
 Cannot reference domain '%s' from '%s'\n
-Cannot reinterpret instance (actual: %s) from (original) %s to (desired) %s
 Cannot reload - The file\n"%1"\ndoes not exist.
 Cannot specify 'dock' when root is not a QMainWindow (%s)
 Cannot specify toolbarArea when root is not a QMainWindow (%s)
@@ -1608,6 +1646,7 @@ Check Out
 Check Out failed
 Check Requirement
 Check Type
+Check if any element of 'a' compares equal to 'element'.
 Check if any yielded cursors on the graph already have the given tag.
 Check if the cursor already has the given tag.
 CheckForKeepActive
@@ -1638,6 +1677,7 @@ Clamp value to range (int)
 Class
 Class data is a '%s', not a table\n
 Class does not allow allocation from its schema binding
+ClassName
 CleanFaxData
 Clear
 Clear History
@@ -1663,6 +1703,7 @@ Code
 Color
 Color Balance
 Color Balance %d
+Color Consistency Partition %d MinBright %f
 Color Lookup
 Color Picker
 Color Tint
@@ -1688,6 +1729,8 @@ Completed
 CompleterClosed
 CompleterOpened
 Component index %d: mismatching sampling ratio %d:%d, %d:%d, %c
+Compose Angles
+Compose Transforms
 CompressBlocksBC1
 CompressBlocksBC3
 CompressBlocksBC6H
@@ -1696,7 +1739,7 @@ Compression
 Compression algorithm does not support random access
 Compression scheme %u %s decoding is not implemented
 Compression scheme %u %s encoding is not implemented
-Computes 2 ( 2.71...) raised to a power
+Computes 2 raised to a power
 Computes e ( 2.71...) raised to a power
 Condition to evaluate when any of its dependent values change.
 ConsecutiveBadFaxLines
@@ -1736,6 +1779,7 @@ Could not execute '%s' because this graph domain does not support the required I
 Count the number of codepoints in the string (unicode-aware). If you want rendered glyphs, you probably want to consider using Panorama.
 Courier
 Create Reference Image
+CreateDocument failed
 CreateFileW
 CreateInterface
 CreateThreadpoolWork
@@ -1774,12 +1818,10 @@ DBM&(
 DCT coefficient out of range
 DCT scaled block size %dx%d not supported
 DETACH_REGISTER
-DHn
 DIGIT
 DIV
 DIV_FLOAT
-DIm
-DLn
+DIo
 DNGBackwardVersion
 DNGPrivateData
 DNGVersion
@@ -1787,15 +1829,14 @@ DOUBLE_AND
 DOUBLE_OR
 DOUBLE_QUOTED_STRING
 DOUBLE_QUOTE_CHAR
-DOm
-DTm
-DUp
 DXT1
 DXT1_ONEBITALPHA
 DXT3
 DXT5
 DXT5_NM
+DXp
 Da\">c]$8c^
+Dap
 Data breakpoint [%s]
 Data breakpoint [%s] - %s
 Data breakpoint hit
@@ -1804,7 +1845,6 @@ Data_Branch1xy
 Data_Branch1zBranch2x
 Data_Branch2yz
 DateTime
-Ddn
 Debug Focus Widget
 Debug Widget Under Mouse
 DebugDrawObjects
@@ -1847,6 +1887,7 @@ DeleteLayerMaskFromSelectedLayers
 DeleteSelectedLayers
 Deleting autosave file: %s\n
 DemoUpconverterVersion001
+Den
 Description
 Description cannot be empty.
 Designable
@@ -1854,14 +1895,16 @@ Desired Kill Priority
 Desktop: %s\n
 DestroyThreadPool
 Detach R%d
-Dhp
+Dho
 Did not execute '%s' because the 'Target' object was missing
 Didn't expect more than one scan
+Dip
 Directory error
 Disallowed variable name: %s
 DisplayInList %i
 Div R%d <- R%d / R%d
 Divide by zero!
+Dmo
 Do not stop the current yielding node, but do not continue to the next node afterwards.
 DoEdit
 DockWidgetArea
@@ -1876,7 +1919,6 @@ DotRange
 DotaForward
 Double-save to Member '%s'
 Down
-Dpq
 DragFinished
 DragOffsetRelativeEnd
 DragOffsetRelativeStart
@@ -1891,6 +1933,7 @@ DummyNoOp
 Dump all new particles, optional name substring.
 Dump all simulating particles, optional name substring.
 DumpModeDecode: Not enough data for scanline %d
+Dxp
 E&xit
 E<G&Iw
 E>nEA
@@ -1982,7 +2025,6 @@ EnterCriticalSection
 Entity Handle
 Entity Name
 EntityName
-Enum support.
 EnumSystemLocalesEx
 EnumSystemLocalesW
 Eq R%d <- R%d == R%d
@@ -2024,8 +2066,7 @@ ExtractModuleMetadata
 Extraneous token
 F>qUxv
 FEMh\f
-FNq
-FRp
+FXr
 Fail Outflow
 Fail to schedule the chore!
 Failed to allocate a lexer for '%s'. (Out of memory?)
@@ -2035,7 +2076,8 @@ Failed to allocate an instance of a class of type '%s'
 Failed to allocate an instance of class '%s' (type '%s')
 Failed to allocate field info array
 Failed to allocate memory for %s (%ld elements of %ld bytes each)
-Failed to compute bone transform %d for attachment '%s'
+Failed to compute attachment transform for '%s'
+Failed to compute bone transforms for attachment '%s'
 Failed to compute channel layout.\n
 Failed to convert value '%s' to enum/flags '%s' (expecting eg. '%s')
 Failed to create temporary file %s
@@ -2074,6 +2116,7 @@ Feather
 Feb
 February
 FfW?
+Fgr
 FieldOfViewCotangent
 File
 File Opened by Other User
@@ -2082,11 +2125,13 @@ File has not been opened!\n
 File not open for reading
 File opened with errors
 FileClose
+FileLine
 FileNew
 FileOpen
 FileReload
 FileSave
 FileSaveAs
+FileSystem
 Filename 
 Filename %i
 Files to Checkin:
@@ -2097,7 +2142,7 @@ FilterApplied
 Find all the yielded cursors on this graph and cancel them.
 Find all the yielded cursors on this graph with the matching tag and cancel them.
 Find all the yielded cursors on this graph with the matching tag and wake them.
-Find first element 'a' which compare equal to 'element' and return its index.
+Find first element 'a' which compare equal to 'element' and return its index. Returns -1 if not found.
 Find:
 FindClose
 FindFirstFileExW
@@ -2109,6 +2154,7 @@ Fired when the observable boolean is true, and killed when false.
 Fixed
 FixupResourceName: Illegal full path passed in ("%s")!\n
 FixupResourceName: Illegal path, missing extension passed in ("%s")!\n
+Flat
 FlattenedSerializersVersion001
 Float
 Float To Game Time
@@ -2118,17 +2164,17 @@ FloatBitMap_t::ConvertGammaToLinear(518): Conversion not supported yet!\n
 FloatBitMap_t::InitializeDummyRow
 FloatBitMap_t::LoadFromBuffer: Received improper buffer size, skipping!\n
 FloatBitMap_t::LoadFromBuffer: Unsupported color format, skipping!\n
-FloatBitMap_t::LoadFromFile(3729): Error! Slice %d format %dx%dx%d Attr(%d) != previous slices of %dx%d Attr(%d) for %s\n
-FloatBitMap_t::LoadFromTGA(2678): Error loading %s\n
-FloatBitMap_t::WriteToBuffer(1191): Unsupported color format "%s", skipping!\n
+FloatBitMap_t::LoadFromFile(3764): Error! Slice %d format %dx%dx%d Attr(%d) != previous slices of %dx%d Attr(%d) for %s\n
+FloatBitMap_t::LoadFromTGA(2713): Error loading %s\n
+FloatBitMap_t::WriteToBuffer(1195): Unsupported color format "%s", skipping!\n
 FloatBitMap_t::WriteToBuffer: Received improper buffer size %s (expecting %s), skipping!\n
-FloatBitMap_t::WriteToBufferBC7_bc7e(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2124
-FloatBitMap_t::WriteToBufferBC7_ispctexcomp(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2236
-FloatBitMap_t::WriteToBufferDXT_atitc(1249): Error! Temp texture is %d bytes when ATI's lib requires %d bytes!\n
-FloatBitMap_t::WriteToBufferDXT_atitc(1334): Unsupported output color format "%s"!\n
-FloatBitMap_t::WriteToBufferDXT_atitc(1343): Error! Allocated %llu bytes when ATI's lib requires %d bytes!\n
-FloatBitMap_t::WriteToBufferDXT_atitc(1351): Error %d returned from ATI_TC_ConvertTexture()!\n
-FloatBitMap_t::WriteToBufferETC(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2360
+FloatBitMap_t::WriteToBufferBC7_bc7e(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2146
+FloatBitMap_t::WriteToBufferBC7_ispctexcomp(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2258
+FloatBitMap_t::WriteToBufferDXT_atitc(1253): Error! Temp texture is %d bytes when ATI's lib requires %d bytes!\n
+FloatBitMap_t::WriteToBufferDXT_atitc(1338): Unsupported output color format "%s"!\n
+FloatBitMap_t::WriteToBufferDXT_atitc(1347): Error! Allocated %llu bytes when ATI's lib requires %d bytes!\n
+FloatBitMap_t::WriteToBufferDXT_atitc(1355): Error %d returned from ATI_TC_ConvertTexture()!\n
+FloatBitMap_t::WriteToBufferETC(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2382
 Floating point "Predictor" not supported with %d data format
 Floor - round float down to nearest integer
 Floor Float
@@ -2159,6 +2205,15 @@ FoliageAnimation
 Follow user preference
 FontManager_001
 Format Duration String From Seconds
+Format encountered } without matching { at column %d
+Format expected number or } at column %d
+Format expected } after number at column %d
+Format invalid index %d at column %d
+Format1
+Format2
+Format3
+Format4
+Format5
 Forward
 Found existing value when inserting into dict - replacing existing value with new value. If this is intended behavior, use InsertOrReplace. If leaving existing values alone is intended, use InsertIfNotFound.
 Frac
@@ -2176,9 +2231,7 @@ Freed EMS handle %u
 Freed XMS handle %u
 Fri
 Friday
-Ftp
 Functions not supported in this evaluator (%s)
-Fvp
 Fzw
 G channel not found!\n
 G>US
@@ -2190,6 +2243,7 @@ GET_BLACKBOARD_REFERENCE
 GET_CONST
 GET_CONST_INLINE_STORAGE
 GET_DOMAIN_VALUE
+GET_TEMPVAR
 GET_VAR
 GET_VAR_DETACH
 GPSIFDOffset
@@ -2206,6 +2260,7 @@ GammaChanged
 General
 Generate a random float between min and max (inclusive)
 Generate a random integer between min and max (inclusive)
+Get Relative Transform
 GetACP
 GetActiveWindow
 GetArrayElement R%d <- R%d[ R%d ]
@@ -2226,7 +2281,6 @@ GetCursorPos
 GetDateFormatEx
 GetDefaultMiniDumpTypeFlags
 GetDomainValue R%d <- DV%d (%s)
-GetDotaGlobalDefaultConstantBuffer
 GetEnvironmentStringsW
 GetFileSizeEx
 GetFileType
@@ -2268,6 +2322,7 @@ GetSystemMetrics
 GetSystemTimeAsFileTime
 GetSystemTimePreciseAsFileTime
 GetTempPath2W
+GetTempVar R%d <- 
 GetThreadLocalStackAllocator
 GetTimeFormatEx
 GetUserDefaultLCID
@@ -2277,7 +2332,6 @@ GetVar R%d <- V%d (%s)
 GetVar R%d <=MOVE*V%d (%s)
 Gf95)1&!\ry9I
 Ggc
-Ghn
 Global
 Global Preview
 Global Scale
@@ -2295,96 +2349,78 @@ Grid layout should be an array of arrays
 Group3Options
 Group4Options
 H%f
-H%o
 HAC K  Unused Binding
-HAp
-HBq
-HDl
+HDr
+HEm
 HH:mm:ss
-HIl
+HIr
+HIt
 HJN
-HJl
-HMr
+HNm
 HNt
-HNy
-HOl
-HOy
-HPl
-HPs
-HPy
-HQl
-HQm
-HQy
-HRk
-HRl
+HOm
 HRp
 HSLA
 HSLA\t
 HSVA
 HSVA\t
-HSs
-HTl
-HUl
-HUm
-HVl
-HXk
-HXr
-HYn
-HZk
+HSm
+HSo
+HVm
+HY7p
+H\tV_cosd
 Hable (U2/HLVR)
 Hack Dota Layer Opaque
 Hack Dota Layer Opaque Translucent
 HalftoneHints
+Ham
 HammerMapLoader001
+Handle Return Values
 HardCancel
 Has All Flags
 Has Any Flags
-Hbk
-Hck
-Hcm
-Hdk
-Hdl
-Hel
+Hbp
+Hcu
 Help
 HelpSystem_001
-HelperLoadFbmByFileExtension(3509): Error! Unknown file type for %s\n
+HelperLoadFbmByFileExtension(3544): Error! Unknown file type for %s\n
+Hem
 HeroViewer
 Hex:
-Hfk
-Hhk
-Hhq
+Hfr
+Hhu
 Hide
 Hide unless error/warning occurs
 High Contrast
 Highlight Offset EV
 Highlights
-Hil
-Hjo
-Hkl
 Hkn
-Hmm
+Hm8p
 Home
+Hor
 Horizontal differencing "Predictor" not supported with %d-bit samples
 HorizontalStrafeCamera
 HostComputer
 HostStateMgr001
+Hot
 HoverItemChanged
-Hqo
-Hrp
+Hpt
+Hqm
+Hqt
+Hsu
 HtL
-Htl
-Htt
+Htu
 Hue/Saturation
 Hue/Saturation %d
 Hue:
 Huffman code size table overflow
 Huffman table 0x%02x was not defined
-Hup
-Hvl
-Hxl
+Hwo
+Hxm
 I could not work out what I was expecting, like so many of us these days!\n
 IAsset*
 IAssetSelectionListener
+IB8p
 IBaseEditorSessionListener
 IBindTarget
 IBindableCameraScene
@@ -2419,6 +2455,7 @@ IToolFrameworkAudioSettingsListener
 IToolSceneWindow
 IToolSpecificPopupUI
 IUndoListener
+I\tV_cosf
 If (R%d) Jump to Instr I%d
 If (R%d) Leap to Chunk C%d
 If specified, each wait interval will vary randomly between WaitInterval this value
@@ -2521,6 +2558,8 @@ Invalid scan script at entry %d
 Invalid size: %s
 Invalid tile size x : 
 Invalid tile size y : 
+Inverse Rotate Vector
+Inverse Transform Vector
 Invert Mask
 Invoke '%s' failed with code %d
 Invoke Cell%d [eid=%d] %s%s
@@ -2548,16 +2587,10 @@ JPEG
 JPEG datastream contains no image
 JPEG parameter struct mismatch: library thinks size is %u, caller expects %u
 JPEGMEM
-JRq
 JUMP
 JUMP_COND
-J\tV_isdigit_str
 Jan
 January
-Jfp
-Jjq
-Jlp
-Jmq
 Job
 Jul
 July
@@ -2608,19 +2641,16 @@ LCIDToLocaleName
 LCMapStringEx
 LCMapStringW
 LDo
-LFp
-LGq
+LFr
 LIBRARY_INVOKE
 LINEAR_D24S8
 LINE_CONTINUATION
 LITERAL_FALSE
 LITERAL_TRUE
-LMn
 LMouse
 LMouseDoubleClick
-LNo
 LOG_GENERAL
-LSp
+LOOP_BREAK
 LTE
 LTE_FLOAT
 LTE_GAMETIME
@@ -2628,7 +2658,6 @@ LTE_INT
 LT_FLOAT
 LT_GAMETIME
 LT_INT
-LVq
 LWG>
 LWW>
 LZW
@@ -2642,7 +2671,6 @@ LZWDecodeCompat: Not enough data at scanline %d (short %ld bytes)
 LZWDecodeCompat: Wrong length of decoded string: data probably corrupted at scanline %d
 LZWPreDecode
 LZWSetupEncode
-L\tV_isinfd
 LabelPos_t
 Last perforce error was: "%s"\n
 LastLoadDirectory
@@ -2667,17 +2695,20 @@ Length Vector2 D
 Lens Dirt Mask Black Level
 Lens Dirt Strength
 LensInfo
+Lep
+Lerp Angle
 Lerp Float
+Lerp Transform
 Lerp Vector
+Lerp World Transform
 Lerp World Vector
 Less R%d <- R%d < R%d
 LessEq R%d <- R%d <= R%d
 Levels
 Levels %d
 Lexer encountered %d error(s)
-Lfq
+Lfn
 LhX
-Library for interacting with pulse cursors.
 LightRigType_t
 Lighting Preview
 LightingControl
@@ -2693,21 +2724,26 @@ Linear Angle
 Linear Strength
 LinearResponseLimit
 LinearizationTable
+Lio
 Lkh9Fgc^A
 Load Autosave On Crash
 LoadEXRImageFromMemory failed! Error message: %s\n
 LoadFromInMemoryEXR( %s ) failed.\n
+LoadFromPSD: Unable to load %s: %s\n
+LoadFromPSD: Unable to read file %s\n
 LoadKV3Object error: %s\n
 LoadKV3ObjectInPlace error: %s\n
 LoadLibraryExW
 LoadRecentFile
 Loaded '%1':\nwith the following errors:\n%2
 Loading session from file: '%s'\n
+Local
 Local Contrast
 Local Contrast %d
 Local Exposure
 Local Exposure %d
 LocalServerClientAccess001
+LocalVector
 LocaleNameToLCID
 Localize_001
 LocalizedCameraModel
@@ -2730,7 +2766,11 @@ Low Contrast
 Lpp
 Lum Source: Diffuse<-->Pixel
 Luminosity:
-Lzq
+Lur
+Lvn
+Lxn
+Lxr
+Lyo
 M8MF
 MATCHFRAMEWORK_001
 MATERIAL_THUMBNAIL
@@ -2778,6 +2818,7 @@ MPulseEditorCanvasItemSpecKV3
 MPulseEditorHeaderIcon
 MPulseExpressionAlias
 MPulseFGDSkipField
+MPulseFunctionAddsCursorTag
 MPulseFunctionHiddenInTool
 MPulseLegacyName
 MPulsePolymorphicDependentArg
@@ -2799,7 +2840,6 @@ MWheelLeft
 MWheelRight
 MWheelUp
 MYS
-M\tV_isnand
 Magenta
 Magentas
 Main
@@ -2920,7 +2960,7 @@ Mute Tools
 Mvc
 N>O=I9
 N>VF
-N@Bad count in ArraySetCount (%d)
+N@__FireCursorsParent__
 NAN
 NAN(IND)
 NAN(SNAN)
@@ -2950,7 +2990,6 @@ NE_VEC3
 NE_VEC3WS
 NE_VEC4
 NJ2"v
-NMq
 NO COMMAND TARGET
 NONE
 NOP
@@ -2962,6 +3001,7 @@ NULL CELL
 NULL VP8Io parameter in VP8Decode().
 NUM_TYPES
 NV_NULL
+N\tV_exp2f
 Name
 Name\t\t\t\t\tCount\t\tParticle Count\n
 Natural logarithm (base e)
@@ -2969,7 +3009,6 @@ NavGameTest001
 NavSystem001
 Navigate To File
 NavigateToFile
-Ndp
 NeXT
 NeXTDecode: Not enough data for scanline %ld
 Neg R%d <- -R%d
@@ -3036,8 +3075,6 @@ Not synced to latest revision
 NotReloading
 Nov
 November
-Nqp
-Nsq
 Num
 Num0
 Num1
@@ -3066,6 +3103,7 @@ OP_EQUAL
 OYX
 OZQ%
 OZw3(?
+O\tV_expd
 Observable
 Obtained EMS handle %u
 Obtained XMS handle %u
@@ -3197,45 +3235,44 @@ Output file write error --- out of disk space?
 OutputBlackLevelChanged
 OutputDebugStringW
 OutputWhiteLevelChanged
+OverideHelpContextName
 OverlayProjectionDirection
 Override
 Overwrite With Current
 P4File
 PANEL_ID
 PARTICLE_EHANDLE__
-PAn
-PBt
-PCl
+PAr
+PAt
 PDT
-PEl
-PEm
+PDt
 PGDInstruction_t
-PGl
+PGm
+PGp
+PGt
+PGu
+PHm
+PHo
+PHp
 PIO
-PInstruction_t<42>::Run
 PInstruction_t<43>::Run
-PJt
-PKt
+PInstruction_t<44>::Run
+PIs
+PIt
+PJm
+PKm
 PLATFORM
-PMl
+PMm
 PNG\r\n
-PNs
-PNy
+PNt
 POISONED 
 POS_FLOATLITERAL
 POS_INTLITERAL
-POn
-POy
-PPk
-PPm
-PPy
-PQm
 PQs
-PQy
 PREVIEW
 PRIVATE
+PRu
 PST
-PSl
 PULSE_CALL_ASYNC_FIRE
 PULSE_CALL_SYNC
 PURH
@@ -3276,8 +3313,7 @@ PVAL_VEC3
 PVAL_VEC3_WORLDSPACE
 PVAL_VEC4
 PVAL_VOID
-PWr
-PZl
+P\tV_expf
 PackBits
 PackBitsDecode: Not enough data for scanline %ld
 PackBitsDecode: discarding %ld bytes to avoid buffer overrun
@@ -3297,6 +3333,7 @@ Parent VMDL
 Parent XML
 Parent XML Panel
 ParseEXRHeaderFromMemory failed! Error message: %s\n
+ParseImageDataSection failed
 Parser encountered %d error(s)
 Particle Binding
 Particle Binding (Real)
@@ -3313,15 +3350,15 @@ PasteColorSetFromClipboard
 Path Overflow, must be less than 260 characters.
 Pause
 Pause the cursor at this point.
-Pbt
-Pek
-Per
+Pco
 PerVertexLighting
 Perforce Integration
 PerformSingleRedo
 PerformSingleUndo
+Pfm
 PgDn
 PgUp
+Phm
 Photometric tag is missing, assuming data is YCbCr
 Photometric tag value assumed incorrect, assuming data is YCbCr instead of RGB
 PhotometricInterpretation
@@ -3333,14 +3370,13 @@ Pick
 Pick Global Background
 PickCancelled
 PickColor
-Pio
+Pim
 Pitch
 PitchCameraDown
 PitchCameraUp
 PivotPaint
 PixarLog
-Pjm
-Pkq
+Pju
 PlanarConfiguration
 Planarconfig tag value assumed incorrect, assuming data is contig instead of chunky
 Plat_CPUTickFrequency
@@ -3361,9 +3397,9 @@ Plat_MSTime
 Plat_NonFatalErrorFunc
 Plat_RegisterModule
 Pmg
-Pnl
 Pointers cannot be used as numeric values
 Policy
+Pom
 PopupClosed
 PopupOpened
 Pos
@@ -3390,9 +3426,11 @@ Postprocessing Data (*.vpost);;Postprocessing Data Autosave (*.vpost_autosave);;
 Postprocessing Layers
 Pot
 Pow
-Ppl
-Pql
-Pqq
+Ppo
+Pps
+Ppt
+Pqo
+Pqt
 Predictor
 PredictorEncodeTile
 PredictorSetup
@@ -3410,6 +3448,7 @@ Previous
 PreviousSession
 PrimaryChromaticities
 Private
+Prm
 Probable infinite loop detected! Terminating pulse cursor after %d consecutive instructions (%s)
 Probable runaway cursor creation detected! Permanently disabling this graph instance (%s)
 Proceed Elegantly.
@@ -3423,8 +3462,7 @@ Properties
 Property
 Property '%s.%s' not writable
 PropertyEditorSystem_001
-Pss
-Ptm
+Psp
 Pull From Global Browser
 PullSelectionFromGlobalBrowser
 Pulse
@@ -3461,23 +3499,20 @@ PulseRuntimeInvokeIndex_t
 PulseRuntimeOutputIndex_t
 PulseRuntimeRegisterIndex_t
 PulseRuntimeStateOffset_t
+PulseRuntimeTempVarBankIndex_t
+PulseRuntimeTempVarIndex_t
 PulseRuntimeVarIndex_t
 PulseSelectorOutflowList_t
 PulseSymbol_t
 PulseValueType_t
 PulseVariableKeysSource_t
-Puq
 Push To Global Browser
 PushSelectionToGlobalBrowser
 PvP
-Pvk
-Pvt
-Pwk
-Pwl
-Pxk
-Pyk
-Pyq
-Pzk
+Pvm
+Pwp
+Pwr
+Pxu
 Q2XXR
 QAbstractButton*
 QAction
@@ -3527,10 +3562,12 @@ QWidget
 QWidget { padding: 0px; background-color: transparent; }
 QWidget { padding: 2px; background-color : #4fb44f; color : black; }
 QWidget { padding: 2px; background-color : #5991e4; color : black; }
+QWidget { padding: 2px; background-color : #808080; color : black; }
 QWidget { padding: 2px; background-color : #b26262; color : black; }
 QWidget { padding: 2px; background-color : #e9ce93; color : black; }
 QWidget { padding: 2px;\t\t\t\t\t\t\t\t\t\t\t  }
 QWidget*
+Q\tV_fclose
 Qkkbal
 Qt5Core.dll
 Qt5Gui.dll
@@ -3539,6 +3576,7 @@ Qt::KeyboardModifiers
 Qt::MouseButton
 QtMetaTypePrivate::QSequentialIterableImpl
 Quantization table 0x%02x was not defined
+Quantize to %d Values
 Quantizing to %d = %d*%d*%d colors
 Quantizing to %d colors
 QueryPerformanceCounter
@@ -3558,10 +3596,10 @@ R8G8B8_ETC2
 R8G8_UINT
 R8_UINT
 R9G9B9E5_FLOAT
-RDp
 REINTERPRET_INSTANCE
 REQUIREMENT_FAIL
 REQUIREMENT_PASS
+RETURN
 RETURN_VALUE
 RETURN_VOID
 RG11_EAC
@@ -3583,12 +3621,13 @@ RGBA8888_UINT
 RGBA\t
 RGBA\t%1\t%2\t%3\t%4
 RGBX8888
-RKn
+RJr
 RMouse
 RMouseDoubleClick
 RSDS6
 RST%d
 RXw
+RZr
 R_T5Y
 Rad2 Deg
 Radius
@@ -3602,6 +3641,7 @@ Randomizes the order of items in the array (Knuth/Fisher-Yates Shuffle)
 RawDataUniqueID
 RayTracingEnvironment::RefineNode
 RayTracingEnvironment::RefineNodeJob
+Rdr
 ReSelectOnReturn
 Read Only
 Read failed on temporary file
@@ -3666,7 +3706,6 @@ RenderDeviceMgr001
 RenderHardwareConfig002
 RenderService_001
 RenderUtils_001
-Rep
 Repeat Operation
 ReplaceColor
 Request elegant wind-down of any associated work (e.g. vcd interrupt), then proceed afterwards.
@@ -3685,15 +3724,22 @@ ResourceManifestRegistry001
 ResourceSystem013
 RestartSim
 Result
+Return
 Return the number of elements in the array.
 ReturnJobManualEventToPool
 Returns -1 or 0 or 1 based on the sign of the argument
 Returns -1.0 or 0.0 or 1.0 based on the sign of the argument
+Returns a local transform that you could put back into 'Compose Transforms' to recover 'Offset'
 Returns a random position centered on vCenter with random min and max radius
+Returns interpolated value between A and B based on frac 0.0 - 1.0 (angle)
 Returns interpolated value between A and B based on frac 0.0 - 1.0 (float)
+Returns interpolated value between A and B based on frac 0.0 - 1.0 (transform)
 Returns interpolated value between A and B based on frac 0.0 - 1.0 (vector)
+Returns interpolated value between A and B based on frac 0.0 - 1.0 (world transform)
 Returns interpolated value between A and B based on frac 0.0 - 1.0 (world vector)
 Returns the constant pi (3.14...)
+Returns the inverse of a transform.
+Returns the inverse of a world transform.
 Returns true if the Vector is valid
 Returns true if the World Vector is valid
 Returns up to the maximum requested elements. Never grows the array (unlike SetCount).
@@ -3706,8 +3752,14 @@ Revision
 RichTIFFIPTC
 Right
 Right Mouse (Average)
-Rnp
 Roll
+Rotate Vector
+Rotate Vector To World
+Rotate World Vector To Local
+Rotate a relative vector by a local transform, not including position or scale.
+Rotate a relative vector into a world direction, not including position or scale.
+Rotate a vector by the inverse of a local transform, not including position or scale. Inverse of 'Rotate Vector'.
+Rotate a world direction vector into a local direction, not including position or scale.
 RotateAboutTarget3D
 RotateLights
 Round - round float up or down to integer
@@ -3717,6 +3769,7 @@ Row pixels integer overflow (rowpixels %u)
 RowClicked
 RowDoubleClicked
 RowsPerStrip
+Rrr
 RtlCaptureContext
 RtlLookupFunctionEntry
 RtlPcToFileHeader
@@ -3724,8 +3777,7 @@ RtlUnwind
 RtlUnwindEx
 RtlVirtualUnwind
 Run
-Ryp
-Rzp
+Rzr
 S>$hkDh$h>[2
 SBK
 SCALE
@@ -3739,6 +3791,8 @@ SCALE_VEC4
 SCOPE_QUALIFIER
 SEMICOLON
 SET_BLACKBOARD_REFERENCE
+SET_TEMPVAR
+SET_TEMPVAR_OBSERVABLE
 SET_VAR
 SET_VAR_ARRAY_ELEMENT_1D
 SET_VAR_OBSERVABLE
@@ -3823,6 +3877,7 @@ Scan script does not transmit all data
 Scene:
 SceneCameraChanged
 ScenePreview
+SceneSystem
 SceneSystem_002
 SceneUtils_001
 Schema Enum
@@ -3888,6 +3943,7 @@ SetTabStyleBar
 SetTabStyleBrick
 SetTabStyleLine
 SetTabStyleNone
+SetTempVar 
 SetUnhandledExceptionFilter
 SetValueCenter
 SetValueHidden
@@ -3945,6 +4001,7 @@ Skybox Bloom Strength
 SleepConditionVariableSRW
 SliderPressed
 SliderReleased
+SmartPropsSystem_001
 Smooth Camera
 Smoothing not supported with nonstandard sampling ratios
 SnapCameraToSelection
@@ -4007,6 +4064,7 @@ Stop Waiting
 Stop the node action without any wind-down, then proceed afterwards.
 Stop without any wind-down.
 StopSendingCameraTo
+StreamPutOverflow
 Strength
 Strength:
 String
@@ -4041,6 +4099,7 @@ Synced %d file(s).
 Synced %d file(s).  %d file(s) were not synced!
 Synchronous - Wait for this node to fully complete before proceeding.
 Syncing %d file(s).  Please wait...
+TEo
 THUMBNAIL
 TIFFAppendToStrip
 TIFFClientOpen
@@ -4063,8 +4122,8 @@ TIFFSetField
 TIFFTileRowSize
 TIFFVStripSize
 TIFFVTileSize
+TJo
 TOK_COLON
-TOo
 TUUUU
 Tab
 TabStyle_t
@@ -4075,12 +4134,14 @@ Tag Cursor
 Tag Self When Complete
 Tag Value
 TakeRenderDocCapture
+Takes a format string that and 1-5 arguments to insert into that string.<br>Format string can look like, for example, <tt>"Hello {} my name is {}"</tt> to reference arguments 0 and 1 implcictly.<br>Or <tt>"Hello {0} my name is {1}"</tt> to reference arguments 0 and 1 explicitly.<br>Use <tt>{{</tt> and <tt>}}</tt> for literal brace characters.<br>
 Tan
 TanFrameQuat
 Tangent of angle. Input in radians, output in radians
 TargetPrinter
+Tbr
 TcM
-Tdq
+Ten
 Terminate()
 TerminateProcess
 TernaryConditional
@@ -4088,7 +4149,6 @@ Test Handle
 Test Mode Assert True
 TestCheckpoint: %s
 TestScriptMgr001
-Testing script helpers.
 Text Color
 TextLayout_001
 TextProgramaticallyChanged
@@ -4142,7 +4202,7 @@ Time Between Saves
 Time since the start of the timer
 Tint
 Tint Color:
-Tkm
+Tkp
 TlsAlloc
 TlsFree
 TlsGetValue
@@ -4200,13 +4260,27 @@ Toolutils
 Track Mouse & Focus
 TransferFunction
 Transform
+Transform Inverse
+Transform Vector
+Transform Vector To World
+Transform World Vector To Local
+Transform a relative vector by a local transform, including position and scale.
+Transform a relative vector into worldspace, including position and scale.
+Transform a vector by the inverse of a local transform, including position and scale. Inverse of 'Transform Vector'.
+Transform a worldspace vector into a relative vector, including position and scale.
+TransformA
+TransformB
 Tried to load a polymorphic pointer with no '%s' key
 Truncated header.
 TryAcquireSRWLockExclusive
 TrySendVNotify - SendKV3 failed\n
 Tue
 Tuesday
+Tun
 Turn a time in seconds into a display string. NOT localized.
+Twn
+Txo
+Typ
 Type
 Typesafe Int
 Typesafe Int64
@@ -4217,6 +4291,7 @@ UNRECOGNIZED
 USER32.dll
 UUUUUU
 UVWQ8888
+Ukn
 UnInvalid
 UnNegate
 UnNot
@@ -4258,6 +4333,7 @@ UnknownType
 UnlitPostPass
 Unlock camera and allow perspective to roll upside down
 UnmapViewOfFile
+Unmodified
 Unrecognized action class '%s'
 Unrecognized component IDs %d %d %d, assuming YCbCr
 Unrecognized property '%s.%s'
@@ -4266,12 +4342,12 @@ Unsupported ETC image format %d.\n
 Unsupported JPEG data precision %d
 Unsupported JPEG process: SOF type 0x%02x
 Unsupported KV3 basic type '%s' (%d)!
-Unsupported PSD color mode!\n
 Unsupported color conversion request
 Unsupported marker type 0x%02x
 Unsupported primitive type: %d\n
 Unwanted token '%s' %s
 UokOP
+Uon
 UpdateAssetMenu
 UpdateBlackAndGammaSliderRange
 UpdateBlackOutputLevel
@@ -4312,10 +4388,10 @@ VData Choice
 VData:%s
 VEngineCvar007
 VFileSystem017
+VGr
 VIEW_FADE_CONSTANT_COLOR
 VIEW_FADE_MOD2X
 VIEW_FADE_MODULATE
-VKp
 VMAP
 VMDL
 VMaterialSystem2_001
@@ -4346,6 +4422,7 @@ V_FixSlashes
 V_FloatToString_Unsafe
 V_GetFileExtension
 V_Get_stderr
+V_Get_stdout
 V_Int16ToString_Unsafe
 V_Int32ToString_Unsafe
 V_Int64ToString_Unsafe
@@ -4374,7 +4451,6 @@ V_TryAndMakeFriendlyNameFromCppName
 V_UInt32ToString_Unsafe
 V_UInt64ToString_Unsafe
 V_UInt8ToString_Unsafe
-V_UnqualifiedFileName
 Valid Content Absolute Path
 Valid External Path
 Valid Game Absolute Path
@@ -4416,17 +4492,16 @@ Vignette %d
 Vignette Blur
 Vignette End
 Vignette Start
-Vip
 Virtual array controller messed up
 Vis:0 
 Vis:1 
 VisBuilder_001
 Visit Developer Help URL
 Visit the developer help URL (%1)
-Vnq
 Void
 Volumetric Scale
 Vrad3_001
+Vvr
 WARNING
 WARNING! You do not have the latest revision of this file. Checking out the file before getting the latest revision means you may have to resolve conflicts before you can submit your changes. <pre> %s </pre> You have revision: %d <br> Latest revision is: %d <br>
 WARNING: Failed to save file '%s': %s\n
@@ -4485,9 +4560,11 @@ WireframeDecal
 WireframeEffectsBloom
 WireframeTranslucent
 World Transform
+World Transform Inverse
 World Vector
 World Vector To Vector
 WorldRendererMgr001
+WorldVector
 Writable
 Write error at scanline %lu
 Write failed on temporary file --- out of disk space?
@@ -4498,52 +4575,34 @@ WriteFile
 Writeable
 Wrong JPEG library version: library is %d, caller expects %d
 X to the Y power
-XAl
-XBm
+XAt
 XClipPathUnits
-XCm
-XDm
-XEm
-XHm
-XJq
-XLl
-XLn
+XCr
+XIm
+XIt
+XLm
 XML
 XMLPacket
-XNl
-XOs
-XOy
+XNt
 XPosition
-XPy
-XQy
 XResolution
-XRs
-XUn
+XSm
+XUm
+XVo
 XVr
-XWl
 XYZ, Luv
-XYl
-Xal
-Xbk
-Xbl
-Xcl
-Xgk
+Xao
+Xbu
+Xeo
 XhL
-Xhl
-Xiq
-Xjl
-Xkn
-Xll
-Xml
-Xmr
-Xrl
+Xop
+Xot
+Xpt
+Xqt
 XsBI
-Xsp
-Xuk
-Xul
-Xut
-Xwt
-Xxq
+Xsm
+Xup
+Xyo
 Y>kX>M
 YCbCrCoefficients
 YCbCrPositioning
@@ -4551,6 +4610,7 @@ YCbCrSubsampling
 YClipPathUnits
 YPosition
 YResolution
+Y\tV_fmodd
 Yaw
 YawCameraLeft
 YawCameraRight
@@ -4561,6 +4621,7 @@ Yes: Checkout, resolve conflicts later.
 Yield, Resume=%s
 YpU_Z
 Yqq
+Yvn
 Z@&LHA'\r:C(
 ZFP compression is not supported.
 ZIPDecode
@@ -4569,8 +4630,7 @@ ZIPPostEncode
 ZIPSetupDecode
 ZIPSetupEncode
 ZIPVSetField
-ZIq
-ZPq
+Z\tV_fmodf
 Zjz\v
 ZoomAllCamerasIn
 ZoomAllCamerasOut
@@ -4578,12 +4638,14 @@ ZoomCameraIn
 ZoomCameraOut
 ZoomForwardBack2D
 ZoomForwardBack3D
-Zop
+Zyr
 [ Chunk%d ]
 [ written at chunk start last-read I%d ]
 [ written by I%d last-read I%d ]
 [***INVALID INSTRUCTION %d (%s)***]\n
 [*ncd>0
+[BREAK]
+[CPulseCell_ReturnValues]
 [Default] Determine a lifespan based on the warning/error state of the group
 [Default] General information
 [IMMEDIATE_HALT]
@@ -4599,37 +4661,51 @@ Zop
 [test]
 [thunk]:
 [unknown]
+\\tV_fopenUTF8
 \f\f?columnCount@QStandardItemModel@@UEBAHAEBVQModelIndex@@@Z
 \f\f?focusInEvent@QLabel@@MEAAXPEAVQFocusEvent@@@Z
 \f\f\f
 \f\n?deselect@QLineEdit@@QEAAXXZ
 \n    near %s\n    
 \n   Size: L: <%i, %i>   A: <%i, %i>   Scale: %0.2f\n   Geometry: %s\n   Virtual Geometry: %s\n   Available Geometry: %s\n   Orientation: %s\n
+\n***ASSERT FAILED*** Image data section has too many channels (%d).
+\n***ASSERT FAILED*** Pointer is null.
+\n***ERROR*** [DecompressRle] Malformed RLE data encountered
+\n***ERROR*** [ImageData] Unhandled bits per channel: %u.
+\n***ERROR*** [ImageData] Unhandled compression type %u.
+\n***ERROR*** [PSD] Document does not contain an image data section.
+\n***ERROR*** [PsdExtract] File seems to be corrupt, reserved bytes are not zero.
+\n***ERROR*** [PsdExtract] File seems to be corrupt, signature does not match "8BPS".
+\n***ERROR*** [PsdExtract] File seems to be corrupt, version does not match 1 or 2.
 \nIHDRPLTEIDATIENDtRNScHRMgAMAiCCPsBITsRGBtEXtzTXtiTXtbKGDhISTpHYssPLTtIMEoFFseXIf
-\nLKn
 \n\n\n
 \n\r?heightForWidth@QBoxLayout@@UEBAHH@Z
-\ng_flConfigMaxCoord
+\n_MakeGlobalSymbol
+\n_MakeGlobalSymbolCaseSensitive
+\n_V_StringAfterPrefix
+\n_V_strEndsWith
 \nh?oT
 \nk>oB
 \r\f?focusInEvent@QLineEdit@@MEAAXPEAVQFocusEvent@@@Z
-\r\ng_pThreadPool
 \r\r?heightForWidth@QGridLayout@@UEBAHH@Z
 \r\r\r\r\r\r
-\r\tV_acosd
 \rmj>zjZ
 \t The lexer was matching from line %d, offset %d, which\n\t 
 \t@@@@@@@@@@@@@@@@{N{N{N{N{N{N{N{N
-\tV_asind
-\tV_atan2d
-\tV_atan2f
-\tV_atand
-\tV_atanf
-\tV_atof
-\tV_atofloat32
-\tV_atoi
-\tV_cosd
-\tV_cosf
+\tV_UnqualifiedFileName
+\tV_log10f
+\tV_log2f
+\tV_logd
+\tV_logf
+\tV_modfd
+\tV_powd
+\tV_powf
+\tV_qsort
+\tV_qsort_s
+\tV_roundf
+\tV_sincosf
+\tV_sind
+\tV_sinf
 \tV_snprintf
 \tV_sscanf
 \tV_stricmp_fast
@@ -4638,26 +4714,17 @@ Zop
 \tV_tanf
 \tV_vsnprintf
 \tWarning
-\t\ng_flToolsDefaultFarZ
 \t\t\t
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t_MakeGlobalSymbol
-\t_MakeGlobalSymbolCaseSensitive
-\t_V_StringAfterPrefix
-\t_V_strEndsWith
-\t_V_strncmp
-\t_V_strncpy
-\t_V_strnicmp_fast
 \tcQr
-\tg_Mathlib_GammaToLinearByteTable
 \tkE>fvw
 \v\f?focusInEvent@QGroupBox@@MEAAXPEAVQFocusEvent@@@Z
-\v\ng_pMemAlloc
 \v\v\v
-]\tV_log10f
+]\tV_fpclassifyd
 ^#?([0-9A-Fa-f]{6}|[0-9A-Fa-f]{3})
 ^#?([0-9A-Fa-f]{8}|[0-9A-Fa-f]{6}|[0-9A-Fa-f]{4}|[0-9A-Fa-f]{3})$
 ^RfN>
+^\tV_fprintf
 ^oEZ_
 _TIFFMergeFieldInfo
 _TIFFSetupFieldInfo
@@ -4665,8 +4732,8 @@ _TIFFVGetField
 _TIFFVSetField
 _Target
 __CursorQueue__
-__FireCursorsParent__
 __IsValveCQTabbedStyle
+__RaceCursorsParent__
 __State_Child_Condition__
 __TimelineParent__
 __based(
@@ -4681,7 +4748,6 @@ __int64
 __int8
 __m_BaseFlow_WhileActive__
 __pascal
-__populated_from_schema_modules
 __ptr64
 __restrict
 __stdcall
@@ -4704,7 +4770,6 @@ _toolsautosave
 _volumeatlas_
 _wjb
 `RTTI
-`\tV_log2f
 `adjustor{
 `anonymous namespace'
 `copy constructor closure'
@@ -4756,7 +4821,6 @@ _wjb
 `vtordisp{
 a:fulltype
 a:typeparam
-a\tV_logd
 abcdefghijklmnopqrstuvwxyz
 abs
 acos
@@ -4773,6 +4837,8 @@ allowed_requirements
 alpha
 already connected
 amp
+ang
+ang2vec
 angle
 angles
 anyflags
@@ -4804,7 +4870,6 @@ bValid
 bValue
 bWasAnObservableComputation
 bWasModified
-b\tV_logf
 backed_by_variable
 background
 background-color: #22b14c
@@ -4821,15 +4886,19 @@ bad function call
 bad locale name
 bad message
 bad partition length
+bank_unique_id
 bc7e.dll
 bc7e_compress
 bc7e_init
 bc7e_init_params
 bej
 bentnormal
+ber
 binary
 binary_blob
+bind_targets
 binding
+bitmap output needs an 8 bit document
 black
 blendindices
 blendweight
@@ -4852,7 +4921,6 @@ bool operator==(QString const&, QString const&) (demangled)
 bottom
 broken pipe
 broken promise
-brq
 buffer error
 cannot parse filter header
 cannot parse partitions
@@ -4872,6 +4940,7 @@ char16_t
 char32_t
 char8_t
 checkstate
+childID
 children
 choice_name
 chunkCount
@@ -4897,6 +4966,8 @@ class <lambda_e0b623a606acfd10554dbddbb0c1a7da> (demangled)
 class <lambda_e7905d7dbd7cab7f9b19199433c4f5d3> (demangled)
 class <lambda_f25c37099038263181b5186a3fa41b37> (demangled)
 class CBaseAppSystem<IToolSystem2> (demangled)
+class CBaseBindTargetDescriptor (demangled)
+class CBaseBindableCommand (demangled)
 class CBaseDynamicWidgetFactory (demangled)
 class CBaseEditorApp (demangled)
 class CBaseEditorSession (demangled)
@@ -4909,23 +4980,21 @@ class CBaseUndoable (demangled)
 class CBaseVDataFileManager (demangled)
 class CBaseVModuleMetadataProvider (demangled)
 class CBindTargetDescriptor<CBindableCamera> (demangled)
-class CBindTargetDescriptor<CBindableCamera>::CSpecificTargetBindableCommand (demangled)
+class CBindTargetDescriptor<CBindableCamera>::CBindableCommand (demangled)
 class CBindTargetDescriptor<CGlobalHotkeyCommands> (demangled)
-class CBindTargetDescriptor<CGlobalHotkeyCommands>::CSpecificTargetBindableCommand (demangled)
+class CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand (demangled)
 class CBindTargetDescriptor<CLightingControlRig> (demangled)
-class CBindTargetDescriptor<CLightingControlRig>::CSpecificTargetBindableCommand (demangled)
+class CBindTargetDescriptor<CLightingControlRig>::CBindableCommand (demangled)
 class CBindTargetDescriptor<CPostProcessEditorApp> (demangled)
-class CBindTargetDescriptor<CPostProcessEditorApp>::CSpecificTargetBindableCommand (demangled)
+class CBindTargetDescriptor<CPostProcessEditorApp>::CBindableCommand (demangled)
 class CBindTargetDescriptor<CPostProcessEditorSession> (demangled)
-class CBindTargetDescriptor<CPostProcessEditorSession>::CSpecificTargetBindableCommand (demangled)
+class CBindTargetDescriptor<CPostProcessEditorSession>::CBindableCommand (demangled)
 class CBindTargetDescriptor<CQSessionCycleWidget> (demangled)
-class CBindTargetDescriptor<CQSessionCycleWidget>::CSpecificTargetBindableCommand (demangled)
+class CBindTargetDescriptor<CQSessionCycleWidget>::CBindableCommand (demangled)
 class CBindTargetDescriptor<CQToolSceneWidget> (demangled)
-class CBindTargetDescriptor<CQToolSceneWidget>::CSpecificTargetBindableCommand (demangled)
-class CBindTargetDescriptorBase (demangled)
+class CBindTargetDescriptor<CQToolSceneWidget>::CBindableCommand (demangled)
 class CBindTargetProxy (demangled)
 class CBindableCamera (demangled)
-class CBindableCommand (demangled)
 class CBloomLayer (demangled)
 class CBrightnessContrastColorCorrectionLayer (demangled)
 class CColorBalanceColorCorrectionLayer (demangled)
@@ -4984,6 +5053,7 @@ class CGenericExpr_VariableReference (demangled)
 class CGlobalHotkeyCommands (demangled)
 class CHitBoxObjectDesc (demangled)
 class CHueSaturationColorCorrectionLayer (demangled)
+class CInputBindTargetMetadataProvider (demangled)
 class CInputLayoutRegistration_s_hColoredVertexLayout (demangled)
 class CKV3TransferContextBase (demangled)
 class CKV3TransferInterface_EHandle_Load_NoOp (demangled)
@@ -5026,6 +5096,7 @@ class CParallelProcessorAbstract_Base (demangled)
 class CParticleCollectionBindingInstance (demangled)
 class CParticleMgr (demangled)
 class CParticleSystemQuery_ToolScene (demangled)
+class CParticleSystemQuery_ToolScene::CVolumetricCustomTrace (demangled)
 class CParticlesLibHost_ToolScene (demangled)
 class CPostConnectCallback (demangled)
 class CPostProcessData (demangled)
@@ -5033,6 +5104,7 @@ class CPostProcessDoc (demangled)
 class CPostProcessEditorApp (demangled)
 class CPostProcessEditorMainWnd (demangled)
 class CPostProcessEditorSession (demangled)
+class CPsdBufferFile (demangled)
 class CPulseCell_Base (demangled)
 class CPulseCell_BaseFlow (demangled)
 class CPulseCell_BaseRequirement (demangled)
@@ -5058,6 +5130,8 @@ class CPulseCell_Outflow_CycleOrdered (demangled)
 class CPulseCell_Outflow_CycleRandom (demangled)
 class CPulseCell_Outflow_CycleShuffled (demangled)
 class CPulseCell_PickBestOutflowSelector (demangled)
+class CPulseCell_RaceCursors (demangled)
+class CPulseCell_ReturnValues (demangled)
 class CPulseCell_Step_CallExternalMethod (demangled)
 class CPulseCell_Step_DebugLog (demangled)
 class CPulseCell_Step_PublicOutput (demangled)
@@ -5313,6 +5387,7 @@ class IUndoListener (demangled)
 class IUndoable (demangled)
 class IVDataResourceListener (demangled)
 class IVertexListObject (demangled)
+class IVolumetricCustomTrace (demangled)
 class PulseBindingSchemaEnumTraits_t<PulseCursorCancelPriority_t>::<lambda_1> (demangled)
 class PulseBindingSchemaEnumTraits_t<PulseCursorCancelPriority_t>::<lambda_2> (demangled)
 class PulseBindingSchemaEnumTraits_t<PulseCursorWakePriority_t>::<lambda_3> (demangled)
@@ -5395,94 +5470,28 @@ class `private: void CParticleMgr::SimulateParticles(CUtlVectorFixedGrowableComp
 class `private: void RayTracingEnvironment::RefineNode(int, int const*, int, TriangleBounds_t const*, Vec3D<float>, Vec3D<float>, int, CUtlMultiJobProcessor*)'::`12'::<lambda_1> (demangled)
 class `private: void RayTracingEnvironment::RefineNode(int, int const*, int, TriangleBounds_t const*, Vec3D<float>, Vec3D<float>, int, CUtlMultiJobProcessor*)'::`25'::<lambda_2> (demangled)
 class `public: CAssetSelectionListenerHelper::CAssetSelectionListenerHelper(IAssetSelectionListener*)'::`1'::<lambda_1_> (demangled)
+class `public: CBindTargetDescriptor<CBindableCamera>::CBindableCommand& CBindTargetDescriptor<CBindableCamera>::CBindableCommand::SetFunction<void (CBindableCamera::*)(BindableCameraAdjustSpeed_t), BindableCameraAdjustSpeed_t>(BindableCommandStage_t, void (CBindableCamera::*)(BindableCameraAdjustSpeed_t), BindableCameraAdjustSpeed_t)'::`2'::<lambda_1> (demangled)
+class `public: CBindTargetDescriptor<CBindableCamera>::CBindableCommand& CBindTargetDescriptor<CBindableCamera>::CBindableCommand::SetFunction<void (CBindableCamera::*)(bool, bool), bool, bool>(BindableCommandStage_t, void (CBindableCamera::*)(bool, bool), bool, bool)'::`2'::<lambda_1> (demangled)
+class `public: CBindTargetDescriptor<CBindableCamera>::CBindableCommand& CBindTargetDescriptor<CBindableCamera>::CBindableCommand::SetFunction<void (CBindableCamera::*)(void)>(BindableCommandStage_t, void (CBindableCamera::*)(void))'::`2'::<lambda_1> (demangled)
+class `public: CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand& CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand::SetFunction<void (CGlobalHotkeyCommands::*)(int, int), int, int>(BindableCommandStage_t, void (CGlobalHotkeyCommands::*)(int, int), int, int)'::`2'::<lambda_1> (demangled)
+class `public: CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand& CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand::SetFunction<void (CGlobalHotkeyCommands::*)(void)>(BindableCommandStage_t, void (CGlobalHotkeyCommands::*)(void))'::`2'::<lambda_1> (demangled)
+class `public: CBindTargetDescriptor<CLightingControlRig>::CBindableCommand& CBindTargetDescriptor<CLightingControlRig>::CBindableCommand::SetFunction<void (CLightingControlRig::*)(void)>(BindableCommandStage_t, void (CLightingControlRig::*)(void))'::`2'::<lambda_1> (demangled)
+class `public: CBindTargetDescriptor<CPostProcessEditorApp>::CBindableCommand& CBindTargetDescriptor<CPostProcessEditorApp>::CBindableCommand::SetFunction<void (CBaseEditorApp::*)(bool), bool>(BindableCommandStage_t, void (CBaseEditorApp::*)(bool), bool)'::`2'::<lambda_1> (demangled)
+class `public: CBindTargetDescriptor<CPostProcessEditorApp>::CBindableCommand& CBindTargetDescriptor<CPostProcessEditorApp>::CBindableCommand::SetFunction<void (CBaseEditorApp::*)(void)>(BindableCommandStage_t, void (CBaseEditorApp::*)(void))'::`2'::<lambda_1> (demangled)
+class `public: CBindTargetDescriptor<CPostProcessEditorApp>::CBindableCommand& CBindTargetDescriptor<CPostProcessEditorApp>::CBindableCommand::SetFunction<void (CEditorAppWithUndo<CPostProcessEditorSession, CPostProcessEditorMainWnd>::*)(void)>(BindableCommandStage_t, void (CEditorAppWithUndo<CPostProcessEditorSession, CPostProcessEditorMainWnd>::*)(void))'::`2'::<lambda_1> (demangled)
+class `public: CBindTargetDescriptor<CPostProcessEditorApp>::CBindableCommand& CBindTargetDescriptor<CPostProcessEditorApp>::CBindableCommand::SetFunction<void (CPostProcessEditorApp::*)(void)>(BindableCommandStage_t, void (CPostProcessEditorApp::*)(void))'::`2'::<lambda_1> (demangled)
+class `public: CBindTargetDescriptor<CPostProcessEditorSession>::CBindableCommand& CBindTargetDescriptor<CPostProcessEditorSession>::CBindableCommand::SetFunction<void (CPostProcessEditorSession::*)(void)>(BindableCommandStage_t, void (CPostProcessEditorSession::*)(void))'::`2'::<lambda_1> (demangled)
+class `public: CBindTargetDescriptor<CQSessionCycleWidget>::CBindableCommand& CBindTargetDescriptor<CQSessionCycleWidget>::CBindableCommand::SetFunction<void (CQSessionCycleWidget::*)(bool), bool>(BindableCommandStage_t, void (CQSessionCycleWidget::*)(bool), bool)'::`2'::<lambda_1> (demangled)
+class `public: CBindTargetDescriptor<CQSessionCycleWidget>::CBindableCommand& CBindTargetDescriptor<CQSessionCycleWidget>::CBindableCommand::SetFunction<void (CQSessionCycleWidget::*)(void)>(BindableCommandStage_t, void (CQSessionCycleWidget::*)(void))'::`2'::<lambda_1> (demangled)
+class `public: CBindTargetDescriptor<CQToolSceneWidget>::CBindableCommand& CBindTargetDescriptor<CQToolSceneWidget>::CBindableCommand::SetFunction<void (CQToolSceneWidget::*)(void)>(BindableCommandStage_t, void (CQToolSceneWidget::*)(void))'::`2'::<lambda_1> (demangled)
 class `public: CSmartPtr<CThreadedJob, CRefCountAccessor> IThreadPool::QueueJobWithFlags<`public: `private: void CParticleMgr::SimulateParticles(CUtlVectorFixedGrowableCompat<CParticleMgr::ParticleSimListItem_t, 1024, int>&)'::`2'::<lambda_2>::operator()(void) const'::`2'::<lambda_1> >(char const*, JobPriority_t, unsigned int, `public: `private: void CParticleMgr::SimulateParticles(CUtlVectorFixedGrowableCompat<CParticleMgr::ParticleSimListItem_t, 1024, int>&)'::`2'::<lambda_2>::operator()(void) const'::`2'::<lambda_1>&&)'::`2'::CLambdaJob (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`14'::<lambda_1> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`16'::<lambda_2> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`18'::<lambda_3> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`20'::<lambda_4> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`22'::<lambda_5> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`24'::<lambda_6> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`25'::<lambda_7> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`26'::<lambda_8> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`27'::<lambda_9> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`28'::<lambda_10> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`30'::<lambda_11> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`31'::<lambda_12> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`32'::<lambda_13> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`35'::<lambda_14> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`36'::<lambda_15> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`37'::<lambda_16> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`40'::<lambda_17> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`44'::<lambda_18> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`45'::<lambda_19> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`46'::<lambda_20> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`47'::<lambda_21> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`50'::<lambda_22> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`51'::<lambda_23> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`52'::<lambda_24> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`55'::<lambda_25> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`56'::<lambda_26> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`57'::<lambda_27> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`60'::<lambda_28> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`61'::<lambda_29> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`62'::<lambda_30> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`66'::<lambda_31> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`67'::<lambda_32> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`10'::<lambda_8> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`11'::<lambda_9> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`12'::<lambda_10> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`13'::<lambda_11> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`14'::<lambda_12> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`15'::<lambda_13> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`16'::<lambda_14> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`17'::<lambda_15> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`3'::<lambda_1> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`4'::<lambda_2> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`5'::<lambda_3> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`6'::<lambda_4> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`7'::<lambda_5> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`8'::<lambda_6> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`9'::<lambda_7> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CLightingControlRig::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`3'::<lambda_1> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CLightingControlRig::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`4'::<lambda_2> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CLightingControlRig::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`5'::<lambda_3> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CLightingControlRig::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`6'::<lambda_4> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CLightingControlRig::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`7'::<lambda_5> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CPostProcessEditorApp::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`10'::<lambda_8> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CPostProcessEditorApp::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`11'::<lambda_9> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CPostProcessEditorApp::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`12'::<lambda_10> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CPostProcessEditorApp::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`13'::<lambda_11> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CPostProcessEditorApp::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`14'::<lambda_12> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CPostProcessEditorApp::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`15'::<lambda_13> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CPostProcessEditorApp::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`16'::<lambda_14> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CPostProcessEditorApp::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`17'::<lambda_15> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CPostProcessEditorApp::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`18'::<lambda_16> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CPostProcessEditorApp::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`19'::<lambda_17> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CPostProcessEditorApp::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`20'::<lambda_18> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CPostProcessEditorApp::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`21'::<lambda_19> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CPostProcessEditorApp::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`22'::<lambda_20> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CPostProcessEditorApp::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`23'::<lambda_21> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CPostProcessEditorApp::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`3'::<lambda_1> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CPostProcessEditorApp::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`4'::<lambda_2> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CPostProcessEditorApp::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`5'::<lambda_3> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CPostProcessEditorApp::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`6'::<lambda_4> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CPostProcessEditorApp::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`7'::<lambda_5> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CPostProcessEditorApp::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`8'::<lambda_6> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CPostProcessEditorApp::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`9'::<lambda_7> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CPostProcessEditorSession::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`3'::<lambda_1> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CQSessionCycleWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`3'::<lambda_1> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CQSessionCycleWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`3'::<lambda_2> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CQSessionCycleWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`4'::<lambda_3> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CQSessionCycleWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`5'::<lambda_4> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CQToolSceneWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`3'::<lambda_1> (demangled)
-class `public: `public: static CBindTargetDescriptorBase* CQToolSceneWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`4'::<lambda_2> (demangled)
-class `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance (demangled)
-class `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance (demangled)
-class `public: static CBindTargetDescriptorBase* CLightingControlRig::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance (demangled)
-class `public: static CBindTargetDescriptorBase* CPostProcessEditorApp::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance (demangled)
-class `public: static CBindTargetDescriptorBase* CPostProcessEditorSession::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance (demangled)
-class `public: static CBindTargetDescriptorBase* CQSessionCycleWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance (demangled)
-class `public: static CBindTargetDescriptorBase* CQToolSceneWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance (demangled)
+class `public: static CBaseBindTargetDescriptor* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance (demangled)
+class `public: static CBaseBindTargetDescriptor* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance (demangled)
+class `public: static CBaseBindTargetDescriptor* CLightingControlRig::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance (demangled)
+class `public: static CBaseBindTargetDescriptor* CPostProcessEditorApp::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance (demangled)
+class `public: static CBaseBindTargetDescriptor* CPostProcessEditorSession::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance (demangled)
+class `public: static CBaseBindTargetDescriptor* CQSessionCycleWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance (demangled)
+class `public: static CBaseBindTargetDescriptor* CQToolSceneWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance (demangled)
 class `public: void CNewParticleEffect::StopEmission(bool, bool, bool, bool)'::`2'::<lambda_1> (demangled)
 class `public: void CSOAContainer::FillAttr(int, float)'::`13'::<lambda_1> (demangled)
 class `public: void RayTracingEnvironment::SetupAccelerationStructure(void)'::`2'::<lambda_1> (demangled)
@@ -5490,6 +5499,9 @@ class charNode (demangled)
 class pDNameNode (demangled)
 class pairNode (demangled)
 class pcharNode (demangled)
+class psd::Allocator (demangled)
+class psd::File (demangled)
+class psd::MallocAllocator (demangled)
 class std::_Associated_state<int> (demangled)
 class std::_Associated_state<unsigned int> (demangled)
 class std::_Deferred_async_state<unsigned int> (demangled)
@@ -5541,86 +5553,20 @@ class std::_Func_impl_no_alloc<`private: void CParticleMgr::SimulateParticles(CU
 class std::_Func_impl_no_alloc<`private: void RayTracingEnvironment::RefineNode(int, int const*, int, TriangleBounds_t const*, Vec3D<float>, Vec3D<float>, int, CUtlMultiJobProcessor*)'::`12'::<lambda_1>, void> (demangled)
 class std::_Func_impl_no_alloc<`private: void RayTracingEnvironment::RefineNode(int, int const*, int, TriangleBounds_t const*, Vec3D<float>, Vec3D<float>, int, CUtlMultiJobProcessor*)'::`25'::<lambda_2>, void> (demangled)
 class std::_Func_impl_no_alloc<`public: CAssetSelectionListenerHelper::CAssetSelectionListenerHelper(IAssetSelectionListener*)'::`1'::<lambda_1_>, void, AssetSelectionInfo_t const&> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`14'::<lambda_1>, void, CBindableCamera*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`16'::<lambda_2>, void, CBindableCamera*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`18'::<lambda_3>, void, CBindableCamera*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`20'::<lambda_4>, void, CBindableCamera*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`22'::<lambda_5>, void, CBindableCamera*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`24'::<lambda_6>, void, CBindableCamera*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`25'::<lambda_7>, void, CBindableCamera*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`26'::<lambda_8>, void, CBindableCamera*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`27'::<lambda_9>, void, CBindableCamera*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`28'::<lambda_10>, void, CBindableCamera*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`30'::<lambda_11>, void, CBindableCamera*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`31'::<lambda_12>, void, CBindableCamera*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`32'::<lambda_13>, void, CBindableCamera*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`35'::<lambda_14>, void, CBindableCamera*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`36'::<lambda_15>, void, CBindableCamera*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`37'::<lambda_16>, void, CBindableCamera*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`40'::<lambda_17>, void, CBindableCamera*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`44'::<lambda_18>, void, CBindableCamera*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`45'::<lambda_19>, void, CBindableCamera*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`46'::<lambda_20>, void, CBindableCamera*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`47'::<lambda_21>, void, CBindableCamera*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`50'::<lambda_22>, void, CBindableCamera*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`51'::<lambda_23>, void, CBindableCamera*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`52'::<lambda_24>, void, CBindableCamera*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`55'::<lambda_25>, void, CBindableCamera*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`56'::<lambda_26>, void, CBindableCamera*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`57'::<lambda_27>, void, CBindableCamera*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`60'::<lambda_28>, void, CBindableCamera*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`61'::<lambda_29>, void, CBindableCamera*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`62'::<lambda_30>, void, CBindableCamera*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`66'::<lambda_31>, void, CBindableCamera*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CBindableCamera::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`67'::<lambda_32>, void, CBindableCamera*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`10'::<lambda_8>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`11'::<lambda_9>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`12'::<lambda_10>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`13'::<lambda_11>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`14'::<lambda_12>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`15'::<lambda_13>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`16'::<lambda_14>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`17'::<lambda_15>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`3'::<lambda_1>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`4'::<lambda_2>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`5'::<lambda_3>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`6'::<lambda_4>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`7'::<lambda_5>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`8'::<lambda_6>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CGlobalHotkeyCommands::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`9'::<lambda_7>, void, CGlobalHotkeyCommands*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CLightingControlRig::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`3'::<lambda_1>, void, CLightingControlRig*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CLightingControlRig::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`4'::<lambda_2>, void, CLightingControlRig*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CLightingControlRig::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`5'::<lambda_3>, void, CLightingControlRig*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CLightingControlRig::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`6'::<lambda_4>, void, CLightingControlRig*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CLightingControlRig::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`7'::<lambda_5>, void, CLightingControlRig*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CPostProcessEditorApp::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`10'::<lambda_8>, void, CPostProcessEditorApp*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CPostProcessEditorApp::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`11'::<lambda_9>, void, CPostProcessEditorApp*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CPostProcessEditorApp::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`12'::<lambda_10>, void, CPostProcessEditorApp*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CPostProcessEditorApp::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`13'::<lambda_11>, void, CPostProcessEditorApp*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CPostProcessEditorApp::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`14'::<lambda_12>, void, CPostProcessEditorApp*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CPostProcessEditorApp::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`15'::<lambda_13>, void, CPostProcessEditorApp*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CPostProcessEditorApp::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`16'::<lambda_14>, void, CPostProcessEditorApp*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CPostProcessEditorApp::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`17'::<lambda_15>, void, CPostProcessEditorApp*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CPostProcessEditorApp::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`18'::<lambda_16>, void, CPostProcessEditorApp*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CPostProcessEditorApp::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`19'::<lambda_17>, void, CPostProcessEditorApp*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CPostProcessEditorApp::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`20'::<lambda_18>, void, CPostProcessEditorApp*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CPostProcessEditorApp::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`21'::<lambda_19>, void, CPostProcessEditorApp*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CPostProcessEditorApp::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`22'::<lambda_20>, void, CPostProcessEditorApp*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CPostProcessEditorApp::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`23'::<lambda_21>, void, CPostProcessEditorApp*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CPostProcessEditorApp::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`3'::<lambda_1>, void, CPostProcessEditorApp*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CPostProcessEditorApp::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`4'::<lambda_2>, void, CPostProcessEditorApp*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CPostProcessEditorApp::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`5'::<lambda_3>, void, CPostProcessEditorApp*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CPostProcessEditorApp::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`6'::<lambda_4>, void, CPostProcessEditorApp*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CPostProcessEditorApp::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`7'::<lambda_5>, void, CPostProcessEditorApp*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CPostProcessEditorApp::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`8'::<lambda_6>, void, CPostProcessEditorApp*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CPostProcessEditorApp::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`9'::<lambda_7>, void, CPostProcessEditorApp*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CPostProcessEditorSession::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`3'::<lambda_1>, void, CPostProcessEditorSession*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CQSessionCycleWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`3'::<lambda_1>, void, CQSessionCycleWidget*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CQSessionCycleWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`3'::<lambda_2>, void, CQSessionCycleWidget*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CQSessionCycleWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`4'::<lambda_3>, void, CQSessionCycleWidget*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CQSessionCycleWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`5'::<lambda_4>, void, CQSessionCycleWidget*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CQToolSceneWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`3'::<lambda_1>, void, CQToolSceneWidget*> (demangled)
-class std::_Func_impl_no_alloc<`public: `public: static CBindTargetDescriptorBase* CQToolSceneWidget::StaticBindableTargetDescriptor(void)'::`2'::CBindableTargetDescriptorInstance::CBindableTargetDescriptorInstance(void)'::`4'::<lambda_2>, void, CQToolSceneWidget*> (demangled)
+class std::_Func_impl_no_alloc<`public: CBindTargetDescriptor<CBindableCamera>::CBindableCommand& CBindTargetDescriptor<CBindableCamera>::CBindableCommand::SetFunction<void (CBindableCamera::*)(BindableCameraAdjustSpeed_t), BindableCameraAdjustSpeed_t>(BindableCommandStage_t, void (CBindableCamera::*)(BindableCameraAdjustSpeed_t), BindableCameraAdjustSpeed_t)'::`2'::<lambda_1>, void, CBindableCamera*> (demangled)
+class std::_Func_impl_no_alloc<`public: CBindTargetDescriptor<CBindableCamera>::CBindableCommand& CBindTargetDescriptor<CBindableCamera>::CBindableCommand::SetFunction<void (CBindableCamera::*)(bool, bool), bool, bool>(BindableCommandStage_t, void (CBindableCamera::*)(bool, bool), bool, bool)'::`2'::<lambda_1>, void, CBindableCamera*> (demangled)
+class std::_Func_impl_no_alloc<`public: CBindTargetDescriptor<CBindableCamera>::CBindableCommand& CBindTargetDescriptor<CBindableCamera>::CBindableCommand::SetFunction<void (CBindableCamera::*)(void)>(BindableCommandStage_t, void (CBindableCamera::*)(void))'::`2'::<lambda_1>, void, CBindableCamera*> (demangled)
+class std::_Func_impl_no_alloc<`public: CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand& CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand::SetFunction<void (CGlobalHotkeyCommands::*)(int, int), int, int>(BindableCommandStage_t, void (CGlobalHotkeyCommands::*)(int, int), int, int)'::`2'::<lambda_1>, void, CGlobalHotkeyCommands*> (demangled)
+class std::_Func_impl_no_alloc<`public: CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand& CBindTargetDescriptor<CGlobalHotkeyCommands>::CBindableCommand::SetFunction<void (CGlobalHotkeyCommands::*)(void)>(BindableCommandStage_t, void (CGlobalHotkeyCommands::*)(void))'::`2'::<lambda_1>, void, CGlobalHotkeyCommands*> (demangled)
+class std::_Func_impl_no_alloc<`public: CBindTargetDescriptor<CLightingControlRig>::CBindableCommand& CBindTargetDescriptor<CLightingControlRig>::CBindableCommand::SetFunction<void (CLightingControlRig::*)(void)>(BindableCommandStage_t, void (CLightingControlRig::*)(void))'::`2'::<lambda_1>, void, CLightingControlRig*> (demangled)
+class std::_Func_impl_no_alloc<`public: CBindTargetDescriptor<CPostProcessEditorApp>::CBindableCommand& CBindTargetDescriptor<CPostProcessEditorApp>::CBindableCommand::SetFunction<void (CBaseEditorApp::*)(bool), bool>(BindableCommandStage_t, void (CBaseEditorApp::*)(bool), bool)'::`2'::<lambda_1>, void, CPostProcessEditorApp*> (demangled)
+class std::_Func_impl_no_alloc<`public: CBindTargetDescriptor<CPostProcessEditorApp>::CBindableCommand& CBindTargetDescriptor<CPostProcessEditorApp>::CBindableCommand::SetFunction<void (CBaseEditorApp::*)(void)>(BindableCommandStage_t, void (CBaseEditorApp::*)(void))'::`2'::<lambda_1>, void, CPostProcessEditorApp*> (demangled)
+class std::_Func_impl_no_alloc<`public: CBindTargetDescriptor<CPostProcessEditorApp>::CBindableCommand& CBindTargetDescriptor<CPostProcessEditorApp>::CBindableCommand::SetFunction<void (CEditorAppWithUndo<CPostProcessEditorSession, CPostProcessEditorMainWnd>::*)(void)>(BindableCommandStage_t, void (CEditorAppWithUndo<CPostProcessEditorSession, CPostProcessEditorMainWnd>::*)(void))'::`2'::<lambda_1>, void, CPostProcessEditorApp*> (demangled)
+class std::_Func_impl_no_alloc<`public: CBindTargetDescriptor<CPostProcessEditorApp>::CBindableCommand& CBindTargetDescriptor<CPostProcessEditorApp>::CBindableCommand::SetFunction<void (CPostProcessEditorApp::*)(void)>(BindableCommandStage_t, void (CPostProcessEditorApp::*)(void))'::`2'::<lambda_1>, void, CPostProcessEditorApp*> (demangled)
+class std::_Func_impl_no_alloc<`public: CBindTargetDescriptor<CPostProcessEditorSession>::CBindableCommand& CBindTargetDescriptor<CPostProcessEditorSession>::CBindableCommand::SetFunction<void (CPostProcessEditorSession::*)(void)>(BindableCommandStage_t, void (CPostProcessEditorSession::*)(void))'::`2'::<lambda_1>, void, CPostProcessEditorSession*> (demangled)
+class std::_Func_impl_no_alloc<`public: CBindTargetDescriptor<CQSessionCycleWidget>::CBindableCommand& CBindTargetDescriptor<CQSessionCycleWidget>::CBindableCommand::SetFunction<void (CQSessionCycleWidget::*)(bool), bool>(BindableCommandStage_t, void (CQSessionCycleWidget::*)(bool), bool)'::`2'::<lambda_1>, void, CQSessionCycleWidget*> (demangled)
+class std::_Func_impl_no_alloc<`public: CBindTargetDescriptor<CQSessionCycleWidget>::CBindableCommand& CBindTargetDescriptor<CQSessionCycleWidget>::CBindableCommand::SetFunction<void (CQSessionCycleWidget::*)(void)>(BindableCommandStage_t, void (CQSessionCycleWidget::*)(void))'::`2'::<lambda_1>, void, CQSessionCycleWidget*> (demangled)
+class std::_Func_impl_no_alloc<`public: CBindTargetDescriptor<CQToolSceneWidget>::CBindableCommand& CBindTargetDescriptor<CQToolSceneWidget>::CBindableCommand::SetFunction<void (CQToolSceneWidget::*)(void)>(BindableCommandStage_t, void (CQToolSceneWidget::*)(void))'::`2'::<lambda_1>, void, CQToolSceneWidget*> (demangled)
 class std::_Func_impl_no_alloc<`public: void CNewParticleEffect::StopEmission(bool, bool, bool, bool)'::`2'::<lambda_1>, void> (demangled)
 class std::_Func_impl_no_alloc<`public: void CSOAContainer::FillAttr(int, float)'::`13'::<lambda_1>, void> (demangled)
 class std::_Func_impl_no_alloc<`public: void RayTracingEnvironment::SetupAccelerationStructure(void)'::`2'::<lambda_1>, void> (demangled)
@@ -5643,6 +5589,7 @@ class std::_Iostream_error_category2 (demangled)
 class std::_Packaged_state<unsigned int (void)> (demangled)
 class std::_Packaged_state<void (void)> (demangled)
 class std::_Ref_count_base (demangled)
+class std::_Ref_count_obj2<CParticleSystemQuery_ToolScene::CVolumetricCustomTrace> (demangled)
 class std::_Ref_count_obj<Concurrency::details::_ExceptionHolder> (demangled)
 class std::_Ref_count_obj<Concurrency::details::_Task_impl<unsigned char> > (demangled)
 class std::_System_error (demangled)
@@ -5685,12 +5632,18 @@ cli::array<
 cli::pin_ptr<
 clicked
 client.dll
+cmyk document with non 8 bit channels
 coclass 
 cointerface 
 color
 colorSelected
 colors
 colspan
+commands
+composeAngles
+composeTransforms
+composite channel data missing
+composite has too few channels for its color mode
 compressedtangentframe
 compression
 connection aborted
@@ -5710,6 +5663,7 @@ cos
 cosf
 cosh
 cpu
+cross
 cross device link
 currentColorChanged
 current_value
@@ -5718,13 +5672,18 @@ cursors
 curvature
 custom_colors
 custom_fgd_type
-dAq
-dBm
-dBo
-dBp
-dIp
+dAo
+dAr
+dLr
+dNo
 dQy/
 dRL>
+dUr
+dVo
+dWp
+dXo
+dYo
+dao
 darkColors
 data error
 data height too large.
@@ -5734,6 +5693,7 @@ dataWindow
 data_height = 
 data_with or data_height too large. data_width: 
 dddd, MMMM dd, yyyy
+ddo
 debugger_can_create_instance
 decal
 decltype(auto)
@@ -5741,35 +5701,33 @@ default
 defaultAction
 default_value
 deg2rad
-deo
 description
 dest
 destination address required
 device or resource busy
-dhm
-dim
 direct_return_value_for
 directory not empty
 displayWindow
+dkn
 dlBNvz!/u{1?cmR^
 doItemsLayout
 dock
 docked_widget
 domain_scope
-doq
+don
+dot
 double
+dpr
 dqe-KO{/3
-dqn
 dropDraggedColorSet
+dtn
 dummyfilename.tif
-dvo
-dwm
+dwn
 eEk
 eF>t
 eGn
 eLK(w
 eO@R
-eSceneSystem
 edit_context_override
 editingFinished
 editor
@@ -5781,11 +5739,13 @@ end_as_info
 end_group
 enum 
 error
+etexcoord
 event
 ewh/?y
 executable format error
 execution_history
 exp
+exp2
 expect_default_outflow
 expected_return_type
 expr
@@ -5794,17 +5754,13 @@ extern "C"
 f5J5J5J5J5J5J5J5J5J5J5J5J5J5J5J5Jx
 fAj
 fD>b
-fGp
-fGq
-fHp
-fHq
 fP~V
-fTq
 fWi?
-f\tV_modfd
+fWm0
 fabs
 false
 fast
+fcm0
 ffValueIn
 fff?
 field_name
@@ -5814,6 +5770,7 @@ file too large
 filePath
 filename too long
 filter
+fingerprint
 fixed_height
 fixed_size
 fixed_width
@@ -5861,6 +5818,7 @@ floating point predictor
 floor
 flowing
 fmod
+fmt
 fontfamily
 fontstyle
 for "ReferenceBlackWhite" array
@@ -5952,59 +5910,45 @@ generic
 generic-type-
 generic_node_category
 geometry
+getRelativeTransform
 gqr<
 green
 grid
 group
 group_title
 h>1my
-hBl
-hCo
-hFl
-hHo
-hKl
-hKm
-hLo
-hMp
-hMt
-hNn
-hNs
-hNy
-hOy
+hBn
+hFm
+hFt
+hIt
+hNt
+hOp
 hPU3
-hPk
-hPp
-hPy
-hQm
-hQq
-hQs
-hQy
+hQu
 hResource
-hSo
 hTarget
-hWl
-hXl
-hZl
-hZo
-hZp
-han
+hTr
+hXm
+hYm
 has_observable_context
-hbk
 hbox
 hcenter
+hcm
+hcr
 hdm
+hdn
 header crc mismatch
 header_icon
-hek
+hfm
+hgm
 hidden
 hidden_in_tool
-hjn
-hll
-hlp
-hml
-hnp
-hol
-hoo
+hkr
+hln
+hlr
+hmm
+hmn
+hnm
 horizontal differencing 
 horizontalPolicy
 horizontalStretch
@@ -6012,32 +5956,28 @@ horizontal_header
 horizontal_header_labels
 host unreachable
 host_framerate
-hpl
-hpp
-hql
-hqp
-hrn
-hsl
-hst
+hot
+hpt
+hpu
+hqt
+htp
 hullivr_edge_merge_tan
 hullivr_faceisland_merge_disp
 hullivr_faceisland_merge_tan
 hullivr_version
-hvk
-hvp
 hwe
-hwk
-hwl
-hwn
-hxk
-hxo
-hzk
+hwm
+hym
+hyu
+hzm
+hzp
 iValueIn
 i]Wb
 iak
 identifier removed
 idiv
 idle
+ijn
 illegal byte sequence
 inappropriate io control operation
 incompatible version
@@ -6046,6 +5986,9 @@ incorrect count for field "%s" (%u, expecting %u); tag trimmed
 incorrect data check
 incorrect header check
 incorrect length check
+indexed document with more than 2 channels
+indexed document with no usable palette
+indexed document with non 8 bit indices
 inf
 info
 instance
@@ -6076,6 +6019,8 @@ invalid string position
 invalid vector subscript
 invalid window size
 invalid_parameter
+inverseRotateVector
+inverseTransformVector
 io error
 ios_base::badbit set
 ios_base::eofbit set
@@ -6095,11 +6040,11 @@ ispc_texcomp.dll
 italic
 j'Vlk
 jAf
-jDp
 jHq
-jJp
+jMr
 jVg
-jgq
+jar
+jkn
 jpf
 k;J;J;J;J;J;J;J;J;J;J;J;J;J;J;J;Jx
 k=yI
@@ -6109,12 +6054,10 @@ key
 knv
 koi
 l6qnk
-lCn
 lDa>
-lFn
-lGm
-lSn
-lTo
+lQr
+lWr
+lXo
 laQ
 lab
 labelPos
@@ -6122,8 +6065,6 @@ labelText
 lambda
 landscape
 landscape (inverted)
-laq
-lbp
 ldE
 ldexp
 left
@@ -6133,11 +6074,13 @@ length2d
 length3d
 lerp
 lexer->mTokens(): Error: No lexer rules were added to the lexer yet!\n
-lfq
+lhn
 lib:
 lifespan
 lineOrder
+ljr
 ljw
+llp
 log
 log10
 log2
@@ -6147,11 +6090,9 @@ looks like this:\n\t\t%.*s\n
 loud
 lowprecisionuv
 lowprecisionuv1
-ltp
-lzm
-lzn
+lrn
+lyo
 m\nXo
-m\tV_powd
 m_Args
 m_Background
 m_BackgroundMap
@@ -6174,6 +6115,7 @@ m_Context
 m_Curve
 m_DefaultValue
 m_DependentObservableBlackboardReferences
+m_DependentObservableTempVars
 m_DependentObservableVars
 m_Description
 m_DestinationFlowNodeID
@@ -6234,6 +6176,7 @@ m_Registers
 m_RequiredRuntimeType
 m_RequirementNodeIDs
 m_ReturnType
+m_ReturnValues
 m_SequencePoint
 m_SequencePointName
 m_Shuffle
@@ -6249,6 +6192,8 @@ m_TagName
 m_TagValue
 m_TargetEntity
 m_TargetInput
+m_TempVarBanks
+m_TempVars
 m_TimelineEvents
 m_Type
 m_UnknownKeys
@@ -6267,6 +6212,7 @@ m_bCastShadows
 m_bChildCursorsShouldInherit
 m_bCompleteOnNextWake
 m_bConditionValue
+m_bDeferBreak
 m_bDontRemove
 m_bEnabled
 m_bFirstEvaluate
@@ -6301,6 +6247,7 @@ m_bShouldCheckFoW
 m_bShouldPerformCullCheck
 m_bShouldSave
 m_bShouldSimulateDuringGamePaused
+m_bShowInUI
 m_bShutdown
 m_bSimulate
 m_bSuppressScreenSpaceEffect
@@ -6413,6 +6360,8 @@ m_nBlackboardReferenceIdx
 m_nBlueYellowBalH
 m_nBlueYellowBalM
 m_nBlueYellowBalS
+m_nBreakDestChunk
+m_nBreakDestInstruction
 m_nBrightness
 m_nBrightnessBlue
 m_nBrightnessCyan
@@ -6505,10 +6454,13 @@ m_nSrcChunk
 m_nSrcInstruction
 m_nStackDepthWhenAdded
 m_nStrength
+m_nTempVarBank
+m_nTempVarIdx
 m_nTintColorB
 m_nTintColorG
 m_nTintColorR
 m_nType
+m_nUniqueID
 m_nValueNodeID
 m_nVar
 m_nVibrance
@@ -6516,6 +6468,7 @@ m_nWrittenByInstruction
 m_nYieldToken
 m_name
 m_pDebugName
+m_pDuplicateDispatchPrimitives != nullptr
 m_pLayerMask
 m_pNext
 m_pOwningParticleProperty
@@ -6601,8 +6554,8 @@ n$Kx
 n03>Pu
 nAlpha
 nBlackPointVal
+nBr
 nCount
-nCq
 nCursorID
 nDelayInMS
 nDenominator
@@ -6612,7 +6565,6 @@ nGammaSliderVal
 nIndex
 nKillPriority
 nLastValidEntryIdx
-nLq
 nMax
 nMaxElements
 nMin
@@ -6620,7 +6572,6 @@ nMode
 nModifiers
 nMouseButton
 nNewValue
-nNp
 nNumerator
 nOpacity
 nRemainderDigits
@@ -6636,8 +6587,6 @@ nVal
 nValue
 nWakePriority
 nWhitePointVal
-nWp
-n\tV_powf
 n]?iJ
 name
 nan
@@ -6656,6 +6605,7 @@ newValue
 next_cursor_id
 no buffer space
 no child process
+no composite (not saved with Maximize Compatibility)
 no link
 no lock available
 no memory during frame initialization.
@@ -6672,6 +6622,7 @@ no such process
 node_id
 none 
 normal
+normalize
 not a directory
 not a socket
 not a stream
@@ -6679,17 +6630,15 @@ not connected
 not enough memory
 not saved
 not supported
-ntq
+nqr
 nuS
 null
 null VP8Io passed to VP8GetHeaders()
 nullptr
-nuq
 o KPBf
 o?GS
 oI>O7
 oY.o<
-o\tV_qsort
 observable_listeners
 observable_scope
 observer_cursors
@@ -6713,85 +6662,66 @@ outputcolor
 owM&
 owner dead
 pAction
-pAl
 pAsset
 pAssetMenuObject
+pAt
+pBu
 pCheckpointName
 pCurrentFocusWidget
 pDescription
-pDl
-pEl
+pEm
+pEu
 pEvent
 pFilter
-pFm
+pFt
+pFu
 pFx
-pGt
-pIl
+pGn
+pGp
+pIm
+pIt
 pItem
+pJq
+pJs
 pLightRigButton
 pMessage
-pNy
+pNm
+pNt
 pOC
-pOl
-pOn
-pOs
-pOy
-pPl
+pOm
+pOr
 pPrevFocusWidget
-pPy
-pQk
-pQl
-pQy
-pRl
 pRs
-pSq
 pTagName
-pTl
-pTm
-pTn
 pToolButton
 pToolsVisModeButton
 pTq
 pTraceResult
-pUl
-pVl
+pVm
+pVu
 pWidget
 pWindow
-pWk
-pXp
-pYl
-p\tV_qsort_s
-pal
-pap
+pWu
+pam
 param
 parent
 parent_cursor_id
 particle_debug_creation_filter
 particlesystem
 pass %u\n
-pbl
-pbo
-pdl
-pdo
-pel
-peo
+pbn
+pcu
+pdu
 permission denied
-pes
 pet_preview_gravity
 pet_preview_underwater
 pet_preview_wind
-pfl
-pgk
+pfo
 pickedColor
-pil
-pir
 pixelAspectRatio
-pjk
-pjt
-pkl
-pln
-pmk
-pnl
+pjp
+pkn
+pns
 polymorphic_arg
 polymorphic_dependent_arg
 port_name
@@ -6802,9 +6732,13 @@ postprocessMainToolBar
 postprocessingeditor
 postprocessingeditor.dll
 posxyz
+pot
 pow
 pp_editor_%d_preview16.vtex
 pp_editor_%d_preview32.vtex
+ppt
+pqm
+pqt
 preview_light_rig
 preview_model
 previous_value
@@ -6826,7 +6760,6 @@ private: void CStrAutoEncode::PopulateUTF8(void) const (demangled)
 private: void CTSListBase::InternalPush(TSLNodeBase_t*) (demangled)
 private: void CUtlString::FreeMemoryBlock(void) (demangled)
 private: void CUtlStringList::SplitString(char const*, char const* const*, int) (demangled)
-prl
 process
 promise already satisfied
 propattr_flatten_into_parent_row
@@ -6834,7 +6767,6 @@ propertyeditor
 protected: 
 protected: QImage QImage::convertToFormat_helper(QImage::Format, QFlags<Qt::ImageConversionFlag>) const (demangled)
 protected: bool CUtlBuffer::CheckGet(int) (demangled)
-protected: bool CUtlBuffer::GetOverflow(int) (demangled)
 protected: bool QImage::convertToFormat_inplace(QImage::Format, QFlags<Qt::ImageConversionFlag>) (demangled)
 protected: static QMetaObject const QObject::staticQtMetaObject (demangled)
 protected: static QPixmap QPixmap::fromImageInPlace(QImage&, QFlags<Qt::ImageConversionFlag>) (demangled)
@@ -7321,10 +7253,9 @@ protected: void CUtlBuffer::SetOverflowFuncs(bool (CUtlBuffer::*)(int), bool (CU
 protected: void QAbstractItemView::scheduleDelayedItemsLayout(void) (demangled)
 protocol error
 protocol not supported
-prt
 pseudo-
-ptl
-ptt
+psu
+ptu
 public: 
 public: CCountedStringPool_CI::CCountedStringPool_CI(void) (demangled)
 public: CTSListBase::CTSListBase(void) (demangled)
@@ -8884,7 +8815,7 @@ public: void* CUtlScratchMemoryPool::AllocAligned(int, int) (demangled)
 public: void* QHashData::allocateNode(int) (demangled)
 public: void** QListData::append(void) (demangled)
 public: void** QListData::begin(void) const (demangled)
-puk
+pulse_cursor_infinite_loop_detection_threshold
 pulse_feature_tag
 pulse_inflows
 pulse_inparams
@@ -8897,17 +8828,16 @@ pulse_save_execution_history
 pulse_save_execution_history_limit
 pulse_system.dll
 purecall
-pvl
-pvt
-pxl
-pyt
+pxm
 qS>g?h3
 qTp
 qVJ
 qangle
 quiet
 quit\n
-rAp
+rFr
+rNr
+rZr
 r\tVr.>T
 r_freezeparticles
 r_limit_particle_job_duration
@@ -8920,8 +8850,9 @@ r_threaded_particles
 rad2deg
 random_position
 range check failure
-rcp
+rdr
 read only file system
+read past end of file (truncated/corrupt)
 readbackcolor
 readonly_expr
 rebuild_propertyeditor_on_change
@@ -8942,12 +8873,14 @@ resources
 restrict(
 result out of range
 return_values
-return_values_enabled
 retval
-rfp
 rigIdx
 right
 root
+ror
+rotateVector
+rotateVectorToLocal
+rotateVectorToWorld
 round
 rowspan
 rsqrt
@@ -8960,7 +8893,6 @@ saturate
 sbh
 scanline
 scenesystem
-scope_to_dependency_name
 scratchColor
 scratchDepth
 scratchcolor_screenspace
@@ -8979,6 +8911,7 @@ self
 self_handle
 self_with_wearables
 separator
+seqPoint
 server.dll
 setMaximum
 setMinimum
@@ -9022,6 +8955,7 @@ std::nullptr_t
 std::nullptr_t 
 strBindingName
 strCellDesc
+strFormat
 strValue
 stream end
 stream error
@@ -9059,10 +8993,8 @@ suggestion_name
 supported_domains
 suppress_expr
 system_state
-tCn
-tFo
-tJq
-tXq
+tAo
+t\tV_isdigit_str
 tabStyle
 tabify
 table
@@ -9074,7 +9006,9 @@ tan
 tangent
 tangentu_signv
 tanh
+temp_var_banks
 template-parameter-
+tempvar:%d
 tentative
 terminates
 test.txt
@@ -9082,16 +9016,16 @@ texcoord
 text
 text file busy
 text/plain
-tgp
+tgn
 this 
-thn
+thr
 thread initialization failed.
 tier0.dll
 tile
 tiles
-tim
 timed out
-tlp
+tmn
+tnn
 to fetch array of rationals
 to fetch per-sample values
 to fetch strip tag
@@ -9131,19 +9065,22 @@ tools_preview
 toolscenelightrigs.vdata
 toolscenevismodes.txt
 top
+tpn
 transform
+transformInverse
+transformVector
+transformVectorToLocal
+transformVectorToWorld
 transparency
 trn
 true
-tup
-tvo
-tvq
-twp
+tso
+tuo
 type
 type_restriction_is_enum_flags
+tzp
 t|AO
 uUv
-u\tV_roundf
 uint
 uint16
 uint32
@@ -9157,27 +9094,47 @@ unknown
 unknown compression method
 unknown error
 unknown header flags set
+unknown reason
 unsigned 
+unsupported bits per channel
+unsupported color mode: bitmap
+unsupported color mode: duotone
+unsupported color mode: lab
+unsupported color mode: multichannel
+unsupported color mode: unknown
 untitled_
 untitled_postprocess_
 userEdit
 uyO
 vCenter
+vEr
 vForward
 vIK \f3
 vQO+t
 vUu
+v\tV_isinfd
 val
 value
 value too large
+value0
+value1
+value2
+value3
+value4
 value:fulltype
 valueChanged
 valueChangedByEdit
 valueChangedBySlider
 valueEdited
 value_is_key_name
+values
 vbox
 vcenter
+vec
+vec2
+vec2ang
+vec2wvec
+vec4
 vecAncestorCursorIDs
 vecValue
 vecValueA
@@ -9194,8 +9151,6 @@ vertical_header
 very_fast
 vffValueSetIn
 virtual 
-visible_scopes
-vjq
 vmat
 vmdl
 vnotify_ui
@@ -9226,66 +9181,70 @@ w+OQvr
 w3Xc
 wHk
 wXC
+w\tV_isnand
 waiting_group
 warn
 wchar_t
 white
 wn>Jj
+worldTransformInverse
 wrapping
 wrong protocol type
+wvec2vec
+wxform
 wyS]
+x%o
 x0Ysqx
-xBp
-xCl
-xGl
-xGo
-xJt
-xKn
-xMl
-xMr
+xAm
+xBm
+xCm
+xDm
+xHm
+xIr
+xIt
+xJm
+xMm
 xNt
-xOy
-xPs
-xPy
-xQy
-xSl
+xRm
 xT?V
-xXr
-xZk
-xZq
-xbk
-xdk
-xek
-xhk
-xon
-xoo
-xtn
-xum
-xwq
-xwt
-xxt
+xUp
+xVo
+xWp
+xau
+xbm
+xform
+xhm
+xhu
+xim
+xom
+xot
+xpo
+xpt
+xqt
+xrm
+xvm
+xvn
+xyn
+xzn
 yLM
 yUk
 ycg
 yes
 yield_token
 yields
-zFp
-zQp
-zYp
+zPr
 zZg
-z\tV_sincosf
-zdp
+zero sized document
+zir
+zxr
 { className = 'IsControlFlowNode' }
 { className = 'IsStateNode' item_factory = 'BooleanSwitchState' }
 { className = 'IsWaitNode IsControlFlowNode' item_factory = 'InflowWait' }
 { className='IsControlFlowNode AllOutflowsInSpecialSection IsSelectorNode' create_special_outflows_section=true }
 { item_factory = 'IntervalTimer' }
 { standard_yielding_flow = true }
-{\tV_sind
 {flat}
 {for 
 {kHw
-|\tV_sinf
 ~CModelInstance destructor: leaking softbody because physics world disappeared\n
 ~}|{zyxwvutsrqponmlkjihgfedcba`_^]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)('&%$#"! 

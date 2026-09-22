@@ -1,14 +1,14 @@
 <!-- xml reconstructed by Source 2 Viewer 19.2.0.0 - https://valveresourceformat.github.io -->
 <root>
 	<styles>
-		<include src="s2r://panorama/styles/csgostyles.vcss_c" />
-		<include src="s2r://panorama/styles/hud/hudteamcounter.vcss_c" />
-		<include src="s2r://panorama/styles/hud/hudteamcounter-postrounddamagereport.vcss_c" />
-		<include src="s2r://panorama/styles/hud/hudteamcounter-equipmentinfo.vcss_c" />
-		<include src="s2r://panorama/styles/hud/hudvoicestatus.vcss_c" />
+		<include src="s2r://panorama/styles/csgostyles.vcss" />
+		<include src="s2r://panorama/styles/hud/hudteamcounter.vcss" />
+		<include src="s2r://panorama/styles/hud/hudteamcounter-postrounddamagereport.vcss" />
+		<include src="s2r://panorama/styles/hud/hudteamcounter-equipmentinfo.vcss" />
+		<include src="s2r://panorama/styles/hud/hudvoicestatus.vcss" />
 	</styles>
 	<scripts>
-		<include src="s2r://panorama/scripts/hud/hudteamcounter.vts_c" />
+		<include src="s2r://panorama/scripts/hud/hudteamcounter.vts" />
 	</scripts>
 	<snippets>
 		<snippet name="snippet-post-round-damage-report">
@@ -81,7 +81,7 @@
 			<Panel acceptsinput="false" class="AvatarLargeSnippet">
 				<Panel class="AvatarL_BG colorize-teammate-color" />
 				<Frame id="PostRoundDamageReport" snippet="snippet-post-round-damage-report" />
-				<Label class="AvatarL__name" html="true" text="{g:player_name:player_slot}" />
+				<Label class="AvatarL__name" html="true" text="{g:player_name:name:player_slot}" />
 				<Panel id="Visible" class="AavatarVisibleContainer">
 					<Panel id="AvatarL__ImageBG" class="avatarl__imagebg">
 						<CSGOAvatarImage id="AvatarImage" class="Avatar__CommonMargin AvatarL__Internal" />

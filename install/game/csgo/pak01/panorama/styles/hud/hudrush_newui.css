@@ -1,0 +1,189 @@
+/* Prettified by Source 2 Viewer 19.2.0.0 - https://valveresourceformat.github.io */
+
+@define border-color: #404040ff;
+@define neutral-background-color: #9b9b9bff;
+@define ct-background-color: #708fb5;
+@define t-background-color: #ccb378ff;
+.rush-matchstate
+{
+	flow-children: down;
+	horizontal-align: center;
+	vertical-align: center;
+	height: fit-children;
+	width: fit-children;
+	background-color: hud-blur-bg-color;
+	world-blur: hudWorldBlur;
+	border: 4px solid border-color;
+	border-radius: 6px;
+	padding: 16px 8px;
+	visibility: collapse;
+}
+
+.rush-matchstate Label
+{
+	width: 100%;
+	text-align: center;
+	font-family: Stratum2 Medium;
+	font-size: 32px;
+	margin-bottom: 8px;
+}
+
+.rush-matchstate.active
+{
+	visibility: visible;
+}
+
+.rush-rooms
+{
+	flow-children: right;
+	width: fit-children;
+}
+
+.rush-room
+{
+	horizontal-align: center;
+	vertical-align: top;
+	flow-children: down;
+	height: fit-children;
+	width: 210px;
+	margin-left: 8px;
+	margin-right: 8px;
+	margin-top: 8px;
+	margin-bottom: 4px;
+	brightness: 0.5;
+}
+
+.rush-room.current
+{
+	transform: translateY(-8px) translateX(-8px);
+	box-shadow: fill #000000a0 8px 8px 8px 0px;
+	brightness: 1.0;
+}
+
+.rush-room-money
+{
+	height: 40px;
+	width: 100%;
+	background-color: #73947dff;
+	border: 4px solid #707070ff;
+	border-radius: 4px;
+	margin-bottom: -4px;
+}
+
+.rush-room-money Label
+{
+	width: 100%;
+	text-align: center;
+	font-family: Stratum2 Black;
+	font-size: 32px;
+	color: #e0e2ceff;
+	transform: translateY(5px);
+	overflow: noclip;
+}
+
+.rush-room-map
+{
+	height: 200px;
+	width: 100%;
+	background-color: #9b9b9bff;
+	border: 4px solid #707070ff;
+}
+
+.rush-room-map Label
+{
+	width: 100%;
+	text-align: center;
+	vertical-align: top;
+	font-family: Stratum2 Medium;
+	font-size: 20px;
+	color: #e0e2ceff;
+}
+
+.rush-room-map Image
+{
+	width: 100%;
+	height: width-percentage(100%);
+}
+
+.endroom .rush-room-map
+{
+	height: 276px;
+	border-radius: 4px;
+}
+
+.endroom .rush-room-map Label
+{
+	margin-top: 8px;
+}
+
+.endroom .rush-room-map Image
+{
+	vertical-align: center;
+}
+
+.ct .rush-room-map
+{
+	background-color: gradient( radial, 50% 50%, 0% 0%, 80% 80%, from( neutral-background-color ), to( ct-background-color ) );
+}
+
+.t .rush-room-map
+{
+	background-color: gradient( radial, 50% 50%, 0% 0%, 80% 80%, from( neutral-background-color ), to( t-background-color ) );
+}
+
+.rush-room-scores
+{
+	height: 45px;
+	width: 100%;
+}
+
+.rush-room-team-score
+{
+	height: fit-children;
+	width: fit-children;
+	flow-children: right;
+	background-color: #9b9b9bff;
+	border: 4px solid #707070ff;
+	border-radius: 4px;
+	margin-top: -4px;
+}
+
+.rush-room-team-score.ct
+{
+	horizontal-align: left;
+}
+
+.rush-room-team-score.t
+{
+	horizontal-align: right;
+}
+
+.rush-room-win-panel
+{
+	height: 32px;
+	width: 32px;
+	horizontal-align: center;
+	vertical-align: center;
+	margin: 2px;
+}
+
+.ct .rush-room-win-panel
+{
+	background-color: #82a0c5ff;
+}
+
+.t .rush-room-win-panel
+{
+	background-color: #ddc38cff;
+}
+
+.rush-room-win-panel Image
+{
+	visibility: collapse;
+}
+
+.rush-room-win-panel.win Image
+{
+	visibility: visible;
+}
+

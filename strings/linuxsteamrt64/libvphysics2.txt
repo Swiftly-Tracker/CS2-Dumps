@@ -56,6 +56,7 @@ $ORIGIN
 %d %d %d %d
 %d bones found and initialized\n
 %d sec to find %d material files\n
+%d shapes, %d spheres, %d capsules, %d hulls, %d meshes}
 %d verts, %d polys}
 %d verts, %d tris}
 %d+%d layers excluded
@@ -67,8 +68,6 @@ $ORIGIN
 %s %s included in target detail layer '%s' of %s
 %s (Color)
 %s (Material)
-%s 0x%llX - 0x%llX, except %s\n
-%s 0x%llX\n
 %s F=%d V=%d hE=%d
 %s NameIndex:AcquirePreindexedName( %x ) without name string\n
 %s allocation count overflow
@@ -80,6 +79,7 @@ $ORIGIN
 %s does not include FCOLLISION_FUNC_ENABLE_TOUCH_EVENT. Disabling all touch events.
 %s has FCOLLISION_FUNC_ENABLE_TOUCH_PERSISTS. Adding persistent touch events.
 %s(): Bone referenced by collision mesh not found in render skeleton. Skipping collision mesh.\n
+%s: %d bodies: %d shapes: %d spheres, %d capsules, %d boxes, %d other hulls (%.1fv %.1fe %.1fue %.1ff), %d meshes (%.1fv %.1ft)\n
 %s: __pos (which is %zu) > __size (which is %zu)
 %s: __pos (which is %zu) > this->size() (which is %zu)
 %s: allocation of %u too large, max %u\n
@@ -110,20 +110,22 @@ $ORIGIN
 *(*&) std::addressof<char const>(*&) (demangled)
 *(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) std::__addressof<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)> (demangled)
 *(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&) std::__addressof<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&)> (demangled)
+*N24CParallelProcessLauncher18CParallelLambdaJobIZ11ParallelForILb1EZ16RnCompoundCreateSt4spanIK10RnSphere_tLm18446744073709551615EES2_IK11RnCapsule_tLm18446744073709551615EES2_IKPK8RnHull_tLm18446744073709551615EES2_IKPK8RnMesh_tLm18446744073709551615EES2_IKhLm18446744073709551615EEP12RnCompound_tEUliE_EviiPKcOT0_ii13JobPriority_tQ14is_invocable_vISQ_JiEEEUliE_EE
 *N24CParallelProcessLauncher18CParallelLambdaJobIZ11ParallelForILb1EZN13CRnBodyHelper17UpdateSceneObjectEP7CRnBodyfyEUliE_EviiPKcOT0_ii13JobPriority_tQ14is_invocable_vIS8_JiEEEUliE_EE
 *N24CParallelProcessLauncher18CParallelLambdaJobIZ11ParallelForILb1EZN19CVPhysics2Interface13ConvertBodiesER10CUtlVectorI16PhysicsBodyDef_ti25CUtlVectorMemory_GrowableIS4_iLm0EEEPK21VPhysXAggregateData_tEUliE_EviiPKcOT0_ii13JobPriority_tQ14is_invocable_vISF_JiEEEUliE_EE
 *N24CParallelProcessLauncher18CParallelLambdaJobIZ11ParallelForILb1EZN8CRnWorld18BeginRopeAsyncJobsEbEUliE_EviiPKcOT0_ii13JobPriority_tQ14is_invocable_vIS6_JiEEEUliE_EE
+*N24CParallelProcessLauncher18CParallelLambdaJobIZ11ParallelForILb1EZNK15CompoundBuilder14BuildHierarchyESt4spanINS2_9PrimitiveELm18446744073709551615EEEUliE_EviiPKcOT0_ii13JobPriority_tQ14is_invocable_vIS9_JiEEEUliE_EE
 , Fully Rigid
 -----------------\nObject: %s\n
 -aggs
 -cloth
+-collision
 -mem
 -save
 -sdk
 -snapshots
 -touch
 ...
-../common/stackhelpers/stackhelpers_vsymbolmodule_translation.cpp
 ../public/tier0/tslist.h
 ../public/tier0/utldict.h
 ../public/tier0/utlsortvector.h
@@ -166,10 +168,8 @@ $ORIGIN
 <font color="yellow">[!]</font> 
 <li> - because <font color="cyan">Query</font> interacts with %u <font color="blue">shape</font>'s layer%s: 
 <li> - because shape interacts with %u <font color="cyan">Query</font>'s layer%s: 
-<no debug file path>
 <no failure reason set>
 <non-RTTI type>
-<none>
 <p><b>No</b> reason to hit found</p>
 <p><font color="blue">Body</font> is %s</p>
 <p><font color="blue">Shape</font>-as, <font color="cyan">Query</font>-with: 
@@ -208,7 +208,6 @@ $ORIGIN
 <unknown>
 ?unsupported?
 AABB_t
-ACG
 AIM
 APPSYSTEM: In ConnectInterfaces(), s_nRegistrationCount is %d!\n
 ATTACHMENT_INFLUENCE_FLAGS_NONE
@@ -280,10 +279,12 @@ BoneConstraintRbf :: Invalid input %d or output %d bone count :: %s\n
 BoneConstraintRbf :: input bone count %d != input pose count %d :: %s\n
 BoneConstraintRbf :: output bone count %d != output pose count %d :: %s\n
 BoneOverlay
+Both sides must allow collisions outside hierarchy. Intersection disabled.
 Box - Ground
 Broadphase @%p has %d, %d pairs, %d move buffer entries\n
 Buffer overflow
 Build Mass Unit Test centroid/floating-point-induced Max error: %f, %f, %f\n
+BuildHierarchySplit
 CAimConstraint
 CAimConstraint (demangled)
 CAnimAttachment
@@ -319,7 +320,6 @@ CBufferString::AppendFormat(char const*, ...) (demangled)
 CBufferString::AppendFormatV(char const*, __va_list_tag*) (demangled)
 CBufferString::ComposeFileName(char const*, char const*, char) (demangled)
 CBufferString::ExtendPath(char const*, char, bool) (demangled)
-CBufferString::ExtractFileBase(char const*, bool) (demangled)
 CBufferString::ExtractFilePath(char const*, bool) (demangled)
 CBufferString::FixSlashes(char) (demangled)
 CBufferString::FixupPathName(char) (demangled)
@@ -333,7 +333,6 @@ CBufferString::Purge(int) (demangled)
 CBufferString::RemoveAt(int, int) (demangled)
 CBufferString::RemoveDotSlashes(char) (demangled)
 CBufferString::RemoveFirstDir(CBufferString*) (demangled)
-CBufferString::RemoveToFileBase(bool) (demangled)
 CBufferString::Replace(char const*, char const*, bool) (demangled)
 CBufferString::Replace(char, char) (demangled)
 CBufferString::SetExtension(char const*, bool) (demangled)
@@ -348,15 +347,12 @@ CCallQueue::ParallelCallQueued(char const*, IThreadPool*) (demangled)
 CColorGradient
 CConstraintSlave
 CConstraintTarget
-CCountedStringPool_CI::complete object constructor() (demangled)
-CCountedStringPool_CI::complete object destructor() (demangled)
 CCycleBase
 CDataDescConvertor (demangled)
 CDefaultKV3TransferResourceTypeManager<(unsigned long long)440006964086> (demangled)
 CDrawCullingData
 CDualHullAgglomerator (demangled)
 CDualHullAgglomerator: Degenerate topology, %d faces removed\n
-CDwarfModule::GetValveSymbolPaths(CBufferString*) (demangled)
 CEmptySequence (demangled)
 CEntityIndex
 CFeAgglomerator (demangled)
@@ -369,10 +365,12 @@ CFlexController
 CFlexDesc
 CFlexOp
 CFlexRule
+CFnPhys
 CFnPhysicsAnyJointImpl (demangled)
 CFnPhysicsAnyShapeImpl (demangled)
 CFnPhysicsBodyImpl (demangled)
 CFnPhysicsCapsuleShapeImpl (demangled)
+CFnPhysicsCompoundShapeImpl (demangled)
 CFnPhysicsConicalJointImpl (demangled)
 CFnPhysicsContactImpl (demangled)
 CFnPhysicsGenericJointImpl (demangled)
@@ -394,6 +392,7 @@ CFnPhysicsPulleyJointImpl (demangled)
 CFnPhysicsRevoluteJointImpl (demangled)
 CFnPhysicsShapeBaseImpl<IFnPhysicsAnyShape> (demangled)
 CFnPhysicsShapeBaseImpl<IFnPhysicsCapsuleShape> (demangled)
+CFnPhysicsShapeBaseImpl<IFnPhysicsCompoundShape> (demangled)
 CFnPhysicsShapeBaseImpl<IFnPhysicsHullShape> (demangled)
 CFnPhysicsShapeBaseImpl<IFnPhysicsMeshShape> (demangled)
 CFnPhysicsShapeBaseImpl<IFnPhysicsSphereShape> (demangled)
@@ -405,6 +404,7 @@ CFnPhysicsSpringJointImpl (demangled)
 CFnPhysicsWeldJointImpl (demangled)
 CFnPhysicsWheelJointImpl (demangled)
 CFnPhysicsWorldImpl (demangled)
+CFnPhysicsWorldImpl::Profile(PhysicsWorldTraceProfile_t&)::{lambda(RecordedTrace_t const&)#1} (demangled)
 CFootCycle
 CFootCycleDefinition
 CFootDefinition
@@ -414,6 +414,7 @@ CFootTrajectories
 CFootTrajectory
 CFootTrajectory (demangled)
 CFormatStringElement::complete object constructor(char const*) (demangled)
+CGamePhysicsQueryInterface::
 CGenericShapeProxy
 CGlobalSymbol
 CHitBox
@@ -487,10 +488,11 @@ CParallelProcessLauncher::CParallelLambdaJob<CBroadphase::FinalizeHierarchyUpdat
 CParallelProcessLauncher::CParallelLambdaJob<CRnWorld::Collide(float)::{lambda(int)#1}> (demangled)
 CParallelProcessLauncher::CParallelLambdaJob<CRnWorld::Solve(float, bool, BroadphaseOverlappingPairQuery_t&)::{lambda(int)#1}> (demangled)
 CParallelProcessLauncher::CParallelLambdaJob<CRnWorld::SolveTOIBodies(RnTOIParams_t, CUtlAtomicAddVector<CRnBody*, false, CUtlLeanVector<CRnBody*, int, CMemAllocAllocator> >&)::{lambda(int)#1}> (demangled)
-CParallelProcessLauncher::CParallelLambdaJob<void CBroadphase::QueryOverlappingPairs<CRnWorld::BuildNewContactsFromOverlappingPairQuery(BroadphaseOverlappingPairQuery_t&)::{lambda(CRnShape*, CRnShape*)#1}>(BroadphaseOverlappingPairQuery_t&, CRnWorld::BuildNewContactsFromOverlappingPairQuery(BroadphaseOverlappingPairQuery_t&)::{lambda(CRnShape*, CRnShape*)#1} const&) const::{lambda(int)#1}> (demangled)
+CParallelProcessLauncher::CParallelLambdaJob<void CBroadphase::QueryOverlappingPairs<CRnWorld::BuildNewContactsFromOverlappingPairQuery(BroadphaseOverlappingPairQuery_t&)::{lambda(RnDynamicTreeNode_t const&, RnDynamicTreeNode_t const&)#1}>(BroadphaseOverlappingPairQuery_t&, CRnWorld::BuildNewContactsFromOverlappingPairQuery(BroadphaseOverlappingPairQuery_t&)::{lambda(RnDynamicTreeNode_t const&, RnDynamicTreeNode_t const&)#1} const&) const::{lambda(int)#1}> (demangled)
 CParentAttachmentName
 CParentConstraint
 CParentConstraint (demangled)
+CPhys
 CPhysAggregateInstance (demangled)
 CPhysDataTypeManager (demangled)
 CPhysDataTypeManager::AllocateResource(ResourceBindingBase_t const*, ResourceId_t, ResourceFileHeader_t const*, IRD_RegisterResourceDataUtils*)::CAllocatorUtils (demangled)
@@ -516,6 +518,7 @@ CPhysicsAbsoluteRagdollControl::UpdateJointsParallel(int, CPhysicsRagdollWeight*
 CPhysicsBody (demangled)
 CPhysicsCharacterProxy (demangled)
 CPhysicsFrictionSnapshot (demangled)
+CPhysicsGameSystem::
 CPhysicsJoint (demangled)
 CPhysicsMotionController (demangled)
 CPhysicsParticleRope (demangled)
@@ -584,6 +587,7 @@ CRnRevoluteJoint (demangled)
 CRnRope (demangled)
 CRnRopeLink (demangled)
 CRnShape (demangled)
+CRnShapeHelper::CreateDebugShape(Vec4D<float> const&) const::{lambda(RnShapeConvexId_t)#1} (demangled)
 CRnSoftbody::SetLinkParent: Cannot find parent bone
 CRnSolverJoint (demangled)
 CRnSphereShape (demangled)
@@ -596,9 +600,10 @@ CRnVehicle (demangled)
 CRnWeldJoint (demangled)
 CRnWheelContact (demangled)
 CRnWheelJoint (demangled)
+CRnWorld
 CRnWorld::BeginRopeAsyncJobs(bool)::{lambda()#1} (demangled)
 CRnWorld::CastRayIntervals(CRayIntervalVector&, Vec3D<float> const&, Vec3D<float> const&, RnQueryAttr_t const&, float) const::{lambda(RecordedTrace_t&)#1} (demangled)
-CRnWorld::CollideShape(CUtlVectorFixedGrowable<CRnPlaneResult, (unsigned long)32, int>&, Bounds3 const&, CTransform const&, CGJKProxy const&, float, RnQueryAttr_t const&, bool) const::{lambda(RecordedTrace_t&)#1} (demangled)
+CRnWorld::CollideShape(CUtlVectorFixedGrowable<CRnPlaneResult, (unsigned long)32, int>&, Bounds3 const&, CTransform const&, CGJKProxy const&, float, RnQueryAttr_t const&, bool, float) const::{lambda(RecordedTrace_t&)#1} (demangled)
 CRnWorld::LinearCast(CUtlVectorFixedGrowable<CLinearSweepResult, (unsigned long)128, int>&, CRnWorld::SweepType_t, Bounds3 const&, CTransform const&, CGJKProxy const&, float, Vec3D<float> const&, RnQueryAttr_t const&, bool) const::{lambda(RecordedTrace_t&)#1} (demangled)
 CRnWorld::Query(CUtlVectorFixedGrowable<IPhysicsShape*, (unsigned long)128, int>&, Bounds3 const&, RnQueryAttr_t const&, OverlapTest_t) const::{lambda(RecordedTrace_t&)#1} (demangled)
 CRnWorld::Query(CUtlVectorFixedGrowable<IPhysicsShape*, (unsigned long)128, int>&, GenericShape_t const&, Vec3D<float> const&, RnQueryAttr_t const&, OverlapTest_t) const::{lambda(RecordedTrace_t&)#1} (demangled)
@@ -622,6 +627,7 @@ CSerialStreamSnapshot (demangled)
 CSmartPtr<CThreadedJob, CRefCountAccessor> IThreadPool::QueueJobWithFlags<CMotionControllerUpdater&>(char const*, JobPriority_t, unsigned int, CMotionControllerUpdater&)::CLambdaJob (demangled)
 CSmartPtr<CThreadedJob, CRefCountAccessor> IThreadPool::QueueJobWithFlags<CMultiworldSoftbodyStepper::CMultiworldSoftbodyStepper(CRnSoftbody**, int, float, int)::{lambda()#1}>(char const*, JobPriority_t, unsigned int, CMultiworldSoftbodyStepper::CMultiworldSoftbodyStepper(CRnSoftbody**, int, float, int)::{lambda()#1}&&)::CLambdaJob (demangled)
 CSoftbodyEffect (demangled)
+CSoftbodyEffectBlobAnchor (demangled)
 CSoftbodyEffectDampenVelocity (demangled)
 CSoftbodyEffectGravity (demangled)
 CSoftbodyEffectPressurize (demangled)
@@ -632,11 +638,6 @@ CSoftbodyEffectWind (demangled)
 CSpaceAgnosticBoneAccessor (demangled)
 CSplitString::Split(char const*, int, char const**, int, bool) (demangled)
 CStableSymbolTable::Insert(int, char const*) (demangled)
-CStackTranslationHelper (demangled)
-CStackTranslationHelperModuleMappingListener (demangled)
-CStackTranslationHelper_Universal (demangled)
-CStackTranslationHelper_VSymbolModule (demangled)
-CStackTranslationHelper_VirtualMachine (demangled)
 CStdFunctionJob (demangled)
 CStrongHandle
 CStrongHandleCopyable
@@ -645,20 +646,14 @@ CTSListBase::InternalPop() (demangled)
 CTSListBase::InternalPush(TSLNodeBase_t*) (demangled)
 CTSListBase::complete object constructor() (demangled)
 CTSQueue corruption
-CThreadEvent (demangled)
 CThreadMultiWaitEvent::Reset() (demangled)
 CThreadMultiWaitEvent::Set() (demangled)
 CThreadMultiWaitEvent::complete object constructor(bool) (demangled)
 CThreadMultiWaitEvent::complete object destructor() (demangled)
-CThreadRWLock_FastRead::HaveWriteLock_BlockReadsNow(bool) (demangled)
-CThreadRWLock_FastRead::UnlockWrite(char const*, int) (demangled)
-CThreadRWLock_FastRead::complete object constructor() (demangled)
 CThreadSemaphore::Release(int, int*) (demangled)
 CThreadSemaphore::complete object constructor(int, int, char const*, bool) (demangled)
 CThreadSemaphore::complete object destructor() (demangled)
 CThreadSyncObject::Wait(unsigned int) (demangled)
-CThreadSyncObject::WaitImpl(unsigned int) (demangled)
-CThreadSyncObject::base object destructor() (demangled)
 CThreadedJob (demangled)
 CThreadedJob::Abort(bool) (demangled)
 CTier0AppSystem<IVPhysics2, (long long)0> (demangled)
@@ -701,8 +696,6 @@ CUtlBuffer::SeekPut(CUtlBuffer::SeekType_t, int) (demangled)
 CUtlBuffer::base object constructor(int, int, CUtlBuffer::BufferFlags_t) (demangled)
 CUtlBuffer::complete object constructor(int, int, CUtlBuffer::BufferFlags_t) (demangled)
 CUtlBuffer::complete object constructor(void const*, int, CUtlBuffer::BufferFlags_t) (demangled)
-CUtlFilenameSymbolTable::FindOrAddFileName(char const*) (demangled)
-CUtlFilenameSymbolTable::String(unsigned int const&, CBufferString*) (demangled)
 CUtlLeanVector
 CUtlLeanVectorFixedGrowable
 CUtlLinkedList overflow! (exhausted index range)\n
@@ -740,12 +733,10 @@ CUtlSymbolTable::complete object destructor() (demangled)
 CUtlSymbolTableLarge element limit of %u exceeded\n
 CUtlVector
 CUtlVectorSIMDPaddedVector
-CVDwarfSymbolModule::Init(char const*, unsigned int, VWMD_CPU_ARCHITECTURE, unsigned long long, unsigned long long, StackTools_ModuleIDFormat_t, void const*, int) (demangled)
-CVDwarfSymbolModule::OpenAndParseSymbols(char const*, unsigned int, char const*) (demangled)
-CVDwarfSymbolModule::complete object constructor() (demangled)
 CVPhys2DebugShape (demangled)
 CVPhys2World (demangled)
 CVPhys2World - Dumped World '%s'.
+CVPhys2World::
 CVPhysPtrSaveRestoreOps (demangled)
 CVPhysPtrUtlVectorSaveRestoreOps (demangled)
 CVPhysXSurfacePropertiesList
@@ -753,8 +744,6 @@ CVPhysics2ConComm (demangled)
 CVPhysics2Interface (demangled)
 CVPhysics2Interface::Init()::{lambda()#1} (demangled)
 CVPhysics2SurfacePropertyManager (demangled)
-CVSymbolModule::ResolveInlineCallInfo(VSymbolInlineInfo_t*, unsigned long long, unsigned int, CBufferString*, unsigned long long*, CBufferString, unsigned int*, CBufferString*) (demangled)
-CVSymbolModule::ResolveSymbolInfo(unsigned long long, unsigned int, CBufferString*, VSymbolKind_t*, unsigned long long*, CBufferString, unsigned int*, VSymbolKind_t*) (demangled)
 CVariableBitStringBase::FreeInts() (demangled)
 CVariableBitStringBase::Resize(int) (demangled)
 CVertexKDTree::BuildMidpoint(float const*, int, int) (demangled)
@@ -770,7 +759,6 @@ Can <b>Not</b> Hit: ignoring entity id 0x%X
 Can Hit
 Can't restore aggregate state, different part count!!!\n
 Can't restore ragdoll control, different body count!!!\n
-CanTranslatePointer
 Cannot allocate abstract class
 Cannot convert KV3 type '%s' (%u) to a string token
 Cannot save file %s, stopping snapshot dumping\n
@@ -804,6 +792,7 @@ CollisionDetailLayerInfo_t::Name_t
 Color
 CommandLine
 Compared Bodies
+Compound-Compound
 ConditionallySolid
 Conical
 Contact Information
@@ -811,6 +800,7 @@ Contacts: %d (%d)
 ControlBodies
 ControlJoints
 ConvertBodies
+Copy Hulls
 Could not create phys debug IB for %lldd elements\n
 Could not create phys debug VB for %lld elements\n
 Could not lock phys debug IB for %lld elements\n
@@ -819,15 +809,16 @@ Couldn't load KV3 for resource: %s
 CovMatrix3
 Create Flags
 CreateInterface
+CreatePhysicsBodySceneObject Job
+CreatePhysicsBodySceneObject(ISceneWorld*, CWeakHandle<InfoForResourceTypeIMaterial2>, int, unsigned int const*, CStridedArray<RnRenderVertex_t>, bool)::{lambda(int, int)#1} (demangled)
 Currently allocated agg data: {
 Cylinder - Centered (SLOW PERF)
 Cylinder - Ground (SLOW PERF)
-DBG
 DF16b
 DF32x
 DF64x
 DOT_TO_MORPH
-DWARF_SYMBOL_PATH
+DUJ
 DYNAMIC_CONTINUOUS_ALLOW_IF_REQUESTED_BY_OTHER_BODY
 DYNAMIC_CONTINUOUS_ALWAYS
 DYNAMIC_CONTINUOUS_NEVER
@@ -845,6 +836,7 @@ DevMsg
 DevMsg(char const*, ...) (demangled)
 DevWarning(char const*, ...) (demangled)
 Different physics worlds have different debug draw filters\n
+Dir
 Disabled
 Dissolved edge
 Dop26_t
@@ -948,6 +940,7 @@ FLEX_OP_SIN
 FLEX_OP_SQRT
 FLEX_OP_SUB
 FORCED
+FUM
 Face %d
 Face Fit
 Face Reprojection
@@ -993,6 +986,7 @@ FeNodeIntegrator_t
 FeNodeReverseOffset_t
 FeNodeStrayBox_t
 FeNodeWindBase_t
+FePrism_t
 FeProxyVertexMap_t
 FeQuad_t
 FeRigidColliderIndices_t
@@ -1000,6 +994,7 @@ FeRodConstraint_t
 FeSDFRigid_t
 FeSimdAnimStrayRadius_t
 FeSimdNodeBase_t
+FeSimdPrism_t
 FeSimdQuad_t
 FeSimdRodConstraintAnim_t
 FeSimdRodConstraint_t
@@ -1033,6 +1028,7 @@ FormatTo(IFormatOutputStream*, CFormatStringElement, float) (demangled)
 FormatTo(IFormatOutputStream*, CFormatStringElement, int) (demangled)
 FormatTo(IFormatOutputStream*, CFormatStringElement, unsigned int) (demangled)
 FormatTo(IFormatOutputStream*, CFormatStringElement, void const*) (demangled)
+Forward Start Only
 Found existing value when inserting into dict - replacing existing value with new value. If this is intended behavior, use InsertOrReplace. If leaving existing values alone is intended, use InsertIfNotFound.
 FourCovMatrices3
 FourQuaternions
@@ -1067,18 +1063,18 @@ Generic
 GetCPUInformation
 GetDefaultMiniDumpTypeFlags
 GetGameInfoBool(char const*, bool) (demangled)
-GetInlineCallData
-GetMappedModuleName
 GetResourceManifestCount
 GetResourceManifests
 GetThreadLocalStackAllocator
-GetTranslationData
 Goals -%d %s
+HAM
 HELPER_BONE
 HITGROUP_INVALID
+HalfAngle
 HammerMapLoader001
 Has common interaction flags
 Has interaction due to %s Collision Group Always
+HbK
 Height
 HelpSystem_001
 Hierarchy id is the same on both shapes (%d)
@@ -1098,6 +1094,7 @@ IFnPhysicsAnyJoint (demangled)
 IFnPhysicsAnyShape (demangled)
 IFnPhysicsBody (demangled)
 IFnPhysicsCapsuleShape (demangled)
+IFnPhysicsCompoundShape (demangled)
 IFnPhysicsConicalJoint (demangled)
 IFnPhysicsContact (demangled)
 IFnPhysicsGenericJoint (demangled)
@@ -1135,7 +1132,6 @@ IKV3TransferInterface_UtlSymbolLarge (demangled)
 IKV3TransferInterface_Worldspace_Load
 IKV3TransferInterface_Worldspace_Save
 IKV3TransferSaveRestoreOps (demangled)
-IModuleMappingListener (demangled)
 IMotionEvent (demangled)
 IMultipleWorkerJob (demangled)
 INPUT_LAYOUT_VARIATION_DEFAULT
@@ -1182,7 +1178,6 @@ IRnDebugShape (demangled)
 IS NOT
 ISequence (demangled)
 ISoftbodyEffect (demangled)
-IStackTranslationHelperFactory (demangled)
 ITraceObject (demangled)
 IVConCommDataReceived (demangled)
 IVDataResourceListener (demangled)
@@ -1250,7 +1245,7 @@ JointAxis_t
 JointMotion_t
 Joints
 Joints: %d
-K%G
+KDM
 KeyValueCache001
 KeyValues3
 KeyValues3: pre-allocated array memory is too small for %u elements (%u bytes available, %u bytes needed)\n
@@ -1263,13 +1258,9 @@ Keyframed
 Keyframed bodies can only move during simulation if users set Shadow Controller target transform
 Keyframed vs Keyframed
 Keyframed vs Static
-KiG
 Kin 
-LKE
 LOG_CONSOLE
 LOG_GENERAL
-LOG_SYMBOLS
-LeD
 Lean
 LightmapUV
 LightmapUVW
@@ -1289,22 +1280,21 @@ LocalServerClientAccess001
 LocalSpace
 Localize_001
 Locked
-LoggingSystem_ChangeChannelIndent
-LoggingSystem_EnsureChannelVerbosity
-LoggingSystem_GetChannelVerbosity
 LoggingSystem_IsChannelEnabled
 LoggingSystem_Log
 LoggingSystem_Log(int, LoggingSeverity_t, Color, char const*, ...) (demangled)
 LoggingSystem_RegisterLoggingChannel
-LoggingSystem_SetChannelIndent
 MATCHFRAMEWORK_001
 MAlternateSemanticName
 MAtomicTransfersAsPlainString
+MCustomFGDMetadata
 MD5Final
 MD5Init
 MD5Update
 MESH_BUFFER_USAGE_ADJACENCY
+MESH_BUFFER_USAGE_ALIAS_TABLE
 MESH_BUFFER_USAGE_IB
+MESH_BUFFER_USAGE_MESHLETS
 MESH_BUFFER_USAGE_MESHLET_TRIS
 MESH_BUFFER_USAGE_NONE
 MESH_BUFFER_USAGE_RT_PROXY
@@ -1446,9 +1436,11 @@ Notify Lost
 Notify Persist
 Null
 ORIENT
+OWM
 OldFeEdge_t
 Only query can use this layer, not collision
 Operation
+Outside-Hierarchy Collisions: <font color = "cyan">%s</font>, <font color = "green">%s</font>
 OverlayProjectionDirection
 PARENT
 PDF128_
@@ -1512,6 +1504,7 @@ POSE_SPACE_MORPH
 PRISMATIC_JOINT
 PRISMATIC_WELD_FUSED_JOINT
 PULLEY
+PaM
 PackedAABB_t
 Pair flag detail:
 PanoramaTextServices001
@@ -1552,7 +1545,6 @@ Plat_FatalError
 Plat_FloatTime
 Plat_GetEnv
 Plat_GetExeModule
-Plat_GetModuleAddressInformation
 Plat_GetModuleFilename
 Plat_GetModuleProcAddress
 Plat_GetPlatformError
@@ -1581,6 +1573,7 @@ PropertyEditorSystem_001
 Pulley
 Push
 PushBack
+PxM
 QAngle
 QEM
 QUAT_ORTHOTWIST_JOINT
@@ -1665,8 +1658,6 @@ RenderSlotType_t
 RenderUtils_001
 Reported
 Resolve
-ResolveInlineCallInfo
-ResolveSymbolInfo
 Resource Reallocate: Leaking Cloth Data @%p\n
 ResourceCompilerSystem001
 ResourceHandleUtils001
@@ -1683,9 +1674,10 @@ RnBodyDesc_t
 RnCapsuleDesc_t
 RnCapsule_t
 RnCompoundClone
-RnCompoundCreate
 RnCompoundDesc_t
 RnCompoundDestroy
+RnCompoundTreeNode_t
+RnCompoundTree_t
 RnCompound_t
 RnFace_t
 RnHalfEdge_t
@@ -1744,7 +1736,6 @@ SchemaTestExternal_One_001
 SchemaTestExternal_Two_001
 ScriptedHeldWeaponBehavior_t
 ScriptedMoveTo_t
-ScrubTool: Mapping Modules for Debug Symbols
 See CL 6900691. Disable trigger/touch events on keyframed vs static.  This wastes CPU in some cases and isn't used in any current cases\n
 Self Collisions
 Self-Collision: <font color = "cyan">%s</font>, <font color = "green">%s</font>
@@ -1778,6 +1769,7 @@ SkeletonDemoDb_t
 Skipping %d items of total size %u bytes\n
 Slider: %.1f
 Slow
+SmartPropsSystem_001
 Softbody #%d %s.%d %s (%.4g,%.4g)
 SoftbodyProcessor
 Solid Contact
@@ -1830,9 +1822,6 @@ St9exception
 St9type_info
 Sta 
 Stack depth limit hit (%d)
-StackTools_EnumerateKnownLoadedModules
-StackTools_InstallModuleMappingListener
-StackTools_RemoveModuleMappingListener
 Start
 State: %s, Motion %s, (game %04x, index %d)\n
 Static
@@ -1859,12 +1848,12 @@ TILT_TWIST
 TLS init function for 
 TLS wrapper function for 
 TOI
+TQJ
 TWIST
 Tag %s\n
 TanFrameQuat
 TestScriptMgr001
 TextLayout_001
-TgD
 The <font color="cyan">Query</font> is Hitbox Query. The shape has FCOLLISION_FUNC_IGNORE_FOR_HITBOX_TEST set. <b>No</b> Hit.
 There is a %s [%d]
 This convar is being accessed prior to ConVar_Register being called
@@ -1876,8 +1865,6 @@ ThreadMultiWaitObjectSetDestroy
 ToolFramework2_002
 ToolSceneNodeFactory_001
 ToolService_001
-ToolsStallMonitorInternal_BeginScope
-ToolsStallMonitorInternal_EndScope
 Touch Event
 Touch Persists
 Touch list not implemented\n
@@ -1890,6 +1877,7 @@ Trigger
 Trigger <font color="cyan">Query</font>, common interaction flags
 Turn
 Twist: %.1f, Swing: %.1f, Twist Lambda: %.1f, Swing Lambda: %.1f
+Two compounds may not have collision\n
 Two meshes may not have collision\n
 Two non-dynamics do NOT have a Trigger flag
 Two non-dynamics have a Trigger flag\n
@@ -1901,10 +1889,10 @@ UPSCALER_COUNT
 UPSCALER_INTEL_XESS
 UPSCALER_NONE
 UPSCALER_NVIDIA_DLSS
+UTIL_Find
 Undefined
 Unexpected Keyword %s\n
 Unexpected end of buffer @%p, payload %d bytes, %d extra bytes at the end\n
-UnloadModulesInTargetRange
 Unsupported KV3 basic type '%s' (%d)!
 Unsupported version %d for resource '%s' (Expected %d)\n
 UpdateJointsParallel
@@ -1949,16 +1937,10 @@ VPhysics2_Interface_001
 VProcessUtils002
 VProfService_001
 VRenderDeviceSetupV001
-VSYMMOD::%s( 0x%llX )\n
-VSYMMOD::Creating symbol module and loading symbols for '%s'\n
-VSYMMOD::Generated DWARF_SYMBOL_PATH = '%s'\n
-VSYMMOD::LoadSymbolsIfNeeded( 0x%llX ) - %s\n
 VScript
 VScriptDbg
 VScriptManager010
 VStringTokenSystem001
-VSymbolModule init failed\n
-VSymbolModule init succeeded (symbols may or may not have been found)\n
 VTT for 
 VWebm001
 V_DoubleToString_Unsafe
@@ -2074,7 +2056,6 @@ World @%p has %d softbodies:\n
 World context should be set for any code path that wants to create debug shapes, otherwise debug rendering won't work\n
 WorldRendererMgr001
 Wrong alignment %d\n
-ZQD
 [%d] ##Unexpected##
 [%u] comm %u.%u(%u) data %u\n
 [16] Touch Lost
@@ -2432,6 +2413,7 @@ audiosounds
 auto
 auto:
 awake_bodies
+bRM
 background-color:#434343;
 bad_function_call
 bag of sugar
@@ -2487,8 +2469,8 @@ bowling ball
 break
 break_list
 breakable_glass
-broadphase.cpp:737
-broadphase.inl:235
+broadphase.cpp:740
+broadphase.inl:226
 bulletimpact
 burst
 burstRandomize
@@ -2599,6 +2581,8 @@ collisionGroup
 collisionGroup 
 collision_group_override
 color
+compoundId = %i
+compound{
 compressedtangentframe
 const_cast
 constraint
@@ -2606,7 +2590,7 @@ constraint_axislimit_t
 constraint_breakableparams_t
 constraint_hingeparams_t
 construction vtable for 
-contact d=%.2f>
+contact d=%.2f
 contact d=Inf
 contact_indices
 contact_manifolds
@@ -2651,13 +2635,13 @@ dynamic_bodies
 dynamic_cast
 e%d:%d, %g deg
 e:%d, %g deg
-eCG
 eCenteredCapsule
 eCenteredCylinder
 eCount
 eDeploy
 eDrop
 eFast
+eForwardStartOnly
 eGenericCapsule
 eGroundBox
 eGroundCapsule
@@ -2678,6 +2662,7 @@ eStart
 eStop
 eStrafe
 eTeleport
+eUM
 eUseStartAsPlantedTurn
 eVeryFast
 eWait
@@ -2697,8 +2682,6 @@ f4Weights
 fademaxdist
 fademindist
 fadetime
-fail, GetMappedModuleName\n
-fail\n
 false
 fast
 ff9966;">Can <b>Not</b> Collide: same body</div><span>Both shapes belong to the same body %d <i>%s</i>. Do not collide.</span>
@@ -2746,6 +2729,7 @@ flSwingRelax
 flThetaFactor
 flThetaRelaxed
 flTwistRelax
+flVolume
 flVolumetricSolveStrength
 flWeight
 flWeight0
@@ -2762,10 +2746,6 @@ float (float) CUniformRandomStreamImpl<CThreadNullMutex>::RandomFloat(float) (de
 float32
 float64
 forceLimit
-found '%s'\n
-found module '%s' already loaded at 0x%llx\n
-found module '%s', not already loaded at 0x%llx, updating\n
-found pointer in module '%s'\n
 fputc
 fputs
 free
@@ -2780,7 +2760,6 @@ g_pMemAlloc
 g_pThreadPool
 game_data_list{ key = 'CNPCPhysicsHull' }
 generic
-get module name\n
 getentropy
 glibcxx.eh_pool
 global constructors keyed to 
@@ -2789,6 +2768,7 @@ golf ball
 green
 group
 guard variable for 
+hHM
 half
 halfEdges %d,%d faces %d,%d angle %.1f deg.
 hardware
@@ -2807,6 +2787,7 @@ hullivr_faceisland_merge_disp
 hullivr_faceisland_merge_tan
 hullivr_version
 hull{
+iDM
 impactHardThreshold
 impacthard
 impactsoft
@@ -2837,13 +2818,17 @@ invalid
 ioctl
 is <b><font color="red">inconsistent</font></b> with actual collision group
 isActive
+jPM
 java Class for 
 java resource 
 joint
 joints
 joints[%d]
+kOM
+kSM
 key
 keyframed_bodies
+lSJ
 ladder
 large car
 layer
@@ -2857,9 +2842,6 @@ limit
 linear X:%s Y:%s Z:%s angular X:%s Y:%s Z:%s
 linear_damping_ratio
 linear_frequency
-local
-local, checking capture modules\n
-local\n
 local_basis1
 local_basis2
 local_center_of_mass
@@ -2916,6 +2898,7 @@ m_Color
 m_Command
 m_CompositeBones
 m_Compound
+m_CompoundMaterialIndices
 m_ConeAxis
 m_ConeCutoff
 m_ConfigName
@@ -3017,6 +3000,7 @@ m_ParticleBoneName
 m_Particles
 m_Plane
 m_Planes
+m_Prisms
 m_Quads
 m_ReverseOffsets
 m_RigidColliderPriorities
@@ -3027,6 +3011,7 @@ m_SelfCollisionLayers
 m_SimStateBones
 m_SimdAnimStrayRadii
 m_SimdNodeBases
+m_SimdPrisms
 m_SimdQuads
 m_SimdRods
 m_SimdRodsAnim
@@ -3047,6 +3032,7 @@ m_Tag
 m_TaperedCapsuleRigids
 m_TaperedCapsuleStretches
 m_Transform
+m_Tree
 m_TreeChildren
 m_TreeCollisionMasks
 m_TreeParents
@@ -3082,6 +3068,9 @@ m_bBakedTwoSided
 m_bBoneMergeFlex
 m_bCanBatchWithDynamicShaderConstants
 m_bClamp
+m_bCollideOutsideHierarchy
+m_bCollideWithHierarchy
+m_bCompoundsPacked
 m_bCompressedZSTD
 m_bComputeDynamicMeshTensionAfterAnimation
 m_bCreateBufferSRV
@@ -3179,6 +3168,7 @@ m_cRenderColor
 m_capsules
 m_children
 m_collisionAttributes
+m_compounds
 m_constraints
 m_constraints2
 m_controls
@@ -3313,6 +3303,7 @@ m_flMaxTwistAngle
 m_flMaxYaw
 m_flMin
 m_flMinAngle
+m_flMinCentroidRadius
 m_flMinOffset
 m_flMinPitch
 m_flMinRestLength
@@ -3517,6 +3508,7 @@ m_nDynamicNodeFlags
 m_nEdge
 m_nElementCount
 m_nElementSizeInBytes
+m_nEmissivePrimitiveCount
 m_nEndIdx
 m_nEntIndex
 m_nEntParent
@@ -3541,6 +3533,7 @@ m_nGuideHairIndices_nSurfaceTriIndex
 m_nHairCount
 m_nHeight
 m_nHitBoxIndex
+m_nHullBaseIndex
 m_nIncludeDetailLayerCount
 m_nIndex
 m_nIndex0
@@ -3554,6 +3547,7 @@ m_nLinearMotions
 m_nMassPriority
 m_nMax
 m_nMaxSegmentsPerHairStrand
+m_nMeshBaseIndex
 m_nMeshIndex
 m_nMeshletPackedIVBIndex
 m_nMeshoptMeshletEncodeVersion
@@ -3596,6 +3590,7 @@ m_nRotateMotion
 m_nSDFRigidIndex
 m_nScaleSourceNode
 m_nSemanticIndex
+m_nShapeCount
 m_nShapeInBody
 m_nShapeType
 m_nSimdQuadCount1
@@ -3610,10 +3605,12 @@ m_nSphereRigidIndex
 m_nSrcDrawIndex
 m_nStartIndex
 m_nStartIndexOffset
+m_nStartIterationIndex
 m_nStaticNodeFlags
 m_nStaticNodes
 m_nSteeringMotorMode
 m_nSubsteps
+m_nSubtreeEndOrCompoundId
 m_nSurfacePropertyIndex
 m_nTaperedCapsuleRigidIndex
 m_nTargetAxis
@@ -3883,6 +3880,7 @@ mold 2.36.0 (compatible with GNU ld)
 morph_texture
 motiondisabled
 motor
+muM
 multiplayer_break
 nBegin
 nBeginDynamic
@@ -3950,8 +3948,6 @@ nodraw
 noexcept
 non-transaction clone for 
 non-virtual thunk to 
-nonlocal
-nonlocal\n
 normal
 not
 not 
@@ -3962,6 +3958,7 @@ npcclip
 npcphysicshull{}
 null
 nulljoint.cpp
+oJM
 obj_count
 obj_size
 occlusionFactor
@@ -3975,7 +3972,7 @@ optionallycompressedtangentframe
 orientation
 other
 other 
-pModule->%s( 0x%llX )\n
+pGM
 pObject
 pSkeletonPose
 pab
@@ -4011,7 +4008,6 @@ plain
 player
 player_movement
 playerclip
-pointer not found in module list\n
 position
 posxyz
 preMerge face 0
@@ -4026,6 +4022,7 @@ pthread_mutex_unlock
 pthread_once
 pushaway
 pushoff
+pxM
 pz_clip
 qAdjust
 qangle
@@ -4061,6 +4058,7 @@ sName
 scale
 scale=%g;
 scale={%g,%g,%g};
+scale={%g};
 scrapeRoughThreshold
 scraperough
 scrapesmooth
@@ -4641,7 +4639,6 @@ strlen
 strncmp
 strstr
 strtoul
-success\n
 surface
 surface 
 surfacePropertyName
@@ -4688,7 +4685,6 @@ type
 type %u, version %u, total size %u. %d data headers:\n
 typeinfo fn for 
 typeinfo for 
-typeinfo for CThreadSyncObject (demangled)
 typeinfo for IFormatOutputStream (demangled)
 typeinfo for __cxxabiv1::__class_type_info (demangled)
 typeinfo for __cxxabiv1::__forced_unwind (demangled)
@@ -4926,7 +4922,6 @@ uint32
 uint64
 ull
 unable to register all schema data: %s\n
-unload %s 0x%llX - 0x%llX\n
 unsigned
 unsigned __int128
 unsigned char
@@ -4982,7 +4977,6 @@ unsigned long&(unsigned long) std::__cxx11::basic_string<char, std::char_traits<
 unsigned short
 use_block_solver
 v %f %f %f\n#%d ComponentIndex %d, queue %d, angle %.1f; ring:
-vCG
 vCenter
 vCenterOfMass
 vLocalMax
@@ -5134,13 +5128,13 @@ window
 wireframe
 wireframe 
 with
-world.cpp:1625
-world.cpp:1781
-world.cpp:2152
+world.cpp:1713
+world.cpp:1875
+world.cpp:2251
 worldAxisDirection
 worldGeometry
 worldPosition
-xMD
+{ node_name_key = 'm_sName' }
 {default arg#
 {lambda
 {parm#

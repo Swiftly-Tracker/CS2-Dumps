@@ -35,6 +35,19 @@ CSGOSettingsEnumDropDown:hover
 	background-color: #141c27;
 }
 
+.settings-tag
+{
+	font-family: Stratum2 Bold, "Arial Unicode MS";
+	font-size: 12px;
+	color: #D8760E;
+	text-align: left;
+}
+
+CSGOSettingsEnumDropDown > Label .settings-tag
+{
+	font-size: 16px;
+}
+
 .SettingsMenuTab
 {
 	width: 100%;
@@ -73,6 +86,11 @@ CSGOSettingsEnumDropDown:hover
 CSGOSettingsSlider#DatacenterPingThresholdSlider
 {
 	width: fill-parent-flow( 1.0 );
+}
+
+.music-mode-no-preview #Slider
+{
+	margin-left: 32px;
 }
 
 .DatacenterList
@@ -173,7 +191,7 @@ CSGOSettingsSlider#DatacenterPingThresholdSlider
 {
 	horizontal-align: center;
 	width: 946px;
-	padding:32px 64px;
+	padding: 42px 64px 0px 64px;
 	flow-children: down;
 	border-radius: 3px;
 }
@@ -209,9 +227,11 @@ CSGOSettingsSlider#DatacenterPingThresholdSlider
 
 .SettingsSectionTitleLabel
 {
-	font-size: 18px;
-	font-weight: bold;
-	color: rgba(255, 255, 255, 0.25);
+	font-size: 28px;
+	color: rgba(222, 222, 222, 0.4);
+	font-family: Stratum2, "Arial Unicode MS";
+	font-weight: Black;
+	font-style: italic;
 }
 
 .SettingsSection__seperator
@@ -242,7 +262,7 @@ CSGOSettingsSlider#DatacenterPingThresholdSlider
 
 .crosshair-editor
 {
-	height: 128px;
+	height: 256px;
 	width: 100%;
 	flow-children: none;
 	horizontal-align: center;
@@ -253,6 +273,30 @@ CSGOSettingsSlider#DatacenterPingThresholdSlider
 	width: 100%;
 	height: fit-children;
 	flow-children: down;
+}
+
+.crosshair-editor__color-btn
+{
+	height: 36px;
+	width: 80px;
+	vertical-align: center;
+	horizontal-align:right;
+	border: 2px solid #cccccc15;
+	margin: 0px;
+	border-radius: 2px;
+}
+
+.crosshair-editor__color-btn:hover
+{
+	background-color: #9d9d9d28;
+}
+
+.crosshair-editor__color-btn .crosshair-editor__color-btn__color
+{
+	background-color: rgb(161, 30, 30);
+	width: 100%;
+	height: 100%;
+	margin: 4px;
 }
 
 .prmototed-setting
@@ -302,26 +346,51 @@ CSGOSettingsSlider#DatacenterPingThresholdSlider
 
 .bkg-dust2
 {
-	background-image: url("s2r://panorama/images/map_icons/screenshots/1080p/de_dust2_png.vtex");
-	background-position: left -435px top -470px;
+	background-image: url("s2r://panorama/images/crosshair/xhair_dust2_png.vtex");
+	background-size: cover;
+	background-position: center center;
 }
 
 .bkg-nuke
 {
-	background-image: url("s2r://panorama/images/map_icons/screenshots/1080p/de_nuke_2_png.vtex");
-	background-position: left -642px top -421px;
+	background-image: url("s2r://panorama/images/crosshair/xhair_nuke_png.vtex");
+	background-size: cover;
+	background-position: center center;
 }
 
 .bkg-mirage
 {
-	background-image: url("s2r://panorama/images/map_icons/screenshots/1080p/de_mirage_png.vtex");
-	background-position: left -855px top -690px;
+	background-image: url("s2r://panorama/images/crosshair/xhair_mirage_png.vtex");
+	background-size: cover;
+	background-position: center center;
 }
 
-.bkg-office
+.bkg-ancient
 {
-	background-image: url("s2r://panorama/images/map_icons/screenshots/1080p/cs_office_png.vtex");
-	background-position: left -887px top -585px;
+	background-image: url("s2r://panorama/images/crosshair/xhair_ancient_png.vtex");
+	background-size: cover;
+	background-position: center center;
+}
+
+.bkg-anubis
+{
+	background-image: url("s2r://panorama/images/crosshair/xhair_anubis_png.vtex");
+	background-size: cover;
+	background-position: center center;
+}
+
+.bkg-cache
+{
+	background-image: url("s2r://panorama/images/crosshair/xhair_cache_png.vtex");
+	background-size: cover;
+	background-position: center center;
+}
+
+.bkg-inferno
+{
+	background-image: url("s2r://panorama/images/crosshair/xhair_inferno_png.vtex");
+	background-size: cover;
+	background-position: center center;
 }
 
 .dynamic-crosshair

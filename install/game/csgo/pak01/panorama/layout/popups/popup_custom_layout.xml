@@ -1,0 +1,22 @@
+<!-- xml reconstructed by Source 2 Viewer 19.2.0.0 - https://valveresourceformat.github.io -->
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/gamestyles.vcss" />
+		<include src="s2r://panorama/styles/popups/popups_shared.vcss" />
+		<include src="s2r://panorama/styles/popups/popup_custom_layout.vcss" />
+	</styles>
+	<scripts>
+		<include src="s2r://panorama/scripts/popups/popup_custom_layout.vts" />
+	</scripts>
+	<PopupCustomLayout class="PopupPanel Hidden" popupbackground="dim" onload="PopupCustomLayout.Init()" useglobalcontext="true">
+		<Label class="PopupTitle" text="{s:title}" />
+		<Label class="PopupMessage" text="{s:message}" />
+		<Image id="popupimage" />
+		<Panel id="Spinner" class="Spinner" />
+		<ProgressBar id="ProgressBar" />
+		<Panel class="PopupButtonRow">
+			<TextButton class="PopupButton" text="OK" onactivate="OnOKPressed()" />
+			<TextButton class="PopupButton" text="Cancel" onactivate="UIPopupButtonClicked()" />
+		</Panel>
+	</PopupCustomLayout>
+</root>

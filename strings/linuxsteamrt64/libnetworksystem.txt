@@ -584,6 +584,7 @@ $ORIGIN
 .dummy
 .foo = value".
 .placeholder.proto
+.v1
 /dev/random
 /dev/urandom
 /src/
@@ -1693,8 +1694,6 @@ Got ISteamNetworkingSockets user interfaces from standalone lib\n
 Got ISteamNetworkingSockets user interfaces from steam client\n
 Got message on poll group for socket %s, but cannot find connection in table?
 Groups are not supported in proto3 syntax.
-HEG
-HJG
 HMaterialStrong
 HModelStrong
 HNmGraphDefinitionStrong
@@ -1741,6 +1740,8 @@ IST
 ISerializedEntities (demangled)
 ISerializedEntityErrorSpewHook (demangled)
 IVConCommDataReceived (demangled)
+If processing messages from a client takes more than N ms, drop them
+If processing messages from a client takes more than N ms, warn
 If set, only net_showmsg spew for data inbound on this socket name e.g. client, server, etc.
 Ignoring extension "
 Illegal jstype for int64, uint64, sint64, fixed64 or sfixed64 field: 
@@ -1855,7 +1856,6 @@ Latency. . . . . . . . : %7dms%7dms%7dms   net_fakelag\n
 Leaked channel %s remote %s\n
 Like net_showmsg, but only spew reliable messages
 List all registered net messages
-LmI
 LoadKV3(KeyValues3*, CUtlString*, CUtlBuffer*, KV3ID_t const&, char const*, unsigned int) (demangled)
 LocalServerClientAccess001
 Localize_001
@@ -1982,7 +1982,6 @@ Need space between number and identifier.
 Net graph %s\n
 Net status for host %s:\n
 NetChan %s ProcessMessages has taken more than %dms to process %d messages.  (Current message type: '%s')\n
-NetChan %s ProcessMessages tok %dms to process %d messages.\n
 NetChanTransmitReliable
 NetChanTransmitUnreliable
 NetChannel '%s':\n
@@ -2150,7 +2149,6 @@ PlusN
 PlusOne
 PlusThree
 PlusTwo
-PmI
 Pointers cannot be used as numeric values
 Polymorphic
 PopAllButOnePlusN
@@ -2166,13 +2164,14 @@ PostProcessingSystem_001
 Print current ping times to SDR points of presence, and selected route
 Print current simulated network condifions
 Print detailed network statistics for each network connection
-ProcessMessages
 ProcessOverride encountered unknown directive NetworkOverrideType_t(%d)\n
 Processing
 PropertyEditorSystem_001
 Proto file starts with 0xEF but not UTF-8 BOM. Only UTF-8 is accepted for proto file.
+ProtoCoordSizeParams_t (demangled)
 ProtoFlattenedSerializerField_t (demangled)
 ProtoFlattenedSerializerField_t_polymorphic_field_t (demangled)
+ProtoFlattenedSerializerField_t_proto_enum_info_t (demangled)
 ProtoFlattenedSerializer_t (demangled)
 Protobuf: %s(%d): %s\n
 Protocol Buffer map usage error:\n
@@ -2202,6 +2201,7 @@ PushTwoPack5LeftDeltaOne
 PushTwoPack5LeftDeltaZero
 QAngle
 QPI
+QuantizedFloatEncoderAlias_t (demangled)
 Quaternion
 QuaternionStorage
 QueueCallback( %s ) '%s' using value type (%s) on struct field, ignoring!\n
@@ -2320,6 +2320,7 @@ Show incoming message: <0|1|2|name> where 1 == all and 2 == all except net_NOP
 Show messages for large packets only: <size>
 Shows current network status
 Shows net channel info
+SmartPropsSystem_001
 Socket '%s' bound to '%s' [%s]:\n
 Socket '%s' listening for %s on port %d:\n
 Socket '%s' listening for SDR on port %d virtual port %d\n
@@ -2539,7 +2540,6 @@ TCP/UDP Disabled.\n
 TLS init function for 
 TLS wrapper function for 
 TRUE
-TXN
 TestScriptMgr001
 TextLayout_001
 The 'sdr' console command has been renamed to 'net_option'.  Please update your scripts\n
@@ -2757,8 +2757,13 @@ Wednesday
 WorldRendererMgr001
 WriteFields
 WriteToBuffer Message %s is not initialized! Probably missing required fields!\n
-XMN
+XEH
+XJH
+XTH
+XYH
+XjH
 [ Net Message Info: %s ]\n
+[%s] DISCONNECTING. ProcessMessages has taken more than %dms to process %d messages.  (Current message type: '%s')\n
 [%s] Queued message count %d exceeds limit of %s=%d.  Allowing due to engine_frametime_warnings_enable=false\n
 [%s] high frame misdelivery %.1f%%, %d/%d of %d frames dropped/reordered, %.0fms ping, %.0fms peak jitter\n
 [%s] misdelivery %.1f%%, %d/%d of %d frames dropped/reordered, %.0fms ping\n
@@ -3824,6 +3829,10 @@ char () std::__detail::_AnyMatcher<std::regex_traits<char>, (bool)0, (bool)0, (b
 char () std::__detail::_AnyMatcher<std::regex_traits<char>, (bool)0, (bool)0, (bool)1>::()() const::__nul (demangled)
 char () std::__detail::_AnyMatcher<std::regex_traits<char>, (bool)0, (bool)1, (bool)0>::()() const::__nul (demangled)
 char () std::__detail::_AnyMatcher<std::regex_traits<char>, (bool)0, (bool)1, (bool)1>::()() const::__nul (demangled)
+char () std::__detail::_Executor<__gnu_cxx::__normal_iterator<char const*(), std::string>, std::allocator<std::sub_match<__gnu_cxx::__normal_iterator<char const*, std::string> > >, std::regex_traits<char>, (bool)0>::_M_is_line_terminator const (demangled)
+char () std::__detail::_Executor<__gnu_cxx::__normal_iterator<char const*(), std::string>, std::allocator<std::sub_match<__gnu_cxx::__normal_iterator<char const*, std::string> > >, std::regex_traits<char>, (bool)0>::_M_is_word const::__s (demangled)
+char () std::__detail::_Executor<__gnu_cxx::__normal_iterator<char const*(), std::string>, std::allocator<std::sub_match<__gnu_cxx::__normal_iterator<char const*, std::string> > >, std::regex_traits<char>, (bool)1>::_M_is_line_terminator const (demangled)
+char () std::__detail::_Executor<__gnu_cxx::__normal_iterator<char const*(), std::string>, std::allocator<std::sub_match<__gnu_cxx::__normal_iterator<char const*, std::string> > >, std::regex_traits<char>, (bool)1>::_M_is_word const::__s (demangled)
 char () std::__detail::_Executor<char const*(), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)0>::_M_is_line_terminator const (demangled)
 char () std::__detail::_Executor<char const*(), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)0>::_M_is_word const::__s (demangled)
 char () std::__detail::_Executor<char const*(), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)1>::_M_is_line_terminator const (demangled)
@@ -4200,6 +4209,7 @@ five
 fixed array
 fixed32
 fixed64
+fixed8
 flattenedserializer.cpp
 flattenedserializers.cpp
 float
@@ -4507,9 +4517,6 @@ guard variable for std::time_get<char, std::istreambuf_iterator<char, std::char_
 guard variable for std::time_get<wchar_t, std::istreambuf_iterator<wchar_t, std::char_traits<wchar_t> > >::id (demangled)
 guard variable for std::time_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::id (demangled)
 guard variable for std::time_put<wchar_t, std::ostreambuf_iterator<wchar_t, std::char_traits<wchar_t> > >::id (demangled)
-hCG
-hHG
-hMG
 half
 hardware
 has_network_encoding_data
@@ -4641,6 +4648,8 @@ long
 long () __gnu_cxx::__normal_iterator<std::Catalog_info* const*(), std::vector<std::Catalog_info*, std::allocator<std::Catalog_info*> > >::+= (demangled)
 long () __gnu_cxx::__normal_iterator<std::Catalog_info**(), std::vector<std::Catalog_info*, std::allocator<std::Catalog_info*> > >::+ const (demangled)
 long () __gnu_cxx::__normal_iterator<std::Catalog_info**(), std::vector<std::Catalog_info*, std::allocator<std::Catalog_info*> > >::+= (demangled)
+long () std::__detail::_Executor<__gnu_cxx::__normal_iterator<char const*(), std::string>, std::allocator<std::sub_match<__gnu_cxx::__normal_iterator<char const*, std::string> > >, std::regex_traits<char>, (bool)0>::_M_lookahead (demangled)
+long () std::__detail::_Executor<__gnu_cxx::__normal_iterator<char const*(), std::string>, std::allocator<std::sub_match<__gnu_cxx::__normal_iterator<char const*, std::string> > >, std::regex_traits<char>, (bool)1>::_M_lookahead (demangled)
 long () std::__detail::_Executor<char const*(), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)0>::_M_lookahead (demangled)
 long () std::__detail::_Executor<char const*(), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)1>::_M_lookahead (demangled)
 long () std::basic_filebuf<char, std::char_traits<char> >::_M_set_buffer() (demangled)
@@ -4846,6 +4855,7 @@ open
 operator
 operator 
 operator"" 
+operator()
 option json_name is not allowed on extension fields.
 optional
 org(%g,%g,%g) ang(%g,%g,%g)
@@ -5346,6 +5356,13 @@ std::__detail::_CharMatcher<std::regex_traits<char>, false, false> (demangled)
 std::__detail::_CharMatcher<std::regex_traits<char>, false, true> (demangled)
 std::__detail::_CharMatcher<std::regex_traits<char>, true, false> (demangled)
 std::__detail::_CharMatcher<std::regex_traits<char>, true, true> (demangled)
+std::__detail::_Executor<__gnu_cxx::__normal_iterator<char const*(long), std::string>, std::allocator<std::sub_match<__gnu_cxx::__normal_iterator<char const*, std::string> > >, std::regex_traits<char>, (bool)0>::_Match_mode std::__detail::_Executor<__gnu_cxx::__normal_iterator<char const*(long), std::string>, std::allocator<std::sub_match<__gnu_cxx::__normal_iterator<char const*, std::string> > >, std::regex_traits<char>, (bool)0>::_M_dfs (demangled)
+std::__detail::_Executor<__gnu_cxx::__normal_iterator<char const*(long), std::string>, std::allocator<std::sub_match<__gnu_cxx::__normal_iterator<char const*, std::string> > >, std::regex_traits<char>, (bool)0>::_Match_mode std::__detail::_Executor<__gnu_cxx::__normal_iterator<char const*(long), std::string>, std::allocator<std::sub_match<__gnu_cxx::__normal_iterator<char const*, std::string> > >, std::regex_traits<char>, (bool)0>::_M_handle_alternative (demangled)
+std::__detail::_Executor<__gnu_cxx::__normal_iterator<char const*(long), std::string>, std::allocator<std::sub_match<__gnu_cxx::__normal_iterator<char const*, std::string> > >, std::regex_traits<char>, (bool)0>::_Match_mode std::__detail::_Executor<__gnu_cxx::__normal_iterator<char const*(long), std::string>, std::allocator<std::sub_match<__gnu_cxx::__normal_iterator<char const*, std::string> > >, std::regex_traits<char>, (bool)0>::_M_handle_backref (demangled)
+std::__detail::_Executor<__gnu_cxx::__normal_iterator<char const*(long), std::string>, std::allocator<std::sub_match<__gnu_cxx::__normal_iterator<char const*, std::string> > >, std::regex_traits<char>, (bool)0>::_Match_mode std::__detail::_Executor<__gnu_cxx::__normal_iterator<char const*(long), std::string>, std::allocator<std::sub_match<__gnu_cxx::__normal_iterator<char const*, std::string> > >, std::regex_traits<char>, (bool)0>::_M_rep_once_more (demangled)
+std::__detail::_Executor<__gnu_cxx::__normal_iterator<char const*(long), std::string>, std::allocator<std::sub_match<__gnu_cxx::__normal_iterator<char const*, std::string> > >, std::regex_traits<char>, (bool)1>::_Match_mode std::__detail::_Executor<__gnu_cxx::__normal_iterator<char const*(long), std::string>, std::allocator<std::sub_match<__gnu_cxx::__normal_iterator<char const*, std::string> > >, std::regex_traits<char>, (bool)1>::_M_dfs (demangled)
+std::__detail::_Executor<__gnu_cxx::__normal_iterator<char const*(long), std::string>, std::allocator<std::sub_match<__gnu_cxx::__normal_iterator<char const*, std::string> > >, std::regex_traits<char>, (bool)1>::_Match_mode std::__detail::_Executor<__gnu_cxx::__normal_iterator<char const*(long), std::string>, std::allocator<std::sub_match<__gnu_cxx::__normal_iterator<char const*, std::string> > >, std::regex_traits<char>, (bool)1>::_M_handle_backref (demangled)
+std::__detail::_Executor<__gnu_cxx::__normal_iterator<char const*(long), std::string>, std::allocator<std::sub_match<__gnu_cxx::__normal_iterator<char const*, std::string> > >, std::regex_traits<char>, (bool)1>::_Match_mode std::__detail::_Executor<__gnu_cxx::__normal_iterator<char const*(long), std::string>, std::allocator<std::sub_match<__gnu_cxx::__normal_iterator<char const*, std::string> > >, std::regex_traits<char>, (bool)1>::_M_rep_once_more (demangled)
 std::__detail::_Executor<char const*(long), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)0>::_M_dfs::_Match_mode std::__detail::_Executor<char const*(long), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)0>::_M_dfs (demangled)
 std::__detail::_Executor<char const*(long), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)0>::_M_handle_alternative::_Match_mode std::__detail::_Executor<char const*(long), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)0>::_M_handle_alternative (demangled)
 std::__detail::_Executor<char const*(long), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)0>::_M_handle_backref::_Match_mode std::__detail::_Executor<char const*(long), std::allocator<std::sub_match<std::sub_match> >, std::regex_traits<char>, (bool)0>::_M_handle_backref (demangled)
@@ -7034,10 +7051,13 @@ strtoull
 struct %s, fields: %s\n
 subtype mismatch
 sv_listen_directudp
+sv_net_client_message_process_time_ms_drop
+sv_net_client_message_process_time_ms_warn
 symbols
 syntax = "$0";\n\n
 syscall
 system
+tZJ
 tab
 table
 tag='%s':%u
@@ -7966,11 +7986,9 @@ void () std::_Head_base<(unsigned long)0, std::thread::_State*(), (bool)0>::base
 void () std::_Head_base<(unsigned long)0, std::thread::_State*(), (bool)0>::complete object constructor (demangled)
 void () std::_Head_base<(unsigned long)1, std::default_delete<std::thread::_State()>, (bool)1>::base object constructor (demangled)
 void () std::_Head_base<(unsigned long)1, std::default_delete<std::thread::_State()>, (bool)1>::complete object constructor (demangled)
-void () std::_Sp_counted_base<(__gnu_cxx::_Lock_policy())2>::_M_destroy (demangled)
 void () std::_Sp_counted_base<(__gnu_cxx::_Lock_policy())2>::_M_release (demangled)
 void () std::_Sp_counted_base<(__gnu_cxx::_Lock_policy())2>::_M_release_last_use (demangled)
 void () std::_Sp_counted_base<(__gnu_cxx::_Lock_policy())2>::_M_release_last_use_cold (demangled)
-void () std::_Sp_counted_ptr<std::nullptr_t, (__gnu_cxx::_Lock_policy())2>::_M_dispose (demangled)
 void () std::_Sp_counted_ptr_inplace<std::__detail::_NFA<std::regex_traits<char> >(), std::allocator<void>, (__gnu_cxx::_Lock_policy)2>::_M_destroy (demangled)
 void () std::_Sp_counted_ptr_inplace<std::__detail::_NFA<std::regex_traits<char> >(), std::allocator<void>, (__gnu_cxx::_Lock_policy)2>::_M_dispose (demangled)
 void () std::_Sp_counted_ptr_inplace<std::__detail::_NFA<std::regex_traits<char> >(), std::allocator<void>, (__gnu_cxx::_Lock_policy)2>::base object destructor (demangled)
@@ -9468,7 +9486,14 @@ write
 writev
 writing (in %s)
 wrong submessage type
+xCH
+xHH
+xMH
+xRH
+xWH
 xdigit
+xmH
+xrH
 yes
 zero
 {default arg#

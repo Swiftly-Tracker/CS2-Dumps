@@ -1,12 +1,13 @@
 <!-- xml reconstructed by Source 2 Viewer 19.2.0.0 - https://valveresourceformat.github.io -->
 <root>
 	<styles>
-		<include src="s2r://panorama/styles/csgostyles.vcss_c" />
-		<include src="s2r://panorama/styles/settings/settings.vcss_c" />
-		<include src="s2r://panorama/styles/mainmenu.vcss_c" />
+		<include src="s2r://panorama/styles/csgostyles.vcss" />
+		<include src="s2r://panorama/styles/settings/settings.vcss" />
+		<include src="s2r://panorama/styles/mainmenu.vcss" />
 	</styles>
 	<scripts>
-		<include src="s2r://panorama/scripts/settingsmenu_shared.vts_c" />
+		<include src="s2r://panorama/scripts/settingsmenu_shared.vts" />
+		<include src="s2r://panorama/scripts/settingsmenu_audiosettings.vts" />
 	</scripts>
 	<Panel useglobalcontext="true" class="SettingsMenuTab">
 		<Panel id="id-navbar-tabs" class="content-navbar__tabs content-navbar__tabs--dark content-navbar__tabs--noflow">
@@ -148,22 +149,197 @@
 					<Label class="SettingsSectionTitleLabel" text="#settings_music_section" />
 				</Panel>
 				<Panel class="top-bottom-flow full-width">
-					<CSGOSettingsSlider text="#SFUI_Settings_Menu_Music_Volume" eventname="MatchStart" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_menumusic_volume" />
+					<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_Master_Music_Volume_Tip">
+						<CSGOSettingsSlider text="#SFUI_Settings_Master_Music_Volume" max="1" min="0" audiogain="true" percentage="true" convar="snd_musicvolume" />
+					</TooltipPanel>
 					<Panel class="horizontal-separator" />
-					<CSGOSettingsSlider text="#SFUI_Settings_Start_Round_Music_Volume" eventname="StartRound" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_roundstart_volume" />
+					<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_Music_Mode_Tip">
+						<Label text="#SFUI_Settings_Music_Mode" />
+						<CSGOSettingsEnumDropDown class="PopupButton White" convar="snd_music_settings_mode" ondropdownselectionchanged="SettingsMenuAudioSettings.OnMusicModeChange()">
+							<Label text="#SFUI_GameModeCompetitive" id="musicmode0" value="0" />
+							<Label text="#SFUI_GameModeCasual" id="musicmode1" value="1" />
+							<Label text="#SFUI_GameModeGungameProgressive" id="musicmode2" value="2" />
+							<Label text="#SFUI_GameModeDeathmatch" id="musicmode3" value="3" />
+							<Label text="#SFUI_GameMode_rush" id="musicmode4" value="4" />
+						</CSGOSettingsEnumDropDown>
+					</TooltipPanel>
 					<Panel class="horizontal-separator" />
-					<CSGOSettingsSlider text="#SFUI_Settings_Action_Round_Music_Volume" eventname="StartAction" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_roundaction_volume" />
+					<Panel class="SettingsMenuDropdownContainer">
+						<Button id="MusicApplyCompetitiveToAll" class="PopupButton White" onactivate="SettingsMenuAudioSettings.ApplyCompetitiveVolumesToAllModes()">
+							<Label text="#SFUI_Settings_Music_Apply_Competitive_To_All" />
+						</Button>
+					</Panel>
 					<Panel class="horizontal-separator" />
-					<CSGOSettingsSlider text="#SFUI_Settings_End_Round_Music_Volume" eventname="WonRound" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_roundend_volume" />
-					<Panel class="horizontal-separator" />
-					<CSGOSettingsSlider text="#SFUI_Settings_MVP_Music_Volume" eventname="MVPAnthem" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_mvp_volume" />
-					<Panel class="horizontal-separator" />
-					<CSGOSettingsSlider text="#SFUI_Settings_Map_Objective_Music_Volume" eventname="BombPlanted" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_mapobjective_volume" constrainrange="true" />
-					<Panel class="horizontal-separator" />
-					<CSGOSettingsSlider text="#SFUI_Settings_Ten_Second_Warning_Music_Volume" eventname="TenSecCount" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_tensecondwarning_volume" constrainrange="true" />
-					<Panel class="horizontal-separator" />
-					<CSGOSettingsSlider text="#SFUI_Settings_Death_Camera_Music_Volume" eventname="DeathCam" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_deathcamera_volume" constrainrange="true" />
-					<Panel class="horizontal-separator" />
+					<Panel id="SettingsMusicModeCompetitive" class="top-bottom-flow full-width">
+						<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_Menu_Music_Volume_Tip">
+							<CSGOSettingsSlider text="#SFUI_Settings_Menu_Music_Volume" eventname="MatchStart" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_menumusic_volume" />
+						</TooltipPanel>
+						<Panel class="horizontal-separator" />
+						<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_Start_Round_Music_Volume_Tip">
+							<CSGOSettingsSlider text="#SFUI_Settings_Start_Round_Music_Volume" eventname="StartRound" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_roundstart_volume" />
+						</TooltipPanel>
+						<Panel class="horizontal-separator" />
+						<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_Action_Round_Music_Volume_Tip">
+							<CSGOSettingsSlider text="#SFUI_Settings_Action_Round_Music_Volume" eventname="StartAction" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_roundaction_volume" />
+						</TooltipPanel>
+						<Panel class="horizontal-separator" />
+						<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_End_Round_Music_Volume_Tip">
+							<CSGOSettingsSlider text="#SFUI_Settings_End_Round_Music_Volume" eventname="WonRound" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_roundend_volume" />
+						</TooltipPanel>
+						<Panel class="horizontal-separator" />
+						<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_MVP_Music_Volume_Tip">
+							<CSGOSettingsSlider text="#SFUI_Settings_MVP_Music_Volume" eventname="MVPAnthem" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_mvp_volume" />
+						</TooltipPanel>
+						<Panel class="horizontal-separator" />
+						<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_Map_Objective_Music_Volume_Tip">
+							<CSGOSettingsSlider text="#SFUI_Settings_Map_Objective_Music_Volume" eventname="BombPlanted" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_mapobjective_volume" constrainrange="true" />
+						</TooltipPanel>
+						<Panel class="horizontal-separator" />
+						<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_Ten_Second_Warning_Music_Volume_Tip">
+							<CSGOSettingsSlider text="#SFUI_Settings_Ten_Second_Warning_Music_Volume" eventname="TenSecCount" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_tensecondwarning_volume" constrainrange="true" />
+						</TooltipPanel>
+						<Panel class="horizontal-separator" />
+						<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_Death_Camera_Music_Volume_Tip">
+							<CSGOSettingsSlider text="#SFUI_Settings_Death_Camera_Music_Volume" eventname="DeathCam" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_deathcamera_volume" constrainrange="true" />
+						</TooltipPanel>
+						<Panel class="horizontal-separator" />
+					</Panel>
+					<Panel id="SettingsMusicModeCasual" class="top-bottom-flow full-width music-mode-no-preview">
+						<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_Menu_Music_Volume_Tip">
+							<CSGOSettingsSlider text="#SFUI_Settings_Menu_Music_Volume" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_menumusic_volume_casual" />
+						</TooltipPanel>
+						<Panel class="horizontal-separator" />
+						<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_Start_Round_Music_Volume_Tip">
+							<CSGOSettingsSlider text="#SFUI_Settings_Start_Round_Music_Volume" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_roundstart_volume_casual" />
+						</TooltipPanel>
+						<Panel class="horizontal-separator" />
+						<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_Action_Round_Music_Volume_Tip">
+							<CSGOSettingsSlider text="#SFUI_Settings_Action_Round_Music_Volume" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_roundaction_volume_casual" />
+						</TooltipPanel>
+						<Panel class="horizontal-separator" />
+						<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_End_Round_Music_Volume_Tip">
+							<CSGOSettingsSlider text="#SFUI_Settings_End_Round_Music_Volume" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_roundend_volume_casual" />
+						</TooltipPanel>
+						<Panel class="horizontal-separator" />
+						<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_MVP_Music_Volume_Tip">
+							<CSGOSettingsSlider text="#SFUI_Settings_MVP_Music_Volume" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_mvp_volume_casual" />
+						</TooltipPanel>
+						<Panel class="horizontal-separator" />
+						<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_Map_Objective_Music_Volume_Tip">
+							<CSGOSettingsSlider text="#SFUI_Settings_Map_Objective_Music_Volume" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_mapobjective_volume_casual" constrainrange="true" />
+						</TooltipPanel>
+						<Panel class="horizontal-separator" />
+						<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_Ten_Second_Warning_Music_Volume_Tip">
+							<CSGOSettingsSlider text="#SFUI_Settings_Ten_Second_Warning_Music_Volume" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_tensecondwarning_volume_casual" constrainrange="true" />
+						</TooltipPanel>
+						<Panel class="horizontal-separator" />
+						<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_Death_Camera_Music_Volume_Tip">
+							<CSGOSettingsSlider text="#SFUI_Settings_Death_Camera_Music_Volume" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_deathcamera_volume_casual" constrainrange="true" />
+						</TooltipPanel>
+						<Panel class="horizontal-separator" />
+					</Panel>
+					<Panel id="SettingsMusicModeArmsRace" class="top-bottom-flow full-width music-mode-no-preview">
+						<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_Menu_Music_Volume_Tip">
+							<CSGOSettingsSlider text="#SFUI_Settings_Menu_Music_Volume" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_menumusic_volume_armsrace" />
+						</TooltipPanel>
+						<Panel class="horizontal-separator" />
+						<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_Start_Round_Music_Volume_Tip">
+							<CSGOSettingsSlider text="#SFUI_Settings_Start_Round_Music_Volume" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_roundstart_volume_armsrace" />
+						</TooltipPanel>
+						<Panel class="horizontal-separator" />
+						<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_Action_Round_Music_Volume_Tip">
+							<CSGOSettingsSlider text="#SFUI_Settings_Action_Round_Music_Volume" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_roundaction_volume_armsrace" />
+						</TooltipPanel>
+						<Panel class="horizontal-separator" />
+						<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_End_Round_Music_Volume_Tip">
+							<CSGOSettingsSlider text="#SFUI_Settings_End_Round_Music_Volume" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_roundend_volume_armsrace" />
+						</TooltipPanel>
+						<Panel class="horizontal-separator" />
+						<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_MVP_Music_Volume_Tip">
+							<CSGOSettingsSlider text="#SFUI_Settings_MVP_Music_Volume" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_mvp_volume_armsrace" />
+						</TooltipPanel>
+						<Panel class="horizontal-separator" />
+						<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_Map_Objective_Music_Volume_Tip">
+							<CSGOSettingsSlider text="#SFUI_Settings_Map_Objective_Music_Volume" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_mapobjective_volume_armsrace" constrainrange="true" />
+						</TooltipPanel>
+						<Panel class="horizontal-separator" />
+						<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_Ten_Second_Warning_Music_Volume_Tip">
+							<CSGOSettingsSlider text="#SFUI_Settings_Ten_Second_Warning_Music_Volume" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_tensecondwarning_volume_armsrace" constrainrange="true" />
+						</TooltipPanel>
+						<Panel class="horizontal-separator" />
+						<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_Death_Camera_Music_Volume_Tip">
+							<CSGOSettingsSlider text="#SFUI_Settings_Death_Camera_Music_Volume" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_deathcamera_volume_armsrace" constrainrange="true" />
+						</TooltipPanel>
+						<Panel class="horizontal-separator" />
+					</Panel>
+					<Panel id="SettingsMusicModeDeathmatch" class="top-bottom-flow full-width music-mode-no-preview">
+						<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_Menu_Music_Volume_Tip">
+							<CSGOSettingsSlider text="#SFUI_Settings_Menu_Music_Volume" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_menumusic_volume_deathmatch" />
+						</TooltipPanel>
+						<Panel class="horizontal-separator" />
+						<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_Start_Round_Music_Volume_Tip">
+							<CSGOSettingsSlider text="#SFUI_Settings_Start_Round_Music_Volume" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_roundstart_volume_deathmatch" />
+						</TooltipPanel>
+						<Panel class="horizontal-separator" />
+						<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_Action_Round_Music_Volume_Tip">
+							<CSGOSettingsSlider text="#SFUI_Settings_Action_Round_Music_Volume" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_roundaction_volume_deathmatch" />
+						</TooltipPanel>
+						<Panel class="horizontal-separator" />
+						<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_End_Round_Music_Volume_Tip">
+							<CSGOSettingsSlider text="#SFUI_Settings_End_Round_Music_Volume" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_roundend_volume_deathmatch" />
+						</TooltipPanel>
+						<Panel class="horizontal-separator" />
+						<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_MVP_Music_Volume_Tip">
+							<CSGOSettingsSlider text="#SFUI_Settings_MVP_Music_Volume" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_mvp_volume_deathmatch" />
+						</TooltipPanel>
+						<Panel class="horizontal-separator" />
+						<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_Map_Objective_Music_Volume_Tip">
+							<CSGOSettingsSlider text="#SFUI_Settings_Map_Objective_Music_Volume" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_mapobjective_volume_deathmatch" constrainrange="true" />
+						</TooltipPanel>
+						<Panel class="horizontal-separator" />
+						<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_Ten_Second_Warning_Music_Volume_Tip">
+							<CSGOSettingsSlider text="#SFUI_Settings_Ten_Second_Warning_Music_Volume" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_tensecondwarning_volume_deathmatch" constrainrange="true" />
+						</TooltipPanel>
+						<Panel class="horizontal-separator" />
+						<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_Death_Camera_Music_Volume_Tip">
+							<CSGOSettingsSlider text="#SFUI_Settings_Death_Camera_Music_Volume" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_deathcamera_volume_deathmatch" constrainrange="true" />
+						</TooltipPanel>
+						<Panel class="horizontal-separator" />
+					</Panel>
+					<Panel id="SettingsMusicModeRush" class="top-bottom-flow full-width music-mode-no-preview">
+						<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_Menu_Music_Volume_Tip">
+							<CSGOSettingsSlider text="#SFUI_Settings_Menu_Music_Volume" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_menumusic_volume_rush" />
+						</TooltipPanel>
+						<Panel class="horizontal-separator" />
+						<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_Start_Round_Music_Volume_Tip">
+							<CSGOSettingsSlider text="#SFUI_Settings_Start_Round_Music_Volume" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_roundstart_volume_rush" />
+						</TooltipPanel>
+						<Panel class="horizontal-separator" />
+						<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_Action_Round_Music_Volume_Tip">
+							<CSGOSettingsSlider text="#SFUI_Settings_Action_Round_Music_Volume" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_roundaction_volume_rush" />
+						</TooltipPanel>
+						<Panel class="horizontal-separator" />
+						<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_End_Round_Music_Volume_Tip">
+							<CSGOSettingsSlider text="#SFUI_Settings_End_Round_Music_Volume" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_roundend_volume_rush" />
+						</TooltipPanel>
+						<Panel class="horizontal-separator" />
+						<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_MVP_Music_Volume_Tip">
+							<CSGOSettingsSlider text="#SFUI_Settings_MVP_Music_Volume" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_mvp_volume_rush" />
+						</TooltipPanel>
+						<Panel class="horizontal-separator" />
+						<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_Map_Objective_Music_Volume_Tip">
+							<CSGOSettingsSlider text="#SFUI_Settings_Map_Objective_Music_Volume" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_mapobjective_volume_rush" constrainrange="true" />
+						</TooltipPanel>
+						<Panel class="horizontal-separator" />
+						<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_Ten_Second_Warning_Music_Volume_Tip">
+							<CSGOSettingsSlider text="#SFUI_Settings_Ten_Second_Warning_Music_Volume" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_tensecondwarning_volume_rush" constrainrange="true" />
+						</TooltipPanel>
+						<Panel class="horizontal-separator" />
+						<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_Death_Camera_Music_Volume_Tip">
+							<CSGOSettingsSlider text="#SFUI_Settings_Death_Camera_Music_Volume" max="1.0" min="0" audiogain="true" percentage="true" convar="snd_deathcamera_volume_rush" constrainrange="true" />
+						</TooltipPanel>
+						<Panel class="horizontal-separator" />
+					</Panel>
 					<Panel class="SettingsMenuDropdownContainer">
 						<Label text="#SFUI_Settings_Mute_MVP_Live_Players" />
 						<CSGOSettingsEnumDropDown class="PopupButton White" convar="snd_mute_mvp_music_live_players">

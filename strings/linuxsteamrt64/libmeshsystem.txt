@@ -1,3 +1,7 @@
+    %s: %s\n
+  Saved by moving skindata: %s (was %s, now %s of real data)\n
+  Saved by removing VertexPaintBlendParams: %s (was %s, now %s of real data)\n
+  Unused TraceVertex_t field memory:\n
   what():  
  (, std::allocator<char> const&) std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::base object constructor<char const*(, std::allocator<char> const&), void> (demangled)
  (, std::allocator<char> const&) std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::complete object constructor<char const*(, std::allocator<char> const&), void> (demangled)
@@ -613,6 +617,7 @@ FormatTo(IFormatOutputStream*, CFormatStringElement, float) (demangled)
 FormatTo(IFormatOutputStream*, CFormatStringElement, int) (demangled)
 FormatTo(IFormatOutputStream*, CFormatStringElement, unsigned int) (demangled)
 FormatTo(IFormatOutputStream*, CFormatStringElement, void const*) (demangled)
+Forward Start Only
 Found existing value when inserting into dict - replacing existing value with new value. If this is intended behavior, use InsertOrReplace. If leaving existing values alone is intended, use InsertIfNotFound.
 Found translucent and opaque grooms in the same groom group. This is not allowed.\n
 G8R8_G8B8_UNORM
@@ -739,13 +744,17 @@ LoggingSystem_Log
 LoggingSystem_Log(int, LoggingSeverity_t, Color, char const*, ...) (demangled)
 LoggingSystem_Log(int, LoggingSeverity_t, LoggingRareOptions_t const&, char const*, ...) (demangled)
 LoggingSystem_RegisterLoggingChannel
+Logs information about memory consumption by TraceDataForDraw_t/ToolsTraceData
 LooksLikeKV3TextData(void const*, int, KV3ID_t*, char*, int) (demangled)
 MATCHFRAMEWORK_001
 MATERIAL_ATTRIBUTE:
 MAlternateSemanticName
 MAtomicTransfersAsPlainString
+MCustomFGDMetadata
 MESH_BUFFER_USAGE_ADJACENCY
+MESH_BUFFER_USAGE_ALIAS_TABLE
 MESH_BUFFER_USAGE_IB
+MESH_BUFFER_USAGE_MESHLETS
 MESH_BUFFER_USAGE_MESHLET_TRIS
 MESH_BUFFER_USAGE_NONE
 MESH_BUFFER_USAGE_RT_PROXY
@@ -1041,6 +1050,7 @@ ResourceHandleUtils001
 ResourceManifestRegistry001
 ResourceSystem013
 RnCapsuleDesc_t
+RnCompoundDesc_t
 RnHullDesc_t
 RnMeshDesc_t
 RnSoftbodyCapsule_t
@@ -1078,6 +1088,7 @@ SkeletonAnimCapture_t::Frame_t
 SkeletonBoneBounds_t
 SkeletonDemoDb_t
 Slow
+SmartPropsSystem_001
 SoundOpSystem001
 SoundOpSystemEdit001
 SoundService_001
@@ -1142,6 +1153,7 @@ ToolSceneNodeFactory_001
 ToolService_001
 ToolsStallMonitorInternal_BeginScope
 ToolsStallMonitorInternal_EndScope
+TraceData memory (loaded)\n    %s vertex data (%s used, %s wasted on unused TraceVertex_t fields), %s extra attributes\n    %s index, %s remap (%s of it ~identity)\n
 Tried to load a polymorphic pointer with no '%s' key
 Tried to load resource reference '%s' from a value without a resource reference specific type.
 Trying to override a material with an invalid draw call index\n
@@ -1157,6 +1169,7 @@ UPSCALER_INTEL_XESS
 UPSCALER_NONE
 UPSCALER_NVIDIA_DLSS
 USAGE: print_model_bind_pose <vmdl_name> [bone_name]\n
+UUUU
 Unable to load tools vb block (%s: %d)\n
 Unable to read resource file %s!\n
 Unknown
@@ -1300,7 +1313,6 @@ X32_TYPELESS_G8X24_UINT
 [abi:
 [friend]
 [idx=%d] "%s"
-\rMXN
 _Float
 _GLOBAL_
 _GLOBAL__N_1::generic_error_category (demangled)
@@ -1745,6 +1757,7 @@ eCount
 eDeploy
 eDrop
 eFast
+eForwardStartOnly
 eGenericCapsule
 eGroundBox
 eGroundCapsule
@@ -1815,6 +1828,7 @@ flSpringRestLength
 flStrength
 flSwingRelax
 flTwistRelax
+flVolume
 flVolumetricSolveStrength
 flWeight
 flWeight0
@@ -1916,6 +1930,8 @@ m_CollisionPlanes
 m_Color
 m_Command
 m_CompositeBones
+m_Compound
+m_CompoundMaterialIndices
 m_ConeAxis
 m_ConeCutoff
 m_ConfigName
@@ -1967,6 +1983,7 @@ m_HingeLimits
 m_HitBoxSets
 m_HitBoxes
 m_Hull
+m_Hulls
 m_ImportedCollision
 m_InitPos
 m_InitPose
@@ -1991,6 +2008,7 @@ m_MaterialGroupName
 m_MaterialGroupOnOtherModels
 m_Materials
 m_Mesh
+m_Meshes
 m_ModelBindPose
 m_ModelName
 m_MorphLayers
@@ -2011,6 +2029,7 @@ m_ParticleBoneName
 m_Particles
 m_Plane
 m_Planes
+m_Prisms
 m_Quads
 m_ReverseOffsets
 m_RigidColliderPriorities
@@ -2021,6 +2040,7 @@ m_SelfCollisionLayers
 m_SimStateBones
 m_SimdAnimStrayRadii
 m_SimdNodeBases
+m_SimdPrisms
 m_SimdQuads
 m_SimdRods
 m_SimdRodsAnim
@@ -2031,6 +2051,7 @@ m_SourceElems
 m_SourceFilename
 m_Sphere
 m_SphereRigids
+m_Spheres
 m_SpringIntegrator
 m_Springs
 m_Stamp
@@ -2040,6 +2061,7 @@ m_Tag
 m_TaperedCapsuleRigids
 m_TaperedCapsuleStretches
 m_Transform
+m_Tree
 m_TreeChildren
 m_TreeCollisionMasks
 m_TreeParents
@@ -2071,6 +2093,9 @@ m_bBakedTwoSided
 m_bBoneMergeFlex
 m_bCanBatchWithDynamicShaderConstants
 m_bClamp
+m_bCollideOutsideHierarchy
+m_bCollideWithHierarchy
+m_bCompoundsPacked
 m_bCompressedZSTD
 m_bComputeDynamicMeshTensionAfterAnimation
 m_bCreateBufferSRV
@@ -2145,6 +2170,7 @@ m_cRenderColor
 m_capsules
 m_children
 m_collisionAttributes
+m_compounds
 m_constraints
 m_constraints2
 m_controls
@@ -2245,6 +2271,7 @@ m_flMaxQuantizedDistance
 m_flMaxTorque
 m_flMaxYaw
 m_flMin
+m_flMinCentroidRadius
 m_flMinPitch
 m_flMinYaw
 m_flMotionSmoothCDT
@@ -2396,6 +2423,7 @@ m_nDepthVertexBufferIndex
 m_nDynamicNodeFlags
 m_nElementCount
 m_nElementSizeInBytes
+m_nEmissivePrimitiveCount
 m_nEndIdx
 m_nEntIndex
 m_nEntParent
@@ -2416,12 +2444,14 @@ m_nGuideHairIndices_nSurfaceTriIndex
 m_nHairCount
 m_nHeight
 m_nHitBoxIndex
+m_nHullBaseIndex
 m_nIncludeDetailLayerCount
 m_nIndexCount
 m_nInfluences
 m_nJiggleParent
 m_nMax
 m_nMaxSegmentsPerHairStrand
+m_nMeshBaseIndex
 m_nMeshIndex
 m_nMeshletPackedIVBIndex
 m_nMeshoptMeshletEncodeVersion
@@ -2459,6 +2489,7 @@ m_nRotLockStaticNodes
 m_nRotateMotion
 m_nSDFRigidIndex
 m_nSemanticIndex
+m_nShapeCount
 m_nShapeInBody
 m_nShapeType
 m_nSimdQuadCount1
@@ -2473,8 +2504,10 @@ m_nSphereRigidIndex
 m_nSrcDrawIndex
 m_nStartIndex
 m_nStartIndexOffset
+m_nStartIterationIndex
 m_nStaticNodeFlags
 m_nStaticNodes
+m_nSubtreeEndOrCompoundId
 m_nSurfacePropertyIndex
 m_nTaperedCapsuleRigidIndex
 m_nTargetAxis
@@ -2671,10 +2704,11 @@ mesh_calculate_curvature_smooth_invert
 mesh_calculate_curvature_smooth_pass_count
 mesh_calculate_curvature_smooth_weight
 mesh_index
+mesh_trace_data_memory_report
 meshinstance_imp.cpp
 meshsystem
 meshsystem.cpp
-meshsystem.cpp(118): GetErrorModel() called before error model exists!\n
+meshsystem.cpp(119): GetErrorModel() called before error model exists!\n
 meshutils.cpp
 min
 model
@@ -2763,7 +2797,6 @@ physics
 placementattachment
 placementbone
 position
-posix_memalign
 posxyz
 print_model_bind_pose
 projectedDecal
@@ -3361,6 +3394,8 @@ terminate called after throwing an instance of '
 terminate called recursively\n
 terminate called without an active exception\n
 texcoord
+texcoord0
+texcoord1
 thickness
 this
 this 
@@ -3622,6 +3657,7 @@ vtable for std::underflow_error (demangled)
 wchar_t
 wheeldrag
 wheelfrictionscale
+{ node_name_key = 'm_sName' }
 {default arg#
 {lambda
 {parm#

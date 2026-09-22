@@ -1,0 +1,206 @@
+<!-- xml reconstructed by Source 2 Viewer 19.2.0.0 - https://valveresourceformat.github.io -->
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/gamestyles.vcss" />
+		<include src="s2r://panorama/styles/popups/popups_shared.vcss" />
+		<include src="s2r://panorama/styles/popups/pet_photo_library.vcss" />
+		<include src="s2r://panorama/styles/popups/popup_pet_photobooth.vcss" />
+	</styles>
+	<scripts>
+		<include src="s2r://panorama/scripts/common/iteminfo.vts" />
+		<include src="s2r://panorama/scripts/inspect.vts" />
+		<include src="s2r://panorama/scripts/common/formattext.vts" />
+		<include src="s2r://panorama/scripts/common/characteranims.vts" />
+		<include src="s2r://panorama/scripts/popups/pet_photo_tag.vts" />
+		<include src="s2r://panorama/scripts/popups/pet_photo_library.vts" />
+		<include src="s2r://panorama/scripts/popups/popup_pet_photobooth.vts" />
+	</scripts>
+	<snippets>
+		<snippet name="sticker">
+			<Panel class="placed-sticker-container">
+				<ItemImage id="sticker" hittest="false" />
+				<Panel class="sticker-controls">
+					<Panel class="top-bottom-flow margin-16">
+						<Panel class="left-right-flow">
+							<Image class="right-margin" src="s2r://panorama/images/icons/ui/refresh.vsvg" textureheight="16" texturewidth="=-1" />
+							<Slider id="id-sticker-rotate" class="HorizontalSlider pet-slider" direction="horizontal" />
+						</Panel>
+						<Panel class="left-right-flow top-margin-8">
+							<Image class="right-margin" src="s2r://panorama/images/icons/ui/expand_video.vsvg" textureheight="16" texturewidth="=-1" />
+							<Slider id="id-sticker-scale" class="HorizontalSlider pet-slider" direction="horizontal" />
+						</Panel>
+					</Panel>
+					<Button id="id-sticker-remove" class="margin-16 horizontal-align-right">
+						<Image src="s2r://panorama/images/icons/ui/exit.vsvg" textureheight="24" texturewidth="=-1" />
+					</Button>
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="setting-btn">
+			<RadioButton id="id-pet-setting-btn-adjust" class="IconButton" onactivate="PopupPetPhotoBooth.ShowSettingsRow(&apos;adjust&apos;)" group="control">
+				<Panel class="icon-label-container">
+					<Image id="id-pet-setting-btn-icon" />
+				</Panel>
+			</RadioButton>
+		</snippet>
+		<snippet name="adjust-slider">
+			<Panel class="photo-booth-settings__slider-container">
+				<Label id="id-pet-slider-label" class="stratum-regular fontSize-sm" />
+				<Slider id="id-pet-slider" class="HorizontalSlider pet-slider" direction="horizontal" />
+			</Panel>
+		</snippet>
+	</snippets>
+	<PopupCustomLayout class="PopupPanel Hidden" popupbackground="blur" onload="PopupPetPhotoBooth.Init()" oncancel="PopupPetPhotoBooth.Close();">
+		<Panel class="full-width full-height" onactivate="PopupPetPhotoBooth.CloseSettings();" />
+		<CSGOBlurTarget id="id-pet-photo-blur-target" class="photo-booth-blur-target" hittest="false" blurrects="id-photo-library id-photo-settings-stickers id-pet-photo-controls-bar id-pet-photo-activity-bar id-pet-photo-effects-bar id-photo-settings-stage id-photo-settings-adjust id-photo-settings-poses id-photo-settings-filters id-photo-settings-team id-photo-settings-headwear id-photo-settings-format">
+			<Panel id="id-photo-booth-frame" class="photo-booth-frame">
+				<Panel id="id-pet-model-container" class="photo-booth-model-container" hittest="false">
+					<Frame id="id-pet-model" src="s2r://panorama/layout/inspect.vxml" hittest="false" />
+					<Panel id="id-pet-photo-overlay" class="photo-booth-overlay" hittest="false" />
+					<Panel id="id-pet-photo-grain" class="photo-booth-grain" hittest="false" />
+					<Panel id="id-pet-photo-grime" class="photo-booth-grime" hittest="false" />
+					<Panel id="id-pet-sticker-layer" class="photo-booth-sticker-layer" hittest="false" />
+				</Panel>
+				<Panel id="id-pet-countdown" class="photo-booth-countdown" hittest="false">
+					<Label text="{d:countdown}" class="stratum-regular-condensed" />
+				</Panel>
+				<Panel id="id-pet-photo-grid" class="photo-booth-grid" hittest="false" hittestchildren="false">
+					<Panel class="photo-booth-grid__lines-container">
+						<Panel class="photo-booth-grid__line" hittest="false" />
+						<Panel class="photo-booth-grid__line" hittest="false" />
+						<Panel class="photo-booth-grid__line" hittest="false" />
+					</Panel>
+					<Panel class="photo-booth-grid__lines-container down">
+						<Panel class="photo-booth-grid__line down" hittest="false" />
+						<Panel class="photo-booth-grid__line down" hittest="false" />
+						<Panel class="photo-booth-grid__line down" hittest="false" />
+					</Panel>
+				</Panel>
+				<Panel id="id-pet-white" hittest="false" />
+			</Panel>
+		</CSGOBlurTarget>
+		<Panel id="id-pet-camera-hint" class="photo-booth-camera-hint" hittest="false" hittestchildren="false">
+			<Panel class="photo-booth-camera-hint__row">
+				<Image class="photo-booth-camera-hint__icon" scaling="stretch-to-fit-preserve-aspect" texturewidth="48" textureheight="-1" src="s2r://panorama/images/icons/ui/mouse_zoom_camera.vsvg" />
+				<Label class="stratum-regular photo-booth-camera-hint__label" text="#pet_photo_booth_hint_zoom" />
+			</Panel>
+			<Panel class="photo-booth-camera-hint__row">
+				<Image class="photo-booth-camera-hint__icon" scaling="stretch-to-fit-preserve-aspect" texturewidth="-1" textureheight="40" src="s2r://panorama/images/icons/ui/shift_pan_camrea.vsvg" />
+				<Label class="stratum-regular photo-booth-camera-hint__label" text="#pet_photo_booth_hint_pan" />
+			</Panel>
+			<Panel class="photo-booth-camera-hint__row">
+				<Image class="photo-booth-camera-hint__icon" scaling="stretch-to-fit-preserve-aspect" texturewidth="-1" textureheight="40" src="s2r://panorama/images/icons/ui/shift_orbit_camera.vsvg" />
+				<Label class="stratum-regular photo-booth-camera-hint__label" text="#pet_photo_booth_hint_orbit" />
+			</Panel>
+		</Panel>
+		<Panel class="photo-booth-safe-area full-height" hittest="false">
+			<Panel id="id-photo-settings-adjust" class="photo-booth-panel photo-booth-settings" hittest="true" onactivate="{}">
+				<TextButton id="id-pet-slider-reset" class="pet-reset-btn" text="#pet_photo_booth_reset" onactivate="PopupPetPhotoBooth.ResetAdjustSliders()" />
+			</Panel>
+			<Panel id="id-photo-settings-filters" class="photo-booth-panel photo-booth-settings" hittest="true" onactivate="{}">
+				<Panel id="id-photo-filter-strength-row" class="photo-booth-settings__strength">
+					<Panel class="photo-booth-controls__separator settings" />
+					<Panel id="id-pet-slider-row-filter-strength" class="photo-booth-settings__slider-container">
+						<Label class="stratum-regular fontSize-sm" text="#pet_photo_booth_adjust_filter-strength" />
+						<Slider id="id-pet-slider" class="HorizontalSlider pet-slider" direction="horizontal" onvaluechanged="PopupPetPhotoBooth.OnSliderChanged(&apos;filter-strength&apos;)" />
+					</Panel>
+				</Panel>
+			</Panel>
+			<Panel id="id-photo-settings-grid" class="photo-booth-panel photo-booth-settings" hittest="true" onactivate="{}">
+				<Panel id="id-pet-slider-row-grid-opacity" class="photo-booth-settings__slider-container">
+					<Label class="stratum-regular fontSize-sm" text="#pet_photo_booth_adjust_grid_opacity" />
+					<Slider id="id-photo-grid-slider" class="HorizontalSlider pet-slider" direction="horizontal" onvaluechanged="PopupPetPhotoBooth.OnGridSliderChanged()" />
+				</Panel>
+			</Panel>
+			<Panel id="id-photo-settings-poses" class="photo-booth-panel photo-booth-settings" hittest="true" onactivate="{}" />
+			<Panel id="id-photo-settings-team" class="photo-booth-panel photo-booth-settings" hittest="true" onactivate="{}">
+				<RadioButton id="id-photo-team-ct" class="photo-booth-settings__btn" data-type="ct" onactivate="PopupPetPhotoBooth.UpdateAgent()" group="team" data-disable-solo="true">
+					<Label class="stratum-regular" text="#pet_photo_booth_team_ct" />
+				</RadioButton>
+				<RadioButton id="id-photo-team-t" class="photo-booth-settings__btn" data-type="t" onactivate="PopupPetPhotoBooth.UpdateAgent()" group="team" data-disable-solo="true">
+					<Label class="stratum-regular" text="#pet_photo_booth_team_t" />
+				</RadioButton>
+			</Panel>
+			<Panel id="id-photo-settings-stage" class="photo-booth-panel photo-booth-settings" hittest="true" onactivate="{}">
+				<Panel id="id-photo-wallpapers-section" class="photo-booth-settings__wallpapers">
+					<Panel id="id-photo-wallpaper-swatches" class="photo-booth-settings__swatches" />
+					<Panel class="photo-booth-controls__separator settings" />
+				</Panel>
+			</Panel>
+			<Panel id="id-photo-settings-headwear" class="photo-booth-panel photo-booth-settings" hittest="true" onactivate="{}">
+				<RadioButton id="id-photo-headwear-none" class="photo-booth-settings__btn" onactivate="PopupPetPhotoBooth.AttachModel(&apos;&apos;)" group="headwear">
+					<Label class="stratum-regular" text="#pet_photo_booth_headwear_none" />
+				</RadioButton>
+			</Panel>
+			<Panel id="id-photo-settings-format" class="photo-booth-panel photo-booth-settings" onactivate="{}">
+				<RadioButton id="id-photo-orientation-vertical" class="photo-booth-settings__btn vertical-aspect" onactivate="PopupPetPhotoBooth.SetAspectRatio(&apos;vertical&apos;);" group="orientation" />
+				<RadioButton id="id-photo-orientation-horizontal" class="photo-booth-settings__btn horizontal-aspect" onactivate="PopupPetPhotoBooth.SetAspectRatio(&apos;horizontal&apos;);" group="orientation" />
+				<Panel class="photo-booth-controls__separator settings" />
+			</Panel>
+			<Panel id="id-photo-settings-stickers" class="photo-booth-panel photo-booth-settings items" hittest="true" onactivate="{}">
+				<Label class="photo-booth-settings__sticker-hint stratum-regular" text="#tooltip_stickers_decoration" />
+				<TextEntry id="id-pet-sticker-search" class="photo-booth-settings__search" placeholder="#inv_search_default" onfocus="" />
+				<InventoryItemList class="item-list" id="id-pet-sticker-item-list" itemheight="190px" itemwidth="192px" spacersize="0px" spacerperiod="0" />
+			</Panel>
+			<Panel id="id-photo-library" class="photo-booth-panel photo-library">
+				<Label class="stratum-regular-condensed pb-library__title" text="#pet_book_library" />
+				<Panel id="id-photo-library-body" />
+				<Button id="id-pet-open-book-btn" class="photo-library__book-btn" onactivate="PopupPetPhotoBooth.OpenBook();" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;id-pet-open-book-btn&apos;, &apos;#pet_photo_booth_open_book&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();">
+					<Image src="s2r://panorama/images/icons/ui/pet_book.vsvg" textureheight="28" texturewidth="-1" />
+				</Button>
+			</Panel>
+			<Panel id="id-pet-photo-controls-bar" class="photo-booth-controls">
+				<Panel id="id-pet-photo-controls" class="photo-booth-panel photo-booth-controls-row" />
+			</Panel>
+			<Panel class="photo-booth-buttons">
+				<TextButton id="id-pet-photo-close-btn" class="PopupButton" text="#GameUI_Close" />
+				<TextButton id="id-pet-photo-book-btn" class="PopupButton" text="#pet_photo_booth_back_to_book" onactivate="PopupPetPhotoBooth.OpenBook()" />
+			</Panel>
+		</Panel>
+		<Label id="id-pet-photo-zoom-readout" class="photo-booth-zoom-readout" hittest="false" text="#pet_photo_booth_zoom_readout" />
+		<Panel class="photo-booth-bottom-row" hittest="false">
+			<Panel id="id-pet-photo-effects-bar" hittest="false" class="photo-booth-panel photo-booth-sub-bar">
+				<Button id="id-photo-effect-explosion" class="IconButton" onactivate="PopupPetPhotoBooth.PlayEffect(&apos;explosion&apos;)" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;id-photo-effect-explosion&apos;, &apos;#pet_photo_booth_effect_explosion&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();">
+					<Image src="s2r://panorama/images/icons/ui/pet_effect_explosion.vsvg" textureheight="32" texturewidth="-1" />
+				</Button>
+				<Button id="id-photo-effect-lightning" class="IconButton" onactivate="PopupPetPhotoBooth.PlayEffect(&apos;lightning&apos;)" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;id-photo-effect-lightning&apos;, &apos;#pet_photo_booth_effect_lightning&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();">
+					<Image src="s2r://panorama/images/icons/ui/pet_effect_lightning.vsvg" textureheight="32" texturewidth="-1" />
+				</Button>
+				<Button id="id-photo-effect-fire" class="IconButton" onactivate="PopupPetPhotoBooth.PlayEffect(&apos;fire&apos;)" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;id-photo-effect-fire&apos;, &apos;#pet_photo_booth_effect_fire&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();">
+					<Image src="s2r://panorama/images/icons/ui/pet_effect_fire.vsvg" textureheight="32" texturewidth="-1" />
+				</Button>
+				<Button id="id-photo-effect-beam" class="IconButton" onactivate="PopupPetPhotoBooth.PlayEffect(&apos;beam&apos;)" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;id-photo-effect-beam&apos;, &apos;#pet_photo_booth_effect_beam&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();">
+					<Image src="s2r://panorama/images/icons/ui/pet_effect_beam.vsvg" textureheight="32" texturewidth="-1" />
+				</Button>
+				<Button id="id-photo-effect-laser" class="IconButton" onactivate="PopupPetPhotoBooth.PlayEffect(&apos;lasers&apos;)" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;id-photo-effect-laser&apos;, &apos;#pet_photo_booth_effect_laser&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();">
+					<Image src="s2r://panorama/images/icons/ui/pet_effect_laser.vsvg" textureheight="32" texturewidth="-1" />
+				</Button>
+				<Button id="id-photo-effect-sparks" class="IconButton" onactivate="PopupPetPhotoBooth.PlayEffect(&apos;sparks&apos;)" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;id-photo-effect-sparks&apos;, &apos;#pet_photo_booth_effect_sparks&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();">
+					<Image src="s2r://panorama/images/icons/ui/pet_effect_sparks.vsvg" textureheight="32" texturewidth="-1" />
+				</Button>
+				<Button id="id-photo-effect-confetti" class="IconButton" onactivate="PopupPetPhotoBooth.PlayEffect(&apos;confetti&apos;)" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;id-photo-effect-confetti&apos;, &apos;#pet_photo_booth_effect_confetti&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();">
+					<Image src="s2r://panorama/images/icons/ui/pet_effect_confetti.vsvg" textureheight="32" texturewidth="-1" />
+				</Button>
+				<Button id="id-photo-effect-bubbles" class="IconButton" onactivate="PopupPetPhotoBooth.PlayEffect(&apos;bubbles&apos;)" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;id-photo-effect-bubbles&apos;, &apos;#pet_photo_booth_effect_bubbles&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();">
+					<Image src="s2r://panorama/images/icons/ui/pet_effect_bubbles.vsvg" textureheight="32" texturewidth="-1" />
+				</Button>
+				<Button id="id-photo-effect-feathers" class="IconButton" onactivate="PopupPetPhotoBooth.PlayEffect(&apos;feathers&apos;)" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;id-photo-effect-feathers&apos;, &apos;#pet_photo_booth_effect_feathers&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();">
+					<Image src="s2r://panorama/images/icons/ui/pet_effect_feather.vsvg" textureheight="32" texturewidth="-1" />
+				</Button>
+			</Panel>
+		</Panel>
+		<Panel id="id-pet-photo-capture-bar" class="photo-booth-capture">
+			<Panel class="horizontal-center left-right-flow">
+				<Button id="id-pet-take-picture-instant" class="photo-booth-take-photo-btn" onactivate="PopupPetPhotoBooth.TakePhoto();" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;id-pet-take-picture-instant&apos;, &apos;#take_picture&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();">
+					<Panel class="photo-booth-take-photo-btn__inner" />
+				</Button>
+				<ToggleButton id="id-pet-take-picture" class="photo-booth-timer-toggle" onactivate="PopupPetPhotoBooth.ToggleTimerMode();" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;id-pet-take-picture&apos;, &apos;Toggle 3 second countdown&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();">
+					<Image src="s2r://panorama/images/icons/ui/timer.vsvg" textureheight="26" texturewidth="-1" />
+				</ToggleButton>
+			</Panel>
+		</Panel>
+		<Panel class="photo-booth-bottom-row photo-booth-bottom-row--right" hittest="false">
+			<Panel id="id-pet-photo-activity-bar" class="photo-booth-panel photo-booth-sub-bar" />
+		</Panel>
+	</PopupCustomLayout>
+</root>

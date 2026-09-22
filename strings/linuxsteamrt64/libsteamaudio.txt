@@ -310,8 +310,11 @@ $ORIGIN
 /dev/urandom
 /src/
 0 = use biquad instead of svf, 1 = use vectorized svf, 2 = use scalar svf
+0 is disabled - adds another layer of probes above the grid interval of the height spacing (meters)
+0 is disabled, but otherwise sets a limit the maximum ray size in the dimension size calculation. Used to model the enclosure algorithm. Game units
 0123456789ABCDEF
 0123456789abcdef
+0: No spatial filtering. 1: bidirectional spatial filter.
 0: Use order-truncated Ambisonics HRTF without correction. 1: Use diffuse field equalization to correct order-truncated Ambisonics HRTFs.
 0: distance ratio only. 1: deviation only (1/r). 2: deviation only (linear). 3: Mode 0 and Mode 1, 4: Mode 0 and Mode 2
 <<ERROR>>
@@ -370,12 +373,16 @@ AST
 Above Threshold(dB)
 Acceptable OCSP Responses
 AddPage
+Adjust how much occlusion goes does with deviation angle.
 Adjust overall volume of the default HRTF by the specified gain (dB).
 Adjust scaling for reflection energy when combining it to calculate occlusion value.
 Adjust scaling of pathing energy by exponentiall scaling with pathing delta.
 Ag*g*
+Air absorption coefficient sued for baked occlusion calculation.
 AlignedByteArray not properly aligned\n
+All Channels
 Alloc
+Ambient noise energy to serve as a floor for reflection energy.
 Ambisonics order to use for convolution reverb. 0th order = 1 channel, 1st order = 4 channels.
 Ambisonics order to use for simulating reverb.
 AnimGraphEditorUtils001
@@ -403,6 +410,7 @@ Attribute
 Aug
 August
 Authority Information Access
+Auto Make-up Gain
 BF-CBC
 BF-CFB
 BF-ECB
@@ -412,15 +420,19 @@ BIO lib
 BIO routines
 BN lib
 BUF lib
+Bake occlusion for a single source probe with the given probe id.
 BakeDimensions
 BakeDimensions: Estimating inside field.\n
-BakeDimensions: Estimating outside field (1/2: Pathing).\n
-BakeDimensions: Estimating outside field (2/2: Outside probe lookups).\n
+BakeDimensions: Estimating outside field.\n
+BakeDimensions: Estimating size and inside / outside.\n
 BakeDimensions: Max probes (%u) limit exceeded (%d). Bake cancelled.\n
 BakeDimensions: No probes generated. Bake cancelled.\n
+BakeDimensions: Pathing.\n
 BakeDimensions: Unable to create probe batch. [%d]\n
 BakeDimensions: Unable to create simulator. (%d)\n
 BakeDimensions: Unable to create source. (%d)\n
+BakeDimensionsInsideSizeField
+BakeDimensionsOutsideField
 BakeMaterials
 BakeMaterials: Max probes (%u) limit exceeded (%d). Bake cancelled.\n
 BakeMaterials: No probes generated. Bake cancelled.\n
@@ -486,56 +498,28 @@ CAST5-CFB
 CAST5-ECB
 CAST5-OFB
 CAtomicMutex::AcquireLock(unsigned long long) (demangled)
-CAudioProcessor (demangled)
-CAutoFilterAudioProcessor (demangled)
 CBaseAppSystem<ISteamAudio> (demangled)
-CBaseConcreteToolAttr<CUtlString, CVMixBaseProcessorDesc> (demangled)
 CBaseConcreteToolAttr<CUtlString, VMixEffectChainDesc_t> (demangled)
 CBaseConcreteToolAttr<CUtlString, VMixPresetDSPDesc_t> (demangled)
 CBaseConcreteToolAttr<CUtlString, VMixSubgraphSwitchDesc_t> (demangled)
 CBaseConcreteToolAttr<CUtlVector<CUtlString, int, CUtlVectorMemory_Growable<CUtlString, int, (unsigned long)0> >, VMixSubgraphSwitchDesc_t> (demangled)
-CBaseConcreteToolAttr<VMixAutoFilterDesc_t, CVMixAutoFilterProcessorDesc> (demangled)
-CBaseConcreteToolAttr<VMixBoxverbDesc_t, CVMixBoxverb2ProcessorDesc> (demangled)
-CBaseConcreteToolAttr<VMixBoxverbDesc_t, CVMixBoxverbProcessorDesc> (demangled)
 CBaseConcreteToolAttr<VMixChannelOperation_t, VMixUtilityDesc_t> (demangled)
-CBaseConcreteToolAttr<VMixConvolutionDesc_t, CVMixConvolutionProcessorDesc> (demangled)
-CBaseConcreteToolAttr<VMixDelayDesc_t, CVMixDelayProcessorDesc> (demangled)
-CBaseConcreteToolAttr<VMixDiffusorDesc_t, CVMixDiffusorProcessorDesc> (demangled)
-CBaseConcreteToolAttr<VMixDualCompressorDesc_t, CVMixDualCompressorProcessorDesc> (demangled)
-CBaseConcreteToolAttr<VMixDynamics3BandDesc_t, CVMixDynamics3BandProcessorDesc> (demangled)
 CBaseConcreteToolAttr<VMixDynamicsBand_t [3], VMixDynamics3BandDesc_t> (demangled)
 CBaseConcreteToolAttr<VMixDynamicsBand_t, VMixDualCompressorDesc_t> (demangled)
 CBaseConcreteToolAttr<VMixDynamicsBand_t, VMixDynamics3BandDesc_t> (demangled)
-CBaseConcreteToolAttr<VMixDynamicsCompressorDesc_t, CVMixDynamicsCompressorProcessorDesc> (demangled)
-CBaseConcreteToolAttr<VMixDynamicsDesc_t, CVMixDynamicsProcessorDesc> (demangled)
-CBaseConcreteToolAttr<VMixEQ8Desc_t, CVMixEQ8ProcessorDesc> (demangled)
-CBaseConcreteToolAttr<VMixEffectChainDesc_t, CVMixEffectChainProcessorDesc> (demangled)
-CBaseConcreteToolAttr<VMixEnvelopeDesc_t, CVMixEnvelopeProcessorDesc> (demangled)
-CBaseConcreteToolAttr<VMixFilterDesc_t [8], VMixEQ8Desc_t> (demangled)
-CBaseConcreteToolAttr<VMixFilterDesc_t, CVMixFilterProcessorDesc> (demangled)
+CBaseConcreteToolAttr<VMixEQFilterDesc_t [8], VMixEQ8Desc_t> (demangled)
+CBaseConcreteToolAttr<VMixEQFilterDesc_t, VMixEQ8Desc_t> (demangled)
+CBaseConcreteToolAttr<VMixFilterChannelSet_t, VMixEQFilterDesc_t> (demangled)
 CBaseConcreteToolAttr<VMixFilterDesc_t, VMixAutoFilterDesc_t> (demangled)
 CBaseConcreteToolAttr<VMixFilterDesc_t, VMixBoxverbDesc_t> (demangled)
 CBaseConcreteToolAttr<VMixFilterDesc_t, VMixDelayDesc_t> (demangled)
-CBaseConcreteToolAttr<VMixFilterDesc_t, VMixEQ8Desc_t> (demangled)
 CBaseConcreteToolAttr<VMixFilterDesc_t, VMixModDelayDesc_t> (demangled)
 CBaseConcreteToolAttr<VMixFilterSlope_t, VMixFilterDesc_t> (demangled)
 CBaseConcreteToolAttr<VMixFilterType_t, VMixFilterDesc_t> (demangled)
-CBaseConcreteToolAttr<VMixFlangerDesc_t, CVMixFlangerProcessorDesc> (demangled)
-CBaseConcreteToolAttr<VMixFreeverbDesc_t, CVMixFreeverbProcessorDesc> (demangled)
 CBaseConcreteToolAttr<VMixLFOShape_t, VMixAutoFilterDesc_t> (demangled)
 CBaseConcreteToolAttr<VMixLFOShape_t, VMixOscDesc_t> (demangled)
-CBaseConcreteToolAttr<VMixModDelayDesc_t, CVMixModDelayProcessorDesc> (demangled)
-CBaseConcreteToolAttr<VMixOscDesc_t, CVMixOscProcessorDesc> (demangled)
-CBaseConcreteToolAttr<VMixPannerDesc_t, CVMixPannerProcessorDesc> (demangled)
 CBaseConcreteToolAttr<VMixPannerType_t, VMixPannerDesc_t> (demangled)
-CBaseConcreteToolAttr<VMixPitchShiftDesc_t, CVMixPitchShiftProcessorDesc> (demangled)
-CBaseConcreteToolAttr<VMixPlateverbDesc_t, CVMixPlateReverbProcessorDesc> (demangled)
-CBaseConcreteToolAttr<VMixPresetDSPDesc_t, CVMixPresetDSPProcessorDesc> (demangled)
-CBaseConcreteToolAttr<VMixShaperDesc_t, CVMixShaperProcessorDesc> (demangled)
-CBaseConcreteToolAttr<VMixSubgraphSwitchDesc_t, CVMixSubgraphSwitchProcessorDesc> (demangled)
 CBaseConcreteToolAttr<VMixSubgraphSwitchInterpolationType_t, VMixSubgraphSwitchDesc_t> (demangled)
-CBaseConcreteToolAttr<VMixUtilityDesc_t, CVMixUtilityProcessorDesc> (demangled)
-CBaseConcreteToolAttr<VMixVocoderDesc_t, CVMixVocoderProcessorDesc> (demangled)
 CBaseConcreteToolAttr<bool, VMixBoxverbDesc_t> (demangled)
 CBaseConcreteToolAttr<bool, VMixDelayDesc_t> (demangled)
 CBaseConcreteToolAttr<bool, VMixDualCompressorDesc_t> (demangled)
@@ -549,7 +533,6 @@ CBaseConcreteToolAttr<bool, VMixModDelayDesc_t> (demangled)
 CBaseConcreteToolAttr<bool, VMixSubgraphSwitchDesc_t> (demangled)
 CBaseConcreteToolAttr<bool, VMixUtilityDesc_t> (demangled)
 CBaseConcreteToolAttr<bool, VMixVocoderDesc_t> (demangled)
-CBaseConcreteToolAttr<float, CVMixBaseProcessorDesc> (demangled)
 CBaseConcreteToolAttr<float, VMixAutoFilterDesc_t> (demangled)
 CBaseConcreteToolAttr<float, VMixBoxverbDesc_t> (demangled)
 CBaseConcreteToolAttr<float, VMixConvolutionDesc_t> (demangled)
@@ -573,15 +556,15 @@ CBaseConcreteToolAttr<float, VMixShaperDesc_t> (demangled)
 CBaseConcreteToolAttr<float, VMixSubgraphSwitchDesc_t> (demangled)
 CBaseConcreteToolAttr<float, VMixUtilityDesc_t> (demangled)
 CBaseConcreteToolAttr<float, VMixVocoderDesc_t> (demangled)
-CBaseConcreteToolAttr<int, CVMixBaseProcessorDesc> (demangled)
 CBaseConcreteToolAttr<int, VMixPitchShiftDesc_t> (demangled)
 CBaseConcreteToolAttr<int, VMixShaperDesc_t> (demangled)
 CBaseConcreteToolAttr<int, VMixVocoderDesc_t> (demangled)
-CBaseConcreteToolAttrValue<CUtlString, CVMixBaseProcessorDesc> (demangled)
+CBaseConcreteToolAttr<unsigned int, CVMixDataOffset> (demangled)
 CBaseConcreteToolAttrValue<CUtlString, VMixEffectChainDesc_t> (demangled)
 CBaseConcreteToolAttrValue<CUtlString, VMixPresetDSPDesc_t> (demangled)
 CBaseConcreteToolAttrValue<CUtlString, VMixSubgraphSwitchDesc_t> (demangled)
 CBaseConcreteToolAttrValue<VMixChannelOperation_t, VMixUtilityDesc_t> (demangled)
+CBaseConcreteToolAttrValue<VMixFilterChannelSet_t, VMixEQFilterDesc_t> (demangled)
 CBaseConcreteToolAttrValue<VMixFilterSlope_t, VMixFilterDesc_t> (demangled)
 CBaseConcreteToolAttrValue<VMixFilterType_t, VMixFilterDesc_t> (demangled)
 CBaseConcreteToolAttrValue<VMixLFOShape_t, VMixAutoFilterDesc_t> (demangled)
@@ -601,7 +584,6 @@ CBaseConcreteToolAttrValue<bool, VMixModDelayDesc_t> (demangled)
 CBaseConcreteToolAttrValue<bool, VMixSubgraphSwitchDesc_t> (demangled)
 CBaseConcreteToolAttrValue<bool, VMixUtilityDesc_t> (demangled)
 CBaseConcreteToolAttrValue<bool, VMixVocoderDesc_t> (demangled)
-CBaseConcreteToolAttrValue<float, CVMixBaseProcessorDesc> (demangled)
 CBaseConcreteToolAttrValue<float, VMixAutoFilterDesc_t> (demangled)
 CBaseConcreteToolAttrValue<float, VMixBoxverbDesc_t> (demangled)
 CBaseConcreteToolAttrValue<float, VMixConvolutionDesc_t> (demangled)
@@ -625,15 +607,13 @@ CBaseConcreteToolAttrValue<float, VMixShaperDesc_t> (demangled)
 CBaseConcreteToolAttrValue<float, VMixSubgraphSwitchDesc_t> (demangled)
 CBaseConcreteToolAttrValue<float, VMixUtilityDesc_t> (demangled)
 CBaseConcreteToolAttrValue<float, VMixVocoderDesc_t> (demangled)
-CBaseConcreteToolAttrValue<int, CVMixBaseProcessorDesc> (demangled)
 CBaseConcreteToolAttrValue<int, VMixPitchShiftDesc_t> (demangled)
 CBaseConcreteToolAttrValue<int, VMixShaperDesc_t> (demangled)
 CBaseConcreteToolAttrValue<int, VMixVocoderDesc_t> (demangled)
+CBaseConcreteToolAttrValue<unsigned int, CVMixDataOffset> (demangled)
 CBaseToolAttr (demangled)
 CBaseVModuleMetadataProvider (demangled)
 CBlake3HashContext::ProcessSingleBuffer(void const*, unsigned long, unsigned char*, unsigned long) (demangled)
-CBoxverbAudioProcessor<CReverbDelayLineNoSource> (demangled)
-CBoxverbAudioProcessor<CReverbDelayLineWithSource> (demangled)
 CBufferString::AppendConcat(int, char const* const*, int const*, bool) (demangled)
 CBufferString::AppendFormat(char const*, ...) (demangled)
 CBufferString::AppendFormatV(char const*, __va_list_tag*) (demangled)
@@ -666,56 +646,30 @@ CBufferString::TrimTail(char const*) (demangled)
 CBufferString::TruncateAt(int, bool) (demangled)
 CCharBufferFormatOutputStream::PutC(char) (demangled)
 CCharBufferFormatOutputStream::Terminate() (demangled)
-CConcreteToolAttr<CUtlString, CVMixBaseProcessorDesc, void> (demangled)
 CConcreteToolAttr<CUtlString, VMixEffectChainDesc_t, void> (demangled)
 CConcreteToolAttr<CUtlString, VMixPresetDSPDesc_t, void> (demangled)
 CConcreteToolAttr<CUtlString, VMixSubgraphSwitchDesc_t, void> (demangled)
 CConcreteToolAttr<CUtlVector<CUtlString, int, CUtlVectorMemory_Growable<CUtlString, int, (unsigned long)0> >, VMixSubgraphSwitchDesc_t, void> (demangled)
 CConcreteToolAttr<CUtlVector<CUtlString, int, CUtlVectorMemory_Growable<CUtlString, int, (unsigned long)0> >, VMixSubgraphSwitchDesc_t, void>::CArrayElementAccess (demangled)
-CConcreteToolAttr<VMixAutoFilterDesc_t, CVMixAutoFilterProcessorDesc, void> (demangled)
-CConcreteToolAttr<VMixBoxverbDesc_t, CVMixBoxverb2ProcessorDesc, void> (demangled)
-CConcreteToolAttr<VMixBoxverbDesc_t, CVMixBoxverbProcessorDesc, void> (demangled)
 CConcreteToolAttr<VMixChannelOperation_t, VMixUtilityDesc_t, void> (demangled)
-CConcreteToolAttr<VMixConvolutionDesc_t, CVMixConvolutionProcessorDesc, void> (demangled)
-CConcreteToolAttr<VMixDelayDesc_t, CVMixDelayProcessorDesc, void> (demangled)
-CConcreteToolAttr<VMixDiffusorDesc_t, CVMixDiffusorProcessorDesc, void> (demangled)
-CConcreteToolAttr<VMixDualCompressorDesc_t, CVMixDualCompressorProcessorDesc, void> (demangled)
-CConcreteToolAttr<VMixDynamics3BandDesc_t, CVMixDynamics3BandProcessorDesc, void> (demangled)
 CConcreteToolAttr<VMixDynamicsBand_t [3], VMixDynamics3BandDesc_t, void> (demangled)
 CConcreteToolAttr<VMixDynamicsBand_t [3], VMixDynamics3BandDesc_t, void>::CArrayElementAccess (demangled)
 CConcreteToolAttr<VMixDynamicsBand_t, VMixDualCompressorDesc_t, void> (demangled)
 CConcreteToolAttr<VMixDynamicsBand_t, VMixDynamics3BandDesc_t, void> (demangled)
-CConcreteToolAttr<VMixDynamicsCompressorDesc_t, CVMixDynamicsCompressorProcessorDesc, void> (demangled)
-CConcreteToolAttr<VMixDynamicsDesc_t, CVMixDynamicsProcessorDesc, void> (demangled)
-CConcreteToolAttr<VMixEQ8Desc_t, CVMixEQ8ProcessorDesc, void> (demangled)
-CConcreteToolAttr<VMixEffectChainDesc_t, CVMixEffectChainProcessorDesc, void> (demangled)
-CConcreteToolAttr<VMixEnvelopeDesc_t, CVMixEnvelopeProcessorDesc, void> (demangled)
-CConcreteToolAttr<VMixFilterDesc_t [8], VMixEQ8Desc_t, void> (demangled)
-CConcreteToolAttr<VMixFilterDesc_t [8], VMixEQ8Desc_t, void>::CArrayElementAccess (demangled)
-CConcreteToolAttr<VMixFilterDesc_t, CVMixFilterProcessorDesc, void> (demangled)
+CConcreteToolAttr<VMixEQFilterDesc_t [8], VMixEQ8Desc_t, void> (demangled)
+CConcreteToolAttr<VMixEQFilterDesc_t [8], VMixEQ8Desc_t, void>::CArrayElementAccess (demangled)
+CConcreteToolAttr<VMixEQFilterDesc_t, VMixEQ8Desc_t, void> (demangled)
+CConcreteToolAttr<VMixFilterChannelSet_t, VMixEQFilterDesc_t, void> (demangled)
 CConcreteToolAttr<VMixFilterDesc_t, VMixAutoFilterDesc_t, void> (demangled)
 CConcreteToolAttr<VMixFilterDesc_t, VMixBoxverbDesc_t, void> (demangled)
 CConcreteToolAttr<VMixFilterDesc_t, VMixDelayDesc_t, void> (demangled)
-CConcreteToolAttr<VMixFilterDesc_t, VMixEQ8Desc_t, void> (demangled)
 CConcreteToolAttr<VMixFilterDesc_t, VMixModDelayDesc_t, void> (demangled)
 CConcreteToolAttr<VMixFilterSlope_t, VMixFilterDesc_t, void> (demangled)
 CConcreteToolAttr<VMixFilterType_t, VMixFilterDesc_t, void> (demangled)
-CConcreteToolAttr<VMixFlangerDesc_t, CVMixFlangerProcessorDesc, void> (demangled)
-CConcreteToolAttr<VMixFreeverbDesc_t, CVMixFreeverbProcessorDesc, void> (demangled)
 CConcreteToolAttr<VMixLFOShape_t, VMixAutoFilterDesc_t, void> (demangled)
 CConcreteToolAttr<VMixLFOShape_t, VMixOscDesc_t, void> (demangled)
-CConcreteToolAttr<VMixModDelayDesc_t, CVMixModDelayProcessorDesc, void> (demangled)
-CConcreteToolAttr<VMixOscDesc_t, CVMixOscProcessorDesc, void> (demangled)
-CConcreteToolAttr<VMixPannerDesc_t, CVMixPannerProcessorDesc, void> (demangled)
 CConcreteToolAttr<VMixPannerType_t, VMixPannerDesc_t, void> (demangled)
-CConcreteToolAttr<VMixPitchShiftDesc_t, CVMixPitchShiftProcessorDesc, void> (demangled)
-CConcreteToolAttr<VMixPlateverbDesc_t, CVMixPlateReverbProcessorDesc, void> (demangled)
-CConcreteToolAttr<VMixPresetDSPDesc_t, CVMixPresetDSPProcessorDesc, void> (demangled)
-CConcreteToolAttr<VMixShaperDesc_t, CVMixShaperProcessorDesc, void> (demangled)
-CConcreteToolAttr<VMixSubgraphSwitchDesc_t, CVMixSubgraphSwitchProcessorDesc, void> (demangled)
 CConcreteToolAttr<VMixSubgraphSwitchInterpolationType_t, VMixSubgraphSwitchDesc_t, void> (demangled)
-CConcreteToolAttr<VMixUtilityDesc_t, CVMixUtilityProcessorDesc, void> (demangled)
-CConcreteToolAttr<VMixVocoderDesc_t, CVMixVocoderProcessorDesc, void> (demangled)
 CConcreteToolAttr<bool, VMixBoxverbDesc_t, void> (demangled)
 CConcreteToolAttr<bool, VMixDelayDesc_t, void> (demangled)
 CConcreteToolAttr<bool, VMixDualCompressorDesc_t, void> (demangled)
@@ -729,7 +683,6 @@ CConcreteToolAttr<bool, VMixModDelayDesc_t, void> (demangled)
 CConcreteToolAttr<bool, VMixSubgraphSwitchDesc_t, void> (demangled)
 CConcreteToolAttr<bool, VMixUtilityDesc_t, void> (demangled)
 CConcreteToolAttr<bool, VMixVocoderDesc_t, void> (demangled)
-CConcreteToolAttr<float, CVMixBaseProcessorDesc, void> (demangled)
 CConcreteToolAttr<float, VMixAutoFilterDesc_t, void> (demangled)
 CConcreteToolAttr<float, VMixBoxverbDesc_t, void> (demangled)
 CConcreteToolAttr<float, VMixConvolutionDesc_t, void> (demangled)
@@ -753,55 +706,29 @@ CConcreteToolAttr<float, VMixShaperDesc_t, void> (demangled)
 CConcreteToolAttr<float, VMixSubgraphSwitchDesc_t, void> (demangled)
 CConcreteToolAttr<float, VMixUtilityDesc_t, void> (demangled)
 CConcreteToolAttr<float, VMixVocoderDesc_t, void> (demangled)
-CConcreteToolAttr<int, CVMixBaseProcessorDesc, void> (demangled)
 CConcreteToolAttr<int, VMixPitchShiftDesc_t, void> (demangled)
 CConcreteToolAttr<int, VMixShaperDesc_t, void> (demangled)
 CConcreteToolAttr<int, VMixVocoderDesc_t, void> (demangled)
-CConcreteToolAttrDirectMember<CUtlString, CVMixBaseProcessorDesc> (demangled)
+CConcreteToolAttr<unsigned int, CVMixDataOffset, void> (demangled)
 CConcreteToolAttrDirectMember<CUtlString, VMixEffectChainDesc_t> (demangled)
 CConcreteToolAttrDirectMember<CUtlString, VMixPresetDSPDesc_t> (demangled)
 CConcreteToolAttrDirectMember<CUtlString, VMixSubgraphSwitchDesc_t> (demangled)
 CConcreteToolAttrDirectMember<CUtlVector<CUtlString, int, CUtlVectorMemory_Growable<CUtlString, int, (unsigned long)0> >, VMixSubgraphSwitchDesc_t> (demangled)
-CConcreteToolAttrDirectMember<VMixAutoFilterDesc_t, CVMixAutoFilterProcessorDesc> (demangled)
-CConcreteToolAttrDirectMember<VMixBoxverbDesc_t, CVMixBoxverb2ProcessorDesc> (demangled)
-CConcreteToolAttrDirectMember<VMixBoxverbDesc_t, CVMixBoxverbProcessorDesc> (demangled)
 CConcreteToolAttrDirectMember<VMixChannelOperation_t, VMixUtilityDesc_t> (demangled)
-CConcreteToolAttrDirectMember<VMixConvolutionDesc_t, CVMixConvolutionProcessorDesc> (demangled)
-CConcreteToolAttrDirectMember<VMixDelayDesc_t, CVMixDelayProcessorDesc> (demangled)
-CConcreteToolAttrDirectMember<VMixDiffusorDesc_t, CVMixDiffusorProcessorDesc> (demangled)
-CConcreteToolAttrDirectMember<VMixDualCompressorDesc_t, CVMixDualCompressorProcessorDesc> (demangled)
-CConcreteToolAttrDirectMember<VMixDynamics3BandDesc_t, CVMixDynamics3BandProcessorDesc> (demangled)
 CConcreteToolAttrDirectMember<VMixDynamicsBand_t [3], VMixDynamics3BandDesc_t> (demangled)
 CConcreteToolAttrDirectMember<VMixDynamicsBand_t, VMixDualCompressorDesc_t> (demangled)
-CConcreteToolAttrDirectMember<VMixDynamicsCompressorDesc_t, CVMixDynamicsCompressorProcessorDesc> (demangled)
-CConcreteToolAttrDirectMember<VMixDynamicsDesc_t, CVMixDynamicsProcessorDesc> (demangled)
-CConcreteToolAttrDirectMember<VMixEQ8Desc_t, CVMixEQ8ProcessorDesc> (demangled)
-CConcreteToolAttrDirectMember<VMixEffectChainDesc_t, CVMixEffectChainProcessorDesc> (demangled)
-CConcreteToolAttrDirectMember<VMixEnvelopeDesc_t, CVMixEnvelopeProcessorDesc> (demangled)
-CConcreteToolAttrDirectMember<VMixFilterDesc_t [8], VMixEQ8Desc_t> (demangled)
-CConcreteToolAttrDirectMember<VMixFilterDesc_t, CVMixFilterProcessorDesc> (demangled)
+CConcreteToolAttrDirectMember<VMixEQFilterDesc_t [8], VMixEQ8Desc_t> (demangled)
+CConcreteToolAttrDirectMember<VMixFilterChannelSet_t, VMixEQFilterDesc_t> (demangled)
 CConcreteToolAttrDirectMember<VMixFilterDesc_t, VMixAutoFilterDesc_t> (demangled)
 CConcreteToolAttrDirectMember<VMixFilterDesc_t, VMixBoxverbDesc_t> (demangled)
 CConcreteToolAttrDirectMember<VMixFilterDesc_t, VMixDelayDesc_t> (demangled)
 CConcreteToolAttrDirectMember<VMixFilterDesc_t, VMixModDelayDesc_t> (demangled)
 CConcreteToolAttrDirectMember<VMixFilterSlope_t, VMixFilterDesc_t> (demangled)
 CConcreteToolAttrDirectMember<VMixFilterType_t, VMixFilterDesc_t> (demangled)
-CConcreteToolAttrDirectMember<VMixFlangerDesc_t, CVMixFlangerProcessorDesc> (demangled)
-CConcreteToolAttrDirectMember<VMixFreeverbDesc_t, CVMixFreeverbProcessorDesc> (demangled)
 CConcreteToolAttrDirectMember<VMixLFOShape_t, VMixAutoFilterDesc_t> (demangled)
 CConcreteToolAttrDirectMember<VMixLFOShape_t, VMixOscDesc_t> (demangled)
-CConcreteToolAttrDirectMember<VMixModDelayDesc_t, CVMixModDelayProcessorDesc> (demangled)
-CConcreteToolAttrDirectMember<VMixOscDesc_t, CVMixOscProcessorDesc> (demangled)
-CConcreteToolAttrDirectMember<VMixPannerDesc_t, CVMixPannerProcessorDesc> (demangled)
 CConcreteToolAttrDirectMember<VMixPannerType_t, VMixPannerDesc_t> (demangled)
-CConcreteToolAttrDirectMember<VMixPitchShiftDesc_t, CVMixPitchShiftProcessorDesc> (demangled)
-CConcreteToolAttrDirectMember<VMixPlateverbDesc_t, CVMixPlateReverbProcessorDesc> (demangled)
-CConcreteToolAttrDirectMember<VMixPresetDSPDesc_t, CVMixPresetDSPProcessorDesc> (demangled)
-CConcreteToolAttrDirectMember<VMixShaperDesc_t, CVMixShaperProcessorDesc> (demangled)
-CConcreteToolAttrDirectMember<VMixSubgraphSwitchDesc_t, CVMixSubgraphSwitchProcessorDesc> (demangled)
 CConcreteToolAttrDirectMember<VMixSubgraphSwitchInterpolationType_t, VMixSubgraphSwitchDesc_t> (demangled)
-CConcreteToolAttrDirectMember<VMixUtilityDesc_t, CVMixUtilityProcessorDesc> (demangled)
-CConcreteToolAttrDirectMember<VMixVocoderDesc_t, CVMixVocoderProcessorDesc> (demangled)
 CConcreteToolAttrDirectMember<bool, VMixBoxverbDesc_t> (demangled)
 CConcreteToolAttrDirectMember<bool, VMixDelayDesc_t> (demangled)
 CConcreteToolAttrDirectMember<bool, VMixDualCompressorDesc_t> (demangled)
@@ -815,7 +742,6 @@ CConcreteToolAttrDirectMember<bool, VMixModDelayDesc_t> (demangled)
 CConcreteToolAttrDirectMember<bool, VMixSubgraphSwitchDesc_t> (demangled)
 CConcreteToolAttrDirectMember<bool, VMixUtilityDesc_t> (demangled)
 CConcreteToolAttrDirectMember<bool, VMixVocoderDesc_t> (demangled)
-CConcreteToolAttrDirectMember<float, CVMixBaseProcessorDesc> (demangled)
 CConcreteToolAttrDirectMember<float, VMixAutoFilterDesc_t> (demangled)
 CConcreteToolAttrDirectMember<float, VMixBoxverbDesc_t> (demangled)
 CConcreteToolAttrDirectMember<float, VMixConvolutionDesc_t> (demangled)
@@ -839,42 +765,11 @@ CConcreteToolAttrDirectMember<float, VMixShaperDesc_t> (demangled)
 CConcreteToolAttrDirectMember<float, VMixSubgraphSwitchDesc_t> (demangled)
 CConcreteToolAttrDirectMember<float, VMixUtilityDesc_t> (demangled)
 CConcreteToolAttrDirectMember<float, VMixVocoderDesc_t> (demangled)
-CConcreteToolAttrDirectMember<int, CVMixBaseProcessorDesc> (demangled)
 CConcreteToolAttrDirectMember<int, VMixPitchShiftDesc_t> (demangled)
 CConcreteToolAttrDirectMember<int, VMixShaperDesc_t> (demangled)
 CConcreteToolAttrDirectMember<int, VMixVocoderDesc_t> (demangled)
-CDefaultToolAttrTableForStruct<CVMixAutoFilterProcessorDesc> (demangled)
-CDefaultToolAttrTableForStruct<CVMixBaseProcessorDesc> (demangled)
-CDefaultToolAttrTableForStruct<CVMixBoxverb2ProcessorDesc> (demangled)
-CDefaultToolAttrTableForStruct<CVMixBoxverbProcessorDesc> (demangled)
-CDefaultToolAttrTableForStruct<CVMixConvolutionProcessorDesc> (demangled)
-CDefaultToolAttrTableForStruct<CVMixDelayProcessorDesc> (demangled)
-CDefaultToolAttrTableForStruct<CVMixDiffusorProcessorDesc> (demangled)
-CDefaultToolAttrTableForStruct<CVMixDualCompressorProcessorDesc> (demangled)
-CDefaultToolAttrTableForStruct<CVMixDynamics3BandProcessorDesc> (demangled)
-CDefaultToolAttrTableForStruct<CVMixDynamicsCompressorProcessorDesc> (demangled)
-CDefaultToolAttrTableForStruct<CVMixDynamicsProcessorDesc> (demangled)
-CDefaultToolAttrTableForStruct<CVMixEQ8ProcessorDesc> (demangled)
-CDefaultToolAttrTableForStruct<CVMixEffectChainProcessorDesc> (demangled)
-CDefaultToolAttrTableForStruct<CVMixEnvelopeProcessorDesc> (demangled)
-CDefaultToolAttrTableForStruct<CVMixFilterProcessorDesc> (demangled)
-CDefaultToolAttrTableForStruct<CVMixFlangerProcessorDesc> (demangled)
-CDefaultToolAttrTableForStruct<CVMixFreeverbProcessorDesc> (demangled)
-CDefaultToolAttrTableForStruct<CVMixModDelayProcessorDesc> (demangled)
-CDefaultToolAttrTableForStruct<CVMixOscProcessorDesc> (demangled)
-CDefaultToolAttrTableForStruct<CVMixPannerProcessorDesc> (demangled)
-CDefaultToolAttrTableForStruct<CVMixPitchShiftProcessorDesc> (demangled)
-CDefaultToolAttrTableForStruct<CVMixPlateReverbProcessorDesc> (demangled)
-CDefaultToolAttrTableForStruct<CVMixPresetDSPProcessorDesc> (demangled)
-CDefaultToolAttrTableForStruct<CVMixShaperProcessorDesc> (demangled)
-CDefaultToolAttrTableForStruct<CVMixSteamAudioDirectProcessorDesc> (demangled)
-CDefaultToolAttrTableForStruct<CVMixSteamAudioHRTFProcessorDesc> (demangled)
-CDefaultToolAttrTableForStruct<CVMixSteamAudioHybridReverbProcessorDesc> (demangled)
-CDefaultToolAttrTableForStruct<CVMixSteamAudioPathingProcessorDesc> (demangled)
-CDefaultToolAttrTableForStruct<CVMixStereoDelayProcessorDesc> (demangled)
-CDefaultToolAttrTableForStruct<CVMixSubgraphSwitchProcessorDesc> (demangled)
-CDefaultToolAttrTableForStruct<CVMixUtilityProcessorDesc> (demangled)
-CDefaultToolAttrTableForStruct<CVMixVocoderProcessorDesc> (demangled)
+CConcreteToolAttrDirectMember<unsigned int, CVMixDataOffset> (demangled)
+CDefaultToolAttrTableForStruct<CVMixDataOffset> (demangled)
 CDefaultToolAttrTableForStruct<VMixAutoFilterDesc_t> (demangled)
 CDefaultToolAttrTableForStruct<VMixBoxverbDesc_t> (demangled)
 CDefaultToolAttrTableForStruct<VMixConvolutionDesc_t> (demangled)
@@ -886,6 +781,7 @@ CDefaultToolAttrTableForStruct<VMixDynamicsBand_t> (demangled)
 CDefaultToolAttrTableForStruct<VMixDynamicsCompressorDesc_t> (demangled)
 CDefaultToolAttrTableForStruct<VMixDynamicsDesc_t> (demangled)
 CDefaultToolAttrTableForStruct<VMixEQ8Desc_t> (demangled)
+CDefaultToolAttrTableForStruct<VMixEQFilterDesc_t> (demangled)
 CDefaultToolAttrTableForStruct<VMixEffectChainDesc_t> (demangled)
 CDefaultToolAttrTableForStruct<VMixEnvelopeDesc_t> (demangled)
 CDefaultToolAttrTableForStruct<VMixFilterDesc_t> (demangled)
@@ -901,25 +797,12 @@ CDefaultToolAttrTableForStruct<VMixShaperDesc_t> (demangled)
 CDefaultToolAttrTableForStruct<VMixSubgraphSwitchDesc_t> (demangled)
 CDefaultToolAttrTableForStruct<VMixUtilityDesc_t> (demangled)
 CDefaultToolAttrTableForStruct<VMixVocoderDesc_t> (demangled)
-CDelayAudioProcessor (demangled)
-CDiffusorAudioProcessor (demangled)
 CDirectProcessor
 CDirectProcessor (demangled)
-CDualCompressorAudioProcessor (demangled)
-CDynamics3BandAudioProcessor (demangled)
-CDynamicsAudioProcessor (demangled)
-CDynamicsCompressorAudioProcessor (demangled)
-CEQ8AudioProcessor (demangled)
 CET
-CEnvelopeAudioProcessor (demangled)
 CFieldPathHuffmanEncoder::INode (demangled)
 CFieldPathHuffmanEncoder::InternalNode (demangled)
 CFieldPathHuffmanEncoder::LeafNode (demangled)
-CFilterAudioProcessor (demangled)
-CFlangerAudioProcessor (demangled)
-CFractionalMonoDelayLine (demangled)
-CFreeverbAudioProcessor (demangled)
-CGeneratorAudioProcessor (demangled)
 CHybridReverbProcessor
 CHybridReverbProcessor (demangled)
 CImpulseResponse
@@ -932,20 +815,10 @@ CLcx
 CMAC
 CMS routines
 CMemAllocSystemInitialize
-CModDelayAudioProcessor (demangled)
 CModuleMetadataProvider_ResourceManifests (demangled)
-CMonoDelayLine (demangled)
 CONF lib
-COscAudioProcessor (demangled)
-COversampler (demangled)
-COversampler16 (demangled)
-COversampler2 (demangled)
-COversampler4 (demangled)
-COversampler8 (demangled)
 CPackedStore
-CPannerAudioProcessor (demangled)
 CPathingProcessor (demangled)
-CPlateverbAudioProcessor (demangled)
 CPostConnectCallback (demangled)
 CRC32_ProcessBuffer
 CRLReason
@@ -955,9 +828,8 @@ CRefCounted<CRefCountServiceBase<CRefMT> > (demangled)
 CSPName
 CST
 CSchemaInstallCallback (demangled)
+CSchemaRegistration (demangled)
 CSchemaRegistration_steamaudio (demangled)
-CShaperAudioProcessor (demangled)
-CSideChainAudioProcessor (demangled)
 CSource3DProcessor (demangled)
 CSplitString::Split(char const*, int, char const**, int, bool) (demangled)
 CSteamAudio (demangled)
@@ -980,12 +852,11 @@ CSteamAudioProbeLineSegment
 CSteamAudioReverbSimulator
 CSteamAudioReverbSimulator (demangled)
 CSteamAudioScene (demangled)
-CSteamAudioScene::BakeDimensions(SteamAudioBakeDimensionsTask_t&, CSteamAudioBakedDimensionsData&, void (*)(float, void*), void*)::{lambda(int, int)#1} (demangled)
+CSteamAudioScene::BakeDimensionsSizeAndInOut(CSteamAudioBakedDimensionsData&, IVPhysics2World*, CUtlVector<Vec3D<float>, int, CUtlVectorMemory_Growable<Vec3D<float>, int, (unsigned long)0> >&, int, void (*)(float, void*), void*)::{lambda(int, int)#1} (demangled)
 CSteamAudioSceneData
 CSteamAudioSimulationData (demangled)
 CSteamAudioSource
 CSteamAudioSource (demangled)
-CStereoDelayAudioProcessor (demangled)
 CSurfacePropDataTable<CSteamAudioMaterial> (demangled)
 CSurfacePropDataTableBase (demangled)
 CT Certificate SCTs
@@ -1015,51 +886,25 @@ CThreadSyncObject::base object destructor() (demangled)
 CTier0AppSystem<ISteamAudio, (long long)0> (demangled)
 CTier1AppSystem<ISteamAudio, (long long)0> (demangled)
 CTier2AppSystem<ISteamAudio, (long long)0> (demangled)
-CToolAttrDirectMemberAccess<CUtlString, CVMixBaseProcessorDesc> (demangled)
 CToolAttrDirectMemberAccess<CUtlString, VMixEffectChainDesc_t> (demangled)
 CToolAttrDirectMemberAccess<CUtlString, VMixPresetDSPDesc_t> (demangled)
 CToolAttrDirectMemberAccess<CUtlString, VMixSubgraphSwitchDesc_t> (demangled)
 CToolAttrDirectMemberAccess<CUtlVector<CUtlString, int, CUtlVectorMemory_Growable<CUtlString, int, (unsigned long)0> >, VMixSubgraphSwitchDesc_t> (demangled)
-CToolAttrDirectMemberAccess<VMixAutoFilterDesc_t, CVMixAutoFilterProcessorDesc> (demangled)
-CToolAttrDirectMemberAccess<VMixBoxverbDesc_t, CVMixBoxverb2ProcessorDesc> (demangled)
-CToolAttrDirectMemberAccess<VMixBoxverbDesc_t, CVMixBoxverbProcessorDesc> (demangled)
 CToolAttrDirectMemberAccess<VMixChannelOperation_t, VMixUtilityDesc_t> (demangled)
-CToolAttrDirectMemberAccess<VMixConvolutionDesc_t, CVMixConvolutionProcessorDesc> (demangled)
-CToolAttrDirectMemberAccess<VMixDelayDesc_t, CVMixDelayProcessorDesc> (demangled)
-CToolAttrDirectMemberAccess<VMixDiffusorDesc_t, CVMixDiffusorProcessorDesc> (demangled)
-CToolAttrDirectMemberAccess<VMixDualCompressorDesc_t, CVMixDualCompressorProcessorDesc> (demangled)
-CToolAttrDirectMemberAccess<VMixDynamics3BandDesc_t, CVMixDynamics3BandProcessorDesc> (demangled)
 CToolAttrDirectMemberAccess<VMixDynamicsBand_t [3], VMixDynamics3BandDesc_t> (demangled)
 CToolAttrDirectMemberAccess<VMixDynamicsBand_t, VMixDualCompressorDesc_t> (demangled)
-CToolAttrDirectMemberAccess<VMixDynamicsCompressorDesc_t, CVMixDynamicsCompressorProcessorDesc> (demangled)
-CToolAttrDirectMemberAccess<VMixDynamicsDesc_t, CVMixDynamicsProcessorDesc> (demangled)
-CToolAttrDirectMemberAccess<VMixEQ8Desc_t, CVMixEQ8ProcessorDesc> (demangled)
-CToolAttrDirectMemberAccess<VMixEffectChainDesc_t, CVMixEffectChainProcessorDesc> (demangled)
-CToolAttrDirectMemberAccess<VMixEnvelopeDesc_t, CVMixEnvelopeProcessorDesc> (demangled)
-CToolAttrDirectMemberAccess<VMixFilterDesc_t [8], VMixEQ8Desc_t> (demangled)
-CToolAttrDirectMemberAccess<VMixFilterDesc_t, CVMixFilterProcessorDesc> (demangled)
+CToolAttrDirectMemberAccess<VMixEQFilterDesc_t [8], VMixEQ8Desc_t> (demangled)
+CToolAttrDirectMemberAccess<VMixFilterChannelSet_t, VMixEQFilterDesc_t> (demangled)
 CToolAttrDirectMemberAccess<VMixFilterDesc_t, VMixAutoFilterDesc_t> (demangled)
 CToolAttrDirectMemberAccess<VMixFilterDesc_t, VMixBoxverbDesc_t> (demangled)
 CToolAttrDirectMemberAccess<VMixFilterDesc_t, VMixDelayDesc_t> (demangled)
 CToolAttrDirectMemberAccess<VMixFilterDesc_t, VMixModDelayDesc_t> (demangled)
 CToolAttrDirectMemberAccess<VMixFilterSlope_t, VMixFilterDesc_t> (demangled)
 CToolAttrDirectMemberAccess<VMixFilterType_t, VMixFilterDesc_t> (demangled)
-CToolAttrDirectMemberAccess<VMixFlangerDesc_t, CVMixFlangerProcessorDesc> (demangled)
-CToolAttrDirectMemberAccess<VMixFreeverbDesc_t, CVMixFreeverbProcessorDesc> (demangled)
 CToolAttrDirectMemberAccess<VMixLFOShape_t, VMixAutoFilterDesc_t> (demangled)
 CToolAttrDirectMemberAccess<VMixLFOShape_t, VMixOscDesc_t> (demangled)
-CToolAttrDirectMemberAccess<VMixModDelayDesc_t, CVMixModDelayProcessorDesc> (demangled)
-CToolAttrDirectMemberAccess<VMixOscDesc_t, CVMixOscProcessorDesc> (demangled)
-CToolAttrDirectMemberAccess<VMixPannerDesc_t, CVMixPannerProcessorDesc> (demangled)
 CToolAttrDirectMemberAccess<VMixPannerType_t, VMixPannerDesc_t> (demangled)
-CToolAttrDirectMemberAccess<VMixPitchShiftDesc_t, CVMixPitchShiftProcessorDesc> (demangled)
-CToolAttrDirectMemberAccess<VMixPlateverbDesc_t, CVMixPlateReverbProcessorDesc> (demangled)
-CToolAttrDirectMemberAccess<VMixPresetDSPDesc_t, CVMixPresetDSPProcessorDesc> (demangled)
-CToolAttrDirectMemberAccess<VMixShaperDesc_t, CVMixShaperProcessorDesc> (demangled)
-CToolAttrDirectMemberAccess<VMixSubgraphSwitchDesc_t, CVMixSubgraphSwitchProcessorDesc> (demangled)
 CToolAttrDirectMemberAccess<VMixSubgraphSwitchInterpolationType_t, VMixSubgraphSwitchDesc_t> (demangled)
-CToolAttrDirectMemberAccess<VMixUtilityDesc_t, CVMixUtilityProcessorDesc> (demangled)
-CToolAttrDirectMemberAccess<VMixVocoderDesc_t, CVMixVocoderProcessorDesc> (demangled)
 CToolAttrDirectMemberAccess<bool, VMixBoxverbDesc_t> (demangled)
 CToolAttrDirectMemberAccess<bool, VMixDelayDesc_t> (demangled)
 CToolAttrDirectMemberAccess<bool, VMixDualCompressorDesc_t> (demangled)
@@ -1073,7 +918,6 @@ CToolAttrDirectMemberAccess<bool, VMixModDelayDesc_t> (demangled)
 CToolAttrDirectMemberAccess<bool, VMixSubgraphSwitchDesc_t> (demangled)
 CToolAttrDirectMemberAccess<bool, VMixUtilityDesc_t> (demangled)
 CToolAttrDirectMemberAccess<bool, VMixVocoderDesc_t> (demangled)
-CToolAttrDirectMemberAccess<float, CVMixBaseProcessorDesc> (demangled)
 CToolAttrDirectMemberAccess<float, VMixAutoFilterDesc_t> (demangled)
 CToolAttrDirectMemberAccess<float, VMixBoxverbDesc_t> (demangled)
 CToolAttrDirectMemberAccess<float, VMixConvolutionDesc_t> (demangled)
@@ -1097,13 +941,12 @@ CToolAttrDirectMemberAccess<float, VMixShaperDesc_t> (demangled)
 CToolAttrDirectMemberAccess<float, VMixSubgraphSwitchDesc_t> (demangled)
 CToolAttrDirectMemberAccess<float, VMixUtilityDesc_t> (demangled)
 CToolAttrDirectMemberAccess<float, VMixVocoderDesc_t> (demangled)
-CToolAttrDirectMemberAccess<int, CVMixBaseProcessorDesc> (demangled)
 CToolAttrDirectMemberAccess<int, VMixPitchShiftDesc_t> (demangled)
 CToolAttrDirectMemberAccess<int, VMixShaperDesc_t> (demangled)
 CToolAttrDirectMemberAccess<int, VMixVocoderDesc_t> (demangled)
+CToolAttrDirectMemberAccess<unsigned int, CVMixDataOffset> (demangled)
 CToolEditContextQuery_Base (demangled)
 CToolEditContextQuery_String (demangled)
-CUtilityAudioProcessor (demangled)
 CUtlBinaryBlock::SetLength(int) (demangled)
 CUtlBuffer::AddNullTermination() (demangled)
 CUtlBuffer::CheckPut(int) (demangled)
@@ -1150,106 +993,17 @@ CUtlSymbolTable::complete object constructor(int, int, bool) (demangled)
 CUtlSymbolTable::complete object destructor() (demangled)
 CUtlSymbolTableLarge element limit of %u exceeded\n
 CUtlVector
-CVMixAutoFilterProcessorDesc
-CVMixAutoFilterProcessorDesc (demangled)
-CVMixAutoFilterProcessorDesc::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_desc (demangled)
-CVMixBaseProcessorDesc
-CVMixBaseProcessorDesc (demangled)
-CVMixBaseProcessorDesc::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_flxfade (demangled)
-CVMixBaseProcessorDesc::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_nChannels (demangled)
-CVMixBaseProcessorDesc::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_name (demangled)
-CVMixBoxverb2ProcessorDesc
-CVMixBoxverb2ProcessorDesc (demangled)
-CVMixBoxverb2ProcessorDesc::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_desc (demangled)
-CVMixBoxverbProcessorDesc
-CVMixBoxverbProcessorDesc (demangled)
-CVMixBoxverbProcessorDesc::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_desc (demangled)
-CVMixConvolutionProcessorDesc
-CVMixConvolutionProcessorDesc (demangled)
-CVMixConvolutionProcessorDesc::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_desc (demangled)
-CVMixDelayProcessorDesc
-CVMixDelayProcessorDesc (demangled)
-CVMixDelayProcessorDesc::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_desc (demangled)
-CVMixDiffusorProcessorDesc
-CVMixDiffusorProcessorDesc (demangled)
-CVMixDiffusorProcessorDesc::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_desc (demangled)
-CVMixDualCompressorProcessorDesc
-CVMixDualCompressorProcessorDesc (demangled)
-CVMixDualCompressorProcessorDesc::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_desc (demangled)
-CVMixDynamics3BandProcessorDesc
-CVMixDynamics3BandProcessorDesc (demangled)
-CVMixDynamics3BandProcessorDesc::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_desc (demangled)
-CVMixDynamicsCompressorProcessorDesc
-CVMixDynamicsCompressorProcessorDesc (demangled)
-CVMixDynamicsCompressorProcessorDesc::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_desc (demangled)
-CVMixDynamicsProcessorDesc
-CVMixDynamicsProcessorDesc (demangled)
-CVMixDynamicsProcessorDesc::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_desc (demangled)
-CVMixEQ8ProcessorDesc
-CVMixEQ8ProcessorDesc (demangled)
-CVMixEQ8ProcessorDesc::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_desc (demangled)
-CVMixEffectChainProcessorDesc
-CVMixEffectChainProcessorDesc (demangled)
-CVMixEffectChainProcessorDesc::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_desc (demangled)
-CVMixEnvelopeProcessorDesc
-CVMixEnvelopeProcessorDesc (demangled)
-CVMixEnvelopeProcessorDesc::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_desc (demangled)
-CVMixFilterProcessorDesc
-CVMixFilterProcessorDesc (demangled)
-CVMixFilterProcessorDesc::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_desc (demangled)
-CVMixFlangerProcessorDesc
-CVMixFlangerProcessorDesc (demangled)
-CVMixFlangerProcessorDesc::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_desc (demangled)
-CVMixFreeverbProcessorDesc
-CVMixFreeverbProcessorDesc (demangled)
-CVMixFreeverbProcessorDesc::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_desc (demangled)
-CVMixModDelayProcessorDesc
-CVMixModDelayProcessorDesc (demangled)
-CVMixModDelayProcessorDesc::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_desc (demangled)
-CVMixOscProcessorDesc
-CVMixOscProcessorDesc (demangled)
-CVMixOscProcessorDesc::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_desc (demangled)
-CVMixPannerProcessorDesc
-CVMixPannerProcessorDesc (demangled)
-CVMixPannerProcessorDesc::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_desc (demangled)
-CVMixPitchShiftProcessorDesc
-CVMixPitchShiftProcessorDesc (demangled)
-CVMixPitchShiftProcessorDesc::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_desc (demangled)
-CVMixPlateReverbProcessorDesc
-CVMixPlateReverbProcessorDesc (demangled)
-CVMixPlateReverbProcessorDesc::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_desc (demangled)
-CVMixPresetDSPProcessorDesc
-CVMixPresetDSPProcessorDesc (demangled)
-CVMixPresetDSPProcessorDesc::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_desc (demangled)
-CVMixShaperProcessorDesc
-CVMixShaperProcessorDesc (demangled)
-CVMixShaperProcessorDesc::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_desc (demangled)
-CVMixSteamAudioDirectProcessorDesc
-CVMixSteamAudioDirectProcessorDesc (demangled)
-CVMixSteamAudioHRTFProcessorDesc
-CVMixSteamAudioHRTFProcessorDesc (demangled)
-CVMixSteamAudioHybridReverbProcessorDesc
-CVMixSteamAudioHybridReverbProcessorDesc (demangled)
-CVMixSteamAudioPathingProcessorDesc
-CVMixSteamAudioPathingProcessorDesc (demangled)
-CVMixStereoDelayProcessorDesc
-CVMixStereoDelayProcessorDesc (demangled)
-CVMixSubgraphSwitchProcessorDesc
-CVMixSubgraphSwitchProcessorDesc (demangled)
-CVMixSubgraphSwitchProcessorDesc::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_desc (demangled)
-CVMixUtilityProcessorDesc
-CVMixUtilityProcessorDesc (demangled)
-CVMixUtilityProcessorDesc::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_desc (demangled)
-CVMixVocoderProcessorDesc
-CVMixVocoderProcessorDesc (demangled)
-CVMixVocoderProcessorDesc::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_desc (demangled)
+CVMixDataOffset
+CVMixDataOffset::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_nOffset (demangled)
 CVariableBitStringBase::FreeInts() (demangled)
 CVariableBitStringBase::Resize(int) (demangled)
-CVocoderAudioProcessor (demangled)
+CVertexKDTree::BuildMidpoint(float const*, int, int) (demangled)
+CVertexKDTree::FindVertsInSphere(CUtlVectorFixedGrowable<float const*&, (unsigned long)64, int>, Vec3D<float> const&, float, int) const (demangled)
 Cannot allocate abstract class
 Cast of %s loses value information (returning %s) in %s on %s:%u\n
 Cast of %s loses value information (returning %s)\n
 Cbasic_ios::clear
+Channel Set
 Channels
 CharacterSetBuild
 Chunk hash not found.
@@ -1310,6 +1064,7 @@ DSO support routines
 DVCS
 Damp
 Debug Band
+DebugPrintKV3(KeyValues3 const*) (demangled)
 Dec
 Decay
 December
@@ -1318,7 +1073,6 @@ Delay
 Delay Gain
 DemoUpconverterVersion001
 Depth
-Desc
 Diffie-Hellman based MAC
 Diffie-Hellman routines
 Diffusion
@@ -1353,38 +1107,7 @@ EXPORTSYSTEM_INTERFACE_VERSION_001
 EarlyInit_Tier0
 EconItemToolModel_001
 Effect Name
-Element.CVMixAutoFilterProcessorDesc
-Element.CVMixBaseProcessorDesc
-Element.CVMixBoxverb2ProcessorDesc
-Element.CVMixBoxverbProcessorDesc
-Element.CVMixConvolutionProcessorDesc
-Element.CVMixDelayProcessorDesc
-Element.CVMixDiffusorProcessorDesc
-Element.CVMixDualCompressorProcessorDesc
-Element.CVMixDynamics3BandProcessorDesc
-Element.CVMixDynamicsCompressorProcessorDesc
-Element.CVMixDynamicsProcessorDesc
-Element.CVMixEQ8ProcessorDesc
-Element.CVMixEffectChainProcessorDesc
-Element.CVMixEnvelopeProcessorDesc
-Element.CVMixFilterProcessorDesc
-Element.CVMixFlangerProcessorDesc
-Element.CVMixFreeverbProcessorDesc
-Element.CVMixModDelayProcessorDesc
-Element.CVMixOscProcessorDesc
-Element.CVMixPannerProcessorDesc
-Element.CVMixPitchShiftProcessorDesc
-Element.CVMixPlateReverbProcessorDesc
-Element.CVMixPresetDSPProcessorDesc
-Element.CVMixShaperProcessorDesc
-Element.CVMixSteamAudioDirectProcessorDesc
-Element.CVMixSteamAudioHRTFProcessorDesc
-Element.CVMixSteamAudioHybridReverbProcessorDesc
-Element.CVMixSteamAudioPathingProcessorDesc
-Element.CVMixStereoDelayProcessorDesc
-Element.CVMixSubgraphSwitchProcessorDesc
-Element.CVMixUtilityProcessorDesc
-Element.CVMixVocoderProcessorDesc
+Element.CVMixDataOffset
 Element.VMixAutoFilterDesc_t
 Element.VMixBoxverbDesc_t
 Element.VMixConvolutionDesc_t
@@ -1396,6 +1119,7 @@ Element.VMixDynamicsBand_t
 Element.VMixDynamicsCompressorDesc_t
 Element.VMixDynamicsDesc_t
 Element.VMixEQ8Desc_t
+Element.VMixEQFilterDesc_t
 Element.VMixEffectChainDesc_t
 Element.VMixEnvelopeDesc_t
 Element.VMixFilterDesc_t
@@ -1414,6 +1138,9 @@ Element.VMixVocoderDesc_t
 Enable Filter
 Enable SIMD code path for diffusor processor.
 Enable SIMD code path for shoebox reverb processor.
+Enable baking insize size field for probes when baking custom dimensions data.
+Enable baking outside field for probes baking custom dimensions data.
+Enable baking size and inout data for probes when baking custom dimensions data.
 Enable caching listener probe neighborhood for pathing.
 Enable custom HRTF loading.
 Enable multithreading to use std::thread
@@ -1438,14 +1165,20 @@ ExtractDirectionalityFromEnergyField
 ExtractModuleMetadata
 FILE pointer
 FILTER_ALLPASS
+FILTER_ALL_CHANNELS
 FILTER_BANDPASS
+FILTER_CHANNEL_SET_MAX
 FILTER_HIGHPASS
 FILTER_HIGH_SHELF
+FILTER_LEFT_ONLY
 FILTER_LOWPASS
 FILTER_LOW_SHELF
+FILTER_MID_ONLY
 FILTER_NOTCH
 FILTER_PASSTHROUGH
 FILTER_PEAKING_EQ
+FILTER_RIGHT_ONLY
+FILTER_SIDE_ONLY
 FILTER_SLOPE_12dB
 FILTER_SLOPE_1POLE_12dB
 FILTER_SLOPE_1POLE_18dB
@@ -1491,7 +1224,6 @@ Fldb Gain Output
 Fldb Knee Width
 Fldb Limiter Threshold
 Fldb Noise Gate Threshold
-Flxfade
 FontManager_001
 FormatArgumentsToBuffer(IFormatOutputStream*, char const*, CTypeErasedFormattingWrapper const*, int) (demangled)
 FormatTo(IFormatOutputStream*, CFormatStringElement, bool) (demangled)
@@ -1542,10 +1274,6 @@ GameResourceServiceClientV001
 GameResourceServiceServerV001
 GameUIService_001
 Generate Halton Sequence for a given order and number of samples.
-GenerateArcTan(CCubicSplineFunction&, unsigned int, float, float)::{lambda(float, float)#1} (demangled)
-GenerateFuzzExp1(CCubicSplineFunction&, unsigned int, float, float)::{lambda(float, float)#1} (demangled)
-GenerateSigmoid(CCubicSplineFunction&, unsigned int, float, float)::{lambda(float, float)#1} (demangled)
-GenerateSigmoid2(CCubicSplineFunction&, unsigned int, float, float)::{lambda(float, float)#1} (demangled)
 Generated %d probes with %.2f spacing and %.2f height.\n
 Generating Halton Sequence of %d order for %d samples.\n
 GetBLAKE3HashContents
@@ -1620,47 +1348,27 @@ ISteamAudioSource (demangled)
 ITU-T
 IToolAttrConcreteDataAccess<CUtlString> (demangled)
 IToolAttrConcreteDataAccess<CUtlVector<CUtlString, int, CUtlVectorMemory_Growable<CUtlString, int, (unsigned long)0> > > (demangled)
-IToolAttrConcreteDataAccess<VMixAutoFilterDesc_t> (demangled)
-IToolAttrConcreteDataAccess<VMixBoxverbDesc_t> (demangled)
 IToolAttrConcreteDataAccess<VMixChannelOperation_t> (demangled)
-IToolAttrConcreteDataAccess<VMixConvolutionDesc_t> (demangled)
-IToolAttrConcreteDataAccess<VMixDelayDesc_t> (demangled)
-IToolAttrConcreteDataAccess<VMixDiffusorDesc_t> (demangled)
-IToolAttrConcreteDataAccess<VMixDualCompressorDesc_t> (demangled)
-IToolAttrConcreteDataAccess<VMixDynamics3BandDesc_t> (demangled)
 IToolAttrConcreteDataAccess<VMixDynamicsBand_t [3]> (demangled)
 IToolAttrConcreteDataAccess<VMixDynamicsBand_t> (demangled)
-IToolAttrConcreteDataAccess<VMixDynamicsCompressorDesc_t> (demangled)
-IToolAttrConcreteDataAccess<VMixDynamicsDesc_t> (demangled)
-IToolAttrConcreteDataAccess<VMixEQ8Desc_t> (demangled)
-IToolAttrConcreteDataAccess<VMixEffectChainDesc_t> (demangled)
-IToolAttrConcreteDataAccess<VMixEnvelopeDesc_t> (demangled)
-IToolAttrConcreteDataAccess<VMixFilterDesc_t [8]> (demangled)
+IToolAttrConcreteDataAccess<VMixEQFilterDesc_t [8]> (demangled)
+IToolAttrConcreteDataAccess<VMixEQFilterDesc_t> (demangled)
+IToolAttrConcreteDataAccess<VMixFilterChannelSet_t> (demangled)
 IToolAttrConcreteDataAccess<VMixFilterDesc_t> (demangled)
 IToolAttrConcreteDataAccess<VMixFilterSlope_t> (demangled)
 IToolAttrConcreteDataAccess<VMixFilterType_t> (demangled)
-IToolAttrConcreteDataAccess<VMixFlangerDesc_t> (demangled)
-IToolAttrConcreteDataAccess<VMixFreeverbDesc_t> (demangled)
 IToolAttrConcreteDataAccess<VMixLFOShape_t> (demangled)
-IToolAttrConcreteDataAccess<VMixModDelayDesc_t> (demangled)
-IToolAttrConcreteDataAccess<VMixOscDesc_t> (demangled)
-IToolAttrConcreteDataAccess<VMixPannerDesc_t> (demangled)
 IToolAttrConcreteDataAccess<VMixPannerType_t> (demangled)
-IToolAttrConcreteDataAccess<VMixPitchShiftDesc_t> (demangled)
-IToolAttrConcreteDataAccess<VMixPlateverbDesc_t> (demangled)
-IToolAttrConcreteDataAccess<VMixPresetDSPDesc_t> (demangled)
-IToolAttrConcreteDataAccess<VMixShaperDesc_t> (demangled)
-IToolAttrConcreteDataAccess<VMixSubgraphSwitchDesc_t> (demangled)
 IToolAttrConcreteDataAccess<VMixSubgraphSwitchInterpolationType_t> (demangled)
-IToolAttrConcreteDataAccess<VMixUtilityDesc_t> (demangled)
-IToolAttrConcreteDataAccess<VMixVocoderDesc_t> (demangled)
 IToolAttrConcreteDataAccess<bool> (demangled)
 IToolAttrConcreteDataAccess<float> (demangled)
 IToolAttrConcreteDataAccess<int> (demangled)
+IToolAttrConcreteDataAccess<unsigned int> (demangled)
 IToolAttr_Array (demangled)
 IToolAttr_Table (demangled)
 IToolAttr_TypedValue<CUtlString> (demangled)
 IToolAttr_TypedValue<VMixChannelOperation_t> (demangled)
+IToolAttr_TypedValue<VMixFilterChannelSet_t> (demangled)
 IToolAttr_TypedValue<VMixFilterSlope_t> (demangled)
 IToolAttr_TypedValue<VMixFilterType_t> (demangled)
 IToolAttr_TypedValue<VMixLFOShape_t> (demangled)
@@ -1669,8 +1377,8 @@ IToolAttr_TypedValue<VMixSubgraphSwitchInterpolationType_t> (demangled)
 IToolAttr_TypedValue<bool> (demangled)
 IToolAttr_TypedValue<float> (demangled)
 IToolAttr_TypedValue<int> (demangled)
+IToolAttr_TypedValue<unsigned int> (demangled)
 IToolAttr_Value (demangled)
-If set, OBJ export and Hammer visualization only shows sound blocking geometry used for baking simulation and runtime queries.
 If set, all the probes near a source withing probe range are used to find paths instead of nearest probe.
 If set, baked dimensions data is loaded.
 If set, baked materials data is loaded.
@@ -1761,6 +1469,7 @@ LFO_SHAPE_TRI
 LOG_CONSOLE
 LOG_GENERAL
 Late Reflections
+Left Only
 Limiter Ratio
 LoadKV3(CKV3Arena*, CUtlString*, CUtlBuffer*, KV3ID_t const&, char const*, unsigned int) (demangled)
 LoadKV3FromFile(CKV3Arena*, CUtlString*, char const*) (demangled)
@@ -1825,6 +1534,7 @@ Microsoft Smartcardlogin
 Microsoft Trust List Signing
 Microsoft Universal Principal Name
 Mid EQ gain (dB)
+Mid Only
 Minimum distance (in meters) of a source from a surface for the purposes of energy calculations.
 Mismatched '(' and ')' in regular expression
 Mismatched '[' and ']' in regular expression
@@ -1832,9 +1542,6 @@ Mismatched '{' and '}' in regular expression
 Missing custom_hrtfs key field in custom hrtf properties file. Cannot load!
 Mod Depth
 Mod Rate
-ModCutoff
-ModCutoffMax
-ModCutoffMin
 ModelDocUtils001
 Mon
 Monday
@@ -1871,6 +1578,7 @@ Not safe to 'new' this class due to alignment requirements
 Nov
 November
 Number of rays to trace for estimating inside outside status of a probe.
+Number of reflection simulations to run when baking occlusion. Potential way to reduce noise.
 OBJ lib
 OCSP
 OCSP Archive Cutoff
@@ -1882,6 +1590,7 @@ OCSP Signing
 OCSP lib
 OCSP routines
 OCSPSigning
+OFF
 OPENSSL_ia32cap
 ORG
 Oakley-EC2N-3
@@ -1891,9 +1600,11 @@ Occlusion: Data not stored in KV3 format. Rebake.\n
 Occlusion: Filesystem not initialized.\n
 Occlusion: Imported %d probes from baked file (%s).\n
 Occlusion: Loaded baked data file (%s).\n
+Occlusion: Spatially filtering occlusion data (mode = %d)\n
 Occlusion: Unable to load baked data file (%s).\n
 Oct
 October
+Offset
 Only Tails On Fade Out
 Output Balance
 Output Gain
@@ -1923,7 +1634,6 @@ PKCS12 routines
 PKCS7 lib
 PKCS7 routines
 POSIX
-PSA
 PSPECIFIED
 PST
 Packed store %s with refcount > 0.\n
@@ -1954,6 +1664,8 @@ Phase Invert
 Phonon_Log
 PhysicsBuilderMgr001
 Pitch Shift
+Plat_CPUTickFrequency
+Plat_DemangleRawTypeName
 Plat_ExitProcess
 Plat_FatalError
 Plat_FloatTime
@@ -2014,10 +1726,11 @@ RSA-SHA512
 RSAES-OAEP
 RSASSA-PSS
 RSA_blinding
+Radius factor to multiply the distance between probes with to get the radius withing which probes are averaged.
 RandomFloat
 RandomInt
 Ratio
-Reflections...\n
+Reflections... (rays: %d x %d) (bounces: %d) (bidirectional: %s) (#runs: %d)\n
 RegisterConCommand: Unknown error registering con command "%s"!\n
 RegisterConVar: Unknown error registering convar "%s"!\n
 Release
@@ -2042,7 +1755,6 @@ ResourceCompiler/SteamAudio/CustomDataDefaults/FilterUsingVolumes
 ResourceCompiler/SteamAudio/CustomDataDefaults/GridGenerationType
 ResourceCompiler/SteamAudio/CustomDataDefaults/GridSpacing
 ResourceCompiler/SteamAudio/CustomDataDefaults/HeightAboveFloor
-ResourceCompiler/SteamAudio/CustomDataDefaults/OcclusionPathing
 ResourceCompiler/SteamAudio/CustomDataDefaults/OcclusionReflection
 ResourceCompiler/SteamAudio/CustomDataDefaults/OcclusionReflectionBounces
 ResourceCompiler/SteamAudio/CustomDataDefaults/OcclusionReflectionRays
@@ -2087,11 +1799,13 @@ Reverb: Unable to create serialized object. (%d)\n
 Reverb: Unable to load baked data file (%s). Reverb disabled.\n
 Reverb: Unable to load baked data file (%s).\n
 Reverb: Unable to load probe batch. (%d)\n
+Right Only
 Room Size
 Root
+Run simulation from both source and listner and average the results. Potential way to reduce noise.
 S/MIME
 S/MIME Capabilities
-SABD19CSchemaRegistration
+SABD
 SEED-CBC
 SEED-CFB
 SEED-ECB
@@ -2140,10 +1854,13 @@ SetProbes
 SetSerializedData
 Sets the number of threads used for realtime reflection by Steam Audio.
 Shape
+Side Only
+SideChain Highpass
 Signature verification failed.
 Size
 Size Max
 Size Min
+SmartPropsSystem_001
 Solo
 SoundOpSystem001
 SoundOpSystemEdit001
@@ -2325,6 +2042,7 @@ TextLayout_001
 Tf %f %f %f\n\n
 The amount of directional detail in the rendered audio by Steam Audio.
 The amount of directional detail in the simulated by Steam Audio.
+The maximum height (from the ground) we allow probes to be added above the initial layer. (meters)
 The maximum number of rays that can be traced for volumetric occlusion by Steam Audio.
 The maximum number of simultaneous sources that can be modeled by Steam Audio.
 The maximum number of times any ray can bounce when using Steam Audio.
@@ -2374,6 +2092,8 @@ Unrecognized EHashType found: %d
 Unsupported KV3 basic type '%s' (%d)!
 Upward Ratio
 Usage: snd_steamaudio_halton_sequence <order> <numsamples>.\n
+Use alternate probe lookup algorithm to query dimensions for listener position based on kd-tree of probe points.
+Use alternate probe lookup algorithm to query occlusion for source and listener position based on kd-tree of probe points.
 Use compressed reverb data if available.
 UtlRBTree_FailedInsertDuplicate
 UtlVectorMemory_Alloc
@@ -2475,11 +2195,13 @@ VMixDynamicsBand_t::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlV
 VMixDynamicsBand_t::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_fldbThresholdAbove (demangled)
 VMixDynamicsBand_t::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_fldbThresholdBelow (demangled)
 VMixDynamicsCompressorDesc_t
+VMixDynamicsCompressorDesc_t::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_bAutoMakeupGain (demangled)
 VMixDynamicsCompressorDesc_t::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_bPeakMode (demangled)
 VMixDynamicsCompressorDesc_t::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_flAttackTimeMS (demangled)
 VMixDynamicsCompressorDesc_t::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_flCompressionRatio (demangled)
 VMixDynamicsCompressorDesc_t::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_flRMSTimeMS (demangled)
 VMixDynamicsCompressorDesc_t::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_flReleaseTimeMS (demangled)
+VMixDynamicsCompressorDesc_t::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_flSCHighPassFreq (demangled)
 VMixDynamicsCompressorDesc_t::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_flWetMix (demangled)
 VMixDynamicsCompressorDesc_t::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_fldbCompressionThreshold (demangled)
 VMixDynamicsCompressorDesc_t::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_fldbKneeWidth (demangled)
@@ -2499,12 +2221,15 @@ VMixDynamicsDesc_t::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlV
 VMixDynamicsDesc_t::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_fldbNoiseGateThreshold (demangled)
 VMixEQ8Desc_t
 VMixEQ8Desc_t::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_stages (demangled)
+VMixEQFilterDesc_t
+VMixEQFilterDesc_t::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_nChannelSet (demangled)
 VMixEffectChainDesc_t
 VMixEffectChainDesc_t::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_effectName (demangled)
 VMixEnvelopeDesc_t
 VMixEnvelopeDesc_t::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_flAttackTimeMS (demangled)
 VMixEnvelopeDesc_t::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_flHoldTimeMS (demangled)
 VMixEnvelopeDesc_t::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_flReleaseTimeMS (demangled)
+VMixFilterChannelSet_t
 VMixFilterDesc_t
 VMixFilterDesc_t::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_bEnabled (demangled)
 VMixFilterDesc_t::GetAttributeTable_Impl(CUtlVector<IBaseToolAttr*, int, CUtlVectorMemory_Growable<IBaseToolAttr*, int, (unsigned long)0> >*)::CAttr_m_flCutoffFreq (demangled)
@@ -2648,12 +2373,14 @@ V_StringToQAngle
 V_StringToUint16
 V_StringToUint32
 V_StringToUint64
+V_StringToUint8
 V_StringToVector
 V_StringToVector2D
 V_StringToVector4D
 V_StringToVectorWS
 V_UInt32ToString_Unsafe
 V_UInt64ToString_Unsafe
+V_UInt8ToString_Unsafe
 V_UnqualifiedFileName
 V_acosd
 V_acosf
@@ -2688,7 +2415,6 @@ V_tand
 V_tanf
 V_tanhf
 Vector
-Veq
 VerifySingleChunk
 VisBuilder_001
 Vrad3_001
@@ -2730,6 +2456,7 @@ X9.42 DH
 X9.57 CM ?
 X9cm
 ZLIB
+[ Reflections ] Total Time = %.2f seconds. (Simulation = %.1f%% Accumulate = %.1f%%)\n
 [%02d:%02d:%02d] 
 [%3d] [ Pathing %6.2f MB %6d %4.1f %4.1f %7.1f ] %s\n
 [%3d] [ Pathing: Invalid baked data version found. Please rebake. ] %s\n
@@ -3610,21 +3337,6 @@ bad asn1 object header
 bad get asn1 object call
 bad_function_call
 bad_weak_ptr
-band_0:gainReduction
-band_0:input
-band_0:inputPeak
-band_0:output
-band_0:outputPeak
-band_1:gainReduction
-band_1:input
-band_1:inputPeak
-band_1:output
-band_1:outputPeak
-band_2:gainReduction
-band_2:input
-band_2:inputPeak
-band_2:output
-band_2:outputPeak
 basicConstraints
 basicOCSPResponse
 basic_filebuf::_M_convert_to_external conversion error
@@ -4122,7 +3834,6 @@ contentType
 countersignature
 countryName
 covariant return thunk to 
-cputimeus
 crlBag
 crlDistributionPoints
 crlNumber
@@ -4242,7 +3953,6 @@ dsa_with_SHA256
 dso
 dvcs
 dynamic
-dynamicEQScale
 dynamic_cast
 dynlock
 ec_pre_comp
@@ -4300,9 +4010,6 @@ fflush
 fgets
 file
 fileno
-filterFreq
-filterGain
-filterQ
 fips
 fips2
 five
@@ -4339,7 +4046,6 @@ g_nSequentialIndices<float> (demangled)
 g_nSequentialIndices<int> (demangled)
 g_pMemAlloc
 gain of wet signal (dB)
-gainReduction
 generate cryptogram
 generationQualifier
 generic
@@ -4416,7 +4122,6 @@ guard variable for std::time_get<char, std::istreambuf_iterator<char, std::char_
 guard variable for std::time_get<wchar_t, std::istreambuf_iterator<wchar_t, std::char_traits<wchar_t> > >::id (demangled)
 guard variable for std::time_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::id (demangled)
 guard variable for std::time_put<wchar_t, std::ostreambuf_iterator<wchar_t, std::char_traits<wchar_t> > >::id (demangled)
-hFV
 half
 hardware
 hidden alias for 
@@ -4688,8 +4393,6 @@ info
 inhibitAnyPolicy
 initializer for module 
 initials
-input
-inputPeak
 int
 int () __gnu_cxx::stdio_sync_filebuf<char, std::char_traits<char> >::overflow() (demangled)
 int () __gnu_cxx::stdio_sync_filebuf<char, std::char_traits<char> >::pbackfail() (demangled)
@@ -5023,6 +4726,7 @@ lseek
 mXRecord
 m_aabb
 m_bApplyAntialiasing
+m_bAutoMakeupGain
 m_bBassMono
 m_bEnable
 m_bEnableClustering
@@ -5041,7 +4745,6 @@ m_bandDesc
 m_clusteredProbes
 m_compressedClusteredData
 m_compressedData
-m_desc
 m_effectName
 m_feedbackFilter
 m_field
@@ -5108,6 +4811,7 @@ m_flRatioAbove
 m_flRatioBelow
 m_flReleaseTimeMS
 m_flRoomSize
+m_flSCHighPassFreq
 m_flSize
 m_flSizeMax
 m_flSizeMin
@@ -5134,7 +4838,6 @@ m_fldbNoiseGateThreshold
 m_fldbOutputGain
 m_fldbThresholdAbove
 m_fldbThresholdBelow
-m_flxfade
 m_freq
 m_grid
 m_interpolationMode
@@ -5145,6 +4848,7 @@ m_nAmbisonicsOrderOutsideField
 m_nBandCount
 m_nBands
 m_nBins
+m_nChannelSet
 m_nChannels
 m_nCubeMapResolution
 m_nDebugBand
@@ -5155,6 +4859,7 @@ m_nLFOShape
 m_nNumBounces
 m_nNumRays
 m_nNumVisSamples
+m_nOffset
 m_nOp
 m_nOversampleFactor
 m_nProbes
@@ -5319,12 +5024,8 @@ organizationalStatus
 organizationalUnitName
 oscType
 otherMailbox
-output
-outputPeak
 override_reconstruction_type
 owner
-pIY
-pRY
 pSpecified
 packedstore.cpp
 pagerTelephoneNumber
@@ -5690,8 +5391,6 @@ short
 short () std::basic_ostream<wchar_t, std::char_traits<wchar_t> >::<<() (demangled)
 short&() std::basic_istream<wchar_t, std::char_traits<wchar_t> >::>>() (demangled)
 shutdown
-sideChain
-sideChainPeak
 sigaction
 signal
 signed char
@@ -5710,10 +5409,26 @@ snd_hrtf_distance_behind
 snd_steamaudio_active_hrtf
 snd_steamaudio_ambisonics_correction_type
 snd_steamaudio_baked_data_stats
+snd_steamaudio_baked_dimensions_probelookup_usealternate
+snd_steamaudio_baked_occlusion_air_absorption_coefficient
 snd_steamaudio_baked_occlusion_mode
+snd_steamaudio_baked_occlusion_pathing_deviation_slope
 snd_steamaudio_baked_occlusion_pathing_exponent
+snd_steamaudio_baked_occlusion_probelookup_usealternate
 snd_steamaudio_baked_occlusion_reflection_factor
+snd_steamaudio_baked_occlusion_reflection_regularization
+snd_steamaudio_baked_occlusion_spatialfilter_mode
+snd_steamaudio_baked_occlusion_spatialfilter_radius_factor
+snd_steamaudio_custombake_dimensions_outsidefield_bake_enabled
+snd_steamaudio_custombake_dimensions_size_and_inout_bake_enabled
+snd_steamaudio_custombake_dimensions_smallsizefield_bake_enabled
+snd_steamaudio_custombake_occlusion_bidirectional
+snd_steamaudio_custombake_occlusion_numsimulations
 snd_steamaudio_default_hrtf_volume_gain
+snd_steamaudio_diagnostic_baked_occlusion_single_probe
+snd_steamaudio_dimensions_grid_height_max
+snd_steamaudio_dimensions_grid_height_spacing
+snd_steamaudio_dimensions_max_ray_length
 snd_steamaudio_enable_compressed_reverb_lookup
 snd_steamaudio_enable_custom_hrtf
 snd_steamaudio_enable_editor_profiling
@@ -5756,7 +5471,6 @@ snd_steamaudio_perspective_correction_factor
 snd_steamaudio_reverb_order
 snd_steamaudio_reverb_order_rendering
 snd_steamaudio_reverb_update_rate
-snd_steamaudio_use_soundblocking_shapes_only
 snmpv2
 socket
 source_file
@@ -7860,7 +7574,6 @@ steamaudio_customdata_filter_volumes
 steamaudio_customdata_generation_type
 steamaudio_customdata_grid_spacing
 steamaudio_customdata_height_above_floor
-steamaudio_customdata_occlusion_pathing
 steamaudio_customdata_occlusion_reflection
 steamaudio_customdata_occlusion_reflection_bounces
 steamaudio_customdata_occlusion_reflection_rays
@@ -10209,7 +9922,6 @@ x509_pkey
 x509_req
 x509_store
 xdigit
-xnV
 zero
 zlib compression
 {default arg#

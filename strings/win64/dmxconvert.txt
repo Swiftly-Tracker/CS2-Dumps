@@ -8,14 +8,17 @@
  Class Hierarchy Descriptor'
  Complete Object Locator'
  Type Descriptor'
+ \n_V_strncmp
  delete
  delete[]
  new
+!\n_V_strncpy
 "\nis running without a known mod!\n\nSet the VMOD environment variable or run with -game to set the mod name.\n
 "id" "elementid" 
 #AppFramework_InvalidLocalFiles
 #AppFramework_OutOfMemory
 #General_UnableToStartGame
+#\n_V_strnicmp_fast
 $prefix_attribute$
 $prefix_element$
 %-40s\t%6d\t%9d\t\t%5.2f
@@ -52,7 +55,6 @@ $prefix_element$
 %s: nLoadError: %d, RequestModule: %s, RequestInterface: %s, Module: %s, Interface: %s
 %s: no space for allocation of %u\n
 %s: unable to grow count by %u (currently %u)\n
-'\tV_fclose
 *** Converter error - element "%s" already has a non-int attribute "%s"!\n
 *** Element "%s" has attribute "%s" with an unexpected type!\n
 *** Log "%s" has attribute "%s" with an unexpected type (expected int array)!\n
@@ -66,7 +68,6 @@ $prefix_element$
 *****************: Cannot call CAppSystemDict::AddSystems without initializing first!\n
 *LANGUAGE*
 *StO9>T
-+\tV_fflush
 ---- dmxconvert cmdline ----\n
 ---- dmxconvert output ----\n
 -con_logfile
@@ -98,7 +99,6 @@ $prefix_element$
 .CRT$XPZ
 .CRT$XTA
 .CRT$XTZ
-.\tV_fileno
 .bss
 .data
 .data$r
@@ -142,19 +142,19 @@ $prefix_element$
 /src/
 0x%llx
 16-byte data pool
-2\tV_fopenUTF8
 3>N;kU
 4-byte data pool
 5sfm_v8
 8-byte data pool
 8text
 <!-- DMXVersion
+<\ng_pMemAlloc
+<\tV_atan2f
 <no failure reason set>
 <unknown>
 =imb;D
 ?DmeChannelsClip
 ?UUUUUU
-?\tV_ftell
 ?qBJ
 ?vtex
 ?ysB
@@ -164,7 +164,6 @@ ABCDEFGHIJKLMNOPQRSTUVWXYZ
 ADDONROOT
 ADDONS
 APPSYSTEM: In ConnectInterfaces(), s_nRegistrationCount is %d!\n
-A\tV_fwrite
 AcquireSRWLockExclusive
 AddUndoElement '%s'\n
 AddonConfig/RestrictFlatFileAddonsToTools
@@ -213,6 +212,7 @@ Audio
 Aug
 August
 BF>^G
+B\tV_atoi
 BakedLODBuilderMgr001
 BenchmarkService001
 Binary
@@ -227,6 +227,7 @@ C:\buildworker\csgo_rel_win64\build\src\public\appframework\tier2app.h
 C:\buildworker\csgo_rel_win64\build\src\public\tier0\tslist.h
 C:\buildworker\csgo_rel_win64\build\src\public\tier0\utldict.h
 C:\buildworker\csgo_rel_win64\build\src\public\tier0\utlrbtree.h
+C:\buildworker\csgo_rel_win64\build\src\tier2\utlstreambuffer.cpp
 C:\buildworker\csgo_rel_win64\build\src\utils\dmxconvert\dmxconvert.cpp
 CAppSystemDict::Connect( %-32s ) %8.3f msec
 CAppSystemDict::Init   ( %-32s ) %8.3f msec
@@ -331,9 +332,12 @@ CUtlMemoryBlockAllocator<char,class CMemAllocAllocator>::Alloc
 CUtlMemoryBlockAllocator<struct UtlRBTreeNode_t<struct CDmElementSerializationDictionary::ElementInfo_t,int>,class CMemAllocAllocator>::AddPage
 CUtlRBTreeBase
 CUtlStreamBuffer does not support TEXT_BUFFER's use CUtlBuffer\n
+CUtlStreamBuffer::FileWrite
+CUtlStreamBuffer::GrowAllocatedSize
+CUtlStreamBuffer::StreamPutOverflow
 CUtlSymbolTableLarge element limit of %u exceeded\n
 CVisibilityMgr
-Can't find '%s'
+Can't read '%s'
 Cannot run executable from '_build_' intermediate dir: %s
 Cannot unserialize a prefix element here (type "$prefix_element$")
 CheekH
@@ -428,6 +432,7 @@ DmeJoint
 DmeLight
 DmeLog
 DmeLogLayer
+DmeMaya
 DmeModel
 DmePackColorOperator
 DmeParticleOperator
@@ -482,6 +487,7 @@ EarlyInit_Tier0
 EconItemToolModel_001
 EditGameClassProps
 Element uses unknown element type %s\n
+Empty gameinfo file '%s'
 EmptyClipboard
 EncodePointer
 Encountered a circular dependency with library %s!\n
@@ -653,7 +659,6 @@ KeyValues: Can't serialize attribute of type %s into KeyValues files!\n
 KeyValues: Element uses unknown element type %s\n
 KeyValuesSystem
 L>ev
-LAYEREDGAMEROOT
 LCMapStringEx
 LCMapStringW
 LOCAL
@@ -661,7 +666,6 @@ LOG_DEVELOPER
 LOG_DEVELOPER_CONSOLE
 LOG_GENERAL
 Last two rows as percentage of total size %f %%:\n
-LayeredGameRoot
 LayeredOnMod
 Leaking %i elements\n
 LeaveCriticalSection
@@ -742,6 +746,7 @@ NetworkServerService_001
 NetworkService_001
 NetworkSystemVersion001
 No files match specification "%s"!\n
+No game directory specified
 No know mod!
 NoDefaultModPath
 Noise Scalar
@@ -801,7 +806,7 @@ Plat_OnExecutableExitingMain
 Plat_RegisterModule
 Plat_RelativeTicks
 Plat_RemoveFile
-Plat_SetGameDirectories
+Plat_SetGameDirectory
 Plat_ShutdownCOM
 Plat_TickDiffMilliSecF
 Plat_UnloadModule
@@ -822,6 +827,7 @@ Prefix element cannot contain element or element_array attributes. ('%s')
 Preset File
 Procedural
 PropertyEditorSystem_001
+Q\tV_fclose
 QueryPerformanceCounter
 RSDS*
 Radius Random
@@ -919,6 +925,7 @@ SetStdHandle
 SetUnhandledExceptionFilter
 SetWin32ConsoleColor
 SleepConditionVariableSRW
+SmartPropsSystem_001
 SoundOpSystem001
 SoundOpSystemEdit001
 SoundService_001
@@ -939,6 +946,7 @@ Source2V8System001
 StatsService_001
 SteamAudio001
 StereoFlip
+StreamPutOverflow
 Sun
 Sunday
 Symbol table:  %d entries %llu bytes\n
@@ -980,6 +988,7 @@ Tue
 Tuesday
 USER32.dll
 UUUUUU
+U\tV_fflush
 Unable to Start Game
 Unable to create unknown element %s!\n
 Unable to set type unless you're creating untyped elements!\n
@@ -1047,7 +1056,6 @@ V_StringToInt32
 V_StringToInt64
 V_StringToUint16
 V_StringToUint64
-V_UnqualifiedFileName
 Valve Map File
 ValveMain
 Velocity Inherit from Control Point
@@ -1074,20 +1082,28 @@ World Node Files
 WorldRendererMgr001
 WriteConsoleW
 WriteFile
+X\tV_fileno
 You are trying to mount addon '%s' but SetAllowAddonChanges is false which probably means you shouldn't be calling this directly.\n
 You are trying to unmount addon '%s', but SetAllowAddonChanges is false which probably means you should be using calling this directly.\n
 [%d] Aborting undo '%s'\n
 [%d] Popping undo '%s'\n
 [%d] Pushing undo '%s'\n
 [%s] Forced dmxconvert - Finished [%s] in %0.2f secs. Please re-save or upconvert this asset!\n
+\\tV_fopenUTF8
+\n_V_StringAfterPrefix
+\n_V_StringAfterPrefixCaseSensitive
+\n_V_strEndsWith
 \t-r argument does a recursive search if the in file specifies wildcards\n
 \t-upconvert will auto-check out the files. If -i is not specified, it will operate on all DMX files\n
 \tIf no output file is specified, dmx to dmx conversion will overwrite the input\n
 \tNAN encountered in element '%s' guid %s attribute '%s'!\n
 \tSupported DMX file encodings:\n
 \tSupported DMX file formats:\n
-\tV_atan2f
-\tV_atoi
+\tV_UnqualifiedFileName
+\tV_log2f
+\tV_powf
+\tV_qsort_s
+\tV_sincosf
 \tV_snprintf
 \tV_sscanf
 \tV_sscanf_s
@@ -1096,14 +1112,7 @@ You are trying to unmount addon '%s', but SetAllowAddonChanges is false which pr
 \tV_vsnprintf
 \tWarning
 \tWorldsize_Init
-\t_V_StringAfterPrefix
-\t_V_StringAfterPrefixCaseSensitive
-\t_V_strEndsWith
-\t_V_strncmp
-\t_V_strncpy
-\t_V_strnicmp_fast
 \tkE>fvw
-\v\ng_pMemAlloc
 __based(
 __cdecl
 __clrcall
@@ -1127,7 +1136,6 @@ _linked_type_
 _name
 _root_keyname
 `RTTI
-`\tV_log2f
 `anonymous namespace'
 `copy constructor closure'
 `default constructor closure'
@@ -1167,7 +1175,8 @@ abcdefghijklmnopqrstuvwxyz
 activeBookmarkSet
 addoninfo.txt
 addonroot
-addonroot_language
+addonroot_audiolanguage
+addonroot_uilanguage
 address family not supported
 address in use
 address not available
@@ -1724,9 +1733,10 @@ func_physbox
 function not supported
 functionName
 game
-game_language
+game_audiolanguage
 game_lowviolence
 game_nontools
+game_uilanguage
 gameinfo
 gameinfo.gi
 gameinfo_branchspecific.gi
@@ -1754,6 +1764,7 @@ hold_right
 host unreachable
 houdini
 hue
+i\tV_ftell
 identifier removed
 illegal byte sequence
 inappropriate io control operation
@@ -1787,6 +1798,7 @@ jointList
 jointTransforms
 jointWeights
 jointWeightsIndices
+k\tV_fwrite
 keyvalues
 keyvalues file
 keyvalues2
@@ -1878,7 +1890,6 @@ multilevelchannel
 n03>Pu
 nLayoffState
 nTries < 10000000
-n\tV_powf
 name
 nearclipplane
 network down
@@ -1921,6 +1932,7 @@ npcclass
 nullptr
 numTimeSteps
 officialaddonroot
+offseTime
 offset
 offsetTime
 one
@@ -1947,7 +1959,6 @@ ownerlog
 p4lib
 pFx
 pOC
-p\tV_qsort_s
 parentConstraint
 particle
 pathNodeName
@@ -1960,6 +1971,7 @@ path_particle_rope
 path_trajectory
 pattern
 pcf
+perforce.inf
 permission denied
 physics
 physicsSimplificationError
@@ -2086,7 +2098,6 @@ public: static void* KeyValues::operator new(uint64_t) (demangled)
 public: void CBufferString::MoveFrom(CBufferString&) (demangled)
 public: void CBufferString::Purge(int) (demangled)
 public: void CBufferString::SetPtr(char*, int, int, bool, bool) (demangled)
-public: void CBufferString::ToLowerFast(int) (demangled)
 public: void CUtlBinaryBlock::Set(void const*, int) (demangled)
 public: void CUtlBinaryBlock::SetLength(int) (demangled)
 public: void CUtlBuffer::EatWhiteSpace(void) (demangled)
@@ -2401,5 +2412,4 @@ wrinkle$0Indices
 wrinkleIndices
 write
 wrong protocol type
-z\tV_sincosf
 zero

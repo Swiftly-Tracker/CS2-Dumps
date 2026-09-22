@@ -144,6 +144,11 @@
 						data_type = "string"
 						value = "snd_musicvolume"
 					}
+					use_mode_music_volume = 
+					{
+						data_type = "bool"
+						value = "true"
+					}
 					volume_fade_initial_input_min = 
 					{
 						data_type = "float"
@@ -362,12 +367,139 @@
 			{
 				name = "set_builtins"
 				operator = "sos_set_builtins"
-				input_voicegraph = "csgo.music"
+				input_voicegraph = "csgo_music"
+			},
+			{
+				name = "music_mode"
+				operator = "convar_get"
+				convar = "snd_music_mode"
+			},
+			{
+				name = "music_mode_shifted"
+				operator = "math_float"
+				apply = "sub"
+				input1 = "@music_mode.output"
+				input2 = "1"
+			},
+			{
+				name = "music_mode_at_least_competitive"
+				operator = "math_float"
+				apply = "max"
+				input1 = "@music_mode_shifted.output"
+				input2 = "0"
+			},
+			{
+				name = "music_mode_clamped"
+				operator = "math_float"
+				apply = "min"
+				input1 = "@music_mode_at_least_competitive.output"
+				input2 = "4"
+			},
+			{
+				name = "music_mode_index"
+				operator = "math_float"
+				apply = "mult"
+				input1 = "@music_mode_clamped.output"
+				input2 = "@public.use_mode_music_volume"
+			},
+			{
+				name = "volume_convar_casual"
+				operator = "math_string"
+				input_execute = "@public.use_mode_music_volume"
+				apply = "add"
+				input1 = "@public.volume_convar"
+				input2 = "_casual"
+			},
+			{
+				name = "volume_convar_armsrace"
+				operator = "math_string"
+				input_execute = "@public.use_mode_music_volume"
+				apply = "add"
+				input1 = "@public.volume_convar"
+				input2 = "_armsrace"
+			},
+			{
+				name = "volume_convar_deathmatch"
+				operator = "math_string"
+				input_execute = "@public.use_mode_music_volume"
+				apply = "add"
+				input1 = "@public.volume_convar"
+				input2 = "_deathmatch"
+			},
+			{
+				name = "volume_convar_rush"
+				operator = "math_string"
+				input_execute = "@public.use_mode_music_volume"
+				apply = "add"
+				input1 = "@public.volume_convar"
+				input2 = "_rush"
+			},
+			{
+				name = "volume_competitive"
+				operator = "convar_get"
+				convar = "@public.volume_convar"
+			},
+			{
+				name = "volume_casual"
+				operator = "convar_get"
+				input_execute = "@public.use_mode_music_volume"
+				convar = "@volume_convar_casual.output_string"
+			},
+			{
+				name = "volume_armsrace"
+				operator = "convar_get"
+				input_execute = "@public.use_mode_music_volume"
+				convar = "@volume_convar_armsrace.output_string"
+			},
+			{
+				name = "volume_deathmatch"
+				operator = "convar_get"
+				input_execute = "@public.use_mode_music_volume"
+				convar = "@volume_convar_deathmatch.output_string"
+			},
+			{
+				name = "volume_rush"
+				operator = "convar_get"
+				input_execute = "@public.use_mode_music_volume"
+				convar = "@volume_convar_rush.output_string"
+			},
+			{
+				name = "volume_by_mode"
+				operator = "ctrl_switch12_float"
+				input_index = "@music_mode_index.output"
+				input0 = "@volume_competitive.output"
+				input1 = "@volume_casual.output"
+				input2 = "@volume_armsrace.output"
+				input3 = "@volume_deathmatch.output"
+				input4 = "@volume_rush.output"
+			},
+			{
+				name = "volume_convar_omitted"
+				operator = "math_string"
+				apply = "equal"
+				input1 = "@public.volume_convar"
+				input2 = "snd_musicvolume"
+			},
+			{
+				name = "mode_is_not_competitive"
+				operator = "math_float"
+				apply = "greater_than"
+				input1 = "@music_mode_index.output"
+				input2 = "0"
+			},
+			{
+				name = "use_omitted_fallback"
+				operator = "math_float"
+				apply = "mult"
+				input1 = "@volume_convar_omitted.output"
+				input2 = "@mode_is_not_competitive.output"
 			},
 			{
 				name = "snd_volume_convar"
-				operator = "convar_get"
-				convar = "@public.volume_convar"
+				operator = "ctrl_switch_float"
+				input1 = "@volume_by_mode.output"
+				input2 = "0.16"
+				input_switch = "@use_omitted_fallback.output"
 			},
 			{
 				name = "volume_equals_zero"

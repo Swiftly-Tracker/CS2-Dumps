@@ -1,0 +1,268 @@
+<!-- xml reconstructed by Source 2 Viewer 19.2.0.0 - https://valveresourceformat.github.io -->
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/gamestyles.vcss" />
+		<include src="s2r://panorama/styles/popups/popups_shared.vcss" />
+		<include src="s2r://panorama/styles/popups/pet_photo_library.vcss" />
+		<include src="s2r://panorama/styles/popups/popup_pet_book.vcss" />
+		<include src="s2r://panorama/styles/popups/pet_book_page_styles.vcss" />
+	</styles>
+	<scripts>
+		<include src="s2r://panorama/scripts/popups/pet_photo_tag.vts" />
+		<include src="s2r://panorama/scripts/popups/pet_photo_library.vts" />
+		<include src="s2r://panorama/scripts/popups/pet_book_turn.vts" />
+		<include src="s2r://panorama/scripts/popups/popup_pet_book.vts" />
+		<include src="s2r://panorama/scripts/popups/pet_book_pages.vts" />
+	</scripts>
+	<snippets>
+		<snippet name="page-cover">
+			<Panel class="pb-cover">
+				<Panel class="pb-cover__frame">
+					<Label class="pb-cover__title" text="#pet_book_title" />
+					<Label class="pb-cover__subtitle" text="#pet_book_subtitle" />
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="page-intro">
+			<Panel class="pb-page pb-page--intro">
+				<Panel class="pb-page--background-tiled pb-page__dressing" hittest="false" />
+				<Image class="pb-page__title-image pb-page__dressing" hittest="false" src="s2r://panorama/images/pet_book/just_hatched_png.vtex" scaling="stretch-to-fit-preserve-aspect" textureheight="64" texturewidth="-1" />
+				<Label class="pb-page__subtitle pb-page__dressing" text="{s:pet_name_1}" hittest="false" />
+				<Button class="pb-slot pb-slot--full" data-slot="0" />
+				<Label class="pb-page__caption pb-page__dressing" text="{s:hatch_date}" />
+			</Panel>
+		</snippet>
+		<snippet name="page-feet">
+			<Panel class="pb-page pb-page--feet">
+				<Panel class="pb-page--background-tiled pb-page__dressing" hittest="false" />
+				<Panel class="pb-page--feet__row pb-page__dressing" hittest="false">
+					<Image class="pb-slot--quad" scaling="stretch-to-fit-x-preserve-aspect" src="s2r://panorama/images/pet_book/feet_psd.vtex" />
+					<Panel class="pb-slot---feet-text pb-slot--quad">
+						<Label class="pb-page__paragraph stratum-regular-italic" data-paragraph="#pet_book_page_chick_feet" data-variants="8" />
+					</Panel>
+				</Panel>
+				<Panel class="pb-page--feet__row">
+					<Button class="pb-slot pb-slot--wide" data-slot="0" />
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="page-early-days">
+			<Panel class="pb-page pb-page--early-days">
+				<Button class="pb-slot pb-slot--full-page" data-slot="0" />
+				<Panel hittest="false" class="pb-page--early-days-text-container pb-page__dressing">
+					<Image hittest="false" class="pb-page__title-image pb-page__dressing" src="s2r://panorama/images/pet_book/early_days_png.vtex" scaling="stretch-to-fit-preserve-aspect" textureheight="128" texturewidth="-1" />
+					<Label hittest="false" class="pb-page__paragraph stratum-regular-italic" data-paragraph="#pet_book_page_chick_and_you" data-variants="8" />
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="page-chick-park">
+			<Panel class="pb-page pb-page--park">
+				<Panel hittest="false" class="pb-page--park-background pb-page__dressing" />
+				<Panel hittest="false" class="pb-page--background-tiled pb-page__dressing" />
+				<Label hittest="false" class="pb-page__paragraph stratum-regular-italic pb-page__dressing" data-paragraph="#pet_book_page_chick_park" data-variants="8" />
+				<Image hittest="false" class="pb-page--park-leaves pb-page__dressing" scaling="stretch-to-fit-x-preserve-aspect" src="s2r://panorama/images/pet_book/leaves_psd.vtex" />
+				<Image hittest="false" class="pb-page__title-image pb-page__dressing" src="s2r://panorama/images/pet_book/park_life_png.vtex" scaling="stretch-to-fit-preserve-aspect" textureheight="128" texturewidth="-1" />
+				<Button class="pb-slot pb-slot--full vertical-center" data-slot="0" />
+			</Panel>
+		</snippet>
+		<snippet name="page-teen-warehouse">
+			<Panel class="pb-page pb-page--teen-start">
+				<Panel hittest="false" class="pb-page--background-tiled pb-page__dressing" />
+				<Button class="pb-slot pb-slot--full" data-slot="0" />
+				<Panel class="pb-page__title-box">
+					<Image hittest="false" class="pb-page__title-image pb-page__dressing" src="s2r://panorama/images/pet_book/a_little_older_png.vtex" scaling="stretch-to-fit-preserve-aspect" textureheight="128" texturewidth="-1" />
+				</Panel>
+				<Image hittest="false" class="pb-page__border-image pb-page__dressing" src="s2r://panorama/images/pet_book/border_top.vsvg" scaling="stretch-to-fit-preserve-aspect" textureheight="128" texturewidth="-1" />
+				<Label hittest="false" class="pb-page__paragraph stratum-regular-italic pb-page__dressing" data-paragraph="#pet_book_page_adolescent_intro" data-variants="8" />
+			</Panel>
+		</snippet>
+		<snippet name="page-teen-trip-set-1">
+			<Panel class="pb-page pb-page--teen-trip">
+				<Panel hittest="false" class="pb-page--background pb-page__dressing" />
+				<Button class="pb-slot pb-slot--full" data-slot="0" />
+				<Panel hittest="false" class="pb-page__title-box">
+					<Image hittest="false" class="pb-page__title-image pb-page__dressing" src="s2r://panorama/images/pet_book/road_trip_png.vtex" scaling="stretch-to-fit-preserve-aspect" textureheight="128" texturewidth="-1" />
+				</Panel>
+				<Label hittest="false" class="pb-page__paragraph stratum-regular-italic pb-page__dressing" html="true" data-paragraph="#pet_book_page_adolescent_road_trip" data-variants="8" />
+			</Panel>
+		</snippet>
+		<snippet name="page-teen-trip-set-2">
+			<Panel class="pb-page pb-page--teen-trip">
+				<Panel hittest="false" class="pb-page--background map2 pb-page__dressing" />
+				<Button class="pb-slot pb-slot--full trip2" data-slot="0" />
+			</Panel>
+		</snippet>
+		<snippet name="page-birthday">
+			<Panel class="pb-page pb-page--birthday">
+				<Panel hittest="false" class="pb-page--background-tiled pb-page__dressing" />
+				<Button class="pb-slot pb-slot--full-page" data-slot="0" />
+				<Image hittest="false" class="pb-page__dressing ballons" src="s2r://panorama/images/pet_book/balloons_png.vtex" scaling="stretch-to-fit-preserve-aspect" textureheight="128" texturewidth="-1" />
+				<Image hittest="false" class="pb-page__dressing ballon-right" src="s2r://panorama/images/pet_book/balloon_1_png.vtex" scaling="stretch-to-fit-preserve-aspect" textureheight="128" texturewidth="-1" />
+				<Image hittest="false" class="pb-page__dressing ballon-left" src="s2r://panorama/images/pet_book/balloon_2_png.vtex" scaling="stretch-to-fit-preserve-aspect" textureheight="128" texturewidth="-1" />
+				<Label hittest="false" class="pb-page__paragraph stratum-regular-italic pb-page__dressing" data-paragraph="#pet_book_page_birthday" data-variants="8" />
+			</Panel>
+		</snippet>
+		<snippet name="page-adult-perch">
+			<Panel class="pb-page pb-page--adult-perch">
+				<Panel hittest="false" class="pb-page--background pb-page__dressing" />
+				<Button class="pb-slot pb-slot--full" data-slot="0" />
+				<Image hittest="false" class="pb-page__title-image pb-page__dressing" src="s2r://panorama/images/pet_book/wanted_psd.vtex" scaling="stretch-to-fit-preserve-aspect" textureheight="128" texturewidth="-1" />
+				<Image hittest="false" class="pb-page__line pb-page__dressing" src="s2r://panorama/images/pet_book/wanted_line_psd.vtex" scaling="stretch-to-fit-preserve-aspect" textureheight="128" texturewidth="-1" />
+				<Panel hittest="false" class="pb-page__paragraph-container pb-page__dressing">
+					<Label hittest="false" class="pb-page__paragraph stratum-regular-italic pb-page__dressing" data-paragraph="#pet_book_page_adult_perch" data-variants="8" />
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="page-adult-tricks">
+			<Panel class="pb-page pb-page--adult-tricks">
+				<Panel hittest="false" class="pb-page--background pb-page__dressing" />
+				<Button class="pb-slot pb-slot--full" data-slot="0" />
+				<Image hittest="false" class="pb-page__title-image pb-page__dressing" src="s2r://panorama/images/pet_book/spur_psd.vtex" scaling="stretch-to-fit-x-preserve-aspect" textureheight="128" texturewidth="-1" />
+				<Panel class="pb-page__paragraph-container pb-page__dressing">
+					<Label hittest="false" html="true" class="pb-page__billing pb-page__paragraph pb-page__dressing stratum-bold-italic" data-paragraph="#pet_book_page_adult_tricks_billing" data-variants="4" />
+					<Label hittest="false" class="pb-page__credits pb-page__paragraph pb-page__dressing stratum-bold-condensed" data-paragraph="#pet_book_page_adult_tricks_credits" data-variants="4" />
+					<Label hittest="false" html="true" class="pb-page__disclaimer pb-page__paragraph pb-page__dressing stratum-medium-condensed" data-paragraph="#pet_book_page_adult_tricks_disclaimer" data-variants="1" />
+				</Panel>
+				<Label hittest="false" html="true" class="pb-page__tagline pb-page__paragraph pb-page__dressing stratum-bold-italic" data-paragraph="#pet_book_page_adult_tricks_tagline" data-variants="8" />
+				<Image hittest="false" class="pb-page__poster pb-page__dressing" src="s2r://panorama/images/pet_book/poster_texture_png.vtex" scaling="stretch-to-fit-preserve-aspect" textureheight="128" texturewidth="-1" />
+			</Panel>
+		</snippet>
+		<snippet name="page-brave-fire">
+			<Panel class="pb-page pb-page--brave-fire">
+				<Panel hittest="false" class="pb-page--background-tiled pb-page__dressing" />
+				<Image hittest="false" class="pb-page__title-image pb-page__dressing" src="s2r://panorama/images/pet_book/flame_psd.vtex" scaling="stretch-to-fit-preserve-aspect" />
+				<Label hittest="false" class="pb-page__report-title left pb-page__dressing" text="#pet_book_page_brave_report_title_location" data-variants="1" />
+				<Label hittest="false" class="pb-page__report-title middle pb-page__dressing" text="#pet_book_page_brave_report_title_cause" data-variants="1" />
+				<Label hittest="false" class="pb-page__report-title right pb-page__dressing" text="#pet_book_page_brave_report_title_casualties" data-variants="1" />
+				<Label hittest="false" class="pb-page__report-info left pb-page__dressing" text="#pet_book_page_brave_fire_location" data-variants="1" />
+				<Label hittest="false" class="pb-page__report-info middle pb-page__dressing" text="#pet_book_page_brave_fire_cause" data-variants="1" />
+				<Label hittest="false" class="pb-page__report-info right pb-page__dressing" text="#pet_book_page_brave_fire_casualties" data-variants="1" />
+			</Panel>
+		</snippet>
+		<snippet name="page-brave-taser">
+			<Panel class="pb-page pb-page--brave-taser">
+				<Panel hittest="false" class="pb-page--background-tiled pb-page__dressing" />
+				<Image hittest="false" class="pb-page__title-image pb-page__dressing" src="s2r://panorama/images/pet_book/electric_psd.vtex" scaling="stretch-to-fit-preserve-aspect" />
+				<Label hittest="false" class="pb-page__report-title left pb-page__dressing" text="#pet_book_page_brave_report_title_location" data-variants="1" />
+				<Label hittest="false" class="pb-page__report-title middle pb-page__dressing" text="#pet_book_page_brave_report_title_cause" data-variants="1" />
+				<Label hittest="false" class="pb-page__report-title right pb-page__dressing" text="#pet_book_page_brave_report_title_casualties" data-variants="1" />
+				<Label hittest="false" class="pb-page__report-info left pb-page__dressing" text="#pet_book_page_brave_taser_location" data-variants="1" />
+				<Label hittest="false" class="pb-page__report-info middle pb-page__dressing" text="#pet_book_page_brave_taser_cause" data-variants="1" />
+				<Label hittest="false" class="pb-page__report-info right pb-page__dressing" text="#pet_book_page_brave_taser_casualties" data-variants="1" />
+			</Panel>
+		</snippet>
+		<snippet name="page-brave-c4">
+			<Panel class="pb-page pb-page--brave-c4">
+				<Panel hittest="false" class="pb-page--background-tiled pb-page__dressing" />
+				<Image hittest="false" class="pb-page__title-image pb-page__dressing" src="s2r://panorama/images/pet_book/feathers_psd.vtex" scaling="stretch-to-fit-preserve-aspect" />
+				<Label hittest="false" class="pb-page__report-title left pb-page__dressing" text="#pet_book_page_brave_report_title_location" data-variants="1" />
+				<Label hittest="false" class="pb-page__report-title middle pb-page__dressing" text="#pet_book_page_brave_report_title_cause" data-variants="1" />
+				<Label hittest="false" class="pb-page__report-title right pb-page__dressing" text="#pet_book_page_brave_report_title_casualties" data-variants="1" />
+				<Label hittest="false" class="pb-page__report-info left pb-page__dressing" text="#pet_book_page_brave_c4_location" data-variants="1" />
+				<Label hittest="false" class="pb-page__report-info middle pb-page__dressing" text="#pet_book_page_brave_c4_cause" data-variants="1" />
+				<Label hittest="false" class="pb-page__report-info right pb-page__dressing" text="#pet_book_page_brave_c4_casualties" data-variants="1" />
+			</Panel>
+		</snippet>
+		<snippet name="page-adult-close">
+			<Panel class="pb-page pb-page--adult-close">
+				<Panel hittest="false" class="pb-page--background pb-page__dressing" />
+				<Button class="pb-slot pb-slot--full" data-slot="0" />
+				<Image hittest="false" class="pb-page--frame pb-page__dressing" src="s2r://panorama/images/pet_book/gold_frame_psd.vtex" scaling="stretch-to-fit-preserve-aspect" textureheight="128" texturewidth="-1" />
+				<Image hittest="false" class="pb-page--text-frame pb-page__dressing" src="s2r://panorama/images/pet_book/text_frame.vsvg" scaling="stretch-to-fit-preserve-aspect" textureheight="128" texturewidth="-1" />
+				<Label hittest="false" class="pb-page__paragraph stratum-regular-italic pb-page__dressing" data-paragraph="#pet_book_page_adult_close" data-variants="8" />
+			</Panel>
+		</snippet>
+		<snippet name="page-free">
+			<Panel class="pb-page pb-page--free">
+				<Panel class="pb-page--background-tiled pb-page__dressing" hittest="false" />
+				<Panel class="pb-free-strip" />
+				<Panel class="pb-free-group" data-free="single">
+					<Button class="pb-slot pb-free-slot pb-free-slot--whole" data-slot="0" />
+				</Panel>
+				<Panel class="pb-free-group" data-free="pair">
+					<Button class="pb-slot pb-free-slot pb-free-slot--wide" data-slot="1" />
+					<Button class="pb-slot pb-free-slot pb-free-slot--wide" data-slot="2" />
+				</Panel>
+				<Panel class="pb-free-group" data-free="trio">
+					<Button class="pb-slot pb-free-slot pb-free-slot--cell" data-slot="3" />
+					<Button class="pb-slot pb-free-slot pb-free-slot--cell" data-slot="4" />
+					<Button class="pb-slot pb-free-slot pb-free-slot--wide" data-slot="5" />
+				</Panel>
+				<Panel class="pb-free-group" data-free="quad">
+					<Button class="pb-slot pb-free-slot pb-free-slot--cell" data-slot="6" />
+					<Button class="pb-slot pb-free-slot pb-free-slot--cell" data-slot="7" />
+					<Button class="pb-slot pb-free-slot pb-free-slot--cell" data-slot="8" />
+					<Button class="pb-slot pb-free-slot pb-free-slot--cell" data-slot="9" />
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="page-back">
+			<Panel class="pb-back">
+				<Label class="pb-back__label" text="#pet_book_the_end" />
+			</Panel>
+		</snippet>
+	</snippets>
+	<PopupCustomLayout class="PopupPanel Hidden" popupbackground="blur" onload="PetBook.Init()" oncancel="PetBook.Close();">
+		<Panel class="full-width full-height" onactivate="PetBookPages.CloseFrame()" />
+		<Panel class="pet-book-stage" hittest="false">
+			<Panel id="id-pb-library" class="pb-library">
+				<Label class="stratum-regular-condensed pb-library__title" text="#pet_book_library" />
+				<Panel id="id-photo-library-body" />
+				<Button id="id-pb-booth-btn" class="pb-library__booth-btn" onactivate="PetBook.OpenPhotoBooth();" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;id-pb-booth-btn&apos;, &apos;#pet_book_open_booth&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();">
+					<Image src="s2r://panorama/images/icons/ui/photo.vsvg" textureheight="28" texturewidth="-1" />
+				</Button>
+			</Panel>
+			<Panel class="pet-book-row-center" hittest="false">
+				<Panel id="id-pet-book" class="pet-book">
+					<Panel id="id-book-left" class="book-page book-page-left" onactivate="PetBookPages.CloseFrame()" />
+					<Panel id="id-book-right" class="book-page book-page-right" onactivate="PetBookPages.CloseFrame()" />
+					<Panel id="id-book-gutter" class="book-gutter" hittest="false" />
+					<Panel id="id-leaf-cast" class="book-leaf-cast" hittest="false" />
+					<Panel id="id-book-leaf" class="book-page book-leaf" hittest="false" hittestchildren="false">
+						<Panel id="id-leaf-front" class="book-leaf-face" />
+						<Panel id="id-leaf-back" class="book-leaf-face book-leaf-back" />
+						<Panel id="id-leaf-shade" class="book-leaf-shade" />
+					</Panel>
+				</Panel>
+			</Panel>
+			<Panel id="id-pet-book-bar" class="pet-book-bar">
+				<Label class="pet-book-bar__action-hint stratum-regular" text="#pet_book_drag_hint" />
+				<Panel id="id-pet-book-bar-buttons" class="pet-book-bar__buttons">
+					<Button id="id-pet-book-prev" class="pet-book-arrow" onactivate="PetBook.Prev()">
+						<Image class="pet-book-arrow__icon" scaling="stretch-to-fit-preserve-aspect" src="s2r://panorama/images/icons/ui/expand.vsvg" textureheight="16" texturewidth="-1" />
+					</Button>
+					<Panel id="id-pet-book-chapters" class="pet-book-bar__chapters" />
+					<Button id="id-pet-book-next" class="pet-book-arrow" onactivate="PetBook.Next()">
+						<Image class="pet-book-arrow__icon left" scaling="stretch-to-fit-preserve-aspect" src="s2r://panorama/images/icons/ui/expand.vsvg" textureheight="16" texturewidth="-1" />
+					</Button>
+					<Panel class="pet-book-counter" hittest="false">
+						<Label text="{s:label}" />
+					</Panel>
+				</Panel>
+			</Panel>
+			<Button id="id-pet-book-open-btn" class="pet-book-open-btn" onactivate="PetBook.Next()">
+				<Label class="stratum-regular" text="#pet_book_open" />
+			</Button>
+			<Label id="id-pet-book-hint" class="pet-book-hint" hittest="false" text="#pet_photo_booth_use" />
+		</Panel>
+		<Panel id="id-pb-frame-bar" class="pb-frame-bar">
+			<Panel class="pb-frame-bar__row">
+				<Image class="pb-frame-bar__icon" scaling="stretch-to-fit-preserve-aspect" src="s2r://panorama/images/icons/ui/zoom_in.vsvg" textureheight="16" texturewidth="-1" />
+				<Slider id="id-pb-frame-zoom" class="HorizontalSlider pet-slider" direction="horizontal" />
+			</Panel>
+			<Panel class="pb-frame-bar__row">
+				<Image class="pb-frame-bar__icon" scaling="stretch-to-fit-preserve-aspect" src="s2r://panorama/images/icons/ui/pan_image.vsvg" textureheight="16" texturewidth="-1" />
+				<Slider id="id-pb-frame-x" class="HorizontalSlider pet-slider" direction="horizontal" />
+			</Panel>
+			<Panel class="pb-frame-bar__row">
+				<Image class="pb-frame-bar__icon pb-frame-bar__icon--turned" scaling="stretch-to-fit-preserve-aspect" src="s2r://panorama/images/icons/ui/pan_image.vsvg" textureheight="16" texturewidth="-1" />
+				<Slider id="id-pb-frame-y" class="HorizontalSlider pet-slider" direction="horizontal" />
+			</Panel>
+			<TextButton id="id-pb-frame-reset" class="pet-reset-btn" text="#pet_photo_booth_reset" onactivate="PetBookPages.ResetFrame()" />
+		</Panel>
+		<Panel class="pet-book-buttons">
+			<TextButton id="id-pet-book-close-btn" class="PopupButton" text="#GameUI_Close" onactivate="PetBook.Close()" />
+			<TextButton id="id-pet-book-booth-btn" class="PopupButton" text="#pet_book_open_booth" onactivate="PetBook.OpenPhotoBooth()" />
+		</Panel>
+	</PopupCustomLayout>
+</root>

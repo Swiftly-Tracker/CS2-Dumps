@@ -6,15 +6,18 @@
  Class Hierarchy Descriptor'
  Complete Object Locator'
  Type Descriptor'
+ \n_V_strncmp
  delete
  delete[]
  new
+!\n_V_strncpy
 !m_bNeedsSort
 "\nis running without a known mod!\n\nSet the VMOD environment variable or run with -game to set the mod name.\n
 #AppFramework_InvalidLocalFiles
 #AppFramework_OutOfMemory
 #General_UnableToStartGame
 #SFUI_ItemInfo_FinishStyle_
+#\n_V_strnicmp_fast
 %02i/%02i %02i:%02i:%02i 
 %dS
 %lld
@@ -32,12 +35,10 @@
 %s: nLoadError: %d, RequestModule: %s, RequestInterface: %s, Module: %s, Interface: %s
 %s: no space for allocation of %u\n
 %s_music_kit
-'\tV_fclose
 *****************: Cannot call CAppSystemDict::AddSystems without initializing first!\n
 *.econitem
 *LANGUAGE*
 *StO9>T
-+\tV_fflush
 -con_logfile
 -consoleapp
 -consolelog
@@ -65,7 +66,6 @@
 .CRT$XPZ
 .CRT$XTA
 .CRT$XTZ
-.\tV_fileno
 .bss
 .data
 .data$r
@@ -106,15 +106,14 @@
 /content/
 /game/
 /src/
-2\tV_fopenUTF8
 3>N;kU
 <<ECONITEM_INSERT_COUPON_LOOTLIST>>
 <<ECONITEM_INSERT_EVERYTHING_SOURCE2_BUILD_HERE>>
+<\ng_pMemAlloc
 <no failure reason set>
 <unknown>
 =imb;D
 ?UUUUUU
-?\tV_ftell
 ?qBJ
 ?ysB
 A game file appears to be missing or corrupted.  In the Steam client go to the game's properties.  In the 'Local Files' tab select 'Verify Integrity of Game Cache' to have Steam double-check the game's installation.
@@ -123,7 +122,6 @@ ABCDEFGHIJKLMNOPQRSTUVWXYZ
 ADDONROOT
 ADDONS
 APPSYSTEM: In ConnectInterfaces(), s_nRegistrationCount is %d!\n
-A\tV_fwrite
 AcquireSRWLockExclusive
 AddonConfig/RestrictFlatFileAddonsToTools
 AddonConfig/UseOfficialAddons
@@ -206,7 +204,7 @@ CUtlMemoryBlockAllocator<char,class CMemAllocAllocator>::AddPage
 CUtlMemoryBlockAllocator<char,class CMemAllocAllocator>::Alloc
 CUtlSortVector<class CUtlString,class CUtlSortVectorDefaultLess<class CUtlString>,class CUtlVector<class CUtlString,int,class CUtlVectorMemory_Growable<class CUtlString,int,0> > >::InsertIfNotFound
 CUtlSymbolTableLarge element limit of %u exceeded\n
-Can't find '%s'
+Can't read '%s'
 Cannot run executable from '_build_' intermediate dir: %s
 ClientLocalServerAccess001
 ClientServerSharedHandleSystem001
@@ -235,6 +233,7 @@ EXECUTABLE_PATH
 EXPORTSYSTEM_INTERFACE_VERSION_001
 EarlyInit_Tier0
 EconItemToolModel_001
+Empty gameinfo file '%s'
 EncodePointer
 Encountered a circular dependency with library %s!\n
 EngineServiceMgr001
@@ -357,13 +356,11 @@ KeyValues3: pre-allocated array memory is too small for %u elements (%u bytes av
 KeyValues3: pre-allocated table memory is too small for %u members (%u bytes available, %u bytes needed)\n
 KeyValuesSystem
 L>ev
-LAYEREDGAMEROOT
 LCMapStringEx
 LCMapStringW
 LOG_DEVELOPER
 LOG_DEVELOPER_CONSOLE
 LOG_GENERAL
-LayeredGameRoot
 LayeredOnMod
 LeaveCriticalSection
 LoadLibraryExW
@@ -418,6 +415,7 @@ NetworkP2PService_001
 NetworkServerService_001
 NetworkService_001
 NetworkSystemVersion001
+No game directory specified
 No know mod!
 NoDefaultModPath
 Nov
@@ -463,15 +461,18 @@ Plat_NotifyOSAppIsNotHung
 Plat_OnExecutableExitingMain
 Plat_RegisterModule
 Plat_RelativeTicks
-Plat_SetGameDirectories
+Plat_SetGameDirectory
 Plat_ShutdownCOM
 Plat_TickDiffMilliSecF
 Plat_UnloadModule
 Plat_UnloadSDL
 PostProcessingSystem_001
 PropertyEditorSystem_001
+Q\tV_fclose
 QueryPerformanceCounter
 RSDSN
+R\fpp
+R\vpp
 RaiseException
 RegisterConCommand: Unknown error registering con command "%s"!\n
 RegisterConVar: Unknown error registering convar "%s"!\n
@@ -529,6 +530,7 @@ SetStdHandle
 SetUnhandledExceptionFilter
 SetWin32ConsoleColor
 SleepConditionVariableSRW
+SmartPropsSystem_001
 SoundOpSystem001
 SoundOpSystemEdit001
 SoundService_001
@@ -576,6 +578,7 @@ TryAcquireSRWLockExclusive
 Tue
 Tuesday
 UUUUUU
+U\tV_fflush
 Unable to Start Game
 UnhandledExceptionFilter
 Unknown
@@ -618,7 +621,6 @@ V_StringToFloat64
 V_StringToInt32
 V_StringToInt64
 V_StringToUint64
-V_UnqualifiedFileName
 Video
 VisBuilder_001
 Vrad3_001
@@ -633,21 +635,22 @@ WorldRendererMgr001
 WriteConsoleW
 WriteFile
 Wrote '%s'.\n
+X\tV_fileno
 You are trying to mount addon '%s' but SetAllowAddonChanges is false which probably means you shouldn't be calling this directly.\n
 You are trying to unmount addon '%s', but SetAllowAddonChanges is false which probably means you should be using calling this directly.\n
+\\tV_fopenUTF8
+\n_V_StringAfterPrefix
+\n_V_strEndsWith
+\tV_UnqualifiedFileName
+\tV_qsort
+\tV_qsort_s
 \tV_snprintf
 \tV_sscanf
 \tV_stricmp_fast
 \tV_vsnprintf
 \tWarning
 \tWorldsize_Init
-\t_V_StringAfterPrefix
-\t_V_strEndsWith
-\t_V_strncmp
-\t_V_strncpy
-\t_V_strnicmp_fast
 \tkE>fvw
-\v\ng_pMemAlloc
 _Anodized
 _AnodizedAirbrushed
 _AnodizedMulticolor
@@ -729,7 +732,8 @@ _root_keyname
 abcdefghijklmnopqrstuvwxyz
 addoninfo.txt
 addonroot
-addonroot_language
+addonroot_audiolanguage
+addonroot_uilanguage
 address family not supported
 address in use
 address not available
@@ -826,15 +830,18 @@ filesystem_stdio
 friendly_name
 function not supported
 game
-game_language
+game_audiolanguage
 game_lowviolence
 game_nontools
+game_uilanguage
 gameinfo
 gameinfo.gi
 gameinfo_branchspecific.gi
 generic
 group
 host unreachable
+i\tV_ftell
+icon_base
 identifier removed
 illegal byte sequence
 image_inventory
@@ -851,6 +858,7 @@ item_name
 item_rarity
 item_sets
 items
+k\tV_fwrite
 keychain_definitions
 keychain_material
 loc_description
@@ -894,7 +902,6 @@ not connected
 not enough memory
 not supported
 nullptr
-o\tV_qsort
 officialaddonroot
 operation canceled
 operation in progress
@@ -908,10 +915,10 @@ operator<=>
 owner dead
 pFx
 pOC
-p\tV_qsort_s
 paint_kits
 paint_kits_rarity
 pedestal_display_model
+perforce.inf
 permission denied
 prefabs
 private: TSLNodeBase_t* CTSListBase::InternalPop(void) (demangled)
@@ -983,7 +990,6 @@ public: static void KeyValues::operator delete(void*) (demangled)
 public: static void* KeyValues::operator new(uint64_t) (demangled)
 public: void CBufferString::MoveFrom(CBufferString&) (demangled)
 public: void CBufferString::Purge(int) (demangled)
-public: void CBufferString::ToLowerFast(int) (demangled)
 public: void CUtlString::Acquire(CBufferString*, bool) (demangled)
 public: void CUtlString::Append(char const*) (demangled)
 public: void CUtlString::Set(char const*) (demangled)
@@ -996,6 +1002,7 @@ publish_data
 publish_data.txt
 purecall
 r\tVr.>T
+r\vpp
 range check failure
 read only file system
 reserved_item_index

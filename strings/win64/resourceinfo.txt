@@ -47,6 +47,7 @@
  UAV
  Xia
  [unused by shader]
+ \n_V_strncmp
  _GDK\tZ
  characters
  delete
@@ -77,6 +78,7 @@
 !5!A!I!O!Y![!_!s!}!
 !AECO
 !HRN
+!\n_V_strncpy
 !expected_len || s->s3->previous_client_finished_len
 !expected_len || s->s3->previous_server_finished_len
 !fUY\n
@@ -97,7 +99,9 @@
 #AppFramework_InvalidLocalFiles
 #AppFramework_OutOfMemory
 #General_UnableToStartGame
+#\n_V_strnicmp_fast
 #\t#\v#'#)#/#3#5#E#Q#S#Y#c#k#
+#\tV_ZSTD_compress
 #\v+(bF&drJ:x#
 #k+ka\T
 #lyj
@@ -109,6 +113,7 @@ $GIRu
 $HypYkf
 $Ib?s
 $JXsZ
+$\tV_ZSTD_compressBound
 $d`D-laM
 $g#8lu#
 $prefix_attribute$
@@ -269,7 +274,6 @@ $prefix_element$
 '5'7'M'S'U'_'k'm's'w'
 '6J~U\fm
 'DAE
-'\tV_fclose
 'g0dW
 'id' or 'name' missing
 'pSN.F
@@ -322,6 +326,7 @@ $prefix_element$
 *UlS
 *Y$ve
 *\fhsD
+*\tV_ZSTD_decompress
 *gFBk
 *hbJ1
 *kf[R
@@ -330,7 +335,6 @@ $prefix_element$
 +(#\v&dbF:xrJ'$#
 +Auto Tags
 +Sgs
-+\tV_fflush
 +gC&s
 , Type=
 , path=
@@ -644,6 +648,7 @@ $prefix_element$
 .\crypto\x509v3\v3_skey.c
 .\crypto\x509v3\v3_sxnet.c
 .\crypto\x509v3\v3_utl.c
+.\ng_Mathlib_GammaToLinearByteTable
 .\ssl\d1_both.c
 .\ssl\d1_clnt.c
 .\ssl\d1_lib.c
@@ -670,7 +675,6 @@ $prefix_element$
 .\ssl\t1_ext.c
 .\ssl\t1_lib.c
 .\ssl\t1_reneg.c
-.\tV_fileno
 .bmxz
 .bss
 .data
@@ -752,7 +756,6 @@ $prefix_element$
 2Uiwp"9
 2\fWQx
 2\rlhp
-2\tV_fopenUTF8
 2cb:RO
 2prB
 3%3+3/353A3G3[3_3g3k3s3y3
@@ -859,6 +862,8 @@ $prefix_element$
 <UNKNOWN>
 <YGr+
 <YVtV&
+<\ng_pMemAlloc
+<\tV_atan2f
 <array: %u elements>
 <binary blob: %u bytes>
 <ellipsis>
@@ -884,6 +889,7 @@ $prefix_element$
 >#>)>/>3>A>W>c>e>w>
 >4|6eXg_e
 >Sem
+>\ng_pThreadPool
 >\v?\r?7?;?=?A?Y?_?e?g?y?}?
 >fN46R^
 >l\rur
@@ -895,7 +901,6 @@ $prefix_element$
 ?HAI\t81\t9dcG'
 ?UUUUUU
 ?VBH;
-?\tV_ftell
 ?dt]X
 ?expf
 ?gwL
@@ -1129,7 +1134,6 @@ AW:S
 AWe
 AWt.
 A\rjW
-A\tV_fwrite
 AbW_
 Abi
 AcG\nt
@@ -1356,6 +1360,7 @@ BUF_strndup
 BY_FILE_CTRL
 BY_Lq)
 BZZn\rN]#8f'
+B\tV_atoi
 Bad KV3 data (%s)
 Bad boolean\n
 Bad compression
@@ -1413,6 +1418,7 @@ C:\buildworker\csgo_rel_win64\build\src\public\tier0\utlrbtree.h
 C:\buildworker\csgo_rel_win64\build\src\public\tier0\utlsortvector.h
 C:\buildworker\csgo_rel_win64\build\src\public\vpklib\packedstore.h
 C:\buildworker\csgo_rel_win64\build\src\texturelib\extract.cpp
+C:\buildworker\csgo_rel_win64\build\src\tier2\utlstreambuffer.cpp
 C:\buildworker\csgo_rel_win64\build\src\utils\resourceinfo\resourceinfo.cpp
 C:\buildworker\csgo_rel_win64\build\src\vpklib\packedstore.cpp
 CA Compromise
@@ -1760,6 +1766,9 @@ CUtlMemoryBlockAllocator<struct UtlRBTreeNode_t<struct CDmElementSerializationDi
 CUtlRBTreeBase
 CUtlSortVector<struct ChunkHashFraction_t,class CUtlSortVectorDefaultLess<struct ChunkHashFraction_t::SortKey_t>,class CUtlVector<struct ChunkHashFraction_t,int,class CUtlVectorMemory_Growable<struct ChunkHashFraction_t,int,0> > >::Find
 CUtlStreamBuffer does not support TEXT_BUFFER's use CUtlBuffer\n
+CUtlStreamBuffer::FileWrite
+CUtlStreamBuffer::GrowAllocatedSize
+CUtlStreamBuffer::StreamPutOverflow
 CUtlString
 CUtlSymbolTableLarge element limit of %u exceeded\n
 CUtlVector
@@ -1774,7 +1783,7 @@ C\tr9rW
 Cam\v;
 Camellia(128)
 Camellia(256)
-Can't find '%s'
+Can't read '%s'
 Cannot allocate abstract class
 Cannot find buffer data for block %i\n
 Cannot run executable from '_build_' intermediate dir: %s
@@ -1811,6 +1820,7 @@ Code Signing
 Code=
 Cofactor: 
 Color
+Color Consistency Partition %d MinBright %f
 Color Fade
 Color Light From Control Point
 Color Random
@@ -2149,6 +2159,7 @@ DeregisterEventSource
 Detail Prop Type
 Dgl
 DhO
+Dho
 Dhq0\ri
 Different CRL scope
 Diffie-Hellman based MAC
@@ -2202,6 +2213,7 @@ DmeJoint
 DmeLight
 DmeLog
 DmeLogLayer
+DmeMaya
 DmeModel
 DmePackColorOperator
 DmeParticleOperator
@@ -2549,6 +2561,7 @@ EjNG
 ElR
 Element uses unknown element type %s\n
 Email address mismatch
+Empty gameinfo file '%s'
 Empty inputlist '%s'\n
 EmptyClipboard
 Encipher Only
@@ -2687,15 +2700,15 @@ FloatBitMap_t::LoadFromBuffer: Received improper buffer size, skipping!\n
 FloatBitMap_t::LoadFromBuffer: Unsupported color format, skipping!\n
 FloatBitMap_t::WriteInMemoryEXRFast
 FloatBitMap_t::WriteInMemoryEXRFast(), C:\buildworker\csgo_rel_win64\build\src\bitmap\tinyexr_impl.cpp:170
-FloatBitMap_t::WriteToBuffer(1191): Unsupported color format "%s", skipping!\n
+FloatBitMap_t::WriteToBuffer(1195): Unsupported color format "%s", skipping!\n
 FloatBitMap_t::WriteToBuffer: Received improper buffer size %s (expecting %s), skipping!\n
-FloatBitMap_t::WriteToBufferBC7_bc7e(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2124
-FloatBitMap_t::WriteToBufferBC7_ispctexcomp(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2236
-FloatBitMap_t::WriteToBufferDXT_atitc(1249): Error! Temp texture is %d bytes when ATI's lib requires %d bytes!\n
-FloatBitMap_t::WriteToBufferDXT_atitc(1334): Unsupported output color format "%s"!\n
-FloatBitMap_t::WriteToBufferDXT_atitc(1343): Error! Allocated %llu bytes when ATI's lib requires %d bytes!\n
-FloatBitMap_t::WriteToBufferDXT_atitc(1351): Error %d returned from ATI_TC_ConvertTexture()!\n
-FloatBitMap_t::WriteToBufferETC(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2360
+FloatBitMap_t::WriteToBufferBC7_bc7e(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2146
+FloatBitMap_t::WriteToBufferBC7_ispctexcomp(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2258
+FloatBitMap_t::WriteToBufferDXT_atitc(1253): Error! Temp texture is %d bytes when ATI's lib requires %d bytes!\n
+FloatBitMap_t::WriteToBufferDXT_atitc(1338): Unsupported output color format "%s"!\n
+FloatBitMap_t::WriteToBufferDXT_atitc(1347): Error! Allocated %llu bytes when ATI's lib requires %d bytes!\n
+FloatBitMap_t::WriteToBufferDXT_atitc(1355): Error %d returned from ATI_TC_ConvertTexture()!\n
+FloatBitMap_t::WriteToBufferETC(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2382
 FlsAlloc
 FlsFree
 FlsGetValue
@@ -3065,7 +3078,6 @@ JMZ
 JOINT-ISO-ITU-T
 JPQv
 J\nHBF
-J\tV_isdigit_str
 J`KL
 Jan
 January
@@ -3143,7 +3155,6 @@ L5^x|S
 L>ev
 L?UUUUUUU?
 LAM\rhaI)|pL<
-LAYEREDGAMEROOT
 LBE
 LBN6
 LCMapStringEx
@@ -3169,7 +3180,6 @@ LWW>
 LWc
 LXKQ
 Last two rows as percentage of total size %f %%:\n
-LayeredGameRoot
 LayeredOnMod
 LbWf
 Leaking %i elements\n
@@ -3234,7 +3244,9 @@ MEMORY_LOCK
 MEM_READ
 MEM_WRITE
 MESH_BUFFER_USAGE_ADJACENCY
+MESH_BUFFER_USAGE_ALIAS_TABLE
 MESH_BUFFER_USAGE_IB
+MESH_BUFFER_USAGE_MESHLETS
 MESH_BUFFER_USAGE_MESHLET_TRIS
 MESH_BUFFER_USAGE_NONE
 MESH_BUFFER_USAGE_RT_PROXY
@@ -3482,6 +3494,7 @@ Nhk
 NjF
 Nly
 NmA
+No game directory specified
 No know mod!
 NoDefaultModPath
 Noise Scalar
@@ -3889,7 +3902,7 @@ Plat_OnExecutableExitingMain
 Plat_RegisterModule
 Plat_RelativeTicks
 Plat_RemoveFile
-Plat_SetGameDirectories
+Plat_SetGameDirectory
 Plat_ShutdownCOM
 Plat_TickDiffMilliSecF
 Plat_TickDiffSecF
@@ -3947,6 +3960,7 @@ QGA
 QGF
 QTk$
 QWQ
+Q\tV_fclose
 Q`uV
 Qad
 Qdsma
@@ -3958,6 +3972,7 @@ Qpr2
 QrQ
 QsH
 QtJ\f?
+Quantize to %d Values
 QueryPerformanceCounter
 QueryPerformanceFrequency
 Qwb
@@ -4230,7 +4245,6 @@ RSDS
 RVN
 RVs
 R\r1>Vp
-R\vpl
 R]Di
 RaC
 RaN
@@ -4572,6 +4586,7 @@ Should we try to straighten an island of faces deviating from their average norm
 Should we try to straighten two faces connected to this edge? (tangent)
 Signature verification failed.
 SleepConditionVariableSRW
+SmartPropsSystem_001
 Sn^G
 SoundOpSystem001
 SoundOpSystemEdit001
@@ -4597,6 +4612,7 @@ Start fade out size
 StatsService_001
 SteamAudio001
 StereoFlip
+StreamPutOverflow
 Strong Extranet ID
 SuN
 SuO
@@ -4806,6 +4822,7 @@ UUUUUUUUUUUa\f\v
 UVWQ8888
 UWZ
 UZg
+U\tV_fflush
 U^Pg
 Ugi<
 Uma
@@ -4826,6 +4843,7 @@ Unknown
 Unknown compressed mip format
 Unknown exception
 Unknown version %d for vpk %s
+Unmodified
 UnmountAddon: Failed to find %s search path.\n
 Uno
 Unprocessed type %d\n
@@ -4951,6 +4969,7 @@ VTEX_FORMAT_R11_EAC
 VTEX_FORMAT_R16
 VTEX_FORMAT_R16F
 VTEX_FORMAT_R32F
+VTEX_FORMAT_R32_UINT
 VTEX_FORMAT_RG11_EAC
 VTEX_FORMAT_RG1616
 VTEX_FORMAT_RG1616F
@@ -5000,18 +5019,13 @@ V_StringToQAngle
 V_StringToUint16
 V_StringToUint32
 V_StringToUint64
-V_StringToUint8
 V_StringToVector
 V_StringToVector2D
 V_StringToVector4D
 V_StringToVectorWS
+V_UInt16ToString_Unsafe
 V_UInt32ToString_Unsafe
 V_UInt64ToString_Unsafe
-V_UInt8ToString_Unsafe
-V_UTF16ToUTF8
-V_UnqualifiedFileName
-V_ZSTD_compress
-V_ZSTD_compressBound
 V_a|I
 Value indicating if the model's up direction should be matched to the surface. Value should be in the [ 0, 1 ] range, where 0 means that the model up will be model (or object space) up and will ignore the surface direction, and 1 indicates that the model up will exactly match the surface normal.
 Valve Map File
@@ -5263,6 +5277,7 @@ XSK
 XVR
 XYD%
 X\tQo
+X\tV_fileno
 Xd3h
 XfJ7
 Xha
@@ -5301,6 +5316,7 @@ You are trying to unmount addon '%s', but SetAllowAddonChanges is false which pr
 You must type in 
 You need to read the OpenSSL FAQ, http://www.openssl.org/support/faq.html
 Ys/MA
+YtY
 Yto
 Yxo
 Z#Pe
@@ -5343,6 +5359,7 @@ Zpwz
 \U%04lX
 \W%08lX
 \\MVT
+\\tV_fopenUTF8
 \f%\f/\f1\fA\f[\f_\fa\fm\fs\fw\f
 \f<<0A1pq
 \fXu"L
@@ -5372,6 +5389,10 @@ Zpwz
 \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
 \n\tIPSec/IKE/Oakley curve #3 over a 155 bit binary field.\n\tNot suitable for ECDSA.\n\tQuestionable extension field!
 \n\tIPSec/IKE/Oakley curve #4 over a 185 bit binary field.\n\tNot suitable for ECDSA.\n\tQuestionable extension field!
+\n_MakeGlobalSymbol
+\n_V_StringAfterPrefix
+\n_V_StringAfterPrefixCaseSensitive
+\n_V_strEndsWith
 \nh?oT
 \nk>oB
 \nqYu
@@ -5379,7 +5400,6 @@ Zpwz
 \r!\r+\r-\r=\r?\rO\rU\ri\ry\r
 \r@h!Aq8
 \rB6uZ
-\rINVALID
 \rKT8v
 \rLAM
 \rMinghuaQu\f
@@ -5388,12 +5408,12 @@ Zpwz
 \rWhO
 \rY=QX
 \rYYHl
-\r\ng_pThreadPool
 \r\r\r\r\r\r
 \r^mX
 \rjwB\t
 \roKK
 \rrCj
+\rtext
 \sG7tPD
 \t                      by the engine DLL's, and game DLL's if mod is specified.  
 \t                   [ %i coefficients ]\n
@@ -5491,13 +5511,17 @@ Zpwz
 \tSpecified extraction type "%s" not supported for resource type %s!\n
 \tVPK File % 4d: /%s\n
 \tVTEX Version = %d\n
-\tV_ZSTD_decompress
-\tV_atan2f
-\tV_atoi
+\tV_UnqualifiedFileName
+\tV_log2f
+\tV_powf
+\tV_qsort
+\tV_qsort_s
+\tV_sincosf
 \tV_snprintf
 \tV_sscanf
 \tV_sscanf_s
 \tV_stricmp_fast
+\tV_strtoui64
 \tV_tanf
 \tV_vsnprintf
 \tVertex Buffer%s\n
@@ -5517,6 +5541,7 @@ Zpwz
 \t\tTotal Size = %s
 \t\tTriangles = %i\n
 \t\tUsage = %s\n
+\t\tV_UTF16ToUTF8
 \t\tVertexSize = %i bytes\n
 \t\tVertices = %i\n
 \t\t[-b <block id>]\n
@@ -5534,15 +5559,7 @@ Zpwz
 \t\t\tLZ4HC level %i, %i->%i (%02i%% -%s) in %.1fms (%.2fmb/sec)\n
 \t\t\tZSTD level %i, %i->%i (%02i%% -%s) in %.1fms (%.2fmb/sec)\n
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t_MakeGlobalSymbol
-\t_V_StringAfterPrefix
-\t_V_StringAfterPrefixCaseSensitive
-\t_V_strEndsWith
-\t_V_strncmp
-\t_V_strncpy
-\t_V_strnicmp_fast
 \tcQr
-\tg_Mathlib_GammaToLinearByteTable
 \tkE>fvw
 \tm_flDuration  = %.6f\n
 \tm_loopStart   = %d\n
@@ -5557,7 +5574,6 @@ Zpwz
 \vHCK/
 \vNCE\v
 \vUY6[E
-\v\ng_pMemAlloc
 \v\vTSG
 \v\v\v
 ]1h=bfz
@@ -5618,7 +5634,6 @@ _}eOk
 `ITS
 `RTTI
 `VX:H
-`\tV_log2f
 `adjustor{
 `anonymous namespace'
 `copy constructor closure'
@@ -5724,7 +5739,8 @@ adding object
 additional verification
 addoninfo.txt
 addonroot
-addonroot_language
+addonroot_audiolanguage
+addonroot_uilanguage
 address family not supported
 address in use
 address not available
@@ -7483,9 +7499,10 @@ g]i/H
 game
 game:tools/images/assettypes/generic_lg.png
 game:tools/images/assettypes/generic_sm.png
-game_language
+game_audiolanguage
 game_lowviolence
 game_nontools
+game_uilanguage
 gameinfo
 gameinfo.gi
 gameinfo_branchspecific.gi
@@ -7650,6 +7667,7 @@ iOJ
 iSXc
 iU[&l
 iVY2L
+i\tV_ftell
 ia5org
 ia7@\t H9
 iah
@@ -8196,6 +8214,7 @@ kUx
 kV!DA
 kVV\t/
 kXZ
+k\tV_fwrite
 k^ZP
 ka`O
 kdf parameter error
@@ -8486,6 +8505,7 @@ m_bPresentInGameTree
 m_bPreventDirectCompile
 m_bShouldCompileErrorFallbackToDisk
 m_bShowInRevisionSubMenu
+m_bShowInToolsMenu
 m_bSuppressFullFingerprintCalculation
 m_bTagHidesAssetByDefault
 m_bTagIndicatesRejectedAsset
@@ -8511,6 +8531,7 @@ m_flStartFadeSize
 m_flWeight
 m_indexBuffers
 m_inputLayoutFields
+m_nAssetThumbnailVersion
 m_nAssetTypeVersion
 m_nBlockIndex
 m_nBufferUsage
@@ -8732,7 +8753,6 @@ nSw
 nSw}Z\tu
 nTries < 10000000
 nWW
-n\tV_powf
 n]?iJ
 naH
 name
@@ -8968,7 +8988,6 @@ oIP
 oMinghuaQu
 oVD
 oWnS
-o\tV_qsort
 oad2:,
 oaep
 oaep decoding error
@@ -8985,6 +9004,7 @@ odMsh
 odd number of chars
 odd number of digits
 officialaddonroot
+offseTime
 offset
 offsetTime
 oi3o
@@ -9077,6 +9097,8 @@ p.ppBasis
 p.prime
 p.tpBasis
 p4diff
+p>TI(
+p>sI(
 p@0pqE5tsO?|1
 pAv
 pD4t
@@ -9096,7 +9118,6 @@ pSourceFunc
 pSpecified
 pU>\AL
 pYc
-p\tV_qsort_s
 packet length too long
 padding check failed
 pagerTelephoneNumber
@@ -9153,6 +9174,7 @@ peer error unsupported certificate type
 peer key error
 pem name bad prefix
 pem name too short
+perforce.inf
 permission denied
 permitted
 permitted subtree violation
@@ -10346,6 +10368,7 @@ tNt5
 tTH
 tTx
 tYC
+t\tV_isdigit_str
 table
 tag mismatch
 tag value too high
@@ -10380,7 +10403,6 @@ template-parameter-
 texcoord
 texcoord$0
 texcoord$0Indices
-text
 text file busy
 text/plain
 text:
@@ -10963,7 +10985,6 @@ zOc
 zRXU 
 zUn
 zXc
-z\tV_sincosf
 zcl
 zero
 zlVO

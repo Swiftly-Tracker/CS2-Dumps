@@ -168,6 +168,27 @@
 	visibility: collapse;
 }
 
+.itemtile-store .itemtile-store__container .itemtile-store__claim-cost-hint
+{
+	margin: 0px 4px;
+	padding: 2px 4px;
+	width: 100%;
+	font-size: 11px;
+	background-color: rgba(0, 0, 0, 0.525);
+	color: rgb(174, 174, 174);
+	visibility: collapse;
+}
+
+.claim-cost-2.itemtile-store .itemtile-store__container .itemtile-store__claim-cost-hint
+{
+	visibility: visible;
+}
+
+.store-closed .claim-cost-2.itemtile-store .itemtile-store__container .itemtile-store__claim-cost-hint
+{
+	visibility: collapse;
+}
+
 .itemtile-store .itemtile-store__container .itemtile-store__inspect
 {
 	vertical-align: bottom;
@@ -202,6 +223,11 @@
 	transition-property: wash-color, opacity;
 	transition-duration: .2s;
 	transition-timing-function: ease-in-out;
+}
+
+.itemtile-store .itemtile-store__container .itemtile-store__select--second
+{
+	margin-left: 44px;
 }
 
 .itemtile-store:hover:not(.is-drop-item)
@@ -288,6 +314,16 @@
 }
 
 .itemtile-store.is-drop-item:not(.disabled) .itemtile-store__select
+{
+	visibility: visible;
+}
+
+.itemtile-store.is-drop-item:not(.disabled) .itemtile-store__select--second
+{
+	visibility: collapse;
+}
+
+.itemtile-store.claim-cost-2.is-drop-item:not(.disabled) .itemtile-store__select--second
 {
 	visibility: visible;
 }
@@ -636,6 +672,36 @@
 	background-color: gradient( linear, 0% 0%, 100% 0%, from( #216913 ), to( positiveColor ));
 	height: 24px;
 	width: 130px;
+}
+
+.itemtile-store__claimed .itemtile-store__claimed__text_expired
+{
+	visibility: collapse;
+}
+
+.item-claimed.item-claimslot-expired .itemtile-store__claimed .itemtile-store__claimed__left,.item-claimed.item-claimslot-expired .itemtile-store__claimed .itemtile-store__claimed__right
+{
+	wash-color: #664100;
+}
+
+.item-claimed.item-claimslot-expired .itemtile-store__claimed .itemtile-store__claimed__right
+{
+	wash-color: #b7b710;
+}
+
+.item-claimed.item-claimslot-expired .itemtile-store__claimed .itemtile-store__claimed__center
+{
+	background-color: gradient( linear, 0% 0%, 100% 0%, from( #664100 ), to( #b7b710 ));
+}
+
+.item-claimed.item-claimslot-expired .itemtile-store__claimed .itemtile-store__claimed__text_expired
+{
+	visibility: visible;
+}
+
+.item-claimed.item-claimslot-expired .itemtile-store__claimed .itemtile-store__claimed__text_claimed
+{
+	visibility: collapse;
 }
 
 .itemtile-store__reveal

@@ -1,28 +1,30 @@
 <!-- xml reconstructed by Source 2 Viewer 19.2.0.0 - https://valveresourceformat.github.io -->
 <root>
 	<styles>
-		<include src="s2r://panorama/styles/csgostyles.vcss_c" />
-		<include src="s2r://panorama/styles/mainmenu.vcss_c" />
-		<include src="s2r://panorama/styles/scoreboard.vcss_c" />
+		<include src="s2r://panorama/styles/csgostyles.vcss" />
+		<include src="s2r://panorama/styles/mainmenu.vcss" />
+		<include src="s2r://panorama/styles/scoreboard.vcss" />
 	</styles>
 	<scripts>
-		<include src="s2r://panorama/scripts/common/promoted_settings.vts_c" />
-		<include src="s2r://panorama/scripts/generated/items_event_current_generated_store.vts_c" />
-		<include src="s2r://panorama/scripts/mock_adapter.vts_c" />
-		<include src="s2r://panorama/scripts/particle_controls.vts_c" />
-		<include src="s2r://panorama/scripts/inspect.vts_c" />
-		<include src="s2r://panorama/scripts/new_news_entry_check.vts_c" />
-		<include src="s2r://panorama/scripts/mainmenu.vts_c" />
-		<include src="s2r://panorama/scripts/avatar.vts_c" />
-		<include src="s2r://panorama/scripts/vanity_player_info.vts_c" />
-		<include src="s2r://panorama/scripts/common/characteranims.vts_c" />
-		<include src="s2r://panorama/scripts/common/iteminfo.vts_c" />
-		<include src="s2r://panorama/scripts/common/licenseutil.vts_c" />
-		<include src="s2r://panorama/scripts/popups/popup_acknowledge_item.vts_c" />
-		<include src="s2r://panorama/scripts/operation/operation_util.vjs_c" />
-		<include src="s2r://panorama/scripts/video_setting_recommendations.vts_c" />
-		<include src="s2r://panorama/scripts/mainmenu_select_item_for_capability.vts_c" />
-		<include src="s2r://panorama/scripts/common/shopping_cart.vts_c" />
+		<include src="s2r://panorama/scripts/common/promoted_settings.vts" />
+		<include src="s2r://panorama/scripts/common/sessionutil.vts" />
+		<include src="s2r://panorama/scripts/generated/items_event_current_generated_store.vts" />
+		<include src="s2r://panorama/scripts/mock_adapter.vts" />
+		<include src="s2r://panorama/scripts/particle_controls.vts" />
+		<include src="s2r://panorama/scripts/inspect.vts" />
+		<include src="s2r://panorama/scripts/new_news_entry_check.vts" />
+		<include src="s2r://panorama/scripts/mainmenu.vts" />
+		<include src="s2r://panorama/scripts/avatar.vts" />
+		<include src="s2r://panorama/scripts/vanity_player_info.vts" />
+		<include src="s2r://panorama/scripts/vanity_pet_info.vts" />
+		<include src="s2r://panorama/scripts/common/characteranims.vts" />
+		<include src="s2r://panorama/scripts/common/iteminfo.vts" />
+		<include src="s2r://panorama/scripts/common/licenseutil.vts" />
+		<include src="s2r://panorama/scripts/popups/popup_acknowledge_item.vts" />
+		<include src="s2r://panorama/scripts/operation/operation_util.vjs" />
+		<include src="s2r://panorama/scripts/video_setting_recommendations.vts" />
+		<include src="s2r://panorama/scripts/mainmenu_select_item_for_capability.vts" />
+		<include src="s2r://panorama/scripts/common/shopping_cart.vts" />
 	</scripts>
 	<snippets>
 		<snippet name="MainMenuMovieSnippet">
@@ -48,8 +50,8 @@
 						<Panel class="mainmenu-vanity__vignette--bottom" hittest="false" />
 						<Panel id="MainMenuVanityInfo" class="full-width full-height MainMenuModeOnly" hittest="false" />
 					</CSGOBlurTarget>
-					<Frame id="JsLeftColumn" hittest="false" class="MainMenuModeOnly" src="s2r://panorama/layout/mainmenu_left_column.vxml_c" />
-					<Frame id="JsRightColumn" hittest="false" class="MainMenuModeOnly" src="s2r://panorama/layout/mainmenu_right_column.vxml_c" />
+					<Frame id="JsLeftColumn" hittest="false" class="MainMenuModeOnly" src="s2r://panorama/layout/mainmenu_left_column.vxml" />
+					<Frame id="JsRightColumn" hittest="false" class="MainMenuModeOnly" src="s2r://panorama/layout/mainmenu_right_column.vxml" />
 					<Panel id="JsActiveMissionPanel" class="mainmenu_active-mission-container PauseMenuModeOnly" />
 					<Panel id="JsMainMenuContent" class="mainmenu-content mainmenu-content--offscreen" hittest="true">
 						<Panel class="mainmenu-content__blur">
@@ -64,7 +66,7 @@
 						<Panel class="mainmenu-sidebar__seperator" />
 					</Panel>
 					<CSGOChat id="PartyChat" />
-					<Frame id="MatchmakingReconnectPanel" src="s2r://panorama/layout/match-reconnect.vxml_c" />
+					<Frame id="MatchmakingReconnectPanel" src="s2r://panorama/layout/match-reconnect.vxml" />
 				</CSGOBlurTarget>
 				<CSGOBlurTarget id="MainMenuNavBarTop" class="mainmenu-top-navbar-container" blurrects="CSGOLoadingScreen">
 					<Panel id="JsMainMenuTopNavBar" class="mainmenu-top-navbar">
@@ -76,15 +78,15 @@
 							</RadioButton>
 							<RadioButton id="MainMenuNavBarWatch" class="mainmenu-top-navbar__radio-iconbtn" group="NavBar" onactivate="MainMenu.NavigateToTab(&apos;JsWatch&apos;, &apos;mainmenu_watch&apos;);" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;MainMenuNavBarSettings&apos;, &apos;#tooltip_navbar_watch&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();">
 								<Image class="mainmenu-top-navbar__radio-btn__icon" src="s2r://panorama/images/icons/ui/watch_tv.vsvg" />
-								<Frame id="MainMenuWatchAlert" class="hidden" src="s2r://panorama/layout/btn_alert.vxml_c" />
+								<Frame id="MainMenuWatchAlert" class="hidden" src="s2r://panorama/layout/btn_alert.vxml" />
 							</RadioButton>
 							<RadioButton id="MainMenuNavBarOverwatch" class="mainmenu-top-navbar__radio-iconbtn" group="NavBar" onactivate="MainMenu.NavigateToTab(&apos;JsOverwatch&apos;, &apos;mainmenu_overwatch&apos;);" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;MainMenuNavBarOverwatch&apos;, &apos;#tooltip_navbar_overwatch&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();">
 								<Image class="mainmenu-top-navbar__radio-btn__icon" src="s2r://panorama/images/icons/ui/overwatch.vsvg" />
-								<Frame id="MainMenuWatchAlert" class="hidden" src="s2r://panorama/layout/btn_alert.vxml_c" />
+								<Frame id="MainMenuWatchAlert" class="hidden" src="s2r://panorama/layout/btn_alert.vxml" />
 							</RadioButton>
 							<RadioButton id="MainMenuNavBarSettings" class="mainmenu-top-navbar__radio-iconbtn" group="NavBar" onactivate="MainMenu.NavigateToTab(&apos;JsSettings&apos;, &apos;settings/settings&apos;);" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;MainMenuNavBarSettings&apos;, &apos;#tooltip_navbar_settings&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();">
 								<Image class="mainmenu-top-navbar__radio-btn__icon" src="s2r://panorama/images/icons/ui/settings.vsvg" />
-								<Frame id="MainMenuSettingsAlert" class="hidden" src="s2r://panorama/layout/btn_alert.vxml_c" />
+								<Frame id="MainMenuSettingsAlert" class="hidden" src="s2r://panorama/layout/btn_alert.vxml" />
 							</RadioButton>
 							<Button id="MainMenuNavBarQuit" class="mainmenu-top-navbar__radio-iconbtn mainmenu-top-navbar__radio-iconbtn--quit MainMenuModeOnly" onactivate="MainMenu.OnQuitButtonPressed(); $.DispatchEvent( &apos;CSGOPlaySoundEffect&apos;, &apos;UIPanorama.mainmenu_press_quit&apos;, &apos;MOUSE&apos; );" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;MainMenuNavBarQuit&apos;, &apos;#tooltip_navbar_quit&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();">
 								<Image class="mainmenu-top-navbar__radio-btn__icon" src="s2r://panorama/images/icons/ui/power.vsvg" />
@@ -101,29 +103,29 @@
 						</Panel>
 						<Panel id="MainMenuNavBarCenterContainer" class="mainmenu-top-navbar__center-container DisableDuringDemoPlayback">
 							<RadioButton id="MainMenuNavBarInventory" class="mainmenu-top-navbar__radio-btn" group="NavBar" onactivate="MainMenu.NavigateToTab(&apos;JsInventory&apos;, &apos;mainmenu_inventory&apos;);">
-								<Frame id="MainMenuInvAlert" class="hidden" src="s2r://panorama/layout/btn_alert.vxml_c" />
+								<Frame id="MainMenuInvAlert" class="hidden" src="s2r://panorama/layout/btn_alert.vxml" />
 								<Label class="mainmenu-top-navbar__radio-btn__label stratum-regular-condensed" text="#CSGO_MainMenu_Inventory" />
 							</RadioButton>
 							<Panel class="mainmenu-top-navbar__play_seperator mainmenu-top-navbar__play_seperator--small visible-if-not-limitedbeta" />
 							<RadioButton id="MainMenuNavBarLoadout" class="mainmenu-top-navbar__radio-btn" group="NavBar" onactivate="MainMenu.NavigateToTab(&apos;JsLoadout&apos;, &apos;loadout_grid&apos;);">
-								<Frame id="MainMenuInvAlert" class="hidden" src="s2r://panorama/layout/btn_alert.vxml_c" />
+								<Frame id="MainMenuInvAlert" class="hidden" src="s2r://panorama/layout/btn_alert.vxml" />
 								<Label class="mainmenu-top-navbar__radio-btn__label stratum-regular-condensed" text="#CSGO_MainMenu_Loadout" />
 							</RadioButton>
 							<RadioButton id="MainMenuNavBarPlay" class="mainmenu-top-navbar__radio-btn mainmenu-top-navbar__radio-btn--play" group="NavBar" onactivate="MainMenu.OnPlayButtonPressed()">
 								<Panel class="mainmenu-top-navbar__play_seperator visible-if-not-limitedbeta" />
-								<Frame id="MainMenuPlayAlert" class="hidden" src="s2r://panorama/layout/btn_alert.vxml_c" />
+								<Frame id="MainMenuPlayAlert" class="hidden" src="s2r://panorama/layout/btn_alert.vxml" />
 								<Panel class="full-height horizontal-center left-right-flow horizontal-center">
 									<Label class="mainmenu-top-navbar__radio-btn__label mainmenu-top-navbar__radio-btn__label--play stratum-regular-condensed" text="#CSGO_MainMenu_Play" />
 								</Panel>
 								<Panel class="mainmenu-top-navbar__play_seperator horizontal-align-right visible-if-not-limitedbeta" />
 							</RadioButton>
 							<RadioButton id="MainMenuNavBarStore" class="mainmenu-top-navbar__radio-btn" group="NavBar" onactivate="MainMenu.NavigateToTab(&apos;JsMainMenuStore&apos;, &apos;mainmenu_store_fullscreen&apos;);">
-								<Frame id="MainMenuStoreAlert" class="hidden" src="s2r://panorama/layout/btn_alert.vxml_c" />
+								<Frame id="MainMenuStoreAlert" class="hidden" src="s2r://panorama/layout/btn_alert.vxml" />
 								<Label class="mainmenu-top-navbar__radio-btn__label stratum-regular-condensed" text="#CSGO_MainMenu_Store" />
 							</RadioButton>
 							<Panel class="mainmenu-top-navbar__play_seperator mainmenu-top-navbar__play_seperator--small visible-if-not-limitedbeta" />
 							<RadioButton id="MainMenuNavBarNews" class="mainmenu-top-navbar__radio-btn" group="NavBar" onactivate="MainMenu.NavigateToTab(&apos;JsMainMenuNews&apos;, &apos;mainmenu_news&apos;);">
-								<Frame id="MainMenuInvAlert" class="hidden" src="s2r://panorama/layout/btn_alert.vxml_c" />
+								<Frame id="MainMenuInvAlert" class="hidden" src="s2r://panorama/layout/btn_alert.vxml" />
 								<Label class="mainmenu-top-navbar__radio-btn__label stratum-regular-condensed" text="#SFUI_MainMenu_News_Title_uppercase" />
 							</RadioButton>
 						</Panel>
@@ -163,7 +165,7 @@
 						</Button>
 					</Panel>
 					<CSGOScoreboardContainer id="Scoreboard" hittest="true" hittestchildren="true" class="menu-scoreboard" />
-					<Frame id="id-pausemenu-mission-panel" src="s2r://panorama/layout/mission_tile_pausemenu.vxml_c" />
+					<Frame id="id-pausemenu-mission-panel" src="s2r://panorama/layout/mission_tile_pausemenu.vxml" />
 				</CSGOBlurTarget>
 			</Panel>
 		</Panel>

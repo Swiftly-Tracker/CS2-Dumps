@@ -64,9 +64,9 @@ var DirectChallengeJoin = ( function ()
 		for ( var i = 0; i < nNumClans; i++ )
 		{
 			                                                   
-			var clanID64 = MyPersonaAPI.GetMyClanIdByIndex( i );
+			var clanId32 = MyPersonaAPI.GetMyClanId32BitByIndex( i );
 
-			if ( groupId === clanID64 )
+			if ( groupId === clanId32 )
 			{
 				return true;
 			}
@@ -93,6 +93,7 @@ var DirectChallengeJoin = ( function ()
 			                             
 			var type = oReturn.value[ 2 ];                           
 			var id = oReturn.value[ 3 ];                                 
+			var id32 = parseInt( oReturn.value[ 4 ] );                                 
 
 			var elTile = $.CreatePanel( "Panel", elAvatarContainer, 'JsKeyValidatedResult', { class: "directchallenge__join-validator" } );
 			elTile.codeXuid = id;
@@ -125,7 +126,7 @@ var DirectChallengeJoin = ( function ()
 			} );
 
 			                                              
-			if ( type == 'g' && !_IsPartOfGroup( id ) )
+			if ( type == 'g' && !_IsPartOfGroup( id32 ) )
 			{
 				bSuccess = false;
 				m_elErrortext.visible = true;

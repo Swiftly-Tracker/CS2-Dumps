@@ -1,0 +1,27 @@
+<!-- xml reconstructed by Source 2 Viewer 19.2.0.0 - https://valveresourceformat.github.io -->
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/gamestyles.vcss" />
+		<include src="s2r://panorama/styles/context_menus/context_menu_clan_tags.vcss" />
+	</styles>
+	<scripts>
+		<include src="s2r://panorama/scripts/context_menus/context_menu_clan_tags.vts" />
+	</scripts>
+	<snippets>
+		<snippet name="snippet-clantag-item">
+			<Button class="clantag-item">
+				<Label id="id-clan-tag__label" class="clan-tag__label" text="true" />
+				<Label id="id-clan-name__label" class="clan-name__label" html="true" text="" />
+			</Button>
+		</snippet>
+		<snippet name="snippet-clantag-text-button">
+			<Button class="clantag-item clantag-text-button">
+				<Label id="id-clantag-text-button__label" class="clantag-text-button__label" text="true" />
+			</Button>
+		</snippet>
+	</snippets>
+	<Panel class="ContextMenuItem full-height full-width" globalcontext="true" onload="PlayerCardContextMenuClanTags.Init();">
+		<Label id="context-menu-title" text="#ClanTag_Lister_Title" />
+		<Panel id="id-scrolling-tag-container" />
+	</Panel>
+</root>

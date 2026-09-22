@@ -57,6 +57,7 @@
  LinePos:
  Type Descriptor'
  [Pool: %.1fmb of %.1fmb, peak %.1fmb]
+ \n_V_strncmp
  bn0s}Q_@r~aoPq
  clean
  delete
@@ -65,6 +66,13 @@
  receiver regenerated
  uncorrected errors
 !AxU
+!\n_V_strncpy
+"%.*s" is #defined in terms of itself
+"%.*s" is not a valid integer
+"%.*s" is too long to be a #define name
+"%s" is #defined as "%s", which is not an integer or the name of another #define
+"%s" is #defined as multiple values ("%s" in %s and as "%s" in %s), it cannot be used in a rule
+"%s" is not an integer and is not #defined in this shader or anything it includes
 "%s": Bad mode
 "%s": Information lost writing value (%g) as (unsigned) RATIONAL
 "Predictor" value %d not supported
@@ -84,7 +92,12 @@
 #RenderSystem_CannotCreateDevice
 #RenderSystem_IncompatibleAmdDriver
 #RenderSystem_UnableToStartGame
+#\n_V_strnicmp_fast
 #bML"
+#define
+#else
+#endif
+#if defined(__cplusplus)
 #include
 #line
 %-100s %-6s %-6s\n
@@ -92,9 +105,9 @@
 %.100s: Can not read TIFF directory
 %1x
 %A Is
+%GA
 %H : %M : %S
 %I : %M : %S %p
-%\tV_expd
 %b %d %H : %M : %S %Y
 %d %d %d %d
 %d / %m / %y
@@ -135,7 +148,6 @@
 %s: Error writing SubIFD directory link
 %s: Failed to allocate space for list of custom values
 %s: Failed to read directory at offset %u
-%s: Input vector has incorrect length\n
 %s: Invalid %stag "%s" (not supported by codec)
 %s: Invalid InkNames value; expecting %d names, found %d
 %s: Invalid lock state %d\n
@@ -191,7 +203,7 @@
 (null)
 *** Buffer "%s": Failed to create shader resource view!\n
 *** Buffer "%s": Failed to create unordered access view!\n
-*** CVfx::StartupSanityCheck(7031): Programmer Error! The order of VfxVariableSourceType_t does not match s_shaderVariableSource!\n
+*** CVfx::StartupSanityCheck(7445): Programmer Error! The order of VfxVariableSourceType_t does not match s_shaderVariableSource!\n
 *** Error masking unused parts! Equal sign not found after token "%s"! (line %d)\n
 *** IL "%s": Unable to create input layout; layout has %d fields, which is more than %d!\n
 *** Run with -dx11debug to see native D3D errors!\n
@@ -203,12 +215,13 @@
 *** VB "%s": Tried to lock too much memory (%s>%s)!\n
 *** VB "%s": Tried to lock too much memory for subregion (%s>%s)!\n
 *** VB "%s": Tried to lock twice without an unlock!\n
-*** VfxPopulateSourceCache(1097): Error opening file "%s"!\n\n
-*** VfxPopulateSourceCache(1105): Error opening file "%s"!\n\n
-*** VfxReadAndPrepForCrc(1255): Source cache incomplete, file "%s" missing!\n\n
-*** VfxReadAndPrepForCrc(1267): Error masking unused parts for "%s"!\n\n
+*** VfxPopulateSourceCache(1209): Error opening file "%s"!\n\n
+*** VfxPopulateSourceCache(1217): Error opening file "%s"!\n\n
+*** VfxReadAndPrepForCrc(1369): Source cache incomplete, file "%s" missing!\n\n
+*** VfxReadAndPrepForCrc(1381): Error masking unused parts for "%s"!\n\n
 *.spv
 *StO9>T
+*\tV_ZSTD_decompress
 +v$x+v$xv$+xv+$xv$+x+$vx+$vx$v+x+$vx$+vx+v $+v $v $+v +$v $++$ v+$ v$ v++$ v$+ v+xv$+ v$v$ +v+ $v$ ++x$v+ $v$v ++ $v$ +v
 , at offset %d
 , channels = 
@@ -245,6 +258,7 @@
 .CRT$XPZ
 .CRT$XTA
 .CRT$XTZ
+.\ng_Mathlib_GammaToLinearByteTable
 .bak
 .bss
 .data
@@ -291,8 +305,10 @@
 .xdata
 .xdata$x
 /TF<)VGy#WH
+/\ng_TSPointerListNodes
 /src/
 /yQA
+0%A
 0123456789ABCDEFabcdef-+Xx
 0123456789ABCDEFabcdef-+XxPp
 0123456789abcdefghijklmnopqrstuvwxyz
@@ -302,23 +318,24 @@
 1#QNAN
 1#SNAN
 3>N;kU
-3\tV_fpclassifyd
-4\tV_fprintf
 5;FJ$,XEK4<
 5J5J5J5J5J5J5J5J5J5J5J5J5J5J5J5Jx
 7&F|If
 7xicuU
 8"3hrf
 8Csinf
+8Fyy
 8b  16-May-2010
 : lexer error %d :\n\t%s at offset %d, 
 :AM:am:PM:pm
 :Jan:January:Feb:February:Mar:March:Apr:April:May:May:Jun:June:Jul:July:Aug:August:Sep:September:Oct:October:Nov:November:Dec:December
 :Sun:Sunday:Mon:Monday:Tue:Tuesday:Wed:Wednesday:Thu:Thursday:Fri:Friday:Sat:Saturday
 ;J;J;J;J;J;J;J;J;J;J;J;J;J;J;J;Jx
+;\tV_atan2d
 <DOWN>
 <EOF>
 <EOR>
+<\ng_pMemAlloc
 <empty>
 <invalid %d>
 <invalid>
@@ -332,10 +349,13 @@
 <unknown>
 =imb;D
 >-memory-
+>\ng_pThreadPool
+>\tV_atanf
 ?!5WOo
 ?7{KV\nU
 ?8bunz8
 ?@En[vP
+?C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp
 ?ParseEXRHeaderFromMemory() failed! Error message: %s\n
 ?UUUUUU
 ?fff?
@@ -370,6 +390,7 @@ ATI2N
 ATI_TC_CalculateBufferSize_Wrapper
 ATI_TC_ConvertTexture_Wrapper
 AUUUUUU
+AYB
 A\t5Ad
 AcquireSRWLockExclusive
 AcquireSRWLockShared
@@ -448,6 +469,8 @@ BGRA8888_LINEAR
 BGRX8888
 BGRX8888_LINEAR
 BKbhTb~XBK!;
+BVB
+B\tV_atoi
 Backing store not supported
 Bad VTEX data for '%s'\n
 Bad code word
@@ -500,6 +523,7 @@ Bogus message code %d
 Bogus sampling factors
 Bogus virtual array access
 Borderless Window
+BqB
 Buffer '%s' is %s and total usage is %s, do you really want to allocate this much GPU buffer memory?  Performance issues/device lost could be imminent.\n
 Buffer passed to JPEG library is too small
 Bzw
@@ -509,9 +533,9 @@ C:/dvs/p4/build/sw/devrel/libdev/NGX/core/rel_tot/source/common/util-log.cpp
 C:/dvs/p4/build/sw/devrel/libdev/NGX/core/rel_tot/source/lib/nvsdk_ngx_d3d11_lib.cpp
 C:/dvs/p4/build/sw/devrel/libdev/NGX/core/rel_tot/source/lib/nvsdk_ngx_lib_windows.cpp
 C:\buildworker\csgo_rel_win64\build\_build_\rendersystem\_vpc_rendersystemdx11\default\win64\_msvc_\Retail\rendersystemdx11.pdb
-C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp
 C:\buildworker\csgo_rel_win64\build\src\public\tier0\threadtoolstypes.h
 C:\buildworker\csgo_rel_win64\build\src\public\tier0\tslist.h
+C:\buildworker\csgo_rel_win64\build\src\public\tier0\utldict.h
 C:\buildworker\csgo_rel_win64\build\src\public\tier0\utllinkedlist.h
 C:\buildworker\csgo_rel_win64\build\src\rendersystem\dx\dxfunctions.cpp
 C:\buildworker\csgo_rel_win64\build\src\rendersystem\dx\dxfunctions.h
@@ -525,23 +549,25 @@ C:\buildworker\csgo_rel_win64\build\src\rendersystem\rendercontextbase.cpp
 C:\buildworker\csgo_rel_win64\build\src\rendersystem\renderdevicebase.cpp
 C:\buildworker\csgo_rel_win64\build\src\rendersystem\renderdevicemgrbase.cpp
 C:\buildworker\csgo_rel_win64\build\src\rendersystem\texturebase.cpp
-C:\buildworker\csgo_rel_win64\build\src\rendersystem\texturebase.cpp(2339):Error loading texture: %s\n
-C:\buildworker\csgo_rel_win64\build\src\rendersystem\texturebase.cpp(3097):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
-C:\buildworker\csgo_rel_win64\build\src\rendersystem\texturebase.cpp(3100):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
-C:\buildworker\csgo_rel_win64\build\src\rendersystem\texturebase.cpp(3133):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
-C:\buildworker\csgo_rel_win64\build\src\rendersystem\texturebase.cpp(3136):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
-C:\buildworker\csgo_rel_win64\build\src\rendersystem\texturebase.cpp(3158):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
-C:\buildworker\csgo_rel_win64\build\src\rendersystem\texturebase.cpp(3161):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
-C:\buildworker\csgo_rel_win64\build\src\rendersystem\texturebase.cpp(3181):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
-C:\buildworker\csgo_rel_win64\build\src\rendersystem\texturebase.cpp(3184):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
-C:\buildworker\csgo_rel_win64\build\src\rendersystem\texturebase.cpp(3204):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
-C:\buildworker\csgo_rel_win64\build\src\rendersystem\texturebase.cpp(3207):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
-C:\buildworker\csgo_rel_win64\build\src\rendersystem\texturebase.cpp(3229):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
-C:\buildworker\csgo_rel_win64\build\src\rendersystem\texturebase.cpp(3232):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
-C:\buildworker\csgo_rel_win64\build\src\rendersystem\texturebase.cpp(3244):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
-C:\buildworker\csgo_rel_win64\build\src\rendersystem\texturebase.cpp(3247):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
-C:\buildworker\csgo_rel_win64\build\src\rendersystem\texturebase.cpp(3259):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
-C:\buildworker\csgo_rel_win64\build\src\rendersystem\texturebase.cpp(3262):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
+C:\buildworker\csgo_rel_win64\build\src\rendersystem\texturebase.cpp(2911):Error loading texture: %s\n
+C:\buildworker\csgo_rel_win64\build\src\rendersystem\texturebase.cpp(3673):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
+C:\buildworker\csgo_rel_win64\build\src\rendersystem\texturebase.cpp(3676):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
+C:\buildworker\csgo_rel_win64\build\src\rendersystem\texturebase.cpp(3695):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
+C:\buildworker\csgo_rel_win64\build\src\rendersystem\texturebase.cpp(3698):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
+C:\buildworker\csgo_rel_win64\build\src\rendersystem\texturebase.cpp(3731):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
+C:\buildworker\csgo_rel_win64\build\src\rendersystem\texturebase.cpp(3734):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
+C:\buildworker\csgo_rel_win64\build\src\rendersystem\texturebase.cpp(3756):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
+C:\buildworker\csgo_rel_win64\build\src\rendersystem\texturebase.cpp(3759):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
+C:\buildworker\csgo_rel_win64\build\src\rendersystem\texturebase.cpp(3779):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
+C:\buildworker\csgo_rel_win64\build\src\rendersystem\texturebase.cpp(3782):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
+C:\buildworker\csgo_rel_win64\build\src\rendersystem\texturebase.cpp(3802):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
+C:\buildworker\csgo_rel_win64\build\src\rendersystem\texturebase.cpp(3805):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
+C:\buildworker\csgo_rel_win64\build\src\rendersystem\texturebase.cpp(3827):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
+C:\buildworker\csgo_rel_win64\build\src\rendersystem\texturebase.cpp(3830):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
+C:\buildworker\csgo_rel_win64\build\src\rendersystem\texturebase.cpp(3842):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
+C:\buildworker\csgo_rel_win64\build\src\rendersystem\texturebase.cpp(3845):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
+C:\buildworker\csgo_rel_win64\build\src\rendersystem\texturebase.cpp(3857):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
+C:\buildworker\csgo_rel_win64\build\src\rendersystem\texturebase.cpp(3860):ResourceHandleToData( %s ) failed! Falling back to error texture!\n
 C:\buildworker\csgo_rel_win64\build\src\vfx\compiletargetexpr.g
 CCIR601 sampling not implemented yet
 CCITT Group 3
@@ -549,7 +575,7 @@ CCITT Group 4
 CCITT RLE
 CCITT RLE/W
 CCommandBufferChunk CUtlMemoryPool
-CDeviceFenceDx11::CDeviceFenceDx11(4487): 
+CDeviceFenceDx11::CDeviceFenceDx11(4493): 
 CDmeSheetSequence
 CFALayout
 CFAPlaneColor
@@ -594,41 +620,41 @@ CRenderContextDx11_SoftwareCommandLists::BeginQuery - Bad query or D3D device\n
 CRenderContextDx11_SoftwareCommandLists::BeginQuery - Issued a Begin on a non-occlusion/pipeline stats query\n
 CRenderContextDx11_SoftwareCommandLists::BeginQuery - Issued on an in-progress query!\n
 CRenderContextDx11_SoftwareCommandLists::CopyTexture
-CRenderContextDx11_SoftwareCommandLists::CopyTextureUsingShaders(2075):  got invalid ID3D11RenderTargetView, skipping copy to '%s'\n
+CRenderContextDx11_SoftwareCommandLists::CopyTextureUsingShaders(2079):  got invalid ID3D11RenderTargetView, skipping copy to '%s'\n
 CRenderContextDx11_SoftwareCommandLists::EndQuery - Bad query or D3D device\n
-CRenderContextDx11_SoftwareCommandLists::ForceFlushGPU(2490): 
-CRenderContextDx11_SoftwareCommandLists::ResolveUsingShaders(2007):  failed to get ID3D11ShaderResourceView for source texture '%s', skipping.\n
-CRenderContextDx11_SoftwareCommandLists::ResolveUsingShaders(2024):  failed to get view for dest texture '%s', skipping.\n
+CRenderContextDx11_SoftwareCommandLists::ForceFlushGPU(2494): 
+CRenderContextDx11_SoftwareCommandLists::ResolveUsingShaders(2011):  failed to get ID3D11ShaderResourceView for source texture '%s', skipping.\n
+CRenderContextDx11_SoftwareCommandLists::ResolveUsingShaders(2028):  failed to get view for dest texture '%s', skipping.\n
 CRenderDeviceBase
-CRenderDeviceBase::AllocatePooledIndexBuffer(3638): 
-CRenderDeviceBase::AllocatePooledIndexBuffer(3665): 
-CRenderDeviceBase::AllocatePooledVertexBuffer(3825): 
-CRenderDeviceBase::AllocatePooledVertexBuffer(3847): 
-CRenderDeviceBase::AsyncSetTextureData(3266): 
-CRenderDeviceBase::BeginRenderingToSwapChain(3520): 
-CRenderDeviceBase::CreateConstantBuffer(1573): 
+CRenderDeviceBase::AllocatePooledIndexBuffer(3761): 
+CRenderDeviceBase::AllocatePooledIndexBuffer(3788): 
+CRenderDeviceBase::AllocatePooledVertexBuffer(3951): 
+CRenderDeviceBase::AllocatePooledVertexBuffer(3973): 
+CRenderDeviceBase::AsyncSetTextureData(3361): 
+CRenderDeviceBase::BeginRenderingToSwapChain(3629): 
+CRenderDeviceBase::CreateConstantBuffer(1655): 
 CRenderDeviceBase::CreateConstantBufferInternal
-CRenderDeviceBase::EndRenderDocCapture(3500): 
-CRenderDeviceBase::FindOrCreateTexture(1715): 
+CRenderDeviceBase::EndRenderDocCapture(3595): 
+CRenderDeviceBase::FindOrCreateTexture(1804): 
 CRenderDeviceBase::FindOrCreateTexture: Trying to load multiple mipmaps into 3d or array texture: %s\n
-CRenderDeviceBase::Flush(889): 
-CRenderDeviceBase::ForceFlushGPU(914): 
-CRenderDeviceBase::FreeTextureGPUResources(2032): 
-CRenderDeviceBase::FreeTextureGPUResources(2036): 
+CRenderDeviceBase::Flush(971): 
+CRenderDeviceBase::ForceFlushGPU(996): 
+CRenderDeviceBase::FreeTextureGPUResources(2121): 
+CRenderDeviceBase::FreeTextureGPUResources(2125): 
 CRenderDeviceBase::InitPerFrameMemoryStack
-CRenderDeviceBase::Present(601): 
-CRenderDeviceBase::StartRenderDocCapture(3487): 
-CRenderDeviceDx11::BeginSubmittingDisplayLists(1126): 
+CRenderDeviceBase::Present(683): 
+CRenderDeviceBase::StartRenderDocCapture(3582): 
+CRenderDeviceDx11::BeginSubmittingDisplayLists(1127): 
 CRenderDeviceDx11::CreateDefaultShaders::<lambda_1>::operator ()
-CRenderDeviceDx11::DeleteQueryObject(3794): 
+CRenderDeviceDx11::DeleteQueryObject(3800): 
 CRenderDeviceDx11::EndQuery - Issued on an in-progress query!\n
-CRenderDeviceDx11::QueueReleaseShader(3006): 
-CRenderDeviceDx11::ReadTexturePixels(1924): 
+CRenderDeviceDx11::QueueReleaseShader(3007): 
+CRenderDeviceDx11::ReadTexturePixels(1925): 
 CRenderDeviceDx11::SetHardwareGammaRamp: Unable to set gamma controls!\n
 CRenderDeviceDx11::SetMode: Previous mode has not been shut down!\n
 CRenderDeviceMgrDx11::DisplayErrorAndExit
 CRenderDeviceMgrDx11::Init
-CRenderDocAPI::AutoGenerateDebugShaders(), C:\buildworker\csgo_rel_win64\build\src\rendersystem\renderdocapi.cpp:874
+CRenderDocAPI::AutoGenerateDebugShaders(), C:\buildworker\csgo_rel_win64\build\src\rendersystem\renderdocapi.cpp:886
 CRenderThreadDx11::CopyToStagingResource(275): Error! NULL texture pointer sent to CopyToStagingResource()!\n
 CRenderThreadDx11::GetReadBackResource(1542): Warning: Failed to create staging texture %d(%x)\n
 CRenderThreadDx11::GetReadBackResource(1546): Warning: GetDeviceRemovedReason: %d(%x)\n
@@ -664,6 +690,7 @@ CTextureManagerDx11::ComputeTextureObject
 CTextureManagerDx11::ComputeTextureObject: Tried to create a depth-stencil texture which is *not* a render target!\n
 CTextureStreamingHelper::LoadExplicitlyRequestedTextures
 CTextureStreamingHelper::RemoveMipLevelsForTextures
+CUtlDict<struct CVfxDefineTable::Define_t,class CDefStringLess>::Insert
 CUtlLeanVectorBase<struct UtlLinkedListElem_t<class CVertexBufferDx11 *,unsigned short>,unsigned short,class CMemAllocAllocator>::EnsureCapacity
 CUtlLeanVectorImpl<class CUtlLeanVectorBase<struct CUtlMemoryBlockAllocator<char,class CMemAllocAllocator>::MemPage_t,int,class CMemAllocAllocator>,struct CUtlMemoryBlockAllocator<char,class CMemAllocAllocator>::MemPage_t,int>::EnsureUnusedCapacity
 CUtlLinkedList
@@ -672,8 +699,6 @@ CUtlMemoryBlockAllocator<char,class CMemAllocAllocator>::AddPage
 CUtlMemoryBlockAllocator<char,class CMemAllocAllocator>::Alloc
 CUtlSymbolTableLarge element limit of %u exceeded\n
 CUtlVector
-CVfxProgramData::CalcDynamicComboIdFromValues
-CVfxProgramData::CalcStaticComboIdFromValues
 CZT
 CalibrationIlluminant1
 CalibrationIlluminant2
@@ -719,6 +744,7 @@ CloseServiceHandle
 CloseThreadpoolWork
 Closed temporary file %s
 Color
+Color Consistency Partition %d MinBright %f
 ColorMap
 ColorMatrix1
 ColorMatrix2
@@ -761,6 +787,7 @@ CreateConstantBufferInternal
 CreateDXGIFactory
 CreateDXGIFactory1
 CreateDevice: Requested DX level %d, clamped to DX level %d\n
+CreateDocument failed
 CreateEventW
 CreateFileW
 CreateGeometryShader
@@ -773,7 +800,7 @@ CreateThread
 CreateThreadpoolWork
 CreateVertexShader
 Created unsupported DX Device?
-Creating device for graphics adapter %d '%s' [vendorid 0x%X]: %d.%d.%d.%d\n
+Creating render device for graphics adapter %d '%s' [VendorId 0x%X / DeviceId 0x%X]: %u.%u.%u.%u\n
 CryptDecodeObjectEx
 CryptMsgClose
 CryptMsgGetParam
@@ -781,6 +808,7 @@ CryptQueryObject
 CurrentICCProfile
 CurrentPreProfileMatrix
 CxO
+D%A
 D16_SHADOW
 D24FS8
 D24X8_SHADOW
@@ -855,6 +883,7 @@ DBM&(
 DCT coefficient out of range
 DCT scaled block size %dx%d not supported
 DEFAULT_WRITE_PATH
+DJB
 DLSS.Enable.Output.Subrects
 DLSS.Exposure.Scale
 DLSS.Feature.Create.Flags
@@ -883,9 +912,11 @@ DLSS.Pre.Exposure
 DLSS.Render.Subrect.Dimensions.Height
 DLSS.Render.Subrect.Dimensions.Width
 DLSSGetStatsCallback
+DMA
 DNGBackwardVersion
 DNGPrivateData
 DNGVersion
+DPA
 DX11 texture manager frame update
 DXBC 'n>
 DXBC"x
@@ -921,9 +952,11 @@ DXT3
 DXT5
 DXT5_NM
 D_FADE_COLOR
+DaA
 Da\">c]$8c^
 DataType
 DateTime
+DbA
 Dec
 December
 DecodePointer
@@ -950,6 +983,7 @@ Detected RenderDoc %i.%i.%i\n
 Determined driver version for graphics adapter %d [output %d] '%s': %d.%d.%d.%d\n
 DevShader
 DeviceID
+Dho
 Didn't expect more than one scan
 Direct3D 11
 Direct3DCreate9
@@ -1112,26 +1146,28 @@ FloatBitMap_t::ConvertGammaToLinear(518): Conversion not supported yet!\n
 FloatBitMap_t::InitializeDummyRow
 FloatBitMap_t::LoadFromBuffer: Received improper buffer size, skipping!\n
 FloatBitMap_t::LoadFromBuffer: Unsupported color format, skipping!\n
-FloatBitMap_t::WriteToBuffer(1191): Unsupported color format "%s", skipping!\n
+FloatBitMap_t::WriteToBuffer(1195): Unsupported color format "%s", skipping!\n
 FloatBitMap_t::WriteToBuffer: Received improper buffer size %s (expecting %s), skipping!\n
-FloatBitMap_t::WriteToBufferBC7_bc7e(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2124
-FloatBitMap_t::WriteToBufferBC7_ispctexcomp(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2236
-FloatBitMap_t::WriteToBufferDXT_atitc(1249): Error! Temp texture is %d bytes when ATI's lib requires %d bytes!\n
-FloatBitMap_t::WriteToBufferDXT_atitc(1334): Unsupported output color format "%s"!\n
-FloatBitMap_t::WriteToBufferDXT_atitc(1343): Error! Allocated %llu bytes when ATI's lib requires %d bytes!\n
-FloatBitMap_t::WriteToBufferDXT_atitc(1351): Error %d returned from ATI_TC_ConvertTexture()!\n
-FloatBitMap_t::WriteToBufferETC(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2360
+FloatBitMap_t::WriteToBufferBC7_bc7e(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2146
+FloatBitMap_t::WriteToBufferBC7_ispctexcomp(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2258
+FloatBitMap_t::WriteToBufferDXT_atitc(1253): Error! Temp texture is %d bytes when ATI's lib requires %d bytes!\n
+FloatBitMap_t::WriteToBufferDXT_atitc(1338): Unsupported output color format "%s"!\n
+FloatBitMap_t::WriteToBufferDXT_atitc(1347): Error! Allocated %llu bytes when ATI's lib requires %d bytes!\n
+FloatBitMap_t::WriteToBufferDXT_atitc(1355): Error %d returned from ATI_TC_ConvertTexture()!\n
+FloatBitMap_t::WriteToBufferETC(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2382
 Floating point "Predictor" not supported with %d data format
 FlsAlloc
 FlsFree
 FlsGetValue
 FlsSetValue
 FlushFileBuffers
+FoB
 FontManager_001
 Force the render device to not present frames.
 ForceHardwareSync
 FormatMessageW
 Found %d streaming textures in array, but in-flight count is %d\n
+Found existing value when inserting into dict - replacing existing value with new value. If this is intended behavior, use InsertOrReplace. If leaving existing values alone is intended, use InsertIfNotFound.
 Found registry key %ls in %ls
 Fractional sampling not implemented yet
 Frame not displayable.
@@ -1262,22 +1298,33 @@ HEADER
 HEX_DIGIT
 HH:mm:ss
 HJN
-HKA
-HLA
+HMB
 HRp
+HSC
+HUA
+HUB
+HUC
+HXA
+HYA
 HalftoneHints
 HammerMapLoader001
 Hash
 Height
 HelpSystem_001
+HfC
 Hitch alert: Present was waiting for %d iterations and %.1f seconds.\n
+HjA
+HlB
+HmA
+HnB
 Horizontal differencing "Predictor" not supported with %d-bit samples
 HostComputer
 HostStateMgr001
-HsA
+HrA
+HrB
 Huffman code size table overflow
 Huffman table 0x%02x was not defined
-HxA
+HxB
 I could not work out what I was expecting, like so many of us these days!\n
 I@r9iF
 IB Size: %s (Count: %d)\n
@@ -1293,6 +1340,7 @@ ID3D11ShaderReflection::GetDesc failed\n
 IL "%s": Unable to create input layout for shader!\n
 IMAGE_FORMAT_IMC2
 IMAGE_FORMAT_NV12
+INA
 IND)ind)a
 INF
 INITIALIZATION
@@ -1407,11 +1455,11 @@ JPEG
 JPEG datastream contains no image
 JPEG parameter struct mismatch: library thinks size is %u, caller expects %u
 JPEGMEM
-J\tV_isdigit_str
 Jan
 January
 Jitter.Offset.X
 Jitter.Offset.Y
+JjB
 Jul
 July
 Jun
@@ -1432,11 +1480,11 @@ LCIDToLocaleName
 LCMapStringEx
 LCMapStringW
 LDo
+LHI
 LINEAR_D24S8
-LNA
+LJA
 LOCAL
 LOG_GENERAL
-LQA
 LZW
 LZWDecode: Bogus encoding, loop in the code table; scanline %d
 LZWDecode: Corrupted LZW table at scanline %d
@@ -1534,7 +1582,7 @@ LoggingSystem_IsChannelEnabled
 LoggingSystem_Log
 LoggingSystem_RegisterLoggingChannel
 LowLatencySleep
-LyA
+LpB
 M8MF
 MATCHFRAMEWORK_001
 MAX_ALLOC_CHUNK is wrong, please fix
@@ -1721,6 +1769,7 @@ Not enough
 Not implemented yet
 Nov
 November
+NtB
 NumCols() <= V_ARRAYSIZE( s_DummyRow )
 NumberOfInks
 NvAPI initialization failed: %d\n
@@ -1737,6 +1786,7 @@ OVER_BUDGET
 OYX
 OZQ%
 OZw3(?
+O\tV_expd
 Obtained EMS handle %u
 Obtained XMS handle %u
 Oct
@@ -1766,6 +1816,8 @@ OutputDebugStringW
 Overall System GPU memory use:\n
 Overflow of the sheet cache texture. Releasing and starting over. This is ok in asset browser, not so ok if the game is triggering this!\n
 Overflow of the sheet cache texture: Try increasing SheetCacheTextureRows in gameinfo.gi (current value %d)!\n
+PBB
+PBC
 PC SM 5.0 (D3D11)
 PC SM 5.0 (VULKAN)
 PC SM 6.0 (VULKAN)
@@ -1779,21 +1831,27 @@ PC_SM_5_0
 PC_SM_5_0_VULKAN
 PC_SM_6_0_VULKAN
 PDT
-PEB
 PERF WARNING: Texture pool size set to more than 80%% of total GPU memory.\n
 PEh
-PGB
-PHB
+PIA
 PIO
 PIX error Beginning %s event\n
 PIX/NSIGHT WAS detected.\n
 PLAT_
+PNC
 PNG\r\n
 PROGRAM
+PSA
 PST
 PS_RENDER_STATE
 PS_RTX
+PTB
+PTC
 PURH
+PVC
+PZA
+PZC
+PaA
 PackBits
 PackBitsDecode: Not enough data for scanline %ld
 PackBitsDecode: discarding %ld bytes to avoid buffer overrun
@@ -1802,10 +1860,13 @@ PageNumber
 PanoramaTextServices001
 PanoramaUIClient001
 PanoramaUIEngine001
+ParseImageDataSection failed
 Parser encountered %i errors parsing compile targets expression "%s"\n
 ParticleSystemMgr003
 Path to driverStore found using QAI: %ls
 PathRemoveFileSpecW
+PbA
+PbC
 PerfQualityValue
 Photometric tag is missing, assuming data is YCbCr
 Photometric tag value assumed incorrect, assuming data is YCbCr instead of RGB
@@ -1813,7 +1874,8 @@ PhotometricInterpretation
 Photoshop
 PhysicsBuilderMgr001
 PixarLog
-PlB
+PkB
+PlC
 PlanarConfiguration
 Planarconfig tag value assumed incorrect, assuming data is contig instead of chunky
 Plat_CPUTickFrequency
@@ -1858,6 +1920,8 @@ Position.ViewSpace
 PostMessageW
 PostProcessingSystem_001
 PostThreadMessageW
+PpA
+PqA
 Predictor
 PredictorEncodeTile
 PredictorSetup
@@ -1878,10 +1942,14 @@ Print Vertex/Index/GPU buffers.
 Prints out live D3D11 objects (requires -dx11debug)
 ProcessBC6HResults
 PropertyEditorSystem_001
+PvB
+PwB
 Q2XXR
+QNA
 Q\f5Qd
 Qkkbal
 Quantization table 0x%02x was not defined
+Quantize to %d Values
 Quantizing to %d = %d*%d*%d colors
 Quantizing to %d colors
 QueryPerformanceCounter
@@ -1985,7 +2053,7 @@ RS_FILL_SOLID
 RS_FILL_WIREFRAME
 RTX
 RXw
-R\fp,d
+RYB
 R_T5Y
 RaiseException
 RandomInt
@@ -2000,6 +2068,16 @@ RayTracingHitDistance
 Read failed on temporary file
 Read from EMS failed
 Read from XMS failed
+ReadCompiledTextureMips: callback for %s is still using mip %d, but that data is about to be recycled\n
+ReadCompiledTextureMips: cannot convert %s from %s to %s\n
+ReadCompiledTextureMips: could not create a read request for %s\n
+ReadCompiledTextureMips: could not decode passthrough %s\n
+ReadCompiledTextureMips: mip %d of %s did not decompress (%d of %d bytes)\n
+ReadCompiledTextureMips: mip %d of %s is %d bytes on disk but %d uncompressed\n
+ReadCompiledTextureMips: mip %d of %s runs past the data we read\n
+ReadCompiledTextureMips: mip %d of %s wants pages out to byte %lld but only %llu were read\n
+ReadCompiledTextureMips: no texture data for %s\n
+ReadCompiledTextureMips: short read for %s, wanted %lld bytes of mips but got %llu\n
 ReadConsoleW
 ReadFile
 Recognition Exception
@@ -2060,12 +2138,15 @@ Requested feature was omitted at compile time
 Requires
 Requires%d
 Reset
+Resizing IBPool from %s -> %s\n
+Resizing VBPool from %s -> %s\n
 ResolutionUnit
 ResourceCompilerSystem001
 ResourceHandleUtils001
 ResourceManifestRegistry001
 ResourceSystem013
 RichTIFFIPTC
+RoB
 Row pixels integer overflow (rowpixels %u)
 RowsPerStrip
 RsBlendStateDesc_t
@@ -2130,6 +2211,8 @@ SUPPORTS_CS
 SUPPORTS_GS
 SV_InstanceID
 S_EXECUTION_REORDERING
+S_GPU_DEVICE_ID
+S_GPU_VENDOR_ID
 S_MOLTEN_VK
 S_REVERSE_DEPTH_BUFFER
 S_SHADER_QUALITY
@@ -2189,6 +2272,7 @@ ShadingComplexity
 ShadowScale
 Sharpness
 SheetSequenceIntegerId_t
+Show RenderDoc overlay
 Size
 SizeInBytes
 Skipping texture streaming: looks like the texture was reloaded while in the streaming list (%s).\n
@@ -2196,6 +2280,7 @@ Skipping texture streaming: texture resource handles don't match\n
 Sleep
 SleepConditionVariableSRW
 SlowMotion
+SmartPropsSystem_001
 Smoothing not supported with nonstandard sampling ratios
 Software
 SoundOpSystem001
@@ -2244,6 +2329,7 @@ SuperSampling.FeatureInitResult
 SuperSampling.MinDriverVersionMajor
 SuperSampling.MinDriverVersionMinor
 SuperSampling.NeedsUpdatedDriver
+Suppress
 Suspension not allowed here
 Swap Chain Mode Changing:\n\tm_nVersion: %d -> %d\n\tm_DisplayMode:\n\t\tm_nVersion: %d -> %d\n\t\tm_nWidth: %d -> %d\n\t\tm_nHeight: %d -> %d\n\t\tm_Format: %d -> %d\n\t\tm_nRefreshRateNumerator: %d -> %d\n\t\tm_nRefreshRateDenominator: %d -> %d\n\t\tm_nFlags: 0x%X -> 0x%X\n\tm_nBackBufferCount: %d -> %d\n\tm_nMultisampleType: %d -> %d\n\tm_nModeUsage: %d -> %d\n\tm_bUseStencil: %d -> %d\n\tm_bWaitForVSync: %d -> %d\n\tm_bScaleToOutputResolution: %d -> %d\n\tm_bProgressive: %d -> %d\n\tm_bUsingMultipleWindows: %d -> %d\n\tm_bIsMainWindow: %d -> %d\n
 SwapChainColor.vtex
@@ -2287,7 +2373,10 @@ TIFFSetField
 TIFFTileRowSize
 TIFFVStripSize
 TIFFVTileSize
+TQA
 TUUUU
+TWA
+TWB
 Tag 
 Tag %d
 Tag Value
@@ -2341,6 +2430,7 @@ TlsAlloc
 TlsFree
 TlsGetValue
 TlsSetValue
+TmB
 TonemapperType
 Too many color components: %d, max %d
 Too much
@@ -2386,6 +2476,8 @@ Unable to initialize Late Warp : FeatureInitResult = 0x%08x, info: %s, result %s
 Unable to initialize Late Warp : Need to update the driver to %u.%u
 Unable to initialize NGX Vulkan Instance : error code = 0x%08x, info: %s
 Unable to load %s, error %d\n
+Unable to load psd: %s\n
+Unable to read compiled texture "%s" (Error: %s)\n
 Unable to retrieve NGX Parameter map : error code = 0x%08x, info: %s
 Unable to stream in resource file "%s" (Error: %s)\n
 Unavailable
@@ -2406,6 +2498,7 @@ Unknown compression type.
 Unknown data format %d for LogLuv compression
 Unknown encoding %d for LogLuv compression
 Unknown exception
+Unmodified
 Unrecognized component IDs %d %d %d, assuming YCbCr
 Unsatisfied dependency at present time = death!
 Unsupported ETC image format %d.\n
@@ -2464,6 +2557,7 @@ V_FixDoubleSlashes
 V_FloatToString_Unsafe
 V_GetFileExtension
 V_Get_stderr
+V_Get_stdout
 V_IsAbsolutePath
 V_LZ4_decompress_safe
 V_PrettifyMem
@@ -2484,9 +2578,6 @@ V_StringToVector
 V_StringToVector2D
 V_StringToVector4D
 V_StringToVectorWS
-V_UTF16ToUTF8
-V_UTF8ToUTF16
-V_UnqualifiedFileName
 Valve.Source.Render
 Vc0a
 Vdk
@@ -2523,6 +2614,7 @@ WAITING_FOR_IO
 WARNING: Resource name "%s" has the incorrect extension "%s" for the specified resource type (expected "%s")!\n
 WARNING: Trying to create a CRenderContextPtr without a valid context.\n
 WITHIN_BUDGET
+WNA
 WTHelperGetProvCertFromChain
 WTHelperGetProvSignerFromChain
 WTHelperProvDataFromStateData
@@ -2558,18 +2650,19 @@ WriteConsoleW
 WriteFile
 Wrong JPEG library version: library is %d, caller expects %d
 Wrote RenderDoc capture to %s\n
-XAA
-XBB
+X%A
 XClipPathUnits
-XEB
+XKA
 XMLPacket
+XOB
 XPosition
-XQA
 XResolution
+XTA
+XXC
 XYZ, Luv
-XgA
+XeC
 XhL
-XlB
+XsA
 XsBI
 YCbCrCoefficients
 YCbCrPositioning
@@ -2587,7 +2680,10 @@ ZIPPostEncode
 ZIPSetupDecode
 ZIPSetupEncode
 ZIPVSetField
+ZiB
 Zjz\v
+ZnB
+ZpB
 [    Discard |    NoTear]
 [%Y-%m-%d %H:%M:%S] 
 [FlipDiscard |    NoTear]
@@ -2598,6 +2694,7 @@ Zjz\v
 \mfpmp.exe
 \n    near %s\n    
 \n*** %s "%s" in %s does not follow the 0..N format!\n\n
+\n*** %s "%s" in %s has a bad range: %s!\n\n
 \n*** %s "%s" in %s has max(%d) > 254!\n\n
 \n*** %s "%s" in %s has min(%d) < 0!\n\n
 \n*** %s "%s" in %s has min(%d) > max(%d)!\n\n
@@ -2605,13 +2702,13 @@ Zjz\v
 \n*** A feature alias in %s doesn't start with "F_"! Aborting shader compile!\n\n
 \n*** A feature in %s doesn't start with "F_"! Aborting shader compile!\n\n
 \n*** A static combo in %s doesn't start with "S_"! Aborting shader compile!\n\n
-\n*** CVfx::ParseBoolFromFile(6330): Error opening file "%s"!\n\n
-\n*** CVfx::ParseCombosAndRulesFromFileHelper(6519): Error opening file "%s"!\n\n
-\n*** CVfx::ParseDescriptionFromFile(6415): Error opening file "%s"!\n\n
-\n*** CVfx::ParseFeaturesFromFile(6016): Error opening file "%s"!\n\n
-\n*** CVfx::ParseIncludeFiles(5975): Error opening include file in features list"%s"!\n\n
-\n*** CVfx::ParseModesFromFile(5825): Error opening file "%s"!\n\n
-\n*** CVfx::ParseVersionFromFile(6376): Error opening file "%s"!\n\n
+\n*** CVfx::ParseBoolFromFile(6755): Error opening file "%s"!\n\n
+\n*** CVfx::ParseCombosAndRulesFromFileHelper(6952): Error opening file "%s"!\n\n
+\n*** CVfx::ParseDescriptionFromFile(6840): Error opening file "%s"!\n\n
+\n*** CVfx::ParseFeaturesFromFile(6441): Error opening file "%s"!\n\n
+\n*** CVfx::ParseIncludeFiles(6399): Error opening include file in features list"%s"!\n\n
+\n*** CVfx::ParseModesFromFile(6249): Error opening file "%s"!\n\n
+\n*** CVfx::ParseVersionFromFile(6801): Error opening file "%s"!\n\n
 \n*** Combo "%s" in %s doesn't match a known combo source!\n\n
 \n*** Combo "%s" in %s either does not follow the 0..N format, is not a valid dynamic combo name, or doesn't match an existing feature or mode argument!\n\n
 \n*** Combo "%s" in %s has arg %s that doesn't match an existing feature!\n\n
@@ -2625,7 +2722,7 @@ Zjz\v
 \n*** Error masking unused parts! Unknown text found. This is usually caused by a '{' or '}' not tabbed properly or an invalid declaration at the global scope. (line %d):\n%s\n\n
 \n*** Error parsing ==N for rule in %s! First arg to RequiresN cannot be ==0!\n\n
 \n*** Error parsing ==N for rule in %s! Not allowed on ChildOf. Use RequiresN instead.\n\n
-\n*** Error parsing ==N for rule in %s!\n\n
+\n*** Error parsing ==N for rule in %s: %s!\n\n
 \n*** Error parsing =N for mode %s in %s!\n\n
 \n*** Error parsing AllowN rule in %s! N must be >= 0!\n\n
 \n*** Error parsing AllowN rule in %s!\n\n
@@ -2645,6 +2742,9 @@ Zjz\v
 \n*** Error! Could not find static combo with name "%s" in %s!\n\n
 \n*** Error! Could not find static or dynamic combo with name "%s" in %s!\n\n
 \n*** Error! Rule error string must be quoted in %s!\n\n
+\n*** Error! Suppress rule in %s can only suppress combos of its own type! Put the condition first and suppress same-tier combos, or use RequiresN.\n\n
+\n*** Error! Suppress rule in %s must only suppress combos that are 0..x!\n\n
+\n*** Error! Suppress rule in %s needs a condition followed by at least one combo to suppress!\n\n
 \n*** Error! Too many args found in rule in %s!\n\n
 \n*** Error! Too many or too few arguments to a rule in %s!\n\n
 \n*** Feature "%s" in %s does not follow the 0..N format!\n\n
@@ -2663,15 +2763,26 @@ Zjz\v
 \n*** Unable to parse Version in HEADER section of %s!\n\n
 \n*** Unknown rule "%s" in %s!\n\n
 \n*** Unknown text found in FEATURES section in %s: "%s"\n\n
-\n*** VfxGetCompileTargetsFromVfxFile(1369): Error opening file "%s"!\n\n
-\n*** VfxGetUsedShaderProgramsFromVfxFile(1446): Error opening file "%s"!\n\n
-\nGetVfxDll(93): ERROR! Can't load %s dll, automatic RenderDoc shader debug info not available.\n
+\n*** VfxGetCompileTargetsFromVfxFile(1484): Error opening file "%s"!\n\n
+\n*** VfxGetUsedShaderProgramsFromVfxFile(1561): Error opening file "%s"!\n\n
+\n***ASSERT FAILED*** Image data section has too many channels (%d).
+\n***ASSERT FAILED*** Pointer is null.
+\n***ERROR*** [DecompressRle] Malformed RLE data encountered
+\n***ERROR*** [ImageData] Unhandled bits per channel: %u.
+\n***ERROR*** [ImageData] Unhandled compression type %u.
+\n***ERROR*** [PSD] Document does not contain an image data section.
+\n***ERROR*** [PsdExtract] File seems to be corrupt, reserved bytes are not zero.
+\n***ERROR*** [PsdExtract] File seems to be corrupt, signature does not match "8BPS".
+\n***ERROR*** [PsdExtract] File seems to be corrupt, version does not match 1 or 2.
+\nGetVfxDll(95): ERROR! Can't load %s dll, automatic RenderDoc shader debug info not available.\n
 \nIHDRPLTEIDATIENDtRNScHRMgAMAiCCPsBITsRGBtEXtzTXtiTXtbKGDhISTpHYssPLTtIMEoFFseXIf
 \nMS,\nVS_MS_RTX
 \nPS_RENDER_STATE
 \nRTX
 \n\n\n
-\r\ng_pThreadPool
+\n_V_StrSubst
+\n_V_strcspn
+\n_V_strncat
 \r\r\r\r\r\r
 \r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r
 \rmj>zjZ
@@ -2688,10 +2799,15 @@ Zjz\v
 \tMultisampleEnable: %d\n
 \tScissorEnable: %d\n
 \tSlopeScaledDepthBias: %f\n
-\tV_ZSTD_decompress
-\tV_atan2d
-\tV_atanf
-\tV_atoi
+\tV_UTF8ToUTF16
+\tV_UnqualifiedFileName
+\tV_log2_uint
+\tV_logd
+\tV_logf
+\tV_powd
+\tV_powf
+\tV_qsort
+\tV_qsort_s
 \tV_snprintf
 \tV_sscanf
 \tV_stricmp_fast
@@ -2701,23 +2817,16 @@ Zjz\v
 \tV_strtoui64
 \tV_vsnprintf
 \tWarning
+\t\tV_UTF16ToUTF8
 \t\t\t
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
-\t_V_StrSubst
-\t_V_strcspn
-\t_V_strncat
-\t_V_strncmp
-\t_V_strncpy
-\t_V_strnicmp_fast
 \tcQr
-\tg_Mathlib_GammaToLinearByteTable
-\tg_TSPointerListNodes
 \tkE>fvw
 \tpSubResource[ array %d mip %d ]: pSysMem = %p sysMemPitch = %d SysMemSlicePitch = %d\n
 \tpTextureBitsData = %p\n
-\v\ng_pMemAlloc
 \v\v\v
-^\tV_log2_uint
+]\tV_fpclassifyd
+^\tV_fprintf
 ^oEZ_
 _DOD3D
 _INTC_CreateDeviceExtensionContext
@@ -2862,7 +2971,6 @@ _wjb
 `vftable'
 `virtual displacement map'
 aBt
-a\tV_logd
 abcdefghijklmnopqrstuvwxyz
 acos
 address family not supported
@@ -2887,7 +2995,6 @@ asin
 atan
 atan2
 bValid
-b\tV_logf
 bad address
 bad allocation
 bad array new length
@@ -2905,7 +3012,10 @@ bc7e_init
 bc7e_init_params
 bej
 binaryValue
+bitmap output needs an 8 bit document
+bkB
 blocking issue in occlusion queries!!\n
+bmB
 bool
 bool Assert_ConditionFailed(_AssertCompileTimeConstantStruct_t const&) (demangled)
 bool Assert_ConditionFailed(_AssertCompileTimeConstantStruct_t const&, char const*, ...) (demangled)
@@ -2985,6 +3095,7 @@ class CParallelProcessLauncher::CParallelLambdaJob<`void ParallelFor<1, `public:
 class CPooledIndexBuffer (demangled)
 class CPooledVertexBuffer (demangled)
 class CPostConnectCallback (demangled)
+class CPsdBufferFile (demangled)
 class CReadGPUBuffer (demangled)
 class CRefCountServiceBase<CRefMT> (demangled)
 class CRefCounted<CRefCountServiceBase<CRefMT> > (demangled)
@@ -3072,12 +3183,16 @@ class `anonymous namespace'::_ExceptionPtr_static<std::bad_alloc> (demangled)
 class `anonymous namespace'::_ExceptionPtr_static<std::bad_exception> (demangled)
 class `protected: void CTextureManagerBase::MN_AddAsyncTextureBitsHookupJob(CTextureBase*, CTextureManagerBase::AsyncTextureHookupData_t const&)'::`2'::<lambda_1> (demangled)
 class `protected: void CTextureStreamingHelper::IssueTextureLoadRequest(CTextureBase*, TextureSpecification_t const&)'::`2'::<lambda_1> (demangled)
+class `public: bool CTextureManagerBase::ReadCompiledTextureMips(CWeakHandle<InfoForResourceTypeCTextureBase>, int, int, int, ImageFormat, std::shared_ptr<IReadTexturePixelsCallback>)'::`2'::<lambda_1> (demangled)
 class `public: static void CRenderDocAPI::CaptureRenderDocWindow(CCommandContext const&, CCommand const&)'::`2'::<lambda_1> (demangled)
 class `public: virtual std::unique_ptr<IBarrierHelper, std::default_delete<IBarrierHelper> > CRenderContextBase::GetBarrierHelper(void)'::`2'::CBarrierHelperEmpty (demangled)
 class `public: void CRenderDeviceDx11::QueueShaderCompile(BaseGPUShader_t*)'::`2'::<lambda_1> (demangled)
 class `public: void CSOAContainer::FillAttr(int, float)'::`13'::<lambda_1> (demangled)
 class `std::shared_ptr<CReadGPUBuffer> DoNotDeleteReadCallback<CReadGPUBuffer>(CReadGPUBuffer*)'::`2'::<lambda_1> (demangled)
 class `void RenderDocCaptureWindowAutoComplete(CCommand const&, CUtlVector<CUtlString, int, CUtlVectorMemory_Growable<CUtlString, int, 0> >&)'::`5'::<lambda_1> (demangled)
+class psd::Allocator (demangled)
+class psd::File (demangled)
+class psd::MallocAllocator (demangled)
 class std::_Associated_state<int> (demangled)
 class std::_Associated_state<unsigned int> (demangled)
 class std::_Deferred_async_state<unsigned int> (demangled)
@@ -3102,6 +3217,7 @@ class std::_Func_impl<std::_Fake_no_copy_callable_adapter<unsigned int (Etc::Ima
 class std::_Func_impl<std::_Fake_no_copy_callable_adapter<void (Etc::Image::*)(unsigned int, unsigned int), Etc::Image* const, int&, unsigned int&>, std::allocator<int>, void> (demangled)
 class std::_Func_impl_no_alloc<`protected: void CTextureManagerBase::MN_AddAsyncTextureBitsHookupJob(CTextureBase*, CTextureManagerBase::AsyncTextureHookupData_t const&)'::`2'::<lambda_1>, void> (demangled)
 class std::_Func_impl_no_alloc<`protected: void CTextureStreamingHelper::IssueTextureLoadRequest(CTextureBase*, TextureSpecification_t const&)'::`2'::<lambda_1>, void, IAsyncResourceDataRequest*, std::unique_ptr<IAsyncProcessedDataResult, std::default_delete<IAsyncProcessedDataResult> > > (demangled)
+class std::_Func_impl_no_alloc<`public: bool CTextureManagerBase::ReadCompiledTextureMips(CWeakHandle<InfoForResourceTypeCTextureBase>, int, int, int, ImageFormat, std::shared_ptr<IReadTexturePixelsCallback>)'::`2'::<lambda_1>, void, IAsyncResourceDataRequest*, std::unique_ptr<IAsyncProcessedDataResult, std::default_delete<IAsyncProcessedDataResult> > > (demangled)
 class std::_Func_impl_no_alloc<`public: static void CRenderDocAPI::CaptureRenderDocWindow(CCommandContext const&, CCommand const&)'::`2'::<lambda_1>, void, CSwapChainBase*> (demangled)
 class std::_Func_impl_no_alloc<`public: void CRenderDeviceDx11::QueueShaderCompile(BaseGPUShader_t*)'::`2'::<lambda_1>, void> (demangled)
 class std::_Func_impl_no_alloc<`public: void CSOAContainer::FillAttr(int, float)'::`13'::<lambda_1>, void> (demangled)
@@ -3192,7 +3308,10 @@ class std::time_put<unsigned short, std::ostreambuf_iterator<unsigned short, std
 class std::time_put<wchar_t, std::ostreambuf_iterator<wchar_t, std::char_traits<wchar_t> > > (demangled)
 class std::wstring_convert<std::codecvt_utf8_utf16<wchar_t, 1114111, 0>, wchar_t, std::allocator<wchar_t>, std::allocator<char> > (demangled)
 class type_info (demangled)
+cmyk document with non 8 bit channels
 color
+composite channel data missing
+composite has too few channels for its color mode
 compression
 concatenated_input_layout
 connection aborted
@@ -3207,6 +3326,8 @@ cross device link
 cs2.exe
 d3d11.dll
 d3d9.dll
+dHA
+dIB
 dQy/
 data error
 data height too large.
@@ -3215,7 +3336,6 @@ data width too large.
 dataWindow
 data_height = 
 data_with or data_height too large. data_width: 
-dbA
 dddd, MMMM dd, yyyy
 deepdvc
 delag_next_osd_supported_in_dxxp=1,pipeline_frames=3
@@ -3223,6 +3343,7 @@ destination address required
 device or resource busy
 directory not empty
 displayWindow
+dkA
 dlBNvz!/u{1?cmR^
 dlcolorize
 dldenoiser
@@ -3236,6 +3357,7 @@ dlss
 dlstyletransfer
 dlvdenoiser
 dlvsr
+dpA
 dqe-KO{/3
 dummyfilename.tif
 dword
@@ -3247,6 +3369,7 @@ eF>t
 eGn
 eLK(w
 eO@R
+eTB
 effortblocks = %d\n
 error creating resolve shader for %d samples\n
 error: failed to load NGXCore: %d (%ls)
@@ -3259,8 +3382,11 @@ error: unable to get descriptor for DXGI Adapter
 ewh/?y
 executable format error
 exp
+expected an integer or the name of a #define
+expected an integer, got "%.*s" ( #define names can be used in combo declarations and rules, but not in FEATURES )
 f5J5J5J5J5J5J5J5J5J5J5J5J5J5J5J5Jx
 fAj
+fCz
 fDeltaTime
 fDeviceToViewDepth
 fDownscaleFactor
@@ -3301,6 +3427,7 @@ ffxFsr2ResourceIsNull
 ffxGetDX11ResourcePtr
 ffxGetDeviceDX11
 ffxGetResourceDX11
+fiB
 file error
 file exists
 file too large
@@ -3333,6 +3460,7 @@ future
 future already retrieved
 fvP
 gBV
+gVB
 gWu
 gYd
 g_pEngineServiceMgr is NULL. Display mode information unavailable\n
@@ -3342,19 +3470,27 @@ generic
 gpu
 gqr<
 group
-hDB
+hGA
+hNC
+hPB
 hPU3
+hYB
+hbA
+heA
 header crc mismatch
-hlB
 horizontal differencing 
 host unreachable
+hpB
+hqA
 hr = D3D11Device()->CreateBuffer( &bd, pInitialData ? &initData : nullptr, &m_pVertexBuffer )
 hr = D3D11Device()->CreateShaderResourceView( m_pVertexBuffer, &srvDesc, &m_pSRView )
 hr = D3D11Device()->CreateUnorderedAccessView( m_pVertexBuffer, &uavDesc, &m_pUAView )
 hrDeviceRemovedReason
 hrPresent
-hwA
+htA
+hwB
 hwe
+hxA
 iDisplaySize
 iFrameIndex
 iInputColorResourceDimensions
@@ -3374,6 +3510,9 @@ incorrect count for field "%s" (%u, expecting %u); tag trimmed
 incorrect data check
 incorrect header check
 incorrect length check
+indexed document with more than 2 channels
+indexed document with no usable palette
+indexed document with non 8 bit indices
 inf
 inity
 insufficient memory
@@ -3412,7 +3551,9 @@ j'Vlk
 jAf
 jHq
 jVg
+joB
 jpf
+jtB
 k;J;J;J;J;J;J;J;J;J;J;J;J;J;J;J;Jx
 k=yI
 kRT
@@ -3423,23 +3564,25 @@ knv
 koi
 l6qnk
 lDa>
-lQA
+lEB
+lZB
 laQ
 lab
 ldE
 ldexp
 lexer->mTokens(): Error: No lexer rules were added to the lexer yet!\n
-liA
 lib_6_4
 lineOrder
+ljA
 ljw
+lkB
+lnB
 localize
 log
 log10
 looks like this:\n\t\t%.*s\n
-lzA
+mWB
 m\nXo
-m\tV_powd
 m_Value
 m_bAlphaToCoverageEnable
 m_bDepthClipEnable
@@ -3518,7 +3661,6 @@ nDstMipSlice < destDesc.MipLevels
 nSrcArraySlice < srcDesc.ArraySize
 nSrcMipSlice < srcDesc.MipLevels
 nTries < 10000000
-n\tV_powf
 name
 nan
 nan(ind)
@@ -3533,6 +3675,7 @@ ngx::util::logva
 ngx::util::setLogFilename
 no buffer space
 no child process
+no composite (not saved with Maximize Compatibility)
 no link
 no lock available
 no memory during frame initialization.
@@ -3560,8 +3703,8 @@ nvLocaltime(&curTime, &curTm) != nullptr
 nvapi_Direct_GetMethod
 nvapi_QueryInterface
 o KPBf
+oUB
 oY.o<
-o\tV_qsort
 obwQ4
 ole32.dll
 onI
@@ -3577,24 +3720,26 @@ operator<=>
 opqMU
 owM&
 owner dead
-pBA
-pDA
-pDB
 pDevice->CreateBuffer( &desc, NULL, &pD3dBuf )
 pDevice->CreateDepthStencilView( m_pDepthStencilTexture, &descDSV, &pView )
 pFx
-pGA
+pLB
 pOC
 pOutput->GetDesc( &desc )
+pRA
 pTq
-p\tV_qsort_s
+pUA
+pWA
+pYC
 panorama_
 panorama_rt_
 pass %u\n
+pdA
+pdC
 permission denied
+pfC
+pgC
 pixelAspectRatio
-plB
-pnA
 png/jpg
 pow
 powf
@@ -3618,6 +3763,7 @@ protected: void CUtlBuffer::AddNullTermination(void) (demangled)
 protected: void CUtlMemoryPoolBase::ClearDestruct(void (*)(void*)) (demangled)
 protocol error
 protocol not supported
+psA
 psapi.dll
 pseudo-
 psize
@@ -3669,7 +3815,9 @@ public: bool CThreadSemaphore::Release(int, int*) (demangled)
 public: bool CThreadSyncObject::Wait(unsigned int) (demangled)
 public: bool CUtlBuffer::CheckArbitraryPeekGet(int, int&) (demangled)
 public: bool CUtlBuffer::Get(void*, int) (demangled)
+public: bool CUtlString::IsEqual_CaseSensitive(char const*) const (demangled)
 public: bool CUtlString::IsEqual_FastCaseInsensitive(char const*) const (demangled)
+public: bool CUtlString::operator==(CBufferString const&) const (demangled)
 public: bool CUtlString::operator==(CUtlString const&) const (demangled)
 public: bool KeyValues::LoadFromFile(IFileSystem*, char const*, char const*, bool (*)(char const*, void*), void*, char const*) (demangled)
 public: char const* CBufferString::ComposeFileName(char const*, char const*, char) (demangled)
@@ -3736,13 +3884,13 @@ public: void KeyValues::SetString(char const*, char const*) (demangled)
 public: void const* CUtlBuffer::PeekGet(int, int) (demangled)
 public: void* CUtlMemoryPoolBase::Alloc(void) (demangled)
 purecall
+pxB
 q!T9MiZ
 qTp
 qVJ
 qangle
 rP1`=RO
 r\tVr.>T
-r\vp,d
 r_async_shader_compile_notify_frequency
 r_dilatedDepth
 r_dilated_motion_vectors
@@ -3791,6 +3939,7 @@ r_renderdoc_auto_shader_pdbs
 r_renderdoc_capture_frame
 r_renderdoc_capture_window_dx11
 r_renderdoc_open_captures
+r_renderdoc_show_overlay
 r_renderdoc_validation_error_capture_limit
 r_texture_budget_dynamic
 r_texture_budget_threshold
@@ -3823,6 +3972,7 @@ raB3G
 range check failure
 rcasConfig
 read only file system
+read past end of file (truncated/corrupt)
 renderSize
 renderdoc
 renderdoc.json
@@ -3837,6 +3987,8 @@ resources
 resourcesystem
 restrict(
 result out of range
+rjB
+rlB
 rtx
 ru&o
 rw_auto_exposure
@@ -3861,6 +4013,7 @@ rw_upscaled_output
 s5J5J5J5J5J5J5J5J5J5J5J5J5J5J5J5Jx
 sAmTb
 sHF'
+sXB
 s_LinearClamp
 sbh
 scale
@@ -3938,8 +4091,9 @@ struct std::messages_base (demangled)
 struct std::money_base (demangled)
 struct std::time_base (demangled)
 success
+tJA
 tOt'F
-tRA
+t\tV_isdigit_str
 tan
 tanf
 tanh
@@ -3947,10 +4101,12 @@ texcoord
 text file busy
 thread initialization failed.
 threshold
+tiA
 tier0.dll
 tile
 tiles
 timed out
+tlA
 to fetch array of rationals
 to fetch per-sample values
 to fetch strip tag
@@ -3967,6 +4123,7 @@ tried to delete shader twice\n
 true
 trying to bind a deleted shader\n
 t|AO
+uGA
 uUv
 uint16
 uint32
@@ -3981,7 +4138,14 @@ unknown
 unknown compression method
 unknown error
 unknown header flags set
+unknown reason
 unrec stream cmd %d %x\n
+unsupported bits per channel
+unsupported color mode: bitmap
+unsupported color mode: duotone
+unsupported color mode: lab
+unsupported color mode: multichannel
+unsupported color mode: unknown
 uyO
 vIK \f3
 vQO+t
@@ -4006,6 +4170,7 @@ void DevMsg(char const*, ...) (demangled)
 void DevWarning(char const*, ...) (demangled)
 void ThreadAtomicNotifyOne(unsigned int const*) (demangled)
 void V_SplitString(char const*, char const*, CUtlVector<CUtlString, int, CUtlVectorMemory_Growable<CUtlString, int, 0> >&, bool) (demangled)
+vsB
 w+OQvr
 w3Xc
 wHk
@@ -4020,20 +4185,20 @@ wrong protocol type
 wvb
 wyS]
 x0Ysqx
-xBB
-xCB
-xDB
-xEA
-xHB
-xaA
-xkA
-xlB
+xGB
+xOA
+xRA
+xWC
+xXA
+xrA
+xvB
 y6uHI
 yUk
 ycg
 yyC
 zMt
 zZg
+zero sized document
 {kHw
 |Bati_compress_wrapper.dll
 ~}|{zyxwvutsrqponmlkjihgfedcba`_^]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)('&%$#"! 

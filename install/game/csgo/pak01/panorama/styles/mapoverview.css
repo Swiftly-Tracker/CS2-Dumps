@@ -374,7 +374,7 @@ CSGOMapOverview Label
 	vertical-align: center;
 }
 
-#RI_BombDefuserPackage
+#RI_BombDefuserPackage,#TI_TowerPackage
 {
 	width: 200px;
 	height: 200px;
@@ -384,12 +384,65 @@ CSGOMapOverview Label
 	flow-children: none;
 }
 
+#TI_TowerPackage
+{
+	z-index: 5;
+}
+
 #BombPlantedIcon
 {
 	width: 24px;
 	height: 24px;
 	horizontal-align: center;
 	vertical-align: center;
+}
+
+#TowerIconPackage,#TowerIconC4,#TowerIconHostage
+{
+	width: 24px;
+	height: 24px;
+	horizontal-align: center;
+	vertical-align: center;
+	img-shadow: 0px 0px 2px 2 black;
+}
+
+.clr-gray
+{
+	wash-color: #AAAAAA;
+}
+
+.clr-white
+{
+	wash-color: #FFFFFF;
+}
+
+.clr-red
+{
+	wash-color: #ff2924;
+}
+
+.clr-green
+{
+	wash-color: #3eff24;
+}
+
+#TowerPing
+{
+	width: 80px;
+	height: 80px;
+	opacity: 0.2;
+	transform: scale3d( 1, 1, 1 );
+	horizontal-align: center;
+	vertical-align: center;
+	border-radius: 50% / 50%;
+	border-width: 2px;
+	border-style: solid;
+	border-color: #FFFFFF;
+	animation-name: DroppedBomb--Animate;
+	animation-duration: 0.75s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	-s2-mix-blend-mode: screen;
 }
 
 #BombPlantedIconMedium

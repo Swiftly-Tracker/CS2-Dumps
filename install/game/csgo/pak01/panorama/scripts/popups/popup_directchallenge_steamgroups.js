@@ -17,12 +17,9 @@ var DirectChallengeSteamGroupSelector = ( function ()
 		for ( var i = 0; i < nNumClans; i++ )
 		{
 			                                                   
-			var clanID64 = MyPersonaAPI.GetMyClanIdByIndex( i );
-			var clanName = MyPersonaAPI.GetMyClanNameById( clanID64 );
-
-			                                                   
 			var clanID32 = MyPersonaAPI.GetMyClanId32BitByIndex( i );
 			var clanChallengeKey = CompetitiveMatchAPI.GetDirectChallengeCodeForClan( clanID32 );
+			var clanName = FriendsListAPI.GetClanInfoById32Bit( clanID32, 'name' );
 
 			var elItem = $.CreatePanel( 'RadioButton', elClansLister, 'clan_' + clanID32, { group: 'clans'} );
 			elItem.BLoadLayoutSnippet( 'snippet-clan-item' );
@@ -41,8 +38,7 @@ var DirectChallengeSteamGroupSelector = ( function ()
 			}
 
 			var elAvatar = elItem.FindChildTraverse( "id-clan__avatar" );
-			elAvatar.PopulateFromSteamID(clanID64);
-			
+			elAvatar.PopulateFromSteamID( FriendsListAPI.GetClanInfoById32Bit( clanID32, 'steamid' ) );
 		}
 
 		$.GetContextPanel().SetFocus();

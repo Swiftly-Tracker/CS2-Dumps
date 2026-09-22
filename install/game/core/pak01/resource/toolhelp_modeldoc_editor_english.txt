@@ -231,7 +231,9 @@ table {
 
 <p> This only makes sense in large systems because in small systems the spring will be solved the very first time, and solving it again won't change any behavior. You can only observe the difference in behavior in a large system, where there are many other springs tugging on cloth so that it makes sense to re-solve this spring after those other springs had the chance to move the joint</p>
 
-<p><b>Use with caution</b>: this will affect performance if used a lot, and you get most of the benefits, if any, with very small numbers like 1 or 2. Usually setting it to higher number makes no difference but costs CPU. But in general, solving springs is very cheap and won't cost any CPU if just used sparingly here and there</p>"
+<p><b>Use with caution</b>: this will affect performance if used a lot, and you get most of the benefits, if any, with very small numbers like 1 or 2. Usually setting it to higher number makes no difference but costs CPU. But in general, solving springs is very cheap and won't cost any CPU if just used sparingly here and there</p>
+
+<p>Solver runs on ticks, so if the game renders faster, it won't change stiffness. But more iterations = more stiffness</p>"
 		"clothchain.stray_box:help"		"The same as stray radius, but keeps the node inside a box (rather than sphere)
 Enter x y z like: 1 0 0 will allow the node to slide along X axis -1 to 1, and will not allow it to slide along Y and Z axes"
 		"Element.CDestructiblePart:name_ref"		"CDestructiblePart"
@@ -394,5 +396,10 @@ Allowed (min) bend along cloth edges. 0 does nothing, allowing full bend. 0.5 st
 		"modeldocattr.CModelDocClothParams.immovable:name_ref"		"Immovable model (hint)"
 		"modeldocattr.CModelDocClothParams.immovable:help"		"a hint that the model may not move (e.g. houseplant), which means cloth doesn't have to reset when you look away. 
 Cloth doesn't simulate when you don't look at it, so if you move the entity around and then look at it, it may stretch or pop momentarily when you look back"
+		"clothchain.antishrink:help"		"springs can stretch and compress.
+normally they aren't allowed to stretch past their default length, but they may be allowed to contract.
+0 = springs are allowed to contract to 0
+0.5 = springs are allowed to contract to 0.5 of their length
+1 = springs are not allowed to contract, they're rigid rods"
 	}
 }

@@ -36,6 +36,7 @@
  Type Descriptor'
  Version %s %d Embedded Chunk %d : %d Hashes %d Chunks %d \n
  Xia
+ \n_V_strncmp
  _GDK\tZ
  characters
  delete
@@ -64,6 +65,7 @@
 !AECO
 !HRN
 !IsText()
+!\n_V_strncpy
 !expected_len || s->s3->previous_client_finished_len
 !expected_len || s->s3->previous_server_finished_len
 !fUY\n
@@ -80,6 +82,7 @@
 "lbN.
 "qVS
 "zbe
+#\n_V_strnicmp_fast
 #\t#\v#'#)#/#3#5#E#Q#S#Y#c#k#
 #\v+(bF&drJ:x#
 #k+ka\T
@@ -210,7 +213,6 @@ $g#8lu#
 '5'7'M'S'U'_'k'm's'w'
 '6J~U\fm
 'DAE
-'\tV_fclose
 'g0dW
 'id' or 'name' missing
 'pSN.F
@@ -242,7 +244,6 @@ $g#8lu#
 *UlS
 *Y$ve
 *\fhsD
-*\tV_ferror
 *gFBk
 *hbJ1
 *kf[R
@@ -250,7 +251,6 @@ $g#8lu#
 +'+1+3+=+?+K+O+U+i+m+o+{+
 +(#\v&dbF:xrJ'$#
 +Sgs
-+\tV_fflush
 +gC&s
 , Type=
 , path=
@@ -626,7 +626,6 @@ $g#8lu#
 1:uV+T
 1Ag a
 1GNK
-1\tV_fopen
 1b4Ef
 1f\t3Qg^y
 2)252Y2]2c2k2o2u2w2{2
@@ -634,7 +633,6 @@ $g#8lu#
 2Uiwp"9
 2\fWQx
 2\rlhp
-2\tV_fopenUTF8
 2cb:RO
 2prB
 3%3+3/353A3G3[3_3g3k3s3y3
@@ -649,7 +647,6 @@ $g#8lu#
 3w2URu
 474E4U4W4c4i4m4
 4Zis
-4\tV_fprintf
 4tpD
 4zj@1;IJ
 5'0v2ZP
@@ -678,7 +675,6 @@ $g#8lu#
 7?XEAVn
 7OsR
 7\rayf+
-7\tV_fread
 7sAP'
 7wKR
 82\n:XPH
@@ -733,14 +729,13 @@ $g#8lu#
 <SVX
 <YGr+
 <YVtV&
-<\tV_fseek
+<\ng_pMemAlloc
 <invalid>
 <no failure reason set>
 <undefined>
 <unsupported>
 =!=-=3=7=?=C=o=s=u=y={=
 =O?AqP
-=\tV_fseeki64
 =cdE
 =imb;D
 =trF6,#
@@ -756,7 +751,6 @@ $g#8lu#
 ?HAI\t81\t9dcG'
 ?UUUUUU
 ?VBH;
-?\tV_ftell
 ?dt]X
 ?gwL
 ?jOb
@@ -772,7 +766,6 @@ $g#8lu#
 @Pu\rm
 @WE]X
 @X!pf
-@\tV_ftelli64
 @dKb]
 A!A3A5A;A?AYAeAkAwA{A
 A%N_A
@@ -977,7 +970,6 @@ AW:S
 AWe
 AWt.
 A\rjW
-A\tV_fwrite
 AbW_
 Abi
 AcG\nt
@@ -1152,6 +1144,7 @@ BUF_strndup
 BY_FILE_CTRL
 BY_Lq)
 BZZn\rN]#8f'
+B\tV_atoi
 Bad address
 Bad boolean\n
 Bad file descriptor
@@ -3183,6 +3176,7 @@ QGA
 QGF
 QTk$
 QWQ
+Q\tV_fclose
 Q`uV
 Qad
 Qdsma
@@ -3333,7 +3327,6 @@ RSDS!K
 RVN
 RVs
 R\r1>Vp
-R\vpL
 R]Di
 RaC
 RaN
@@ -3614,6 +3607,7 @@ Signature verified for %s.\n
 Size
 Size of per file buffers. 0 for none
 SleepConditionVariableSRW
+SmartPropsSystem_001
 Sn^G
 SoundOpSystem001
 SoundOpSystemEdit001
@@ -3733,6 +3727,7 @@ TS_VERIFY_CERT
 TS_VERIFY_CTX_new
 TUUUU
 TYPE=
+T\tV_ferror
 Tell
 TerminateProcess
 TestScriptMgr001
@@ -3816,6 +3811,7 @@ UUUUUUUUUUUUUU<o(
 UUUUUUUUUUUa\f\v
 UWZ
 UZg
+U\tV_fflush
 U^Pg
 Ugi<
 Uma
@@ -3924,7 +3920,6 @@ V_StringToVector2D
 V_StringToVector4D
 V_StringToVectorWS
 V_StripFilename
-V_UnqualifiedFileName
 V_a|I
 VbfOc,p
 Vcsc 
@@ -4212,6 +4207,7 @@ Zpwz
 [HEX DUMP]:
 [HTiW
 [OdP
+[\tV_fopen
 [aOni*{
 [fo@e
 [unknown]
@@ -4222,6 +4218,7 @@ Zpwz
 \U%04lX
 \W%08lX
 \\MVT
+\\tV_fopenUTF8
 \f%\f/\f1\fA\f[\f_\fa\fm\fs\fw\f
 \f<<0A1pq
 \fXu"L
@@ -4243,6 +4240,8 @@ Zpwz
 \n\n\n
 \n\tIPSec/IKE/Oakley curve #3 over a 155 bit binary field.\n\tNot suitable for ECDSA.\n\tQuestionable extension field!
 \n\tIPSec/IKE/Oakley curve #4 over a 185 bit binary field.\n\tNot suitable for ECDSA.\n\tQuestionable extension field!
+\n_V_StringAfterPrefix
+\n_V_hextobinary
 \nqYu
 \ntM(ie-V
 \r!\r+\r-\r=\r?\rO\rU\ri\ry\r
@@ -4256,6 +4255,7 @@ Zpwz
 \rWhO
 \rY=QX
 \rYYHl
+\r\n_V_FileBase
 \r^mX
 \rjwB\t
 \roKK
@@ -4265,7 +4265,10 @@ Zpwz
 \t6trF
 \tBbj
 \tHAI8xpH\f
-\tV_atoi
+\tV_UnqualifiedFileName
+\tV_qsort
+\tV_qsort_s
+\tV_setvbuf
 \tV_snprintf
 \tV_sscanf
 \tV_stricmp_fast
@@ -4274,13 +4277,7 @@ Zpwz
 \tV_tmpnam
 \tV_vsnprintf
 \tWarning
-\t_V_ComposeFileName
-\t_V_FileBase
-\t_V_StringAfterPrefix
-\t_V_hextobinary
-\t_V_strncmp
-\t_V_strncpy
-\t_V_strnicmp_fast
+\t\n_V_ComposeFileName
 \tcQr
 \tkE>fvw
 \toRE
@@ -4290,7 +4287,6 @@ Zpwz
 \vHCK/
 \vNCE\v
 \vUY6[E
-\v\ng_pMemAlloc
 \v\vTSG
 ]1h=bfz
 ]FhSD}
@@ -4303,6 +4299,7 @@ Zpwz
 ^J_spY
 ^Nij
 ^RB!r
+^\tV_fprintf
 _%s.tmp
 _Ek6b]
 _OPENSSL_isservice
@@ -4407,6 +4404,7 @@ aRs
 aSRP
 aTh
 aXvC
+a\tV_fread
 a]?xG
 aaControls
 abcdefghijklmnopqrstuvwxyz
@@ -4837,8 +4835,8 @@ class CBufferStream (demangled)
 class CFileHandle (demangled)
 class CFileStream (demangled)
 class CFileSystem_Stdio (demangled)
+class CFioMemoryMappedFile (demangled)
 class CFioReadOnlyFile (demangled)
-class CFioReadOnlyMemoryMappedFile (demangled)
 class CIODelayAlarmThread (demangled)
 class CMemoryMappedFileSection (demangled)
 class CMemoryMappedFileSection_SelfDelete (demangled)
@@ -5488,6 +5486,7 @@ fTS
 fUnh\
 fXD
 fYF
+f\tV_fseek
 f\trixZ
 facsimileTelephoneNumber
 failed loading private key
@@ -5567,6 +5566,7 @@ gTb
 gUL
 gXC.nT\v
 gZS
+g\tV_fseeki64
 g]i/H
 gax
 gb`X
@@ -5701,6 +5701,7 @@ iOJ
 iSXc
 iU[&l
 iVY2L
+i\tV_ftell
 ia5org
 ia7@\t H9
 iah
@@ -6166,6 +6167,7 @@ jNXcA
 jOJw"
 jTuf
 jVg
+j\tV_ftelli64
 j\vIP{s
 janetMailbox
 jdH
@@ -6215,6 +6217,7 @@ kUx
 kV!DA
 kVV\t/
 kXZ
+k\tV_fwrite
 k^ZP
 ka`O
 kdf parameter error
@@ -6670,7 +6673,6 @@ oIP
 oMinghuaQu
 oVD
 oWnS
-o\tV_qsort
 oad2:,
 oaep
 oaep decoding error
@@ -6783,7 +6785,6 @@ pSourceFunc
 pSpecified
 pU>\AL
 pYc
-p\tV_qsort_s
 packet length too long
 padding check failed
 pagerTelephoneNumber
@@ -8181,7 +8182,6 @@ xUN'
 xUT
 xXq
 xYC
-x\tV_setvbuf
 xac
 xbk
 xg-9Ja

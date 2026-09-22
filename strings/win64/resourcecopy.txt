@@ -18,11 +18,13 @@
  Class Hierarchy Descriptor'
  Complete Object Locator'
  Type Descriptor'
+ \n_V_strncmp
  delete
  delete[]
  new
  noexcept
  volatile
+!\n_V_strncpy
 "\nis running without a known mod!\n\nSet the VMOD environment variable or run with -game to set the mod name.\n
 "id" "elementid" 
 #AppFramework_InvalidLocalFiles
@@ -33,6 +35,7 @@
 #RenderSystemChange_Title
 #RenderSystemChange_Yes
 #RenderSystemOldDriver_Text
+#\n_V_strnicmp_fast
 $prefix_attribute$
 $prefix_element$
 %-40s\t%6d\t%9d\t\t%5.2f
@@ -73,7 +76,6 @@ $prefix_element$
 %s: no space for allocation of %u\n
 %s: unable to grow count by %u (currently %u)\n
 &Sgw
-'\tV_fclose
 (null)
 *** Converter error - element "%s" already has a non-int attribute "%s"!\n
 *** Element "%s" has attribute "%s" with an unexpected type!\n
@@ -89,7 +91,6 @@ $prefix_element$
 *LANGUAGE*
 *StO9>T
 +Auto Tags
-+\tV_fflush
 ,<ellipsis>
 --  Increase the size of the resource stream   --\n
 --  Need %d bytes, but only have %d bytes\n
@@ -129,7 +130,6 @@ $prefix_element$
 .CRT$XPZ
 .CRT$XTA
 .CRT$XTZ
-.\tV_fileno
 .bss
 .data
 .data$r
@@ -176,7 +176,7 @@ $prefix_element$
 1#QNAN
 1#SNAN
 16-byte data pool
-2\tV_fopenUTF8
+2\vpda
 3>N;kU
 4-byte data pool
 5sfm_v8
@@ -184,6 +184,8 @@ $prefix_element$
 8text
 ;1#INF
 <!-- DMXVersion
+<\ng_pMemAlloc
+<\tV_atan2f
 <array: %u elements>
 <binary blob: %u bytes>
 <ellipsis>
@@ -199,7 +201,6 @@ $prefix_element$
 =imb;D
 ?DmeChannelsClip
 ?UUUUUU
-?\tV_ftell
 ?qBJ
 ?vtex
 ?ysB
@@ -211,7 +212,6 @@ ADDONROOT
 ADDONS
 API
 APPSYSTEM: In ConnectInterfaces(), s_nRegistrationCount is %d!\n
-A\tV_fwrite
 AcquireSRWLockExclusive
 AddUndoElement '%s'\n
 AddonConfig/RestrictFlatFileAddonsToTools
@@ -266,6 +266,7 @@ August
 AutoTagVDataCondition_t
 BAL
 BF>^G
+B\tV_atoi
 BakedLODBuilderMgr001
 BenchmarkService001
 Binary
@@ -284,6 +285,7 @@ C:\buildworker\csgo_rel_win64\build\src\public\appframework\tier2app.h
 C:\buildworker\csgo_rel_win64\build\src\public\tier0\tslist.h
 C:\buildworker\csgo_rel_win64\build\src\public\tier0\utldict.h
 C:\buildworker\csgo_rel_win64\build\src\public\tier0\utlrbtree.h
+C:\buildworker\csgo_rel_win64\build\src\tier2\utlstreambuffer.cpp
 C:\buildworker\csgo_rel_win64\build\src\utils\resourcecopy\resourcecopy.cpp
 CAppSystemDict::Connect( %-32s ) %8.3f msec
 CAppSystemDict::Init   ( %-32s ) %8.3f msec
@@ -410,13 +412,16 @@ CUtlMemoryBlockAllocator<char,class CMemAllocAllocator>::Alloc
 CUtlMemoryBlockAllocator<struct UtlRBTreeNode_t<struct CDmElementSerializationDictionary::ElementInfo_t,int>,class CMemAllocAllocator>::AddPage
 CUtlRBTreeBase
 CUtlStreamBuffer does not support TEXT_BUFFER's use CUtlBuffer\n
+CUtlStreamBuffer::FileWrite
+CUtlStreamBuffer::GrowAllocatedSize
+CUtlStreamBuffer::StreamPutOverflow
 CUtlString
 CUtlSymbolTableLarge element limit of %u exceeded\n
 CUtlVector
 CVMMDAssetTypeInfo
 CVisibilityMgr
 CWeakHandle
-Can't find '%s'
+Can't read '%s'
 Cannot allocate abstract class
 Cannot allocate virtual address space in CResourceStreamVM::ReserveVirtualMemory, error %u\n
 Cannot change extension: '%s' != '%s'\n
@@ -532,6 +537,7 @@ DmeJoint
 DmeLight
 DmeLog
 DmeLogLayer
+DmeMaya
 DmeModel
 DmePackColorOperator
 DmeParticleOperator
@@ -588,6 +594,7 @@ EarlyInit_Tier0
 EconItemToolModel_001
 EditGameClassProps
 Element uses unknown element type %s\n
+Empty gameinfo file '%s'
 EmptyClipboard
 EncodePointer
 Encountered a circular dependency with library %s!\n
@@ -794,14 +801,12 @@ KeyValues: Can't serialize attribute of type %s into KeyValues files!\n
 KeyValues: Element uses unknown element type %s\n
 KeyValuesSystem
 L>ev
-LAYEREDGAMEROOT
 LCMapStringEx
 LCMapStringW
 LOG_DEVELOPER
 LOG_DEVELOPER_CONSOLE
 LOG_GENERAL
 Last two rows as percentage of total size %f %%:\n
-LayeredGameRoot
 LayeredOnMod
 Leaking %i elements\n
 LeaveCriticalSection
@@ -928,6 +933,7 @@ NetworkServerService_001
 NetworkService_001
 NetworkSystemVersion001
 No display adapters found. Falling back to software rasterizer. (nAdapterCount=%d, nAdapter=%d)\n
+No game directory specified
 No know mod!
 NoDefaultModPath
 Noise Scalar
@@ -950,6 +956,7 @@ Orient Rotation to 2D Direction
 Oscillate Scalar
 Oscillate Vector
 Other
+P2du
 PIO
 PLATFORM
 Pagefile: estimated %llumb CPU %llumb GPU needed, %llumb pagefile free\n
@@ -1015,7 +1022,7 @@ Plat_RestartCurrentProcess
 Plat_SetActiveWindow
 Plat_SetDesktopNotifyIconPath
 Plat_SetFullscreenMinimizeOnFocusLoss
-Plat_SetGameDirectories
+Plat_SetGameDirectory
 Plat_SetWindowIcon
 Plat_ShutdownCOM
 Plat_TickDiffMilliSecF
@@ -1043,6 +1050,7 @@ Procedural
 Processed %d file%s with %d error%s. (%d skipped)\n
 PropertyEditorSystem_001
 QAngle
+Q\tV_fclose
 QueryPerformanceCounter
 RESOURCE_ENCODING_COMPILEIMAGEUTILS_TEXT
 RESOURCE_ENCODING_COUNT
@@ -1177,6 +1185,7 @@ ShowLowAvailableVirtualMemoryMessageBox
 Skipping copy of '%s' to '%s'\n
 Skipping existing file : '%s'\n
 SleepConditionVariableSRW
+SmartPropsSystem_001
 SoundOpSystem001
 SoundOpSystemEdit001
 SoundService_001
@@ -1205,6 +1214,7 @@ Start fade out size
 StatsService_001
 SteamAudio001
 StereoFlip
+StreamPutOverflow
 Sun
 Sunday
 Symbol table:  %d entries %llu bytes\n
@@ -1258,6 +1268,7 @@ Tuesday
 UNKNOWN
 USER32.dll
 UUUUUU
+U\tV_fflush
 Unable to Start Game
 Unable to create render device for %s!\n
 Unable to create unknown element %s!\n
@@ -1343,7 +1354,6 @@ V_StringToUint32
 V_StringToUint64
 V_UInt32ToString_Unsafe
 V_UInt64ToString_Unsafe
-V_UnqualifiedFileName
 Valid Content Absolute Path
 Valid External Path
 Valid Game Absolute Path
@@ -1387,6 +1397,7 @@ WriteFile
 Wrong alignment %d\n
 Wrote non-resource file : '%s'\n
 Wrote resource file: '%s'\n
+X\tV_fileno
 You are trying to mount addon '%s' but SetAllowAddonChanges is false which probably means you shouldn't be calling this directly.\n
 You are trying to unmount addon '%s', but SetAllowAddonChanges is false which probably means you should be using calling this directly.\n
 [%d] Aborting undo '%s'\n
@@ -1395,9 +1406,17 @@ You are trying to unmount addon '%s', but SetAllowAddonChanges is false which pr
 [%s] Forced dmxconvert - Finished [%s] in %0.2f secs. Please re-save or upconvert this asset!\n
 [aOni*{
 [thunk]:
+\\tV_fopenUTF8
+\n_MakeGlobalSymbol
+\n_V_StringAfterPrefix
+\n_V_StringAfterPrefixCaseSensitive
+\n_V_strEndsWith
 \tNAN encountered in element '%s' guid %s attribute '%s'!\n
-\tV_atan2f
-\tV_atoi
+\tV_UnqualifiedFileName
+\tV_log2f
+\tV_powf
+\tV_qsort_s
+\tV_sincosf
 \tV_snprintf
 \tV_sscanf
 \tV_sscanf_s
@@ -1406,16 +1425,8 @@ You are trying to unmount addon '%s', but SetAllowAddonChanges is false which pr
 \tV_vsnprintf
 \tWarning
 \tWorldsize_Init
-\t_MakeGlobalSymbol
-\t_V_StringAfterPrefix
-\t_V_StringAfterPrefixCaseSensitive
-\t_V_strEndsWith
-\t_V_strncmp
-\t_V_strncpy
-\t_V_strnicmp_fast
 \tcQr
 \tkE>fvw
-\v\ng_pMemAlloc
 __based(
 __cdecl
 __clrcall
@@ -1445,7 +1456,6 @@ _linked_type_
 _name
 _root_keyname
 `RTTI
-`\tV_log2f
 `adjustor{
 `anonymous namespace'
 `copy constructor closure'
@@ -1499,7 +1509,8 @@ abcdefghijklmnopqrstuvwxyz
 activeBookmarkSet
 addoninfo.txt
 addonroot
-addonroot_language
+addonroot_audiolanguage
+addonroot_uilanguage
 address family not supported
 address in use
 address not available
@@ -2111,9 +2122,10 @@ fvP
 game
 game:tools/images/assettypes/generic_lg.png
 game:tools/images/assettypes/generic_sm.png
-game_language
+game_audiolanguage
 game_lowviolence
 game_nontools
+game_uilanguage
 gameinfo
 gameinfo.gi
 gameinfo_branchspecific.gi
@@ -2142,6 +2154,7 @@ hold_right
 host unreachable
 houdini
 hue
+i\tV_ftell
 identifier removed
 illegal byte sequence
 inappropriate io control operation
@@ -2181,6 +2194,7 @@ jointTransforms
 jointWeights
 jointWeightsIndices
 k=yI
+k\tV_fwrite
 kernel32
 keyvalues
 keyvalues file
@@ -2349,6 +2363,7 @@ m_bPresentInGameTree
 m_bPreventDirectCompile
 m_bShouldCompileErrorFallbackToDisk
 m_bShowInRevisionSubMenu
+m_bShowInToolsMenu
 m_bSuppressFullFingerprintCalculation
 m_bTagHidesAssetByDefault
 m_bTagIndicatesRejectedAsset
@@ -2370,6 +2385,7 @@ m_flRandomVerticalOffsetMax
 m_flRandomVerticalOffsetMin
 m_flStartFadeSize
 m_flWeight
+m_nAssetThumbnailVersion
 m_nAssetTypeVersion
 m_nFileCRC
 m_nFingerprint
@@ -2430,7 +2446,6 @@ multilevelchannel
 n03>Pu
 nLayoffState
 nTries < 10000000
-n\tV_powf
 name
 nan
 nan(ind)
@@ -2477,6 +2492,7 @@ nullptr
 numTimeSteps
 obwQ4
 officialaddonroot
+offseTime
 offset
 offsetTime
 onI
@@ -2504,7 +2520,6 @@ owner dead
 ownerlog
 pFx
 pOC
-p\tV_qsort_s
 parentConstraint
 particle
 pathNodeName
@@ -2517,6 +2532,7 @@ path_particle_rope
 path_trajectory
 pattern
 pcf
+perforce.inf
 permission denied
 physics
 physicsSimplificationError
@@ -3016,7 +3032,6 @@ wrinkleIndices
 write
 wrong protocol type
 ycg
-z\tV_sincosf
 zero
 {flat}
 {for 

@@ -482,11 +482,23 @@
 		VAlign = "CENTER"
 		HAlign = "RIGHT"
 	}
-	.LocalNameReference = 
+	.LocalNameReferenceFromThis = 
 	{
 		FixedSizeX = 18
 		FixedSizeY = 18
 		BackgroundImage = "tools/images/pulse_editor/namereference_from_this.png"
+		ImageTint = "#777"
+		InteractionPriority = "BASE"
+		"&:hover" = 
+		{
+			ImageTint = "$GreyBright_Hover"
+		}
+	}
+	.LocalNameReferenceUsedHere = 
+	{
+		FixedSizeX = 18
+		FixedSizeY = 18
+		BackgroundImage = "tools/images/pulse_editor/namereference_used.png"
 		ImageTint = "#777"
 		InteractionPriority = "BASE"
 		"&:hover" = 
@@ -1784,6 +1796,10 @@
 	{
 		BackgroundImage = "tools/images/pulse_editor/remoteflow_continue_loop.png"
 	}
+	.RemoteFlowIndicator.BREAK_LOOP = 
+	{
+		BackgroundImage = "tools/images/pulse_editor/remoteflow_break_loop.png"
+	}
 	.RemoteFlowIndicator.CONTINUE_SEQUENCE = 
 	{
 		BackgroundImage = "tools/images/pulse_editor/remoteflow_continue_sequence.png"
@@ -1808,36 +1824,60 @@
 		Padding_Top = 15
 		VAlign = "BOTTOM"
 	}
-	.BreakpointContainerInflow = 
-	{
-		Positioning = "OUTSIDE_PARENT"
-		LayoutChildren = "VBOX"
-		Padding_Bottom = -12
-		VAlign = "TOP"
-		HAlign = "CENTER"
-	}
-	.BreakpointContainerOutflow = 
-	{
-		Positioning = "OUTSIDE_PARENT"
-		LayoutChildren = "VBOX"
-		Padding_Bottom = 0
-		VAlign = "TOP"
-		HAlign = "CENTER"
-	}
 	.BreakpointContainerPort = 
 	{
 		Positioning = "OUTSIDE_PARENT"
 		LayoutChildren = "VBOX"
-		Padding_Bottom = 0
-		VAlign = "BOTTOM"
+	}
+	.BreakpointContainer_Port_Inflow = 
+	{
+		Margin_Bottom = 0
+		VAlign = "TOP"
 		HAlign = "CENTER"
 	}
-	.BreakpointContainerHeader = 
+	.BreakpointContainer_Port_Outflow = 
+	{
+		Margin_Bottom = -22
+		VAlign = "TOP"
+		HAlign = "CENTER"
+	}
+	.BreakpointContainer_Header = 
 	{
 		Positioning = "OUTSIDE_PARENT"
 		LayoutChildren = "VBOX"
-		Padding_Bottom = -16
-		VAlign = "TOP"
+		VAlign = "BOTTOM"
+		HAlign = "CENTER"
+	}
+	.BreakpointContainer_Header_Inflow = 
+	{
+		Positioning = "OUTSIDE_PARENT"
+		LayoutChildren = "VBOX"
+		VAlign = "BOTTOM"
+		HAlign = "CENTER"
+		Margin_Top = -39
+	}
+	.BreakpointContainer_Header_Outflow = 
+	{
+		Positioning = "OUTSIDE_PARENT"
+		LayoutChildren = "VBOX"
+		VAlign = "BOTTOM"
+		HAlign = "CENTER"
+		Margin_Top = -8
+	}
+	.BreakpointContainer_FlowRail_Inflow = 
+	{
+		Positioning = "OUTSIDE_PARENT"
+		LayoutChildren = "VBOX"
+		Margin_Top = -39
+		VAlign = "BOTTOM"
+		HAlign = "CENTER"
+	}
+	.BreakpointContainer_FlowRail_Outflow = 
+	{
+		Positioning = "OUTSIDE_PARENT"
+		LayoutChildren = "VBOX"
+		Margin_Top = -6
+		VAlign = "BOTTOM"
 		HAlign = "CENTER"
 	}
 	.BreakpointIndicator = 
@@ -1941,7 +1981,6 @@
 	}
 	.Cursor = 
 	{
-		PaintLayer = "HOVER_OVERLAY"
 		InteractionPriority = "ANCHOR"
 		FixedSizeX = 40
 		FixedSizeY = 40
@@ -1950,16 +1989,34 @@
 		"&.SelectedInstance" = 
 		{
 			BackgroundImage = "tools/images/pulse_editor/yielded_cursor.png"
+			"&.ActiveDebuggerCursor" = 
+			{
+				BackgroundImage = "tools/images/pulse_editor/debugger_broken.png"
+			}
+		}
+		"&.ActiveDebuggerCursor" = 
+		{
+			BackgroundImage = "tools/images/pulse_editor/debugger_broken_other.png"
+			Padding_Left = -3
 		}
 		"&.CallstackCursor" = 
 		{
-			FixedSizeX = 20
-			FixedSizeY = 20
-			BackgroundImage = "tools/images/pulse_editor/yielded_cursor.png"
+			FixedSizeX = 40
+			FixedSizeY = 40
+			BackgroundImage = "tools/images/pulse_editor/yielded_cursor_instack.png"
 			Visibility = "COLLAPSE"
 			"&.SelectedInstance" = 
 			{
 				Visibility = "VISIBLE"
+				"&.ActiveDebuggerCursor" = 
+				{
+					BackgroundImage = "tools/images/pulse_editor/debugger_broken_instack.png"
+				}
+			}
+			"&.ActiveDebuggerCursor" = 
+			{
+				BackgroundImage = "tools/images/pulse_editor/debugger_broken_instack_other.png"
+				Padding_Left = 0
 			}
 		}
 		"&.DeadCursor" = 
@@ -2021,6 +2078,21 @@
 			HAlign = "LEFT"
 			Margin_Right = 15
 			Margin_Top = 5
+		}
+	}
+	.TempVarCurrentValue = 
+	{
+		VAlign = "CENTER"
+		HAlign = "LEFT"
+		Positioning = "OUTSIDE_PARENT"
+		LayoutChildren = "HBOX"
+		Border = "1px $GreyMid"
+		Background_Color = "$Beige"
+		.TempVarCurrentValueText = 
+		{
+			Font = "$BaseFont"
+			Foreground_Color = "$Black"
+			Margin = "1px 4px"
 		}
 	}
 	.HasSpecialMultipleOutflowsSection = 
