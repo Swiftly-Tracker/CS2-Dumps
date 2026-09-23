@@ -5852,18 +5852,20 @@
         "attributes": {
             "has_callback": true,
             "has_default": true,
-            "has_max": false,
-            "has_min": false
+            "has_max": true,
+            "has_min": true
         },
-        "datatype": "bool",
-        "datatype_raw": 0,
-        "default": "true",
-        "description": "Draw a black outline around the crosshair for better visibility",
+        "datatype": "int32",
+        "datatype_raw": 3,
+        "default": "1",
+        "description": "Draw a black outline around the crosshair for better visibility. 0 = No outline, 1 = Full outline, 2 = Half outline",
         "flags": [
             "clientdll",
             "archive",
             "per_user"
         ],
+        "max": "2",
+        "min": "0",
         "module": "client",
         "name": "cl_crosshair_drawoutline"
     },
@@ -6289,13 +6291,13 @@
         "datatype": "int32",
         "datatype_raw": 3,
         "default": "7",
-        "description": "Crosshair style. 0 = Dynamic Cross, 1 = Dynamic Circle, 2 = Dynamic Cross (Legacy), 3 = Static Circle, 4 = Static Cross, 5 = Static Cross (Shot Feedback), 6 = Dot Only, 7 = Dynamic Quad. Styles 0, 1 and 7 track the weapon's actual inaccuracy.",
+        "description": "Crosshair style. 0 = Dynamic Cross, 1 = Dynamic Circle, 2 = Dynamic Cross (Legacy), 3 = Static Circle, 4 = Static Cross, 5 = Static Cross (Shot Feedback), 6 = Dot Only, 7 = Dynamic Quad, 8 = Static Square. Styles 0, 1 and 7 track the weapon's actual inaccuracy.",
         "flags": [
             "clientdll",
             "archive",
             "per_user"
         ],
-        "max": "7",
+        "max": "8",
         "min": "0",
         "module": "client",
         "name": "cl_crosshairstyle"

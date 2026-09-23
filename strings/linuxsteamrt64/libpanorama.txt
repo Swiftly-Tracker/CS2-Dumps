@@ -2,6 +2,8 @@
         %3d %3d %3d %3d %3d %3d %3d %3d
         %4u %4u %4u %4u %4u %4u %4u %4u
     %4u: %s\n
+    %u iterated blocks\n
+    %u unfinished blocks\n
     Component %d: %dhx%dv q=%d
     Component %d: dc=%d ac=%d
     with %d x %d thumbnail image
@@ -256,6 +258,10 @@
 !AxU
 !is_large()
 !m_bNeedsSort
+!m_boolDone
+!m_boolOpaque
+!m_boolPunchThroughPixels
+!m_boolTransparent
 " because it is missing required fields: 
 " conflicts with field "
 " conflicts with the existing symbol "
@@ -346,6 +352,7 @@ $0rpc $1($4.$2) returns ($5.$3)
 $ORIGIN
 %019lu
 %1.1f
+%3d: e=%.3f rms=%.6f %u\n
 %5lu file=%s, line=%d, 
 %A Is
 %I:%M:%S %p
@@ -450,6 +457,8 @@ $ORIGIN
 (dst_width % 3 == 0) && (dst_width > 0)
 (dy & 0x1ffff) == 0
 (dy & 0x3ffff) == 0
+(fWeightSumLeft + fWeightSumRight) > 0.0f
+(fWeightSumTop + fWeightSumBottom) > 0.0f
 (memory)
 (merge 
 (undefined)
@@ -549,6 +558,20 @@ $ORIGIN
 /home/saml/dev/steam/thirdpartycode/nonredist/libyuv/libyuv/source/row_common.cc
 /home/saml/dev/steam/thirdpartycode/nonredist/libyuv/libyuv/source/scale.cc
 /home/saml/dev/steam/thirdpartycode/nonredist/libyuv/libyuv/source/scale_common.cc
+/home/timo/source2/main/src/thirdparty/etc2comp/EtcLib/./EtcCodec/EtcBlock4x4Encoding.h
+/home/timo/source2/main/src/thirdparty/etc2comp/EtcLib/Etc/EtcImage.cpp
+/home/timo/source2/main/src/thirdparty/etc2comp/EtcLib/EtcCodec/EtcBlock4x4.cpp
+/home/timo/source2/main/src/thirdparty/etc2comp/EtcLib/EtcCodec/EtcBlock4x4Encoding.cpp
+/home/timo/source2/main/src/thirdparty/etc2comp/EtcLib/EtcCodec/EtcBlock4x4Encoding.h
+/home/timo/source2/main/src/thirdparty/etc2comp/EtcLib/EtcCodec/EtcBlock4x4Encoding_ETC1.cpp
+/home/timo/source2/main/src/thirdparty/etc2comp/EtcLib/EtcCodec/EtcBlock4x4Encoding_R11.cpp
+/home/timo/source2/main/src/thirdparty/etc2comp/EtcLib/EtcCodec/EtcBlock4x4Encoding_RG11.cpp
+/home/timo/source2/main/src/thirdparty/etc2comp/EtcLib/EtcCodec/EtcBlock4x4Encoding_RGB8.cpp
+/home/timo/source2/main/src/thirdparty/etc2comp/EtcLib/EtcCodec/EtcBlock4x4Encoding_RGB8A1.cpp
+/home/timo/source2/main/src/thirdparty/etc2comp/EtcLib/EtcCodec/EtcBlock4x4Encoding_RGBA8.cpp
+/home/timo/source2/main/src/thirdparty/etc2comp/EtcLib/EtcCodec/EtcDifferentialTrys.cpp
+/home/timo/source2/main/src/thirdparty/etc2comp/EtcLib/EtcCodec/EtcIndividualTrys.cpp
+/home/timo/source2/main/src/thirdparty/etc2comp/EtcLib/EtcCodec/EtcSortedBlockList.cpp
 /src/
 /store/
 /yQA
@@ -1424,6 +1447,7 @@ CImageResourceManager::LoadImageFromMemory
 CImageResourceManager::LoadImageInternal
 CImageResourceManager::LoadLocalFileSynchronous
 CImageResourceManager::LoadLocalFileSynchronous()
+CJJ
 CKV3TransferContextBase (demangled)
 CKV3TransferLoadContext (demangled)
 CKV3TransferSaveContext (demangled)
@@ -1696,6 +1720,7 @@ CUtlSymbolTableLarge element limit of %u exceeded\n
 CVariableBitStringBase::FreeInts() (demangled)
 CVariableBitStringBase::Resize(int) (demangled)
 CVectorGraphic (demangled)
+CaA
 CacheMaterialInformation
 Call a function on each given item
 Call during JS startup code to check if script is being reloaded
@@ -1959,10 +1984,12 @@ ESC
 EST
 EStyleNodeType
 ETB
+ETC1
 ETX
 EVP lib
 EVZ
 EVideoPlayerEvent (demangled)
+EXA
 EXPERIMENTAL: Sets a more-complex brush for the entire border paint area (ignores normal border color).<br><br><b>Examples:</b><pre>border-brush: gradient( linear, 0% 0%, 0% 100%, from( #fbfbfbff ), to( #c0c0c0c0 ) );\nborder-brush: gradient( linear, 0% 0%, 0% 100%, from( #fbfbfbff ), color-stop( 0.3, #ebebebff ), to( #c0c0c0c0 ) );\nborder-brush: gradient( radial, 50% 50%, 0% 0%, 80% 80%, from( #00ff00ff ), to( #0000ffff ) );</pre>
 EXPORTSYSTEM_INTERFACE_VERSION_001
 EXPRESSION
@@ -2043,6 +2070,21 @@ Error: Attempting to add stop element to a non-gradient element\n
 Error: Attribute index exceeds valid range\n
 Error: Failed to add sibling element\n
 Error: Transform index exceeds valid range\n
+Etc::Block4x4Encoding (demangled)
+Etc::Block4x4Encoding_ETC1 (demangled)
+Etc::Block4x4Encoding_R11 (demangled)
+Etc::Block4x4Encoding_RG11 (demangled)
+Etc::Block4x4Encoding_RGB8 (demangled)
+Etc::Block4x4Encoding_RGB8A1 (demangled)
+Etc::Block4x4Encoding_RGB8A1_Opaque (demangled)
+Etc::Block4x4Encoding_RGB8A1_Transparent (demangled)
+Etc::Block4x4Encoding_RGBA8 (demangled)
+Etc::Block4x4Encoding_RGBA8_Opaque (demangled)
+Etc::Block4x4Encoding_RGBA8_Transparent (demangled)
+Etc::DifferentialTrys::DifferentialTrys(Etc::ColorFloatRGBA, Etc::ColorFloatRGBA, const unsigned int*, const unsigned int*, unsigned int, int, int)
+Etc::EncodeMipmaps(float*, unsigned int, unsigned int, Etc::Image::Format, Etc::ErrorMetric, float, unsigned int, unsigned int, unsigned int, unsigned int, Etc::RawImage*, int*, bool)::{lambda(unsigned char*)#1} (demangled)
+Etc::Image::EncodingStatus Etc::Image::Encode(Etc::Image::Format, Etc::ErrorMetric, float, unsigned int, unsigned int)
+Etc::IndividualTrys::IndividualTrys(Etc::ColorFloatRGBA, Etc::ColorFloatRGBA, const unsigned int*, const unsigned int*, unsigned int)
 Event arguments could not be parsed for %s of %s
 Exceeds Maximum Package Depth
 ExecuteSteamURL
@@ -2087,6 +2129,7 @@ FAILED_PRECONDITION
 FATAL
 FILE pointer
 FIPS routines
+FNG
 Failed
 Failed to KV3 transfer block: %d\n
 Failed to add include for file: %s
@@ -2147,6 +2190,7 @@ Find an element
 FindChildInContext
 FindChildInContext()/$() require an id selector (start with #) for now
 FindLessOrEqual
+Finished %d Blocks out of %d\n
 Fire another event after a delay (in seconds).
 Fire another event if currently hovering over a panel with the given ID.
 Fire another event if not currently hovering over a panel with the given ID.
@@ -2172,6 +2216,7 @@ FixupResourceName: Illegal path, missing extension passed in ("%s")!\n
 FlattenedSerializersVersion001
 FloatBitMap_t::CopyFloatBitmap: Received NULL pointer!\n
 FloatBitMap_t::LoadFromFloatBitmap: Received improper bitmap size, skipping!\n
+FloatBitMap_t::WriteToBuffer: Received improper buffer size %s (expecting %s), skipping!\n
 FontManager_001
 Force desired layout traverse, even if the cached values are up to date.
 Force style invalidation of the entire panel subtree when adding / removing classes.
@@ -2201,6 +2246,7 @@ Freed XMS handle %u
 Fri
 Friday
 Future already retrieved
+FwL
 Fzw
 GAME
 GCC: (SteamRT 14.2.0-19~steamrt3.1+bsrt3.1) 14.2.0
@@ -2724,6 +2770,7 @@ Invalidating fully because style %s changed on panel %s\n
 Invalidity Date
 InvokeJSGenericCallback
 InvokeMiniDumpHandler
+IpL
 IsPanelBackground
 IsValid
 J400ToARGB
@@ -2747,6 +2794,7 @@ JFIF extension marker: palette thumbnail image, length %u
 JFIF extension marker: type 0x%02x, length %u
 JMk
 JOINT-ISO-ITU-T
+JOJ
 JPEG datastream contains no image
 JPEG parameter struct mismatch: library thinks size is %u, caller expects %u
 JPEGMEM
@@ -2766,7 +2814,6 @@ Jul
 July
 Jun
 June
-JwC
 KEYFRAMES
 KEYFRAME_SELECTOR
 KISA
@@ -2792,7 +2839,6 @@ KeyValues::SetString(char const*, char const*) (demangled)
 KeyValues::SetUint64(char const*, unsigned long long) (demangled)
 KeyValues::complete object constructor(char const*, IKeyValuesSystem*, bool) (demangled)
 KeyValues::new(unsigned long) (demangled)
-LAH
 LC_ADDRESS
 LC_COLLATE
 LC_CTYPE
@@ -2809,6 +2855,7 @@ LDo
 LINEAR_D24S8
 LOG_CONSOLE
 LOG_GENERAL
+LUF
 LV_DEFAULT
 LV_DETAILED
 LV_ESSENTIAL
@@ -2821,6 +2868,7 @@ Layout FPS:\t%1.2f\nAnimate FPS:\t%1.2f\nRender FPS:\t%1.2f\n
 Layout XSD contents copied to clipboard.\n
 LayoutAndPaintIfNeeded
 LayoutAndPaintWindows
+LcF
 LeM
 LhX
 Lifetime Svg File size read: %d\n
@@ -2872,6 +2920,7 @@ MIME MHS
 MOD
 MODEL_PROCESSING_SERVICES_INTERFACE_001
 MST
+MTJ
 Mail
 Make a web request (disabled)
 Management
@@ -3159,6 +3208,7 @@ OCSP routines
 OCSPSigning
 OPENSSL_ia32cap
 ORG
+ORJ
 OUT_OF_RANGE
 OYX
 OZw3(?
@@ -3172,6 +3222,7 @@ OnJSScheduledFunction
 OnPanelDeleted
 Oneof must have at least one field.
 OneofOptions
+Only DXT1/DXT5 online texture compression supported.\n
 Opened temporary file %s
 Opening joystick %i : %s\n
 Option "
@@ -3280,6 +3331,7 @@ PKw
 PKx
 PKy
 PLACEHOLDER_VALUE
+PLANAR
 PN2v86GlobalINS_8FunctionEEE
 PN8panorama12IImageSourceE
 PN8panorama17CImageProxySourceE
@@ -3293,7 +3345,6 @@ PROPERTY
 PSPECIFIED
 PST
 PURH
-PWE
 Package name is too long
 PageDown
 PageLeft
@@ -3401,7 +3452,6 @@ Protocol Buffer map usage error:\n
 Protocol Buffer reflection usage error:\n  Method      : google::protobuf::Reflection::
 Proxy Certificate Information
 Push
-PxC
 QC,A
 QPI
 Qkkbal
@@ -3500,12 +3550,15 @@ RGB565ToARGBRow_SSE2
 RGB565ToI420
 RGB565ToUVRow_C
 RGB565ToYRow_C
+RGB8
 RGB888
+RGB8A1
 RGBA1010102
 RGBA16161616
 RGBA16161616F
 RGBA32323232F
 RGBA32323232_UINT
+RGBA8
 RGBA8888
 RGBA8888_LINEAR
 RGBA8888_UINT
@@ -3698,6 +3751,8 @@ SHA224
 SHA256
 SHA384
 SHA512
+SIGNED_R11
+SIGNED_RG11
 SKyu
 SMIME
 SMIME-CAPS
@@ -3705,6 +3760,9 @@ SNIPPET
 SNIPPETS
 SNMPv2
 SOH
+SRGB8
+SRGB8A1
+SRGBA8
 SSE and SSE2 are required.
 SSL lib
 SSL routines
@@ -3716,6 +3774,7 @@ STYLE_SELECTOR
 SUB
 SXNetID
 SYN
+SaA
 Sampling factors too large for interleaved scan
 Sat
 Saturday
@@ -4271,6 +4330,10 @@ St20__codecvt_utf16_baseIwE
 St20bad_array_new_length
 St21__ctype_abstract_baseIcE
 St21__ctype_abstract_baseIwE
+St23_Sp_counted_ptr_inplaceINSt13__future_base15_Deferred_stateINSt6thread8_InvokerISt5tupleIJMN3Etc5ImageEFjjjjEPS6_jijEEEEjEESaISC_ELN9__gnu_cxx12_Lock_policyE2EE
+St23_Sp_counted_ptr_inplaceINSt13__future_base15_Deferred_stateINSt6thread8_InvokerISt5tupleIJMN3Etc5ImageEFvjjEPS6_ijEEEEvEESaISC_ELN9__gnu_cxx12_Lock_policyE2EE
+St23_Sp_counted_ptr_inplaceINSt13__future_base17_Async_state_implINSt6thread8_InvokerISt5tupleIJMN3Etc5ImageEFjjjjEPS6_jijEEEEjEESaISC_ELN9__gnu_cxx12_Lock_policyE2EE
+St23_Sp_counted_ptr_inplaceINSt13__future_base17_Async_state_implINSt6thread8_InvokerISt5tupleIJMN3Etc5ImageEFvjjEPS6_ijEEEEvEESaISC_ELN9__gnu_cxx12_Lock_policyE2EE
 St23_Sp_counted_ptr_inplaceINSt8__detail4_NFAISt12regex_traitsIcEEESaIvELN9__gnu_cxx12_Lock_policyE2EE
 St23__codecvt_abstract_baseIDiDu11__mbstate_tE
 St23__codecvt_abstract_baseIDic11__mbstate_tE
@@ -4349,7 +4412,6 @@ Sun
 Sunday
 Surface %p %s stats: %llu frames rendered in %.3f seconds, %.3fms per frame\n
 Suspension not allowed here
-SvC
 SvgBaseElement_t (demangled)
 Swap
 SwapUVPlane
@@ -4549,6 +4611,7 @@ UnregisterJSForUnhandledEvent
 UnsafeArenaAddAllocatedMessage
 UnsafeArenaReleaseLast
 Unsupported
+Unsupported ETC image format %d.\n
 Unsupported JPEG data precision %d
 Unsupported JPEG process: SOF type 0x%02x
 Unsupported KV3 basic type '%s' (%d)!
@@ -4795,6 +4858,8 @@ Wrong JPEG library version: library is %d, caller expects %d
 Wrong number of arguments to RegisterEventHandler
 Wrong number of arguments to RegisterForUnhandledEvent
 Wrote panel composition layer in %s\n
+WsL
+WzL
 X500algorithms
 X509 V3 routines
 X509 lib
@@ -4827,6 +4892,7 @@ X9.42 DH
 X9.57 CM ?
 X9cm
 XInput Controller
+XMJ
 XhL
 XsBI
 YUY2ToARGB
@@ -4855,10 +4921,12 @@ YUY2ToYRow_Any_SSE2
 YUY2ToYRow_C
 YUY2ToYRow_SSE2
 Yes
+YkF
 You must turn on panorama_track_render_commands to track command usage.\n
 YpU
 ZLIB
 Zjz\v
+ZyB
 [%02d:%02d:%02d] 
 [abi:
 [friend]
@@ -5767,7 +5835,10 @@ _txnal_logic_error_get_msg(void*) (demangled)
 _txnal_runtime_error_get_msg(void*) (demangled)
 _txnal_sso_string_c_str(void const*) (demangled)
 aRecord
+a_fDecodedAlpha >= 0.0f
 a_object.c
+a_uiMultithreadingStride > 0
+a_uiRadius <= MAX_RADIUS
 aaControls
 abort
 ac-auditEntity
@@ -6117,6 +6188,7 @@ c2tnb359v1
 c2tnb431r1
 cACertificate
 cNAMERecord
+caA
 caIssuers
 caRepository
 cadetblue
@@ -7006,7 +7078,9 @@ dump_panorama_css_properties
 dump_panorama_events
 dump_panorama_render_command_stats
 dvcs
+dwB
 dx != __null
+dxL
 dy != __null
 dynamic
 dynamic_cast
@@ -7030,6 +7104,8 @@ ecdsa-with-SHA256
 ecdsa-with-SHA384
 ecdsa-with-SHA512
 ecdsa-with-Specified
+eeG
+effortblocks = %d\n
 eight
 ellipse
 ellipsis
@@ -7037,6 +7113,7 @@ elliptic curve routines
 emailAddress
 emailProtection
 enabled
+encodingTry.m_fError < 3.40282346638528859811704183484516925e+38F
 encrypted track 2
 engine
 engine routines
@@ -7070,7 +7147,14 @@ external
 f == nullptr || dynamic_cast<To>(f) != nullptr
 f5J5J5J5J5J5J5J5J5J5J5J5J5J5J5J5Jx
 fAj
+fMinAlpha <= fMaxAlpha
+fMinGrn <= fMaxGrn
+fMinRed <= fMaxRed
 fP~V
+fWeightSumBottom > 0.0f
+fWeightSumLeft > 0.0f
+fWeightSumRight > 0.0f
+fWeightSumTop > 0.0f
 facsimileTelephoneNumber
 fade
 fade_out
@@ -7111,9 +7195,12 @@ fj".T\CMek2>x
 float
 float () std::basic_ostream<wchar_t, std::char_traits<wchar_t> >::<<() (demangled)
 float (float) CUniformRandomStreamImpl<CThreadNullMutex>::RandomFloat(float) (demangled)
+float Etc::Block4x4Encoding::CalcPixelError(Etc::ColorFloatRGBA, float, Etc::ColorFloatRGBA)
+float Etc::Block4x4Encoding::GetError()
 float&() std::basic_istream<wchar_t, std::char_traits<wchar_t> >::>>() (demangled)
 float32
 float64
+floatbitmap.cpp(1195): Unsupported color format "%s", skipping!\n
 floralwhite
 flow-children
 focus
@@ -7155,6 +7242,7 @@ function %s()
 future
 fwrite
 gWu
+gYG
 g_BitBuf_BitWriteMasks
 g_BitBuf_ExtraMasks
 g_Mathlib_GammaToLinearByteTable
@@ -7520,6 +7608,29 @@ hwe
 hyphen
 i < length_
 iA5StringSyntax
+iBlue >= 0 && iBlue <= 15
+iBlue >= 0 && iBlue <= 31
+iBlue1 >= (signed)(0+a_uiRadius) && iBlue1 <= (signed)(31 - a_uiRadius)
+iBlue2 < 0 || iBlue2 > 31
+iBlue2 >= (signed)(0 + a_uiRadius) && iBlue2 <= (signed)(31 - a_uiRadius)
+iDBlue >= -4 && iDBlue < 4
+iDBlue2 >= -4 && iDBlue2 < 4
+iDGreen >= -4 && iDGreen < 4
+iDGreen2 >= -4 && iDGreen2 < 4
+iDRed >= -4 && iDRed < 4
+iDRed2 >= -4 && iDRed2 < 4
+iGreen >= 0 && iGreen <= 15
+iGreen >= 0 && iGreen <= 31
+iGreen1 >= (signed)(0 + a_uiRadius) && iGreen1 <= (signed)(31 - a_uiRadius)
+iGreen2 < 0 || iGreen2 > 31
+iGreen2 >= (signed)(0 + a_uiRadius) && iGreen2 <= (signed)(31 - a_uiRadius)
+iGreen2 >= 0 && iGreen2 <= 31
+iRed >= 0 && iRed <= 15
+iRed >= 0 && iRed <= 31
+iRed1 >= (signed)(0 + a_uiRadius) && iRed1 <= (signed)(31 - a_uiRadius)
+iRed2 < 0 || iRed2 > 31
+iRed2 >= (signed)(0 + a_uiRadius) && iRed2 <= (signed)(31 - a_uiRadius)
+iRed2 >= 0 && iRed2 <= 31
 i]Wb
 iak
 iana
@@ -7901,7 +8012,6 @@ italic
 itu-t
 ivory
 jAf
-jFB
 jHq
 janetMailbox
 java Class for 
@@ -8229,14 +8339,24 @@ loongson-mmi
 lower
 lowercase
 lseek
-mEH
-mJH
 mXRecord
 m_AST
 m_bShuttingDown
+m_boolDiff
+m_boolDiff == true
+m_boolTransparent
+m_fError >= 0.0f
 m_mapPanels.IsValidIndex( hPanel.m_iPanelIndex )
 m_mapPanels[hPanel.m_iPanelIndex] == hPanel.m_unSerialNumber
+m_mode == MODE_ETC1
+m_mode == MODE_H
+m_mode == MODE_PLANAR
+m_mode == MODE_T
 m_pRoot
+m_paucEncodingBits == nullptr
+m_uiAddedBlocks < m_uiImageBlocks
+m_uiAddedBlocks == m_uiImageBlocks
+m_uiEncodingIterations == 0
 m_vecChildren.IsEmpty()
 magenta
 mail
@@ -8410,7 +8530,6 @@ number=%d, address=%08lX\n
 nw-resize
 nwse-resize
 o KPBf
-oHH
 oY.o<
 obj_count
 obj_dat.c
@@ -8861,6 +8980,7 @@ parent-relative
 parentdisabled
 parse
 parsing
+pass %u\n
 pass-through
 passed a null parameter
 password based MAC
@@ -8879,6 +8999,7 @@ pbeWithSHA1And40BitRC2-CBC
 pbeWithSHA1And40BitRC4
 pbeWithSHA1AndDES-CBC
 pbeWithSHA1AndRC2-CBC
+pbucket->plinkLast->GetNext() == nullptr
 peachpuff
 percent-sign
 period
@@ -8980,6 +9101,11 @@ pthread_rwlock_rdlock
 pthread_rwlock_unlock
 pthread_rwlock_wrlock
 pthread_setspecific
+ptry < &a_phalf->m_atry[DifferentialTrys::Half::MAX_TRYS]
+ptry < &a_phalf->m_atry[IndividualTrys::Half::MAX_TRYS]
+ptry->m_fError < 3.40282346638528859811704183484516925e+38F
+ptryBest1 != nullptr
+ptryBest2 != nullptr
 punct
 pure virtual method called\n
 purple
@@ -9059,6 +9185,7 @@ right-square-bracket
 right-wrap
 ripemd160
 ripemd160WithRSA
+rmL
 role
 roleOccupant
 room
@@ -9090,6 +9217,7 @@ s5J5J5J5J5J5J5J5J5J5J5J5J5J5J5J5Jx
 sAmTb
 sOARecord
 s_SymbolStringValidators.IsValidIndex( eSymbolType )
+saA
 saddlebrown
 safeContentsBag
 salmon
@@ -9506,6 +9634,7 @@ std::_Rb_tree_rotate_left(std::_Rb_tree_node_base*, std::_Rb_tree_node_base*&) (
 std::_Rb_tree_rotate_right(std::_Rb_tree_node_base*, std::_Rb_tree_node_base*&) (demangled)
 std::_Setfill<> () std::setfill<char>() (demangled)
 std::_Setfill<> () std::setfill<wchar_t>() (demangled)
+std::_Sp_counted_deleter<unsigned char*, Etc::EncodeMipmaps(float*, unsigned int, unsigned int, Etc::Image::Format, Etc::ErrorMetric, float, unsigned int, unsigned int, unsigned int, unsigned int, Etc::RawImage*, int*, bool)::{lambda(unsigned char*)#1}, std::allocator<void>, (__gnu_cxx::_Lock_policy)2> (demangled)
 std::_V2::error_category (demangled)
 std::_V2::error_category::==(std::_V2::error_category const&) const (demangled)
 std::_V2::error_category::_M_message(int) const (demangled)
@@ -9823,12 +9952,20 @@ std::__facet_shims::__any_string::base object constructor() (demangled)
 std::__facet_shims::__any_string::base object destructor() (demangled)
 std::__facet_shims::__any_string::complete object constructor() (demangled)
 std::__facet_shims::__any_string::complete object destructor() (demangled)
+std::__future_base::_Async_state_commonV2 (demangled)
+std::__future_base::_Async_state_impl<std::thread::_Invoker<std::tuple<unsigned int (Etc::Image::*)(unsigned int, unsigned int, unsigned int), Etc::Image*, unsigned int, int, unsigned int> >, unsigned int> (demangled)
+std::__future_base::_Async_state_impl<std::thread::_Invoker<std::tuple<void (Etc::Image::*)(unsigned int, unsigned int), Etc::Image*, int, unsigned int> >, void> (demangled)
+std::__future_base::_Deferred_state<std::thread::_Invoker<std::tuple<unsigned int (Etc::Image::*)(unsigned int, unsigned int, unsigned int), Etc::Image*, unsigned int, int, unsigned int> >, unsigned int> (demangled)
+std::__future_base::_Deferred_state<std::thread::_Invoker<std::tuple<void (Etc::Image::*)(unsigned int, unsigned int), Etc::Image*, int, unsigned int> >, void> (demangled)
+std::__future_base::_Result<unsigned int> (demangled)
+std::__future_base::_Result<void> (demangled)
 std::__future_base::_Result_base (demangled)
 std::__future_base::_Result_base::base object constructor() (demangled)
 std::__future_base::_Result_base::base object destructor() (demangled)
 std::__future_base::_Result_base::complete object constructor() (demangled)
 std::__future_base::_Result_base::complete object destructor() (demangled)
 std::__future_base::_Result_base::deleting destructor() (demangled)
+std::__future_base::_State_baseV2 (demangled)
 std::__future_base::_State_baseV2::_Make_ready* const&() std::_Head_base<(unsigned long)0, std::__future_base::_State_baseV2::_Make_ready*(), (bool)0>::_M_head (demangled)
 std::__future_base::_State_baseV2::_Make_ready*&() std::_Head_base<(unsigned long)0, std::__future_base::_State_baseV2::_Make_ready*(), (bool)0>::_M_head (demangled)
 std::__future_base::_State_baseV2::_Make_ready*() std::__uniq_ptr_impl<std::__future_base::_State_baseV2::_Make_ready(), std::default_delete<std::__future_base::_State_baseV2::_Make_ready> >::base object constructor (demangled)
@@ -9840,6 +9977,8 @@ std::__future_base::_State_baseV2::_Make_ready::_M_set() (demangled)
 std::__future_base::_State_baseV2::_Make_ready::_S_run(void*) (demangled)
 std::__future_base::_State_baseV2::_Make_ready::base object destructor() (demangled)
 std::__future_base::_State_baseV2::_Make_ready::complete object destructor() (demangled)
+std::__future_base::_Task_setter<std::unique_ptr<std::__future_base::_Result<unsigned int>, std::__future_base::_Result_base::_Deleter>, std::thread::_Invoker<std::tuple<unsigned int (Etc::Image::*)(unsigned int, unsigned int, unsigned int), Etc::Image*, unsigned int, int, unsigned int> >, unsigned int> (demangled)
+std::__future_base::_Task_setter<std::unique_ptr<std::__future_base::_Result<void>, std::__future_base::_Result_base::_Deleter>, std::thread::_Invoker<std::tuple<void (Etc::Image::*)(unsigned int, unsigned int), Etc::Image*, int, unsigned int> >, void> (demangled)
 std::__ios_failure::base object constructor(char const*) (demangled)
 std::__ios_failure::base object constructor(char const*, std::error_code const&) (demangled)
 std::__ios_failure::base object destructor() (demangled)
@@ -11430,6 +11569,8 @@ std::thread::_State*() std::unique_ptr<std::thread::_State(), std::default_delet
 std::thread::_State::base object destructor() (demangled)
 std::thread::_State::complete object destructor() (demangled)
 std::thread::_State::deleting destructor() (demangled)
+std::thread::_State_impl<std::thread::_Invoker<std::tuple<std::__future_base::_Async_state_impl<std::thread::_Invoker<std::tuple<unsigned int (Etc::Image::*)(unsigned int, unsigned int, unsigned int), Etc::Image*, unsigned int, int, unsigned int> >, unsigned int>::_Async_state_impl(std::thread::_Invoker<std::tuple<unsigned int (Etc::Image::*)(unsigned int, unsigned int, unsigned int), Etc::Image*, unsigned int, int, unsigned int> >&&)::{lambda()#1}> > > (demangled)
+std::thread::_State_impl<std::thread::_Invoker<std::tuple<std::__future_base::_Async_state_impl<std::thread::_Invoker<std::tuple<void (Etc::Image::*)(unsigned int, unsigned int), Etc::Image*, int, unsigned int> >, void>::_Async_state_impl(std::thread::_Invoker<std::tuple<void (Etc::Image::*)(unsigned int, unsigned int), Etc::Image*, int, unsigned int> >&&)::{lambda()#1}> > > (demangled)
 std::thread::detach() (demangled)
 std::thread::hardware_concurrency() (demangled)
 std::thread::id::base object constructor() (demangled)
@@ -11551,6 +11692,7 @@ surname
 svg
 svg format not supported for default images, %s not loaded.\n!
 sw-resize
+sxA
 symId != UTL_INVAL_SYMBOL
 symbol
 syntax = "$0";\n\n
@@ -11604,6 +11746,7 @@ time
 time stamp routines
 timeStamping
 title
+tmB
 tomato
 too many length or distance symbols
 tooltip-arrow-position
@@ -12203,6 +12346,7 @@ ui-scale
 ui-scale-x
 ui-scale-y
 ui-scale-z
+uiTransparentPixels < PIXELS
 uiengine.cpp
 uint
 uint16
@@ -12216,6 +12360,7 @@ uint64_t google::protobuf::UnknownField::varint() const
 uipanel.cpp
 uiposition
 uitoplevelwindow.cpp
+ulG
 ull
 unable to register all schema data: %s\n
 undefined
@@ -12251,6 +12396,7 @@ unsigned int () std::basic_streambuf<wchar_t, std::char_traits<wchar_t> >::pback
 unsigned int () std::basic_stringbuf<wchar_t, std::char_traits<wchar_t>, std::allocator<wchar_t> >::overflow() (demangled)
 unsigned int () std::basic_stringbuf<wchar_t, std::char_traits<wchar_t>, std::allocator<wchar_t> >::pbackfail() (demangled)
 unsigned int () std::istreambuf_iterator<wchar_t, std::char_traits<wchar_t> >::_S_is_eof() (demangled)
+unsigned int Etc::Image::IterateThroughWorstBlocks(unsigned int, unsigned int, unsigned int)
 unsigned int const&() std::char_traits<wchar_t>::not_eof() (demangled)
 unsigned int const&() std::char_traits<wchar_t>::to_char_type() (demangled)
 unsigned int const&(unsigned int const&) std::char_traits<wchar_t>::eq_int_type(unsigned int const&) (demangled)
@@ -12626,6 +12772,23 @@ vertical-text
 viewBox
 violet
 virtual thunk to 
+virtual void Etc::Block4x4Encoding_ETC1::PerformIteration(float)
+virtual void Etc::Block4x4Encoding_ETC1::SetEncodingBits()
+virtual void Etc::Block4x4Encoding_R11::InitFromEncodingBits(Etc::Block4x4*, unsigned char*, Etc::ColorFloatRGBA*, Etc::ErrorMetric)
+virtual void Etc::Block4x4Encoding_R11::PerformIteration(float)
+virtual void Etc::Block4x4Encoding_R11::SetEncodingBits()
+virtual void Etc::Block4x4Encoding_RG11::InitFromEncodingBits(Etc::Block4x4*, unsigned char*, Etc::ColorFloatRGBA*, Etc::ErrorMetric)
+virtual void Etc::Block4x4Encoding_RG11::PerformIteration(float)
+virtual void Etc::Block4x4Encoding_RG11::SetEncodingBits()
+virtual void Etc::Block4x4Encoding_RGB8::PerformIteration(float)
+virtual void Etc::Block4x4Encoding_RGB8::SetEncodingBits()
+virtual void Etc::Block4x4Encoding_RGB8A1::PerformIteration(float)
+virtual void Etc::Block4x4Encoding_RGB8A1::SetEncodingBits()
+virtual void Etc::Block4x4Encoding_RGB8A1_Opaque::PerformIteration(float)
+virtual void Etc::Block4x4Encoding_RGB8A1_Transparent::PerformIteration(float)
+virtual void Etc::Block4x4Encoding_RGBA8::PerformIteration(float)
+virtual void Etc::Block4x4Encoding_RGBA8_Opaque::PerformIteration(float)
+virtual void Etc::Block4x4Encoding_RGBA8_Transparent::PerformIteration(float)
 visibility
 visible
 vjs
@@ -13895,6 +14058,29 @@ void (std::integral_constant<bool, (bool)1>, std::locale::facet const*, std::__m
 void (std::integral_constant<bool, (bool)1>, std::locale::facet const*, std::__moneypunct_cache<, >*) std::__facet_shims::__moneypunct_fill_cache<wchar_t, (bool)1>(std::integral_constant<bool, (bool)1>, std::locale::facet const*, std::__moneypunct_cache<, >*) (demangled)
 void (std::integral_constant<bool, (bool)1>, std::locale::facet const*, std::__numpunct_cache<>*) std::__facet_shims::__numpunct_fill_cache<char>(std::integral_constant<bool, (bool)1>, std::locale::facet const*, std::__numpunct_cache<>*) (demangled)
 void (std::integral_constant<bool, (bool)1>, std::locale::facet const*, std::__numpunct_cache<>*) std::__facet_shims::__numpunct_fill_cache<wchar_t>(std::integral_constant<bool, (bool)1>, std::locale::facet const*, std::__numpunct_cache<>*) (demangled)
+void Etc::Block4x4::InitFromEtcEncodingBits(Etc::Image::Format, unsigned int, unsigned int, unsigned char*, Etc::Image*, Etc::ErrorMetric)
+void Etc::Block4x4::InitFromSource(Etc::Image*, unsigned int, unsigned int, unsigned char*, Etc::ErrorMetric)
+void Etc::Block4x4Encoding_ETC1::CalculateSourceAverages()
+void Etc::Block4x4Encoding_ETC1::TryDifferential(bool, unsigned int, int, int)
+void Etc::Block4x4Encoding_ETC1::TryDifferentialHalf(Etc::DifferentialTrys::Half*)
+void Etc::Block4x4Encoding_ETC1::TryIndividualHalf(Etc::IndividualTrys::Half*)
+void Etc::Block4x4Encoding_R11::CalculateR11(unsigned int, float, float)
+void Etc::Block4x4Encoding_RG11::CalculateG11(unsigned int, float, float)
+void Etc::Block4x4Encoding_RGB8::CalculateBaseColorsForTAndH()
+void Etc::Block4x4Encoding_RGB8::SetEncodingBits_H()
+void Etc::Block4x4Encoding_RGB8::SetEncodingBits_Planar()
+void Etc::Block4x4Encoding_RGB8::SetEncodingBits_T()
+void Etc::Block4x4Encoding_RGB8A1::SetEncodingBits_ETC1()
+void Etc::Block4x4Encoding_RGB8A1::SetEncodingBits_H()
+void Etc::Block4x4Encoding_RGB8A1::SetEncodingBits_T()
+void Etc::Block4x4Encoding_RGB8A1::TryDifferential(bool, unsigned int, int, int)
+void Etc::Block4x4Encoding_RGB8A1::TryDifferentialHalf(Etc::DifferentialTrys::Half*)
+void Etc::Block4x4Encoding_RGBA8::CalculateA8(float)
+void Etc::Image::FindEncodingWarningTypesForCurFormat()
+void Etc::Image::RunFirstPass(unsigned int, unsigned int)
+void Etc::Image::SetEncodingBits(unsigned int, unsigned int)
+void Etc::SortedBlockList::AddBlock(Etc::Block4x4*)
+void Etc::SortedBlockList::Sort()
 void const*() std::basic_ostream<wchar_t, std::char_traits<wchar_t> >::<<() (demangled)
 void google::protobuf::FieldDescriptorProto::_internal_set_label(google::protobuf::FieldDescriptorProto_Label)
 void google::protobuf::FieldDescriptorProto::_internal_set_type(google::protobuf::FieldDescriptorProto_Type)
@@ -14338,7 +14524,6 @@ x509_pkey
 x509_req
 x509_store
 xdigit
-xlf
 xlink:href
 xml
 y != __null

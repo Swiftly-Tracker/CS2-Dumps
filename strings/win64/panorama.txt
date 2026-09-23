@@ -12,6 +12,8 @@
         Subject:%c
         Validity\n
     %4u: %s\n
+    %u iterated blocks\n
+    %u unfinished blocks\n
     Component %d: %dhx%dv q=%d
     Component %d: dc=%d ac=%d
     Signature Algorithm: 
@@ -31,10 +33,10 @@
  ' ) - 3 G M Q _ c e i w } 
  (%ld unused bits)\n
  (08@HPX`hpx
- (08@HPX`j0
- (08@HPXb
- (08@HPZ0
- (0X`hpz
+ (08@HPX`j
+ (08@HPXbP@#
+ (08@HPZ
+ (0X`hpzP@#
  (INVALID PSS PARAMETERS)\n
  (Negative)
  (derived from %s)
@@ -231,6 +233,7 @@ $HypYkf
 $JXsZ
 $d`D-laM
 $g#8lu#
+%&'()*456789:CDEFGHIJSTUVWXYZcdefghijstuvwxyz
 %'%1%=%C%K%O%s%
 %*s%s OF %s {\n
 %*s<EMPTY>\n
@@ -304,6 +307,7 @@ $g#8lu#
 %daE<<0\f6
 %daT
 %eyu~
+%gQ
 %iI
 %ld
 %ld bytes leaked in %d chunks\n
@@ -384,6 +388,7 @@ $g#8lu#
 %xP
 %zX
 &'&)&5&;&?&K&S&Y&e&i&o&{&
+&'()*56789:CDEFGHIJSTUVWXYZcdefghijstuvwxyz
 &AK(h
 &Sgw
 &lt;Needs a description&gt;
@@ -399,18 +404,14 @@ $g#8lu#
 (!(1(=(?(I(Q([(](a(g(u(
 ((long)msg_hdr->msg_len) > 0
 (0`hpx
-(AmJ
-(ELJ
-(IPJ
-(IcJ
-(IiJ
+(ARQ
+(EGQ
+(ITQ
+(ImQ
+(IpQ
+(IsQ
 (NONE)
-(QaJ
-(QyJ
-(UAJ
-(UDJ
-(UeJ
-(UpJ
+(QBQ
 (ZdOt\n&
 (\v2 .google.protobuf.DescriptorProto
 (\v2!.google.protobuf.EnumValueOptions"
@@ -433,30 +434,28 @@ $g#8lu#
 (\v2/.google.protobuf.DescriptorProto.ExtensionRange
 (\v26.google.protobuf.EnumDescriptorProto.EnumReservedRange
 (_Assert)
-(alJ
 (anonymous)
 (cannot determine missing fields for lite message)
 (down)
+(eEQ
+(exQ
 (fS{ggRcjh
 (h`H1pqA
 (i/Al
 (jvg;
+(mUQ
 (memory)
 (merge 
-(msJ
-(mvJ
 (null)
-(uOJ
+(qAQ
+(qLQ
 (undefined)
 (unknown)
 (unset)
 (unset) w/parent: %s
-(uuJ
 (vQF
 (wMww
-(yEJ
-(yUJ
-(yjJ
+(ydQ
 )!)#)?)G)])e)i)o)u)
 )", which is not defined. The innermost scope is searched first in name resolution. Consider using a leading '.'(i.e., "(.
 )Ck?B
@@ -788,6 +787,7 @@ $g#8lu#
 .\crypto\x509v3\v3_skey.c
 .\crypto\x509v3\v3_sxnet.c
 .\crypto\x509v3\v3_utl.c
+.\ng_Mathlib_GammaToLinearByteTable
 .\ssl\d1_both.c
 .\ssl\d1_clnt.c
 .\ssl\d1_lib.c
@@ -886,7 +886,7 @@ $g#8lu#
 /usr/local/ssl/lib/engines
 /usr/local/ssl/private
 /yQA
-0%F
+0%X
 0%u
 000
 0123456789ABCDEF
@@ -969,11 +969,11 @@ $g#8lu#
 7sAP'
 7wKR
 8"3hrf
-8%E
 82\n:XPH
 8GZS
 8SIffK5W
 8TZvrv<
+8YeQ
 8\n\textension
 8\v8!83858A8G8K8S8W8_8e8o8q8}8
 8b  16-May-2010
@@ -1059,6 +1059,7 @@ $g#8lu#
 >#>)>/>3>A>W>c>e>w>
 >4|6eXg_e
 >Sem
+>\ng_pThreadPool
 >\v?\r?7?;?=?A?Y?_?e?g?y?}?
 >fN46R^
 >l\rur
@@ -1066,6 +1067,7 @@ $g#8lu#
 >ztq
 ???
 ?HAI\t81\t9dcG'
+?RGBA8888
 ?UUUUUU
 ?VBH;
 ?\tV_atof
@@ -1114,6 +1116,7 @@ A9ur
 A<fP
 A>pP&
 AA Compromise
+AA:p
 AACompromise
 ABCDEFGHIJKLMNOPQRSTUVWXYZ
 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/
@@ -1306,14 +1309,18 @@ ASN1_unpack_string
 ASN1_verify
 ATI1N
 ATI2N
+ATI_TC_CalculateBufferSize_Wrapper
+ATI_TC_ConvertTexture_Wrapper
 AUQ
 AUTHORITY_INFO_ACCESS
 AUTHORITY_KEYID
 AW:S
 AWe
 AWt.
+AXQ
 A\n\nannotation
 A\rjW
+AaQ
 AbW_
 Abi
 AcG\nt
@@ -1351,6 +1358,7 @@ AdjustPositionForAlignment
 Adobe APP14 marker: version %d, flags 0x%04x 0x%04x, transform %d
 Affiliation Changed
 Ag*g*
+AhQ
 Ahd=<c]^7if1Rjg
 AlignedByteArray not properly aligned\n
 Allocation failed
@@ -1373,6 +1381,8 @@ Any Extended Key Usage
 Any Purpose
 Any language
 AppPolicyGetProcessTerminationMethod
+AppPolicyGetShowDeveloperDiagnostic
+AppPolicyGetWindowingModel
 Application transferred too few scanlines
 Application transferred too many scanlines
 Applies an image as an opacity mask that stretches to the panel bounds and fades out it's content based on the alpha channel. The second float value is an optional opacity value for the mask itself, the image won't interpolate/cross-fade, but you can animate the opacity to fade the mask in/out. opacity-mask-threshold lets you specify a threshold and softness percentage of how the mask is applied. Below the threshold, pixels are fully transparent, and above the threshold pixels are fully opaque. The softness lets you apply a range during which the opacity is scaled by the alpha from the mask.<b>Examples:</b><pre>opacity-mask: url( "file://{images}/upper_row_mask.tga" );\nopacity-mask: url( "file://{images}/upper_row_mask.tga" ) 0.5;\nopacity-mask: url( "file://{images}/upper_row_mask.tga" ) -1.0;\nopacity-mask-position: 5px 50%;\nopacity-mask-scale: 200%;\nopacity-mask-scale: 50% 100%;\nopacity-mask-scale: cover;\nopacity-mask-scale: contain;\nopacity-mask-threshold: 0% 30%;\n</pre>
@@ -1395,6 +1405,7 @@ AsyncPanoramaQuitWithError
 AsyncStop
 AsyncWebRequest
 At marker 0x%02x, recovery action %d
+AuQ
 Aug
 August
 Authority Information Access
@@ -1610,6 +1621,7 @@ C3ps
 C6DN
 C7HSY
 C:\buildworker\csgo_rel_win64\build\_build_\panorama\_vpc_panorama\default\win64\_msvc_\Retail\panorama.pdb
+C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp
 C:\buildworker\csgo_rel_win64\build\src\common\jpegloader_common.cpp
 C:\buildworker\csgo_rel_win64\build\src\panorama\basesymbol.cpp
 C:\buildworker\csgo_rel_win64\build\src\panorama\data\imageloader.cpp
@@ -1766,6 +1778,7 @@ CImageResourceManager::LoadImageFromMemory
 CImageResourceManager::LoadImageInternal
 CImageResourceManager::LoadLocalFileSynchronous
 CImageResourceManager::LoadLocalFileSynchronous()
+CKMeansClustering::AssignVectorsToClusters(), C:\buildworker\csgo_rel_win64\build\src\mathlib\kmeansclustering.cpp:159
 CKV3Arena::Root
 CKeyValues3Array::EnsureElementCapacity
 CKeyValues3Array::InsertMultipleBefore
@@ -2121,12 +2134,14 @@ Close the group automatically after a short wait (good for 'success' messages)
 Close the group automatically when the associated parent process exits (good for sticky 'error' messages)
 CloseDebuggerWindow
 CloseHandle
+CloseThreadpoolWork
 CloseToolhelp32Snapshot
 Closed temporary file %s
 Closing joystick %i\n
 Code Signing
 Code=
 Cofactor: 
+Color Consistency Partition %d MinBright %f
 Comma separated list of images or movies to draw in the background. Can specify "none" to not draw a background layer. Combined with background-position, background-size, background-texture-size and background-repeat values.<br><br><b>Example:</b><pre>background-image: url("file://{images}/default.tga"), url( "file://{movies}/Background1080p.webm" );</pre>
 CommandLine
 CompareStringEx
@@ -2136,6 +2151,10 @@ Compiler.
 Compiler.If
 Compiler.If not permitted for this element.
 Component index %d: mismatching sampling ratio %d:%d, %d:%d, %c
+CompressBlocksBC1
+CompressBlocksBC3
+CompressBlocksBC6H
+CompressBlocksBC7
 Conflicting @define value, was '%s', new '%s'
 ConstructMFString
 ConstructString
@@ -2191,6 +2210,7 @@ CreatePanel third param (id) must be string or undefined
 CreatePanelWithProperties
 CreatePanoramaUIEngineInternal
 CreateSimpleThread
+CreateThreadpoolWork
 CreateToolhelp32Snapshot
 CreateVideoPlayer
 Critical
@@ -2200,6 +2220,7 @@ CryptGenRandom
 CryptReleaseContext
 Csf
 CtH
+CxO
 D"bu
 D#D)D;D?DEDKDQDSDYDeDoD
 D.Hog^
@@ -2228,7 +2249,6 @@ DBF-
 DBITSLC
 DBM&(
 DCG
-DCL
 DCT coefficient out of range
 DCT scaled block size %dx%d not supported
 DEFAULT
@@ -2321,7 +2341,6 @@ DHE-RSA-CAMELLIA256-SHA
 DHE-RSA-DES-CBC-SHA
 DHE-RSA-DES-CBC3-SHA
 DHE-RSA-SEED-SHA
-DHF
 DH_BUILTIN_GENPARAMS
 DH_CMS_DECRYPT
 DH_CMS_SET_PEERKEY
@@ -2381,8 +2400,8 @@ DO_PVK_HEADER
 DO_RSA_PRINT
 DO_SIGVER_INIT
 DO_SSL3_WRITE
+DPP
 DQz
-DRK
 DSA
 DSA PARAMETERS
 DSA PRIVATE KEY
@@ -2415,7 +2434,6 @@ DSA_sign_setup
 DSA_verify
 DSAparams_print
 DSAparams_print_fp
-DSL
 DSO failure
 DSO lib
 DSO support routines
@@ -2434,10 +2452,10 @@ DSO_pathbyaddr
 DSO_set_filename
 DSO_set_name_converter
 DSO_up_ref
+DSQ
 DSS
 DSS1
 DSf
-DTL
 DTLS1_ADD_CERT_TO_BUF
 DTLS1_BUFFER_RECORD
 DTLS1_GET_HELLO_VERIFY
@@ -2452,13 +2470,12 @@ DTLSv1
 DTLSv1 part of OpenSSL 1.0.2j  26 Sep 2016
 DTLSv1.2
 DVCS
-DVI
+DVT
 DXT1
 DXT1_ONEBITALPHA
 DXT3
 DXT5
 DXT5_NM
-DYL
 DYNAMIC_CTRL
 DYNAMIC_GET_DATA_CTX
 DYNAMIC_LOAD
@@ -2466,8 +2483,6 @@ DYNAMIC_SET_DATA_CTX
 D\tV_atoui64
 Da\">c]$8c^
 Data Encipherment
-DbI
-DbJ
 DbgIsReloadingScript
 DcO/lcK+hSK
 Dd g4X3
@@ -2490,8 +2505,8 @@ DeregisterEventSource
 DescriptorProto
 DescriptorProtosH
 Dgl
-DhI
 DhO
+Dho
 Dhq0\ri
 Didn't expect more than one scan
 Different CRL scope
@@ -2525,7 +2540,7 @@ Don't yet support elliptical arc rendering\n
 Don't yet support quadratic bezier rendering\n
 Double-save to Member '%s'
 Dq;n
-DrJ
+DrR
 DragCallbacks
 DragDrop
 DragEnd
@@ -2540,11 +2555,9 @@ Drop focus entirely from the window containing this panel.
 DropInputFocus
 DropdownMenuFocusChanged
 DsBV
+DsR
 Dsp
-DuF
-DuK
 Duplicate snippet name: %s
-DvI
 E+E1EAEIESEUEaEwE}E
 E,v\nX
 E-mail Protection
@@ -2705,6 +2718,7 @@ EDIPARTYNAME
 EECDH
 EFy
 EG{M
+EHB
 EIU
 EJj
 ELF0
@@ -2816,6 +2830,7 @@ EVP_PKEY_verify_recover_init
 EVP_RIJNDAEL
 EVP_SignFinal
 EVP_VerifyFinal
+EVQ
 EVZ
 EXP
 EXP-DHE-DSS-DES-CBC-SHA
@@ -2851,6 +2866,8 @@ Enable panorama joystick input
 Enable script caching to speed up recompiling scripts multiple times.
 Enable sending minidumps on JS Exceptions.
 Encipher Only
+EncodeBC6Blocks
+EncodeBC7Blocks
 EncodePointer
 End Of Image
 End-of-file inside block comment.
@@ -3003,10 +3020,9 @@ FORMAT
 FQl
 FU\n-XP
 FV|FgUV
-FXL
 F\n\foptimize_for
 FaD
-FaL
+Fail to schedule the chore!
 Failed
 Failed to KV3 transfer block: %d\n
 Failed to add include for file: %s
@@ -3074,6 +3090,7 @@ FindChildInContext()/$() require an id selector (start with #) for now
 FindClose
 FindFirstFileExW
 FindNextFileW
+Finished %d Blocks out of %d\n
 Fip
 Fire another event after a delay (in seconds).
 Fire another event if currently hovering over a panel with the given ID.
@@ -3093,7 +3110,20 @@ Fix content size issues
 FixupResourceName: Illegal full path passed in ("%s")!\n
 FixupResourceName: Illegal path, missing extension passed in ("%s")!\n
 FlattenedSerializersVersion001
+FloatBitMap_t::ConvertGammaToLinear(518): Conversion not supported yet!\n
+FloatBitMap_t::InitializeDummyRow
+FloatBitMap_t::LoadFromBuffer: Received improper buffer size, skipping!\n
+FloatBitMap_t::LoadFromBuffer: Unsupported color format, skipping!\n
 FloatBitMap_t::LoadFromFloatBitmap: Received improper bitmap size, skipping!\n
+FloatBitMap_t::WriteToBuffer(1195): Unsupported color format "%s", skipping!\n
+FloatBitMap_t::WriteToBuffer: Received improper buffer size %s (expecting %s), skipping!\n
+FloatBitMap_t::WriteToBufferBC7_bc7e(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2146
+FloatBitMap_t::WriteToBufferBC7_ispctexcomp(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2258
+FloatBitMap_t::WriteToBufferDXT_atitc(1253): Error! Temp texture is %d bytes when ATI's lib requires %d bytes!\n
+FloatBitMap_t::WriteToBufferDXT_atitc(1338): Unsupported output color format "%s"!\n
+FloatBitMap_t::WriteToBufferDXT_atitc(1347): Error! Allocated %llu bytes when ATI's lib requires %d bytes!\n
+FloatBitMap_t::WriteToBufferDXT_atitc(1355): Error %d returned from ATI_TC_ConvertTexture()!\n
+FloatBitMap_t::WriteToBufferETC(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:2382
 FlsAlloc
 FlsFree
 FlsGetValue
@@ -3124,6 +3154,7 @@ Frame setup failed
 FrameTime
 FreeEnvironmentStringsW
 FreeLibrary
+FreeLibraryWhenCallbackReturns
 Freed EMS handle %u
 Freed XMS handle %u
 Fri
@@ -3197,7 +3228,6 @@ GRAPHICSTRING
 GXqN
 GXy{
 GXz
-Ga=UU
 Ga=o
 Gak
 GameResourceServiceClientV001
@@ -3215,6 +3245,7 @@ Generator (uncompressed):
 Get the current language
 Get the current panel context
 GetACP
+GetActiveWindow
 GetBool
 GetCPInfo
 GetCPUInformation
@@ -3249,6 +3280,7 @@ GetInt64
 GetInterpolatedMaxWidth
 GetInterpolatedScale2DCentered
 GetKeyState
+GetLastActivePopup
 GetLastError
 GetLocalHostname
 GetLocaleInfoEx
@@ -3261,6 +3293,21 @@ GetOEMCP
 GetProcAddress
 GetProcessHeap
 GetProcessWindowStation
+GetProfile_alpha_basic
+GetProfile_alpha_fast
+GetProfile_alpha_slow
+GetProfile_alpha_ultrafast
+GetProfile_alpha_veryfast
+GetProfile_basic
+GetProfile_bc6h_basic
+GetProfile_bc6h_fast
+GetProfile_bc6h_slow
+GetProfile_bc6h_veryfast
+GetProfile_bc6h_veryslow
+GetProfile_fast
+GetProfile_slow
+GetProfile_ultrafast
+GetProfile_veryfast
 GetQueueStatus
 GetRawRepeatedField
 GetRepeatedBool
@@ -3313,7 +3360,7 @@ GwC
 Gyc
 Gz,J
 G{Ol
-H%E
+H%X
 H.FM
 H.aR
 H0+G+R
@@ -3321,98 +3368,110 @@ H5gRR-
 H8xp
 H=`HY
 H@H9xqI
+HAN
+HAV
+HAX
 HB=\nHB
 HBJ\nTRF
-HBL
-HBM
+HBQ
+HBX
+HCJ
+HCN
+HCV
 HEAD 
-HEF
-HEM
-HEP
+HEN
+HEV
 HEX
-HFF
-HFM
-HGM
-HGO
-HGP
+HFT
+HGK
+HGT
 HH&a
 HH:mm:ss
-HHO
-HHP
+HHK
 HIGH
-HIO
+HIK
+HIN
+HIV
+HJK
 HJN
-HJO
-HKF
-HKM
-HLM
+HJV
+HKK
+HKT
+HKW
+HLT
+HLV
+HLW
 HMAC
 HMAC GOST 34.11-94
 HMAC routines
 HMAC-MD5
 HMAC-SHA1
 HMAC_Init_ex
-HNE
-HNH
-HNM
-HNP
+HMV
+HMW
+HNR
+HNV
+HNW
 HNu
-HPH
-HPM
-HPO
-HPP
+HON
+HPU
+HPW
 HQU
-HRN
+HQV
+HRD
+HRU
 HRp
-HSK
-HSP
-HTK
+HSN
+HSU
 HTMLEscape
+HTU
 HTV
 HU>mA$_E*
-HUM
-HUN
-HVP
-HWM
-HWP
+HWT
 HWyn
-HXK
-HaJ
-HaK
+HXV
+HY;S
+HYN
+HYQ
+HYV
+HZT
+HaE
+HaM
+HaT
 HammerMapLoader001
 HasField
 Hash Algorithm: 
 HbAta
 HbL
-HbM
-HbO
+HbN
+HbT
+HbU
 Hc S
 Hc8a"
-HcM
-HcQ
-HdQ
-HeM
+HcU
+HdR
+HdS
+HdU
 Heap32First
 Heap32ListFirst
 Heap32ListNext
 Heap32Next
 HelpSystem_001
 Hex and octal numbers must be integers.
+HfE
+HfR
+HfS
+HfW
 Hg>?S
-HgM
-HhM
+HhS
+HhT
 Hhr+g
+HiN
+HiW
 Hide unless error/warning occurs
-HjM
-HjP
-HlM
-HlV
-HmM
-HmP
-HmV
-HnM
-HnV
-HoV
+HnP
+HnT
+HnW
 Hold Instruction Call Issuer
 Hold Instruction Code
 Hold Instruction None
@@ -3420,23 +3479,26 @@ Hold Instruction Reject
 HostStateMgr001
 Hostname mismatch
 Hp)X?
-HpI
-HpM
-HqI
+HpN
+HpT
+HpV
+HqN
 Hqw
-HtF
+HrN
+HrQ
+HrV
+HsN
 HtL
-HtM
-HuM
-HuP
+HtN
+HtV
+HuN
+HuV
 Huffman code size table overflow
 Huffman table 0x%02x was not defined
-HvF
-HvM
-HwM
-HyF
-HyJ
-HzP
+HvN
+HwN
+HxT
+HxW
 I"9|OxTex
 I2B_PVK
 I2D_ASN1_TIME
@@ -3493,6 +3555,7 @@ IPSec Tunnel
 IPSec User
 IPulseSystem_001
 IPw
+IRQ
 ISO
 ISO Member Body
 ISO US Member Body
@@ -3502,20 +3565,22 @@ ITU-T
 IV block
 IVZ
 IVideoPlayer* (demangled)
+IXQ
 IZe
 I\tHA\t981G'dc
 IdempotencyLevel
 If non-empty, print debug info about async event queue and dispatch behavior for events containing the substring.
 IfHasClassEvent
 IfHoverOtherEvent
-IfJ
 IfNotHasClassEvent
 IfNotHoverOtherEvent
 Ignoring extension "
+IhQ
 IiGM>nw
 Ij)s
 Ik\f`dub`D
 Illegal jstype for int64, uint64, sint64, fixed64 or sfixed64 field: 
+Illegal to wait on a task in a Windows Runtime STA
 Image '%s' too large, %d x %d
 Image too wide for this implementation
 ImageFailedLoad
@@ -3700,7 +3765,6 @@ KERNEL32.dll
 KEYFRAMES
 KEYFRAME_SELECTOR
 KISA
-KLJ
 KNQ\rMO
 KOr
 KPl
@@ -3737,8 +3801,6 @@ L>ev
 LABEL_OPTIONAL
 LABEL_REPEATED
 LABEL_REQUIRED
-LAI
-LAJ
 LAM\rhaI)|pL<
 LBE
 LBN6
@@ -3747,15 +3809,12 @@ LCMapStringEx
 LCMapStringW
 LCO
 LCW
-LDJ
-LDM
 LDo
-LEK
-LHF
-LHK
 LINEAR_D24S8
 LINEBUFFER_CTRL
+LIR
 LIST_ADD
+LJR
 LKf
 LOAD
 LOAD_IV
@@ -3764,8 +3823,9 @@ LOG_MESSAGE
 LONG
 LONG_C2I
 LOW
-LTH
 LT[N
+LUT
+LVR
 LV_DEFAULT
 LV_DETAILED
 LV_ESSENTIAL
@@ -3774,7 +3834,6 @@ LV_MAXIMUM
 LV_MORE_DETAILED
 LWc
 LXKQ
-LYK
 Label
 Language
 Layout FPS:
@@ -3783,16 +3842,18 @@ Layout XSD contents copied to clipboard.\n
 LayoutAndPaintIfNeeded
 LayoutAndPaintWindows
 LbWf
-LeJ
 LeM
+LeO
+LeQ
 LeaveCriticalSection
+LgQ
 LhX
 Lifetime Svg File size read: %d\n
 Lifetime Svg allocs: %d\n
 Lifetime Svg texture allocs: %d\n
 Lis
+LjR
 Lkh9Fgc^A
-LoI
 Load certs from files in a directory
 Load file into cache
 LoadFromFile
@@ -3825,16 +3886,12 @@ LoggingSystem_IsChannelEnabled
 LoggingSystem_Log
 LoggingSystem_LogDirect
 LoggingSystem_RegisterLoggingChannel
-LpJ
 LqH!)8
-LsL
+LsO
 LsiX
 LtQ
 Ltc$
-LuF
 Lux
-LwK
-LyL
 M-laO
 M8MF
 MASK:
@@ -3925,6 +3982,7 @@ Message does not support reflection (type
 Message is too deep, the parser exceeded the configured recursion limit of 
 Message missing required fields: 
 Message type "
+MessageBoxA
 MessageBoxW
 MessageOptions
 MessageSet is not supported in proto3.
@@ -4052,7 +4110,6 @@ NULL-SHA256
 NULL\n
 NUMERIC
 NUMERICSTRING
-NVL
 NVP
 NV_NULL
 NWzl\n\
@@ -4118,10 +4175,10 @@ Not supported.
 Note that enum values use C++ scoping rules, meaning that enum values are siblings of their type, not children of it.  Therefore, "
 Nov
 November
-NpL
 NrPn
 Nrs
 Nu6Q
+NumCols() <= V_ARRAYSIZE( s_DummyRow )
 Numbers starting with leading zero must be in octal.
 Nw!qB
 Nz3I#B
@@ -4225,6 +4282,7 @@ OnPanelDeleted
 Oneof must have at least one field.
 OneofDescriptorProto
 OneofOptions
+Only DXT1/DXT5 online texture compression supported.\n
 Only Some Reasons
 OoZ
 OpenFileMappingA
@@ -4252,12 +4310,13 @@ Order:
 OrqK
 Output aborted.
 Output file write error --- out of disk space?
+OutputDebugStringW
 Ow!y
 P!bxo
 P%p
 P(UH 
+P08@JP@#
 P@HPX`hpx\f
-PAD
 PAGN_4
 PAM
 PANEL
@@ -4268,6 +4327,7 @@ PARSE_BAG
 PARSE_BAGS
 PARSE_HTTP_LINE1
 PARSE_TAGGING
+PAT
 PATHBYADDR
 PBE-MD2-DES
 PBE-MD2-RC2-64
@@ -4284,14 +4344,17 @@ PBE-SHA1-RC4-40
 PBE2PARAM
 PBEPARAM
 PBES2
-PBH
 PBKDF2
 PBKDF2PARAM
 PBMAC1
-PBN
-PDH
-PDI
+PBU
+PCP
+PCT
+PCX
 PDT
+PDV
+PEB
+PED
 PEM lib
 PEM part of OpenSSL 1.0.2j  26 Sep 2016
 PEM routines
@@ -4320,17 +4383,21 @@ PEM_read_bio
 PEM_read_bio_Parameters
 PEM_write
 PEM_write_bio
+PET
+PFP
 PFa
-PGF
-PGJ
+PGN
+PGR
 PGm
 PGr]
 PHAG2
+PHV
+PHW
 PHhn}Y
-PIF
-PIM
 PIO
-PJF
+PIW
+PJQ
+PJW
 PKCS #7 SIGNED DATA
 PKCS12
 PKCS12 lib
@@ -4443,16 +4510,15 @@ PKEY_RSA_VERIFY
 PKEY_RSA_VERIFYRECOVER
 PKEY_SET_TYPE
 PKEY_USAGE_PERIOD
-PKF
-PKO
+PKJ
 PLACEHOLDER_VALUE
-PLF
-PLH
-PMH
-PMM
+PLK
+PLN
+PMT
+PMU
 PNG\r\n
-POI
-POL
+PNN
+PNU
 POLICYINFO
 POLICYQUALINFO
 POLICY_CONSTRAINTS
@@ -4461,27 +4527,29 @@ POLICY_MAPPINGS
 POLICY_SECTION
 POST
 POST 
+POT
+POV
+POW
 POn
-PPK
 PPN
 PPNe
+PPT
 PPz\v=
 PQA
-PQM
-PQO
+PQN
+PQT
 PRB
 PRB+
 PRINTABLE
 PRINTABLESTRING
 PRIVATE KEY
-PRM
-PRN
 PRNG not seeded
-PRO
 PROCESS_PCI_VALUE
 PROPERTY
 PROXY_CERT_INFO_EXTENSION
 PROXY_POLICY
+PRT
+PRV
 PSC
 PSC\n
 PSK
@@ -4489,31 +4557,33 @@ PSK-3DES-EDE-CBC-SHA
 PSK-AES128-CBC-SHA
 PSK-AES256-CBC-SHA
 PSK-RC4-SHA
-PSM
 PSPECIFIED
 PST
-PTM
-PTN
+PSU
+PSV
 PUBLIC KEY
-PUM
-PUP
+PUN
 PURH
 PUT 
-PVI
-PVM
-PWL
-PXJ
-PXM
-PXP
+PUU
+PUV
+PVJ
+PVT
+PVV
+PWN
+PXK
 PX`hpx
 PXu
-PYM
-PZM
+PYE
+PYK
+PYT
 PZN
-PZP
+PZV
 PZe
 P\tV_expf
+PaJ
 PaM
+PaU
 Package name is too long
 PageDown
 PageLeft
@@ -4559,26 +4629,30 @@ PanoramaUIEngine001
 PanoramaVideoPlayer
 Parameters
 ParticleSystemMgr003
-PbK
-PcC
-PcK
-PeQ
+PbW
+PcE
+PcT
+PcU
+PeN
 PeekNamedPipe
 Peer haven't sent GOST certificate, required for selected ciphersuite
 Pei
 PerformLayout
 Permanent Identifier
 Permitted
-PfM
-PgP
-PhP
+PgN
+PgT
+PgW
+PhQ
 PhysicsBuilderMgr001
-PiM
-PiP
+PjW
 PkC
-PlC
-PlP
-PlV
+PkN
+PkQ
+PkT
+PlN
+PlR
+PlW
 Plat_CPUTickFrequency
 Plat_DemangleRawTypeName
 Plat_ExitProcess
@@ -4608,17 +4682,20 @@ PlaySoundEffect
 Pm8A?
 PmN
 Pmg
-PnM
-PnV
-Pnp
-PoV
+PnN
+PnR
+PoN
+PoR
+PoW
 Pointers cannot be used as numeric values
 Policy Qualifier CPS
 Policy Qualifier User Notice
 Polynomial:
 PostProcessingSystem_001
+PpD
+PqO
+PqV
 Pr"V
-PrM
 Premature end of JPEG file
 Premature end of input file
 Premature end-of-file encountered.
@@ -4636,6 +4713,7 @@ Proc-Type:
 Proc-Type: 4,
 Process32First
 Process32Next
+ProcessBC6HResults
 ProcessMouseTrackingResults
 ProcessRemoteInput
 Property getter for CPanelStyle called on invalid object
@@ -4650,19 +4728,19 @@ Protobuf: %s(%d): %s\n
 Protocol Buffer map usage error:\n
 Protocol Buffer reflection usage error:\n  Method      : google::protobuf::Reflection::
 Proxy Certificate Information
-PuQ
+PsT
+PsV
+PuT
+PuW
 Public Key
 Public-Key
 Public-Key: (%d bit)\n
 Pun
-PwF
-PwJ
-PwP
+PwW
 PxA
-PxF
-PxL
-PxQ
-PyQ
+PxK
+PzT
+PzW
 P|iC\r
 Q*hd
 Q/xtJ2
@@ -4671,7 +4749,6 @@ Q4EX
 QEy
 QGA
 QGF
-QPJ
 QTk$
 QWQ
 Q`uV
@@ -4681,15 +4758,19 @@ QfA
 Qjh/T
 Qj{Jd
 Qkkbal
+QlQ
 QoOG
+QpQ
 Qpr2
 QrQ
 QsH
 QtJ\f?
 Quantization table 0x%02x was not defined
+Quantize to %d Values
 Quantizing to %d = %d*%d*%d colors
 Quantizing to %d colors
 QueryPerformanceCounter
+QueryPerformanceFrequency
 Queue async event '%s' (delay %.2f to deliver at %.2f) for '%s' ( 0x%p )\n
 Qwb
 Q{qk
@@ -4765,7 +4846,6 @@ RGBA16161616
 RGBA16161616F
 RGBA32323232F
 RGBA32323232_UINT
-RGBA8888
 RGBA8888_LINEAR
 RGBA8888_UINT
 RGBX8888
@@ -4861,12 +4941,12 @@ RSA_verify_PKCS1_PSS
 RSA_verify_PKCS1_PSS_mgf1
 RSDS
 RST%d
-RUL
 RVN
 RVs
-RXL
 RXw
 R\r1>Vp
+R\vpH
+R\vpT
 R]Di
 R_T5Y
 RaC
@@ -4982,7 +5062,6 @@ RunScriptInPanelContext was unable to compile provided script
 RunWorkItem
 RxT\f0<1
 Rxy3
-RzL
 RzQU
 Rzr
 S#FI
@@ -5076,6 +5155,7 @@ SHA224
 SHA256
 SHA384
 SHA512
+SHB
 SIG_CB
 SIt
 SKyu
@@ -5467,6 +5547,7 @@ StyleFlagsChanged
 SuN
 SuO
 Subject Information Access
+SubmitThreadpoolWork
 Success
 Suggested field numbers for 
 Suite B: cannot sign P-384 with P-256
@@ -5492,15 +5573,13 @@ T61STRING
 TCC
 TC\tf\
 TCr
-TEF
+TDR
 TELETEXSTRING
-TGI
-TGL
 TIO
+TIQ
 TJI
-TKJ
 TKR
-TLL
+TKU
 TLS Web Client Authentication
 TLS Web Server Authentication
 TLS1_CHECK_SERVERHELLO_TLSEXT
@@ -5513,6 +5592,7 @@ TLSv1.1
 TLSv1.2
 TLSv1/SSLv3
 TM=U*
+TNP
 TPD
 TPD2
 TPS'
@@ -5570,15 +5650,16 @@ TS_TST_INFO_set_tsa
 TS_VERIFY
 TS_VERIFY_CERT
 TS_VERIFY_CTX_new
-TUI
 TUUUU
+TWP
 TYPE=
+TYR
+TZR
 TabBackward
 TabForward
+TbQ
 TcM
 TdA
-TdL
-TeL
 Temp%d%dx%d
 TerminateProcess
 TestScriptMgr001
@@ -5589,6 +5670,7 @@ TextEntryInvalid(): Cleared for %s\n
 TextInputFinished
 TextInputHandlerStateChange
 TextLayout_001
+TgR
 The JSON camel-case name of field "
 The [proto3_optional=true] option may only be set on proto3fields, not 
 The extension 
@@ -5599,6 +5681,7 @@ Third argument to RegisterEventHandler is not a valid callback function
 Third argument to RegisterKeyBind is not a valid callback function or event name
 This ZeroCopyOutputStream doesn't support aliasing. Reaching here usually means a ZeroCopyOutputStream implementation bug.
 This convar is being accessed prior to ConVar_Register being called
+This function cannot be called on a default constructed task
 This is an S/MIME signed message%s%s
 Thread32First
 Thread32Next
@@ -5618,7 +5701,6 @@ TlsAlloc
 TlsFree
 TlsGetValue
 TlsSetValue
-ToK
 Toggle whether a panel has the given CSS class.
 Toggle whether this panel is :selected.
 ToggleConsole
@@ -5636,7 +5718,9 @@ Total No. of Svgs parsed: %d\n
 Total No. of Svgs rendered: %d\n
 Total Svg Parse Time (micros): %llu\n
 Total Svg Render Time (micros): %llu\n
+TqQ
 Tqm
+TrR
 Trailer Field: 0x
 Tried to merge messages of different types 
 Trigger an assert
@@ -5650,12 +5734,9 @@ TrySendVNotify - SendKV3 failed\n
 Trying to apply missing animation: %s
 Trying to write %s from a panel without a composition layer texture name\n
 TsG
-TuF
-TuK
 Tu\t(OR
 Tue
 Tuesday
-TxI
 Type
 Type appears to be in generated pool but wasn't 
 Type is already registered: 
@@ -5709,6 +5790,7 @@ UI_get0_result
 UI_new_method
 UI_set_result
 UJN
+UMx
 UNDEF
 UNIV
 UNIVERSALSTRING
@@ -5737,11 +5819,13 @@ U^Pg
 Ugi<
 Uma
 Umq
+Unable find required entry points in %s\n
 Unable to @import style file '%s'
 Unable to CreateEventFromString for the supplied string: %s\n
 Unable to append nodes: root is not an element or document
 Unable to find child '%s' in layout file '%s'\n
 Unable to find child '%s' in panel '%s'\n
+Unable to load %s, error %d\n
 Unable to load layout file '%s'.  This may indicate a problem with your local install files and validating your install through the Steam client may resolve the issue.\n
 Unable to load layout file '%s'. The addon you're running may reference a non existing file.\n
 Unable to load snippet %s\n
@@ -5773,6 +5857,7 @@ Unknown transform type %s
 Unknown transform type\n
 Unknown(%d)
 UnmapViewOfFile
+Unmodified
 Uno
 Unprocessed type %d\n
 UnreadyForDisplay
@@ -5784,6 +5869,7 @@ UnregisterForUnhandledEvent
 UnregisterJSForUnhandledEvent
 Unspecified
 Unsupported
+Unsupported ETC image format %d.\n
 Unsupported JPEG data precision %d
 Unsupported JPEG process: SOF type 0x%02x
 Unsupported KV3 basic type '%s' (%d)!
@@ -5863,7 +5949,6 @@ VPQ
 VPhysics2_Interface_001
 VProcessUtils002
 VProfService_001
-VRL
 VRenderDeviceSetupV001
 VScript
 VScriptDbg
@@ -5874,6 +5959,7 @@ VY5[;o
 VZ#-DLU[3=h
 V\rKk
 V_BasicHtmlEntityEncode
+V_CopyMemory3D
 V_DoubleToString_Unsafe
 V_ExtractDomainFromURL
 V_FixDoubleSlashes
@@ -5885,6 +5971,7 @@ V_GetFileExtensionSafe
 V_Int32ToString_Unsafe
 V_Int64ToString_Unsafe
 V_IsAbsolutePath
+V_PrettifyNum
 V_RemoveDotSlashes
 V_StrTrim
 V_StringParseError
@@ -5924,7 +6011,6 @@ ValveSMMem:%s
 ValveSMMut:%s
 VbfOc,p
 Vc0a
-VcJ
 Vcsc 
 Vcy
 Vdk
@@ -5948,12 +6034,9 @@ VideoPlayerRepeated
 Virtual array controller messed up
 VisBuilder_001
 Vjv
-VkL
 Vp>u
-VrL
 Vrad3_001
 Vuy
-VyL
 Vzp
 V~~Vq
 W"Fe~
@@ -5984,7 +6067,6 @@ WINMM.dll
 WLs6
 WOU
 WRITE_PENDING
-WRJ
 WRw[
 WS2_32.dll
 WSASTARTUP
@@ -6009,7 +6091,6 @@ Wdx
 We_A0
 Wed
 Wednesday
-WgJ
 WideCharToMultiByte
 WindowGotFocus
 WindowHidden
@@ -6033,8 +6114,7 @@ Wrong number of arguments to RegisterForUnhandledEvent
 Wrote panel composition layer in %s\n
 WsZ
 WuL
-X%E
-X%F
+WzQ
 X.509 part of OpenSSL 1.0.2j  26 Sep 2016
 X400Name
 X400Name:<unsupported>
@@ -6172,91 +6252,108 @@ X9_62_FIELDID
 X9_62_PENTANOMIAL
 X9cm
 X:vS
-XBK
+XAM
+XAU
+XBU
+XBV
 XB`i|
-XCM
-XDL
-XDM
+XDN
+XDT
 XD{p7
-XEH
-XEM
-XFF
-XFM
-XFO
-XFP
+XEV
+XFN
+XFV
 XFZ
 XFle
-XGF
-XGH
-XGM
+XGK
 XGP
+XGV
 XG[r
-XHH
+XHK
+XIP
+XIT
+XIV
 XInput Controller
 XIp
-XJM
 XJT
-XKP
+XKK
 XLF
-XLI
-XLM
-XLO
+XLX
 XLuC'4
 XMM{*
-XMO
-XMP
 XMQ
-XNL
-XNP
+XMU
+XMV
+XMW
+XNK
+XNT
 XNU`{3
-XOM
+XOU
 XPH
-XPM
+XPN
+XPU
+XPV
+XPW
 XQI
+XQU
+XQW
 XRB
-XRN
-XSH
 XSK
-XSP
-XUN
+XST
+XTT
+XTU
+XUT
 XVR
-XWI
-XXI
+XWT
+XXN
+XXT
 XYD%
+XZN
 X\tQo
-XbQ
+XaM
+XaN
+XbU
+XcS
 Xd3h
-XdK
-XdM
-XeC
+XdN
+XdR
+XdS
+XdT
+XdU
+XdW
+XeE
+XeU
 XfJ7
-XfM
 XhL
+XhW
 Xha
-XiL
+XjR
 XjfR
 Xjm
-XkP
-XlJ
-XlM
-XlV
-XmV
-XnV
-XoM
-XqM
+XkR
+XlT
+XmT
+XmW
+XnT
+XnW
+XoT
+XqT
+XqW
 XqgA+
 Xqm
+XrO
+XrT
 XsBI
-XsF
-XsM
-XtK
+XtO
+XtT
 XuI
-XuP
 Xuub
-XvP
+XvW
 XwA0
+XwT
 Xwd
-XyF
+XyT
+XzP
 Y-Ny
 Y93a=7c@
 Y;C;8V
@@ -6269,16 +6366,15 @@ YNs
 YOl
 YS1n
 YWQa:B
-YXJ
 YZp
 Y\vQlJ
-YaJ
 YbKh
 Ydh-
 Ye80D=
 Ye\B
 YedcCH}
 Yes
+YgQ
 YnFpW
 YoO
 You must turn on panorama_track_render_commands to track command usage.\n
@@ -6484,6 +6580,7 @@ Zpwz
 \vNCE\v
 \vUY6[E
 \v\vTSG
+\v\v\v
 ]1h=bfz
 ]FhSD}
 ]MSd
@@ -6600,7 +6697,8 @@ a2i_GENERAL_NAME
 a;Tg
 a@XZ
 aA0k
-aBv
+aAB
+aBv 
 aD/x
 aDH
 aDSS
@@ -6697,6 +6795,7 @@ aes192
 aes256
 aevF~
 affiliationChanged
+agQ
 aggregate_value
 ai`UJ4\f
 akid mismatch
@@ -6767,6 +6866,7 @@ associatedName
 atR
 atan
 atan2
+ati_compress_wrapper.dll
 attempt to reuse session in different context
 attrib
 attributes
@@ -6791,7 +6891,6 @@ a|w9i
 b <= sizeof ctx->buf
 b <= sizeof ctx->final
 b2i_PVK_bio
-bAJ
 bCa
 bJ*h
 bN.l
@@ -6904,6 +7003,10 @@ base64 decode error
 base64 encoding
 basicConstraints
 basicOCSPResponse
+bc7e.dll
+bc7e_compress
+bc7e_init
+bc7e_init_params
 bcf
 begin
 beige
@@ -6999,7 +7102,6 @@ bottomright
 boundary
 box-shadow
 bpFh
-bqL
 brainpoolP160r1
 brainpoolP160t1
 brainpoolP192r1
@@ -7016,9 +7118,9 @@ brainpoolP512r1
 brainpoolP512t1
 brightness
 broken pipe
+broken promise
 brown
 bsW
-btL
 bu\N
 buffer
 buffer error
@@ -7027,7 +7129,6 @@ buildingName
 burlywood
 businessCategory
 butt
-byJ
 bytes
 c%p
 c2\f?C\t
@@ -7492,7 +7593,6 @@ childfocusonhover
 chocolate
 chunk >= 0
 ci;e*
-ciJ
 ciO"A
 cipher
 cipher code wrong length
@@ -7509,6 +7609,14 @@ cisc
 ckM
 class
 class 
+class <lambda_5a9ef80d79df7873994019ff15dceae5> (demangled)
+class <lambda_60c5de84e69e46aa92419d47e2f3ad51> (demangled)
+class <lambda_713ee8bbd6b08550d59c52695cab5ce3> (demangled)
+class <lambda_763529b0c7473cbc215a52d189ac9b18> (demangled)
+class <lambda_85226a1ade6d27c19b16702c44b1a394> (demangled)
+class <lambda_e0b623a606acfd10554dbddbb0c1a7da> (demangled)
+class <lambda_e7905d7dbd7cab7f9b19199433c4f5d3> (demangled)
+class <lambda_f25c37099038263181b5186a3fa41b37> (demangled)
 class CBaseAppSystem<IPanoramaUIEngine> (demangled)
 class CBaseVModuleMetadataProvider (demangled)
 class CCallbackBase (demangled)
@@ -7527,6 +7635,18 @@ class CMultipleCallResults<panorama::CLoadFileURLTask, HTTPRequestCompleted_t> (
 class CNoOpFileSystem (demangled)
 class CPanoramaTypeManager (demangled)
 class CPanoramaUIEngine (demangled)
+class CParallelProcessLauncher::CParallelLambdaJob<`private: void CKMeansClustering::AssignVectorsToClusters(void)'::`2'::<lambda_1> > (demangled)
+class CParallelProcessLauncher::CParallelLambdaJob<`protected: bool FloatBitMap_t::WriteToBufferBC7_bc7e(void*, uint64_t, ImageFormat, FloatBitmapEncodeSettings_t const&) const'::`9'::<lambda_1> > (demangled)
+class CParallelProcessLauncher::CParallelLambdaJob<`protected: bool FloatBitMap_t::WriteToBufferBC7_ispctexcomp(void*, uint64_t, ImageFormat, FloatBitmapEncodeSettings_t const&) const'::`9'::<lambda_1> > (demangled)
+class CParallelProcessLauncher::CParallelLambdaJob<`protected: bool FloatBitMap_t::WriteToBufferETC(void*, uint64_t, ImageFormat, FloatBitmapEncodeSettings_t const&) const'::`9'::<lambda_1> > (demangled)
+class CParallelProcessLauncher::CParallelLambdaJob<`void ParallelFor<1, `bool ImageLoader::ConvertFromBC6h<BGRA8888_t, 1>(unsigned char const*, BGRA8888_t*, int, int)'::`2'::<lambda_1> >(int, int, char const*, `bool ImageLoader::ConvertFromBC6h<BGRA8888_t, 1>(unsigned char const*, BGRA8888_t*, int, int)'::`2'::<lambda_1>&&, int, int, JobPriority_t)'::`12'::<lambda_1> > (demangled)
+class CParallelProcessLauncher::CParallelLambdaJob<`void ParallelFor<1, `bool ImageLoader::ConvertFromBC6h<RGBA16161616F_t, 0>(unsigned char const*, RGBA16161616F_t*, int, int)'::`2'::<lambda_1> >(int, int, char const*, `bool ImageLoader::ConvertFromBC6h<RGBA16161616F_t, 0>(unsigned char const*, RGBA16161616F_t*, int, int)'::`2'::<lambda_1>&&, int, int, JobPriority_t)'::`12'::<lambda_1> > (demangled)
+class CParallelProcessLauncher::CParallelLambdaJob<`void ParallelFor<1, `bool ImageLoader::ConvertFromBC6h<RGBA32323232F_t, 0>(unsigned char const*, RGBA32323232F_t*, int, int)'::`2'::<lambda_1> >(int, int, char const*, `bool ImageLoader::ConvertFromBC6h<RGBA32323232F_t, 0>(unsigned char const*, RGBA32323232F_t*, int, int)'::`2'::<lambda_1>&&, int, int, JobPriority_t)'::`12'::<lambda_1> > (demangled)
+class CParallelProcessLauncher::CParallelLambdaJob<`void ParallelFor<1, `bool ImageLoader::ConvertFromBC6h<RGBA8888_t, 1>(unsigned char const*, RGBA8888_t*, int, int)'::`2'::<lambda_1> >(int, int, char const*, `bool ImageLoader::ConvertFromBC6h<RGBA8888_t, 1>(unsigned char const*, RGBA8888_t*, int, int)'::`2'::<lambda_1>&&, int, int, JobPriority_t)'::`12'::<lambda_1> > (demangled)
+class CParallelProcessLauncher::CParallelLambdaJob<`void ParallelFor<1, `bool ImageLoader::ConvertFromBC7<BGRA8888_t>(unsigned char const*, BGRA8888_t*, int, int)'::`2'::<lambda_1> >(int, int, char const*, `bool ImageLoader::ConvertFromBC7<BGRA8888_t>(unsigned char const*, BGRA8888_t*, int, int)'::`2'::<lambda_1>&&, int, int, JobPriority_t)'::`12'::<lambda_1> > (demangled)
+class CParallelProcessLauncher::CParallelLambdaJob<`void ParallelFor<1, `bool ImageLoader::ConvertFromBC7<RGBA8888_t>(unsigned char const*, RGBA8888_t*, int, int)'::`2'::<lambda_1> >(int, int, char const*, `bool ImageLoader::ConvertFromBC7<RGBA8888_t>(unsigned char const*, RGBA8888_t*, int, int)'::`2'::<lambda_1>&&, int, int, JobPriority_t)'::`12'::<lambda_1> > (demangled)
+class CParallelProcessLauncher::CParallelLambdaJob<`void ParallelFor<1, `protected: bool FloatBitMap_t::WriteToBufferBC6H_ispctexcomp(void*, uint64_t, FloatBitmapEncodeSettings_t const&) const'::`12'::<lambda_1> >(int, int, char const*, `protected: bool FloatBitMap_t::WriteToBufferBC6H_ispctexcomp(void*, uint64_t, FloatBitmapEncodeSettings_t const&) const'::`12'::<lambda_1>&&, int, int, JobPriority_t)'::`12'::<lambda_1> > (demangled)
+class CParallelProcessLauncher::CParallelLambdaJob<`void ParallelFor<1, `public: `protected: bool FloatBitMap_t::WriteToBufferBC6H_ispctexcomp_highest_quality_tweaked(void*, uint64_t) const'::`2'::<lambda_2>::operator()(void) const'::`2'::<lambda_1> >(int, int, char const*, `public: `protected: bool FloatBitMap_t::WriteToBufferBC6H_ispctexcomp_highest_quality_tweaked(void*, uint64_t) const'::`2'::<lambda_2>::operator()(void) const'::`2'::<lambda_1>&&, int, int, JobPriority_t)'::`12'::<lambda_1> > (demangled)
 class CPostConnectCallback (demangled)
 class CRefCountServiceBase<CRefMT> (demangled)
 class CRefCounted1<IVideoPlayer, CRefCountServiceBase<CRefMT> > (demangled)
@@ -7547,8 +7667,26 @@ class CTier1AppSystem<IPanoramaUIEngine, 0> (demangled)
 class CTier2AppSystem<IPanoramaUIEngine, 0> (demangled)
 class CTier3AppSystem<IPanoramaUIEngine, 0> (demangled)
 class CVectorGraphic (demangled)
+class Concurrency::details::_CancellationTokenCallback<<lambda_be3e5d9dce35d2c8dbfa8485373731d5> > (demangled)
+class Concurrency::details::_CancellationTokenRegistration (demangled)
+class Concurrency::details::_DefaultPPLTaskScheduler (demangled)
+class Concurrency::details::_Interruption_exception (demangled)
+class Concurrency::details::_RefCounter (demangled)
+class Concurrency::invalid_operation (demangled)
+class Concurrency::task_canceled (demangled)
 class DNameNode (demangled)
 class DNameStatusNode (demangled)
+class Etc::Block4x4Encoding (demangled)
+class Etc::Block4x4Encoding_ETC1 (demangled)
+class Etc::Block4x4Encoding_R11 (demangled)
+class Etc::Block4x4Encoding_RG11 (demangled)
+class Etc::Block4x4Encoding_RGB8 (demangled)
+class Etc::Block4x4Encoding_RGB8A1 (demangled)
+class Etc::Block4x4Encoding_RGB8A1_Opaque (demangled)
+class Etc::Block4x4Encoding_RGB8A1_Transparent (demangled)
+class Etc::Block4x4Encoding_RGBA8 (demangled)
+class Etc::Block4x4Encoding_RGBA8_Opaque (demangled)
+class Etc::Block4x4Encoding_RGBA8_Transparent (demangled)
 class IAppSystem (demangled)
 class IErrorListener (demangled)
 class IIMEUIObject (demangled)
@@ -7556,6 +7694,7 @@ class IIMEUIView (demangled)
 class IInputHandler (demangled)
 class ILocVariableSource (demangled)
 class ILocalizationChangeCallback (demangled)
+class IMultipleWorkerJob (demangled)
 class IPanoramaUIEngine (demangled)
 class IRefCounted (demangled)
 class IRenderDeviceEventListener (demangled)
@@ -7569,6 +7708,9 @@ class IVideoPlayerAudioCallback (demangled)
 class IVideoPlayerEventCallback (demangled)
 class IVideoPlayerVideoCallback (demangled)
 class SoundEventGuid_t (demangled)
+class `anonymous namespace'::_ExceptionPtr_normal (demangled)
+class `anonymous namespace'::_ExceptionPtr_static<std::bad_alloc> (demangled)
+class `anonymous namespace'::_ExceptionPtr_static<std::bad_exception> (demangled)
 class `public: `public: virtual void CLayoutContentParsed::ResolveEachReference(std::function<void (char const*, std::function<void (char const*)> const&, std::function<void (char const*, bool)> const&)> const&)'::`2'::<lambda_1>::operator()(panorama::CContentASTNode<ELayoutNodeType>*) const'::`2'::<lambda_1> (demangled)
 class `public: `public: virtual void CLayoutContentParsed::ResolveEachReference(std::function<void (char const*, std::function<void (char const*)> const&, std::function<void (char const*, bool)> const&)> const&)'::`2'::<lambda_1>::operator()(panorama::CContentASTNode<ELayoutNodeType>*) const'::`2'::<lambda_2> (demangled)
 class `public: static panorama::ILayoutContent* panorama::ILayoutContent::LoadFromResourceFile(ResourceBindingBase_t const*, ResourceFileHeader_t const*, void*, int)'::`2'::<lambda_2> (demangled)
@@ -7873,21 +8015,49 @@ class panorama::IUIWindow (demangled)
 class panorama::IUIWindowInput (demangled)
 class panorama::IUIYUVA420Texture (demangled)
 class pcharNode (demangled)
+class std::_Associated_state<int> (demangled)
+class std::_Associated_state<unsigned int> (demangled)
+class std::_Deferred_async_state<unsigned int> (demangled)
+class std::_Deferred_async_state<void> (demangled)
 class std::_Facet_base (demangled)
+class std::_Fake_no_copy_callable_adapter<unsigned int (Etc::Image::*)(unsigned int, unsigned int, unsigned int), Etc::Image* const, unsigned int&, int&, unsigned int&> (demangled)
+class std::_Fake_no_copy_callable_adapter<void (Etc::Image::*)(unsigned int, unsigned int), Etc::Image* const, int&, unsigned int&> (demangled)
+class std::_Func_base<unsigned char> (demangled)
+class std::_Func_base<unsigned int> (demangled)
 class std::_Func_base<void, IAsyncReadRequest2*, AsyncRequestStatus_t> (demangled)
 class std::_Func_base<void, char const*, bool> (demangled)
 class std::_Func_base<void, char const*, std::function<void (char const*)> const&, std::function<void (char const*, bool)> const&> (demangled)
 class std::_Func_base<void, char const*> (demangled)
 class std::_Func_base<void> (demangled)
+class std::_Func_impl<<lambda_5a9ef80d79df7873994019ff15dceae5>, std::allocator<int>, void> (demangled)
+class std::_Func_impl<<lambda_60c5de84e69e46aa92419d47e2f3ad51>, std::allocator<int>, void> (demangled)
+class std::_Func_impl<<lambda_713ee8bbd6b08550d59c52695cab5ce3>, std::allocator<int>, void> (demangled)
+class std::_Func_impl<<lambda_763529b0c7473cbc215a52d189ac9b18>, std::allocator<int>, void> (demangled)
+class std::_Func_impl<<lambda_85226a1ade6d27c19b16702c44b1a394>, std::allocator<int>, void> (demangled)
+class std::_Func_impl<<lambda_e0b623a606acfd10554dbddbb0c1a7da>, std::allocator<int>, unsigned char> (demangled)
+class std::_Func_impl<<lambda_e7905d7dbd7cab7f9b19199433c4f5d3>, std::allocator<int>, void> (demangled)
+class std::_Func_impl<<lambda_f25c37099038263181b5186a3fa41b37>, std::allocator<int>, void> (demangled)
+class std::_Func_impl<std::_Fake_no_copy_callable_adapter<unsigned int (Etc::Image::*)(unsigned int, unsigned int, unsigned int), Etc::Image* const, unsigned int&, int&, unsigned int&>, std::allocator<int>, unsigned int> (demangled)
+class std::_Func_impl<std::_Fake_no_copy_callable_adapter<void (Etc::Image::*)(unsigned int, unsigned int), Etc::Image* const, int&, unsigned int&>, std::allocator<int>, void> (demangled)
 class std::_Func_impl_no_alloc<`public: `public: virtual void CLayoutContentParsed::ResolveEachReference(std::function<void (char const*, std::function<void (char const*)> const&, std::function<void (char const*, bool)> const&)> const&)'::`2'::<lambda_1>::operator()(panorama::CContentASTNode<ELayoutNodeType>*) const'::`2'::<lambda_1>, void, char const*> (demangled)
 class std::_Func_impl_no_alloc<`public: `public: virtual void CLayoutContentParsed::ResolveEachReference(std::function<void (char const*, std::function<void (char const*)> const&, std::function<void (char const*, bool)> const&)> const&)'::`2'::<lambda_1>::operator()(panorama::CContentASTNode<ELayoutNodeType>*) const'::`2'::<lambda_2>, void, char const*, bool> (demangled)
 class std::_Func_impl_no_alloc<`public: static panorama::ILayoutContent* panorama::ILayoutContent::LoadFromResourceFile(ResourceBindingBase_t const*, ResourceFileHeader_t const*, void*, int)'::`2'::<lambda_2>, void, char const*, std::function<void (char const*)> const&, std::function<void (char const*, bool)> const&> (demangled)
 class std::_Func_impl_no_alloc<`public: virtual std::shared_ptr<IAsyncReadRequest2> panorama::CSource2UIFileSystem::LoadFileIntoBufferAsync(char const*, CUtlBuffer&, bool, CUtlDelegate<void (char const*, CUtlBuffer&, bool)>)'::`2'::<lambda_1>, void, IAsyncReadRequest2*, AsyncRequestStatus_t> (demangled)
 class std::_Func_impl_no_alloc<`public: void CSOAContainer::FillAttr(int, float)'::`13'::<lambda_1>, void> (demangled)
+class std::_Future_error_category (demangled)
 class std::_Generic_error_category (demangled)
 class std::_Iosb<int> (demangled)
 class std::_Iostream_error_category2 (demangled)
+class std::_Packaged_state<unsigned int (void)> (demangled)
+class std::_Packaged_state<void (void)> (demangled)
+class std::_Ref_count_base (demangled)
+class std::_Ref_count_obj<Concurrency::details::_ExceptionHolder> (demangled)
+class std::_Ref_count_obj<Concurrency::details::_Task_impl<unsigned char> > (demangled)
 class std::_System_error (demangled)
+class std::_Task_async_state<unsigned int, 0> (demangled)
+class std::_Task_async_state<unsigned int, 1> (demangled)
+class std::_Task_async_state<void, 0> (demangled)
+class std::_Task_async_state<void, 1> (demangled)
 class std::__non_rtti_object (demangled)
 class std::bad_alloc (demangled)
 class std::bad_array_new_length (demangled)
@@ -7907,6 +8077,7 @@ class std::ctype<char> (demangled)
 class std::error_category (demangled)
 class std::exception (demangled)
 class std::function<void (void)> (demangled)
+class std::future_error (demangled)
 class std::ios_base (demangled)
 class std::ios_base::failure (demangled)
 class std::length_error (demangled)
@@ -8172,28 +8343,29 @@ d2i_TS_RESP
 d2i_X509_PKEY
 d=%-2d hl=%ld l=%4ld 
 d=%-2d hl=%ld l=inf  
+dAM
 dAN"
+dAU
+dBR
 dBo
 dDV8
+dEB
 dEY
 dFs
 dHHp
 dITRedirect
-dJK
-dKF
 dKi
 dNSDomain
 dOV
 dOj\f,
-dPK
-dQM
+dPR
+dQR
 dQy/
 dSAQuality
-dVI
-dVL
-dWI
+dUQ
+dUT
+dVT
 dWry
-dYK
 d[kHy 
 darkblue
 darkcyan
@@ -8233,7 +8405,9 @@ data:application/json;base64,
 dataEncipherment
 data_plus_mac_plus_padding_size < 1024 * 1024
 date
+dbP
 dcObject
+dcU
 dcobject
 dddd, MMMM dd, yyyy
 debug_malloc
@@ -8286,14 +8460,14 @@ desx
 desx-cbc
 detached content
 device or resource busy
+dfP
 dh key too small
 dh not implemented
 dh public value length is wrong
 dh-cofactor-kdf
 dh-std-kdf
-dhI
 dhKeyAgreement
-dhL
+dhS
 dhSinglePass-cofactorDH-sha1kdf-scheme
 dhSinglePass-cofactorDH-sha224kdf-scheme
 dhSinglePass-cofactorDH-sha256kdf-scheme
@@ -8311,6 +8485,7 @@ dh_paramgen_subprime_len
 dh_paramgen_type
 dh_rfc5114
 dhpublicnumber
+diQ
 diff_encode_field
 different key types
 different parameters
@@ -8381,7 +8556,6 @@ dqO
 dqe-KO{/3
 dqv
 draggable
-dsJ
 dsa
 dsa not implemented
 dsa routines
@@ -8420,21 +8594,19 @@ dtls1_send_server_certificate
 dtls1_send_server_hello
 dtls1_send_server_key_exchange
 dtls1_write_app_data_bytes
-duF
-duL
 dual ec drbg disabled
 dump_panorama_css_properties
 dump_panorama_events
 dump_panorama_render_command_stats
 duplicate compression id
 duplicate zone id
-dvJ
 dvcs
-dyK
 dynamic
 dynlock
+dzO
 dzd
 e-resize
+eBQ
 eBeL
 eC z
 eContent
@@ -8446,6 +8618,7 @@ eLK(w
 eLM
 eN.d\tA
 eNULL
+eO@R
 eODj
 eTU\n
 eType
@@ -8521,6 +8694,7 @@ ecp_nistz256_pre_comp_new
 ecp_nistz256_set_words
 ecp_nistz256_windowed_mul
 edF
+effortblocks = %d\n
 egUkr
 ehB
 ekW
@@ -8674,14 +8848,12 @@ fL\ri
 fMZ
 fNR
 fP;y
-fPL
 fP~V
 fRx
 fSt
 fTS
 fUnh\
 fXD
-fXL
 fYF
 f\trixZ
 fabs
@@ -8739,7 +8911,6 @@ fixed
 fixed32
 fixed64
 fj".T\CMek2>x
-flL
 float
 float32
 float64
@@ -8784,6 +8955,8 @@ func(%lu)
 function %s()
 function not supported
 functionality not supported
+future
+future already retrieved
 fvP
 fwg
 fxv^
@@ -8898,80 +9071,95 @@ gxv>
 g{syW*
 g|FeW\v
 g|MT
-h%E
 h&eC
 h*Ax
 h0XB
 h2Wl
-hAM
+hAQ
+hAU
 hAl
-hCH
+hBU
+hCX
 hCh
 hDA
-hDH
-hDM
-hEF
-hEM
+hDT
+hDV
+hED
 hEM&!
-hFD
-hFF
-hFH
-hFL
-hFM
+hEN
+hET
+hEV
+hFK
 hFP
+hFT
 hF\rDz
-hGF
-hGM
-hHF
-hHL
-hIH
-hII
-hIP
-hJH
-hJM
-hJO
-hJP
+hGK
+hGN
+hHK
+hHV
+hIK
+hIV
+hIW
+hJU
+hJW
 hJxRX@_
-hKJ
-hKO
-hLH
-hLJ
-hMH
+hKN
+hLV
+hLX
+hMT
+hMU
+hMW
 hN2D
-hNM
-hPI
-hPM
-hPO
+hNU
+hNV
+hNW
+hOT
+hOU
+hPT
 hPU3
-hQH
+hPW
+hQN
+hQV
 hRB.
 hRK
-hRM
 hRN
-hSP
-hTM
-hUM
-hVM
+hRT
+hRU
+hSV
+hTU
+hUN
 hW*m
 hW1M
+hWN
 hWS
 hW_z
 hX@e
-hXM
+hXK
+hXT
+hXV
+hYN
+hYP
+hZE
+hZK
 h`Zr
 haM
 hardlight
 hash
 hashAlgorithm
 hashFunc
-hbM
+hbS
+hbW
 hb`V
 hbvc
-hcM
+hcN
+hcT
 hc[N
 hc\raF
-hdM
-heM
+hdE
+hdU
+heR
+heS
+heU
 header crc mismatch
 header too long
 heartbeat request already pending
@@ -8982,17 +9170,27 @@ help
 hex:
 hex_to_string
 hexkey
+hfN
+hfQ
 hfU
-hgM
-hhP
+hfW
+hgD
+hgN
+hgQ
+hgS
+hhT
 hhe
+hiP
+hiT
+hiW
 hittest
 hittestchildren
+hjP
+hkW
 hl5v
-hlP
-hlV
+hlW
 hloav\\t
-hmV
+hmR
 hmac
 hmac-md5
 hmac-sha1
@@ -9003,9 +9201,8 @@ hmacWithSHA256
 hmacWithSHA384
 hmacWithSHA512
 hnM<
-hnV
+hnW
 hnu
-hoV
 holdInstructionCallIssuer
 holdInstructionCode
 holdInstructionNone
@@ -9022,41 +9219,35 @@ host unreachable
 hotpink
 houseIdentifier
 hover
-hpC
+hpW
 hpx
-hpz
-hrM
-hsF
-hsI
-hsM
-hsQ
+hpzP@#
+hqV
+hrL
+hsT
 hscroll
 hsv-transform
 htA
-htF
-htM
+htT
+htV
 http
 http request
 http://
 https
 https proxy request
 https://
-hu J
-huI
-huM
-huP
+huT
+huU
 hue
 hue-rotation
 huu
 hvL&
-hvP
-hwP
+hwV
 hwe
-hyF
-hyL
-hzK
-hzL
-hzP
+hxT
+hxW
+hyO
+hyW
 h|gg
 i <= EVP_MAX_MD_SIZE
 i%YR
@@ -9087,7 +9278,6 @@ iEj
 iFFp}A
 iFjt
 iILV]
-iMJ
 iOJ
 iSXc
 iU[&l
@@ -9383,6 +9573,7 @@ imemanager
 img-shadow
 imgshadow_outset
 in use
+inQ
 inappropriate fallback
 inappropriate io control operation
 include
@@ -9570,6 +9761,7 @@ ir@r`
 irO
 is a directory
 iso
+ispc_texcomp.dll
 issuer
 issuer capabilities
 issuer decode error
@@ -9623,7 +9815,6 @@ jdH
 jfx
 jfz1
 jgs
-jnL
 jnX
 joint-iso-itu-t
 jpf
@@ -9641,7 +9832,6 @@ jurisdictionST
 jurisdictionStateOrProvinceName
 justify
 justify-letter-spacing
-jxL
 k%bf
 k'h\rD
 k+Aq
@@ -9649,6 +9839,7 @@ k/sn
 k8xA
 k;J;J;J;J;J;J;J;J;J;J;J;J;J;J;J;Jx
 k=yI
+kAB
 kDH
 kDHE
 kDHd
@@ -9903,22 +10094,20 @@ l <= sizeof(c->iv)
 l&rB6
 l4Ot
 l6qnk
-lAL
+lAM
 lCw
+lDP
 lDa>
 lDcW
-lHI
-lKF
-lLF
+lHR
 lM2p
 lNA
-lOJ
 lPv
-lSI
-lSM
+lRP
+lSQ
 lTu
+lWR
 lYz
-lZM
 laQ
 lab
 label
@@ -9936,10 +10125,10 @@ lawngreen
 layout-position
 layoutfailed
 lazy
-lbK
 lcO/<1\r=,!\r-@@@
 ldE
 ldexp
+leQ
 leading_comments
 leading_detached_comments
 left
@@ -9955,8 +10144,6 @@ length is greater than %ld\n
 length mismatch
 length too short
 letter-spacing
-lgI
-lgL
 lhash part of OpenSSL 1.0.2j  26 Sep 2016
 lib(%lu)
 libdes part of OpenSSL 1.0.2j  26 Sep 2016
@@ -9994,8 +10181,8 @@ list cannot be null
 list error
 listen
 ljw
+llQ
 lno
-loM
 loading cert dir
 loading defaults
 localKeyID
@@ -10008,10 +10195,10 @@ long
 long 
 loud
 lowercase
-lsK
-luF
-luJ
-lwI
+lrQ
+lvO
+lxO
+lzQ
 m*Zu
 m>FC*a7H
 m>gh
@@ -10212,14 +10399,10 @@ n03>Pu
 n5cM
 n@PK
 nBd
-nCL
 nCRD
 nFh
 nFi
-nGL
 nI(__float128) (demangled)
-nKL
-nRL
 nSRecord
 nStf,a
 nSw
@@ -10263,7 +10446,6 @@ nextUpdate
 nextupdate before thisupdate
 niv <= EVP_MAX_IV_LENGTH
 nkey <= EVP_MAX_KEY_LENGTH
-nlJ
 nmI\n8
 nmvos^\n
 no accept port specified
@@ -10362,6 +10544,7 @@ no solution
 no space on device
 no srtp profiles
 no start line
+no state
 no stream resources
 no subject details
 no such device
@@ -10612,73 +10795,76 @@ p.other
 p.ppBasis
 p.prime
 p.tpBasis
+p>X\nD
+p>w\nD
 p@0pqE5tsO?|1
 p@HPX`h\f
-pAH
+pAG
+pAT
 pAv
-pBC
 pBJ
-pBM
-pBN
+pBT
+pBU
+pBV
+pBX
+pCN
+pCR
+pCT
 pChild
 pD4t
-pDL
 pDv
-pEJ
-pEP
 pEc
 pEngine
-pFO
+pFJ
 pFx
-pGP
 pG_*h
-pHM
-pHO
-pIF
-pIJ
-pIO
+pHJ
+pHW
+pIN
 pIp 
-pJC
-pJF
-pLH
-pLO
-pMO
+pJK
+pJT
+pKT
+pKU
+pKW
+pLP
+pLU
 pMP
-pNH
-pNO
+pNN
 pO0h
 pOC
-pOM
-pOP
+pOV
+pOW
 pOY
-pPH
+pPN
 pPO
+pPV
 pPu
-pQM
-pQO
-pRN
-pRO
-pRP
-pSH
+pQT
+pQW
+pRU
 pSN
 pSPo
 pSj
 pSourceFunc
 pSpecified
+pTV
 pTexture
 pTq
 pU>\AL
 pUJ
-pUL
-pUN
-pUP
-pVK
-pWM
-pYI
-pYL
-pYP
+pUT
+pUU
+pVT
+pVV
+pWV
+pXQ
 pYc
-pZP
+pZT
+pZV
+paE
+paN
+paQ
 package
 packed
 packet length too long
@@ -10871,6 +11057,7 @@ parse error
 parse tlsext
 parsing
 partyName
+pass %u\n
 pass-through
 passed a null parameter
 passed null parameter
@@ -10881,6 +11068,9 @@ path too long
 pathlen
 payload + padding <= 16381
 payment gateway capabilities
+pbN
+pbT
+pbU
 pbeWithMD2AndDES-CBC
 pbeWithMD2AndRC2-CBC
 pbeWithMD5AndCast5CBC
@@ -10896,6 +11086,11 @@ pbeWithSHA1AndDES-CBC
 pbeWithSHA1AndRC2-CBC
 pcN
 pcPathLengthConstraint
+pcU
+pcW
+pdQ
+pdW
+peU
 peachpuff
 peer did not return a certificate
 peer does not accept heartbeats
@@ -10916,9 +11111,9 @@ personalTitle
 perspective
 perspective-origin
 peru
-pfH
-pfK
-pfM
+pfE
+pfJ
+pgW
 photo
 php_class_prefix
 php_generic_services
@@ -10926,7 +11121,6 @@ php_metadata_namespace
 phrase is too short, needs to be at least %d chars\n
 physicalDeliveryOfficeName
 piN
-piP
 pilot
 pilotAttributeSyntax
 pilotAttributeType
@@ -10938,12 +11132,9 @@ pilotObjectClass
 pilotOrganization
 pilotPerson
 pink
-pjJ
 pjk
-pkC
 pkL'
-pkP
-pkQ
+pkT
 pkcs
 pkcs decoding error
 pkcs1
@@ -10974,15 +11165,14 @@ pkcs9
 pkey
 pkeyalg
 pkparameters2group failure
-plM
-plV
+plT
 plum
-pmN
-pmQ
-pmV
-pnV
+pmW
+pnO
 png
-poV
+poP
+poS
+poT
 point
 point arithmetic failure
 point at infinity
@@ -11014,8 +11204,15 @@ powderblue
 pp == NULL || *pp != NULL
 pp&c
 ppBasis
+ppD
+ppN
+ppP
 pqG
+pqN
+pqT
+pqW
 pqualid
+prN
 pre mac length too long
 pre-transform-rotate2d
 pre-transform-scale2d
@@ -11069,6 +11266,7 @@ process
 producedAt
 program
 progress
+promise already satisfied
 protected: 
 protected: bool CUtlBuffer::CheckGet(int) (demangled)
 protected: bool CUtlBuffer::CheckPut(int) (demangled)
@@ -11095,14 +11293,17 @@ proxyCertInfo
 proxyPolicy
 ps(crh
 psC3
+psN
+psT
 psd
 pseudonym
 psk identity not found
 psk no client cb
 psk no server cb
 pss
-ptE
-ptF
+ptN
+puN
+puO
 pub: 
 pub_key
 pubkey
@@ -11124,6 +11325,7 @@ public: CThreadFiber::CThreadFiber(uint64_t) (demangled)
 public: CThreadRWLock_FastRead::CThreadRWLock_FastRead(void) (demangled)
 public: CThreadSemaphore::CThreadSemaphore(int, int, char const*, bool) (demangled)
 public: CThreadSemaphore::~CThreadSemaphore(void) (demangled)
+public: CUniformRandomStreamImpl<CThreadNullMutex>::CUniformRandomStreamImpl<CThreadNullMutex>(int) (demangled)
 public: CUtlBuffer::CUtlBuffer(int, int, CUtlBuffer::BufferFlags_t) (demangled)
 public: CUtlBuffer::CUtlBuffer(void const*, int, CUtlBuffer::BufferFlags_t) (demangled)
 public: CUtlMemoryPoolBase::CUtlMemoryPoolBase(int, int, int, MemoryPoolGrowType_t, char const*, MemAllocAttribute_t) (demangled)
@@ -11186,6 +11388,7 @@ public: int CBufferString::AppendFormat(char const*, ...) (demangled)
 public: int CBufferString::AppendFormatV(char const*, char*) (demangled)
 public: int CBufferString::EnsureCapacity(int, char**, bool, bool) (demangled)
 public: int CBufferString::Format(char const*, ...) (demangled)
+public: int CUniformRandomStreamImpl<CThreadNullMutex>::RandomInt(int, int) (demangled)
 public: int CUtlString::Format(char const*, ...) (demangled)
 public: int CUtlString::FormatV(char const*, char*) (demangled)
 public: int CUtlString::UnicodeCaseConvert(int, EStringConvertErrorPolicy) (demangled)
@@ -11315,14 +11518,22 @@ public_dependency
 public_key
 purecall
 purple
-pvF
+pvN
+pvT
+pvV
 pvk data too short
 pvk too short
-pwF
-pxF
-pxK
+pwL
+pwN
+pwT
+pwW
+pxE
+pxR
+pyT
 py_generic_services
 pzKD)
+pzT
+pzW
 q not prime
 q%g
 q&A\nn
@@ -11360,17 +11571,15 @@ rB2pBB
 rC3rp
 rF6t
 rFC822localPart
-rFL
 rFur`7\t
 rL[i+
-rNL
 rQc
 rRfKR
 rTy
-rVL
 rX&O0
 rZ1VwGf5
 rZPM
+r\fpH
 r\tVr.>T
 r\vDi
 radial
@@ -11547,6 +11756,7 @@ sAmTb
 sAz
 sBT
 sC3pcG'd
+sCQ
 sDW
 sHF'
 sHe
@@ -12105,6 +12315,18 @@ stroke-width
 struct 
 struct CircleElement_t (demangled)
 struct ClipPathElement_t (demangled)
+struct Concurrency::details::_PPLTaskHandle<unsigned char, Concurrency::task<unsigned char>::_InitialTaskHandle<void, <lambda_5a9ef80d79df7873994019ff15dceae5>, Concurrency::details::_TypeSelectorNoAsync>, Concurrency::details::_TaskProcHandle> (demangled)
+struct Concurrency::details::_PPLTaskHandle<unsigned char, Concurrency::task<unsigned char>::_InitialTaskHandle<void, <lambda_60c5de84e69e46aa92419d47e2f3ad51>, Concurrency::details::_TypeSelectorNoAsync>, Concurrency::details::_TaskProcHandle> (demangled)
+struct Concurrency::details::_PPLTaskHandle<unsigned char, Concurrency::task<unsigned char>::_InitialTaskHandle<void, <lambda_85226a1ade6d27c19b16702c44b1a394>, Concurrency::details::_TypeSelectorNoAsync>, Concurrency::details::_TaskProcHandle> (demangled)
+struct Concurrency::details::_PPLTaskHandle<unsigned char, Concurrency::task<unsigned char>::_InitialTaskHandle<void, <lambda_e7905d7dbd7cab7f9b19199433c4f5d3>, Concurrency::details::_TypeSelectorNoAsync>, Concurrency::details::_TaskProcHandle> (demangled)
+struct Concurrency::details::_TaskProcHandle (demangled)
+struct Concurrency::details::_Task_impl<unsigned char> (demangled)
+struct Concurrency::details::_Task_impl_base (demangled)
+struct Concurrency::scheduler_interface (demangled)
+struct Concurrency::task<unsigned char>::_InitialTaskHandle<void, <lambda_5a9ef80d79df7873994019ff15dceae5>, Concurrency::details::_TypeSelectorNoAsync> (demangled)
+struct Concurrency::task<unsigned char>::_InitialTaskHandle<void, <lambda_60c5de84e69e46aa92419d47e2f3ad51>, Concurrency::details::_TypeSelectorNoAsync> (demangled)
+struct Concurrency::task<unsigned char>::_InitialTaskHandle<void, <lambda_85226a1ade6d27c19b16702c44b1a394>, Concurrency::details::_TypeSelectorNoAsync> (demangled)
+struct Concurrency::task<unsigned char>::_InitialTaskHandle<void, <lambda_e7905d7dbd7cab7f9b19199433c4f5d3>, Concurrency::details::_TypeSelectorNoAsync> (demangled)
 struct ContainerElement_t (demangled)
 struct DefsElement_t (demangled)
 struct EllipseElement_t (demangled)
@@ -12126,6 +12348,8 @@ struct UseElement_t (demangled)
 struct google::protobuf::internal::ExtensionSet::KeyValue (demangled)
 struct google::protobuf::internal::InternalMetadata::Container<google::protobuf::UnknownFieldSet> (demangled)
 struct panorama::CContentASTNode<ELayoutNodeType> (demangled)
+struct std::_Associated_state<int>::_Anon (demangled)
+struct std::_Associated_state<unsigned int>::_Anon (demangled)
 struct std::_Crt_new_delete (demangled)
 struct std::ctype_base (demangled)
 style
@@ -12162,26 +12386,27 @@ system library
 t(1pC
 t+RW
 t0;?ZlP*m
+tAM
 tA`KO/3G!\n7h=
 tBo
+tDR
 tGTS
-tHJ
-tHL
+tHQ
 tIq
-tJJ
-tKI
-tLF
+tKP
+tKR
 tLY^m`6
 tLl 
 tLsq
 tNt5
-tOL
-tSM
+tRB
+tSU
 tTH
-tTJ
 tTx
+tVQ
 tYC
 t\tV_isdigit_str
+taU
 tabindex
 table
 tag mismatch
@@ -12193,8 +12418,8 @@ targetInformation
 tbsRequest
 tbsResponseData
 tdAW
-tdK
 tdYv
+teQ
 teal
 telephoneNumber
 teletexTerminalIdentifier
@@ -12275,7 +12500,6 @@ tlsv1 bad certificate status response
 tlsv1 certificate unobtainable
 tlsv1 unrecognized name
 tlsv1 unsupported extension
-tmI
 tnX
 token not present
 token present
@@ -12300,7 +12524,6 @@ topleft
 tpBasis
 tpr
 tq}a
-trF
 trailerField
 trailing_comments
 transform
@@ -12325,14 +12548,12 @@ trust
 trustRoot
 ts datasign
 tsG7
-tsI
 tsa name mismatch
 tsa untrusted
 tst info setup error
-tuF
+ttO
 turquoise
 twT
-txI
 type
 type not compressed data
 type not constructed
@@ -12362,12 +12583,14 @@ uNE
 uPI
 uQ'ZH
 uQbK!
+uSQ
 uUv
 uVw
 u\vMW
 uaqf
 ub=A
 ucl
+ufQ
 ug>c
 ui-scale
 ui-scale-x
@@ -12381,6 +12604,7 @@ uint64_t* v8::api_internal::GlobalizeReference(v8::internal::Isolate*, uint64_t)
 uiposition
 ukF
 ukm
+ulQ
 unable to bind socket
 unable to create new section
 unable to create socket
@@ -12548,6 +12772,7 @@ unwrap failure
 up-wrap
 uppercase
 uqY
+urQ
 url
 url( 
 url( none )
@@ -12618,6 +12843,7 @@ vector too long
 vector2
 vector3
 vector4
+vector<T> too long
 vectorws
 verification failure
 version
@@ -12668,7 +12894,6 @@ w0A4k
 w3Xc
 w8i_q
 w=Zk
-wCJ
 wE2C
 wHk
 wI-S
@@ -12749,8 +12974,7 @@ wxT%
 wyS]
 wzH
 x#Nb
-x%E
-x%F
+x%X
 x/OA
 x0Ysqx
 x121Address
@@ -12765,82 +12989,94 @@ x509_info
 x509_pkey
 x509_req
 x509_store
-xBH
-xBI
-xCM
+xAX
+xBU
 xDD
-xDK
-xDM
-xEF
-xEM
-xFF
+xEV
 xFKF
-xFM
-xFP
-xGF
-xGM
-xGO
-xHI
-xHP
-xII
-xIM
-xKF
-xKP
-xLF
-xMK
-xMM
-xNE
+xFN
+xFV
+xGV
+xHK
+xHT
+xIV
+xIW
+xJU
+xJV
+xKK
+xLN
+xLV
+xLW
+xMU
+xMV
+xMW
+xNT
+xNU
+xNW
 xOu\vsF
 xPA
-xPI
+xPU
+xPW
+xQN
+xQU
 xQfF
-xRH
-xRN
+xRV
 xRh
-xSI
-xSP
+xST
 xTN
 xUN'
 xUT
+xVN
+xXK
+xXN
+xXV
 xXq
 xYC
-xZP
+xYK
+xYT
 x\tV_isstrlower_fast
-xaP
-xaQ
+xaM
+xaS
+xaT
 xac
+xbU
 xbk
-xcL
+xcE
+xdT
+xdU
+xeN
+xeT
 xg-9Ja
-xgP
-xhM
-xiM
-xiN
-xjM
-xlV
+xhT
+xhW
+xkN
+xlN
 xlink:href
 xmN
-xmV
+xmQ
 xml
-xnV
-xoM
+xnN
+xoN
+xoW
 xog
 xp$=S
 xpH8
-xpK
-xpM
+xpQ
+xpT
 xpm
-xqE
 xqI9
-xqM
 xrJ:DCG
-xsF
 xsK;
-xuM
-xuP
-xvP
+xsV
+xuT
+xuW
+xvW
 xxH}
-xyF
+xxK
+xxQ
+xxW
+xyN
+xzN
 xzxv
 y#y&Jb
 y0JY
@@ -12850,7 +13086,6 @@ yBf
 yH/Yy
 yH3f
 yHs8=
-yIJ
 yJ;Bf
 yOc
 yRnkB\t
@@ -12858,6 +13093,7 @@ yS/h
 yWTb?
 y\teE
 ya<O
+yaQ
 yb_A
 ycg
 yel
@@ -12879,6 +13115,7 @@ zAq
 zBe
 zF):O4
 zOc
+zPQ
 zRXU 
 zUn
 zXc

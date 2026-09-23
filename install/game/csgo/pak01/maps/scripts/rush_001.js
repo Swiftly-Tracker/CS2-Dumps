@@ -36,6 +36,7 @@ var _lastRoundsPlayed = 0;
 var _teamWins = {};
 
 var _teamEliminated = false;
+var _legitimateKillsPerTeamThisRound = {}; 
 
 var ROUNDS_TO_WIN = 8;                                                                    
 
@@ -50,6 +51,7 @@ const TEN_SECOND_WARNING_SECONDS = 10;
 
                                                       
 const COUNTDOWN_TIME_SECONDS = 7;
+const COUNTDOWN_TIME_END_ROOMS_SECONDS = 14;
 
                                                                                
 const SOUND_CONTROL_GAINED = "poss.gained";
@@ -220,8 +222,15 @@ function RoundTimeMinutesForRoom(roomIndex) {
 	return (seconds + 0.5) / 60;
 }
 
-                                                                                              
-                                               
+function CountdownTimeSecondsForRoom(roomIndex) {
+	const seconds = IsFinalRoom(roomIndex) || _roomIds[roomIndex] == DECIDER_ROOM_ID
+		? COUNTDOWN_TIME_END_ROOMS_SECONDS
+		: COUNTDOWN_TIME_SECONDS;
+
+	return seconds;
+}
+
+
 function MoveSpawnsToRooms(tRoom, ctRoom) {
 	TeleportEntitiesToTargets(new Map([
 		["tspawn1", `t1room.${tRoom}`],
@@ -259,6 +268,7 @@ Instance.OnRoundStart(() => {
 	ResetTimerBeepState();
 	_countdownActive = false;
 	_teamEliminated = false;
+	_legitimateKillsPerTeamThisRound = {};
 
 	                                                                                            
 	                                                                           
@@ -602,16 +612,29 @@ function SetRoomLights(roomIndex, team) {
 
 Instance.OnPlayerKill((event) => {
 	if (Instance.IsWarmupPeriod()) return;
+	if (event.player && event.attacker && event.attacker instanceof CSPlayerPawn)
+	{
+		const victimTeam = event.player.GetPlayerController().GetTeamNumber();
+		const killerTeam = event.attacker.GetPlayerController().GetTeamNumber();
+		if (killerTeam == OtherTeam(victimTeam))
+		{
+			_legitimateKillsPerTeamThisRound[killerTeam] = (_legitimateKillsPerTeamThisRound[killerTeam] ?? 0) + 1;
+		}
+	}
 
 	                                                              
 	CheckEliminationRoundEnd();
 
 	                                               
+	const owningTeam = _roomStates[_currentRoomIndex];
 	if (!END_ROUND_ON_TEAM_ELIMINATION && IsTeamEliminated(_roomStates[_currentRoomIndex]) && !_countdownActive)
 	{
+		if (_legitimateKillsPerTeamThisRound[OtherTeam(owningTeam)] && _legitimateKillsPerTeamThisRound[OtherTeam(owningTeam)] > 0)
+		{
 		_countdownActive = true;
-		const newRoundTime = Math.min(Instance.GetRoundRemainingTime(), COUNTDOWN_TIME_SECONDS);
+		const newRoundTime = Math.min(Instance.GetRoundRemainingTime(), CountdownTimeSecondsForRoom(_currentRoomIndex));
 		Instance.SetRoundRemainingTime(newRoundTime);
+		}
 	}
 });
 
