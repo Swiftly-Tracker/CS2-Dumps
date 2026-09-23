@@ -310,6 +310,67 @@
             "has_callback": true,
             "has_completion_callback": false
         },
+        "description": "markup_group_ent_bbox <markup_group name> -> toggle ent_bbox for all members of the named markup group",
+        "flags": [
+            "cheat"
+        ],
+        "module": "server",
+        "name": "markup_group_ent_bbox"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_completion_callback": false
+        },
+        "description": "Reports the surface properties at the cursor",
+        "flags": [
+            "cheat"
+        ],
+        "module": "server",
+        "name": "surfaceprop"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_completion_callback": false
+        },
+        "description": "Dumps debug info for an entity",
+        "flags": [
+            "developmentonly",
+            "defensive"
+        ],
+        "module": "server",
+        "name": "physics_debug_entity"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_completion_callback": false
+        },
+        "description": "Shoots a phys object.",
+        "flags": [
+            "cheat"
+        ],
+        "module": "server",
+        "name": "phys_shoot"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_completion_callback": false
+        },
+        "description": "Creates a physics prop with a specific .vmdl aimed away from where the player is looking.\n\tArguments: {.vmdl name}",
+        "flags": [
+            "cheat"
+        ],
+        "module": "server",
+        "name": "prop_physics_create"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_completion_callback": false
+        },
         "description": "Collect model names of the entities you're pointing at",
         "flags": [
             "cheat"
@@ -1064,6 +1125,19 @@
             "defensive"
         ],
         "module": "server",
+        "name": "autosavedangerousissafe"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_completion_callback": false
+        },
+        "description": "",
+        "flags": [
+            "developmentonly",
+            "defensive"
+        ],
+        "module": "server",
         "name": "save_finish_async"
     },
     {
@@ -1258,7 +1332,7 @@
             "has_callback": true,
             "has_completion_callback": false
         },
-        "description": "Creates the named particle system where the player is looking.\n\tArguments:   \t{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at}",
+        "description": "Creates the named particle system where the player is looking.  Can be used on an entity if pointed at the entity.  Optionally takes a particle config name.\n\tArguments:   \t{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at}",
         "flags": [
             "cheat"
         ],
@@ -1368,13 +1442,26 @@
             "has_callback": true,
             "has_completion_callback": true
         },
-        "description": "Usage:\n   ent_fire <target> [action] [value] [delay]\n",
+        "description": "Usage:\n   ent_fire <target> [action] [value0] [value1] ... [valueN]\n",
         "flags": [
             "cheat",
             "vconsole_fuzzy_matching"
         ],
         "module": "server",
         "name": "ent_fire"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_completion_callback": true
+        },
+        "description": "Usage:\n   ent_fire_delay <target> [action] [value0] [value1] ... [valueN] [delay]\n",
+        "flags": [
+            "cheat",
+            "vconsole_fuzzy_matching"
+        ],
+        "module": "server",
+        "name": "ent_fire_delay"
     },
     {
         "attributes": {
@@ -1394,13 +1481,26 @@
             "has_callback": true,
             "has_completion_callback": true
         },
-        "description": "Usage:\n   ent_fire_output <target> [output name] [value] [delay]\n",
+        "description": "Usage:\n   ent_fire_output <target> [output name] [value0] [value1] ... [valueN]\n",
         "flags": [
             "cheat",
             "vconsole_fuzzy_matching"
         ],
         "module": "server",
         "name": "ent_fire_output"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_completion_callback": true
+        },
+        "description": "Usage:\n   ent_fire_output_delay <target> [output name] [value0] [value1] ... [valueN] [delay]\n",
+        "flags": [
+            "cheat",
+            "vconsole_fuzzy_matching"
+        ],
+        "module": "server",
+        "name": "ent_fire_output_delay"
     },
     {
         "attributes": {
@@ -2150,6 +2250,18 @@
             "cheat"
         ],
         "module": "server",
+        "name": "func_mover_step_movement"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_completion_callback": false
+        },
+        "description": "",
+        "flags": [
+            "cheat"
+        ],
+        "module": "server",
         "name": "shatterglass_restore"
     },
     {
@@ -2175,6 +2287,18 @@
         ],
         "module": "server",
         "name": "create_radius_damage"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_completion_callback": false
+        },
+        "description": "Explosion where you're looking, or at x y z, with a real explosion's physics force (unlike create_radius_damage).",
+        "flags": [
+            "cheat"
+        ],
+        "module": "server",
+        "name": "create_explosion_damage"
     },
     {
         "attributes": {
@@ -2237,67 +2361,6 @@
         ],
         "module": "server",
         "name": "markup_group_ent_text"
-    },
-    {
-        "attributes": {
-            "has_callback": true,
-            "has_completion_callback": false
-        },
-        "description": "markup_group_ent_bbox <markup_group name> -> toggle ent_bbox for all members of the named markup group",
-        "flags": [
-            "cheat"
-        ],
-        "module": "server",
-        "name": "markup_group_ent_bbox"
-    },
-    {
-        "attributes": {
-            "has_callback": true,
-            "has_completion_callback": false
-        },
-        "description": "Reports the surface properties at the cursor",
-        "flags": [
-            "cheat"
-        ],
-        "module": "server",
-        "name": "surfaceprop"
-    },
-    {
-        "attributes": {
-            "has_callback": true,
-            "has_completion_callback": false
-        },
-        "description": "Dumps debug info for an entity",
-        "flags": [
-            "developmentonly",
-            "defensive"
-        ],
-        "module": "server",
-        "name": "physics_debug_entity"
-    },
-    {
-        "attributes": {
-            "has_callback": true,
-            "has_completion_callback": false
-        },
-        "description": "Shoots a phys object.",
-        "flags": [
-            "cheat"
-        ],
-        "module": "server",
-        "name": "phys_shoot"
-    },
-    {
-        "attributes": {
-            "has_callback": true,
-            "has_completion_callback": false
-        },
-        "description": "Creates a physics prop with a specific .vmdl aimed away from where the player is looking.\n\tArguments: {.vmdl name}",
-        "flags": [
-            "cheat"
-        ],
-        "module": "server",
-        "name": "prop_physics_create"
     },
     {
         "attributes": {
@@ -2713,6 +2776,19 @@
         ],
         "module": "server",
         "name": "pulse_list_game_blackboards"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_completion_callback": false
+        },
+        "description": "",
+        "flags": [
+            "developmentonly",
+            "cheat"
+        ],
+        "module": "server",
+        "name": "spawnBrokenGlass"
     },
     {
         "attributes": {
@@ -3523,19 +3599,6 @@
         ],
         "module": "server",
         "name": "autosave"
-    },
-    {
-        "attributes": {
-            "has_callback": true,
-            "has_completion_callback": false
-        },
-        "description": "",
-        "flags": [
-            "developmentonly",
-            "defensive"
-        ],
-        "module": "server",
-        "name": "autosavedangerousissafe"
     },
     {
         "attributes": {
@@ -4978,6 +5041,34 @@
             "has_callback": true,
             "has_completion_callback": false
         },
+        "description": "",
+        "flags": [
+            "clientdll",
+            "hidden",
+            "release"
+        ],
+        "module": "client",
+        "name": "workshop_item_submit"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_completion_callback": false
+        },
+        "description": "Show the blog and hide news panel",
+        "flags": [
+            "clientdll",
+            "hidden",
+            "clientcmd_can_execute"
+        ],
+        "module": "client",
+        "name": "cl_mainmenu_show_blog"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_completion_callback": false
+        },
         "description": "Show the news panel and hide blog",
         "flags": [
             "clientdll",
@@ -5239,20 +5330,6 @@
         ],
         "module": "client",
         "name": "cl_sim_grenade_trajectory"
-    },
-    {
-        "attributes": {
-            "has_callback": true,
-            "has_completion_callback": false
-        },
-        "description": "Apply a crosshair code to the current crosshair settings.",
-        "flags": [
-            "developmentonly",
-            "clientdll",
-            "defensive"
-        ],
-        "module": "client",
-        "name": "apply_crosshair_code"
     },
     {
         "attributes": {
@@ -6275,6 +6352,19 @@
             "has_callback": true,
             "has_completion_callback": false
         },
+        "description": "Change a server convar if allowed",
+        "flags": [
+            "developmentonly",
+            "clientdll"
+        ],
+        "module": "client",
+        "name": "set_server_cvar"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_completion_callback": false
+        },
         "description": "Imports an existing CS:GO configuration file into CS2",
         "flags": [
             "developmentonly",
@@ -6419,6 +6509,20 @@
         ],
         "module": "client",
         "name": "cs_quit_prompt"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_completion_callback": false
+        },
+        "description": "Apply a crosshair code to the current crosshair settings.",
+        "flags": [
+            "developmentonly",
+            "clientdll",
+            "defensive"
+        ],
+        "module": "client",
+        "name": "apply_crosshair_code"
     },
     {
         "attributes": {
@@ -6817,34 +6921,6 @@
         ],
         "module": "client",
         "name": "workshop_tournament_item_submit"
-    },
-    {
-        "attributes": {
-            "has_callback": true,
-            "has_completion_callback": false
-        },
-        "description": "",
-        "flags": [
-            "clientdll",
-            "hidden",
-            "release"
-        ],
-        "module": "client",
-        "name": "workshop_item_submit"
-    },
-    {
-        "attributes": {
-            "has_callback": true,
-            "has_completion_callback": false
-        },
-        "description": "Show the blog and hide news panel",
-        "flags": [
-            "clientdll",
-            "hidden",
-            "clientcmd_can_execute"
-        ],
-        "module": "client",
-        "name": "cl_mainmenu_show_blog"
     },
     {
         "attributes": {
@@ -9501,18 +9577,6 @@
             "has_callback": true,
             "has_completion_callback": false
         },
-        "description": "Generate a minidump comment and spew the results to the console",
-        "flags": [
-            "developmentonly"
-        ],
-        "module": "engine2",
-        "name": "generate_minidump_comment"
-    },
-    {
-        "attributes": {
-            "has_callback": true,
-            "has_completion_callback": false
-        },
         "description": "Print system information to the console",
         "flags": [
             "release"
@@ -10943,18 +11007,6 @@
             "has_callback": true,
             "has_completion_callback": false
         },
-        "description": "Force toggle hibernation state",
-        "flags": [
-            "developmentonly"
-        ],
-        "module": "engine2",
-        "name": "force_hibernate"
-    },
-    {
-        "attributes": {
-            "has_callback": true,
-            "has_completion_callback": false
-        },
         "description": "Output text to test console",
         "flags": [
             "developmentonly"
@@ -11024,6 +11076,18 @@
         ],
         "module": "engine2",
         "name": "print_changed_convars"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_completion_callback": false
+        },
+        "description": "Generate a minidump comment and spew the results to the console",
+        "flags": [
+            "developmentonly"
+        ],
+        "module": "engine2",
+        "name": "generate_minidump_comment"
     },
     {
         "attributes": {
