@@ -109,24 +109,24 @@ const CT_FINAL_ROOM = 6;
 
 const ROOM_NAMES =
 {
-	101: "Spire",
-	102: "Wallbang",
-	103: "Big Box",
-	104: "Madhouse",
-	201: "Sewer",
-	202: "Dogleg",
-	203: "Trainyard",
-	204: "Crane",
-	205: "Bloc",
-	206: "Hydro",
-	207: "Atomic",
-	208: "Medusa",
-	209: "Bear",
-	210: "Steel",
-	211: "Container",
-	212: "Drop",
-	301: "CT Castle",
-	401: "T Castle",
+	101: "room_101",
+	102: "room_102",
+	103: "room_103",
+	104: "room_104",
+	201: "room_201",
+	202: "room_202",
+	203: "room_203",
+	204: "room_204",
+	205: "room_205",
+	206: "room_206",
+	207: "room_207",
+	208: "room_208",
+	209: "room_209",
+	210: "room_210",
+	211: "room_211",
+	212: "room_212",
+	301: "room_301",
+	401: "room_401",
 	convoy: "Convoy"
 };
 
@@ -280,10 +280,6 @@ Instance.OnRoundStart(() => {
 		ResetGameState();
 	}
 	_lastRoundsPlayed = roundsPlayed;
-
-	                                                                                             
-	                                                
-	Instance.ServerCommand("sv_full_alltalk 0");
 
 	                                                                                              
 	                                                               
