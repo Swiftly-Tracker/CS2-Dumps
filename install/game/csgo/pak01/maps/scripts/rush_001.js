@@ -604,6 +604,14 @@ function SetRoomLights(roomIndex, team) {
 
 	                                                                               
 	_antennaTeam = team;
+
+	                                                                    
+	NotifySmokeLightingChanged();
+}
+
+async function NotifySmokeLightingChanged() {
+	await Instance.Delay(0.1);
+	Instance.ServerCommand("sv_smoke_lighting_changed");
 }
 
 Instance.OnPlayerKill((event) => {
