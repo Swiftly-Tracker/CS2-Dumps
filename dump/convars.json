@@ -6011,8 +6011,8 @@
             "archive",
             "per_user"
         ],
-        "max": "3840",
-        "min": "-3840",
+        "max": "128",
+        "min": "0",
         "module": "client",
         "name": "cl_crosshair_gap"
     },
@@ -6131,7 +6131,7 @@
             "archive",
             "per_user"
         ],
-        "max": "32",
+        "max": "31",
         "min": "0",
         "module": "client",
         "name": "cl_crosshair_thickness"
@@ -6265,90 +6265,6 @@
         "attributes": {
             "has_callback": true,
             "has_default": true,
-            "has_max": true,
-            "has_min": true
-        },
-        "datatype": "int32",
-        "datatype_raw": 3,
-        "default": "255",
-        "description": "Crosshair outline opacity. 0 = fully transparent, 255 = fully opaque",
-        "flags": [
-            "clientdll",
-            "archive",
-            "per_user"
-        ],
-        "max": "255",
-        "min": "0",
-        "module": "client",
-        "name": "cl_crosshairoutline_a"
-    },
-    {
-        "attributes": {
-            "has_callback": true,
-            "has_default": true,
-            "has_max": true,
-            "has_min": true
-        },
-        "datatype": "int32",
-        "datatype_raw": 3,
-        "default": "0",
-        "description": "Crosshair outline color, blue component",
-        "flags": [
-            "clientdll",
-            "archive",
-            "per_user"
-        ],
-        "max": "255",
-        "min": "0",
-        "module": "client",
-        "name": "cl_crosshairoutline_b"
-    },
-    {
-        "attributes": {
-            "has_callback": true,
-            "has_default": true,
-            "has_max": true,
-            "has_min": true
-        },
-        "datatype": "int32",
-        "datatype_raw": 3,
-        "default": "0",
-        "description": "Crosshair outline color, green component",
-        "flags": [
-            "clientdll",
-            "archive",
-            "per_user"
-        ],
-        "max": "255",
-        "min": "0",
-        "module": "client",
-        "name": "cl_crosshairoutline_g"
-    },
-    {
-        "attributes": {
-            "has_callback": true,
-            "has_default": true,
-            "has_max": true,
-            "has_min": true
-        },
-        "datatype": "int32",
-        "datatype_raw": 3,
-        "default": "0",
-        "description": "Crosshair outline color, red component",
-        "flags": [
-            "clientdll",
-            "archive",
-            "per_user"
-        ],
-        "max": "255",
-        "min": "0",
-        "module": "client",
-        "name": "cl_crosshairoutline_r"
-    },
-    {
-        "attributes": {
-            "has_callback": true,
-            "has_default": true,
             "has_max": false,
             "has_min": false
         },
@@ -6375,13 +6291,13 @@
         "datatype": "int32",
         "datatype_raw": 3,
         "default": "7",
-        "description": "Crosshair style. 0 = Dynamic Cross, 1 = Dynamic Circle, 2 = Dynamic Cross (Legacy), 3 = Static Circle, 4 = Static Cross, 5 = Static Cross (Shot Feedback), 6 = Dot Only, 7 = Dynamic Quad, 8 = Static Square, 9 = Static Quad.",
+        "description": "Crosshair style. 0 = Dynamic Cross, 1 = Dynamic Circle, 2 = Dynamic Cross (Legacy), 3 = Static Circle, 4 = Static Cross, 5 = Static Cross (Shot Feedback), 6 = Dot Only, 7 = Dynamic Quad, 8 = Static Square. Styles 0, 1 and 7 track the weapon's actual inaccuracy.",
         "flags": [
             "clientdll",
             "archive",
             "per_user"
         ],
-        "max": "9",
+        "max": "8",
         "min": "0",
         "module": "client",
         "name": "cl_crosshairstyle"
@@ -8272,6 +8188,26 @@
         "attributes": {
             "has_callback": true,
             "has_default": true,
+            "has_max": true,
+            "has_min": true
+        },
+        "datatype": "float32",
+        "datatype_raw": 7,
+        "default": "10.000000",
+        "description": "Spacing between ticks on the grenade throw crosshair",
+        "flags": [
+            "developmentonly",
+            "clientdll"
+        ],
+        "max": "45.000000",
+        "min": "1.000000",
+        "module": "client",
+        "name": "cl_grenadecrosshair_tickinterval"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
             "has_max": false,
             "has_min": false
         },
@@ -8310,8 +8246,8 @@
         "attributes": {
             "has_callback": true,
             "has_default": true,
-            "has_max": true,
-            "has_min": true
+            "has_max": false,
+            "has_min": false
         },
         "datatype": "float32",
         "datatype_raw": 7,
@@ -8322,8 +8258,6 @@
             "archive",
             "per_user"
         ],
-        "max": "5.000000",
-        "min": "0.000000",
         "module": "client",
         "name": "cl_grenadecrosshairdelay_decoy"
     },
@@ -8331,8 +8265,8 @@
         "attributes": {
             "has_callback": true,
             "has_default": true,
-            "has_max": true,
-            "has_min": true
+            "has_max": false,
+            "has_min": false
         },
         "datatype": "float32",
         "datatype_raw": 7,
@@ -8343,8 +8277,6 @@
             "archive",
             "per_user"
         ],
-        "max": "5.000000",
-        "min": "0.000000",
         "module": "client",
         "name": "cl_grenadecrosshairdelay_explosive"
     },
@@ -8352,8 +8284,8 @@
         "attributes": {
             "has_callback": true,
             "has_default": true,
-            "has_max": true,
-            "has_min": true
+            "has_max": false,
+            "has_min": false
         },
         "datatype": "float32",
         "datatype_raw": 7,
@@ -8364,8 +8296,6 @@
             "archive",
             "per_user"
         ],
-        "max": "5.000000",
-        "min": "0.000000",
         "module": "client",
         "name": "cl_grenadecrosshairdelay_fire"
     },
@@ -8373,8 +8303,8 @@
         "attributes": {
             "has_callback": true,
             "has_default": true,
-            "has_max": true,
-            "has_min": true
+            "has_max": false,
+            "has_min": false
         },
         "datatype": "float32",
         "datatype_raw": 7,
@@ -8385,8 +8315,6 @@
             "archive",
             "per_user"
         ],
-        "max": "5.000000",
-        "min": "0.000000",
         "module": "client",
         "name": "cl_grenadecrosshairdelay_flash"
     },
@@ -8394,8 +8322,8 @@
         "attributes": {
             "has_callback": true,
             "has_default": true,
-            "has_max": true,
-            "has_min": true
+            "has_max": false,
+            "has_min": false
         },
         "datatype": "float32",
         "datatype_raw": 7,
@@ -8406,8 +8334,6 @@
             "archive",
             "per_user"
         ],
-        "max": "5.000000",
-        "min": "0.000000",
         "module": "client",
         "name": "cl_grenadecrosshairdelay_smoke"
     },
@@ -9236,7 +9162,7 @@
         "datatype": "float32",
         "datatype_raw": 7,
         "default": "1.000000",
-        "description": "Scope dot scale",
+        "description": "Ironsight dot scale",
         "flags": [
             "clientdll",
             "archive",
@@ -44256,60 +44182,6 @@
         ],
         "module": "client",
         "name": "r_csgo_cmaa_quality"
-    },
-    {
-        "attributes": {
-            "has_callback": true,
-            "has_default": true,
-            "has_max": false,
-            "has_min": false
-        },
-        "datatype": "bool",
-        "datatype_raw": 0,
-        "default": "false",
-        "description": "",
-        "flags": [
-            "developmentonly",
-            "clientdll"
-        ],
-        "module": "client",
-        "name": "r_csgo_crosshair_debug_tiles"
-    },
-    {
-        "attributes": {
-            "has_callback": true,
-            "has_default": true,
-            "has_max": false,
-            "has_min": false
-        },
-        "datatype": "int32",
-        "datatype_raw": 3,
-        "default": "8",
-        "description": "",
-        "flags": [
-            "developmentonly",
-            "clientdll"
-        ],
-        "module": "client",
-        "name": "r_csgo_crosshair_debug_tiles_count_red"
-    },
-    {
-        "attributes": {
-            "has_callback": true,
-            "has_default": true,
-            "has_max": false,
-            "has_min": false
-        },
-        "datatype": "int32",
-        "datatype_raw": 3,
-        "default": "128",
-        "description": "",
-        "flags": [
-            "developmentonly",
-            "clientdll"
-        ],
-        "module": "client",
-        "name": "r_csgo_crosshair_tile_size"
     },
     {
         "attributes": {
