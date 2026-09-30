@@ -2,18 +2,39 @@
 /// <reference path="../csgo.d.ts" />
 /// <reference path="../popups/pet_photo_library.ts" />
 /// <reference path="../popups/pet_photo_tag.ts" />
+//
+// Page authoring for the pet picture book. Kept out of popup_pet_book.ts, which owns the turn
+// animation; the seam is ShownPages, FillPage and the refresh handed in at Init.
+//
+// Drag only - there is no selected hole and no click to place.
+//
 var PetBookPages;
 (function (PetBookPages) {
     const _m_cp = $.GetContextPanel();
+    //----------------------------------------------------------------------------------
+    // The bird
+    //----------------------------------------------------------------------------------
+    // 'upgrade level' holds EChickenLifeStage.
     const STAGE_EGG = 0;
     const STAGE_CHICK = 1;
     const STAGE_ADOLESCENT = 2;
     const STAGE_ADULT = 3;
+    // Localized here rather than where it is shown, because it goes into a dialog variable and those
+    // substitute as they stand.
     const NAME_PLACEHOLDER = $.Localize('#pet_book_name_placeholder');
+    // Read once at Init; the bird cannot grow up while the book is open. Filled in from a retired pet
+    // when there is no live one, so this is what to display, not proof of ownership - see HasLivePet.
     let _m_pet = { strId: '', strName: NAME_PLACEHOLDER, nStage: STAGE_EGG, rtHatch: 0, bookdata: {} };
+    // Which book is open, as the item id its folder is named with. '' when there is no book at all.
+    // Everything that reads a photo goes through this, so a retired book reads like a current one.
     let _m_strBookKey = '';
+    // Whether the open book's pet is still owned. Only a live pet can gain a photo.
     let _m_bHasLivePet = false;
+    // The newest book left behind, for when there is no live pet to open one for. '' when there is
+    // nothing on disk either.
     function _NewestBookOnDisk() {
+        // Cloud keys, sorted oldest first by C++, so the newest book is the last entry. Scans the
+        // clouded file system, so it is slow and Init asks once.
         const aBooks = GameInterfaceAPI.GetPetBookCloudFileKeys();
         if (aBooks.length <= 0) {
             return '';
@@ -22,6 +43,7 @@ var PetBookPages;
         if (!petKey) {
             return '';
         }
+        // Nothing to display otherwise: the retired bird's name and hatch date are what the book prints.
         _m_pet = _ReadPet(petKey);
         return petKey;
     }
@@ -40,43 +62,62 @@ var PetBookPages;
             strId: strId,
             strName: _PetName(strId, nStage),
             nStage: nStage,
+            // 'deployment date' is the hatch date - see C_Chicken::GetGrowthPercent.
             rtHatch: _ItemAttr(strId, 'deployment date'),
-            bookdata: {},
+            bookdata: {}, // bookdata can only be retrieved after the uncloud operation that mounts attached blob
         };
     }
     function _PetName(strId, nStage) {
         if (nStage <= STAGE_EGG)
             return NAME_PLACEHOLDER;
+        // Each stage has a name "locked in" at the stage itself or carryover from previous stage
+        // e.g. chick named "My Baby" grew up into pullet (even if you didn't explicitly name your pullet it has a carryover name "My Baby")
+        // then later it grew up into an adult hen and you renamed it into "My Big Girl"
+        // The expectation is that _PetName will return the following strings:
+        // * nStage=1 => "My Baby"
+        // * nStage=2 => "My Baby"
+        // * nStage=3 => "My Big Girl"
         let nPreviousStage = nStage;
         while (nPreviousStage > 0) {
             const utf8name = InventoryAPI.GetItemAttributeValue(strId, '{bytestring}custom name attr'
                 + ((nPreviousStage >= 2) ? ' ' + nPreviousStage : ''));
             if (utf8name)
-                return utf8name;
-            --nPreviousStage;
+                return utf8name; // explicit name for this stage
+            --nPreviousStage; // try a previous stage
         }
+        // But it's also possible that the player never bothered to name first or both first and second
+        // life stages, so we want the first player-assigned name to retroactively name all the life stages
         let nNextStage = nStage + 1;
         while (nNextStage <= 3) {
             const utf8name = InventoryAPI.GetItemAttributeValue(strId, '{bytestring}custom name attr'
                 + ((nNextStage >= 2) ? ' ' + nNextStage : ''));
             if (utf8name)
-                return utf8name;
-            ++nNextStage;
+                return utf8name; // explicit name for this stage
+            ++nNextStage; // try the next stage
         }
+        // Looks this pet never had a name, so fallback to name for the species
         return InventoryAPI.GetItemNameUncustomized(strId);
     }
+    // The book arrives with the egg, so the hatch is often still in the future.
     function _HatchDateText() {
         const rtHatch = _m_pet.rtHatch;
         if (!rtHatch) {
             return '';
         }
+        // Misnamed, but it is the only date formatter exposed and it takes an RTime32.
         const strDate = InventoryAPI.LocalizeRentalDate(rtHatch);
         if (_m_pet.nStage !== STAGE_EGG) {
             return strDate;
         }
+        // A variable rather than a built string: where the date sits in the sentence is the loc file's
+        // to say. Localize takes the panel so it can read what was just set on it.
         _m_cp.SetDialogVariable('hatch_day', strDate);
         return $.Localize('#pet_book_hatch_due', _m_cp);
     }
+    //----------------------------------------------------------------------------------
+    // The bird, as the book's callers see it
+    //----------------------------------------------------------------------------------
+    // Both wanted by the booth when the book hands over to it - see PetBook.OpenPhotoBooth.
     function PetItemID() {
         return _m_pet.strId;
     }
@@ -85,6 +126,8 @@ var PetBookPages;
         return _m_pet.nStage;
     }
     PetBookPages.PetStage = PetStage;
+    // A retired book is still a book - everything in it can be moved, taken out and put back. The one
+    // thing it cannot do is gain a photo, so the way to the booth is all that goes away.
     function HasLivePet() {
         return _m_bHasLivePet;
     }
@@ -95,10 +138,12 @@ var PetBookPages;
         { name: 'trio', slots: [3, 4, 5] },
         { name: 'quad', slots: [6, 7, 8, 9] },
     ];
+    // Built from the shapes rather than listed again, so a shape cannot name a hole the page has not got.
     const FREE_HOLES = {};
     FREE_LAYOUTS.forEach(shape => shape.slots.forEach(nSlot => {
         FREE_HOLES[nSlot] = { hint: '#pet_book_hint_free' };
     }));
+    // To add a layout: write the snippet, add a row here, put its name in a chapter below.
     const LAYOUTS = {
         'intro': { id: 1, snippet: 'page-intro', holes: {
                 0: { alsoRequires: 'zoom:closeup', hint: '#pet_book_hint_chick_intro' },
@@ -115,15 +160,21 @@ var PetBookPages;
         'teen-warehouse': { id: 5, snippet: 'page-teen-warehouse', holes: {
                 0: { alsoRequires: 'stage:warehouse', hint: '#pet_book_hint_adolescent_intro' },
             } },
+        // A term that lists values needs its words in a token of the hint's own, e.g.
+        // pet_book_hint_adolescent_road_trip_1_stage; otherwise the values are just joined with 'or'.
         'teen-trip-1': { id: 6, snippet: 'page-teen-trip-set-1', holes: {
-                0: { alsoRequires: 'stage:dust2|airport|inferno|train', hint: '#pet_book_hint_adolescent_road_trip' },
+                0: { alsoRequires: 'stage:dust2|airport|inferno|train', hint: '#pet_book_hint_adolescent_road_trip_1' },
             } },
         'teen-trip-2': { id: 7, snippet: 'page-teen-trip-set-2', holes: {
-                0: { alsoRequires: 'stage:mirage|nuke|cache|ancient', hint: '#pet_book_hint_adolescent_road_trip' },
+                0: { alsoRequires: 'stage:mirage|nuke|cache|ancient', hint: '#pet_book_hint_adolescent_road_trip_2' },
             } },
+        // The hats are listed out because a hole matches one value at a time; the hint gives the set
+        // its own word.
         'birthday': { id: 8, snippet: 'page-birthday', holes: {
                 0: { alsoRequires: 'activity:jump,headwear:party', hint: '#pet_book_hint_birthday' },
             } },
+        // 7 was the free quad page, 9 the grown-up portrait and 12 the contact sheet; 7 has since been
+        // taken again, 9 and 12 are free.
         'adult-perch': { id: 10, snippet: 'page-adult-perch', holes: {
                 0: { alsoRequires: 'pose:1|3|6|7,filter:sepia', hint: '#pet_book_hint_adult_perch' },
             } },
@@ -133,6 +184,7 @@ var PetBookPages;
         'adult-close': { id: 13, snippet: 'page-adult-close', holes: {
                 0: { alsoRequires: 'pose:4|5', hint: '#pet_book_hint_adult_close' },
             } },
+        // Premade: nothing to place, shown once earned.
         'brave-fire': { id: 15, snippet: 'page-brave-fire', achievement: 'killed-by-burn', holes: {} },
         'brave-taser': { id: 16, snippet: 'page-brave-taser', achievement: 'killed-by-taser', holes: {} },
         'brave-c4': { id: 17, snippet: 'page-brave-c4', achievement: 'killed-by-planted-c4', holes: {} },
@@ -147,27 +199,35 @@ var PetBookPages;
             name: 'pullet', icon: 'pet_pullet.svg', stage: STAGE_ADOLESCENT,
             pages: ['teen-warehouse', 'teen-trip-1', 'teen-trip-2', 'birthday', 'free', 'free'],
         },
+        // Earned as a pullet or a hen, so never behind the bird. The chip only appears once a page has.
         {
             name: 'brave', icon: 'pet_field_report.svg', stage: STAGE_ADULT,
             pages: ['brave-fire', 'brave-taser', 'brave-c4'],
         },
+        // The free pages come before adult-close rather than after it, because that page is the one the
+        // book closes on.
         {
             name: 'hen', icon: 'pet_hen.svg', stage: STAGE_ADULT,
             pages: ['adult-perch', 'adult-tricks', 'adult-close', 'free', 'free'],
         },
     ];
+    // The whole book, in reading order. Page N is PAGES[ N - 1 ].
     const PAGES = [];
     SECTIONS.forEach(section => section.pages.forEach(strName => {
+        // Annotated, not inferred: the wider type is what carries the slot index signature.
         const layout = LAYOUTS[strName];
         PAGES.push({ num: PAGES.length + 1, section: section, layout: layout });
     }));
     function _PageAt(nPageNum) {
         return PAGES[nPageNum - 1];
     }
+    // What a hole takes: its chapter's growth, and whatever else it asks for.
     function _RequireOf(page, hole) {
         const strGrowth = PetPhotoTag.GrowthTerm(page.section.stage);
         return hole.alsoRequires === undefined ? strGrowth : strGrowth + ',' + hole.alsoRequires;
     }
+    // undefined for a hole the layout has not got. Callers refuse that rather than fall back to '',
+    // which every photo matches.
     function _RequireAt(nPageNum, nSlot) {
         const page = _PageAt(nPageNum);
         if (page === undefined) {
@@ -176,15 +236,27 @@ var PetBookPages;
         const hole = page.layout.holes[nSlot];
         return hole === undefined ? undefined : _RequireOf(page, hole);
     }
+    //----------------------------------------------------------------------------------
+    // Which pages the book shows
+    //----------------------------------------------------------------------------------
+    // In reading order. Page numbers, not positions: the photos carry them, so leaving a page out
+    // never renumbers another page's holes.
     let _m_aShown = [];
     function _IsBehindTheBird(page) {
         return _m_pet.nStage > page.section.stage;
     }
+    // A page with a photo on it stays, whatever it asked for.
     function _IsUnlocked(page) {
         const strAchievement = page.layout.achievement;
         if (strAchievement === undefined || _HasPhotos(page)) {
             return true;
         }
+        //DEVONLY{
+        const bDebugUnlockAll = false;
+        if (bDebugUnlockAll) {
+            return true;
+        }
+        //}DEVONLY
         return _m_pet.strId !== '' && InventoryAPI.PetHasAchievement(_m_pet.strId, strAchievement);
     }
     function _CanFill(page, aPhotos) {
@@ -193,6 +265,7 @@ var PetBookPages;
             return aPhotos.some(strFileName => PetPhotoTag.Matches(strFileName, strRequire));
         });
     }
+    // The roll and the pages both: a photo already in the book can still be moved onto another page.
     function _AllPhotos() {
         if (_m_strBookKey === '') {
             return [];
@@ -200,16 +273,22 @@ var PetBookPages;
         return GameInterfaceAPI.FindFiles(PetPhotoTag.LibraryFolder(_m_strBookKey) + '/*' + PetPhotoTag.EXT, 'USRLOCAL')
             .concat(GameInterfaceAPI.FindFiles(PetPhotoTag.BookFolder(_m_strBookKey) + '/*' + PetPhotoTag.EXT, 'USRLOCAL'));
     }
+    // Run once, at Init. A page that went has to stay gone for this sitting, or taking a photo off
+    // one would slide the rest of the book sideways under the player.
     function _BuildShown() {
         const aPhotos = _AllPhotos();
         _m_aShown = PAGES
             .filter(page => _IsUnlocked(page) && (!_IsBehindTheBird(page) || _HasPhotos(page) || _CanFill(page, aPhotos)))
             .map(page => page.num);
+        $.Msg('pet book: showing ' + _m_aShown.length + ' of ' + PAGES.length +
+            ' pages at stage ' + _m_pet.nStage + '.\n');
     }
+    // The turn code asks rather than keeping its own count, so there is one book, not two.
     function ShownPages() {
         return _m_aShown;
     }
     PetBookPages.ShownPages = ShownPages;
+    // A chapter with no pages left is left out, so the nav bar cannot offer a chip that jumps nowhere.
     function Chapters() {
         const aChapters = [];
         SECTIONS.forEach(section => {
@@ -221,10 +300,15 @@ var PetBookPages;
         return aChapters;
     }
     PetBookPages.Chapters = Chapters;
+    // 0 for a page that is not in the book, and no photo carries it - the ids in LAYOUTS start at one.
     function _LayoutIdForPage(nPageNum) {
         const page = _PageAt(nPageNum);
         return page === undefined ? 0 : page.layout.id;
     }
+    //----------------------------------------------------------------------------------
+    // Pages
+    //----------------------------------------------------------------------------------
+    // What is on the pages, by page number then by data-slot. Sparse: only filled holes appear.
     const _m_photos = {};
     function _PhotosOn(nPageNum) {
         if (!_m_photos[nPageNum]) {
@@ -232,6 +316,7 @@ var PetBookPages;
         }
         return _m_photos[nPageNum];
     }
+    // '' for an empty hole and for a page that has never been built, which read the same to every caller.
     function _PhotoAt(nPage, nSlot) {
         const photos = _m_photos[nPage];
         return photos ? photos[nSlot] || '' : '';
@@ -240,12 +325,18 @@ var PetBookPages;
         const photos = _m_photos[page.num];
         return photos !== undefined && Object.keys(photos).length > 0;
     }
+    // A hole's coordinates, off the panel FillPage wrote them onto. -1 for a panel that is not a hole.
     function _SlotPlace(elSlot) {
         return {
             page: elSlot.GetAttributeInt('data-page', -1),
             slot: elSlot.GetAttributeInt('data-slot', -1),
         };
     }
+    //----------------------------------------------------------------------------------
+    // The book folder
+    //----------------------------------------------------------------------------------
+    // There is no save step. The book folder is the state: the folder says which pet, and one file per
+    // photo on a page says which page and hole. The spread is rebuilt from the folder, not from here.
     function _Load() {
         if (_m_strBookKey === '') {
             return;
@@ -253,9 +344,12 @@ var PetBookPages;
         GameInterfaceAPI.FindFiles(PetPhotoTag.BookFolder(_m_strBookKey) + '/*' + PetPhotoTag.EXT, 'USRLOCAL').forEach(strFileName => {
             const place = PetPhotoTag.PlaceOf(strFileName);
             if (!place || place.slot === PetPhotoTag.SLOT_UNPLACED) {
+                $.Msg('pet book: ' + strFileName + ' is in the book but not on a page.\n');
                 return;
             }
+            // A different layout sits at that page now, so a page was inserted or re-authored. Left off.
             if (place.layout !== _LayoutIdForPage(place.page)) {
+                $.Msg('pet book: ' + strFileName + ' was placed on another layout, leaving it off.\n');
                 return;
             }
             const slots = _PhotosOn(place.page);
@@ -264,25 +358,38 @@ var PetBookPages;
                 slots[place.slot] = strFileName;
                 return;
             }
+            // Two files can name one hole if a move only half finished. _Reconcile has already sent one of
+            // them home, so this is only reached if that failed. Newest wins - capture times are fixed
+            // width, so comparing them as strings orders them.
             const bNewer = PetPhotoTag.CaptureMS(strFileName) > PetPhotoTag.CaptureMS(strSitting);
+            $.Msg('pet book: two photos on page ' + place.page + ' hole ' + place.slot + '\n');
             slots[place.slot] = bNewer ? strFileName : strSitting;
         });
     }
+    // Read the folder again rather than keep a second copy in step. bRoll for anything that also put a
+    // photo back in the camera roll; a move inside the book leaves the roll alone.
     function _Reload(bRoll) {
         Object.keys(_m_photos).forEach(strPageNum => { delete _m_photos[Number(strPageNum)]; });
         _Load();
         if (bRoll) {
             PetPhotoLibrary.LoadFromDisk(_m_strBookKey);
         }
+        // Deferred - this runs from the handler of the very panel the refresh is about to delete.
         $.Schedule(0, _m_fnRefreshSpread);
     }
+    // An empty camera roll means one of two things now that a photo is in one place or the other, and
+    // only the book can tell them apart.
     function _EmptyLibraryText() {
         return PAGES.some(_HasPhotos) ? '#pet_photo_library_empty_in_book' : '#pet_photo_library_empty';
     }
     function _BookName(strFileName, nPage, nSlot) {
         return PetPhotoTag.BookName(strFileName, { page: nPage, layout: _LayoutIdForPage(nPage), slot: nSlot });
     }
+    // All three hand back the photo's new name, or '' if it did not move. A photo is in the camera roll
+    // or on a page and never both, so every one of these is one rename and a failure always means it
+    // stayed exactly where it was.
     function _MoveIntoBook(strFileName, nPage, nSlot) {
+        // GameInterfaceAPI.SetPetPhotoBookData writes bookdata back, and only for a live pet.
         const strNew = _BookName(strFileName, nPage, nSlot);
         return GameInterfaceAPI.MovePetPhotoToBook(_m_strBookKey, strFileName, strNew) ? strNew : '';
     }
@@ -294,32 +401,46 @@ var PetBookPages;
         const strNew = PetPhotoTag.RollName(strFileName);
         return GameInterfaceAPI.MoveBookPhotoToPet(_m_strBookKey, strFileName, strNew) ? strNew : '';
     }
+    // Makes the disk match the one rule the two folders have: a photo is in the camera roll or on a page,
+    // never both and never neither. Run once as the book opens, which is where a book unpacked from
+    // the cloud gets settled. Scoped to this pet's folders, like _Load.
     function _Reconcile() {
         if (_m_strBookKey === '') {
             return;
         }
         const aBook = GameInterfaceAPI.FindFiles(PetPhotoTag.BookFolder(_m_strBookKey) + '/*' + PetPhotoTag.EXT, 'USRLOCAL');
+        // The book is the record - it is the half that is backed up - so where both folders hold one photo
+        // the camera roll copy is the one that goes. First, because a photo cannot go home to a name that
+        // is already taken.
         const inBook = {};
         aBook.forEach(strFileName => { inBook[PetPhotoTag.CaptureMS(strFileName)] = true; });
         GameInterfaceAPI.FindFiles(PetPhotoTag.LibraryFolder(_m_strBookKey) + '/*' + PetPhotoTag.EXT, 'USRLOCAL').forEach(strFileName => {
             if (inBook[PetPhotoTag.CaptureMS(strFileName)]) {
+                $.Msg('pet book: ' + strFileName + ' is on a page too, dropping the camera roll copy.\n');
                 GameInterfaceAPI.DeletePetPhoto(_m_strBookKey, strFileName);
             }
         });
+        // Then the book's own. Newest first, so which of two files keeps a hole is the same answer every
+        // time rather than whatever order the folder came back in.
         const byHole = {};
         const byPhoto = {};
         const aHome = [];
         aBook.sort().reverse().forEach(strFileName => {
             const place = PetPhotoTag.PlaceOf(strFileName);
             const strMS = PetPhotoTag.CaptureMS(strFileName);
+            // A swap that only half finished parks a photo in the book with no page of its own.
             if (!place || place.slot === PetPhotoTag.SLOT_UNPLACED) {
                 aHome.push(strFileName);
                 return;
             }
+            // Not the layout that is at its page any more, so a page was inserted or re-authored. _Load
+            // leaves it off the page; this is what keeps it from then sitting in the folder unreachable.
             if (place.layout !== _LayoutIdForPage(place.page)) {
                 aHome.push(strFileName);
                 return;
             }
+            // A hole already taken, or this photo already sitting somewhere else in the book. A cloud unpack
+            // makes both, because it only skips a file whose name it matches exactly.
             const strKey = place.page + '_' + place.slot;
             if (byHole[strKey] || byPhoto[strMS]) {
                 aHome.push(strFileName);
@@ -328,37 +449,58 @@ var PetBookPages;
             byHole[strKey] = true;
             byPhoto[strMS] = true;
         });
+        // Sent home rather than deleted, so a photo the book cannot show is one the player still has.
         aHome.forEach(strFileName => {
+            $.Msg('pet book: ' + strFileName + ' cannot sit where its name says, sending it home.\n');
             _MoveToLibrary(strFileName);
         });
     }
     let _m_strDragFile = '';
+    // Which hole the photo in the air came off, or null if it came out of the library. This is the
+    // whole difference between placing a photo and moving one.
     let _m_dragFrom = null;
+    // Set by any hole that is dropped on, INCLUDING one that refuses the photo. Read at DragEnd to tell
+    // "let go over a hole" apart from "let go over nothing".
     let _m_bDropHandled = false;
+    // Kept so the drag image can be told it is about to remove rather than place.
     let _m_elDragImage = null;
     let _m_justDropped = null;
     let _m_fnRefreshSpread = () => { };
     function Init(fnRefreshSpread) {
         _m_fnRefreshSpread = fnRefreshSpread;
+        // A book asked for by name, as the cloud key its file carries. The player card sends one to reach
+        // a book whose bird is gone - see ContextmenuPlayerCard. Unpacking it is what says which pet it
+        // belonged to, and a book already unpacked this session costs nothing the second time.
         const strAskedFor = _m_cp.GetAttributeString('bookkey', '');
         const strAskedPet = strAskedFor === '' ? '' : GameInterfaceAPI.UnpackPetBookCloudFile(strAskedFor);
         _m_pet = _ReadPet();
+        // Caught before the branch below can overwrite _m_pet with a retired pet. A book asked for that is
+        // not the living pet's own reads as retired even while a bird is alive: the book open is not hers.
         _m_bHasLivePet = _m_pet.strId !== '' && (strAskedPet === '' || strAskedPet === _m_pet.strId);
         if (_m_bHasLivePet) {
             GameInterfaceAPI.UnpackPetBookCloudFile(_m_pet.strId);
+            // After the uncloud, so a later uncloud cannot clobber a name just changed.
             GameInterfaceAPI.PreparePetPhoto(_m_pet.strId, '');
             _m_strBookKey = _m_pet.strId;
         }
         else if (strAskedPet !== '') {
+            // The bird the asked-for book belonged to: its name and hatch date are what that book prints.
             _m_pet = _ReadPet(strAskedPet);
             _m_strBookKey = strAskedPet;
         }
         else {
             _m_strBookKey = _NewestBookOnDisk();
         }
+        // Attached on top of the cloud book, so only readable once it is unpacked.
         if (_m_strBookKey)
             _m_pet.bookdata = GameInterfaceAPI.GetPetPhotoBookData(_m_strBookKey);
+        $.Msg('pet book: opened ' + _m_strBookKey + ' for pet ' + _m_pet.strId + ' "' + _m_pet.strName +
+            '", stage ' + _m_pet.nStage + ', hatch ' + _m_pet.rtHatch + ', cover ' + _m_pet.bookdata.cover_design + '.\n');
+        // On the popup, not on each page: dialog variables resolve up the panel tree, so every page picks
+        // these up - including the cover, which the turn code builds without going through FillPage.
         _m_cp.SetDialogVariable('pet_name', _m_pet.strName);
+        // Bind names for all 3 stages of life - that way pages can refer to "My Little Baby" when it hatched and was called baby
+        // and later pages can have "My Ugly Pullet" if that's the name you gave to your teen chicken after it evolved
         for (let iLifeStage = 1; iLifeStage <= 3; ++iLifeStage) {
             _m_cp.SetDialogVariable('pet_name_' + iLifeStage, _PetName(_m_pet.strId, iLifeStage));
         }
@@ -373,9 +515,12 @@ var PetBookPages;
             fnOnDragStart: _OnLibraryDragStart,
             fnOnDragEnd: _EndDrag,
         });
+        // The open book's roll, not the living pet's: a photo taken off a retired page has to land
+        // somewhere it can still be seen and put back.
         PetPhotoLibrary.LoadFromDisk(_m_strBookKey);
         _m_cp.FindChildInLayoutFile('id-pb-booth-btn').visible = HasLivePet();
         _Load();
+        // After _Load, because a page with a photo on it is kept whatever its chapter.
         _BuildShown();
     }
     PetBookPages.Init = Init;
@@ -383,6 +528,9 @@ var PetBookPages;
         const aImages = elParent.FindChildrenWithClassTraverse(strClass);
         return aImages.length > 0 ? aImages[0] : null;
     }
+    // A hint names its terms as dialog variables, and each one gets the words for that term wrapped in a
+    // span. The words are the value's own unless the hint has a token for that term, e.g.
+    // pet_book_hint_chick_feet_zoom. '' for strAgainst leaves every term reading as met.
     function _SetSlotHint(elSlot, strAgainst) {
         const place = _SlotPlace(elSlot);
         const page = _PageAt(place.page);
@@ -404,45 +552,73 @@ var PetBookPages;
                 (aUnmet.indexOf(term.name) >= 0 ? ' pb-hint-unmet' : '');
             elLabel.SetDialogVariable(term.name, '<span class="' + strClass + '">' + strWord + '</span>');
         });
+        // The token, not the localized string: the label keeps the localization string itself and
+        // re-resolves it whenever one of these variables is set.
         elLabel.text = hole.hint;
     }
+    //----------------------------------------------------------------------------------
+    // Free pages - the ones the player shapes
+    //----------------------------------------------------------------------------------
+    // What has been picked for a page with no photo on it to say so, and only for this sitting: the
+    // book folder is the state, and an empty page has nowhere to write a choice into. Without this a
+    // pick would appear to do nothing, because picking clears the page and an empty page falls back to
+    // the first shape.
     const _m_freeChoice = {};
     function _FreeLayoutNamed(strName) {
         return FREE_LAYOUTS.find(layout => layout.name === strName);
     }
+    // Which shape a free page is wearing. A hole with a photo in it settles it, because a photo's hole
+    // belongs to exactly one shape.
     function _FreeLayoutOf(nPageNum) {
         const slots = _PhotosOn(nPageNum);
         const worn = FREE_LAYOUTS.find(layout => layout.slots.some(nSlot => slots[nSlot] !== undefined));
         return worn || _FreeLayoutNamed(_m_freeChoice[nPageNum]) || FREE_LAYOUTS[0];
     }
+    // Picking a shape clears the page. A photo's hole belongs to the shape it was placed under, so
+    // there is no hole on the new one for it to be in; they go back to the camera roll, not away.
     function _ChooseLayout(elPage, nPageNum, strName) {
+        // It arrives from a button this file made, but the table is what says what a shape is.
         if (!_FreeLayoutNamed(strName)) {
             return;
         }
         _m_freeChoice[nPageNum] = strName;
         const slots = _PhotosOn(nPageNum);
         const aOn = Object.keys(slots).map(Number);
+        // Nothing to move, so nothing to rebuild: every shape's holes are already in the page and only
+        // which of them is up has changed. Taking the spread down for this would hand back a fresh set
+        // of buttons a frame later, which is what made the ones the cursor was not on flash.
         if (aOn.length === 0) {
             _ShowFreeLayout(elPage, nPageNum);
             return;
         }
+        // A move that fails leaves its photo in its hole, so the page still wears the shape it had and
+        // shows what is still on it. Nothing ends up somewhere the book cannot reach.
         aOn.forEach(nSlot => { _MoveToLibrary(slots[nSlot]); });
         _Reload(true);
     }
+    // Unique across the book, so it stays one page's button even if the ids are looked up from above.
     function _FreeBtnId(nPageNum, strName) {
         return 'id-pb-free-' + nPageNum + '-' + strName;
     }
+    // Which shape is up. Everything a pick changes is in here, and none of it deletes a panel, so it
+    // can run from the handler of a button that is inside the page it is rearranging.
     function _ShowFreeLayout(elPage, nPageNum) {
         const worn = _FreeLayoutOf(nPageNum);
+        // Collapsed rather than faded: a hole at zero opacity would still take a photo.
         elPage.FindChildrenWithClassTraverse('pb-free-group').forEach(elGroup => {
             elGroup.visible = elGroup.GetAttributeString('data-free', '') === worn.name;
         });
+        // Only ever set on, like every other radio in these screens - the group turns the rest off.
+        // Setting one off by hand asks the group what is on while nothing is.
         const elBtn = _m_cp.FindChildTraverse(_FreeBtnId(nPageNum, worn.name));
         if (elBtn) {
             elBtn.checked = true;
         }
     }
+    // Builds the strip. Called once per fill, because the page's panels are rebuilt rather than reused.
     function _DressFreePage(elPage, nPageNum) {
+        // By class, not by id: the snippet is loaded into both pages of a spread, so the same id would
+        // be in the tree twice. FindChildrenWithClass is scoped to the page it is asked of.
         const elStrip = elPage.FindChildrenWithClassTraverse('pb-free-strip')[0];
         if (!elStrip) {
             return;
@@ -450,8 +626,10 @@ var PetBookPages;
         FREE_LAYOUTS.forEach(layout => {
             const elBtn = $.CreatePanel('RadioButton', elStrip, _FreeBtnId(nPageNum, layout.name), {
                 class: 'pb-free-btn',
+                // Grouped per page, because both pages of a spread can be free ones.
                 group: 'pb-free-' + nPageNum
             });
+            // Found by the shape's own name, so a new shape needs an icon and nothing here.
             $.CreatePanel('Image', elBtn, '', {
                 src: 'file://{images}/icons/ui/page_layout_' + layout.name + '.svg',
                 textureheight: '20',
@@ -462,18 +640,26 @@ var PetBookPages;
         });
         _ShowFreeLayout(elPage, nPageNum);
     }
+    // The turn code rebuilds a page every time it comes on screen, so everything is read back out of
+    // the model here rather than assumed to have survived the last turn.
     function FillPage(elPage, nPageNum) {
         const page = _PageAt(nPageNum);
         if (page === undefined) {
+            $.Msg('pet book: there is no page ' + nPageNum + '.\n');
             return;
         }
         const photos = _PhotosOn(nPageNum);
         elPage.BLoadLayoutSnippet(page.layout.snippet);
+        // The rest are on the popup, see Init.
         elPage.SetDialogVariableInt('num', nPageNum);
+        // Before the holes are walked, so what it puts away is already away by the time they are read.
         if (page.layout === LAYOUTS.free) {
             _DressFreePage(elPage, nPageNum);
         }
+        // Which holes this page actually has, to catch a photo whose hole has since gone.
         const aClaimed = [];
+        // Do NOT identify a hole by its position here. FindChildrenWithClassTraverse walks a global
+        // registry in creation order, not child order - see CUIPanel::GetDescendentPanelsForSymbol.
         elPage.FindChildrenWithClassTraverse('pb-slot').forEach(elSlot => {
             const nSlot = elSlot.GetAttributeInt('data-slot', -1);
             if (nSlot < 0) {
@@ -481,16 +667,22 @@ var PetBookPages;
             }
             _BuildHole(elSlot);
             aClaimed.push(nSlot);
+            // It will take nothing at all - see _RequireAt.
             if (page.layout.holes[nSlot] === undefined) {
+                $.Msg('pet book: ' + page.layout.snippet + ' has a hole ' + nSlot + ' its layout does not list.\n');
             }
+            // Both coordinates live on the panel, so a slot cannot end up acting for a page it left.
             elSlot.SetAttributeInt('data-page', nPageNum);
             const strPhoto = photos[nSlot];
             elSlot.SetHasClass('pb-slot--filled', !!strPhoto);
+            // Its plain words. Written here so the same call can put them back after a drag picked a term out.
             _SetSlotHint(elSlot, '');
             if (strPhoto) {
                 _SetSlotPhoto(elSlot, strPhoto);
             }
+            // A hole with a photo can be picked up - one gesture for both moving a photo and removing it.
             elSlot.SetDraggable(!!strPhoto);
+            // Safe per fill, unlike the library rows: these panels are destroyed and rebuilt, not recycled.
             if (strPhoto) {
                 $.RegisterEventHandler('DragStart', elSlot, (el, drag) => {
                     _m_dragFrom = _SlotPlace(elSlot);
@@ -499,9 +691,12 @@ var PetBookPages;
                 $.RegisterEventHandler('DragEnd', elSlot, _EndDrag);
             }
             $.RegisterEventHandler('DragEnter', elSlot, () => {
+                // DragEnter is handed no payload, hence _m_strDragFile. Answered while the button is down.
                 const bTakes = _CanDrop(elSlot);
                 elSlot.SetHasClass('pb-slot--drag-over', bTakes);
                 elSlot.SetHasClass('pb-slot--drag-reject', !bTakes);
+                // This hole's own terms, not _CanDrop's answer: a swap is also refused when the photo here
+                // would not fit the hole it goes back to, which is nothing to do with what this hole asks.
                 _SetSlotHint(elSlot, bTakes ? '' : _m_strDragFile);
                 _ShowDragWillRemove(false);
             });
@@ -513,29 +708,46 @@ var PetBookPages;
                 _ClearDragOver(elSlot);
                 _DropPhoto(elSlot);
             });
+            // The page it was dropped on is gone by now, replaced by the refresh, so the drop is animated
+            // on the panel that took its place.
             if (_m_justDropped && _m_justDropped.page === nPageNum && _m_justDropped.slot === nSlot) {
                 _m_justDropped = null;
                 elSlot.TriggerClass('pb-slot--dropped');
             }
         });
+        // A photo whose hole this page no longer has: the layout was re-authored without a new id, see
+        // Layout_t. Dropped, or the page would dress itself over empty holes and the file be unreachable.
         Object.keys(photos).forEach(strSlot => {
             const nSlot = Number(strSlot);
             if (aClaimed.indexOf(nSlot) >= 0) {
                 return;
             }
+            $.Msg('pet book: ' + photos[nSlot] + ' is in hole ' + nSlot + ', which page ' +
+                nPageNum + ' does not have. Leaving it off.\n');
             delete photos[nSlot];
         });
+        // Everything that is not a hole stays faint until the page has a photo on it. No holes, nothing to wait for.
         elPage.SetHasClass('pb-dressed', Object.keys(photos).length > 0 || Object.keys(page.layout.holes).length === 0);
         _FillParagraph(elPage, nPageNum);
+        // Matters on the drop: the refresh is scheduled from inside the drag handler, so it can run
+        // before DragEnd has cleared the photo in flight.
         _ApplyDragState();
     }
     PetBookPages.FillPage = FillPage;
+    // The inside of a hole. The same for every hole, so the layout only says where one is and what
+    // shape it wears - see popup_pet_book.xml. Built per fill: a page's panels are fresh each time it
+    // comes on screen, so there is never one to add to.
     function _BuildHole(elSlot) {
         const elClip = $.CreatePanel('Panel', elSlot, '', { class: 'pb-slot__clip' });
         $.CreatePanel('Image', elClip, '', { class: 'pb-slot__image', scaling: 'cover' });
         $.CreatePanel('Label', elSlot, '', { class: 'pb-slot__hint', html: 'true' });
     }
+    // Every label on the page that names variants shows the one its photo picks, so a page reads the
+    // same every open with nothing written down. A label that names none keeps the string it has.
+    // A page can carry several sets; they all pick off the same photo, so they agree.
     function _FillParagraph(elPage, nPageNum) {
+        // The capture time is arbitrary down to the millisecond and is the one part of a name that
+        // never changes, so it is what picks. Nothing placed yet reads as the first one.
         const strFileName = _PhotosOn(nPageNum)[0];
         const nCaptureMS = strFileName ? Number(PetPhotoTag.CaptureMS(strFileName)) : 0;
         elPage.FindChildrenWithClassTraverse('pb-page__paragraph').forEach(elLabel => {
@@ -544,6 +756,7 @@ var PetBookPages;
             if (strToken === '' || nCount <= 0) {
                 return;
             }
+            // The label, so a line holding {s:pet_name} resolves against the tree it sits in.
             elLabel.text = $.Localize(strToken + '_' + (nCaptureMS % nCount), elLabel);
         });
     }
@@ -556,6 +769,7 @@ var PetBookPages;
         _ApplyFrame(elSlot, elImage, strFileName, PetPhotoTag.FrameOf(strFileName));
         _MakeFrameButton(elSlot);
     }
+    // Only filled holes get one, and a hole is rebuilt whenever its page comes round, so this is per fill.
     function _MakeFrameButton(elSlot) {
         if (elSlot.FindChildrenWithClassTraverse('pb-slot__frame-btn').length > 0) {
             return;
@@ -569,6 +783,8 @@ var PetBookPages;
         });
         elBtn.SetPanelEvent('onactivate', () => { OpenFrame(elSlot); });
     }
+    // A hole's shape is fixed by css per layout, so it only needs measuring once. A turn rebuilds panels
+    // up to five times and a fresh one measures zero, so without this a framed photo snaps to its default.
     const _m_holeAspect = {};
     function _HoleAspect(elSlot) {
         const place = _SlotPlace(elSlot);
@@ -576,6 +792,7 @@ var PetBookPages;
         if (_m_holeAspect[strKey] > 0) {
             return _m_holeAspect[strKey];
         }
+        // Divided out because the reported size is scaled and the shape is not.
         const flW = elSlot.actuallayoutwidth / (elSlot.actualuiscale_x || 1);
         const flH = elSlot.actuallayoutheight / (elSlot.actualuiscale_y || 1);
         if (flW <= 0 || flH <= 0) {
@@ -584,6 +801,8 @@ var PetBookPages;
         _m_holeAspect[strKey] = flW / flH;
         return _m_holeAspect[strKey];
     }
+    // How big the photo has to be, as percentages of its hole. Covering pins the short axis at 100 and the
+    // other overhangs; zoom pushes both past that. Whatever is over 100 is what there is to pan.
     function _FrameSize(flHole, strFileName, frame) {
         const flPhoto = PetPhotoTag.Aspect(strFileName);
         const flZoom = frame.zoom / 100;
@@ -592,7 +811,10 @@ var PetBookPages;
             h: (flPhoto >= flHole ? 100 : 100 * flHole / flPhoto) * flZoom,
         };
     }
+    // Which part of a photo its hole shows. Sizes and offsets the image panel; pb-slot__clip hides the
+    // rest. Not css because an empty hole has an image panel too, and sizing that draws a box in the hole.
     function _ApplyFrame(elSlot, elImage, strFileName, frame) {
+        // Covering exactly is what scaling="cover" already does, so the untouched case measures nothing.
         if (PetPhotoTag.IsDefaultFrame(frame)) {
             elImage.style.width = '100%;';
             elImage.style.height = '100%;';
@@ -602,6 +824,7 @@ var PetBookPages;
         }
         const flHole = _HoleAspect(elSlot);
         if (flHole <= 0) {
+            // Held back rather than shown unframed for a frame and then snapping into place.
             elImage.style.opacity = '0;';
             _DeferFrame(elSlot);
             return;
@@ -609,12 +832,17 @@ var PetBookPages;
         const { w: flW, h: flH } = _FrameSize(flHole, strFileName, frame);
         elImage.style.width = flW.toFixed(2) + '%;';
         elImage.style.height = flH.toFixed(2) + '%;';
+        // The image is centred, so half the overhang is hidden on each side and sliding it by half moves
+        // an edge into view. A percentage translate is a share of the parent, so these are hole percents
+        // like the sizes above - taking them as image percents falls short of the edge by the zoom.
         const flX = (flW - 100) * (0.5 - frame.x / 100);
         const flY = (flH - 100) * (0.5 - frame.y / 100);
         elImage.style.transform = 'translateX( ' + flX.toFixed(2) + '% ) translateY( ' + flY.toFixed(2) + '% );';
         elImage.style.opacity = '1;';
     }
     const FRAME_MEASURE_TRIES = 8;
+    // Only the first sighting of a hole shape gets here - after that _HoleAspect knows it. Reads the photo
+    // back off the page rather than capturing it, so a deferred pass cannot frame one that has moved.
     function _DeferFrame(elSlot) {
         const nTried = elSlot.GetAttributeInt('data-frame-tries', 0);
         if (nTried >= FRAME_MEASURE_TRIES) {
@@ -632,8 +860,14 @@ var PetBookPages;
             }
         });
     }
+    //----------------------------------------------------------------------------------
+    // Framing
+    //----------------------------------------------------------------------------------
+    // Which hole is being framed, by its coordinates rather than its panel: a page rebuild replaces the
+    // panels and the session should survive that. The frame is carried here because the write is delayed.
     let _m_framing = null;
     let _m_frameJob = undefined;
+    // Long enough that dragging a slider does not rename per tick, short enough that clicking away keeps it.
     const FRAME_COMMIT_SEC = 0.4;
     function _FrameBar() { return _m_cp.FindChildInLayoutFile('id-pb-frame-bar'); }
     function _FrameSlider(strWhich) { return _m_cp.FindChildInLayoutFile('id-pb-frame-' + strWhich); }
@@ -646,6 +880,7 @@ var PetBookPages;
         CloseFrame();
         _m_framing = { page: place.page, slot: place.slot, frame: PetPhotoTag.FrameOf(strPhoto) };
         elSlot.SetHasClass('pb-slot--framing', true);
+        // A drag would take the photo out from under the sliders adjusting it.
         elSlot.SetDraggable(false);
         _SetSliders(_m_framing.frame);
         _FrameBar().SetHasClass('pb-frame-bar--open', true);
@@ -653,13 +888,17 @@ var PetBookPages;
         _EnablePanSliders();
     }
     PetBookPages.OpenFrame = OpenFrame;
+    // Kept in step with .pb-frame-bar, which has to be placed before it can be measured.
     const FRAME_BAR_W = 260;
     const FRAME_BAR_H = 156;
     const FRAME_BAR_GAP = 10;
+    // Beside the photo and never over it: framing something you cannot see is the one thing this must not
+    // do. Right of the hole if there is room, otherwise left, pulled back inside the popup either way.
     function _PlaceFrameBar(elSlot) {
         const elBar = _FrameBar();
         const flScaleX = _m_cp.actualuiscale_x || 1;
         const flScaleY = _m_cp.actualuiscale_y || 1;
+        // Reported in screen units, where everything written back is in layout units.
         const pos = elSlot.GetPositionWithinAncestor(_m_cp);
         const flSlotX = pos.x / flScaleX;
         const flSlotY = pos.y / flScaleY;
@@ -684,6 +923,8 @@ var PetBookPages;
             if (!elSlider) {
                 return;
             }
+            // Detached while the value is written: the handler from the last open is still on it, and
+            // writing a value reports a change, which would rename for a frame nobody asked for.
             elSlider.ClearPanelEvent('onvaluechanged');
             elSlider.min = row.min;
             elSlider.max = row.max;
@@ -691,6 +932,8 @@ var PetBookPages;
             elSlider.SetPanelEvent('onvaluechanged', _OnFrameChanged);
         });
     }
+    // An axis can only be panned where the photo overhangs its hole. At zoom 100 only the long axis does,
+    // so the other slider would move and change nothing, which reads as broken.
     function _EnablePanSliders() {
         if (!_m_framing) {
             return;
@@ -704,10 +947,12 @@ var PetBookPages;
         if (flHole <= 0) {
             return;
         }
+        // A hair over 100, so a photo the same shape as its hole offers no travel at all.
         const size = _FrameSize(flHole, strPhoto, _m_framing.frame);
         _EnablePanRow('x', size.w > 100.5);
         _EnablePanRow('y', size.h > 100.5);
     }
+    // The icon sits beside its slider and Panorama has no sibling selector, so the row dims the icon.
     function _EnablePanRow(strWhich, bEnable) {
         const elSlider = _FrameSlider(strWhich);
         elSlider.enabled = bEnable;
@@ -720,6 +965,7 @@ var PetBookPages;
             zoom: _FrameSlider('zoom').value,
         };
     }
+    // Redraws now and writes later: the name on disk is the frame, so committing is a rename.
     function _OnFrameChanged() {
         if (!_m_framing) {
             return;
@@ -746,6 +992,7 @@ var PetBookPages;
             _ApplyFrame(elSlot, elImage, strPhoto, _m_framing.frame);
         }
     }
+    // The photo keeps its pixels and changes its name. Not a _Reload: that rebuilds the page being adjusted.
     function _CommitFrame() {
         _m_frameJob = undefined;
         if (!_m_framing) {
@@ -760,6 +1007,7 @@ var PetBookPages;
             return;
         }
         if (!GameInterfaceAPI.RenameBookPhoto(_m_strBookKey, strPhoto, strNew)) {
+            $.Msg('pet book: could not reframe ' + strPhoto + '.\n');
             return;
         }
         _PhotosOn(_m_framing.page)[_m_framing.slot] = strNew;
@@ -777,6 +1025,7 @@ var PetBookPages;
         _OnFrameChanged();
     }
     PetBookPages.ResetFrame = ResetFrame;
+    // Writes whatever is pending before letting go, so clicking Done never loses the last nudge.
     function CloseFrame() {
         if (_m_frameJob !== undefined) {
             $.CancelScheduled(_m_frameJob);
@@ -803,10 +1052,14 @@ var PetBookPages;
             const place = _SlotPlace(elSlot);
             return place.page === nPage && place.slot === nSlot;
         });
+        // One hole, one panel. More than one means a page built twice, and framing writes where nobody looks.
         if (aFound.length > 1) {
+            $.Msg('pet book: page ' + nPage + ' hole ' + nSlot + ' has ' + aFound.length + ' panels.\n');
         }
         return aFound.length > 0 ? aFound[0] : null;
     }
+    // Both ends of a swap have to be legal: the photo in the air has to fit the hole it is going to,
+    // and whatever is already there has to fit the hole it would be sent back to.
     function _CanDrop(elSlot) {
         const place = _SlotPlace(elSlot);
         if (!_TakesAt(place.page, place.slot, _m_strDragFile)) {
@@ -814,7 +1067,7 @@ var PetBookPages;
         }
         const from = _m_dragFrom;
         if (!from) {
-            return true;
+            return true; // out of the library, so nothing is going the other way
         }
         const strDisplaced = _PhotoAt(place.page, place.slot);
         if (!strDisplaced || (from.page === place.page && from.slot === place.slot)) {
@@ -827,6 +1080,10 @@ var PetBookPages;
         elSlot.SetHasClass('pb-slot--drag-reject', false);
         _SetSlotHint(elSlot, '');
     }
+    //----------------------------------------------------------------------------------
+    // Dragging
+    //----------------------------------------------------------------------------------
+    // Picking a photo up is what shows where it can go, and with no click to place it is the only cue.
     function _ApplyDragState() {
         const bDragging = _m_strDragFile !== '';
         _m_cp.FindChildrenWithClassTraverse('pb-slot').forEach(elSlot => {
@@ -834,13 +1091,17 @@ var PetBookPages;
             _ClearDragOver(elSlot);
         });
     }
+    // Handed to the library as fnOnDragStart. Out of the library means there is no hole to vacate.
     function _OnLibraryDragStart(strFileName, drag) {
         _m_dragFrom = null;
         _BeginDrag(strFileName, drag);
     }
     function _BeginDrag(strFileName, drag) {
+        // Parented to the context panel rather than the panel it came from - a drag image parented to
+        // its own source ends up stuck in odd places, see OnDragStart in loadout_grid.ts.
         const elDragImage = $.CreatePanel('Image', $.GetContextPanel(), '', { class: 'pb-drag-image', scaling: 'stretch-to-fit-y-preserve-aspect' });
         elDragImage.SetImageFromFile(PetPhotoTag.PhotoUrl(_m_strBookKey, strFileName));
+        // The payload is held here because DragEnter is handed neither it nor the drag image.
         _m_strDragFile = strFileName;
         _m_elDragImage = elDragImage;
         _m_bDropHandled = false;
@@ -849,14 +1110,19 @@ var PetBookPages;
         drag.offsetY = 30;
         drag.removePositionBeforeDrop = false;
         _ApplyDragState();
+        // Starts life outside every hole, so a photo off a page reads as leaving from the off.
         _ShowDragWillRemove(true);
+        // Every drag comes through here, off a page or out of the library.
         $.DispatchEvent('CSGOPlaySoundEffect', 'Chicken.Photo.Pickup', 'MOUSE');
     }
+    // Letting go off a hole takes the photo off the page, so say so before release. Never for a library drag.
     function _ShowDragWillRemove(bWillRemove) {
         if (_m_elDragImage && _m_elDragImage.IsValid()) {
             _m_elDragImage.SetHasClass('pb-drag-image--remove', bWillRemove && !!_m_dragFrom);
         }
     }
+    // The drag system makes the drag image a top level panel, so closing the book does not take it with
+    // it. Throws away the photo in flight rather than treating it as let go.
     function CancelDrag() {
         if (_m_elDragImage && _m_elDragImage.IsValid()) {
             _m_elDragImage.DeleteAsync(0.1);
@@ -866,14 +1132,19 @@ var PetBookPages;
         _m_elDragImage = null;
     }
     PetBookPages.CancelDrag = CancelDrag;
+    // Both ends of every drag: a page's own DragEnd, and the library's through fnOnDragEnd.
     function _EndDrag() {
         const from = _m_dragFrom;
         const bHandled = _m_bDropHandled;
         CancelDrag();
         _ApplyDragState();
+        // The library turns its own input back on; this covers a drag that started on a page.
         PetPhotoLibrary.SetTakesInput(true);
+        // DragDrop is dispatched before DragEnd and only when something was under the cursor, so nothing
+        // having handled it means empty space - see CUIWindowInput::CancelDrag. The library counts as nothing.
         if (!bHandled) {
             _PlayRejected();
+            // Off a page the photo goes home to the list; out of the library it never left it.
             if (from) {
                 _RemovePhoto(from.page, from.slot);
             }
@@ -885,6 +1156,8 @@ var PetBookPages;
             return;
         }
         if (_MoveToLibrary(strFileName) === '') {
+            $.Msg('pet book: could not take ' + strFileName + ' off the page.\n');
+            // It stayed on its page, so the hole says no in the same language a refused drop does.
             const elSlot = _SlotPanel(nPage, nSlot);
             if (elSlot) {
                 elSlot.TriggerClass('pb-slot--reject');
@@ -893,11 +1166,14 @@ var PetBookPages;
         }
         _Reload(true);
     }
+    // Immediate on release for every rejection; any delay belongs in the soundevent.
     function _PlayRejected() {
         $.DispatchEvent('CSGOPlaySoundEffect', 'Chicken.Photo.Rejected', 'MOUSE');
     }
     function _DropPhoto(elSlot) {
+        // A drop rebuilds the hole it lands in, so sliders open on it point at the photo that just left.
         CloseFrame();
+        // Marked before anything can refuse: a drop turned down still counts as handled, or it would remove.
         _m_bDropHandled = true;
         const { page: nPage, slot: nSlot } = _SlotPlace(elSlot);
         if (nPage < 0 || nSlot < 0 || _m_strDragFile === '') {
@@ -910,13 +1186,16 @@ var PetBookPages;
         }
         const from = _m_dragFrom;
         if (from && from.page === nPage && from.slot === nSlot) {
-            return;
+            return; // put back where it was picked up from, so nothing changed
         }
         const strDisplaced = _PhotoAt(nPage, nSlot);
         let strParked = '';
+        // Parked, never emptied: the hole has to be free before anything can be renamed into it, and a
+        // parked photo is one rename from being back where it was if the drop then fails.
         if (strDisplaced) {
             strParked = _MoveWithinBook(strDisplaced, nPage, PetPhotoTag.SLOT_UNPLACED);
             if (strParked === '') {
+                $.Msg('pet book: could not empty page ' + nPage + ' hole ' + nSlot + ', nothing moved.\n');
                 _PlayRejected();
                 return;
             }
@@ -924,12 +1203,17 @@ var PetBookPages;
         const strPlaced = from ? _MoveWithinBook(_m_strDragFile, nPage, nSlot) :
             _MoveIntoBook(_m_strDragFile, nPage, nSlot);
         if (strPlaced === '') {
+            $.Msg('pet book: could not put ' + _m_strDragFile + ' on page ' + nPage + '.\n');
             _PlayRejected();
+            // Put back whatever was moved out of the way, so a drop that fails changes nothing.
             if (strParked !== '') {
                 _MoveWithinBook(strParked, nPage, nSlot);
             }
         }
         else {
+            // Where the photo that was here goes: back to the hole the dragged one came off, or home to the
+            // camera roll when the dragged one came out of it. A failure leaves it parked and _Reconcile
+            // sends it home next open, so it is never lost either way.
             if (strParked !== '') {
                 if (from) {
                     _MoveWithinBook(strParked, from.page, from.slot);
@@ -938,10 +1222,11 @@ var PetBookPages;
                     _MoveToLibrary(strParked);
                 }
             }
+            // Picked up by the rebuild, which is where the drop animation actually plays.
             _m_justDropped = { page: nPage, slot: nSlot };
             $.DispatchEvent('CSGOPlaySoundEffect', 'Chicken.Photo.Accepted', 'MOUSE');
         }
         _Reload(!from);
     }
 })(PetBookPages || (PetBookPages = {}));
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicGV0X2Jvb2tfcGFnZXMuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi9jb250ZW50L2NzZ28vcGFub3JhbWEvc2NyaXB0cy9wb3B1cHMvcGV0X2Jvb2tfcGFnZXMudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUFBLHFDQUFxQztBQUNyQyx1REFBdUQ7QUFDdkQsbURBQW1EO0FBT25ELElBQVUsWUFBWSxDQXd5RHJCO0FBeHlERCxXQUFVLFlBQVk7SUFFckIsTUFBTSxLQUFLLEdBQUcsQ0FBQyxDQUFDLGVBQWUsRUFBRSxDQUFDO0lBT2xDLE1BQU0sU0FBUyxHQUFVLENBQUMsQ0FBQztJQUMzQixNQUFNLFdBQVcsR0FBUSxDQUFDLENBQUM7SUFDM0IsTUFBTSxnQkFBZ0IsR0FBRyxDQUFDLENBQUM7SUFDM0IsTUFBTSxXQUFXLEdBQVEsQ0FBQyxDQUFDO0lBSTNCLE1BQU0sZ0JBQWdCLEdBQUcsQ0FBQyxDQUFDLFFBQVEsQ0FBRSw0QkFBNEIsQ0FBRSxDQUFDO0lBYXBFLElBQUksTUFBTSxHQUFVLEVBQUUsS0FBSyxFQUFFLEVBQUUsRUFBRSxPQUFPLEVBQUUsZ0JBQWdCLEVBQUUsTUFBTSxFQUFFLFNBQVMsRUFBRSxPQUFPLEVBQUUsQ0FBQyxFQUFFLFFBQVEsRUFBRSxFQUFFLEVBQUUsQ0FBQztJQUkxRyxJQUFJLGFBQWEsR0FBRyxFQUFFLENBQUM7SUFHdkIsSUFBSSxjQUFjLEdBQUcsS0FBSyxDQUFDO0lBSTNCLFNBQVMsaUJBQWlCO1FBSXpCLE1BQU0sTUFBTSxHQUFHLGdCQUFnQixDQUFDLHVCQUF1QixFQUFFLENBQUM7UUFDMUQsSUFBSyxNQUFNLENBQUMsTUFBTSxJQUFJLENBQUMsRUFDdkI7WUFDQyxPQUFPLEVBQUUsQ0FBQztTQUNWO1FBRUQsTUFBTSxNQUFNLEdBQUcsZ0JBQWdCLENBQUMsc0JBQXNCLENBQUUsTUFBTSxDQUFFLE1BQU0sQ0FBQyxNQUFNLEdBQUcsQ0FBQyxDQUFFLENBQUUsQ0FBQztR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
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicGV0X2Jvb2tfcGFnZXMuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi9jb250ZW50L2NzZ28vcGFub3JhbWEvc2NyaXB0cy9wb3B1cHMvcGV0X2Jvb2tfcGFnZXMudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUFBLHFDQUFxQztBQUNyQyx1REFBdUQ7QUFDdkQsbURBQW1EO0FBQ25ELEVBQUU7QUFDRiw4RkFBOEY7QUFDOUYsaUZBQWlGO0FBQ2pGLEVBQUU7QUFDRiwrREFBK0Q7QUFDL0QsRUFBRTtBQUNGLElBQVUsWUFBWSxDQTB5RHJCO0FBMXlERCxXQUFVLFlBQVk7SUFFckIsTUFBTSxLQUFLLEdBQUcsQ0FBQyxDQUFDLGVBQWUsRUFBRSxDQUFDO0lBRWxDLG9GQUFvRjtJQUNwRixXQUFXO0lBQ1gsb0ZBQW9GO0lBRXBGLDJDQUEyQztJQUMzQyxNQUFNLFNBQVMsR0FBVSxDQUFDLENBQUM7SUFDM0IsTUFBTSxXQUFXLEdBQVEsQ0FBQyxDQUFDO0lBQzNCLE1BQU0sZ0JBQWdCLEdBQUcsQ0FBQyxDQUFDO0lBQzNCLE1BQU0sV0FBVyxHQUFRLENBQUMsQ0FBQztJQUUzQixpR0FBaUc7SUFDakcsNEJBQTRCO0lBQzVCLE1BQU0sZ0JBQWdCLEdBQUcsQ0FBQyxDQUFDLFFBQVEsQ0FBRSw0QkFBNEIsQ0FBRSxDQUFDO0lBV3BFLGtHQUFrRztJQUNsRyxrR0FBa0c7SUFDbEcsSUFBSSxNQUFNLEdBQVUsRUFBRSxLQUFLLEVBQUUsRUFBRSxFQUFFLE9BQU8sRUFBRSxnQkFBZ0IsRUFBRSxNQUFNLEVBQUUsU0FBUyxFQUFFLE9BQU8sRUFBRSxDQUFDLEVBQUUsUUFBUSxFQUFFLEVBQUUsRUFBRSxDQUFDO0lBRTFHLGdHQUFnRztJQUNoRywrRkFBK0Y7SUFDL0YsSUFBSSxhQUFhLEdBQUcsRUFBRSxDQUFDO0lBRXZCLGdGQUFnRjtJQUNoRixJQUFJLGNBQWMsR0FBRyxLQUFLLENBQUM7SUFFM0IsK0ZBQStGO0lBQy9GLDBC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
