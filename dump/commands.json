@@ -12735,6 +12735,288 @@
             "has_callback": true,
             "has_completion_callback": false
         },
+        "description": "Spew serializer counts, client only by default, specify server to spew server counts\n",
+        "flags": [
+            "developmentonly",
+            "defensive"
+        ],
+        "module": "networksystem",
+        "name": "net_spewcounts"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_completion_callback": true
+        },
+        "description": "Spew serializer info\n",
+        "flags": [
+            "developmentonly"
+        ],
+        "module": "networksystem",
+        "name": "net_spewserializer"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_completion_callback": true
+        },
+        "description": "<classname> <fieldname>:  spew why field was excluded from networking for classname.",
+        "flags": [
+            "developmentonly"
+        ],
+        "module": "networksystem",
+        "name": "net_why_field_excluded"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_completion_callback": true
+        },
+        "description": "show permutation information for serializer",
+        "flags": [
+            "cheat",
+            "vconsole_fuzzy_matching"
+        ],
+        "module": "networksystem",
+        "name": "net_permutation_info"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_completion_callback": false
+        },
+        "description": "index <threshold bytes>: spew changes to ent index, optionally only spewing if update is > than threshold bytes",
+        "flags": [
+            "cheat"
+        ],
+        "module": "networksystem",
+        "name": "fs_spew_readfieldlist"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_completion_callback": false
+        },
+        "description": "Toggle field path tracing to file\n",
+        "flags": [
+            "developmentonly",
+            "defensive"
+        ],
+        "module": "networksystem",
+        "name": "fp_trace"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_completion_callback": false
+        },
+        "description": "Captures low-level data to replay path culling algorithm behavior in controlled unit test environment",
+        "flags": [
+            "developmentonly",
+            "defensive"
+        ],
+        "module": "networksystem",
+        "name": "net_captureculldata"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_completion_callback": false
+        },
+        "description": "Activates/deactivates net message validation",
+        "flags": [
+            "cheat"
+        ],
+        "module": "networksystem",
+        "name": "net_validatemessages"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_completion_callback": false
+        },
+        "description": "List all registered net messages",
+        "flags": [
+            "cheat"
+        ],
+        "module": "networksystem",
+        "name": "net_listallmessages"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_completion_callback": false
+        },
+        "description": "Display info about a message (by classname or id)",
+        "flags": [
+            "cheat"
+        ],
+        "module": "networksystem",
+        "name": "net_messageinfo"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_completion_callback": false
+        },
+        "description": "Shows net channel info",
+        "flags": [
+            "release"
+        ],
+        "module": "networksystem",
+        "name": "net_channels"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_completion_callback": false
+        },
+        "description": "Shows current network status",
+        "flags": [
+            "release"
+        ],
+        "module": "networksystem",
+        "name": "net_status"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_completion_callback": false
+        },
+        "description": "Print detailed network statistics for each network connection",
+        "flags": [
+            "release"
+        ],
+        "module": "networksystem",
+        "name": "net_connections_stats"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_completion_callback": true
+        },
+        "description": "Get or set SteamNetworkingSockets options such as fake packet lag and loss",
+        "flags": [
+            "release"
+        ],
+        "module": "networksystem",
+        "name": "net_option"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_completion_callback": false
+        },
+        "description": "An old command that has been renamed to 'net_option'",
+        "flags": [
+            "release"
+        ],
+        "module": "networksystem",
+        "name": "sdr"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_completion_callback": false
+        },
+        "description": "Shortcut to set both FakePacketLag_Recv and FakePacketLag_Send net options",
+        "flags": [
+            "release"
+        ],
+        "module": "networksystem",
+        "name": "net_fakelag"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_completion_callback": false
+        },
+        "description": "Shortcut to set both FakePacketLoss_Recv and FakePacketLoss_Send net options",
+        "flags": [
+            "release"
+        ],
+        "module": "networksystem",
+        "name": "net_fakeloss"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_completion_callback": false
+        },
+        "description": "Shortcut to set jitter net options.  Run with no arguments for usage.",
+        "flags": [
+            "release"
+        ],
+        "module": "networksystem",
+        "name": "net_fakejitter"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_completion_callback": false
+        },
+        "description": "Clear all simulated network conditions",
+        "flags": [
+            "release"
+        ],
+        "module": "networksystem",
+        "name": "net_fakeclear"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_completion_callback": false
+        },
+        "description": "Print current simulated network condifions",
+        "flags": [
+            "release"
+        ],
+        "module": "networksystem",
+        "name": "net_fakestatus"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_completion_callback": false
+        },
+        "description": "Print current ping times to SDR points of presence, and selected route",
+        "flags": [
+            "release"
+        ],
+        "module": "networksystem",
+        "name": "net_print_sdr_ping_times"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_completion_callback": false
+        },
+        "description": "Spew CSerializedEntity memory",
+        "flags": [
+            "developmentonly",
+            "defensive"
+        ],
+        "module": "networksystem",
+        "name": "net_serializedentitymemory"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_completion_callback": false
+        },
+        "description": "Spew CSerializedEntity metadata information",
+        "flags": [
+            "developmentonly",
+            "defensive"
+        ],
+        "module": "networksystem",
+        "name": "net_serializedentitymetadatainfo"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_completion_callback": false
+        },
         "description": "<ESymbolType> Dump all of the symbols in the Panorama symbol table",
         "flags": [
             "developmentonly",

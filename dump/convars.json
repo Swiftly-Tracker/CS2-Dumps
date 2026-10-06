@@ -23509,6 +23509,23 @@
             "has_max": false,
             "has_min": false
         },
+        "datatype": "int32",
+        "datatype_raw": 3,
+        "default": "0",
+        "description": "Host game server ip",
+        "flags": [
+            "release"
+        ],
+        "module": "networksystem",
+        "name": "hostip"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
         "datatype": "string",
         "datatype_raw": 9,
         "default": "",
@@ -25200,6 +25217,23 @@
         ],
         "module": "engine2",
         "name": "instant_replay_history_limit"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "string",
+        "datatype_raw": 9,
+        "default": "",
+        "description": "Overrides IP for multihomed hosts",
+        "flags": [
+            "release"
+        ],
+        "module": "networksystem",
+        "name": "ip"
     },
     {
         "attributes": {
@@ -38996,6 +39030,41 @@
             "has_max": false,
             "has_min": false
         },
+        "datatype": "int32",
+        "datatype_raw": 3,
+        "default": "1024",
+        "description": "Don't bother compressing packets below this size.",
+        "flags": [
+            "developmentonly"
+        ],
+        "module": "networksystem",
+        "name": "net_compresspackets_minsize"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "bool",
+        "datatype_raw": 0,
+        "default": "true",
+        "description": "Enable optimization of slow path that makes HLTV CPU consumption high in AnimGraph-using mods. Will switch to this on by default soon.",
+        "flags": [
+            "developmentonly",
+            "defensive"
+        ],
+        "module": "networksystem",
+        "name": "net_culloptimization"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
         "datatype": "bool",
         "datatype_raw": 0,
         "default": "false",
@@ -39006,6 +39075,323 @@
         ],
         "module": "server",
         "name": "net_debug_to_file"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "bool",
+        "datatype_raw": 0,
+        "default": "false",
+        "description": "",
+        "flags": [
+            "developmentonly",
+            "defensive"
+        ],
+        "module": "networksystem",
+        "name": "net_detailed_canpacket_log"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "bool",
+        "datatype_raw": 0,
+        "default": "false",
+        "description": "Log packets to files",
+        "flags": [
+            "developmentonly"
+        ],
+        "module": "networksystem",
+        "name": "net_filelogging"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "bool",
+        "datatype_raw": 0,
+        "default": "false",
+        "description": "",
+        "flags": [
+            "developmentonly"
+        ],
+        "module": "networksystem",
+        "name": "net_fs_showindirections"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "int32",
+        "datatype_raw": 3,
+        "default": "32",
+        "description": "Server will reject message larger than N kb",
+        "flags": [
+            "release"
+        ],
+        "module": "networksystem",
+        "name": "net_limit_sv_recv_max_message_size_kb"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "int32",
+        "datatype_raw": 3,
+        "default": "50",
+        "description": "Server will reject packets with more than N segments",
+        "flags": [
+            "release"
+        ],
+        "module": "networksystem",
+        "name": "net_limit_sv_recv_segments_per_packet"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "int32",
+        "datatype_raw": 3,
+        "default": "128",
+        "description": "Server will not buffer more than N kb from connected clients",
+        "flags": [
+            "release"
+        ],
+        "module": "networksystem",
+        "name": "net_limit_sv_recvbuffer_kb"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "int32",
+        "datatype_raw": 3,
+        "default": "100",
+        "description": "Server will not buffer more than N messages from connected clients",
+        "flags": [
+            "release"
+        ],
+        "module": "networksystem",
+        "name": "net_limit_sv_recvbuffer_msg"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "bool",
+        "datatype_raw": 0,
+        "default": "false",
+        "description": "Log network processing",
+        "flags": [
+            "developmentonly",
+            "defensive"
+        ],
+        "module": "networksystem",
+        "name": "net_log_processing"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "int32",
+        "datatype_raw": 3,
+        "default": "0",
+        "description": "Maximum number of messages to process from a client in a single frame (0 == no limit).",
+        "flags": [
+            "developmentonly",
+            "defensive"
+        ],
+        "module": "networksystem",
+        "name": "net_max_message_process_count"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "int32",
+        "datatype_raw": 3,
+        "default": "0",
+        "description": "Maximum number of messages to allow waiting in queue after processing; exceeding this disconnects the client. 0 == no limit",
+        "flags": [
+            "developmentonly",
+            "defensive"
+        ],
+        "module": "networksystem",
+        "name": "net_max_message_queue_size"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "int32",
+        "datatype_raw": 3,
+        "default": "5",
+        "description": "Max polymorphic variants to spew when spewing a flattened serializer.",
+        "flags": [
+            "developmentonly",
+            "defensive"
+        ],
+        "module": "networksystem",
+        "name": "net_max_polymorphic_spew"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "int32",
+        "datatype_raw": 3,
+        "default": "1",
+        "description": "Check declared engine message size limit, and either warn or reject.  Note that this is ignored in -tools mode.  0=ignore, 1=warn/log, 2=warn/assert, 3=reject",
+        "flags": [
+            "release"
+        ],
+        "module": "networksystem",
+        "name": "net_message_size_enforce"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "bool",
+        "datatype_raw": 0,
+        "default": "false",
+        "description": "Should dedicated server listen for new-style P2P?",
+        "flags": [
+            "developmentonly",
+            "defensive"
+        ],
+        "module": "networksystem",
+        "name": "net_p2p_listen_dedicated"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "string",
+        "datatype_raw": 9,
+        "default": "",
+        "description": "For servers behind NAT/DHCP meant to be exposed to the public internet, this is the public facing ip address string: (\"x.x.x.x\" )",
+        "flags": [
+            "release"
+        ],
+        "module": "networksystem",
+        "name": "net_public_adr"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "bool",
+        "datatype_raw": 0,
+        "default": "false",
+        "description": "Spew QoS interval data as we gather it",
+        "flags": [
+            "developmentonly"
+        ],
+        "module": "networksystem",
+        "name": "net_qosinterval_spew"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": true,
+            "has_min": true
+        },
+        "datatype": "float32",
+        "datatype_raw": 7,
+        "default": "5.000000",
+        "description": "Spew a warning if packet loss percentage is above this threshold",
+        "flags": [
+            "developmentonly",
+            "defensive"
+        ],
+        "max": "100.000000",
+        "min": "0.001000",
+        "module": "networksystem",
+        "name": "net_qospacketloss_percentage_threshold"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "string",
+        "datatype_raw": 9,
+        "default": "",
+        "description": "If set, only net_showmsg spew for data inbound on this socket name e.g. client, server, etc.",
+        "flags": [
+            "developmentonly",
+            "defensive"
+        ],
+        "module": "networksystem",
+        "name": "net_restrict_showmsg_socket"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "bool",
+        "datatype_raw": 0,
+        "default": "false",
+        "description": "Show dropped packets in console",
+        "flags": [
+            "developmentonly",
+            "defensive"
+        ],
+        "module": "networksystem",
+        "name": "net_showdrop"
     },
     {
         "attributes": {
@@ -39042,6 +39428,148 @@
         ],
         "module": "server",
         "name": "net_showevents"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "string",
+        "datatype_raw": 9,
+        "default": "0",
+        "description": "Show incoming message: <0|1|2|name> where 1 == all and 2 == all except net_NOP",
+        "flags": [
+            "developmentonly",
+            "defensive"
+        ],
+        "module": "networksystem",
+        "name": "net_showmsg"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "bool",
+        "datatype_raw": 0,
+        "default": "false",
+        "description": "Show connectionless UDP traffic.",
+        "flags": [
+            "developmentonly",
+            "defensive"
+        ],
+        "module": "networksystem",
+        "name": "net_showoob"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "int32",
+        "datatype_raw": 3,
+        "default": "0",
+        "description": "Show messages for large packets only: <size>",
+        "flags": [
+            "developmentonly",
+            "defensive"
+        ],
+        "module": "networksystem",
+        "name": "net_showpeaks"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "string",
+        "datatype_raw": 9,
+        "default": "0",
+        "description": "Like net_showmsg, but only spew reliable messages",
+        "flags": [
+            "developmentonly",
+            "defensive"
+        ],
+        "module": "networksystem",
+        "name": "net_showreliable"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "bool",
+        "datatype_raw": 0,
+        "default": "false",
+        "description": "Dump UDP packets summary to console",
+        "flags": [
+            "release"
+        ],
+        "module": "networksystem",
+        "name": "net_showudp"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "bool",
+        "datatype_raw": 0,
+        "default": "true",
+        "description": "Dump non-loopback udp only",
+        "flags": [
+            "release"
+        ],
+        "module": "networksystem",
+        "name": "net_showudp_remoteonly"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "bool",
+        "datatype_raw": 0,
+        "default": "false",
+        "description": "",
+        "flags": [
+            "developmentonly",
+            "clientdll"
+        ],
+        "module": "networksystem",
+        "name": "net_skip_redundant_change_callbacks"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "bool",
+        "datatype_raw": 0,
+        "default": "true",
+        "description": "Compress network traffic",
+        "flags": [
+            "developmentonly",
+            "defensive"
+        ],
+        "module": "networksystem",
+        "name": "net_use_packet_compression"
     },
     {
         "attributes": {
@@ -64796,6 +65324,23 @@
         },
         "datatype": "bool",
         "datatype_raw": 0,
+        "default": "true",
+        "description": "Server will listen for direct UDP connections on the configured port.  This can be turned off to only listen for P2P/SDR connections.",
+        "flags": [
+            "release"
+        ],
+        "module": "networksystem",
+        "name": "sv_listen_directudp"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "bool",
+        "datatype_raw": 0,
         "default": "false",
         "description": "",
         "flags": [
@@ -65577,6 +66122,78 @@
         ],
         "module": "server",
         "name": "sv_mute_players_with_social_penalties"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "float32",
+        "datatype_raw": 7,
+        "default": "200.000000",
+        "description": "Drop a client if processing their messages consumes more than N ms of CPU time in a burst (token bucket capacity)",
+        "flags": [
+            "developmentonly",
+            "defensive"
+        ],
+        "module": "networksystem",
+        "name": "sv_net_client_message_process_time_ms_drop_burst"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "float32",
+        "datatype_raw": 7,
+        "default": "20.000000",
+        "description": "Drop a client if processing their messages consumes more than N ms of CPU time per second, sustained (token bucket fill rate)",
+        "flags": [
+            "developmentonly",
+            "defensive"
+        ],
+        "module": "networksystem",
+        "name": "sv_net_client_message_process_time_ms_drop_rate"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "float32",
+        "datatype_raw": 7,
+        "default": "50.000000",
+        "description": "Warn if processing messages from a client consumes more than N ms of CPU time in a burst (token bucket capacity)",
+        "flags": [
+            "developmentonly",
+            "defensive"
+        ],
+        "module": "networksystem",
+        "name": "sv_net_client_message_process_time_ms_warn_burst"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "float32",
+        "datatype_raw": 7,
+        "default": "5.000000",
+        "description": "Warn if processing messages from a client consumes more than N ms of CPU time per second, sustained (token bucket fill rate)",
+        "flags": [
+            "developmentonly",
+            "defensive"
+        ],
+        "module": "networksystem",
+        "name": "sv_net_client_message_process_time_ms_warn_rate"
     },
     {
         "attributes": {
