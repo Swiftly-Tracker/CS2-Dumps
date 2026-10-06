@@ -38,9 +38,9 @@
  %dms faster than direct ping of %dms
  (08@HPX`hpx
  (08@HPX`j
- (08@HPXb0
+ (08@HPXb
  (08@HPZ
- (0X`hpz0
+ (0X`hpz
  - keeping around as cacheable shared connection
  = { <proto text format> }". To set fields within it, use syntax like "
  Base Class Array'
@@ -685,10 +685,11 @@ $schemasystem/schema_enable_defines.h
 @08@HPX`hpx
 @HPX
 @HPX&I
-@HPX`hvp
+@HPX`hv
 A file with this name is already in the pool.
 A protocol message was rejected because it was too big (more than 
 A>pP&
+AA:Py
 ABCDEFGHIJKLMNOPQRSTUVWXYZ
 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/
 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_
@@ -930,7 +931,7 @@ CNetChan::BUF_RELIABLE
 CNetChan::BUF_UNRELIABLE
 CNetChan::BUF_VOICE
 CNetChan::ParseMessages
-CNetChan::ProcessMessages::<lambda_1>::operator ()
+CNetChan::ProcessMessages
 CNetChan::SendNetMessage: SerializeAbstract for message %s failed!\n
 CNetChan::SendNetMessage: Trying to send message %s, which is an invalid category for this channel!\n
 CNetChan::SendNetMessage: Unable to send message %s, buffer is full!\n
@@ -1116,6 +1117,7 @@ Captures low-level data to replay path culling algorithm behavior in controlled 
 Cast of %s loses value information (returning %s)\n
 ChangeAccessorFieldPathIndex_t
 Channel
+Check declared engine message size limit, and either warn or reject.  Note that this is ignored in -tools mode.  0=ignore, 1=warn/log, 2=warn/assert, 3=reject
 Checking for missing CNetworkVar* declarations\n
 Class data is a '%s', not a table\n
 Class,Field,Field Path,Decode Count,Total Bits,Avg Bits,Total Index Bits,Avg Index Bits,Priority,=SUM(E:E),Full Name,Notes\n
@@ -1178,6 +1180,8 @@ Disconnecting netchan because of excessive CPU usage /+/ %dms, %d, current messa
 Display info about a message (by classname or id)
 Don't bother compressing packets below this size.
 Double-save to Member '%s'
+Drop a client if processing their messages consumes more than N ms of CPU time in a burst (token bucket capacity)
+Drop a client if processing their messages consumes more than N ms of CPU time per second, sustained (token bucket fill rate)
 Dump UDP packets summary to console
 Dump non-loopback udp only
 EJj
@@ -1470,8 +1474,6 @@ I\n NETWORK_DISCONNECT_STEAM_DROPPED
 I\n%NETWORK_DISCONNECT_REJECT_HIDDEN_GAME
 I\n\rvar_enum_info
 IdempotencyLevel
-If processing messages from a client takes more than N ms, drop them
-If processing messages from a client takes more than N ms, warn
 If set, only net_showmsg spew for data inbound on this socket name e.g. client, server, etc.
 Ignoring extension "
 Illegal jstype for int64, uint64, sint64, fixed64 or sfixed64 field: 
@@ -1654,6 +1656,8 @@ MeshUtils001
 Message does not support reflection (type 
 Message is too deep, the parser exceeded the configured recursion limit of 
 Message missing required fields: 
+Message of type (%s) %d size %d exceeded maximum message size %d; allowing as per %s=%d\n
+Message of type (%s) %d size %d exceeded maximum message size %d; rejecting.\n
 Message type "
 MessageOptions
 MessageSet is not supported in proto3.
@@ -1731,7 +1735,7 @@ Need space between identifier and decimal point.
 Need space between number and identifier.
 Net graph %s\n
 Net status for host %s:\n
-NetChan %s ProcessMessages has taken more than %dms to process %d messages.  (Current message type: '%s')\n
+NetChan %s ProcessMessages has exhausted its CPU time warning budget.  %dms to process %d messages this call.  (Current message type: '%s')\n
 NetChanFlowIncomingAck
 NetChanRecv
 NetChanRecvMisdelivery
@@ -1946,6 +1950,7 @@ REPLAY_EVENT_VICTORY
 RP_PAUSE
 RP_TOGGLEPAUSE
 RSDS
+R\vpl
 RadianEuler
 RaiseException
 RandomFloat
@@ -2384,6 +2389,8 @@ WS2_32.dll
 W\n,NETWORK_DISCONNECT_REJECT_CONNECT_FROM_LOBBY
 W\n,NETWORK_DISCONNECT_REJECT_RESERVED_FOR_LOBBY
 WakeAllConditionVariable
+Warn if processing messages from a client consumes more than N ms of CPU time in a burst (token bucket capacity)
+Warn if processing messages from a client consumes more than N ms of CPU time per second, sustained (token bucket fill rate)
 Warning parsing text-format 
 Wed
 Wednesday
@@ -2404,13 +2411,14 @@ Y\n*NETWORK_DISCONNECT_STRINGTABLEMSG_OVERFLOW
 Y\n0NETWORK_DISCONNECT_REJECT_SERVERCDKEYAUTHINVALID
 Y\n\fdescriptor_t
 Z-google.golang.org/protobuf/types/descriptorpb
+ZPy
 Z\n(NETWORK_DISCONNECT_KICKED_HOSTAGEKILLING
 Z\n(NETWORK_DISCONNECT_KICKED_INSECURECLIENT
 Z\n(NETWORK_DISCONNECT_REMOTE_CERTNOTTRUSTED
 Z\n*NETWORK_DISCONNECT_REJECT_INVALIDKEYLENGTH
 Z\n+NETWORK_DISCONNECT_CONNECT_REQUEST_TIMEDOUT
 [ Net Message Info: %s ]\n
-[%s] DISCONNECTING. ProcessMessages has taken more than %dms to process %d messages.  (Current message type: '%s')\n
+[%s] DISCONNECTING. ProcessMessages has exhausted its CPU time budget.  %dms to process %d messages this call.  (Current message type: '%s')\n
 [%s] Queued message count %d exceeds limit of %s=%d.  Allowing due to engine_frametime_warnings_enable=false\n
 [%s] high frame misdelivery %.1f%%, %d/%d of %d frames dropped/reordered, %.0fms ping, %.0fms peak jitter\n
 [%s] misdelivery %.1f%%, %d/%d of %d frames dropped/reordered, %.0fms ping\n
@@ -2676,7 +2684,6 @@ Z\n+NETWORK_DISCONNECT_CONNECT_REQUEST_TIMEDOUT
 \n\vuint64_vals
 \n\vvoice_level
 \n_MakeGlobalSymbol
-\n_MakeGlobalSymbolCaseSensitive
 \rBytes
 \r\n\tCODE_SIZE
 \r\n\tJS_NORMAL
@@ -2772,7 +2779,7 @@ _nextafter
 `vector vbase copy constructor iterator'
 `vftable'
 `virtual displacement map'
-aBv8
+aBv
 abcdefghijklmnopqrstuvwxyz
 acos
 activated
@@ -3489,7 +3496,7 @@ host_unfiltered_frametime
 hostip
 hostname
 hpx
-hpz0
+hpz
 huge
 idempotency_level
 identified %d entity related c++ field shadowing issues:\n
@@ -3612,7 +3619,6 @@ matrix3x4_t
 matrix3x4a_t
 max
 max_client_limit
-max_size
 max_spawngroup_creationsequence
 maximum_size_bytes
 med
@@ -3685,6 +3691,7 @@ net_log_processing
 net_max_message_process_count
 net_max_message_queue_size
 net_max_polymorphic_spew
+net_message_size_enforce
 net_messageinfo
 net_messageinfo "%s"
 net_option
@@ -3732,7 +3739,6 @@ netframes_size_uncompressed_p50
 netframes_size_uncompressed_p95
 netframes_size_uncompressed_p99
 netframes_total
-netmessage
 netmessages.proto
 network down
 network reset
@@ -4108,8 +4114,6 @@ single permutation
 sinh
 sint32
 sint64
-size
-size_exceeded_max
 skip
 sky_name
 slot
@@ -4168,8 +4172,10 @@ struct std::ctype_base (demangled)
 subtype mismatch
 success
 sv_listen_directudp
-sv_net_client_message_process_time_ms_drop
-sv_net_client_message_process_time_ms_warn
+sv_net_client_message_process_time_ms_drop_burst
+sv_net_client_message_process_time_ms_drop_rate
+sv_net_client_message_process_time_ms_warn_burst
+sv_net_client_message_process_time_ms_warn_rate
 svc_Broadcast_Command
 svc_ClearAllStringTables
 svc_CmdKeyValues

@@ -316,6 +316,35 @@
 #FileOpenDialog_Open
 #FileOpenDialog_Save
 #FileOpenDialog_Select
+#GameUI_Language_Brazilian
+#GameUI_Language_Bulgarian
+#GameUI_Language_Czech
+#GameUI_Language_Danish
+#GameUI_Language_Dutch
+#GameUI_Language_English
+#GameUI_Language_Finnish
+#GameUI_Language_French
+#GameUI_Language_German
+#GameUI_Language_Greek
+#GameUI_Language_Hungarian
+#GameUI_Language_Indonesian
+#GameUI_Language_Italian
+#GameUI_Language_Japanese
+#GameUI_Language_Korean
+#GameUI_Language_Latam_Spanish
+#GameUI_Language_Norwegian
+#GameUI_Language_Polish
+#GameUI_Language_Portuguese
+#GameUI_Language_Romanian
+#GameUI_Language_Russian
+#GameUI_Language_Simplified_Chinese
+#GameUI_Language_Spanish
+#GameUI_Language_Swedish
+#GameUI_Language_Thai
+#GameUI_Language_Traditional_Chinese
+#GameUI_Language_Turkish
+#GameUI_Language_Ukrainian
+#GameUI_Language_Vietnamese
 #Movie_Auto
 #Movie_Auto_Resolution
 #Movie_FastFoward
@@ -335,6 +364,35 @@
 #UI_TextEntry_CopyToClipboard
 #UI_TextEntry_CutToClipboard
 #UI_TextEntry_PasteClipboard
+#Valve_SelectLanguage_Brazilian
+#Valve_SelectLanguage_Bulgarian
+#Valve_SelectLanguage_Czech
+#Valve_SelectLanguage_Danish
+#Valve_SelectLanguage_Dutch
+#Valve_SelectLanguage_English
+#Valve_SelectLanguage_Finnish
+#Valve_SelectLanguage_French
+#Valve_SelectLanguage_German
+#Valve_SelectLanguage_Greek
+#Valve_SelectLanguage_Hungarian
+#Valve_SelectLanguage_Indonesian
+#Valve_SelectLanguage_Italian
+#Valve_SelectLanguage_Japanese
+#Valve_SelectLanguage_Korean
+#Valve_SelectLanguage_Latam_Spanish
+#Valve_SelectLanguage_Norwegian
+#Valve_SelectLanguage_Polish
+#Valve_SelectLanguage_Portuguese
+#Valve_SelectLanguage_Romanian
+#Valve_SelectLanguage_Russian
+#Valve_SelectLanguage_Simplified_Chinese
+#Valve_SelectLanguage_Spanish
+#Valve_SelectLanguage_Swedish
+#Valve_SelectLanguage_Thai
+#Valve_SelectLanguage_Traditional_Chinese
+#Valve_SelectLanguage_Turkish
+#Valve_SelectLanguage_Ukrainian
+#Valve_SelectLanguage_Vietnamese
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 $0  extend .$1 {\n
 $0  extensions $1 to $2;\n
@@ -428,6 +486,9 @@ $ORIGIN
 &lt;Needs a description&gt;
 &nbsp
 &rlm
+'%s' cannot be listed, because it is the default source.
+'%s' is listed more than once.
+'%s' is not a valid language.
 'align' cue-setting already used
 'align' cue-setting must have a value of either 'start', 'middle', or 'end'
 'line' cue-setting already used
@@ -444,6 +505,7 @@ $ORIGIN
 (cannot determine missing fields for lite message)
 (memory)
 (merge 
+(none)
 )", which is not defined. The innermost scope is searched first in name resolution. Consider using a leading '.'(i.e., "(.
 ).  Contact the program author for an update.  If you compiled the program yourself, make sure that your headers are from the same version of Protocol Buffers as your link-time library.  (Version verification failed in "
 *(&) std::__addressof<char>(&) (demangled)
@@ -465,6 +527,8 @@ $ORIGIN
 *(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&) std::__addressof<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&)> (demangled)
 *(std::__cxx11::basic_string<wchar_t, std::char_traits<wchar_t>, std::allocator<wchar_t> > const&) std::__addressof<std::__cxx11::basic_string<wchar_t, std::char_traits<wchar_t>, std::allocator<wchar_t> > const(std::__cxx11::basic_string<wchar_t, std::char_traits<wchar_t>, std::allocator<wchar_t> > const&)> (demangled)
 *(std::__cxx11::basic_string<wchar_t, std::char_traits<wchar_t>, std::allocator<wchar_t> >&) std::__addressof<std::__cxx11::basic_string<wchar_t, std::char_traits<wchar_t>, std::allocator<wchar_t> >(std::__cxx11::basic_string<wchar_t, std::char_traits<wchar_t>, std::allocator<wchar_t> >&)> (demangled)
+**** Failed to parse panel property languages: %s; %s\n
+**** No %s image source compiled for %s\n
 *.log
 , %sdeg
 , but was 
@@ -671,9 +735,11 @@ BinaryProperties_GetValue
 Boolean default must be true or false.
 BottomArrow
 BottomArrowVisible
+Brazilian
 BrowserGoToURL
 BrowserGoToURL( %s )
 Build
+Bulgarian
 Button
 Button%d
 By default after slicing the image as specified in border-image-slice the 9 regions will be used to fill the space specified by the standard border-width property.  This border-image-width property may be used to override that and specify different widths.  The values appear in top, right, bottom, left order, the 2nd through 4th may be omitted and corresponding earlier values will be used.  Values may be straight floats which specify a multiple of the corresponding border-width value, a percentage (which is relative to the size of the border image in the corresponding dimension), or 'auto' which means to use the intrinsic size of the corresponding border-image-slice.<br><br><b>Examples:</b><pre>border-image-width: 1 1 1 1;\nborder-image-slice: 50% 50% 50% 50%;\nborder-image-slice: auto;</pre>
@@ -1225,6 +1291,7 @@ CloseConsole
 CloseDebuggerWindow
 ColdLS
 Comma separated list of images or movies to draw in the background. Can specify "none" to not draw a background layer. Combined with background-position, background-size, background-texture-size and background-repeat values.<br><br><b>Example:</b><pre>background-image: url("file://{images}/default.tga"), url( "file://{movies}/Background1080p.webm" );</pre>
+Comma-separated list of the languages that src has localized flavors for, named by suffixing the source file name with the language, e.g. languages="russian,french" alongside src="file://{images}/foo.png" uses "foo_french.png" when the game is running in French. English is implied by src itself and cannot be listed
 Command List Bytes Size
 CommandLine
 Complexity of regex match exceeded implementation limits
@@ -1282,6 +1349,7 @@ CreateVideoPlayer
 Cue
 CuesContainer
 CycleButton
+Czech
 DATA_LOSS
 DEADLINE_EXCEEDED
 DEL
@@ -1297,6 +1365,7 @@ DaisyInputTypeRS
 DaisyWheelNextFocus
 DaisyWheelSettings
 DaisyWheelSwitchLanguage
+Danish
 Data
 Date Cell
 DebugAutoComplete
@@ -1415,6 +1484,7 @@ DropDownSelectPrevious
 DropDownSelectionChanged
 DropInputFocus
 DropdownMenuFocusChanged
+Dutch
 EET
 ENQ
 EOT
@@ -1441,6 +1511,7 @@ Element Style
 End-of-file inside block comment.
 EngineConsole
 EngineServiceMgr001
+English
 EnsureElementCapacity
 EnsureMemberCapacity
 EnsureUnusedCapacity
@@ -1567,6 +1638,7 @@ FindDropDownMenuChild
 FindLessOrEqual
 FindLongestStringForLocVariable
 FindPanelInThisOrParentLayoutFile
+Finnish
 Fire another event after a delay (in seconds).
 Fire another event if currently hovering over a panel with the given ID.
 Fire another event if not currently hovering over a panel with the given ID.
@@ -1590,6 +1662,7 @@ Found invalid proto option data for:
 FrameRow
 FrameSection
 FrameStyleBlock
+French
 Fri
 Friday
 Fullscreen
@@ -1613,6 +1686,7 @@ GameResourceServiceServerV001
 GameUIService_001
 GamepadInput
 GenericTextInputHandlerID
+German
 GetAttributeInt
 GetAttributeString
 GetAttributeUInt32
@@ -1668,6 +1742,7 @@ GetThreadLocalStackAllocator
 GetTooltipTarget
 GetUInt32
 GetUInt64
+Greek
 Group_%s
 Groups are not supported in proto3 syntax.
 HMTLLinkAtPosition
@@ -1730,6 +1805,7 @@ HorizontalScrollThumb
 HorizontalSplitter
 HostStateMgr001
 HtmlUserAgent
+Hungarian
 IAppSystem (demangled)
 IEngineConsoleUI (demangled)
 IFormatOutputStream::Format2DTable(CTypeErasedFormattingWrapper, CFormatStringElement, void const**, int, int) (demangled)
@@ -1807,6 +1883,7 @@ Index must be -1 for non-repeated fields
 Index must be -1 for singular fields.
 Index must be in range of repeated field values. 
 Index out-of-bounds (field is empty).
+Indonesian
 Inert VModuleMetadata
 Initialize
 InlineImage
@@ -1868,6 +1945,7 @@ IsPlaying
 IsSelected
 IsSizeValid
 IsValid
+Italian
 ItemPips
 Item_%c
 Item_%s
@@ -1881,6 +1959,7 @@ JSCreatePanelWithCurrentContext was not called within a context
 JST
 Jan
 January
+Japanese
 Job
 Jul
 July
@@ -1913,6 +1992,7 @@ KeyValues::complete object constructor(char const*, IKeyValuesSystem*, bool) (de
 KeyValues::complete object destructor() (demangled)
 KeyValues::new(unsigned long) (demangled)
 KeyValuesSystem
+Korean
 LC_ADDRESS
 LC_COLLATE
 LC_CTYPE
@@ -1933,6 +2013,7 @@ LabelHREF
 LabelRightClickContextMenu
 LangLegend
 Lang_txt
+Latam_Spanish
 Layout File
 LayoutDirtied
 LeftArrow
@@ -2103,6 +2184,7 @@ Non-repeated Any specified multiple times.
 Non-repeated field "
 None
 Normally false. If true, use fast zoom unless explicitly told not to.
+Norwegian
 Not implemented field number 
 Not supported.
 Note that enum values use C++ scoping rules, meaning that enum values are siblings of their type, not children of it.  Therefore, "
@@ -2258,7 +2340,9 @@ PlaybackProgress
 PlaybackSpeed
 PlaybackTitle
 PlaybackTitleAndControls
+Polish
 PopupWrapper
+Portuguese
 PostConsoleText
 PostProcessingSystem_001
 PrevSearch
@@ -2358,6 +2442,8 @@ RightArrowVisible
 RightLegend
 RightMouseScrollRegion
 RightOfFocus%d
+Romanian
+Russian
 SOH
 SSE and SSE2 are required.
 STX
@@ -2555,6 +2641,7 @@ ShowTitle
 ShowTooltip
 ShowingLanguage
 SimpleContextMenu
+Simplified_Chinese
 SkipBlanks
 SlicedContainer
 SlicedLabel
@@ -2597,6 +2684,7 @@ Source2Host001
 Source2ModTools001
 Source2Server001
 Source2V8System001
+Spanish
 Specifies a 'wash' color, which means a color that will be blended over the panel and all it's children at composition time, tinting them.  The alpha value of the color determines the intensity of the tinting.<br><br><b>Example:</b><pre>wash-color: #39b0d325;</pre>
 Specifies a clip region within the panel, where contents will be clipped at render time. This clipping has no impact on layout, and is fast and supported for transitions/animations. Radial clip mode takes a center point, start angle and angular width of the revealed sector.<br><br><b>Example:</b><pre>clip: rect( 10%, 90%, 90%, 10% );\nclip: radial( 50% %50, 0deg, 90deg );</pre>
 Specifies a fixed time between frames in order to simulate a lower framerate for stylistic reasons. Default is 0s.<br><br><b>Examples:</b><pre>transition-frame-time: 0.2s;\ntransition-frame-time: 0.2s, 0.0s;</pre>
@@ -2818,6 +2906,7 @@ Sun
 Sunday
 SuppressConsoleKeys
 Swap
+Swedish
 Switch which class the panel has for a given attribute slot. Allows easily changing between multiple states.
 SwitchClass
 SwitchStyle
@@ -2871,6 +2960,7 @@ TextInputPickPanelDebouncePicked
 TextInputSent
 TextLayout_001
 TextTooltip
+Thai
 The JSON camel-case name of field "
 The [proto3_optional=true] option may only be set on proto3fields, not 
 The extension 
@@ -2921,6 +3011,7 @@ TopArrow
 TopArrowVisible
 TopLevelWindowClose
 TopLevelWindowVisibilityChanged
+Traditional_Chinese
 Tried to merge messages of different types 
 Tried to register a non-generated type with the generated type registry.
 TriggerClass
@@ -2928,6 +3019,7 @@ TriggerStyle
 True
 Tue
 Tuesday
+Turkish
 Type appears to be in generated pool but wasn't 
 Type is already registered: 
 Typed
@@ -2940,6 +3032,7 @@ UNIMPLEMENTED
 UNKNOWN
 UNKNOWN_ENUM_VALUE_%s_%d
 UTF-8
+Ukrainian
 Underlying panel is deleted!
 Unexpected end of string.
 Unexpected failure while serializing option submessage 
@@ -3139,6 +3232,7 @@ VideoPlayerRepeated
 VideoQualityBtn
 VideoQualityPopup
 VideoSegment
+Vietnamese
 VisBuilder_001
 Visible
 VolumeControl
@@ -3208,6 +3302,7 @@ _V_ExtractFileExtension
 _V_ExtractFilePath
 _V_MakeAbsolutePath
 _V_SetExtension
+_V_StringAfterPrefixCaseSensitive
 _V_StripLastDir
 _V_hextobinary
 _V_strEndsWith
@@ -4123,6 +4218,7 @@ basic_string::substr
 basic_string_view::substr
 beige
 bevel
+bg_BG
 bind_textdomain_codeset
 bindtextdomain
 bisque
@@ -4257,6 +4353,7 @@ brown
 btowc
 buffer-async
 buffer-sync
+bulgarian
 burlywood
 butt
 byte
@@ -4612,7 +4709,10 @@ cursor
 cyan
 cycle_class
 cycle_classes
+czech
+da_DK
 daisywheel
+danish
 darkblue
 darkcyan
 darken
@@ -4638,6 +4738,7 @@ dashed-light
 data/panoramavideoplayer.cpp
 data:text/html,%3Cbody%3E%3C%2Fbody%3E
 data_ == other.data_
+de_DE
 debug.description
 debug_async_data_panel_override_state
 decimal128
@@ -4699,6 +4800,7 @@ down-wrap-left
 dpiaware
 dragclickzone
 dropdownbodyposition
+dutch
 dynamic_cast
 e-resize
 ease
@@ -4710,6 +4812,7 @@ eight
 ellipsis
 email
 embedded
+en_US
 enabled
 end
 english
@@ -4717,12 +4820,14 @@ enum
 equals-sign
 error allocating object
 error-text
+es_ES
 evenodd
 event
 event:
 ew-resize
 exclamation-mark
 expanded
+expected a comma-separated list of language names, found an empty value.
 expected newline
 expected webvtt-cuetime-separator `-->'
 expected webvtt-timestamp
@@ -4735,6 +4840,7 @@ fclose
 fcntl
 fdopen
 fflush
+fi_FI
 file://
 file://{images}/browser/browser_mousepan.png
 file://{resources}/layout/carousel_nav.xml
@@ -4762,6 +4868,7 @@ fill-parent-flow
 fill-parent-flow( %s )
 filter
 filterinfo
+finnish
 firebrick
 fit-children
 five
@@ -4797,12 +4904,14 @@ forwards
 four
 fputc
 fputs
+fr_FR
 framecount
 frameheight
 frametime
 framewidth
 fread
 free
+french
 from
 fseeko64
 ftello64
@@ -4823,6 +4932,7 @@ gamepad
 gaussian
 gaussian( 
 generic
+german
 getc
 getentropy
 getenv
@@ -5055,6 +5165,7 @@ graph
 grave-accent
 gray
 greater-than-sign
+greek
 green
 greenyellow
 grey
@@ -5136,13 +5247,16 @@ htmlescapednewlines
 http
 http://
 https://
+hu_HU
 hue
 hue-rotation
+hungarian
 hyphen
 i < length_
 iconv
 iconv_close
 iconv_open
+id_ID
 ignore-parent-flow
 ignoredisabledchildren
 img
@@ -5154,6 +5268,7 @@ include-scale2d
 increment
 indianred
 indigo
+indonesian
 inf
 infinite
 infinity
@@ -5234,12 +5349,16 @@ ios_base::_M_grow_words is not valid
 iostream
 iostream error
 is_large()
+it_IT
+italian
 italic
 item_index
 itemheight
 itemstoscroll
 itemwidth
 ivory
+ja_JP
+japanese
 java Class for 
 java resource 
 javascript:
@@ -5251,7 +5370,11 @@ justify-letter-spacing
 key
 keyboard
 khaki
+ko_KR
+koreana
 lang
+languages
+languagesrc-
 lastactivate
 latam
 lavender
@@ -5273,7 +5396,6 @@ len >= input_len
 length_ >= n
 less-than-sign
 letter-spacing
-liJ
 libc.so.6
 libpanoramauiclient.so
 libpthread.so.0
@@ -5454,8 +5576,10 @@ new[](unsigned long, std::nothrow_t const&) (demangled)
 new[](unsigned long, void*) (demangled)
 newline
 nine
+nl_NL
 no-drop
 no-repeat
+no_NO
 noclip
 noexcept
 non-transaction clone for 
@@ -5464,6 +5588,7 @@ none
 none 
 nonzero
 normal
+norwegian
 not set
 not-allowed
 notches
@@ -5830,10 +5955,9 @@ perspective
 perspective-origin
 peru
 phonenumber
-piJ
 picked_item_transition_time
 pink
-pkJ
+pl_PL
 placeholder
 playback_speed
 playback_volume
@@ -5843,6 +5967,7 @@ plus-sign
 png
 point
 pointer
+polish
 poll
 popuplinks
 portuguese
@@ -5857,6 +5982,7 @@ progress
 proto
 proto2
 proto3
+pt_BR
 pthread_cond_broadcast
 pthread_cond_wait
 pthread_mutex_lock
@@ -5913,6 +6039,8 @@ right-curly-bracket
 right-parenthesis
 right-square-bracket
 right-wrap
+ro_RO
+romanian
 rosybrown
 rotate3d
 rotate3d( 
@@ -5922,7 +6050,9 @@ rotatez
 round
 row-resize
 royalblue
+ru_RU
 ruby
+russian
 s-resize
 saddlebrown
 salmon
@@ -8029,6 +8159,7 @@ strtoull
 style
 stylefile
 subtype mismatch
+sv_SE
 svg
 svgfill
 svgfillopacity
@@ -8040,6 +8171,7 @@ svgstrokelinejoin
 svgstrokeopacity
 svgstrokewidth
 sw-resize
+swedish
 syntax = "$0";\n\n
 syscall
 system
@@ -8078,6 +8210,8 @@ textureheight
 texturewidth
 texturewidth and textureheight can be used to override the size of vector graphics. Default value of -1 indicates texture width/height to be determined from source file
 tga
+th_TH
+thai
 the actual field type (for enums T should be the generated enum 
 the global scope
 thin
@@ -8100,6 +8234,7 @@ tooltip-target-y
 top
 topleft
 total_items
+tr_TR
 transaction clone for 
 transform
 transform-origin
@@ -8117,6 +8252,7 @@ translatey
 translatez
 transparent
 true
+turkish
 turquoise
 two
 txting_cursor_end
@@ -8709,6 +8845,8 @@ uint64
 uint64_t google::protobuf::UnknownField::fixed64() const
 uint64_t google::protobuf::UnknownField::varint() const
 uint8
+uk_UA
+ukrainian
 ull
 unable to register all schema data: %s\n
 underline
@@ -9061,6 +9199,8 @@ vertical-tab
 vertical-text
 verticalalign
 very long tag-comment
+vi_VN
+vietnamese
 violet
 virtual thunk to 
 visibility
@@ -10679,6 +10819,8 @@ yes
 z-index
 z-offset
 zero
+zh_CN
+zh_TW
 zoom-in
 zoom-out
 zoomwithuiscale

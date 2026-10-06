@@ -1398,6 +1398,7 @@ Cast of %s loses value information (returning %s)\n
 Cbasic_ios::clear
 ChangeAccessorFieldPathIndex_t
 CharacterSetBuild
+Check declared engine message size limit, and either warn or reject.  Note that this is ignored in -tools mode.  0=ignore, 1=warn/log, 2=warn/assert, 3=reject
 Checking for missing CNetworkVar* declarations\n
 Class data is a '%s', not a table\n
 Class,Field,Field Path,Decode Count,Total Bits,Avg Bits,Total Index Bits,Avg Index Bits,Priority,=SUM(E:E),Full Name,Notes\n
@@ -1466,6 +1467,8 @@ Don't bother compressing packets below this size.
 Don't lookup extension types if they aren't present (1). 
 Don't lookup extension types if they aren't present (2). 
 Double-save to Member '%s'
+Drop a client if processing their messages consumes more than N ms of CPU time in a burst (token bucket capacity)
+Drop a client if processing their messages consumes more than N ms of CPU time per second, sustained (token bucket fill rate)
 Dump UDP packets summary to console
 Dump non-loopback udp only
 EET
@@ -1744,8 +1747,6 @@ IST
 ISerializedEntities (demangled)
 ISerializedEntityErrorSpewHook (demangled)
 IVConCommDataReceived (demangled)
-If processing messages from a client takes more than N ms, drop them
-If processing messages from a client takes more than N ms, warn
 If set, only net_showmsg spew for data inbound on this socket name e.g. client, server, etc.
 Ignoring extension "
 Illegal jstype for int64, uint64, sint64, fixed64 or sfixed64 field: 
@@ -1938,6 +1939,8 @@ Message does not support reflection (type
 Message is too deep, the parser exceeded the configured recursion limit of 
 Message missing required fields: 
 Message of type "
+Message of type (%s) %d size %d exceeded maximum message size %d; allowing as per %s=%d\n
+Message of type (%s) %d size %d exceeded maximum message size %d; rejecting.\n
 Message type "
 MessageLite at 0x
 MessageOptions
@@ -1985,7 +1988,7 @@ Need space between identifier and decimal point.
 Need space between number and identifier.
 Net graph %s\n
 Net status for host %s:\n
-NetChan %s ProcessMessages has taken more than %dms to process %d messages.  (Current message type: '%s')\n
+NetChan %s ProcessMessages has exhausted its CPU time warning budget.  %dms to process %d messages this call.  (Current message type: '%s')\n
 NetChanTransmitReliable
 NetChanTransmitUnreliable
 NetChannel '%s':\n
@@ -2168,6 +2171,7 @@ PostProcessingSystem_001
 Print current ping times to SDR points of presence, and selected route
 Print current simulated network condifions
 Print detailed network statistics for each network connection
+ProcessMessages
 ProcessOverride encountered unknown directive NetworkOverrideType_t(%d)\n
 Processing
 PropertyEditorSystem_001
@@ -2580,7 +2584,6 @@ Total
 Tried to merge messages of different types 
 Tried to register a non-generated type with the generated type registry.
 True
-TuJ
 Tue
 Tuesday
 Type appears to be in generated pool but wasn't 
@@ -2755,6 +2758,8 @@ VectorWS
 VisBuilder_001
 Vrad3_001
 WARNING
+Warn if processing messages from a client consumes more than N ms of CPU time in a burst (token bucket capacity)
+Warn if processing messages from a client consumes more than N ms of CPU time per second, sustained (token bucket fill rate)
 Warning
 Warning parsing text-format 
 Wed
@@ -2762,14 +2767,15 @@ Wednesday
 WorldRendererMgr001
 WriteFields
 WriteToBuffer Message %s is not initialized! Probably missing required fields!\n
-XPH
-XZH
-XdH
-XnH
-XsH
-XxH
+XTH
+XYH
+XcH
+XhH
+XmH
+XrH
+XwH
 [ Net Message Info: %s ]\n
-[%s] DISCONNECTING. ProcessMessages has taken more than %dms to process %d messages.  (Current message type: '%s')\n
+[%s] DISCONNECTING. ProcessMessages has exhausted its CPU time budget.  %dms to process %d messages this call.  (Current message type: '%s')\n
 [%s] Queued message count %d exceeds limit of %s=%d.  Allowing due to engine_frametime_warnings_enable=false\n
 [%s] high frame misdelivery %.1f%%, %d/%d of %d frames dropped/reordered, %.0fms ping, %.0fms peak jitter\n
 [%s] misdelivery %.1f%%, %d/%d of %d frames dropped/reordered, %.0fms ping\n
@@ -4530,7 +4536,6 @@ hidden alias for
 high
 highest
 hostip
-hqI
 huge
 hyphen
 i < length_
@@ -4719,7 +4724,6 @@ marked by user group
 matrix3x4_t
 matrix3x4a_t
 max
-max_size
 mbrtowc
 mbsnrtowcs
 mbsrtowcs
@@ -4764,6 +4768,7 @@ net_log_processing
 net_max_message_process_count
 net_max_message_queue_size
 net_max_polymorphic_spew
+net_message_size_enforce
 net_messageinfo
 net_messageinfo "%s"
 net_option
@@ -4810,7 +4815,6 @@ netadr_t::ToSockadr(sockaddr*) const (demangled)
 netadr_t::ToString(bool) const (demangled)
 netadr_t::ToString(char*, unsigned int, bool) const (demangled)
 netchan.cpp
-netmessage
 netmessages.proto
 network_connection.proto
 networkbasetypes.proto
@@ -4862,7 +4866,6 @@ open
 operator
 operator 
 operator"" 
-operator()
 option json_name is not allowed on extension fields.
 optional
 org(%g,%g,%g) ang(%g,%g,%g)
@@ -4871,7 +4874,6 @@ outgoing_data_bytespersecond
 outgoing_sequence
 outgoing_sequence_start
 output specified is nullptr
-pAH
 package $0;\n\n
 packet_status
 parallel
@@ -4986,9 +4988,7 @@ single permutation
 sint32
 sint64
 six
-size
 size too big: 
-size_exceeded_max
 sizeof 
 sizeof...
 skip
@@ -7059,8 +7059,10 @@ strtoull
 struct %s, fields: %s\n
 subtype mismatch
 sv_listen_directudp
-sv_net_client_message_process_time_ms_drop
-sv_net_client_message_process_time_ms_warn
+sv_net_client_message_process_time_ms_drop_burst
+sv_net_client_message_process_time_ms_drop_rate
+sv_net_client_message_process_time_ms_warn_burst
+sv_net_client_message_process_time_ms_warn_rate
 symbols
 syntax = "$0";\n\n
 syscall
@@ -9493,15 +9495,12 @@ write
 writev
 writing (in %s)
 wrong submessage type
-xNH
-xSH
-xXH
-xbH
+xRH
+xWH
 xdigit
-xgH
-xlH
-xqH
-xvH
+xfH
+xpH
+xzH
 yes
 zero
 {default arg#

@@ -3402,11 +3402,11 @@ $tH@T\tI
 :\n6GAME_PARTICLE_MANAGER_EVENT_SET_CONTROL_POINT_SNAPSHOT
 :\ng_nConfigMaxCoord
 :\tV_asinf
+:ambient_generic
 :cwd|
 :eaI
 :gN(dq
 :mIR
-:m_vecRenderAttributes
 :parsed on tick %d of %d got %d new commands through command number %d [%s]\n
 ;!;#;-;9;E;S;Y;_;q;{;
 ;5jNf
@@ -3544,6 +3544,7 @@ $tH@T\tI
 ?ACT_IDLE
 ?CEntityIOOutput
 ?ExternalAnimGraphHandle_t
+?GameEvent_RegisterHookupGameSystem
 ?HAI\t81\t9dcG'
 ?NmFrameSnapEventMode_t
 ?No data
@@ -3557,12 +3558,12 @@ $tH@T\tI
 ?\tV_atof
 ?dt]X
 ?expf
-?fSpinUpTime
 ?fff?
 ?ffffff
 ?gwL
 ?jOb
 ?m_Stops
+?movement_stats_debug_draw
 ?qBJ
 ?rAj
 ?tya
@@ -3576,7 +3577,7 @@ $tH@T\tI
 @Aff
 @BH]f
 @BoneSetup
-@CSceneEntity_API::ScriptPlayerDeath
+@CSceneEntity_API
 @HPX
 @HPX&I
 @HPX`hv
@@ -3593,7 +3594,7 @@ $tH@T\tI
 @\tV_atofloat32
 @^8U)zj
 @dKb]
-@de_mirage
+@de_dust2
 @fTZk
 @fff>fff>fff>fff>
 @nTZk
@@ -4370,6 +4371,7 @@ AssetSystem001
 AssetSystemTest001
 AssignRangeMultipler with bitcount=32!\n
 Associated Player Pawn
+Asv_force_team_intro_variant
 Async Call Method (Child Cursor) C%d:I%d
 Async Outflow (Child Cursor) C%d:I%d
 Async%llu
@@ -4527,6 +4529,7 @@ BC_EMPTY
 BC_PARTICLE_SYSTEM_OVERRIDE
 BC_PROP_GROUP_OVERRIDE
 BDP
+BDelay player slowdown when damaged by # ticks to reduce misprediction effects
 BEAM_ENTPOINT
 BEAM_ENTS
 BEAM_INVALID
@@ -4660,7 +4663,6 @@ BRUSHSOLID_ALWAYS
 BRUSHSOLID_NEVER
 BRUSHSOLID_TOGGLE
 BRouteMsgToJob
-BScalar for first person view punch when getting hit.
 BT5f
 BTB
 BT_ACTION_MOVETO_FASTEST_ROUTE
@@ -9348,7 +9350,6 @@ CSceneEntity::GenerateSceneForSequence:  Couldn't determine duration of %s\n
 CSceneEntity::GenerateSceneForSequence:  Failed to allocated new scene!!!\n
 CSceneEntity::GenerateSceneForSound: Couldn't determine duration of %s\n
 CSceneEntityAlias_logic_choreographed_scene
-CSceneEntity_API
 CSceneEntity_API::Cancel
 CSceneEntity_API::CancelAtNextInterrupt
 CSceneEntity_API::InterjectResponse
@@ -9356,6 +9357,7 @@ CSceneEntity_API::Pause
 CSceneEntity_API::PauseAtNextInterrupt
 CSceneEntity_API::PitchShift
 CSceneEntity_API::Resume
+CSceneEntity_API::ScriptPlayerDeath
 CSceneEntity_API::SetTarget1
 CSceneEntity_API::SetTarget2
 CSceneEntity_API::Start
@@ -10247,7 +10249,6 @@ CWorkThreadPool::~CWorkThreadPool: work complete queue not empty, %d items disca
 CWorkThreadPool::~CWorkThreadPool: work processing queue not empty: %d items discarded.\n
 CWorld
 CWorldCompositionChunkReferenceElement_t
-CWu
 C\lVQ
 C\n\votherentity
 C\tD\vD
@@ -11246,7 +11247,6 @@ DROPPED
 DROWN
 DROWNRECOVER
 DRX
-DRo
 DSA
 DSA PARAMETERS
 DSA PRIVATE KEY
@@ -11313,7 +11313,6 @@ DTLSv0.9
 DTLSv1
 DTLSv1 part of OpenSSL 1.0.2j  26 Sep 2016
 DTLSv1.2
-DTq
 DUCK
 DUCKING 
 DURING_OUTRO
@@ -11490,7 +11489,6 @@ Delay
 Delay between end of warmup and start of match.
 Delay between player disconnecting and their corpse getting cleaned up.
 Delay or Skip Amount
-Delay player slowdown when damaged by # ticks to reduce misprediction effects
 Delayed Stop
 Delayed Stop Moving
 DelayedStart
@@ -13844,7 +13842,6 @@ GameBlackboard
 GameConfigServerV001
 GameDebugVisualizer
 GameEventSystemServerV001
-GameEvent_RegisterHookupGameSystem
 GameFrame
 GameHeader
 GameInit - PreCache - Finish
@@ -14522,6 +14519,7 @@ HBCNavPathCostForTests
 HBJ\nTRF
 HDR Color Scale: %0.3f
 HDRColorScale
+HDo
 HEAD
 HEAD 
 HEADSHOT
@@ -14530,7 +14528,6 @@ HEX
 HEf
 HH&a
 HH:mm:ss
-HHy
 HIERARCHY
 HIERARCHY_ABSORIGIN
 HIERARCHY_ATTACHMENT
@@ -14558,7 +14555,6 @@ HJf
 HLTV UserCmd Server Tick %d: cmd_num: %d, client_tick: %d\n
 HLTV streams will include player usercommands each tick
 HLTVDirector: Inserted game event %s at tick %d (%d total)\n
-HLy
 HMAC
 HMAC GOST 34.11-94
 HMAC routines
@@ -14604,6 +14600,7 @@ HULL_WIDE_HUMAN
 HUMAN_HULL
 HUMAN_PLAYERS
 HWyn
+HZo
 H\tV_cosd
 HalfTime
 Hammer ID: %s
@@ -14919,6 +14916,7 @@ IKV3TransferInterface_WorldGroupId_Load
 IKV3TransferInterface_WorldGroupId_Save
 IKV3TransferInterface_Worldspace_Load
 IKV3TransferInterface_Worldspace_Save
+ILo
 IMMEDIATE_HALT
 IMP
 IMPLICIT
@@ -15835,6 +15833,7 @@ LITERAL_FALSE
 LITERAL_TRUE
 LIVE
 LKf
+LNp
 LOAD
 LOADOUT_SLOT_C4
 LOADOUT_SLOT_CLOTHING_APPEARANCE
@@ -15932,7 +15931,6 @@ LOSER_BONUS_CONSECUTIVE_ROUNDS
 LOST DAMAGE:\t\t
 LOW
 LPk
-LRw
 LTE
 LTE_FLOAT
 LTE_GAMETIME
@@ -15948,7 +15946,6 @@ LV\`cc>JU\ac+7ER]c
 LWG>
 LWW>
 LWc
-LWu
 LXKQ
 L\n!NETWORK_DISCONNECT_HLTVRESTRICTED
 L\n!NETWORK_DISCONNECT_KICKED_SUICIDE
@@ -16023,7 +16020,6 @@ LessonPanelLayoutFileTypes_t
 Level
 Level: %s\n
 LevelInitWorld failed!\n
-Lew
 Lexer encountered %d error(s)
 LfP
 LifeState_t
@@ -16361,6 +16357,7 @@ MPulseSignatureForOutflow
 MPulseTypeRestriction
 MPulseValuePure
 MQX
+MQs
 MSG_SPLITSCREEN_ADDUSER
 MSG_SPLITSCREEN_REMOVEUSER
 MSaveBehavior
@@ -18250,6 +18247,7 @@ Ow!y
 OwningSlotOnlyRecipientsFilter
 P!bxo
 P%p
+P%u
 P(UH 
 P08NTZk
 P@HPX`hpx\f
@@ -18288,6 +18286,8 @@ PATTACH_ROOTBONE_FOLLOW
 PATTACH_WATERWAKE
 PATTACH_WORLDORIGIN
 PAa
+PAo
+PAw
 PBC
 PBE
 PBE-MD2-DES
@@ -18311,14 +18311,15 @@ PBKDF2PARAM
 PBMAC1
 PBN
 PBT
-PBr
-PBu
+PBt
 PBw
 PCF
 PCG
 PCP
 PCU
 PCg
+PCu
+PCw
 PDC
 PDT
 PEM lib
@@ -18352,22 +18353,25 @@ PEM_write_bio
 PET
 PEV
 PEd
-PEr
+PEv
 PEvent
 PFT_SOUND
 PFZ
 PFa
 PFk
+PFr
 PGDInstruction_t
 PGm
 PGr]
+PGv
 PGz
 PHAG2
 PHYSGUN
 PHYS_SAVE_RESTORE_VERSION
 PHc
 PHhn}Y
-PHu
+PHq
+PHt
 PIF
 PIID_IPHYSAGGREGATE
 PIID_IPHYSICSBODY
@@ -18381,7 +18385,8 @@ PIO
 PISTOL
 PInstruction_t<43>::Run
 PInstruction_t<44>::Run
-PIy
+PIp
+PIs
 PJC
 PJE
 PJH
@@ -18500,7 +18505,8 @@ PKEY_RSA_VERIFYRECOVER
 PKEY_SET_TYPE
 PKEY_USAGE_PERIOD
 PKi
-PKr
+PKq
+PKt
 PLACEHOLDER_VALUE
 PLANTED
 PLANTED_BOMB_BUT_DEFUSED
@@ -18516,15 +18522,15 @@ PLUG_TYPE_RELAY_PREFAB_LOCAL
 PLUG_TYPE_RELAY_PREFAB_OUTBOUND
 PLUG_TYPE_UNKNOWN
 PLk
-PLv
+PLu
 PM_NORMAL
 PM_NO_GIBS
 PMp
 PMr
+PMs
 PNG\r\n
 PNU
 PNf
-PNv
 POINT
 POINT_WORLD_TEXT_JUSTIFY_HORIZONTAL_CENTER
 POINT_WORLD_TEXT_JUSTIFY_HORIZONTAL_LEFT
@@ -18550,21 +18556,18 @@ POS_INTLITERAL
 POX
 POg
 POn
-POo
-POt
+POq
 PPC
 PPN
 PPNe
 PPa
-PPt
 PPu
-PPy
 PPz
 PPz\v=
 PQA
 PQh
-PQo
 PQt
+PQx
 PRB
 PRB+
 PRC
@@ -18588,7 +18591,9 @@ PROVIDER_WEAPON
 PROXY
 PROXY_CERT_INFO_EXTENSION
 PROXY_POLICY
-PRq
+PRs
+PRw
+PRx
 PSB
 PSC
 PSC\n
@@ -18603,14 +18608,15 @@ PST
 PSZ
 PSa
 PSe
-PSq
 PTA
 PTJ
 PTT
 PTX
 PTg
+PTo
 PTp
-PTs
+PTq
+PTr
 PUBLIC KEY
 PULSE ERROR
 PULSE_CALL_ASYNC_FIRE
@@ -18621,7 +18627,6 @@ PUNCHING
 PUT 
 PUX\`cIPTY_cBJNS\c8=DLWc*38>Mc
 PUg
-PUp
 PVAL_ANIM_SEQUENCE
 PVAL_ANY
 PVAL_ARRAY
@@ -18664,14 +18669,17 @@ PVSManagerGameSystem
 PVSModifier
 PVY]acJOTY`cCGLT]c9<AJVc+-19Ic
 PVs
+PVw
 PWc
 PWe
 PWg
-PWq
-PWv
+PWo
+PWs
+PWt
+PWw
+PWx
 PXU
 PX`hpx
-PXo
 PXu
 PYY
 PYz
@@ -18767,6 +18775,7 @@ PathfindGeneric - start elem id %d, start pos %s(%0.3f, %0.3f, %0.3f), goal elem
 PathfindGeneric: different results when specifying null vs non-null arguments.\n
 Pathfind_NavAreaBuildPath
 Pathfinding
+Pau
 Pause
 Pause After Firing
 Pause At Next Interrupt
@@ -18786,13 +18795,15 @@ PbT
 Pba
 Pbz
 PcS
+Pco
 PdO
 PdT
 PdW
 PdY
 Pdd
-Pdo
-Pdx
+Pdq
+Pdt
+Pdv
 PeF
 PeT
 Pea
@@ -18800,7 +18811,6 @@ Pee
 PeekNamedPipe
 Peer haven't sent GOST certificate, required for selected ciphersuite
 Pei
-Pep
 PerVertexLighting
 Percent of points additionally awarded when someone gets a kill with the bonus weapon during the bonus period.
 PercentageOnly
@@ -18815,15 +18825,17 @@ Permanent Identifier
 Permanently removes the entity from the world.<br>Very similar to the 'Kill' input.<br>Keywords: remove kill erase delete eliminate
 Permit Responses
 Permitted
-Pet
 Pet definition %s: missing "name"
 Pet definition %s: name must be a positive integer
+Pev
 PfF
-Pfp
-Pfx
+Pfq
+Pft
+Pgs
 Pgu
 PhH
-Phy
+Php
+Phs
 Phys.GlassBreakLg
 Phys.GlassBreakMd
 Phys.GlassBreakSm
@@ -18874,7 +18886,7 @@ Picks
 PickupHostage
 Pin or Unpin the overlay to the Entity's location
 PinnedDown
-Piq
+Pir
 Pistol
 Pitch
 Pitch Shift
@@ -18882,10 +18894,13 @@ Pivot
 PivotPaint
 PjF
 Pjj
-Pjo
+Pjp
+Pjq
+Pjs
 PkC
 PkS
 PkU
+Pko
 Pkq
 PlD
 PlM
@@ -19065,17 +19080,16 @@ Ple
 Please move your current gameinfo.gi agent settings to a %s file and create a %s file with a 'default' entry containing all the nav nulls. Then add "NavHullsPreset" "default" to your gameinfo.gi file. For now we'll continue to load the agent settings but this path is deprecated ( antonioc@ ).
 Please specify 0 or 1 with the -stream Parameter\n
 Please wait for broadcast to start ...
-Plt
+Plx
 Pm8A?
 PmE
 PmF
 Pmc
-Pmo
+Pmp
+Pmr
 PnF
 PnP
 PnTZk
-Pnr
-Pns
 PoI
 Poh
 Point
@@ -19102,7 +19116,6 @@ Polynomial:
 PopDebugOverlayScope
 PopPostureContext() underflow error!\n
 Pops the identifier used to group overlays. Overlays marked with this identifier can be deleted in a big batch.
-Por
 Port
 Pose
 Pose Evaluation Report:\n
@@ -19118,21 +19131,21 @@ PostSpawnDirectionVariance
 PostSpawnInheritAngles
 PostSpawnSpeed
 PostThink
-Pot
 Pottery.Huge
 Pottery.Large
 Pottery.Medium
 Pottery.Small
 Pov
 Pow
-Pox
-Poy
 PpA
 PpW
 PpZ
-Ppu
-Ppw
+Ppy
 PqX
+Pqo
+Pqq
+Pqt
+Pqy
 Pr"V
 PrB
 PreGraphUpdate
@@ -19264,18 +19277,17 @@ Protocol Buffer map usage error:\n
 Protocol Buffer reflection usage error:\n  Method      : google::protobuf::Reflection::
 Proxy Certificate Information
 Prp
-Prx
+Prq
 PsS
 PsZ
 Psb
 Psg
-Pso
 Psp
-Pss
-Pst
+Psr
 PtVk
 Ptp
-Ptx
+Ptr
+Pts
 Public Key
 Public-Key
 Public-Key: (%d bit)\n
@@ -19360,25 +19372,29 @@ Put all physics in all the worlds to sleep
 PutClientInServer: no info_player_logo on level\n
 PutClientInServer: no info_player_start on level\n
 Puw
+Pux
 PvP
 Pvg
-Pvq
-Pvs
 PwL
+Pwt
 Px6k
 PxA
 PxF
 PxZ
 Pxn
 Pxs
+Pxu
 PyA
 PyK
 Pyn
+Pys
+Pyu
 PzH
 Pzd
 Pzk
 Pzn
-Pzy
+Pzt
+Pzv
 P|iC\r
 Q*hd
 Q/xtJ2
@@ -20550,7 +20566,7 @@ STATE_WELCOME
 STATIC_LEVEL
 STEAMHTTP_INTERFACE_VERSION003
 STEAMREMOTESTORAGE_INTERFACE_VERSION016
-STEAMUGC_INTERFACE_VERSION019
+STEAMUGC_INTERFACE_VERSION021
 STEAMUNIFIEDMESSAGES_INTERFACE_VERSION001
 STOMACH
 STOP
@@ -20652,7 +20668,6 @@ Safe To Auto-Switch To
 SafeTime: %3.2f
 Salt Length: 0x
 Sample
-Sas
 Sat
 Saturate
 Saturate (clamps float between 0 and 1)
@@ -20687,6 +20702,7 @@ Saving game to %s...\n
 Saving money for next round.\n
 Say
 Saz
+Scalar for first person view punch when getting hit.
 Scalar for player tagging modifier when hit. Lower values for greater tagging.
 Scale
 Scale INV R%d <- R%d / R%d
@@ -22510,6 +22526,8 @@ TVE
 TWO
 TYPE is the type of parameter (Bool, Float, Enum, etc).\nOPTIONAL, is the parameter optional.\nBOUND means the Animgraph contains the parameter.\nREFERENCED is whether the parameter is referenced(used) within the animgraph.\n
 TYPE=
+TZo
+TZt
 T\n%NETWORK_DISCONNECT_KICKED_TEAMHURTING
 T\n%NETWORK_DISCONNECT_KICKED_TEAMKILLING
 T\n%NETWORK_DISCONNECT_LOCALPROBLEM_OTHER
@@ -23465,6 +23483,7 @@ VDataChoice( scripts/nav_hulls.vdata )
 VDataChoice( scripts/nm_contact_audio_actions.vdata )
 VDataChoice( scripts/nm_contact_audio_types.vdata )
 VDataChoice()
+VDo
 VDy
 VEHICLE
 VERY EXPENSIVE: serialize non-delta-encoded commands along with delta-encoded for validation
@@ -23489,6 +23508,7 @@ VMS_UNLOAD
 VMaterialSystem2_001
 VMediaFoundation001
 VModEnable
+VMr
 VNOTIFY_DISABLE
 VNotify
 VNotify Abandoned (ActiveProtocolIsNewer)\n
@@ -23564,6 +23584,7 @@ VScriptDbg
 VScriptManager010
 VScriptScripts
 VStringTokenSystem001
+VVo
 VWebm001
 VY5[;o
 VYPA_DEFEAT
@@ -23759,8 +23780,8 @@ Vote.Failed
 Voting %s.\n
 Vp>u
 Vrad3_001
-Vrr
 Vulkan
+Vux
 Vuy
 Vvp
 Vxs
@@ -24461,7 +24482,7 @@ XSK
 XUID
 XVR
 XWX
-XWz
+XWw
 XY warp curve blowout detected! Falling back to LERP!
 XYD%
 X\n'NETWORK_DISCONNECT_BADSPECTATORPASSWORD
@@ -26562,7 +26583,6 @@ always
 always tradable
 always_known
 always_perform_full_spatial_partition_update
-ambient_generic
 ammo
 ammo_338mag_headshot_mult
 ammo_338mag_impulse
@@ -35154,7 +35174,6 @@ de_debris
 de_depot
 de_dogtown
 de_dust
-de_dust2
 de_edin
 de_eldorado
 de_elysion
@@ -35182,6 +35201,7 @@ de_marquis
 de_memento
 de_mikla
 de_mills
+de_mirage
 de_mirage_scrimmagemap
 de_mist
 de_mocha
@@ -36627,11 +36647,13 @@ fNR
 fOT
 fP;y
 fPitch
+fPu
 fRZ
 fRoll
 fRx
 fSZ
 fSpinDownTime
+fSpinUpTime
 fSt
 fTS
 fTZk
@@ -36642,7 +36664,7 @@ fXD
 fYF
 fYaw
 fZj
-fZu
+fZq
 f\trixZ
 f_current_lean
 f_current_speed
@@ -36744,7 +36766,6 @@ ff_damage_reduction_grenade_self
 ff_damage_reduction_other
 fff?\n
 fft
-fgy
 field
 field missing
 field too large
@@ -37615,7 +37636,6 @@ hCaller
 hCamera
 hCh
 hChild
-hCx
 hDA
 hEM&!
 hEnt
@@ -38958,7 +38978,6 @@ jurisdictionST
 jurisdictionStateOrProvinceName
 justify_horizontal
 justify_vertical
-jxu
 k%bf
 k'h\rD
 k+Aq
@@ -45532,6 +45551,7 @@ m_vecPreviousTestPoint
 m_vecPushDirEntitySpace
 m_vecQueuedRemovals
 m_vecRelationships
+m_vecRenderAttributes
 m_vecReportedPosition
 m_vecSecondarySkeletonSlotIDs
 m_vecSecondarySkeletons
@@ -45859,7 +45879,6 @@ md_length_size <= MAX_HASH_BIT_COUNT_BYTES
 md_size <= EVP_MAX_MD_SIZE
 mdc2
 mdc2WithRSA
-mdw
 measuretarget
 medals
 medianFilterWalkableArea: Out of memory 'areas' (%d).
@@ -46155,7 +46174,6 @@ movement
 movement keys
 movement_id
 movement_setting_id
-movement_stats_debug_draw
 movement_stats_force_calculate
 movement_type
 movementsound
@@ -47633,6 +47651,7 @@ p@0pqE5tsO?|1
 p@HPX`h\f
 pActivator
 pAnimgraphEntity
+pAo
 pAttachment
 pAttachmentName
 pAttachmentName1
@@ -47642,19 +47661,19 @@ pAttributeKey
 pAttributeName
 pAttributeValue
 pAv
-pAx
+pAw
 pBH
-pBo
 pBodyGroupName
 pBuffer != nullptr
-pBv
-pBx
 pCachedPoseBuffer->m_ID.IsValid()
 pCheckpointName
 pClassName
+pCo
 pCommand
 pConfigEntityName
 pConfigName
+pCp
+pCw
 pD4t
 pDO
 pData->GetDataDescMap() == pTemplateDataMap
@@ -47667,30 +47686,37 @@ pEc
 pEg
 pEk
 pEntity
+pEr
 pEt
+pEv
 pFN
 pFg
 pFilter
 pFk
-pFu
+pFr
 pFx
 pG_*h
+pGs
+pGv
+pGy
 pHP
+pHp
+pHq
+pHr
 pHz
 pIe
 pIp 
-pIr
+pIq
 pIt
 pItem
-pIy
+pIu
+pIw
 pJD
 pJJ
 pJN
 pJa
 pJointName
-pJq
-pJr
-pJt
+pJy
 pKq
 pKx
 pLH
@@ -47702,8 +47728,8 @@ pMeshGroupName
 pMessage
 pModelName
 pMover
-pMs
 pMt
+pMu
 pName
 pNameOrWildcard
 pNamePatterrn
@@ -47711,15 +47737,14 @@ pNearestArea index[%d]
 pNewGround
 pNewParent
 pNu
-pNv
+pNw
 pO0h
 pOC
 pOY
 pOnEntity
-pOo
 pOptionalLocationEnt
+pOq
 pOtherEntity
-pOv
 pOwner
 pPO
 pPa
@@ -47728,13 +47753,13 @@ pParamValue
 pParameterName
 pPhysicsModel
 pPose != nullptr
+pPt
 pPu
 pQC
 pQo
-pQs
-pQx
+pQq
 pQz
-pRq
+pRt
 pSPo
 pSe
 pSearchFromEntity
@@ -47763,23 +47788,26 @@ pTj
 pU>\AL
 pUf
 pUpdateData->m_updateType == updateType
+pUy
 pVA
 pVT
 pValue
 pVg
 pVj
-pVu
 pWorldObject
-pWt
-pXo
+pWw
+pXp
+pXs
 pYA
 pYc
 pYo
+pYy
 pZA
 pZC
 pZZ
 pZc
-pZy
+pZp
+pZw
 pZz
 p\rP\f0!h
 pa end %f
@@ -48023,15 +48051,17 @@ pbeWithSHA1And40BitRC4
 pbeWithSHA1AndDES-CBC
 pbeWithSHA1AndRC2-CBC
 pbi
-pbp
-pby
+pbr
 pcD
 pcN
 pcPathLengthConstraint
 pci
+pco
 pdC
 pdO
 pdT
+pdq
+pdv
 peF
 peW
 peaktailend
@@ -48062,7 +48092,7 @@ penetrates_shatterglass
 penetration
 penetration_count
 pennant_item_id
-pep
+peq
 per-frame
 percentage of victim's contribution score to award to their killer as a bonus
 perf=%s %s %s %s
@@ -48084,12 +48114,9 @@ pet_gcmessages.proto
 pet_gcmessages.proto"&\n
 petindex
 petpopulation
-pex
 pfV
-pft
-pfw
-pgo
-pgw
+pgs
+pgx
 phH
 phX
 phase
@@ -48107,9 +48134,9 @@ photo
 php_class_prefix
 php_generic_services
 php_metadata_namespace
-phr
 phrase
 phrase is too short, needs to be at least %d chars\n
+phx
 phys
 phys_agg_world_compounds
 phys_ballsocket
@@ -48214,6 +48241,7 @@ pinStateChanged
 ping
 pings
 pips
+piq
 pistolk
 pistolkills
 pitch
@@ -48221,10 +48249,10 @@ pitchVel
 pitchfrac
 pitchrun
 pitchstart
-piw
 pjB
 pjk
-pjs
+pjo
+pjx
 pkF
 pkL'
 pkcs
@@ -48369,17 +48397,14 @@ playing_commentary
 playoverscript
 playresponse
 plk
-plq
-plt
-plx
 pmM
+pms
+pmw
 pmx
 pnM
 pnTZk
 pnZ
-pnr
-pns
-pny
+pno
 point
 point arithmetic failure
 point at infinity
@@ -48454,6 +48479,7 @@ pop
 popularity_seed
 population
 population_distribution_debug
+por
 port
 port_name
 port_restrict_to_literal
@@ -48492,16 +48518,18 @@ posz
 potential_issues
 pound
 pow
+poy
 pp == NULL || *pp != NULL
 pp&c
 ppBasis
 ppe
-ppr
-ppv
+ppp
+ppx
 pqG
 pqX
 pqg
 pqi
+pqo
 pqp
 pqualid
 prM
@@ -48584,7 +48612,6 @@ previouslevel
 prevtoherehow
 prf
 prf-gostr3411-94
-prg
 prh[
 price
 price_sheet_version
@@ -48734,7 +48761,7 @@ proxy path length constraint exceeded
 proxy subject name violation
 proxyCertInfo
 proxyPolicy
-prs
+pru
 ps(crh
 psC3
 psS
@@ -48744,10 +48771,7 @@ psid
 psk identity not found
 psk no client cb
 psk no server cb
-psr
 pss
-pst
-psu
 pszBoneOrAttachName
 pszClasses
 pszContextName
@@ -48760,8 +48784,9 @@ pszOrgValue
 pszTagName
 ptD
 pte
-ptu
-ptx
+ptr
+pts
+ptt
 puH
 pub: 
 pub_key
@@ -49149,15 +49174,14 @@ pulse_vcd_%u
 punchangle
 punct
 puntsound
-puq
+puo
 purchases
 purecall
+pus
 pushdir
 pushscale
-put
 pvk data too short
 pvk too short
-pvq
 pvs_debugentity
 pvs_flowtype
 pvs_modify_entity
@@ -49165,7 +49189,6 @@ pvsplayer
 pwQ
 pwU
 pwj
-pww
 px6k
 pxC
 pxD
@@ -49176,6 +49199,8 @@ pxn
 pyH
 py_generic_services
 pyn
+pyr
+pys
 pyt
 pzKD)
 pzk
@@ -52069,12 +52094,12 @@ t=%8.2f id=%d n='%-16s' c=%d starve=%d maxstarve=%d maxbloat=%d avgq=%.2f %s
 t=%8.2f name=%-16s %s
 tA`KO/3G!\n7h=
 tBo
-tCx
 tGTS
 tIq
 tLY^m`6
 tLl 
 tLsq
+tMr
 tNt5
 tTH
 tTx
@@ -52753,6 +52778,7 @@ ttp
 turn on, off, or toggle origin changes on server for entity by index
 turn_angle
 turn_to_ash
+tux
 tv_advertise_watchable
 tv_allow_autorecording_index
 tv_allow_camera_man
@@ -53186,7 +53212,6 @@ v8system
 vAj}
 vAr>
 vAu&
-vBx
 vCF
 vCenter
 vDefault
@@ -53443,11 +53468,11 @@ vphysics2
 vpk:
 vprof_scope_entity_thinks
 vprof_think_limit
-vpv
 vqw0\nU
 vrs
 vscripts
 vsncheck_account_id_sessions
+vtr
 vv == NULL
 vyT
 vyt
@@ -53883,7 +53908,6 @@ xAttachOffset
 xDD
 xFKF
 xJS
-xJq
 xNU
 xOu\vsF
 xPA
@@ -53974,7 +53998,6 @@ zAS
 zAq
 zBe
 zCU
-zCsv_force_team_intro_variant
 zET
 zF):O4
 zFar
@@ -54003,7 +54026,6 @@ zoom_in_sound
 zoom_out_sound
 zqd
 zsD
-zsu
 ztp
 zuQ
 zvu
