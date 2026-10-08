@@ -199,6 +199,7 @@
  <b>@import</b> 
  = { <proto text format> }". To set fields within it, use syntax like "
  ACTIVE GROUP
+ AXr
  Base Class Array'
  Base Class Descriptor at (
  C>TQ
@@ -467,7 +468,6 @@
 "; boundary="----%s"%s%s
 "<\n CNETMsg_SpawnGroup_LoadCompleted
 "<\n+CMsgGCCStrike15_v2_ClientToGCRequestElevate
-"A\n'CMsgGCItemPreviewItemBoughtNotification
 "B\n,CMsgGCCStrike15_v2_GetEventFavorites_Request
 "CDmeInputTexture"
 "DynamicImages"\n
@@ -824,8 +824,6 @@
 #DecoratedPlayerName_ClanTag:f
 #DecoratedPlayerName_ControllerName:f
 #DecoratedPlayerName_Puppeteer:f
-#DeliverGift
-#ECON_COLLECTION_REWARD
 #Econ_Additional_Crate_Drop
 #Econ_Color
 #Econ_Crate_Locks_Remaining
@@ -2028,7 +2026,6 @@
 #Time_TeamSwitchIn
 #Time_Warmup
 #Time__MapShutdownIn
-#ToolAction_WeddingRing_AcceptReject
 #ToolType
 #ToolType_%s
 #Type_
@@ -2057,7 +2054,6 @@
 #UI_Unknown
 #UI_Yes
 #UniqueString:Generate a string guaranteed to be unique across the life of the script VM, with an optional root string. Useful for adding data to tables when not sure what keys are already in use in that table.
-#UnwrapGift
 #Valve_Reject_Background_Map
 #Valve_Reject_Hidden_Game
 #Valve_Reject_Single_Player
@@ -2413,7 +2409,6 @@ $taser_charge
 %Deletes a file from the user's cloud.
 %E4
 %E5u(
-%Ej
 %Gdnv
 %Gw
 %Refresh the voting queue for the user
@@ -2425,8 +2420,7 @@ $taser_charge
 %\n k_EGCMsgAccountPhoneNumberChange
 %\n k_EGCMsgAppCheersGetAllowedTypes
 %\n k_EGCMsgGCAccountVacStatusChange
-%\n k_EMsgGCDeliverGiftResponseGiver
-%\n k_EMsgGCRemoveMakersMarkResponse
+%\n k_EMsgGCLookupAccount_DEPRECATED
 %\n k_EMsgGCReplay_UploadedToYouTube
 %\n k_EMsgGCRequestPassportItemGrant
 %\n k_EMsgGCStoreGetUserDataResponse
@@ -2438,7 +2432,6 @@ $taser_charge
 %\n!k_ECommunityItemClass_BoosterPack
 %\n!k_EGCMsgGetAccountDetailsResponse
 %\n!k_ESOMsg_CacheSubscriptionRefresh
-%\n\nEGCItemMsg
 %\n\nbuttons_pb
 %\n\tword_type
 %a, %e %b %Y %H:%M:%S
@@ -2526,8 +2519,6 @@ $taser_charge
 %lu: Row out of range, max %lu
 %lu: Sample out of range, max %lu
 %lu:%s:%s:%d:%s\n
-%ou
-%oz
 %p Load from %s\n
 %p Load from memory size %d\n
 %p OnFreeAudioMainThread\n
@@ -2936,6 +2927,7 @@ $taser_charge
 %ss
 %sstreams/%s
 %sstring_t differs (net %s pred %s)
+%su
 %suint16 differs (net %i pred %i) diff(%i)
 %suint32 differs (net %u pred %u) diff(%i)
 %suint32(bits) differs (net %u pred %u) diff(%d)
@@ -2948,6 +2940,7 @@ $taser_charge
 %to
 %u,%u,%c,%llu,%u
 %u:%02u:%02u
+%uv
 %x0
 %x5
 %xK
@@ -2973,9 +2966,6 @@ $taser_charge
 &\n!k_EMsgGCCStrike15_v2_DraftSummary
 &\n!k_EMsgGCCStrike15_v2_Party_Invite
 &\n!k_EMsgGCCStrike15_v2_Party_Search
-&\n!k_EMsgGCClientDisplayNotification
-&\n!k_EMsgGCItemPreviewStatusResponse
-&\n!k_EMsgGCLookupAccountNameResponse
 &\n!k_EMsgGCStorePurchaseInitResponse
 &\n!k_EMsgGCToGCBannedWordListUpdated
 &\n!k_EMsgGCToGCDirtyMultipleSDOCache
@@ -2985,7 +2975,6 @@ $taser_charge
 &\n"SPAWN_GROUP_IS_INITIAL_SPAWN_GROUP
 &\n"eQueryCvarValueStatus_CvarNotFound
 &\n"k_ECsgoSteamUserStat_XpEarnedGames
-&\n"k_UnlockStyle_Failed_CantLockCache
 &\n\ngc_msg_src
 &amp
 &lrm
@@ -3019,9 +3008,11 @@ $taser_charge
 '\n"k_EGCMsgMasterSetDirectoryResponse
 '\n"k_EMsgGCAddItemToSocket_DEPRECATED
 '\n"k_EMsgGCAddSocketToItem_DEPRECATED
+'\n"k_EMsgGCApplyEggEssence_DEPRECATED
 '\n"k_EMsgGCCStrike15_v2_PrivateQueues
 '\n"k_EMsgGCDev_NewItemRequestResponse
-'\n"k_EMsgGCItemPreviewRequestResponse
+'\n"k_EMsgGCRemoveItemPaint_DEPRECATED
+'\n"k_EMsgGCUnlockItemStyle_DEPRECATED
 '\n#GAME_PARTICLE_MANAGER_EVENT_ADD_FAN
 '\n#GAME_PARTICLE_MANAGER_EVENT_DESTROY
 '\n#GAME_PARTICLE_MANAGER_EVENT_LATENCY
@@ -3106,14 +3097,15 @@ $taser_charge
 (\n#CM_WorldUIControllerHasPanelChanged
 (\n#k_EGCMsgDirectServiceMethodResponse
 (\n#k_EMsgGCAcknowledgeRentalExpiration
+(\n#k_EMsgGCApplyStrangePart_DEPRECATED
 (\n#k_EMsgGCCStrike15_v2_BetaEnrollment
 (\n#k_EMsgGCCStrike15_v2_GotvSyncPacket
 (\n#k_EMsgGCCStrike15_v2_Party_Register
 (\n#k_EMsgGCCStrike15_v2_PlayersProfile
 (\n#k_EMsgGCCStrike15_v2_WatchInfoUsers
-(\n#k_EMsgGCDeliverGiftResponseReceiver
+(\n#k_EMsgGCPaintKitBaseItem_DEPRECATED
 (\n#k_EMsgGCRecurringSubscriptionStatus
-(\n#k_EMsgGCRemoveCustomTextureResponse
+(\n#k_EMsgGCRemoveMakersMark_DEPRECATED
 (\n#k_EMsgGCRemoveSocketItem_DEPRECATED
 (\n#k_EMsgGCStorePurchaseCancelResponse
 (\n#k_EMsgGCToGCBannedWordListBroadcast
@@ -3444,20 +3436,24 @@ $taser_charge
 )\n!penalty_account_id_sessions_green
 )\n$k_EMsgGCCStrike15_v2_ClientPollState
 )\n$k_EMsgGCCStrike15_v2_MatchmakingStop
-)\n$k_EMsgGCCustomizeItemTextureResponse
 )\n$k_EMsgGCDev_SchemaReservationRequest
 )\n$k_EMsgGCItemAcknowledged__DEPRECATED
+)\n$k_EMsgGCItemPreviewExpire_DEPRECATED
+)\n$k_EMsgGCLookupAccountName_DEPRECATED
+)\n$k_EMsgGCPaintItemResponse_DEPRECATED
 )\n$k_EMsgGCRequestAnnouncementsResponse
-)\n$k_EMsgGCServerBrowser_FavoriteServer
+)\n$k_EMsgGCServerRentalsBase_DEPRECATED
 )\n$k_EMsgGCStorePurchaseInit_DEPRECATED
+)\n$k_EMsgGCUnwrapGiftRequest_DEPRECATED
+)\n$k_EMsgGCUsedClaimCodeItem_DEPRECATED
 )\n$k_EMsgGC_IncrementKillCountAttribute
 )\n%GAME_PARTICLE_MANAGER_EVENT_SET_VDATA
 )\n%Source2PlayStats_LowCardinalityString
 )\n%k_EClientReportingVersion_BetaVersion
 )\n%k_ECommunityItemAttribute_IssueNumber
 )\n%k_ECommunityItemClass_ProfileModifier
-)\n%k_UnlockStyle_Failed_CantAffordAttrib
 )\n\nECsgoGCMsg
+)\n\nEGCItemMsg
 )binary_zstd
 )fuG
 )haI
@@ -3481,6 +3477,7 @@ $taser_charge
 *.txt
 *BaseEntity::CBodyComponent
 *BaseModelEntity::CBodyComponentBaseModelEntity
+*Difference in Z increases toward the middle of the slack ladder.\n
 *Gets the last-played times for the account
 *J\n\tQuestType
 *MOVE=>
@@ -3490,7 +3487,6 @@ $taser_charge
 *Y$ve
 *\fhsD
 *\n"host_computationtime_std_deviation
-*\n"notification_body_localization_key
 *\n%k_EGCMsgGetPartnerAccountLinkResponse
 *\n%k_EMsgGCCStrike15_v2_Client2GCTextMsg
 *\n%k_EMsgGCCStrike15_v2_ClientPerfReport
@@ -3499,10 +3495,9 @@ $taser_charge
 *\n%k_EMsgGCCStrike15_v2_Party_Unregister
 *\n%k_EMsgGCCStrike15_v2_SetEventFavorite
 *\n%k_EMsgGCItemCustomizationNotification
-*\n%k_EMsgGCItemPreviewExpireNotification
-*\n%k_EMsgGCServerBrowser_BlacklistServer
+*\n%k_EMsgGCItemPreviewRequest_DEPRECATED
 *\n%k_EMsgGCStorePurchaseFinalizeResponse
-*\n%k_EMsgGCStorePurchaseQueryTxnResponse
+*\n%k_EMsgGCUnwrapGiftResponse_DEPRECATED
 *\n%k_EMsgGC_RevolvingLootList_DEPRECATED
 *\n&GAME_PARTICLE_MANAGER_EVENT_CAN_FREEZE
 *\n&GAME_PARTICLE_MANAGER_EVENT_REMOVE_FAN
@@ -3522,7 +3517,6 @@ $taser_charge
 *lootlist
 *o\n\teRollType
 *paintkit
-*spawn client glass shards asynchronously during demos or when remotely connected.
 +'+1+3+=+?+K+O+U+i+m+o+{+
 +(#\v&dbF:xrJ'$#
 +(Optional) Filename for the published file.
@@ -3542,13 +3536,14 @@ $taser_charge
 +Sgs
 +Updates information about a published file.
 +\n#dota_spectator_watching_broadcaster
-+\n#notification_title_localization_key
 +\n&k_EGCMsgGetPurchaseTrustStatusResponse
 +\n&k_EGCMsgMasterSetWebAPIRoutingResponse
 +\n&k_EMsgGCAddSocketToBaseItem_DEPRECATED
++\n&k_EMsgGCApplyPennantUpgrade_DEPRECATED
 +\n&k_EMsgGCCStrike15_v2_ClientAuthKeyCode
 +\n&k_EMsgGCCStrike15_v2_SetMyActivityInfo
-+\n&k_EMsgGCRemoveUniqueCraftIndexResponse
++\n&k_EMsgGCMOTDRequestResponse_DEPRECATED
++\n&k_EMsgGCRemoveCustomTexture_DEPRECATED
 +\n'GAME_PARTICLE_MANAGER_EVENT_SHOULD_DRAW
 +\n'SPAWN_GROUP_CREATE_CLIENT_ONLY_ENTITIES
 +\n'k_ECommunityItemClass_ProfileBackground
@@ -3631,6 +3626,10 @@ $taser_charge
 ,\n'k_EMsgGCCStrike15_v2_ClientPartyWarning
 ,\n'k_EMsgGCCStrike15_v2_ClientReportPlayer
 ,\n'k_EMsgGCCStrike15_v2_ClientReportServer
+,\n'k_EMsgGCCustomizeItemTexture_DEPRECATED
+,\n'k_EMsgGCDev_PaintKitDropItem_DEPRECATED
+,\n'k_EMsgGCGiftWrapItemResponse_DEPRECATED
+,\n'k_EMsgGCPaintKitItemResponse_DEPRECATED
 ,\n(GAME_PARTICLE_MANAGER_EVENT_SKIP_TO_TIME
 ,\n(k_ECommunityItemAttribute_StorePackageID
 ,\n\nentity_idx
@@ -3686,6 +3685,9 @@ $taser_charge
 -\n(k_EMsgGCCStrike15_v2_ClientCommendPlayer
 -\n(k_EMsgGCCStrike15_v2_ClientNetworkConfig
 -\n(k_EMsgGCCStrike15_v2_ClientRequestOffers
+-\n(k_EMsgGCGoldenWrenchBroadcast_DEPRECATED
+-\n(k_EMsgGCLookupAccountResponse_DEPRECATED
+-\n(k_EMsgGCStorePurchaseQueryTxn_DEPRECATED
 -\n(k_EMsgGCUserTrackTimePlayedConsecutively
 -\n)GAME_PARTICLE_MANAGER_EVENT_DESTROY_NAMED
 -\n)GAME_PARTICLE_MANAGER_EVENT_UPDATE_OFFSET
@@ -4174,13 +4176,16 @@ $taser_charge
 .\n)k_EGCMsgGetGamePersonalDataEntriesRequest
 .\n)k_EGCMsgMasterSetClientMsgRoutingResponse
 .\n)k_EGCMsgRecurringSubscriptionStatusChange
+.\n)k_EMsgGCApplyConsumableEffects_DEPRECATED
 .\n)k_EMsgGCCStrike15_v2_ClientAccountBalance
 .\n)k_EMsgGCCStrike15_v2_ClientPartyJoinRelay
 .\n)k_EMsgGCCStrike15_v2_ClientReportResponse
 .\n)k_EMsgGCCStrike15_v2_GC2ClientGlobalStats
 .\n)k_EMsgGCCStrike15_v2_GlobalChat_Subscribe
 .\n)k_EMsgGCCStrike15_v2_PremierSeasonSummary
-.\n)k_EMsgGCItemPreviewItemBoughtNotification
+.\n)k_EMsgGCItemPreviewCheckStatus_DEPRECATED
+.\n)k_EMsgGCNameEggEssenceResponse_DEPRECATED
+.\n)k_EMsgGCRemoveUniqueCraftIndex_DEPRECATED
 .\n*GAME_PARTICLE_MANAGER_EVENT_UPDATE_FORWARD
 .\n\fentity_index
 .\n\ffirst_target
@@ -4296,7 +4301,7 @@ $taser_charge
 /'/)/A/E/K/M/Q/W/o/u/}/
 /2GG>!B
 /?appid=%u
-/Espec_autodirector_cameraman
+/Emp_warmuptime
 /Published file id of the file we'd like update.
 /RIv
 /Removes a friend or ignores a friend suggestion
@@ -4310,6 +4315,8 @@ $taser_charge
 /\n*k_EMsgGCCStrike15_v2_ClientRequestSouvenir
 /\n*k_EMsgGCCStrike15_v2_GC2ClientNotifyXPShop
 /\n*k_EMsgGCCStrike15_v2_VolatileShopSubscribe
+/\n*k_EMsgGCUnlockItemStyleResponse_DEPRECATED
+/\n*k_EMsgGCVerifyCacheSubscription_DEPRECATED
 /\n+GAME_PARTICLE_MANAGER_EVENT_UPDATE_FALLBACK
 /\n+k_ECommunityItemAttribute_CommunityItemType
 /\n\nfield_type
@@ -4348,7 +4355,7 @@ $taser_charge
 0 == bilinear upsampe, 1 == FSR upsample, 2 == FSR + RCAS upsample
 0 enemies
 0"$\n\rCSVCMsg_Print
-0%d
+0%X
 0%u
 0.CPlayer_UpdateSteamAnnouncementLastRead_Request
 000
@@ -4379,6 +4386,8 @@ $taser_charge
 0\n+k_EMsgGCCStrike15_v2_GlobalChat_Unsubscribe
 0\n+k_EMsgGCCStrike15_v2_MatchEndRunRewardDrops
 0\n+k_EMsgGCCStrike15_v2_RecurringMissionSchema
+0\n+k_EMsgGCDeliverGiftResponseGiver_DEPRECATED
+0\n+k_EMsgGCRemoveMakersMarkResponse_DEPRECATED
 0\n+k_EMsgGCRemoveSocketItemResponse_DEPRECATED
 0\n,GAME_PARTICLE_MANAGER_EVENT_FREEZE_INVOLVING
 0\n,GAME_PARTICLE_MANAGER_EVENT_UPDATE_TRANSFORM
@@ -4431,6 +4440,9 @@ $taser_charge
 1\n,k_EMsgGCCStrike15_v2_GiftsLeaderboardRequest
 1\n,k_EMsgGCCStrike15_v2_Server2GCClientValidate
 1\n,k_EMsgGCCStrike15_v2_VolatileItemClaimReward
+1\n,k_EMsgGCClientDisplayNotification_DEPRECATED
+1\n,k_EMsgGCItemPreviewStatusResponse_DEPRECATED
+1\n,k_EMsgGCLookupAccountNameResponse_DEPRECATED
 1\n,k_EMsgGCStorePurchaseInitResponse_DEPRECATED
 1\n-GAME_PARTICLE_MANAGER_EVENT_CREATE_SMOKE_GRID
 1\n-GAME_PARTICLE_MANAGER_EVENT_DESTROY_INVOLVING
@@ -4474,6 +4486,7 @@ $taser_charge
 2\n-k_EMsgGCCStrike15_v2_ClientToGCRequestElevate
 2\n-k_EMsgGCCStrike15_v2_FantasyRequestClientData
 2\n-k_EMsgGCCStrike15_v2_GiftsLeaderboardResponse
+2\n-k_EMsgGCItemPreviewRequestResponse_DEPRECATED
 2\n.GAME_PARTICLE_MANAGER_EVENT_CREATE_PHYSICS_SIM
 2\n.GAME_PARTICLE_MANAGER_EVENT_SET_CLUSTER_GROWTH
 2\n.GAME_PARTICLE_MANAGER_EVENT_SET_FOW_PROPERTIES
@@ -4513,6 +4526,8 @@ $taser_charge
 3\n.k_EMsgGCCStrike15_v2_MatchmakingGC2ClientHello
 3\n.k_EMsgGCCStrike15_v2_PlayerOverwatchCaseStatus
 3\n.k_EMsgGCCStrike15_v2_PlayerOverwatchCaseUpdate
+3\n.k_EMsgGCDeliverGiftResponseReceiver_DEPRECATED
+3\n.k_EMsgGCRemoveCustomTextureResponse_DEPRECATED
 3\n/GAME_PARTICLE_MANAGER_EVENT_DESTROY_PHYSICS_SIM
 3\n/k_ECommunityItemAttribute_ProfileModiferEnabled
 3\n\fper_map_rank
@@ -4534,6 +4549,8 @@ $taser_charge
 4\n/k_EMsgGCCStrike15_v2_GC2ServerReservationUpdate
 4\n/k_EMsgGCCStrike15_v2_GetEventFavorites_Response
 4\n/k_EMsgGCCStrike15_v2_MatchmakingGC2ClientUpdate
+4\n/k_EMsgGCCustomizeItemTextureResponse_DEPRECATED
+4\n/k_EMsgGCServerBrowser_FavoriteServer_DEPRECATED
 4\n0GAME_PARTICLE_MANAGER_EVENT_SET_OVERRIDE_TEXTURE
 4\n0GAME_PARTICLE_MANAGER_EVENT_SET_SHOULD_CHECK_FOW
 4\n\fperf_samples
@@ -4560,6 +4577,9 @@ $taser_charge
 5\n0k_EMsgGCCStrike15_v2_ClientRequestPlayersProfile
 5\n0k_EMsgGCCStrike15_v2_MatchmakingGC2ClientAbandon
 5\n0k_EMsgGCCStrike15_v2_MatchmakingGC2ClientReserve
+5\n0k_EMsgGCItemPreviewExpireNotification_DEPRECATED
+5\n0k_EMsgGCServerBrowser_BlacklistServer_DEPRECATED
+5\n0k_EMsgGCStorePurchaseQueryTxnResponse_DEPRECATED
 5\n1GAME_PARTICLE_MANAGER_EVENT_SET_MATERIAL_OVERRIDE
 5\n1GAME_PARTICLE_MANAGER_EVENT_SET_TEXTURE_ATTRIBUTE
 5\n\fplayer_masks
@@ -4573,7 +4593,6 @@ $taser_charge
 5hcr
 6#6165676;6M6O6S6Y6a6k6m6
 6#RDP#
-6%d
 6(Optional) Type of game the published file represents.
 6-zeZ
 64CK\vH
@@ -4593,6 +4612,7 @@ $taser_charge
 6\n1k_EMsgGCCStrike15_v2_MatchListRequestFullGameInfo
 6\n1k_EMsgGCCStrike15_v2_MatchmakingClient2ServerPing
 6\n1k_EMsgGCCStrike15_v2_SetPlayerLeaderboardSafeName
+6\n1k_EMsgGCRemoveUniqueCraftIndexResponse_DEPRECATED
 6\n2GAME_PARTICLE_MANAGER_EVENT_UPDATE_ENTITY_POSITION
 6\n\fmessage_type
 6\n\nvariations
@@ -4666,6 +4686,7 @@ $taser_charge
 9\n4k_EMsgGCCStrike15_v2_MatchListTournamentOperatorMgmt
 9\n4k_EMsgGCCStrike15_v2_MatchmakingGC2ClientSearchStats
 9\n4k_EMsgGCCStrike15_v2_RequestRecurringMissionSchedule
+9\n4k_EMsgGCItemPreviewItemBoughtNotification_DEPRECATED
 9\n\faccess_token
 9\n\noneof_decl
 9\n\vFantasySlot
@@ -4694,7 +4715,6 @@ $taser_charge
 :9\n\tkey_field
 :BAD OBJECT
 :Blowfish part of OpenSSL 1.0.2j  26 Sep 2016
-:CBodyComponentBaseAnimGraph
 :EXTERNAL TYPE %s\n
 :LBN
 :NAy
@@ -4716,9 +4736,9 @@ $taser_charge
 ;!;#;-;9;E;S;Y;_;q;{;
 ;5jNf
 ;83\v\nHBJ7
-;<}\v<}\v<}\v<}\vCEnvVolumetricFogController_API::SetToDefaults
-;Enable close captioning.
+;<}\v<}\v<}\v<}\vC_TonemapController2
 ;J;J;J;J;J;J;J;J;J;J;J;J;J;J;J;Jx
+;Subtitles and Captions
 ;\n\frecord_types
 ;\n\nPerMapRank
 ;\n\vrank_update
@@ -4882,11 +4902,11 @@ $taser_charge
 ?HAI\t81\t9dcG'
 ?IronSightQuarterRes2
 ?LatchVariables
-?Lists all entities
 ?MapItemPreviewPanel SetModel
 ?Movie
 ?NmFrameSnapEventMode_t
 ?ParseEXRHeaderFromMemory() failed! Error message: %s\n
+?Protobuf: %s(%d): %s\n
 ?Sep 21 2026
 ?The most recent last-played time the client already knows about"
 ?UUUUUU
@@ -4906,7 +4926,6 @@ $taser_charge
 ?qBJ
 ?rAj
 ?referer=csgo_client&steamID=%llu
-?snd_opvar_set_auto_room
 ?tya
 ?uWS
 ?ysB
@@ -4915,16 +4934,14 @@ $taser_charge
 @@@
 @@CNmFloatCurveEvent
 @BH]f
-@C_IncendiaryGrenade
 @DebugIndividualStyle
 @HPX
 @HPX&I
-@HPX`hv
+@HPX`hv0t
 @Integer overflow in %s
 @MfKZ
 @Pgl
 @Pu\rm
-@Show debug data when players change their loadout.
 @USRLOCAL{pet}
 @Unsupported PSD color mode!\n
 @WE]X
@@ -4939,13 +4956,13 @@ $taser_charge
 @dKb]
 @fff>fff>fff>fff>
 @ffffff
-@htp
 @icon_camera
 @icon_character
 @icon_gloves
 @icon_item
 @keyframes 
 @keyframes '%s'\r\n{\r\n
+@secondary
 @workshop
 @zDSteamUnifiedMessages
 A 220x45 (<16kb) image file in /csgo/ that will be displayed to spectators.
@@ -4991,7 +5008,6 @@ ACTIVATE_TYPE_DATAUPDATE_CREATION
 ACTIVATE_TYPE_INITIAL_CREATION
 ACTIVATE_TYPE_ONRESTORE
 ACTOR
-ACc
 AD Time Stamping
 ADD
 ADD_CERT_DIR
@@ -5129,6 +5145,7 @@ AE_WEAPON_PERFORM_ATTACK
 AE_WPN_COMPLETE_RELOAD
 AE_WPN_HEALTHSHOT_INJECT
 AEs
+AFD
 AF_ENTITIES
 AF_FAKE_ENTITIES
 AF_NONE
@@ -5161,9 +5178,9 @@ AI_Navigator_DebugSnapshotData_t::Waypoint_t
 AI_PATHFINDING
 AI_SCHEDULE
 AI_TASK
-AJb
 AJsN
 AK>(v
+AKz
 ALG_MODULE_INIT
 ALIGN_TYPE is wrong, please fix
 ALL
@@ -5171,6 +5188,7 @@ ALL:!EXPORT:!LOW:!aNULL:!eNULL:!SSLv2
 ALLOW_NODRAW_TARGET
 ALWAYSGIB
 ALb
+ALz
 AMMO_FLAG_MAX
 AMMO_FORCE_DROP_IF_CARRIED
 AMMO_POSITION_COUNT
@@ -5212,7 +5230,6 @@ APPSYSTEM: In ConnectGameInterfaces(), tried to use different connection modes!\
 APPSYSTEM: In ConnectInterfaces(), s_nRegistrationCount is %d!\n
 APPSYSTEM: In ReconnectGameInterface(), tried to use different connection modes!\n
 APd
-APlayer's active weapon will never run out of ammo
 ARGB8888
 ARS
 ASCII
@@ -5357,7 +5374,6 @@ Account privacy setting %u changed %u->%u\n
 Account privacy setting %u retrieved %u\n
 AccountActivity
 AccountEntries
-Achievement reward %s has no items!
 Achievements disabled: Steam not running.\n
 Achievements disabled: cheats turned on in this app session.\n
 Achievements disabled: demo playing.\n
@@ -5523,6 +5539,8 @@ Ahd=<c]^7if1Rjg
 Aim CS
 AimTargetManager
 Air
+AlA
+Alaunch_training_map
 Albatross
 AlbedoOrReflectivity
 Alert.WarmupTimeoutBeep
@@ -5560,7 +5578,6 @@ Allows rain in splitscreen
 Allows sending HTTP log from client main menu.
 Allows spectating and communicating with a team ( 'coach t' or 'coach ct' )
 Allows team members to injure other members of their team
-Alp
 Alpha
 Alpha Test
 Alpha decoder initialization failed.
@@ -5576,7 +5593,6 @@ Alternate icon definition index '%s' (%llu) must be greater than zero
 AltitudeMax
 AltitudeMin
 Always show team id over teammates. 0 = off, 1 = pips; 2 = +name, 3 = +equipment
-Am_hTargetC4
 Ambient %s:Unknown command %s\n
 Ambient Occlusion
 Ambient Occlusion Proxies
@@ -5598,8 +5614,8 @@ Amount of time in seconds it takes to visually fade into replay, or into real-ti
 Amount of time in seconds it takes to visually fade out of replay, or out of real-time before replay
 Amount to dampen perpendicular movement on a ladder
 Amr
+Amu
 An identifier for this physics body.
-AnP
 AnalogBalance
 AnalogueCursor
 Anchor
@@ -5711,7 +5727,6 @@ AoProxyDebug
 Apollo
 App
 App ID the file belongs to."
-App%u.%s
 AppID
 AppPolicyGetProcessTerminationMethod
 AppPolicyGetShowDeveloperDiagnostic
@@ -5917,7 +5932,6 @@ AudioVolumeFull
 AudioVolumeMuted
 AudioVolumeUnder33
 AudioVolumeUnder66
-AuditData
 Aug
 August
 Australia
@@ -5980,6 +5994,7 @@ Avestan
 Avg FPS %3i, Frame MS %5.1f, Frame Server MS %5.1f log: %s
 AvgFPS
 AvgServerPing
+Awa
 AwaitingLocalAccept
 AwaitingRemoteAccept
 AxT
@@ -6056,6 +6071,7 @@ BC_PROP_GROUP_OVERRIDE
 BCanSeeInParentScroll
 BCanvasReady
 BDP
+BDY
 BEAM_ENTPOINT
 BEAM_ENTS
 BEAM_INVALID
@@ -6095,6 +6111,7 @@ BHasDescendantKeyFocus
 BHasHoverStyle
 BHasKeyFocus
 BHasLayoutSnippet
+BIC
 BIGNUM
 BINDING
 BIO
@@ -6143,8 +6160,10 @@ BLOCKING load of
 BLOOM Down
 BLoadLayout
 BLoadLayoutSnippet
+BMN
 BMP
 BMPSTRING
+BMatchmaking
 BN lib
 BNRAND
 BN_BLINDING_convert_ex
@@ -6209,12 +6228,14 @@ BRouteMsgToJob
 BRouteWorkItemCompleted called for a job that could not be found!\n
 BSR_ANYCRLF)
 BSR_UNICODE)
+BSc
 BScrollParentToFitWhenFocused
 BSecureAllowed
 BSetProperty
 BSignedInToFriends
 BT5f
 BTB
+BTP
 BUCKSHOT
 BUF lib
 BUFFER_CTRL
@@ -6356,7 +6377,7 @@ BayerGreenSplit
 Bazaar
 Bbj
 BcT`
-Bcw
+Bcustom_hud_layout
 Bd]U
 BeamManifest
 BeamType_t
@@ -6376,7 +6397,6 @@ Bengali
 BestQualityScale
 Beta
 BetaUniverse
-Bew
 Bezier
 BgColor
 BgS
@@ -6414,6 +6434,8 @@ Bitfield of playerslots to listen to voice messages from when connected to Sourc
 Bits/sample must be 1 for Group 3/4 encoding/decoding
 BitsPerSample
 BitsPerSample tag is missing, assuming 8 bits per sample
+BlM
+Bla
 Black Gold
 BlackLevel
 BlackLevelDeltaH
@@ -6453,9 +6475,8 @@ BlurBackground
 BlurOperationPanel
 BlurPopupPanel
 Blurs the radar background.
-Bm_iFOV
-Bm_nCashStackValue
 Bnc
+Bnv
 BoX5
 Body Component Scriptdesc
 Body Group Name
@@ -6547,6 +6568,7 @@ Bounding Box
 Box
 Box%d
 BoxAngles
+Bplayer_controller
 Bra
 Braille
 Brazilian
@@ -6568,8 +6590,6 @@ Brewery
 BrightControlText
 Brightness
 Brightness of player halos
-Brk
-Brl
 Broadcasting voice to %u peers in group %s\n
 Broken pipe
 BrowserGoToURL
@@ -6664,12 +6684,11 @@ BuyMenu_SellbackSlot
 BuyMenu_UnHoverSlot
 BuyPreset.Updated
 BuyWheel_%s
-BvD
 BvVlZ\
 BxH
 By default after slicing the image as specified in border-image-slice the 9 regions will be used to fill the space specified by the standard border-width property.  This border-image-width property may be used to override that and specify different widths.  The values appear in top, right, bottom, left order, the 2nd through 4th may be omitted and corresponding earlier values will be used.  Values may be straight floats which specify a multiple of the corresponding border-width value, a percentage (which is relative to the size of the border image in the corresponding dimension), or 'auto' which means to use the intrinsic size of the corresponding border-image-slice.<br><br><b>Examples:</b><pre>border-image-width: 1 1 1 1;\nborder-image-slice: 50% 50% 50% 50%;\nborder-image-slice: auto;</pre>
-Bye
 Bytes
+Byy
 Bzw
 B{Y.w
 C q'O
@@ -7113,6 +7132,7 @@ CBitVec
 CBodyComponent
 CBodyComponent* (demangled)
 CBodyComponent::Storage_t
+CBodyComponentBaseAnimGraph
 CBodyComponentBaseAnimGraphReferenced
 CBodyComponentBaseAnimGraphReferencedPtr
 CBodyComponentBaseAnimGraph_API
@@ -7598,7 +7618,6 @@ CCrypto::RSASignSHA256
 CCsgoCrosshairTileRenderer
 CCsgoPostProcessRenderer needs to use a layer which has had a render attribute called "ColorBuffer" set!\n
 CCsgoQuadRenderer
-CCustomTextureToolCache
 CD1mB"
 CDEagle
 CDamageRecord
@@ -7869,6 +7888,7 @@ CEnvVolumetricFogController_API::SetAnisotropy
 CEnvVolumetricFogController_API::SetDrawDistance
 CEnvVolumetricFogController_API::SetFadeSpeed
 CEnvVolumetricFogController_API::SetFogStrength
+CEnvVolumetricFogController_API::SetToDefaults
 CEnvVolumetricFogVolume
 CEnvVolumetricFogVolume_API
 CEnvVolumetricFogVolume_API::Disable
@@ -7962,7 +7982,6 @@ CGCDev_NewItemRequestResponse
 CGCMsgAdjustEquipSlotsManualAcknowledged
 CGCMsgAdjustEquipSlotsShuffleAcknowledged
 CGCNameBaseItemResponse
-CGCPaintKitItemResponse
 CGCSOCacheSubscribedJob
 CGCSOCacheSubscriptionCheck
 CGCSOCacheUnsubscribedJob
@@ -8242,6 +8261,7 @@ CJobMgr::BFrameFuncResumeSleepingJobs
 CJobMgr::BFrameFuncResumeYieldingJobs
 CJobMgr::BRouteMsgToJob() - continue job
 CJobMgr::BRouteMsgToJob() - job
+CJobMgr::PassMsgToJob() job %s (%llu) ignoring %s message %s from %s (%s mismatch): waiting for %s message %s from %s\n
 CJobMgr::PassMsgToJob() job %s received unexpected message %s when paused for %s\n
 CJobMgr::TimeoutJob
 CJobMgr::m_WorkThreadPool
@@ -8457,8 +8477,8 @@ CM_MAX_BASE
 CM_RotateAnchor
 CM_WorldUIControllerHasPanelChanged
 CMapBombDamageGameSystem
-CMapBombDamageRuntimeData::RenderVisualization(), C:\buildworker\csgo_rel_win64\build\src\game\shared\cstrike15\cs_bomb_damage.cpp:471
-CMapBombDamageRuntimeData::RenderVisualization(), C:\buildworker\csgo_rel_win64\build\src\game\shared\cstrike15\cs_bomb_damage.cpp:490
+CMapBombDamageRuntimeData::RenderVisualization(), C:\buildworker\csgo_rel_win64\build\src\game\shared\cstrike15\cs_bomb_damage.cpp:474
+CMapBombDamageRuntimeData::RenderVisualization(), C:\buildworker\csgo_rel_win64\build\src\game\shared\cstrike15\cs_bomb_damage.cpp:493
 CMapInfo
 CMapInfo_API
 CMapInfo_API::FireWinCondition
@@ -8485,11 +8505,8 @@ CMsgAckPetEvent
 CMsgAcknowledgeRentalExpiration
 CMsgAdjustEquipSlot
 CMsgAdjustEquipSlots
-CMsgApplyEggEssence
-CMsgApplyPennantUpgrade
 CMsgApplyStatTrakSwap
 CMsgApplySticker
-CMsgApplyStrangePart
 CMsgCStrike15Welcome
 CMsgCasketItem
 CMsgClearDecalsForEntityEvent
@@ -8503,7 +8520,9 @@ CMsgClothStiffenAnimEvent
 CMsgClothStiffenAnimEvent_t
 CMsgConnectionStatus
 CMsgConsumableExhausted
+CMsgCraftItemsRequest
 CMsgCsgoSteamUserStatChange
+CMsgDeleteItem
 CMsgDevNewItemRequest
 CMsgEffectData
 CMsgGCBannedWord
@@ -8517,9 +8536,7 @@ CMsgGCCStrike15_v2_Party_Invite
 CMsgGCCStrike15_v2_Party_Search
 CMsgGCCStrike15_v2_Predictions
 CMsgGCCStrike15_v2_SetClanId
-CMsgGCClientDisplayNotification
 CMsgGCClientVersionUpdated
-CMsgGCCollectItem
 CMsgGCGiftedItems
 CMsgGCHAccountPhoneNumberChange
 CMsgGCHInviteUserToLobby
@@ -8560,6 +8577,7 @@ CMsgLANServerAvailable
 CMsgLeaveParty"
 CMsgLegacySource1ClientWelcome
 CMsgModifyItemAttribute
+CMsgModifyItemStringAttr
 CMsgPartyInviteResponse
 CMsgPlaceDecalEvent
 CMsgPlayerBulletHit
@@ -8569,7 +8587,7 @@ CMsgQuaternion
 CMsgRGBA
 CMsgRecurringMissionSchema
 CMsgReplayUploadedToYouTube
-CMsgRequestInventoryRefresh"
+CMsgRequestInventoryRefresh"t\n\vCMsgUseItem
 CMsgSDONoMemcached"/\n
 CMsgSOCacheHaveVersion
 CMsgSOCacheSubscribed
@@ -9007,6 +9025,7 @@ CP2P_TextMessage
 CP2P_VRAvatarPosition
 CP2P_WatchSynchronization
 CPBQ
+CPD
 CPP
 CPPTYPE_BOOL
 CPPTYPE_DOUBLE
@@ -9344,6 +9363,7 @@ CPulseCell_IntervalTimer::Start
 CPulseCell_IsRequirementValid
 CPulseCell_IsRequirementValid::CheckRequirement
 CPulseCell_IsRequirementValid::Criteria_t
+CPulseCell_LerpCameraSettings
 CPulseCell_LerpCameraSettings::CursorState_t
 CPulseCell_LerpCameraSettings::Start
 CPulseCell_LimitCount
@@ -10219,7 +10239,6 @@ CUI_Player3dPanel::Update spawn3 pEconItem %p\n
 CUI_Player3dPanel::Update spawn4 pEconItem->GetItemName %s\n
 CUI_Popup
 CUI_Popup_Annotation
-CUP
 CURSOR_ADD_TAG
 CURSOR_CREATE_CHILD
 CURSOR_REMOVE_TAG
@@ -10406,7 +10425,6 @@ CUtlDict<enum LessonFieldType_t,class CDefFastCaselessStringLess>::Insert
 CUtlDict<enum LessonVariable,class CDefFastCaselessStringLess>::Insert
 CUtlDict<int,class CDefFastCaselessStringLess>::Insert
 CUtlDict<short,class CDefFastCaselessStringLess>::Insert
-CUtlDict<struct AchievementAward_t *,class CDefFastCaselessStringLess>::Insert
 CUtlDict<struct CGameEntitySystem::SpawnGroupEntityFilterInfo_t,class CDefFastCaselessStringLess>::Insert
 CUtlDict<struct CKeyBindingListenerMgr::BindingListeners_t,class CDefFastCaselessStringLess>::Insert
 CUtlDict<struct CNetworkSerializerCodeGenDatabase::EnumInfo_t,class CDefFastCaselessStringLess>::Insert
@@ -10708,7 +10726,6 @@ CW.Thanks
 CW.WeHaveTheBomb
 CW.YouFixBomb
 CW.wePlanted
-CWD
 CWD>~3
 CWatchableFriendsInfo -- request [%u] is starting GOTV relay, extended timeout by %u seconds...\n
 CWatchableFriendsInfo -- request [%u] received %u friends\n
@@ -10965,6 +10982,7 @@ C_HEGrenadeProjectile
 C_HandleTest
 C_Hostage
 C_HostageCarriableProp
+C_IncendiaryGrenade
 C_Inferno
 C_Inferno::ClientThink
 C_Inferno::SynchronizeDrawables
@@ -10978,7 +10996,6 @@ C_Item_Healthshot
 C_KeychainModule
 C_Knife
 C_LateUpdatedAnimating
-C_LightDirectionalEntity
 C_LightEntity
 C_LightEnvironmentEntity
 C_LightOrthoEntity
@@ -11082,7 +11099,6 @@ C_Team
 C_TeamplayRules
 C_TextureBasedAnimatable
 C_TintController
-C_TonemapController2
 C_TonemapController2Alias_env_tonemap_controller2
 C_TriggerBuoyancy
 C_TriggerBuoyancy_API
@@ -11288,6 +11304,7 @@ Capture Cubemap
 Capture a specific cubemap with RenderDoc during buildcubemaps.
 Capture in RenderDoc
 CaptureMouse
+Caq
 Carian
 Carousel
 CarouselAutoScroll
@@ -11433,7 +11450,6 @@ CircleScreenOriented
 CircularProgressBar
 CircularProgressBarBG
 CircularProgressBarFG
-Ckg
 ClQ(|
 Clabel::OnMouseMove
 ClaimVolatileReward
@@ -11618,6 +11634,7 @@ Clip
 Clip Selector: Failed to select a valid option!
 Clip-path not supported unless element string table supplied\n
 ClipPath
+Clj
 Close action.
 Close caption delay before showing caption.
 Close caption linger time.
@@ -11767,7 +11784,6 @@ Competitive_TeamColor_%d
 Compiling minimap image: %s\n
 Completed
 Complex
-Complex achievement %s must have an Items key or a DefIndex field
 Component %s illegally specified INT_MIN as its priority!\n
 Component index %d: mismatching sampling ratio %d:%d, %d:%d, %c
 Components
@@ -12144,7 +12160,6 @@ CryptAcquireContextW
 CryptGenRandom
 CryptReleaseContext
 CsIconGenerator
-CsP
 CsPortraitWorld
 Csf
 Csgo3DSkybox
@@ -12163,7 +12178,6 @@ CsgoReflectionColor
 CsgoReflectionDepth
 CsgoRenderingPipelinePostProcessManifest
 CtH
-Ctg
 Cubemap %d Face %d Invalid Pixel %d, %d: %.2f %.2f %.2f %.2f\n
 Cubemap %s has invalid radiance coefficients!
 Cubemap is still loaded -- will force reload after map load: %s\n
@@ -12403,6 +12417,7 @@ DH_compute_key
 DH_generate_key
 DH_generate_parameters_ex
 DH_new_method
+DHc
 DHparams_print_fp
 DIALOG_ASKCONNECT
 DIALOG_ENTRY
@@ -12442,6 +12457,7 @@ DL_LOAD
 DL_MERGER
 DL_NAME_CONVERTER
 DL_UNLOAD
+DLe
 DLt
 DMG_%s
 DMG_ACID
@@ -12582,7 +12598,9 @@ DTLSv1 part of OpenSSL 1.0.2j  26 Sep 2016
 DTLSv1.2
 DURATION OF SOUND: %f\n
 DURING_OUTRO
+DUY
 DVCS
+DWZ
 DXT1
 DXT1_ONEBITALPHA
 DXT3
@@ -12849,7 +12867,6 @@ DeepStatsReceived
 DeepStatsTimeout
 DeepStatsTimeoutGiveUp
 DefIdx
-DefIndex
 Default
 Default Game Description
 Default In
@@ -13007,6 +13024,7 @@ Dgl
 DhO
 Dho
 Dhq0\ri
+Dhy
 DialogVariablesHeader
 Diamond
 Did not execute '%s' because the 'Target' object was missing
@@ -13015,7 +13033,6 @@ Didn't find an entity of class %s at %d\n
 Didnt supply startpos and endpos to Script TraceLine call, failing, setting called to false\n
 Didnt supply startpos, endpos, and ent to Script TraceCollideable call, failing, setting called to false\n
 Didnt supply startpos, endpos, min, and max to Script TraceHull call, failing, setting called to false\n
-Difference in Z increases toward the middle of the slack ladder.\n
 Different CRL scope
 Diffie-Hellman based MAC
 Diffie-Hellman part of OpenSSL 1.0.2j  26 Sep 2016
@@ -13133,6 +13150,7 @@ Dividing by zero in CNmFloatMathNode
 Diy
 Dizzy
 Dkb
+Dm_vecMoveDirEntitySpace
 DnRv
 Do client side flex animation.
 Do not consider events that happened in the last specified number of seconds when a user clicks 'previous' on the UI.
@@ -13194,7 +13212,6 @@ Downsample and BloomThreshold
 DownsampleDepth
 DownsampleDepthForWaterEffects
 Downtown
-Dpriority
 Dq;n
 DrBoom
 Draft is fully completed!\n
@@ -13317,7 +13334,6 @@ Dropped grenades detonate when shot.
 DroppedBomb
 DsBV
 Dsp
-Dteam_preview_camera
 Duck
 Dump all new particles, optional name substring.
 Dump all simulating particles, optional name substring.
@@ -13377,6 +13393,7 @@ Dust
 Dust II
 Dutch
 DxLvl
+Dxy
 Dynamic
 Dynamic 
 Dynamic - MBOIT Pass %d
@@ -13616,6 +13633,7 @@ EHitGroup
 EHudPanelClassStatus_t
 EIU
 EInButtonState
+EIy
 EJj
 EKillTypes_t
 ELEAGUE 2018 Boston CS:GO Major Championship
@@ -13701,11 +13719,11 @@ ENTITY_SUSPENDED
 ENUM
 ENUMERATED
 ENV
-ENd
 ENetworkDisconnectionReason
 ENotificationSetting
 EOC
 EOF on memory BIO
+EPa
 EProceduralRagdollWeightIndexPropagationMethod
 EProtoDebugVisiblity
 EProtoExecutionSite
@@ -13777,7 +13795,6 @@ ETeam
 ETh7
 EUR
 EUV
-EUnlockStyle
 EUx
 EVENT_LEVELSHUTDOWN:  with negative elapsed time (rt %f starttime %f)\n
 EVP lib
@@ -13834,7 +13851,6 @@ EVP_RIJNDAEL
 EVP_SignFinal
 EVP_VerifyFinal
 EVZ
-EVx
 EWT_C4
 EWT_Equipment
 EWT_Grenade
@@ -13908,6 +13924,7 @@ EdiPartyName
 EdiPartyName:<unsupported>
 Edin
 EditSteamAvatarImage
+Edz
 Effect
 Effect Config for Muzzle Flash - if set, will use this config specified in the particle effect, using whatever CP configuration is specified there, vdata muzzleflash attachment will be ignored
 Effect Nodes: %d  Endcap Nodes: %d
@@ -13923,8 +13940,8 @@ EffectsBloom
 EffectsOpaque
 Egyptian_Hieroglyphs
 EhA
+EhN
 EhQ,[3
-EiL
 EjN
 EjNG
 El Dorado
@@ -13982,6 +13999,7 @@ Enable all physics simulation
 Enable animation graph
 Enable animation graph networking. The setting is only read at graph creation time; to use please set on the command line.
 Enable automatic ammo purchase when inside buy zones during buy periods
+Enable close captioning.
 Enable fog
 Enable jump precision. Some game modes benefit from being able to turn this off.
 Enable or Disable debug display of visibility boxes
@@ -14178,18 +14196,17 @@ Enums must contain at least one value.
 EnvCubemapFogSystem
 EnvVolumetricFogControllerSystem
 EnvironmentMaps
-Eoc
 EovVY
 Ep0u
 Epsilon to trigger movement of VR subtitle panel in world space
 Eq R%d <- R%d == R%d
-Eqc
 EquipItemInSlot
 EquipPlayerWithItem
 EquipPlayerWithPet
 Equipment
 EquipmentInfo
 Equivalent to r_csgo_render_dither_scale, but purely to control bluenoise for R11G11B10 downsample dither (if r_csgo_r11g11b10_dither_mode = 2)
+ErP
 Eric Young's PKCS#1 RSA
 Error
 Error (%d:%d)
@@ -14405,6 +14422,7 @@ F'pY
 F(knN#
 F+Zb
 F,mZq
+F3pW
 F6tr
 F<mb
 F>qUxv
@@ -14419,6 +14437,7 @@ FATAL ERROR: Failed to connect with local Steam Client process!\n\nPlease make s
 FATAL ERROR: Failed to connect with local Steam Client process!\n\nPlease make sure that you are running latest version of the Steam Client and launch the game from Steam.\nYou can check for Steam Client updates using Steam main menu:\n             Steam > Check for Steam Client Updates...
 FATAL ERROR: Failed to initialize the Steamworks SDK.
 FATAL ERROR: Steam client version mismatch.\n\nPlease make sure that you are running latest version of the Steam Client and launch the game from Steam.\nYou can check for Steam Client updates using Steam main menu:\n             Steam > Check for Steam Client Updates...
+FBR
 FCQ
 FCVAR_ARCHIVE
 FCVAR_CHEAT
@@ -14550,6 +14569,7 @@ FIPS_CIPHER_CTX_SET_KEY_LENGTH
 FIPS_DIGESTINIT
 FIPS_MD_CTX_COPY
 FIPS_mode_set
+FJn
 FKZ
 FLAGS
 FLASBANG: Time[%0.2f] Alpha[%0.2f] Snapshot[%0.2f]: \n
@@ -14580,7 +14600,6 @@ FL_SUPPRESS_SAVE
 FL_TRANSRAGDOLL
 FL_UNBLOCKABLE_BY_PLAYER
 FL_WATERJUMP
-FMH
 FMR
 FNf
 FN|p
@@ -14596,10 +14615,12 @@ FPSMax
 FPSMaxUI
 FQl
 FREEZETIME
+FRk
 FSR
 FSR DETAIL\t %d    \t\t\t\t\t\n
 FSR Upscale
 FSRIntermediateColor
+FSi
 FTYPEDESC_ADDED_KEYFIELD
 FTYPEDESC_ADDITIONAL_FIELDS
 FTYPEDESC_ENUM
@@ -14613,11 +14634,13 @@ FTYPEDESC_PTR
 FTYPEDESC_REMOVED_KEYFIELD
 FU\n-XP
 FV|FgUV
+FWe
 FX_FireBullets: GetCSWeaponDataFromItem failed for weapon %s\n
 FX_FireBullets: GetItemDefinition failed\n
 FX_FireBullets: GetWeaponEconDataFromItem failed for weapon %s\n
 FX_RicochetSound.Ricochet
 FX_TracerSound
+FXh
 F\n ParticleFreezeTransitionOverride
 F\n%NETWORK_DISCONNECT_DISCONNECT_BY_USER
 F\n\finventories2
@@ -14625,7 +14648,6 @@ F\n\finventories3
 F\n\foptimize_for
 F\n\rroundstatsall
 FaD
-Fac
 Facade
 Face %s
 Face Actor
@@ -14780,7 +14802,6 @@ FaxMode
 FaxRecvParams
 FaxRecvTime
 FaxSubAddress
-Fcc
 FeEffectName
 Feature preserving XY warp required scaling is lower than the minimum allowed threshold. Falling back to LERP!
 Feb
@@ -14789,12 +14810,12 @@ Feed
 Feedback
 Fetched %d bytes for web resource via HTTP.\n
 Ff,n
-FfN
 FfW?
 FgColor
 FgColorDim
 Fgi?)
 Fi:je
+FiP
 FiU
 Field "
 Field "$0" uses reserved number $1.
@@ -14981,6 +15002,7 @@ FixedLength
 FixedSection
 FixupResourceName: Illegal full path passed in ("%s")!\n
 FixupResourceName: Illegal path, missing extension passed in ("%s")!\n
+FkA
 Flags
 Flags: 
 Flags: %X (%X)
@@ -15044,7 +15066,7 @@ FlushFileBuffers
 Flushes the client side soundscapes
 Flute
 Fm{#t
-Fnn
+FnB
 Fny
 Focused
 Fog end for Free Camera.
@@ -15128,7 +15150,7 @@ Found no entity at %d.\n
 Found soundscape entity "%s" with no soundscape name.\n
 FourQuaternions
 FourVectors
-Fpi
+FrO
 Frac
 Fractional component (ie. returns 0.34 for 12.34)
 Fractional sampling not implemented yet
@@ -15193,8 +15215,8 @@ FriendsGameplayInfo
 FriendsListAPI
 Frog
 Frostbite
-Fsl
 FtO
+Fuh
 Full Buy Round
 Full Refresh
 Full match info indicates that the match has expired!\n
@@ -15216,7 +15238,6 @@ FuseVariableAccess_t
 FuseVariableIndex_t
 FuseVariableType_t
 FxS
-FzP
 Fzw
 F|w)a]c
 G0Tv~:
@@ -15278,7 +15299,9 @@ GAf
 GB=\nHB
 GBP
 GBd<}v
+GBf
 GBuffer
+GC or system
 GC sent empty missions list?
 GCClient
 GCClientLauncherType
@@ -15303,6 +15326,7 @@ GCUserTrackTimePlayedConsecutively( %u )\n
 GC_BANNED_WORD_DISABLE_WORD
 GC_BANNED_WORD_ENABLE_WORD
 GC_BannedWordType
+GCe
 GEAR_SLOT_BOOSTS
 GEAR_SLOT_C4
 GEAR_SLOT_COUNT
@@ -15377,7 +15401,6 @@ GE_Source1LegacyGameEventList
 GE_Source1LegacyListenEvents
 GE_VDebugGameSessionIDEvent
 GGet a list of friends who are playing, have played, own, or want a game
-GGx
 GHB
 GI.lesson.%s
 GL.n
@@ -15441,7 +15464,7 @@ GSyncPanel
 GSyncSeparator
 GUERILLA
 GUERILLA02
-GWP
+GWy
 GXqN
 GXy{
 GXz
@@ -15550,7 +15573,6 @@ GamepadInput
 Gaussian Bloom
 GaussianBloomBlurManifestClient
 GcLogonNotificationReceived
-GcN
 GdD
 Gear.JumpLand.CT
 Gear.JumpLand.T
@@ -16535,6 +16557,7 @@ GiftLeaderboardEntry
 Given a starting T value on the spline and a distance traveled on the spline, return the resulting T value.
 Gives a list of all currently open lessons.
 Gives a list of lessons that been completed or shown
+Gla
 Glagolitic
 GlassImpact
 GlassImpact_global_client
@@ -16697,7 +16720,6 @@ HDRColorScale
 HDRelease
 HEAD 
 HEGRENADE
-HET
 HEX
 HH&a
 HH:mm:ss
@@ -16729,7 +16751,6 @@ HITGROUP_STOMACH
 HITGROUP_UNUSED
 HJN
 HKD
-HLf
 HMAC
 HMAC GOST 34.11-94
 HMAC routines
@@ -16925,6 +16946,7 @@ HULL_TINY_CENTERED
 HULL_WIDE_HUMAN
 HUMAN_HULL
 HWyn
+HZU
 HZone0
 H\tV_cosd
 HalfLinearDepth
@@ -16984,6 +17006,7 @@ HbAta
 HbL
 Hc S
 Hc8a"
+HeK
 Head
 Header
 Header dump: %s\n
@@ -17094,8 +17117,8 @@ Hitboxes
 HitboxesContainerLabels
 HitboxesContainerTooltips
 Hive
-HjJ
-HlV
+Hja
+Hjy
 Hltv Director
 Hltv Replay
 Hm_vCenter
@@ -17185,6 +17208,8 @@ HpDmgSuffered
 Hqw
 HtL
 HtmlUserAgent
+Htv
+HuA
 Hud
 HudBottomCenter
 HudBottomGradient
@@ -17234,9 +17259,9 @@ Hull_t
 Hungarian
 Hurricane
 Husky
-HvJ
+Hvz
+HxH
 Hxx
-Hxy
 HydroGraphic
 I could not work out what I was expecting, like so many of us these days!\n
 I"9|OxTex
@@ -17250,6 +17275,7 @@ I;b_b
 I@DualHull
 IA5STRING
 IANA
+IBb
 IC'W
 ICC Profile
 ICC or token signature
@@ -17280,7 +17306,6 @@ IChoreoServices::ChoreoState_t
 IChoreoServices::ScriptState_t
 IChq
 IClientAlphaProperty
-ICo
 ID Selector: Failed to select a valid option for ID: %s!
 IDEA
 IDEA(128)
@@ -17324,6 +17349,7 @@ IKV3TransferInterface_Worldspace_Load
 IKV3TransferInterface_Worldspace_Save
 IKq
 ILS
+ILz
 IMAGE_FORMAT_IMC2
 IMAGE_FORMAT_NV12
 IMEManager001
@@ -17450,6 +17476,8 @@ ITEM_FLAG_NOITEMPICKUP
 ITEM_FLAG_NONE
 ITU-T
 ITestScriptMgr
+ITy
+IUw
 IV block
 IVZ
 IVideoPlayer* (demangled)
@@ -17565,6 +17593,7 @@ Ignoring CSVCMsg_UserCommands_t: Missing command to delta from\n
 Ignoring CSVCMsg_UserCommands_t: delta apply failed
 Ignoring extension "
 Iguana
+Ihw
 IiGM>nw
 Ij)s
 Ik\f`dub`D
@@ -17948,7 +17977,6 @@ Invoke binding %d (%s) not found, converting to NOP\n
 InvokeJSCallback
 InvokeMiniDumpHandler
 IquO
-IrR
 Iris
 Iron Sights
 IronSight
@@ -18079,6 +18107,7 @@ IsVideoPlaying
 IsVisible
 IsXuidValid
 Issuer certificate lookup error
+ItY
 Italian
 Italy
 Item
@@ -18119,7 +18148,6 @@ Item definition %s: Unable to find equip region mask for region named "%s"
 Item definition %s: Unable to find flai0 display rules
 Item definition %s: Unable to set explicit item taxonomy
 Item definition %s: item name cannot contain slashes
-Item definition index %d in achievement reward %s was not found
 Item definition index %d must be greater than or equal to zero
 Item used notification: %u (%s)\n
 Item.Medium
@@ -18154,14 +18182,11 @@ ItemTypeDescKillEater
 ItemTypeDescKillEaterAlt
 Item_%c
 Item_%s
-Items
-IvE
 Iw,e=2-b[
 IxB
 IxD
 Ixb
 IytF
-Iyy
 I{i3|G
 J#}QU^u
 J%f%f%f%f%f%f%f%f
@@ -18176,8 +18201,8 @@ JFIF extension marker: JPEG-compressed thumbnail image, length %u
 JFIF extension marker: RGB thumbnail image, length %u
 JFIF extension marker: palette thumbnail image, length %u
 JFIF extension marker: type 0x%02x, length %u
-JFQ
 JGE
+JJj
 JKD
 JM0L
 JMZ
@@ -18197,9 +18222,10 @@ JSDelayLoadList
 JSType
 JSValueFromKeyValue failed to package parameter %s (type %d)\n
 JSValueFromKeyValues3 failed to package parameter (type %d)\n
-JSx
+JSt
 JUMP
 JUMP_COND
+JZa
 J\n NETWORK_DISCONNECT_SNAPSHOTERROR
 J\n'NETWORK_DISCONNECT_DISCONNECT_BY_SERVER
 J\nHBF
@@ -18214,8 +18240,6 @@ Jdv
 Jet
 Jfo
 JgQ
-JjE
-JkQ
 JmU
 JnR
 Job
@@ -18327,7 +18351,6 @@ Kannada
 Katakana
 Kayah_Li
 Kbf}
-Kcj
 Kdp
 Keep a history of all instructions run on a per graph basis.
 Keep drawing the user's crosshair while the grenade throw crosshair is shown
@@ -18376,7 +18399,9 @@ Kills the entity, using the normal codepath to determine kill type, when the par
 Kit "[%s]" specified, but doesn't exist!! You're probably missing an entry in items_paintkits.txt or items_stickerkits.txt or need to run with -use_local_item_data\n
 Kite
 Kiwi
+KkX
 KlD#
+Kli
 Knife
 KnifeSlash
 KnifeSlash_global_client
@@ -18390,8 +18415,6 @@ KsF8
 Ksg4X
 KtW
 KuBEN
-KuI
-Kuq
 KwV\r
 K|oT
 L0fO*'
@@ -18438,7 +18461,7 @@ LEVELMASK_BIT_6
 LEVELMASK_BIT_7
 LEVELMASK_BIT_8
 LEVELMASK_BIT_9
-LFl
+LGd
 LIBRARY_INVOKE
 LIFE_ALIVE
 LIFE_DEAD
@@ -18453,7 +18476,7 @@ LITERAL_FALSE
 LITERAL_TRUE
 LIVE
 LKf
-LMy
+LMT
 LOAD
 LOADOUT GC UPDATE BaseItem "%s" to slot: %i\n
 LOADOUT_SLOT_C4
@@ -18558,7 +18581,6 @@ LOOSE_VARIABLE_TYPE_SYSTEMVAR
 LOW
 LPVIndex
 LS&\nK
-LSv
 LTE
 LTE_FLOAT
 LTE_GAMETIME
@@ -18572,6 +18594,7 @@ LWG>
 LWW>
 LWc
 LXKQ
+LZT
 LZW
 LZWDecode: Bogus encoding, loop in the code table; scanline %d
 LZWDecode: Corrupted LZW table at scanline %d
@@ -18651,9 +18674,7 @@ Layout is invalid.\n
 Layout xml did not pass CustomHud validation "%s"\n
 Layout xml is an invalid resource name "%s"\n
 LayoutDirtied
-LbO
 LbWf
-LcM
 LeM
 Leaderboard name request succeeded = [%s]\n
 LeaderboardHoverPlayer
@@ -18681,10 +18702,10 @@ Length (magnitude) of Vector
 Length (magnitude) of Vector2D
 Length Vector
 Length Vector2 D
-Length of each crosshair bar, scaled with screen resolution
 Length of time grenade trajectory remains visible as a spectator.
 LensInfo
 Lepcha
+Leq
 Lerp
 Lerp Angle
 Lerp Float
@@ -18707,7 +18728,9 @@ LetterboxTop
 Level
 Level: %s\n
 Lexer encountered %d error(s)
-LgO
+LfL
+LgT
+Lgl
 LhX
 Library
 LifeState_t
@@ -18773,6 +18796,7 @@ ListenForScrollIntoView
 ListenToGameEvent
 Listing %d secondary scene worlds:\n
 Lists all active physics objects\n  -more : extra info\n
+Lists all entities
 Lists all simulating/thinking entities
 Lists secondary scene worlds and ref counts
 Lists the item definitions that have a specified tag.
@@ -18781,7 +18805,6 @@ Lite
 Live Map Annotation limit of %d reached. This node will only appear during practice\n
 Live Map Annotation limit of %d reached.\n
 Living players can hear all living enemy communication (voice, chat)
-LjZ
 Lkh9Fgc^A
 Load annotation to a file after first clearing existing annotations
 Load annotation to a file without clearing existing annotations
@@ -18920,19 +18943,22 @@ LowHealth
 LowOnFood
 Lower bound below Average Human Contribution Score that a bot must be below to change its difficulty
 LqH!)8
-LsM
 LsiX
 LtQ
+LtT
 Ltc$
 Lunacy
 Lurking player xray glow scaling.
 Lux
+LxF
 Lycian
 Lydian
 M-laO
 M8MF
+MAC
 MAE_DEFEAT
 MAIN_MENU
+MAL
 MARK
 MASK:
 MASK_F
@@ -18950,7 +18976,6 @@ MAX_ALLOC_CHUNK is wrong, please fix
 MAX_PATTACH_TYPES
 MAX_RESPONSE_NAME
 MAX_RULE_NAME
-MAf
 MAlternateSemanticName
 MAtomicTransfersAsPlainString
 MBOIT Downsample
@@ -19166,6 +19191,7 @@ M\n(NETWORK_DISCONNECT_SERVER_REQUIRES_STEAM
 M\n\tgame_type
 M\rLAI)haL<|p\t\t
 M\vOj
+Maa
 Macaw
 Machine Gun
 MachineGun
@@ -19371,7 +19397,6 @@ MatchesLost
 MatchesSearch
 MatchesTied
 MatchesWon
-Matchmaking
 Matchmaking Error Details = %s\n
 Matchmaking Status Details = %s\n
 Matchmaking Status State = %s\n
@@ -19440,11 +19465,9 @@ May
 MbD
 MbP?
 MboitFinalPass
-McJ
 Mc]T=
 Mcj
 Mcy
-MdY
 Measured RTT to %d POPs.  %s=%d\n
 MedalRank_t
 MedalRank_t [6] (demangled)
@@ -19498,7 +19521,6 @@ Messages can't have default values!
 Messages can't have default values.
 MethodDescriptorProto
 MethodOptions
-Mgb
 Microsoft CSP Name
 Microsoft Commercial Code Signing
 Microsoft Encrypted File System
@@ -19573,9 +19595,12 @@ Missions
 Missions Unsubscribed\n
 MissionsAPI
 Mist
+Miv
 Mixed Resolution Particles
 MixedResolutionTexture
 MixedShadowsChanged
+Mja
+MkQ
 MlT8
 Mlt(J
 MnZ/rs
@@ -19691,6 +19716,7 @@ MoviePlayerUIVisible
 MoviePlayerVolumeControl
 MoviePlaying
 Moving %s to %s\n
+Mpg
 Mq~h
 MrFW
 MsDirection
@@ -19754,7 +19780,6 @@ Mutiny
 MuzzleFlash
 MuzzleFlash_global_client
 Mvc
-MwH
 MyPersona::ActionManageRecurringSubscription : agreementid %llu is currently set to renew %s\n
 MyPersona::ActionManageRecurringSubscription : enrolling into new recurring subscription (defidx %d)\n
 MyPersona::ActionManageRecurringSubscription : subscription state is not available yet, checking out to refresh status...\n
@@ -19778,6 +19803,7 @@ NAN
 NAN(IND)
 NAN(SNAN)
 NAR
+NBH
 NCF
 NCH
 NCONF_dump_bio
@@ -19950,6 +19976,7 @@ NE_VEC2
 NE_VEC3
 NE_VEC3WS
 NE_VEC4
+NFD
 NHn
 NIL
 NIST CURVE: %s\n
@@ -19967,7 +19994,6 @@ NISTP224_PRE_COMP_NEW
 NISTP256_PRE_COMP_NEW
 NISTP521_PRE_COMP_NEW
 NJ2"v
-NJp
 NLj
 NO X509_NAME
 NODE_TYPE_INVALID
@@ -20044,7 +20070,7 @@ NUM_OBSERVER_MODES
 NUM_PLAYER_STATES
 NUM_RUMBLE_EFFECTS
 NUM_STANCES
-NUR
+NUP
 NVP
 NV_NULL
 NWzl\n\
@@ -20058,6 +20084,7 @@ N\n"NETWORK_DISCONNECT_KICKED_VOTEDOFF
 N\n#NETWORK_DISCONNECT_REJECTED_BY_GAME
 N\n\fredirect_uri
 N\tV_exp2f
+NaN
 Name
 Name : 
 Name Tag
@@ -20071,7 +20098,6 @@ Name\t\t\t\t\tCount\t\tParticle Count\n
 Named camera '%s' not found in map '%s'\n
 Nametag: %s
 NametagModule
-Nap
 NativeFunctions
 Natural logarithm (base e)
 Nautilus
@@ -20159,7 +20185,6 @@ Nhk
 Nhz
 NjF
 Nko
-Nky
 Nly
 NmA
 NmBoneMaskSetDefinition_t
@@ -20378,8 +20403,6 @@ NumberEntryIncrementValue
 NumberOfInks
 Numbers starting with leading zero must be in octal.
 Nw!qB
-NyH
-NyM
 Nz3I#B
 N|rO
 O/lc\r=<1\r-,!@
@@ -20548,7 +20571,6 @@ O\n\vinvite_sent
 O\tV_expd
 Oakley-EC2N-3
 Oakley-EC2N-4
-Obh
 Object Signer
 Object Signing
 Object Signing CA
@@ -20567,6 +20589,7 @@ OcclusionQueryIssueLayer
 Oct
 October
 Octopus
+Oen
 Off
 Office
 Offline
@@ -20577,6 +20600,7 @@ Offset added to the gap between the crosshair center and the bars.
 OffsetTimeInSeconds
 Ogham
 Oh%u'
+OhH
 OjT
 Ol_Chiki
 Old outflow: %s\n
@@ -20879,7 +20903,6 @@ Optional. Type 'Any'. An associated value, e.g. the Entity Handle which is respo
 OptionsMenuAPI
 Opvar Set Point Manager
 Opvar Set Point Manager (MP)
-OqD
 Or R%d <- R%d || R%d
 Orbit Distance
 Order: 
@@ -20899,11 +20922,9 @@ OrqK
 OsOpenFileOrFolder
 Osmanya
 Ostrich
-OtM
 Other Hitgroups To Destroy When Fully Destructed
 Other hitgroups to destroy when this one is fully destroyed.  Useful for chaining destructibles like blowing up the lower arm when the upper arm dies.
 Other side turn... waiting...\n
-OuC
 Out of memory allocating %d byte temp buffer.
 OutCirc
 OutCubic
@@ -20962,21 +20983,20 @@ Ow!y
 OwnGameplayInfo
 OwnerContext
 OwningSlotOnlyRecipientsFilter
-OzD
 P!bxo
-P%o
+P%e
 P%p
+P%u
 P(UH 
-P08Nt
 P2P Voice
 P2P ping to "%s". Timed out after %.2fms\n
 P2P_Messages
 P4File
 P@HPX`hpx\f
 PAGN_4
-PAH
 PANEL_ID
 PANORAMA_LAYOUTFILE
+PAP
 PARALYZE
 PARAMETER NAME: %s | OPTIONAL: %s, TYPE: %s, BOUND: %s\n
 PARAMETERS
@@ -21006,6 +21026,10 @@ PATTACH_RENDERORIGIN_FOLLOW
 PATTACH_ROOTBONE_FOLLOW
 PATTACH_WATERWAKE
 PATTACH_WORLDORIGIN
+PAV
+PAZ
+PAk
+PAy
 PBE-MD2-DES
 PBE-MD2-RC2-64
 PBE-MD5-DES
@@ -21021,33 +21045,31 @@ PBE-SHA1-RC4-40
 PBE2PARAM
 PBEPARAM
 PBES2
-PBH
 PBKDF2
 PBKDF2PARAM
 PBMAC1
+PBN
 PBP
-PBV
+PBW
+PBZ
 PBa
-PBd
-PBf
-PBl
+PBp
+PBy
+PBz
+PCP
 PCRE does not support \L, \l, \N{name}, \U, or \u
-PCV
+PCW
+PCZ
 PC_NETWORKED_ONLY
 PC_NON_NETWORKED_ONLY
-PCb
-PCf
-PCh
+PCj
+PCk
 PCrate%d
-PDJ
-PDO
+PDP
 PDT
-PDd
-PDe
-PDi
 PDj
-PDr
-PEI
+PDy
+PEL
 PEM lib
 PEM part of OpenSSL 1.0.2j  26 Sep 2016
 PEM routines
@@ -21078,40 +21100,35 @@ PEM_write
 PEM_write_bio
 PEN
 PEO
-PET
-PEd
-PEk
-PEy
-PFJ
-PFL
+PEU
+PEY
+PEe
+PEf
 PFT_SOUND
-PFU
-PFV
-PFW
-PFZ
 PFa
+PFb
 PFe
-PFf
-PGC
+PFj
 PGDInstruction_t
+PGH
 PGL 2017 Krakow CS:GO Major Championship
 PGL 2021 Stockholm CS:GO Major Championship
 PGL 2022 Antwerp CS:GO Major Championship
 PGL Copenhagen 2024 CS2 Major Championship
-PGU
+PGW
+PGj
+PGk
 PGm
-PGo
-PGr
 PGr]
 PHAG2
-PHE
+PHK
 PHP
-PHR
-PHV
+PHT
 PHYSGUN
 PHYS_SAVE_RESTORE_VERSION
 PHhn}Y
-PHo
+PHy
+PIB
 PIID_IPHYSAGGREGATE
 PIID_IPHYSICSBODY
 PIID_IPHYSICSJOINT
@@ -21122,16 +21139,16 @@ PIID_NUM_TYPES
 PIID_UNKNOWN
 PIO
 PISTOL
-PIV
+PIY
+PIZ
 PI_FirstRotated
 PI_NonRotated
-PIf
 PInstruction_t<43>::Run
 PInstruction_t<44>::Run
-PIr
-PJd
-PJk
-PJs
+PJU
+PJV
+PJY
+PJb
 PKCS #7 SIGNED DATA
 PKCS12
 PKCS12 lib
@@ -21244,18 +21261,19 @@ PKEY_RSA_VERIFY
 PKEY_RSA_VERIFYRECOVER
 PKEY_SET_TYPE
 PKEY_USAGE_PERIOD
-PKI
-PKO
-PKZ
+PKU
+PKe
+PKh
+PKj
+PKo
+PKy
 PLACEHOLDER_VALUE
 PLANTED
 PLASMA
 PLATFORM
 PLAYER LOADOUT - Received 
 PLAY_CS2
-PLI
 PLN
-PLO
 PLUG_TYPE_INPUT
 PLUG_TYPE_OUTPUT
 PLUG_TYPE_RELAY_OMNIDIRECTIONAL_LEGACY
@@ -21263,15 +21281,17 @@ PLUG_TYPE_RELAY_PREFAB_INBOUND
 PLUG_TYPE_RELAY_PREFAB_LOCAL
 PLUG_TYPE_RELAY_PREFAB_OUTBOUND
 PLUG_TYPE_UNKNOWN
-PLV
-PLi
-PME
+PLa
+PLk
 PM_NORMAL
 PM_NO_GIBS
-PMf
+PMk
+PNF
 PNG\r\n
-PNK
-PNM
+PNO
+PNV
+PNb
+PNu
 POINT_WORLD_TEXT_JUSTIFY_HORIZONTAL_CENTER
 POINT_WORLD_TEXT_JUSTIFY_HORIZONTAL_LEFT
 POINT_WORLD_TEXT_JUSTIFY_HORIZONTAL_RIGHT
@@ -21282,14 +21302,13 @@ POINT_WORLD_TEXT_REORIENT_AROUND_UP
 POINT_WORLD_TEXT_REORIENT_NONE
 POISON
 POISONED 
-POK
+POJ
 POLICYINFO
 POLICYQUALINFO
 POLICY_CONSTRAINTS
 POLICY_MAPPING
 POLICY_MAPPINGS
 POLICY_SECTION
-POO
 PORT OFFSET [%d]: %s -> %s\n
 POS
 POSIX collating elements are not supported
@@ -21298,26 +21317,24 @@ POST
 POST 
 POS_FLOATLITERAL
 POS_INTLITERAL
-POV
-POZ
+POU
+POe
+POf
 POn
+POv
+PPM
 PPN
 PPNe
-PPY
+PPQ
+PPZ
 PPb
-PPk
-PPp
-PPw
+PPf
+PPt
 PPz\v=
 PQA
-PQG
-PQM
-PQd
-PQh
-PQl
+PQj
 PRB
 PRB+
-PRD
 PRECIPITATION
 PRECIPITATIONBLOCKER
 PREDFIELD_ATTACHMENT_HANDLE
@@ -21382,6 +21399,8 @@ PREDMAP: %s has inert DEFINE_PRED_OVERRIDE_RECURSIVE(%s), field not found in bas
 PREDMAP: One or more problems with prediction maps.  Search the log for 'PREDMAP' for more details\n
 PREFAB
 PREVENT_PHYSICS_FORCE
+PRF
+PRH
 PRINTABLE
 PRINTABLESTRING
 PRIORITY
@@ -21397,9 +21416,10 @@ PROXY
 PROXY_CERT_INFO_EXTENSION
 PROXY_POLICY
 PRUNE
-PRd
-PRh
-PRn
+PRa
+PRc
+PRe
+PRk
 PSC
 PSC\n
 PSK
@@ -21407,27 +21427,26 @@ PSK-3DES-EDE-CBC-SHA
 PSK-AES128-CBC-SHA
 PSK-AES256-CBC-SHA
 PSK-RC4-SHA
+PSN
 PSPECIFIED
 PST
-PSX
-PSf
-PSl
-PSy
-PTS
-PTX
-PTn
-PTw
-PTx
+PSV
+PSZ
+PTG
 PUBLIC KEY
-PUC
+PUH
 PULSE_CALL_ASYNC_FIRE
 PULSE_CALL_SYNC
 PULSE_SHARED_SAVE_RESTORE_BLOCK_HANDLER_VERSION
 PULSE_VMMD
 PUNCHING
 PURH
+PUT
 PUT 
-PUa
+PUf
+PUp
+PUx
+PUy
 PVAL_ANIM_SEQUENCE
 PVAL_ANY
 PVAL_ARRAY
@@ -21465,46 +21484,45 @@ PVAL_VEC3
 PVAL_VEC3_WORLDSPACE
 PVAL_VEC4
 PVAL_VOID
-PVQ
-PVU
-PVe
-PVh
-PVi
-PVl
+PVV
+PVa
 PW server denied
 PW server required
 PWK
-PWU
-PWW
-PXJ
-PXR
-PXU
-PXZ
+PWS
+PWT
+PWa
+PWf
+PWj
+PXN
+PXW
+PXY
 PX`hpx
-PXj
+PXd
+PXf
+PXk
+PXp
 PXu
+PXy
 PXz
-PYK
-PYO
-PYV
-PYc
-PYd
-PYh
-PYl
-PZJ
+PYH
+PYT
+PYg
+PYm
+PYy
+PZH
 PZN
-PZb
-PZd
+PZa
 PZe
-PZk
+PZh
+PZm
 P\n#NETWORK_DISCONNECT_BADRELAYPASSWORD
 P\n#NETWORK_DISCONNECT_RELIABLEOVERFLOW
 P\n#NETWORK_DISCONNECT_SNAPSHOTOVERFLOW
 P\n\nattributes
 P\n\nnumperpage
 P\tV_expf
-PaJ
-PaZ
+PaP
 Pack item "%s" included in more than one pack bundle - not allowed!
 PackBits
 PackBitsDecode: Not enough data for scanline %ld
@@ -21514,7 +21532,7 @@ Packed store %s with refcount > 0.\n
 PackedAABB_t
 Packet delivery anomaly rate (0..100) higher than this is considered 'poor'.
 Packet dump: raw size %u, header size %u, body size %u, var size %u\n
-Pag
+Pae
 PageDown
 PageLeft
 PageManager
@@ -21542,6 +21560,7 @@ PaintServerRecvMargineGraphParams_t::PaintStatusBar
 PaintStatusBar
 Palacio
 Palais
+Pam
 PanZoomEnabled
 Panel
 Panel.BgColor
@@ -21783,24 +21802,30 @@ Pause the cursor at this point.
 PauseMenuBackground
 Pawn: %s
 Pawn: (%d) Name: %s
-PbB
-PbE
-Pba
-Pbf
-PcT
-PcY
+PbT
+PbW
+PbZ
+Pbb
+Pbg
+Pbj
+Pbn
+Pcd
+Pce
 Pch
-PdB
+Pcj
+Pck
+PdU
+PdW
 PdX
-PdZ
-Pda
-Pea
+Pde
+Pdf
+Pdo
+PeT
 Pearlescence Mask
-Pee
+Peb
 PeekNamedPipe
 Peer haven't sent GOST certificate, required for selected ciphersuite
 Pei
-Pel
 Pelican
 Pending downloads must be finished before downloading match!\n
 Pending downloads must be finished before playing back match!\n
@@ -21826,20 +21851,19 @@ PersonalStore
 Pet definition %s: missing "name"
 Pet definition %s: name must be a positive integer
 PetHasAchievement
-PfH
-PfZ
-PgJ
-PgN
-PgZ
-Pgn
-PhB
-PhJ
-PhO
-PhT
-PhY
+PfS
+PfV
+Pfd
+Pfe
+Pfh
+PgD
+PgP
+Pga
+Pgd
+Pgz
+PhD
+PhS
 Phags_Pa
-Phg
-Phn
 Phoenician
 Phoenix Compound
 Phoneme delay to account for sound system latency.
@@ -21847,7 +21871,6 @@ Photometric tag is missing, assuming data is YCbCr
 Photometric tag value assumed incorrect, assuming data is YCbCr instead of RGB
 PhotometricInterpretation
 Photoshop
-Phr
 PhysBlockHeader_t
 PhysDisableEntityCollisions called on entities in two different scene worlds (%s - %u vs %s - %u)\n
 PhysEntityCollisionsAreDisabled called on entities in two different scene worlds (%s - %u vs %s - %u)\n
@@ -21871,11 +21894,13 @@ PhysicsParticleId_t
 PhysicsRagdollPose_t
 PhysicsSimulate
 PhysicsTraces
-PiK
+PiM
+PiT
 Picked
 Picks
 PictureInPicture
 PictureInPictureLightBinnerCsgo
+Pim
 Pin or Unpin the overlay to the Entity's location
 Ping a peer.
 Ping higher than this (ms) is considered 'poor'.
@@ -21891,18 +21916,18 @@ Pitch: %6.1f   Yaw: %6.1f %38s
 Pitstop
 Pivot
 PivotPaint
-Pix
 PixarLog
-PjJ
-PjR
-PjS
-Pjy
+PjX
+Pjl
+Pjo
 PkC
-PkR
+PkG
+PkP
 PkY
-Pku
-PlE
-PlR
+Pke
+Pkf
+Pkl
+PlH
 PlaceDecalEvent_t
 PlaceholderText
 PlanarConfiguration
@@ -22011,6 +22036,7 @@ Player Visibility
 Player whose head is tracked to test lag compensation.
 Player will automatically receive a random weapon on spawn in deathmatch if this is set to 1 (otherwise, they will receive the last weapon)
 Player%d
+Player's active weapon will never run out of ammo
 Player.AmbientUnderWater
 Player.BurnDamage
 Player.BurnDamageKevlar
@@ -22106,32 +22132,20 @@ Playing CS:GO
 PlayingCSGO
 Plays the named sound event.
 Playsoundscape %s:Unknown command %s\n
+Plb
 Please specify 0 or 1 with the -stream Parameter\n
+Pll
 Plots view angles yaw at various stages of the frame/tick in Tracy.
 Pm8A?
-PmJ
-PmR
-PmX
+PmV
 PmZ
-Pmb
-Pmd
 Pmg
-Pmk
-Pmn
-Pmy
-PnM
-PnR
-PnX
-Pnb
-Png
-Pnh
-Pnt
-Pnx
-Pnz
-PoD
-PoF
-PoR
-Poa
+Pmh
+Pmo
+PnP
+PnV
+Pnn
+PoT
 Point
 Point entity.
 PointCameraSettings_t
@@ -22146,14 +22160,12 @@ Pointers cannot be used as numeric values
 Points
 Points to award for picking up a dogtag in deathmatch.
 PointsAnim
-Pok
 Policy Qualifier CPS
 Policy Qualifier User Notice
 Polish
 Polygons
 PolymorphicHelper_t::SetPolymorphicPointer
 Polynomial:
-Pon
 Pool Day
 Poor
 Pop Input Variable Queue
@@ -22203,21 +22215,19 @@ PostProcessing
 PostProcessingSystem_001
 Pow
 Power used when applying the taser effect.
-PpC
-PpR
-PpT
-PpW
+PpQ
+PpX
+Ppa
 Ppk
-PqM
-PqS
-Pqg
-Pqk
-Pqw
-Pqy
+Ppl
+PqY
+Pqa
+Pqo
+Pqx
 Pr"V
-PrB
-Pra
-Prd
+PrF
+PrT
+PrZ
 Pre Generation KVs
 Pre-Generated Output Material
 PreGraphUpdate
@@ -22337,6 +22347,7 @@ PreviousItemButton
 PreviouslyLeft
 PreviouslyRight
 PrewarmPanorama added: %s\n
+Prh
 Primary   %02x%02x%02x
 Primary Clip Size
 Primary Initial Clip (-1 means use clip size)
@@ -22442,21 +22453,21 @@ PropertyTransitionEnd
 ProtoCoordSizeParams_t
 ProtoFlattenedSerializerField_t
 ProtoFlattenedSerializer_t
-Protobuf: %s(%d): %s\n
 Protocol Buffer map usage error:\n
 Protocol Buffer reflection usage error:\n  Method      : google::protobuf::Reflection::
 Proxy Certificate Information
-Pru
-PsD
-PsE
-Psb
-Psk
-Psu
-PtS
-Pti
-Ptl
+Prz
+PsF
+PsM
+PsP
+PsQ
+PsZ
+PtQ
+PtV
+Ptd
 Ptn
-PuX
+PuP
+PuU
 Public Key
 Public-Key
 Public-Key: (%d bit)\n
@@ -22464,8 +22475,10 @@ Public: %s
 PublicUniverse
 Publish
 PublishedFileDetails
+Puc
+Pue
 Puffin
-Puh
+Pul
 PullKinematicTransformsWorker
 PullSoftbodyTransforms
 Pulse
@@ -22519,7 +22532,6 @@ PulseSymbol_t
 PulseValueType_t
 PulseVariableKeysSource_t
 Pun
-Puo
 Purchase an item by defindex
 PurchaseFailureLabel
 PurchaseKeyAndOpenCrate
@@ -22529,36 +22541,25 @@ PushDynamicTransformsWorker
 Pushes an identifier used to group overlays. Deletes all existing overlays using this overlay id.
 Pushes an identifier used to group overlays. Overlays marked with this identifier can be deleted in a big batch.
 Put all physics in all the worlds to sleep
-Pux
-PvN
+PvA
 PvP
-PvR
-PvW
-PvX
-Pvc
-Pvf
-Pvq
-PwN
-PwR
-PwZ
-Pwb
-Pwe
-Pwf
-Pwv
+PwQ
 PxA
-PxR
+PxW
+PxY
+Pxa
 Pxk
-Pxy
-PyG
-PyR
+PyJ
+PyS
+PyT
 PyY
 Pya
-Pyg
-Pyi
 Pyramid
-Pyz
-Pzn
-Pzq
+PzA
+PzJ
+PzV
+Pzu
+Pzy
 P|iC\r
 Q(Optional) If supplied, the resulting published file's Id is appended to the URI.
 Q*hd
@@ -22566,15 +22567,16 @@ Q/xtJ2
 Q2XXR
 Q4EX
 QAR
+QAb
 QAf?
 QAngle
-QCc
-QEi
+QEa
 QEy
 QGA
 QGF
 QHb
 QReturns the Steam Level of a user, the Badge level for the game, and if it's foil
+QRj
 QSlerp
 QTk$
 QUEST_NONINITIALIZED
@@ -22591,6 +22593,7 @@ QUEST_WARMUP
 QUEST_WRONG_MAP
 QUEST_WRONG_MODE
 QWQ
+QYi
 Q\n&NETWORK_DISCONNECT_REJECT_BADCHALLENGE
 Q\n&NETWORK_DISCONNECT_TEMPENTMSG_OVERFLOW
 Q\n*NETWORK_DISCONNECT_CLIENT_CONSISTENCY_FAIL
@@ -22601,18 +22604,14 @@ Q\n\vin_wishlist
 Q\n\vincludetags
 Q\n\vplayed_ever
 Q`uV
-Qab
 Qad
 QdH
 Qdsma
 QfA
-QgJ
 QhC
-QhL
 Qjh/T
 Qj{Jd
 Qkkbal
-QnD
 QoOG
 Qpr2
 QrQ
@@ -22764,6 +22763,8 @@ RESPONSE_RULES
 RETURN
 RETURN_VALUE
 RETURN_VOID
+REa
+RFC
 RFC 3779 resource not subset of parent's resources
 RFC 5639 curve over a 160 bit prime field
 RFC 5639 curve over a 192 bit prime field
@@ -22790,6 +22791,7 @@ RGBA8888_UINT
 RGBX8888
 RGu
 RH/Y
+RHj
 RICKSAW_DEFEAT
 RID
 RIFLE
@@ -22806,11 +22808,9 @@ ROLL_LATE_JOIN_LOGO
 ROLL_NONE
 ROLL_OUTTRO
 ROLL_STATS
-ROP
 ROTATION_OFFSET
 ROUNDDOWNTIME
 RP;e!
-RPK(
 RP_PAUSE
 RP_TOGGLEPAUSE
 RP_UNPAUSE
@@ -22898,6 +22898,7 @@ RSA_verify_PKCS1_PSS_mgf1
 RSDS
 RST%d
 RT %dx%d %s %s : %d Bytes\n
+RTH
 RT_txt
 RTime32
 RUB
@@ -22932,10 +22933,10 @@ RUSH_INTRO
 RVN
 RVs
 RXw
-R\fph
 R\n\rincludekvtags
 R\r1>Vp
 R\vp!y
+R\vpD|
 R]Di
 R_T5Y
 RaC
@@ -23469,7 +23470,6 @@ ReverseSorted
 Revolving lootlist %d '%s' already exists, cannot add '%s'.
 Rfw
 Rg4I
-Rgw
 RiO
 Rialto
 RichTIFFIPTC
@@ -23487,6 +23487,7 @@ RightMouseScrollRegion
 RightOfFocus%d
 RightPhase
 Rings
+Rmu
 Robin
 Roll
 RollPercentage
@@ -23557,6 +23558,7 @@ Rq[R
 RrBoN
 RsZ
 RtIF
+Rti
 RtlCaptureContext
 RtlLookupFunctionEntry
 RtlPcToFileHeader
@@ -23586,13 +23588,12 @@ Rush volume of Round Start Music
 Rush volume of Ten Second Warnings
 Rush volume of Won/Lost Music
 Russian
-Rvv
 RxT\f0<1
 Rxy3
 RzQU
+Rzm
 Rzr
 S#FI
-S%d
 S/MIME
 S/MIME CA
 S/MIME Capabilities
@@ -24030,7 +24031,9 @@ SXNET_add_id_ulong
 SXNET_get_id_asc
 SXNET_get_id_ulong
 SXNetID
+SXg
 SYI
+SYM
 SYNC_WAIT_FOR_COMPLETION
 S\n!NETWORK_DISCONNECT_REMOTE_TIMEOUT
 S\n%NETWORK_DISCONNECT_CONNECTION_FAILURE
@@ -24038,10 +24041,10 @@ S\n'NETWORK_DISCONNECT_DELTAENTMSG_OVERFLOW
 S\n'NETWORK_DISCONNECT_REJECT_FAILEDCHANNEL
 S\n,NETWORK_DISCONNECT_STEAM_LOGGED_IN_ELSEWHERE
 S\vQN
-SaK
 Safe To Auto-Switch Away From
 Safe To Auto-Switch To
 Safehouse
+Sag
 Salmon
 Salt Length: 0x
 Samaritan
@@ -24082,7 +24085,6 @@ SaveRestoreSyncIO
 SaveRestoreTableFlags_t
 Saved log to '%s'\n
 Saving game to %s...\n
-ScK
 Scalar for first person view punch when getting hit.
 Scalar for player tagging modifier when hit. Lower values for greater tagging.
 Scale
@@ -24360,6 +24362,7 @@ ScrolledOutOfView
 ScrubEntityGameSystem
 Sd:z
 SdV
+SeK
 Seal
 SearchBothGraphAndAnimEvents
 SearchOnlyAnimEvents
@@ -24943,8 +24946,6 @@ SettingsMenu_NavigateToSettingPanel
 SetupMove
 SetupScrubbingData[%d]%s: ConnectionInfo %d %s%s%s\n
 SetupScrubbingData[%d]%s: Recieved %d [%s]\n
-Sgg
-ShZ
 Shader
 ShaderDetail
 ShadowBufferVisualization
@@ -25061,6 +25062,7 @@ Show binding icons
 Show breakdown network misdelivery (loss, late delivery, and peak jitter).  0=never, 1=only in poor network conditions, 2=always
 Show current framenumber
 Show current tick/time values.  Bitmask:  1='render time'  2='GameTime'   4=time of predicted entities  8=offset of predicted entities    (-1 means 'everything')
+Show debug data when players change their loadout.
 Show debug info for fish
 Show entity contexts in ent_text display
 Show frame time (FPS) in the HUD.  0=never, 1=only if poor, 2=always
@@ -25211,7 +25213,6 @@ ShutdownPredictables due to global state change\n
 Shuts down all open lessons and reloads them from the script file.
 Shutting down P2P voice peer group %s\n
 Shutting down...\n
-SiL
 SidebarContextMenuActive
 SidebarIsCollapsed
 Siege
@@ -25350,12 +25351,12 @@ SndOpEventGuid_t
 SniperRifle
 SniperZoomStencil
 Sniper_Rifle
+Snv
 SoftCancel
 Software
 SoftwareKeyboardVisibilityChanged
 SoftwareKeyboardVisible
 Software\Valve\Source
-Soi
 Solid Color
 SolidCone
 SolidType_t
@@ -25400,6 +25401,7 @@ Source1LegacyGameEventList_t
 Source1LegacyGameEvent_t
 Source1LegacyListenEvents_t
 Source2 HTML
+Source2/Composite Material Debug
 Source2Client002
 Source2ClientConfig001
 Source2ClientPrediction001
@@ -25434,7 +25436,6 @@ Source2PlayStats_UInt8
 Source2PlayStats_UTCDateTime
 Source2Server001
 Source2V8System001
-SourceAppID
 SourceCodeInfo
 South
 SouthAmerica
@@ -25545,7 +25546,6 @@ Spew interpolated var info for entity.
 Spew render eye angles
 Spew state on when client entities become dormant or active.
 Spews the list of names to display text debugging information about the given entity(ies) on top of the entity (See Overlay Text)\n\tArguments:   \t{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at}
-Spg
 Sphere
 SphereBase_t
 SpiderGraph
@@ -25585,6 +25585,7 @@ Sqrt
 Square
 Square root
 Squat
+Ssu
 St. Marc
 Stabilize camera orientation/position during demo playback.  1 == remove roll, 2 == steadycam
 Stack depth limit hit (%d)
@@ -25865,7 +25866,6 @@ SubscribedType
 Subscribing
 Subtitle offset distance (forward, in front of player)
 Subtitle vertical offset distance (positive is up)
-Subtitles and Captions
 Subzero
 Success
 Success event 
@@ -25931,7 +25931,6 @@ SystemInputLanguageChanged
 SystemMemoryMB
 SystemTimeToFileTime
 SystemTimeToTzSpecificLocalTime
-Szk
 T Loadouts for default pistol round when playing bomb site retake.
 T Loadouts for force buy round when playing bomb site retake.
 T Loadouts for full buy round when playing bomb site retake.
@@ -26004,10 +26003,12 @@ TE_ShatterSurfaceId
 TE_SmokeId
 TE_SparksId
 TE_WorldDecalId
+TEh
 TF_Unique_Prepend_Proper
 TGhost
 TGoesDown
 TGoesUp
+TGq
 THB
 THEN
 TIFFAppendToStrip
@@ -26054,7 +26055,6 @@ TLSv1 part of OpenSSL 1.0.2j  26 Sep 2016
 TLSv1.1
 TLSv1.2
 TLSv1/SSLv3
-TLd
 TM=U*
 TODO Display autoaim radius
 TODO show entities that block NPC LOS
@@ -26115,7 +26115,6 @@ TPD2
 TPS'
 TPk+L
 TQE
-TQn
 TRANSITION_TO_LIFESTATE_DEAD
 TRANSITION_TO_LIFESTATE_DYING
 TRF
@@ -26175,9 +26174,9 @@ TS_TST_INFO_set_tsa
 TS_VERIFY
 TS_VERIFY_CERT
 TS_VERIFY_CTX_new
+TTP
 TUUUU
 TWD
-TXb
 TYPE=
 T\n%NETWORK_DISCONNECT_KICKED_TEAMHURTING
 T\n%NETWORK_DISCONNECT_KICKED_TEAMKILLING
@@ -26254,7 +26253,6 @@ Task
 Task Failed
 Task/Action handshake.
 TcM
-TdL
 Team deathmatch victory points to award for collecting enemy dogtags
 Team deathmatch victory points to award for enemy kill
 Team deathmatch victory points to award for kill with bonus weapon
@@ -26551,6 +26549,8 @@ TitleImageTextTooltip
 TitleImmediatelyVisible
 TitleLabel
 TitleTextTooltip
+TjD
+TlM
 TlsAlloc
 TlsFree
 TlsGetValue
@@ -26695,8 +26695,7 @@ TowerIconC4
 TowerIconHostage
 TowerIconPackage
 TowerPing
-TpB
-Tpx
+TqH
 Tqm
 Trace using: %s\n
 TraceCollideable
@@ -26838,8 +26837,6 @@ Tweak this parameter to adjust Free Camera movement max speed.
 Twitch.tv account channel URL
 Twitch.tv account linking URL
 Two Bone IK
-TxF
-Txy
 Type
 Type appears to be in generated pool but wasn't 
 Type is already registered: 
@@ -26938,7 +26935,6 @@ UIPanorama.store_item_purchased
 UIPopupButtonClicked
 UIPopupButtonClickedEvent
 UIPopupManagerVisibilityChanged
-UIQ
 UIRoot
 UISceneFrameBoundary
 UIScenePanelReload
@@ -26964,6 +26960,7 @@ UI_get0_result
 UI_new_method
 UI_set_result
 UJN
+UMQ
 UM_AchievementEvent
 UM_AmmoDenied
 UM_AnimGraphUpdate
@@ -27084,8 +27081,10 @@ U\n&NETWORK_DISCONNECT_SERVER_INCOMPATIBLE
 U\n(NETWORK_DISCONNECT_REJECT_INVALIDCERTLEN
 U\tV_fflush
 U^Pg
+UaN
 Ugaritic
 Ugi<
+Uhy
 UiToolkit.InvokeJSCallback - The first argument must be a callback handle returned by UiToolkit.RegisterJSCallback.
 UiToolkit.InvokeJSCallback takes at least 1 argument: callback handle returned by UiToolkit.RegisterJSCallback.
 UiToolkit.ShowCustomLayoutParametersTooltip - Unable to find target panel %s.\n
@@ -27328,7 +27327,6 @@ Upscale
 Upscale Particle Shadow
 Upscale Smoke Depth
 UpscaleResolve
-Uqc
 Usage:  %s < entindex [server|client] varname | reset >\n
 Usage:  %s <entindex>
 Usage:  %s minx miny miny maxx maxy maxz <lifetime = 10.0> <r g b a>\n
@@ -27368,7 +27366,6 @@ UsingAnalogueStick
 UsingCompositionLayer
 Usr cmd size = %d B, %d history entries, max history entry size = %d, csv = %d, %d, %d\n
 Ut]<E
-Ute
 UtilRemoveDeferralSystem
 UtlRBTree_FailedInsertDuplicate
 UtlVectorMemory_Alloc
@@ -27377,6 +27374,7 @@ UtlVectorMemory_CalcNewAllocationCount
 UtlVectorMemory_FailedAllocation
 Utn
 Uv1t
+UvC
 UxA
 Uz_G3=
 V2I_ASIDENTIFIERS
@@ -27428,6 +27426,8 @@ VENGINE_GAMEUIFUNCS_VERSION005
 VEngineCvar007
 VF+c
 VFileSystem017
+VFj
+VGF
 VGG@
 VGuiPaintSurfaceLayout
 VIDEOTEXSTRING
@@ -27526,11 +27526,10 @@ VScript error: Invalid entity handle passed to IsMarkedForDelete.\n
 VScriptDbg
 VScriptManager010
 VScriptScripts
+VSn
 VStringTokenSystem001
-VSx
 VSync
 VWebm001
-VXG
 VY5[;o
 VYPA_DEFEAT
 VZ#-DLU[3=h
@@ -27665,8 +27664,8 @@ VbfOc,p
 Vc0a
 Vcsc 
 Vcy
-Vda
 Vdk
+VeO
 VeaFOfb
 Vec3D<float> [4] (demangled)
 Vec3D<float> [64] (demangled)
@@ -27777,8 +27776,9 @@ Visualizes +use logic. Green cross=trace success, Red cross=trace too far, Green
 Visualizes all entity input/output activity.
 Visuals
 Vjv
-Vky
-Vmi
+VlA
+VlN
+VnV
 Voice
 Voice chat uses a vox-style always on
 Voice slot %llu bc: %s  heard: %s  bitSet: %s\n
@@ -27822,12 +27822,12 @@ Votes for the next map at the end of the match
 Votes: Option1 - %d, Option2 - %d, Option3 - %d, Option4 - %d, Option5 - %d\n
 Vp>u
 Vrad3_001
-VtH
 Vulkan
 Vulture
 Vuy
 VwP
 Vzp
+Vzu
 V~~Vq
 W Max
 W Min
@@ -27996,7 +27996,6 @@ WIN32_PATHBYADDR
 WIN32_SPLITTER
 WIN32_UNLOAD
 WINGMAN_INTRO
-WLD
 WL_Chest
 WL_Count
 WL_Feet
@@ -28398,7 +28397,6 @@ WorldUITextPanel
 WorldVector
 Worldspace Render Bounds: [%.2f %.2f %.2f] -> [%.2f %.2f %.2f]\n
 Worley
-Wou
 WqW
 WrappedPhysicsJoint_t
 Wrapper
@@ -28430,6 +28428,7 @@ Wrote icon %s.\n
 WsDirection
 WsPosition
 WsZ
+WtH
 WuL
 X Max
 X Min
@@ -28573,6 +28572,7 @@ X9_62_FIELDID
 X9_62_PENTANOMIAL
 X9cm
 X:vS
+XBU
 XB`i|
 XClipPathUnits
 XD{p7
@@ -28589,6 +28589,7 @@ XMLPacket
 XMM{*
 XMQ
 XNU`{3
+XOS
 XPH
 XPosition
 XQI
@@ -28597,7 +28598,6 @@ XResolution
 XSK
 XUID
 XVR
-XVW
 XY warp curve blowout detected! Falling back to LERP!
 XYD%
 XYZ, Luv
@@ -28610,15 +28610,12 @@ X\n\vFantasyTeam
 X\n\vLoadoutItem
 X\tQo
 Xan
-Xcx
 Xd3h
 XfJ7
 XhL
 Xha
 XjfR
 Xjm
-XlV
-Xok
 XpDataJSO
 XpNeededForDrop
 XpNeededForPreviousDrop
@@ -28633,8 +28630,7 @@ XqgA+
 Xqm
 XsBI
 Xsp
-XtJ
-Xtv
+Xsq
 XuI
 Xuub
 XwA0
@@ -28664,9 +28660,7 @@ YOl
 YPosition
 YResolution
 YS1n
-YWP
 YWQa:B
-YYD
 YYYY
 YYYY-MM-DD
 YYYY-MM-DD hh:mm:ss
@@ -28691,6 +28685,7 @@ Yes
 Yield, Resume=%s
 YieldingCacheDescriptionData
 YieldingFillOutEconItemDescription
+Yku
 YldSelectSubmissionImage
 YnFpW
 YoO
@@ -28721,9 +28716,7 @@ ZFP compression is not supported in this build
 ZFP compression is not supported.
 ZFar
 ZGet me the mutual friends for each of my pending incoming invites (individuals and clans).
-ZHD
 ZH^r
-ZIH
 ZIPDecode
 ZIPEncode
 ZIPPostEncode
@@ -28731,28 +28724,31 @@ ZIPSetupDecode
 ZIPSetupEncode
 ZIPVSetField
 ZInclude files that have all the tags or any of the tags if match_all_tags is set to false.
-ZJf
 ZL9L
 ZLIB
 ZLONG
 ZNear
-ZPh
+ZPY
 ZRr
 ZSz@
 ZXF,`i
+ZZp
 Z\n(NETWORK_DISCONNECT_KICKED_HOSTAGEKILLING
 Z\n(NETWORK_DISCONNECT_KICKED_INSECURECLIENT
 Z\n(NETWORK_DISCONNECT_REMOTE_CERTNOTTRUSTED
 Z\n*NETWORK_DISCONNECT_REJECT_INVALIDKEYLENGTH
 Z\n+NETWORK_DISCONNECT_CONNECT_REQUEST_TIMEDOUT
 Z\tV_fmodf
-ZdQ
+Zca
 Zd[w
 Ze2Zh@
+ZeX
 Zebra
+Zeh
 Zero Pose Task
 Zero frame animations are not supported for warping!
 Zero input vector for info node!
+ZfL
 Zigzag
 Zipping %s (%d files)\n
 ZjLS
@@ -28763,9 +28759,7 @@ Zoo
 Zooming
 ZpY
 Zpwz
-ZrH
-ZsG
-ZxN
+Zuz
 [ %d : %d ]
 [ Chunk%d ]
 [ RETAKE RULES ] A card should have at least 4 items.\n
@@ -29061,7 +29055,6 @@ ZxN
 \n\fEHG_RightLeg
 \n\fET_Spectator
 \n\fET_Terrorist
-\n\fEUnlockStyle
 \n\fFieldOptions
 \n\fGetUserFiles
 \n\fIgnoreFriend
@@ -29347,6 +29340,7 @@ ZxN
 \n\nprops_data
 \n\nquest_type
 \n\nqueue_size
+\n\nrecipe_def
 \n\nrequest_id
 \n\nrounds_won
 \n\nrpt_aimbot
@@ -29710,7 +29704,6 @@ ZxN
 \n\vCDemoPacket
 \n\vCM_MAX_BASE
 \n\vCMsgTEDecal
-\n\vCMsgUseItem
 \n\vCSOEconItem
 \n\vCS_UM_Shake
 \n\vCS_UM_Train
@@ -29774,6 +29767,7 @@ ZxN
 \n\vcone_length
 \n\vcorrectpick
 \n\vcpus_online
+\n\vcraft_items
 \n\vcss_classes
 \n\vcustom_desc
 \n\vcustom_name
@@ -29787,7 +29781,6 @@ ZxN
 \n\vdisplaytime
 \n\vease_in_out
 \n\veffectindex
-\n\vegg_item_id
 \n\vendcap_time
 \n\venemy_kills
 \n\vent_ehandle
@@ -29943,7 +29936,6 @@ ZxN
 \rKT8v
 \rLAM
 \rMinghuaQu\f
-\rSource2/Composite Material Debug
 \rTxL
 \rUHz4Z}\r
 \rWhO
@@ -30408,8 +30400,7 @@ a:typeparam
 a;Tg
 a@XZ
 aA0k
-aAp
-aBvt
+aBv
 aD/x
 aDH
 aDSS
@@ -30422,11 +30413,11 @@ aGOST94
 aGV
 aGb
 aGw\t4*
-aHE
 aHZ
 aI)h
 aJP
 aKRB5
+aLk
 aMo^
 aNULL
 aPSK
@@ -30436,7 +30427,6 @@ aRecord
 aRs
 aSRP
 aTh
-aWa
 aXvC
 a]?xG
 aaControls
@@ -30479,7 +30469,6 @@ accountid64
 accumulated_error
 accuracy_target_enemy
 achievement_earned
-achievement_rewards
 acos
 act
 act_
@@ -31110,6 +31099,7 @@ antialias
 antiquewhite
 anxious
 any
+any sender
 anyExtendedKeyUsage
 anyPolicy
 any_equipment
@@ -31294,6 +31284,7 @@ attenuation0
 attenuation1
 attenuation2
 attr: %s
+attr_def
 attr_factory
 attrib
 attrib_definition_index_t
@@ -31308,6 +31299,7 @@ attribute_type
 attribute_value
 attributeprovidertypes_t
 attributes
+aua
 audible
 audible-seconds
 audio
@@ -31377,6 +31369,7 @@ b <= sizeof ctx->final
 b2i_PVK_bio
 bCa
 bClip3DSkyBoxNearToWorldFar
+bGd
 bInherit
 bIsOverwatch
 bIsPaused
@@ -31387,6 +31380,7 @@ bJ*h
 bLocalize
 bN.l
 bPI
+bPa
 bPb:L7X)
 bPl
 bSaveObject
@@ -31401,7 +31395,6 @@ bWasSaved
 bXX
 bXpDataReady
 bXpShopDataReady
-bYd
 b\fzUkm
 b\n\fdescriptor_t
 b]jY
@@ -31432,8 +31425,6 @@ background_border_width
 background_clear_not_required
 background_material_name
 background_world_to_uv
-backpack_expander
-backpack_slots
 backup
 backwards
 bad
@@ -31618,7 +31609,6 @@ bgE
 bg_BG
 bh.b|C
 bhop
-biJ
 bi_GameEvent_DEPRECATED
 bi_PredictionEvent
 bi_RebroadcastGameEvent
@@ -31662,6 +31652,9 @@ bits
 bits too small
 bits_valid_slots
 bizon
+bjD
+bjO
+bju
 bkg-ready
 bkg_color
 bl <= (int)sizeof(ctx->buf)
@@ -31708,8 +31701,6 @@ body
 bodyGroupChoiceChanged
 bodyMassScale
 body_collection
-body_substring_keys
-body_substring_values
 bodygroup
 bodygroupchoices
 bodygroups
@@ -32002,16 +31993,16 @@ c2tnb239v3
 c2tnb359v1
 c2tnb431r1
 cACertificate
+cEp
 cKz
 cL;p
 cLK
-cLf
 cNAMERecord
 cNUGK
+cOL
 cOR
 cPc
 cRLSign
-cTw
 cYS
 c\n\tAcceptSSA
 c_cs_observer_for_precache
@@ -32476,7 +32467,6 @@ cipher table src error
 cisc
 citadel_snd_opvar_set_obb
 ckM
-cky
 cl interp: %.3f \n
 cl: %d ===========================\n
 cl: %d: %s\n
@@ -34270,7 +34260,6 @@ class CCsgoResolveDepthProceduralLayerRenderer (demangled)
 class CCsgoResolveProceduralLayerRenderer (demangled)
 class CCsgoVanityResolveProceduralLayerRenderer (demangled)
 class CCustomGameEventManager (demangled)
-class CCustomTextureToolCache (demangled)
 class CDamageRecord (demangled)
 class CDataDrivenCamera (demangled)
 class CDataGCCStrike15_v2_MatchInfo (demangled)
@@ -34426,22 +34415,15 @@ class CEconQuestProgress (demangled)
 class CEconRecurringMission (demangled)
 class CEconRentalHistory (demangled)
 class CEconStyleInfo (demangled)
-class CEconTool_BackpackExpander (demangled)
 class CEconTool_Casket (demangled)
-class CEconTool_Collection (demangled)
 class CEconTool_CrateKey (demangled)
-class CEconTool_CustomizeTexture (demangled)
 class CEconTool_Default (demangled)
 class CEconTool_DescTag (demangled)
-class CEconTool_DuelingMinigame (demangled)
 class CEconTool_FanToken (demangled)
 class CEconTool_Gift (demangled)
 class CEconTool_Keychain (demangled)
 class CEconTool_KeychainToolCharges (demangled)
 class CEconTool_NameTag (demangled)
-class CEconTool_Noisemaker (demangled)
-class CEconTool_PaintCan (demangled)
-class CEconTool_PaintKit (demangled)
 class CEconTool_Patch (demangled)
 class CEconTool_Recipe (demangled)
 class CEconTool_SeasonPass (demangled)
@@ -34449,8 +34431,6 @@ class CEconTool_SeasonTiers (demangled)
 class CEconTool_Spray (demangled)
 class CEconTool_StatTrakSwap (demangled)
 class CEconTool_Sticker (demangled)
-class CEconTool_WeddingRing (demangled)
-class CEconTool_WrappedGift (demangled)
 class CEconTool_XpGrant (demangled)
 class CEconTool_XpShopTicket (demangled)
 class CEconVolatileItemClaimedRewards (demangled)
@@ -34660,7 +34640,6 @@ class CGCMsgAdjustEquipSlotsAcknowledged (demangled)
 class CGCMsgAdjustEquipSlotsManualAcknowledged (demangled)
 class CGCMsgAdjustEquipSlotsShuffleAcknowledged (demangled)
 class CGCNameBaseItemResponse (demangled)
-class CGCPaintKitItemResponse (demangled)
 class CGCStorePurchaseInit_LineItem (demangled)
 class CGCToGCMsgMasterAck (demangled)
 class CGCToGCMsgMasterAck_Response (demangled)
@@ -34850,7 +34829,6 @@ class CGameSystemStaticFactory<CColorCorrectionMgr, CColorCorrectionMgr> (demang
 class CGameSystemStaticFactory<CCompetitiveCvarManager, CCompetitiveCvarManager> (demangled)
 class CGameSystemStaticFactory<CCompositeMaterialGameSystem, CCompositeMaterialGameSystem> (demangled)
 class CGameSystemStaticFactory<CCustomGameEventManager, CCustomGameEventManager> (demangled)
-class CGameSystemStaticFactory<CCustomTextureToolCache, CCustomTextureToolCache> (demangled)
 class CGameSystemStaticFactory<CDecalEmitterSystem, CDecalEmitterSystem> (demangled)
 class CGameSystemStaticFactory<CDirtySpatialPartitionEntityList, CDirtySpatialPartitionEntityList> (demangled)
 class CGameSystemStaticFactory<CDllVerificationMonitor, CDllVerificationMonitor> (demangled)
@@ -35132,11 +35110,8 @@ class CMsgAckPetEvent (demangled)
 class CMsgAcknowledgeRentalExpiration (demangled)
 class CMsgAdjustEquipSlot (demangled)
 class CMsgAdjustEquipSlots (demangled)
-class CMsgApplyEggEssence (demangled)
-class CMsgApplyPennantUpgrade (demangled)
 class CMsgApplyStatTrakSwap (demangled)
 class CMsgApplySticker (demangled)
-class CMsgApplyStrangePart (demangled)
 class CMsgCStrike15Welcome (demangled)
 class CMsgCasketItem (demangled)
 class CMsgClearDecalsForEntityEvent (demangled)
@@ -35151,7 +35126,9 @@ class CMsgClothStiffenAnimEvent (demangled)
 class CMsgClothStiffenAnimEvent_t (demangled)
 class CMsgConnectionStatus (demangled)
 class CMsgConsumableExhausted (demangled)
+class CMsgCraftItemsRequest (demangled)
 class CMsgCsgoSteamUserStatChange (demangled)
+class CMsgDeleteItem (demangled)
 class CMsgDevNewItemRequest (demangled)
 class CMsgEffectData (demangled)
 class CMsgGCBannedWord (demangled)
@@ -35260,9 +35237,7 @@ class CMsgGCCStrike15_v2_SetEventFavorite (demangled)
 class CMsgGCCStrike15_v2_SetPlayerLeaderboardSafeName (demangled)
 class CMsgGCCStrike15_v2_VolatileShopSubscribe (demangled)
 class CMsgGCCStrike15_v2_WatchInfoUsers (demangled)
-class CMsgGCClientDisplayNotification (demangled)
 class CMsgGCClientVersionUpdated (demangled)
-class CMsgGCCollectItem (demangled)
 class CMsgGCCstrike15_v2_ClientRedeemFreeReward (demangled)
 class CMsgGCCstrike15_v2_ClientRedeemMissionReward (demangled)
 class CMsgGCCstrike15_v2_GC2ServerNotifyXPRewarded (demangled)
@@ -35275,7 +35250,6 @@ class CMsgGCHRecurringSubscriptionStatusChange (demangled)
 class CMsgGCHVacVerificationChange (demangled)
 class CMsgGCIncrementKillCountResponse (demangled)
 class CMsgGCItemCustomizationNotification (demangled)
-class CMsgGCItemPreviewItemBoughtNotification (demangled)
 class CMsgGCMultiplexMessage (demangled)
 class CMsgGCMultiplexMessage_Response (demangled)
 class CMsgGCNameItemNotification (demangled)
@@ -35323,6 +35297,7 @@ class CMsgLeaveParty (demangled)
 class CMsgLegacySource1ClientWelcome (demangled)
 class CMsgLegacySource1ClientWelcome_Location (demangled)
 class CMsgModifyItemAttribute (demangled)
+class CMsgModifyItemStringAttr (demangled)
 class CMsgOpenCrate (demangled)
 class CMsgPartyInviteResponse (demangled)
 class CMsgPlaceDecalEvent (demangled)
@@ -36606,6 +36581,7 @@ class CNetworkVarBase<float, C_CSGameRules::NetworkVar_m_flTerroristTimeOutRemai
 class CNetworkVarBase<float, C_CSGameRules::NetworkVar_m_timeUntilNextPhaseStarts> (demangled)
 class CNetworkVarBase<float, C_CSPlayerPawn::NetworkVar_m_fMolotovDamageTime> (demangled)
 class CNetworkVarBase<float, C_CSPlayerPawn::NetworkVar_m_flFlinchStack> (demangled)
+class CNetworkVarBase<float, C_CSPlayerPawn::NetworkVar_m_flModifier0> (demangled)
 class CNetworkVarBase<float, C_CSPlayerPawn::NetworkVar_m_flVelocityModifier> (demangled)
 class CNetworkVarBase<float, C_CSPlayerPawn::NetworkVar_m_flViewmodelFOV> (demangled)
 class CNetworkVarBase<float, C_CSPlayerPawn::NetworkVar_m_flViewmodelOffsetX> (demangled)
@@ -38992,12 +38968,6 @@ class GCSDK::CGCClient (demangled)
 class GCSDK::CGCClientJob (demangled)
 class GCSDK::CGCClientSharedObjectCache (demangled)
 class GCSDK::CGCClientSharedObjectTypeCache (demangled)
-class GCSDK::CGCMsg<MsgGCCraft_t> (demangled)
-class GCSDK::CGCMsg<MsgGCDelete_t> (demangled)
-class GCSDK::CGCMsg<MsgGCNameBaseItem_t> (demangled)
-class GCSDK::CGCMsg<MsgGCNameItem_t> (demangled)
-class GCSDK::CGCMsg<MsgGCRemoveItemName_t> (demangled)
-class GCSDK::CGCMsg<MsgGCSetItemPosition_t> (demangled)
 class GCSDK::CGCMsg<MsgGCStandardResponse_t> (demangled)
 class GCSDK::CGCSOCacheSubscribedJob (demangled)
 class GCSDK::CGCSOCacheSubscriptionCheck (demangled)
@@ -39022,6 +38992,8 @@ class GCSDK::CProtoBufMsg<CMsgCasketItem> (demangled)
 class GCSDK::CProtoBufMsg<CMsgClientHello> (demangled)
 class GCSDK::CProtoBufMsg<CMsgClientWelcome> (demangled)
 class GCSDK::CProtoBufMsg<CMsgConnectionStatus> (demangled)
+class GCSDK::CProtoBufMsg<CMsgCraftItemsRequest> (demangled)
+class GCSDK::CProtoBufMsg<CMsgDeleteItem> (demangled)
 class GCSDK::CProtoBufMsg<CMsgGCCStrike15_ClientDeepStats> (demangled)
 class GCSDK::CProtoBufMsg<CMsgGCCStrike15_GotvSyncPacket> (demangled)
 class GCSDK::CProtoBufMsg<CMsgGCCStrike15_v2_AccountPrivacySettings> (demangled)
@@ -39100,6 +39072,7 @@ class GCSDK::CProtoBufMsg<CMsgGCToClientSteamDatagramTicket> (demangled)
 class GCSDK::CProtoBufMsg<CMsgGCUserTrackTimePlayedConsecutively> (demangled)
 class GCSDK::CProtoBufMsg<CMsgLegacySource1ClientWelcome> (demangled)
 class GCSDK::CProtoBufMsg<CMsgModifyItemAttribute> (demangled)
+class GCSDK::CProtoBufMsg<CMsgModifyItemStringAttr> (demangled)
 class GCSDK::CProtoBufMsg<CMsgOpenCrate> (demangled)
 class GCSDK::CProtoBufMsg<CMsgRecurringMissionSchema> (demangled)
 class GCSDK::CProtoBufMsg<CMsgRequestRecurringMissionSchedule> (demangled)
@@ -39132,6 +39105,8 @@ class GCSDK::CProtoBufMsgMemoryPool<CMsgCasketItem> (demangled)
 class GCSDK::CProtoBufMsgMemoryPool<CMsgClientHello> (demangled)
 class GCSDK::CProtoBufMsgMemoryPool<CMsgClientWelcome> (demangled)
 class GCSDK::CProtoBufMsgMemoryPool<CMsgConnectionStatus> (demangled)
+class GCSDK::CProtoBufMsgMemoryPool<CMsgCraftItemsRequest> (demangled)
+class GCSDK::CProtoBufMsgMemoryPool<CMsgDeleteItem> (demangled)
 class GCSDK::CProtoBufMsgMemoryPool<CMsgGCCStrike15_ClientDeepStats> (demangled)
 class GCSDK::CProtoBufMsgMemoryPool<CMsgGCCStrike15_GotvSyncPacket> (demangled)
 class GCSDK::CProtoBufMsgMemoryPool<CMsgGCCStrike15_v2_AccountPrivacySettings> (demangled)
@@ -39210,6 +39185,7 @@ class GCSDK::CProtoBufMsgMemoryPool<CMsgGCToClientSteamDatagramTicket> (demangle
 class GCSDK::CProtoBufMsgMemoryPool<CMsgGCUserTrackTimePlayedConsecutively> (demangled)
 class GCSDK::CProtoBufMsgMemoryPool<CMsgLegacySource1ClientWelcome> (demangled)
 class GCSDK::CProtoBufMsgMemoryPool<CMsgModifyItemAttribute> (demangled)
+class GCSDK::CProtoBufMsgMemoryPool<CMsgModifyItemStringAttr> (demangled)
 class GCSDK::CProtoBufMsgMemoryPool<CMsgOpenCrate> (demangled)
 class GCSDK::CProtoBufMsgMemoryPool<CMsgProtoBufHeader> (demangled)
 class GCSDK::CProtoBufMsgMemoryPool<CMsgRecurringMissionSchema> (demangled)
@@ -40648,7 +40624,6 @@ clearcolor
 clearkeybinding
 clears
 cleartext track 2
-clg
 cli::array<
 cli::pin_ptr<
 cli_ent_attachments
@@ -40785,7 +40760,6 @@ cms_set1_SignerIdentifier
 cms_set1_ias
 cms_set1_keyid
 cmyk document with non 8 bit channels
-cnP
 cnX
 cntrl
 co7S
@@ -40809,10 +40783,7 @@ cold
 collapse
 collapse_addr_hash
 collection
-collection bits
-collection_item_id
 collection_reward
-collection_reward_item
 collection_type
 collision_group_override
 collision_property
@@ -41200,7 +41171,6 @@ coyote
 cp0_model
 cp0_snapshot
 cpLm
-cpi
 cpoint%d
 cpoint%d_value
 cppDeathFrameBorderCount
@@ -41392,7 +41362,6 @@ csgo_use_fullsort_for_opaque
 csgo_vanityloadout
 csgo_watch_friend_session_exit_current
 csharp_namespace
-csl
 csm pushback distance, should be much shorter/disabled for icon rendering
 csm_bias_override_0
 csm_bias_override_1
@@ -41493,7 +41462,6 @@ cubic-bezier
 cue contains cue-id, but is missing cuetimes or cue text
 cue-text line contains unescaped timestamp separator '-->'
 cue_index
-cug
 cull characters nearer than this
 cull_mode
 currencies
@@ -41539,7 +41507,6 @@ custom_sound
 custom_type
 customcubemaptexture
 customgamemode
-customize_texture_item
 customorigin
 customorigin_follow
 customplayer
@@ -41626,21 +41593,24 @@ d=%-2d hl=%ld l=%4ld
 d=%-2d hl=%ld l=inf  
 dAN"
 dBo
+dCz
 dDV8
-dEH
 dEY
 dFs
+dGN
 dHHp
 dITRedirect
 dKi
-dKn
-dLk
 dNSDomain
+dOS
 dOV
 dOj\f,
 dQy/
 dRL>
 dSAQuality
+dSi
+dUw
+dVX
 dWry
 d[kHy 
 d\n-NETWORK_DISCONNECT_KICKED_COMPETITIVECOOLDOWN
@@ -41666,7 +41636,6 @@ damagetype
 dangerous
 dangerzone_controller
 danish
-dap
 darkblue
 darkcyan
 darken
@@ -42272,7 +42241,6 @@ dmp1
 dmp1 not congruent to d
 dmq1
 dmq1 not congruent to d
-dnD
 dnQualifier
 dnY
 do_A
@@ -42405,8 +42373,6 @@ dtls1_send_server_key_exchange
 dtls1_write_app_data_bytes
 dual ec drbg disabled
 duck
-duel__class_lock
-duel_minigame
 dummy
 dummyfilename.tif
 dump origin and angles to the console
@@ -42422,7 +42388,6 @@ duration
 duration_realtime_sec
 dutch
 dvcs
-dve
 dxt5
 dynamic
 dynamic entities
@@ -42492,14 +42457,12 @@ eEyesOnly
 eF>t
 eFallbackExit
 eFast
-eFb
 eForward
 eForwardStartOnly
 eFullBody
 eGV
 eGib
 eGn
-eGx
 eHead
 eIdleTurn
 eInstantStop
@@ -42508,6 +42471,7 @@ eKill
 eLK(w
 eLM
 eLean
+eLh
 eLightEffectDropped
 eLightEffectNone
 eLightEffectThirdPersonHeld
@@ -42559,7 +42523,7 @@ eVg
 eWait
 eWaitFacing
 eXQd
-eXd
+eZa
 e\tcCPtH
 e_action_desired
 e_action_handshake_body_authority_current
@@ -43048,10 +43012,10 @@ errormsg
 es_ES
 ess add signing cert error
 ess signing certificate error
-essence_item_id
 ethe resulting relationship.  Depending on state, may move directly to friends rather than invite sent"R\n
 etype
 euro
+evH
 evcode
 evenodd
 event
@@ -43218,7 +43182,6 @@ eyeangle
 eyes
 eyes_follow
 eyj5yR
-ezq
 f%wyLmX:
 f&dy
 f1cK%
@@ -43228,22 +43191,24 @@ fBB\fy
 fCSunday
 fC\tc
 fD>b
-fHD
 fHy
-fIi
 fL\ri
 fMZ
 fNR
-fNe
+fNS
 fP;y
+fPN
 fP~V
+fQr
+fRN
 fRx
 fSt
+fTL
 fTS
 fTimeScale
 fUnh\
-fWa
 fWi?
+fWw
 fXD
 fYF
 f\trixZ
@@ -43300,6 +43265,7 @@ false:=\n\rvalve_map_key
 false:?\n
 false:A\n
 false\n
+fam
 famas
 fan_falloff
 fan_force
@@ -43326,6 +43292,7 @@ fbi
 fco
 fdf
 fdxfv%
+feN
 featured_display_item_defidx
 featured_item_index
 feed
@@ -43339,8 +43306,9 @@ ff_damage_reduction_grenade
 ff_damage_reduction_grenade_self
 ff_damage_reduction_other
 fff?
-ffh
 fft
+fgP
+fgd
 fi_FI
 field
 field missing
@@ -43557,7 +43525,6 @@ filtermass
 filtername
 filterteam
 filthy
-fin
 final
 final %s\n
 final run
@@ -43606,6 +43573,7 @@ fixed_instances_max
 fixedlength
 fixupNames
 fj".T\CMek2>x
+fkG
 flAddAmount
 flClip3DSkyBoxNearToWorldFarOffset
 flDamage
@@ -43618,7 +43586,6 @@ flExecTime
 flExponent
 flFloat
 flFrac
-flH
 flIn
 flInputA
 flInputB
@@ -43804,8 +43771,6 @@ fogstartheight
 fogstrength
 fogverticalexponent
 foil
-fok
-fol
 folder
 folder_name
 follow_attachment
@@ -43961,8 +43926,8 @@ front_mag
 frozen
 fse
 ft: %-60s %-40s : %-80.80s raw:%s\n
-fti
 fu`z
+fuc
 fuchsia
 full
 fullbright
@@ -44002,7 +43967,6 @@ future
 future already retrieved
 fvP
 fvalue
-fvn
 fwg
 fx_blood_bullet_impact
 fx_bubble
@@ -44020,7 +43984,7 @@ g9rB
 gB>d
 gBC
 gBV
-gCs
+gDj
 gFF
 gF{A
 gGa
@@ -44032,7 +43996,6 @@ gVal
 gWu
 gXC.nT\v
 gZS
-gZa
 g\n#particle_freeze_transition_override
 g]i/H
 g_GameEventManager.Init()
@@ -44501,9 +44464,9 @@ groups
 grp
 grps
 grumpy
-gsM
 gs_location_id
 gs_ping
+guE
 guerilla
 guerilla02
 guid
@@ -44521,6 +44484,7 @@ gunshotsplash
 gunshotsplash_global_client
 gustdirchange
 gustduration
+gvZ
 gxv>
 gyrating
 g{syW*
@@ -44539,6 +44503,7 @@ hCallbackScope
 hCaller
 hCamera
 hCh
+hCy
 hDA
 hEM&!
 hEntity
@@ -44546,19 +44511,21 @@ hEntityA
 hEntityB
 hFP
 hF\rDz
+hJS
+hJq
 hJxRX@_
 hN2D
+hNv
 hPU3
 hRB.
 hRK
-hSO
-hTL
 hTarget
 hThinkFunc
 hW*m
 hW1M
 hWS
 hW_z
+hWy
 hX@e
 h\n,NETWORK_DISCONNECT_REMOTE_TIMEOUT_CONNECTING
 h\n\frequiredtags
@@ -44606,10 +44573,11 @@ hawk
 hb`V
 hbar
 hbvc
-hcT
+hcK
 hc[N
 hc\raF
 hcontent_preview
+hdL
 head
 head_0
 head_IKTARGET
@@ -44709,6 +44677,7 @@ hex_color
 hex_to_string
 hexkey
 hfU
+hhM
 hhO
 hhe
 hidden
@@ -44734,6 +44703,7 @@ highest_string
 highlight_reel
 highlight_reels
 highlights
+hij
 hingeAxis
 hint
 hint_name
@@ -44756,7 +44726,6 @@ hits_given
 hits_taken
 hittest
 hittestchildren
-hix
 hkp2000
 hl5v
 hl_vr_texture_based_animatable
@@ -44785,7 +44754,6 @@ hmacWithSHA256
 hmacWithSHA384
 hmacWithSHA512
 hnM<
-hnP
 hnu
 hold
 holdInstructionCallIssuer
@@ -44952,7 +44920,6 @@ hungarian
 hungry
 huu
 hvL&
-hwU
 hwe
 hyena
 h|gg
@@ -44984,6 +44951,7 @@ i5BH
 iA5StringSyntax
 iAmmoType
 iAttribHook
+iBM
 iC!l
 iCollide
 iDamageCustom
@@ -44996,13 +44964,13 @@ iILV]
 iLayer
 iMaxVal
 iMinVal
-iMr
 iOJ
+iOx
 iPercentage
 iSXc
 iSuccessCount
-iTf
 iU[&l
+iUb
 iVY2L
 i\n\ttotalonly
 i]Wb
@@ -45365,6 +45333,7 @@ if true, impact sounds wont play if no soft impact sound is present and the impa
 if using high contrast postprocessing, use this weight (weight = 1.0 for characters)
 if.F<h
 ifTK
+ifb
 ignite
 ignite_halfhealth
 ignore
@@ -45383,15 +45352,16 @@ ignorelookats
 ignoring %s.HL%s on %s\n
 iguana
 ihD5
+ihz
 iii
 ik.R
-ikQ
 ik_debug_chain_to_filter_by
 ik_debug_groundtraces
 ik_debug_perlin_solver
 ik_hinge_debug_bone_index
 ik_left_foot
 ik_right_foot
+ilP
 ilRdV
 illegal Suite B digest
 illegal bitstring format
@@ -45414,7 +45384,6 @@ illegal or unsupported padding mode
 illegal padding
 illegal tagged any
 illegal time value
-imF
 imS
 image
 image-src
@@ -45454,7 +45423,6 @@ impactGrazingDecalName
 impale
 impolite
 import_csgo_config
-import_from
 importance
 impulse
 impulse 100
@@ -45863,7 +45831,6 @@ invprev
 invprevselect
 io error
 ioH
-ioM
 ioctlsocket
 ios_base::badbit set
 ios_base::eofbit set
@@ -45878,8 +45845,10 @@ ipsecTunnel
 ipsecUser
 iqmp
 iqmp not inverse of q
+iqy
 ir@r`
 irO
+irR
 is a directory
 is also the end of the line, so you must check your lexer rules\n
 is buymenu open
@@ -46083,15 +46052,19 @@ jAD
 jAf
 jB#W
 jCQ
+jEL
 jGK
 jHLy
 jHq
+jKw
 jLTKTz
+jLY
 jNXcA
 jOJw"
+jRi
 jTuf
 jVg
-jZM
+jXK
 j\vIP{s
 ja_JP
 jackal
@@ -46104,6 +46077,7 @@ java_multiple_files
 java_outer_classname
 java_string_check_utf8
 javascript:
+jbi
 jdH
 jealous
 jellyfish
@@ -46130,7 +46104,6 @@ joingame\n
 joining
 joint-iso-itu-t
 jointeam_failed
-joo
 joy%d %s:  %s (%s)\n
 joy%d %s:  unmapped\n
 joy_accel_filter
@@ -46197,9 +46170,7 @@ jsondata
 jstype
 jstype is only allowed on int64, uint64, sint64, fixed64 or sfixed64 fields.
 jt(@L
-jtM
 jtv2@
-juC
 jump
 jump:    %.3f (%.2f) [%.2f] @ stamina: %.1f, impulse mul: %.3f
 jump_down
@@ -46216,6 +46187,7 @@ justify
 justify-letter-spacing
 justify_horizontal
 justify_vertical
+jyP
 k%bf
 k'h\rD
 k+Aq
@@ -46223,7 +46195,6 @@ k/sn
 k8xA
 k;J;J;J;J;J;J;J;J;J;J;J;J;J;J;J;Jx
 k=yI
-kAo
 kDH
 kDHE
 kDHd
@@ -46239,6 +46210,7 @@ kECDHe
 kECDHr
 kEDH
 kEECDH
+kFD
 kFu
 kGOST
 kHA
@@ -46422,7 +46394,7 @@ k_EGCMsgMulti
 k_EGCMsgMultiplexMsg
 k_EGCMsgMultiplexMsgResponse
 k_EGCMsgPostAlert
-k_EGCMsgPreTestSetup
+k_EGCMsgPreTestSetup_DEPRECATED
 k_EGCMsgReceiveInterAppMessage
 k_EGCMsgRecordSupportAction
 k_EGCMsgRecurringSubscriptionStatusChange
@@ -46475,11 +46447,11 @@ k_EMsgGCAddSocketToItemResponse_DEPRECATED
 k_EMsgGCAddSocketToItem_DEPRECATED
 k_EMsgGCAdjustEquipSlotsManual
 k_EMsgGCAdjustEquipSlotsShuffle
-k_EMsgGCApplyConsumableEffects
-k_EMsgGCApplyEggEssence
-k_EMsgGCApplyPennantUpgrade
+k_EMsgGCApplyConsumableEffects_DEPRECATED
+k_EMsgGCApplyEggEssence_DEPRECATED
+k_EMsgGCApplyPennantUpgrade_DEPRECATED
 k_EMsgGCApplySticker
-k_EMsgGCApplyStrangePart
+k_EMsgGCApplyStrangePart_DEPRECATED
 k_EMsgGCBackpackSortFinished
 k_EMsgGCBannedWordListRequest
 k_EMsgGCBannedWordListResponse
@@ -46591,7 +46563,7 @@ k_EMsgGCCasketItemExtract
 k_EMsgGCCasketItemLoadContents
 k_EMsgGCClientConnectToServer
 k_EMsgGCClientConnectionStatus
-k_EMsgGCClientDisplayNotification
+k_EMsgGCClientDisplayNotification_DEPRECATED
 k_EMsgGCClientHello
 k_EMsgGCClientHelloPW
 k_EMsgGCClientHelloPartner
@@ -46600,74 +46572,74 @@ k_EMsgGCClientHelloR3
 k_EMsgGCClientHelloR4
 k_EMsgGCClientVersionUpdated
 k_EMsgGCClientWelcome
-k_EMsgGCCollectItem
+k_EMsgGCCollectItem_DEPRECATED
 k_EMsgGCConVarUpdated
 k_EMsgGCConsumableExhausted
 k_EMsgGCCraft
 k_EMsgGCCraftResponse
-k_EMsgGCCustomizeItemTexture
-k_EMsgGCCustomizeItemTextureResponse
+k_EMsgGCCustomizeItemTextureResponse_DEPRECATED
+k_EMsgGCCustomizeItemTexture_DEPRECATED
 k_EMsgGCDelete
-k_EMsgGCDeliverGift
-k_EMsgGCDeliverGiftResponseGiver
-k_EMsgGCDeliverGiftResponseReceiver
+k_EMsgGCDeliverGiftResponseGiver_DEPRECATED
+k_EMsgGCDeliverGiftResponseReceiver_DEPRECATED
+k_EMsgGCDeliverGift_DEPRECATED
 k_EMsgGCDev_NewItemRequest
 k_EMsgGCDev_NewItemRequestResponse
-k_EMsgGCDev_PaintKitDropItem
+k_EMsgGCDev_PaintKitDropItem_DEPRECATED
 k_EMsgGCDev_SchemaReservationRequest
 k_EMsgGCError
 k_EMsgGCGameServerInfo
-k_EMsgGCGiftWrapItem
-k_EMsgGCGiftWrapItemResponse
+k_EMsgGCGiftWrapItemResponse_DEPRECATED
+k_EMsgGCGiftWrapItem_DEPRECATED
 k_EMsgGCGiftedItems
 k_EMsgGCGiftedItems_DEPRECATED
-k_EMsgGCGoldenWrenchBroadcast
+k_EMsgGCGoldenWrenchBroadcast_DEPRECATED
 k_EMsgGCInQueue
 k_EMsgGCInvitationCreated
 k_EMsgGCInviteToParty
 k_EMsgGCItemAcknowledged
 k_EMsgGCItemAcknowledged__DEPRECATED
 k_EMsgGCItemCustomizationNotification
-k_EMsgGCItemPreviewCheckStatus
-k_EMsgGCItemPreviewExpire
-k_EMsgGCItemPreviewExpireNotification
-k_EMsgGCItemPreviewItemBoughtNotification
-k_EMsgGCItemPreviewRequest
-k_EMsgGCItemPreviewRequestResponse
-k_EMsgGCItemPreviewStatusResponse
+k_EMsgGCItemPreviewCheckStatus_DEPRECATED
+k_EMsgGCItemPreviewExpireNotification_DEPRECATED
+k_EMsgGCItemPreviewExpire_DEPRECATED
+k_EMsgGCItemPreviewItemBoughtNotification_DEPRECATED
+k_EMsgGCItemPreviewRequestResponse_DEPRECATED
+k_EMsgGCItemPreviewRequest_DEPRECATED
+k_EMsgGCItemPreviewStatusResponse_DEPRECATED
 k_EMsgGCKickFromParty
 k_EMsgGCLANServerAvailable
 k_EMsgGCLeaveParty
-k_EMsgGCLookupAccount
-k_EMsgGCLookupAccountName
-k_EMsgGCLookupAccountNameResponse
-k_EMsgGCLookupAccountResponse
-k_EMsgGCMOTDRequest
-k_EMsgGCMOTDRequestResponse
+k_EMsgGCLookupAccountNameResponse_DEPRECATED
+k_EMsgGCLookupAccountName_DEPRECATED
+k_EMsgGCLookupAccountResponse_DEPRECATED
+k_EMsgGCLookupAccount_DEPRECATED
+k_EMsgGCMOTDRequestResponse_DEPRECATED
+k_EMsgGCMOTDRequest_DEPRECATED
 k_EMsgGCModifyItemAttribute
 k_EMsgGCNameBaseItem
 k_EMsgGCNameBaseItemResponse
-k_EMsgGCNameEggEssenceResponse
+k_EMsgGCNameEggEssenceResponse_DEPRECATED
 k_EMsgGCNameItem
 k_EMsgGCNameItemNotification
 k_EMsgGCOpenCrate
-k_EMsgGCPaintItem
-k_EMsgGCPaintItemResponse
-k_EMsgGCPaintKitBaseItem
-k_EMsgGCPaintKitItem
-k_EMsgGCPaintKitItemResponse
+k_EMsgGCPaintItemResponse_DEPRECATED
+k_EMsgGCPaintItem_DEPRECATED
+k_EMsgGCPaintKitBaseItem_DEPRECATED
+k_EMsgGCPaintKitItemResponse_DEPRECATED
+k_EMsgGCPaintKitItem_DEPRECATED
 k_EMsgGCPartyInviteResponse
 k_EMsgGCRecurringSubscriptionStatus
-k_EMsgGCRemoveCustomTexture
-k_EMsgGCRemoveCustomTextureResponse
+k_EMsgGCRemoveCustomTextureResponse_DEPRECATED
+k_EMsgGCRemoveCustomTexture_DEPRECATED
 k_EMsgGCRemoveItemName
-k_EMsgGCRemoveItemPaint
-k_EMsgGCRemoveMakersMark
-k_EMsgGCRemoveMakersMarkResponse
+k_EMsgGCRemoveItemPaint_DEPRECATED
+k_EMsgGCRemoveMakersMarkResponse_DEPRECATED
+k_EMsgGCRemoveMakersMark_DEPRECATED
 k_EMsgGCRemoveSocketItemResponse_DEPRECATED
 k_EMsgGCRemoveSocketItem_DEPRECATED
-k_EMsgGCRemoveUniqueCraftIndex
-k_EMsgGCRemoveUniqueCraftIndexResponse
+k_EMsgGCRemoveUniqueCraftIndexResponse_DEPRECATED
+k_EMsgGCRemoveUniqueCraftIndex_DEPRECATED
 k_EMsgGCReplay_UploadedToYouTube
 k_EMsgGCReplicateConVars
 k_EMsgGCRequestAnnouncements
@@ -46675,16 +46647,16 @@ k_EMsgGCRequestAnnouncementsResponse
 k_EMsgGCRequestPassportItemGrant
 k_EMsgGCSaxxyBroadcast
 k_EMsgGCServerAvailable
-k_EMsgGCServerBrowser_BlacklistServer
-k_EMsgGCServerBrowser_FavoriteServer
+k_EMsgGCServerBrowser_BlacklistServer_DEPRECATED
+k_EMsgGCServerBrowser_FavoriteServer_DEPRECATED
 k_EMsgGCServerConnectionStatus
 k_EMsgGCServerHello
-k_EMsgGCServerRentalsBase
+k_EMsgGCServerRentalsBase_DEPRECATED
 k_EMsgGCServerVersionUpdated
 k_EMsgGCServerWelcome
 k_EMsgGCSetItemPosition
 k_EMsgGCSetItemPositions
-k_EMsgGCSetItemStyle
+k_EMsgGCSetItemStyle_DEPRECATED
 k_EMsgGCShowItemsPickedUp
 k_EMsgGCSortItems
 k_EMsgGCStatTrakSwap
@@ -46698,8 +46670,8 @@ k_EMsgGCStorePurchaseInit
 k_EMsgGCStorePurchaseInitResponse
 k_EMsgGCStorePurchaseInitResponse_DEPRECATED
 k_EMsgGCStorePurchaseInit_DEPRECATED
-k_EMsgGCStorePurchaseQueryTxn
-k_EMsgGCStorePurchaseQueryTxnResponse
+k_EMsgGCStorePurchaseQueryTxnResponse_DEPRECATED
+k_EMsgGCStorePurchaseQueryTxn_DEPRECATED
 k_EMsgGCSystemMessage
 k_EMsgGCToGCBannedWordListBroadcast
 k_EMsgGCToGCBannedWordListUpdated
@@ -46712,16 +46684,16 @@ k_EMsgGCToGCUpdateSQLKeyValue
 k_EMsgGCToGCWebAPIAccountChanged
 k_EMsgGCUnlockCrateResponse
 k_EMsgGCUnlockCrate_DEPRECATED
-k_EMsgGCUnlockItemStyle
-k_EMsgGCUnlockItemStyleResponse
-k_EMsgGCUnwrapGiftRequest
-k_EMsgGCUnwrapGiftResponse
+k_EMsgGCUnlockItemStyleResponse_DEPRECATED
+k_EMsgGCUnlockItemStyle_DEPRECATED
+k_EMsgGCUnwrapGiftRequest_DEPRECATED
+k_EMsgGCUnwrapGiftResponse_DEPRECATED
 k_EMsgGCUpdateItemSchema
 k_EMsgGCUseItemRequest
 k_EMsgGCUseItemResponse
-k_EMsgGCUsedClaimCodeItem
+k_EMsgGCUsedClaimCodeItem_DEPRECATED
 k_EMsgGCUserTrackTimePlayedConsecutively
-k_EMsgGCVerifyCacheSubscription
+k_EMsgGCVerifyCacheSubscription_DEPRECATED
 k_EMsgGCVolatileItemLoadContents
 k_EMsgGC_GlobalGame_Play
 k_EMsgGC_GlobalGame_Subscribe
@@ -46763,12 +46735,6 @@ k_ESceneViewDebugOverlaysListenerDataType_SolidBoxAngles
 k_ESceneViewDebugOverlaysListenerDataType_Sphere
 k_ESceneViewDebugOverlaysListenerDataType_Text3D
 k_ESceneViewDebugOverlaysListenerDataType_Unknown
-k_UnlockStyle_Failed_CantAfford
-k_UnlockStyle_Failed_CantAffordAttrib
-k_UnlockStyle_Failed_CantCommit
-k_UnlockStyle_Failed_CantLockCache
-k_UnlockStyle_Failed_PreReq
-k_UnlockStyle_Succeeded
 k_eHudPanelClassStatus_DoesNotHaveClass
 k_eHudPanelClassStatus_HasClass
 k_eHudPanelClassStatus_Undefined
@@ -46776,6 +46742,7 @@ kaE
 ka`O
 kangaroo
 karrigan
+kcN
 kc_db
 kc_missinglink
 kc_sticker_display_case
@@ -46904,7 +46871,6 @@ killswhileblind
 kisa
 kjy\v
 klook
-kmu
 knife
 knife_default_ct
 knife_default_t
@@ -46946,17 +46912,16 @@ l <= sizeof(c->iv)
 l&rB6
 l4Ot
 l6qnk
+lAz
 lCw
 lDa>
 lDcW
+lLa
 lM2p
-lMk
 lNA
-lPd
 lPv
-lPy
-lTW
 lTu
+lVX
 lYz
 l\n\fexcludedtags
 laQ
@@ -47023,7 +46988,6 @@ latam
 latch
 late
 latitude
-launch_training_map
 launch_warmup_map
 launcher
 launcher_mismatch_sessions
@@ -47037,7 +47001,6 @@ layout_file
 layoutfailed
 layoutfile
 lazy
-lbQ
 lb_csm_cascade_size_override
 lb_shadow_texture_height_override
 lcO/<1\r=,!\r-@@@
@@ -47112,6 +47075,7 @@ levellist_t
 levelname
 leveltransition
 lexer->mTokens(): Error: No lexer rules were added to the lexer yet!\n
+lfb
 lfoot
 lhash part of OpenSSL 1.0.2j  26 Sep 2016
 lib(%lu)
@@ -47241,9 +47205,8 @@ live_debug_animgraph_file_name
 livetime
 ljw
 llama
-lnV
+llg
 lno
-loV
 load
 load adjacent save data for %s
 load from entity lump for %s
@@ -47384,11 +47347,13 @@ lowercase
 lowervalue
 lowprecisionuv
 lowprecisionuv1
+lua
 luminaire_anisotropy
 luminaire_shape
 luminaire_size
-lvR4
-lyc
+lvR4H[
+lxH
+lxX
 m*Zu
 m4a1_silencer
 m4a1_silencer_off
@@ -47396,14 +47361,12 @@ m>FC*a7H
 m>gh
 mAFr
 mDJe
-mEH
 mGR
 mHm
 mK1f
 mK<v
 mOD:V
 mXRecord
-mYP
 mZKB
 m\nXo
 m\ta=\ruWb
@@ -49139,6 +49102,7 @@ m_flMinGustDelay
 m_flMinInterval
 m_flMinLogExposure
 m_flMinRoughness
+m_flModifier0
 m_flMomentumModifier
 m_flMouseSensitivity
 m_flMoveSpeedHorizontal
@@ -49617,6 +49581,7 @@ m_hSpriteMaterial
 m_hStartPoint
 m_hSwitchToWeaponAfterThrow
 m_hTarget
+m_hTargetC4
 m_hTargetCamera
 m_hTextureOverride
 m_hThink
@@ -49692,6 +49657,7 @@ m_iEntityQuantity
 m_iEquipmentValue
 m_iExternalItemProviderRegisteredToken
 m_iEyeAttachment
+m_iFOV
 m_iFOVStart
 m_iFilterClass
 m_iFilterModel
@@ -49977,6 +49943,7 @@ m_nCameraMode
 m_nCascade
 m_nCascadeRenderStaticObjects
 m_nCascades
+m_nCashStackValue
 m_nCastShadows
 m_nCellIndex
 m_nChainLength
@@ -51169,7 +51136,6 @@ m_vecLooseVariables
 m_vecMatchFilters
 m_vecMaxs
 m_vecMins
-m_vecMoveDirEntitySpace
 m_vecMuzzleFlashOrigin
 m_vecMuzzlePos0
 m_vecMuzzlePos1
@@ -51265,6 +51231,7 @@ m_xWSPrevParent
 m_xuid
 m_yaw
 m_zoomLevel
+maN
 mac
 mac absent
 mac generation error
@@ -51797,6 +51764,7 @@ maxspeedfactor
 maxtoastbehavior
 maxtoastsvisible
 maxwind
+mbg
 mboitfinal
 mbv
 mcf
@@ -51814,6 +51782,7 @@ md_size <= EVP_MAX_MD_SIZE
 mday
 mdc2
 mdc2WithRSA
+meN
 medals
 medium
 mediumaquamarine
@@ -51871,6 +51840,7 @@ message extensions
 message imprint mismatch
 message size
 message too long
+message type
 messageDigest
 message_set_wire_format
 message_type_id
@@ -51941,7 +51911,6 @@ mg_skirmish_retakes
 mgf1
 mgf1 with sha1 (default)
 mgmt
-mhP
 micDist
 mic_listen_while_nonfocused
 mid
@@ -52415,7 +52384,6 @@ mp_warmup_items_nocount_policy
 mp_warmup_offline_enabled
 mp_warmup_online_enabled
 mp_warmup_pausetimer
-mp_warmuptime
 mp_warmuptime_all_players_connected
 mp_warmuptime_match_cancelled
 mp_weapon_prev_owner_touch_time
@@ -52523,8 +52491,8 @@ n@PK
 nAnimEvent
 nBd
 nBits != 32
-nCPulseCell_LerpCameraSettings
 nCRD
+nC_LightDirectionalEntity
 nChangeOffset < INT16_MAX
 nChangeOffset > 0
 nCount
@@ -52548,7 +52516,6 @@ nMin
 nNumBuffersChecked < NmCachedPoseID_t::s_nMaxNumberOfCachedPoses
 nNumerator
 nObserverMode
-nPR
 nPriority != NETWORK_FIELD_CHANGE_DEFAULT_PRIORITY
 nRemainderDigits
 nRemainderNoiseDigits
@@ -52570,6 +52537,7 @@ nTickStart
 nTotalTicks
 nTries < 10000000
 nType
+nVD
 nValue
 nWW
 nWakePriority
@@ -52741,6 +52709,7 @@ nicename
 nickname
 niv <= EVP_MAX_IV_LENGTH
 nkey <= EVP_MAX_KEY_LENGTH
+nlP
 nl_NL
 nmI\n8
 nmonqnmomnmomomno
@@ -52870,7 +52839,6 @@ no-hover
 no-points
 no-repeat
 noCheck
-noN
 noRevAvail
 no_NO
 no_freeze
@@ -52893,7 +52861,6 @@ nodes
 noecheck|
 nofood
 noheader
-noise_maker
 noise_stream
 nolink
 nomap
@@ -53065,22 +53032,23 @@ nvidia_reflex
 nw-resize
 nwse-resize
 nyYn
-nyd
 o KPBf
 o"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""pqqqqqqqqqqqqqqqqrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr^^stuvwwxyz{|}~
 o%e
 o)nV
 o2i_ECPublicKey
 o?GS
+oFj
 oG)e5L
 oI>O7
+oIC
 oIP
+oIl
 oMinghuaQu
 oO;I(L%K,\f|
-oOQ
 oTD
+oTO
 oVD
-oVM
 oWnS
 oY.o<
 oad2:,
@@ -53120,6 +53088,7 @@ odd number of chars
 odd number of digits
 odds
 odp
+ofE
 off
 official
 official_leaderboard_premier_season
@@ -53135,7 +53104,6 @@ offset_z
 ohv
 oi3o
 oiE
-oiL
 oil
 okcommand
 okifnomodel
@@ -53148,7 +53116,6 @@ oldlace
 oldteam
 olive
 olivedrab
-omb
 omni
 onBasis
 onI
@@ -53225,7 +53192,6 @@ ontooltiploaded
 onuserinputsubmit
 onvaluechanged
 onworldimpact
-ook
 opacity
 opacity-brush
 opacity-mask
@@ -53336,7 +53302,6 @@ ortholightwidth
 os.length <= (int)sizeof(ret->session_id)
 osM@\vQ}
 ostrich
-otQ
 otT)
 other
 other.m_nFieldType == PREDFIELD_CUSTOM
@@ -53413,8 +53378,8 @@ ozV
 p is not prime
 p not prime
 p!PcA1|
-p%a
 p%d
+p%o
 p%u
 p)ou}
 p+"\tHr9
@@ -53424,7 +53389,6 @@ p.other
 p.ppBasis
 p.prime
 p.tpBasis
-p08@H^t
 p2p_FightingGame_Connection
 p2p_FightingGame_GameData
 p2p_Ping
@@ -53439,192 +53403,173 @@ p2p_ping requires a destination address\n
 p2p_ping sending to "%s"\n
 p@0pqE5tsO?|1
 p@HPX`h\f
+pAB
+pAP
 pAR
-pAT
 pAY
-pAa
-pAb
-pAh
-pAk
+pAZ
+pAd
 pAv
-pAw
+pBB
+pBP
+pBR
 pBV
-pBX
-pBd
-pBi
+pBa
+pBl
+pBr_decals_default_start_fade
 pBuffer != nullptr
-pCD
-pCH
-pCL
-pCY
+pBy
+pCB
+pCI
+pCO
+pCP
 pCachedPoseBuffer->m_ID.IsValid()
 pCheckpointName
-pCi
+pCk
 pD4t
-pDJ
+pDB
+pDM
 pDO
-pDW
+pDP
 pData->GetDataDescMap() == pTemplateDataMap
-pDe
+pDd
 pDescription
 pDest
+pDh
 pDk
-pDp
 pDv
-pDx
-pEH
+pDy
+pEB
+pEW
 pEc
-pEd
-pEm
-pEo
-pEw
-pFL
-pFM
-pFX
-pFd
-pFe
-pFh
+pEz
+pFG
+pFJ
+pFW
+pFi
 pFilter
-pFp
 pFx
+pGK
 pGS
-pGT
-pGW
-pGZ
 pG_*h
-pGb
-pGc
-pGd
-pGe
-pGp
-pGy
-pHQ
-pHy
-pII
-pIJ
-pIR
+pHj
+pHw
 pIT
-pIW
-pIY
-pIl
+pIZ
+pIn
 pIp 
-pIr
 pItem
-pIy
-pJc
-pJf
-pJk
-pJl
+pIz
+pJF
+pJO
+pJY
+pJZ
+pJd
+pJq
+pJt
 pKO
-pKX
-pLb
-pLh
-pLl
+pKT
+pKV
+pKW
+pKe
+pLF
+pLO
+pLength of each crosshair bar, scaled with screen resolution
 pLocationEntity
+pMH
 pMY
-pMb
 pMd
 pMessage
+pNO
+pNW
 pNewRequest
-pNf
+pNh
+pNk
 pO0h
 pOC
-pOD
+pOF
+pOO
+pOV
 pOY
 pOtherEntity
-pPE
+pPG
+pPL
 pPO
-pPW
-pPZ
 pParam
+pPc
+pPf
+pPh
 pPose != nullptr
 pPu
-pQK
-pQS
-pQU
-pQV
 pQb
-pQh
-pQi
-pQk
-pQl
-pRG
-pRZ
 pRequest
-pSO
-pSP
 pSPo
-pSR
-pSU
+pSQ
+pST
+pSV
+pSY
+pSa
 pSequenceName
-pSi
+pSh
 pSj
-pSl
 pSource
 pSourceFunc
 pSpawnedEntityName
 pSpecified
-pSs
-pTC
-pTP
+pTE
 pTV
+pTY
 pTagName
 pTarget
 pTaskSystem->IsValidCachedPose( pExternalPoseNode->m_externalPoseBufferID )
 pText
-pTk
+pTn
 pTq
 pU>\AL
-pUI
-pUP
-pUd
-pUe
-pUf
-pUi
-pUj
+pUn
 pUpdateData->m_updateType == updateType
-pUu
-pVD
-pVG
-pVI
-pVP
-pVT
-pVj
-pVy
-pWB
-pWP
+pVN
+pVZ
+pVc
+pVn
+pWD
+pWE
+pWT
+pWe
 pWeapon
-pWk
+pWj
 pWorldObject
-pXC
-pXK
-pXP
+pXE
+pXH
+pXQ
+pXS
 pXZ
-pXe
-pXf
-pXi
-pXj
-pXk
+pXz
+pYE
 pYP
-pYS
-pYV
+pYT
 pYY
-pYZ
+pYa
 pYc
-pYh
-pZP
-pZY
+pYm
+pYy
+pZE
+pZa
+pZb
+pZg
+pZn
 p\rP\f0!h
 p^SYe
 pa end %f
 pa start %f
-paJ
-paL
-paP
-paX
+paS
+paT
+paV
+paW
 package
 packed
 packet
+packet format
 packet length too long
 packet_loss_pct
 packet_misdelivery_rate_p50_x4
@@ -53637,21 +53582,18 @@ padding-bottom
 padding-left
 padding-right
 padding-top
-pae
 page
 page_class
 page_res
 pagerTelephoneNumber
 pagescroll
-paint_can
+pah
 paint_data
-paint_kit
 paint_kits
 paint_kits_rarity
 paintable
 paintable_team_colors
 paintable_unusual
-paintcan_index
 paintkit
 palegoldenrod
 palegreen
@@ -54010,20 +53952,17 @@ pattern_scale
 pause
 paused
 pausematch
-paw
 pawn_entity_handle
 pawn_mimic_all
+pay
 payload
 payload + padding <= 16381
 payload-%u-%u.data
 payment gateway capabilities
 payment_row_usd
 payment_us_usd
-pbO
-pbP
-pbS
-pbT
-pbZ
+pbW
+pbd
 pbeWithMD2AndDES-CBC
 pbeWithMD2AndRC2-CBC
 pbeWithMD5AndCast5CBC
@@ -54038,18 +53977,31 @@ pbeWithSHA1And40BitRC4
 pbeWithSHA1AndDES-CBC
 pbeWithSHA1AndRC2-CBC
 pbf
+pbo
+pbw
+pcE
+pcJ
 pcN
-pcP
 pcPathLengthConstraint
-pcV
+pcQ
+pcS
 pce
+pcg
+pck
+pcl
+pcn
 pct
-pdP
-pdX
+pdB
+pdE
+pdT
+pdW
 pdY
+pda
 pdf
+pdi
 peE
-peP
+peK
+peV
 peachpuff
 peaktailend
 pearlescent
@@ -54076,7 +54028,7 @@ pendingteamnumber
 penetrated
 penetration_count
 penguin
-pennant_item_id
+peo
 per-frame
 percentage
 perf
@@ -54111,23 +54063,16 @@ pet_gcmessages.proto"&\n
 pet_photobook_
 petindex
 petpopulation
-pfK
-pfL
-pfP
-pfX
-pfc
-pff
-pfh
-pfj
-pfv
-pgP
-pgT
+pfG
+pfU
+pfY
+pfd
+pgB
 pgV
-pgZ
-pgf
-phB
-phP
-pha
+pgY
+phO
+phT
+phU
 phase
 phase not supported
 phase_countdowns
@@ -54135,7 +54080,7 @@ phase_countdowns_v1
 phase_ends_in
 pheasant
 phi
-phn
+pho
 phone_id
 phonemedelay
 phonemefilter
@@ -54180,9 +54125,6 @@ physicalDeliveryOfficeName
 physics_joint_modification_type
 physics_particle
 physics_save_sphere_t
-piN
-piP
-piW
 pick
 pick_all_attributes
 picked_item_transition_time
@@ -54193,10 +54135,10 @@ picks
 picks__deprecated
 pickup_groundweapon %d
 pid_
-pie
 piece_name
 pig
 pigeon
+pik
 pilot
 pilotAttributeSyntax
 pilotAttributeType
@@ -54218,16 +54160,12 @@ pistolkills
 pistols
 pitch
 pixelAspectRatio
-piz
-pjP
-pjR
-pja
+pjY
+pji
 pjk
-pjn
-pjy
 pkL'
-pkP
-pkR
+pkT
+pkZ
 pkcs
 pkcs decoding error
 pkcs1
@@ -54257,13 +54195,14 @@ pkcs8ShroudedKeyBag
 pkcs9
 pkey
 pkeyalg
+pkh
+pkk
 pkparameters2group failure
-plM
-plP
-plR
+plO
 plS
-plY
-plZ
+plT
+plV
+plW
 pl_PL
 place_names
 place_token
@@ -54334,7 +54273,6 @@ player_competitive_maplist_2v2_%d_%d_%X
 player_competitive_maplist_8_%d_%d_%X
 player_connect
 player_connect_full
-player_controller
 player_controller_and_pawn
 player_count
 player_death
@@ -54422,28 +54360,20 @@ playsoundscape
 playtime
 playtime_2weeks
 playtime_forever
+plb
+pll
+pln
 plum
 pmP
-pmQ
-pmR
-pmZ
-pmb
-pmc
-pme
-pmk
-pnP
-pnR
-pnT
-pnb
-pnc
+pmT
+pmY
+pnH
 png
-pnt
-poC
-poD
-poP
+pnj
+pnq
+poJ
 poR
-poX
-pof
+poS
 point
 point arithmetic failure
 point at infinity
@@ -54572,18 +54502,21 @@ powderblue
 pp == NULL || *pp != NULL
 pp&c
 ppBasis
-ppP
+ppC
+ppQ
+pph
 ppl
-ppn
+pqA
 pqG
-pqP
+pqU
+pqX
+pqY
+pqd
 pql
 pqualid
-prE
-prJ
-prP
-prb
-prd
+pqx
+prZ
+pra
 pre
 pre mac length too long
 pre-transform-rotate2d
@@ -54684,7 +54617,6 @@ previouslevel
 previously
 prf
 prf-gostr3411-94
-prg
 prh[
 price
 price_sheet_version
@@ -54743,6 +54675,7 @@ privateKey
 privateKeyUsagePeriod
 private|
 privilegeWithdrawn
+prl
 pro_event_results
 pro_players
 pro_teams
@@ -54815,6 +54748,7 @@ proto2
 proto3
 proto3_optional
 proto_enum_info_t
+protobuf
 protocol
 protocol error
 protocol is shutdown
@@ -54830,29 +54764,30 @@ proxy scale multiplier at max dist (is 1.0 at mindist)
 proxy subject name violation
 proxyCertInfo
 proxyPolicy
-pru
-pry
+prq
 ps(crh
 psC3
-psE
-psP
-psS
+psQ
+psV
+psc
 psd
 pseudo-
 pseudonym
+psh
 psid
 psk identity not found
 psk no client cb
 psk no server cb
-pso
 pss
 pszContextName
 ptP
-ptR
+ptQ
 pt_BR
+ptd
 pte
-ptu
-puP
+puA
+puT
+puW
 pub: 
 pub_key
 pubkey
@@ -55233,6 +55168,7 @@ public_profile
 publishedfiledetails
 publishedfileid
 publishedfileids
+puh
 pull_towards_point
 pulse_bindings
 pulse_cursor_infinite_loop_detection_threshold
@@ -55262,50 +55198,52 @@ purchasedvolatile
 purchaser account id
 purecall
 purple
-puv
-pvG
-pvP
-pvZ
+pux
+pvA
+pvJ
+pva
+pvk
 pvk data too short
 pvk too short
-pvo
+pvn
 pvsplayer
-pwC
-pwM
-pwP
+pwH
+pwS
+pwV
+pwa
 pwatchent
 pwatchvar
-pwb
 pwd
-pwn
-pxP
-pxd
-pyG
-pyP
-pyZ
+pwh
+pxK
+pxS
+pxW
+pxY
+pxu
+pyJ
+pyR
+pyV
+pyX
 py_generic_services
 pya
-pyg
-pyh
-pyl
-pyo
+pyc
+pzI
 pzKD)
 pzP
-pzZ
-pzc
-pzd
+pzW
+pza
+pze
 q not prime
 q%g
-q%x
 q&A\nn
 q2'<Kv
 q6Kl
 qAngle
 qAngles
 qCJ.
+qCb
 qDGqT
 qEG
-qFJ
 qF{qc\t
 qGF
 qIE
@@ -55322,14 +55260,11 @@ q\n\vCPlayerInfo
 qangle
 qangle_precise
 qcStatements
-qda
 qf`ny
 qhT
-qjP
-qku
 qmB
+qmP
 qnT
-qoH
 qpk
 quad_coverage.vtex
 quad_coverage_lock.vtex
@@ -55389,16 +55324,20 @@ r-IE
 r<\rND
 rAGW
 rB2pBB
-rBc
 rC3rp
+rEY
 rF6t
 rFC822localPart
 rFur`7\t
 rL[i+
+rNt
+rOe
 rQc
 rR"P9O&J/H-^~
 rRfKR
+rSN
 rTy
+rVL
 rVal
 rX&O0
 rZ1VwGf5
@@ -55407,7 +55346,6 @@ r\n\vstart_index
 r\tVr.>T
 r\vDi
 r\vp!K
-r\vph
 r_2PassBuildDraw 0
 r_2PassBuildDraw 1
 r_AirboatViewDampenDamp
@@ -55565,7 +55503,6 @@ r_decal_hit_confirmation
 r_decals
 r_decals_additional_offset
 r_decals_default_fade_duration
-r_decals_default_start_fade
 r_decals_distance_scale
 r_decals_distance_scale_end
 r_decals_distance_scale_start
@@ -55782,6 +55719,7 @@ rc5-cbc
 rc5-cfb
 rc5-ecb
 rc5-ofb
+rcQ
 rc_default_texture_encode_quality
 rcvage
 read bio not set
@@ -56285,6 +56223,7 @@ rtdelay
 rtime
 rtime32_gc_welcome_timestamp
 ru&o
+ruD
 ru_RU
 ruby
 rude
@@ -56300,8 +56239,9 @@ rush_intro
 rush_intro_counterterrorist
 rush_intro_terrorist
 russian
+rvZ
 rw4rs
-rxG
+rxJ
 ryT
 r~s-v7
 s(Fdi
@@ -56323,6 +56263,7 @@ s=QT
 s?uj
 sAmTb
 sAz
+sBK
 sBT
 sC3pcG'd
 sDW
@@ -56331,19 +56272,26 @@ sHF'
 sHe
 sIf true, then files must have all the tags specified.  If false, then must have at least one of the tags specified.
 sIm
+sIu
 sJf
 sJfw>7G9@>
 sJw
 sK;xPL
 sKW
 sKu{~X
+sLa
 sOARecord
 sQI
 sT5w!
+sTJ
+sTP
 sTx
 sUO
 sV u\t
+sVD
+sWw
 sXuid
+sYg
 sZg
 s\n\tAddFriend
 s\tV_isbreakablewspace32
@@ -56426,6 +56374,7 @@ say
 say "
 say_team
 say_team "
+sbg
 sbgp-autonomousSysNum
 sbgp-ipAddrBlock
 sbgp-routerIdentifier
@@ -56562,7 +56511,6 @@ seasoncoin_levelup
 seasontiers
 sec
 second number too large
-secondary
 secondary0
 secondary1
 secondary2
@@ -56648,6 +56596,8 @@ sellback %d
 sellbackall
 semi-bold
 send_table_crc
+sender
+sender is a user or game server
 sensitivity
 sensitivity_y_scale
 separate_eye_ramp
@@ -56735,7 +56685,6 @@ set filename failed
 set item texture prefab
 set item texture seed
 set item texture wear
-set item tint RGB
 set supply crate series
 set-addPolicy
 set-attr
@@ -57028,7 +56977,6 @@ shatterglass_shard
 shatterglass_shard_lifetime
 shear
 sheep
-shg
 shift:%04d
 shifted_time
 shiftinter
@@ -57099,6 +57047,7 @@ showdefaultvalue
 showing_ref_count
 showlight
 showscores
+shp
 shrapnel
 shrink
 shuffle-into-view
@@ -57214,6 +57163,7 @@ skybox_reference
 skycolor
 skyintensity
 skyname
+slY
 slack
 slateblue
 slategray
@@ -57347,6 +57297,7 @@ snd_mvp_volume_deathmatch
 snd_mvp_volume_rush
 snd_occlusion_debug
 snd_opvar_set_aabb
+snd_opvar_set_auto_room
 snd_opvar_set_box_base
 snd_opvar_set_dome
 snd_opvar_set_dome_catchup_distance
@@ -57506,6 +57457,7 @@ spare error
 sparseshadowtree_cascade_mask
 sparseshadowtree_disable_for_viewmodel
 sparseshadowtree_enable_rendering
+spawn client glass shards asynchronously during demos or when remotely connected.
 spawn group
 spawn keys must have been precached
 spawnGroupType
@@ -57524,6 +57476,7 @@ speak
 speaker
 speaker_entity
 spec_autodirector
+spec_autodirector_cameraman
 spec_cameraman_ui
 spec_cameraman_xray
 spec_centerchasecam
@@ -57640,7 +57593,6 @@ springConstant
 springgreen
 sprint
 sprite
-sqg
 sqr
 sqrt
 sqrtf
@@ -57650,7 +57602,7 @@ squat
 squid
 squirrel
 squish
-srH
+srP
 src
 src-id
 src-parameters
@@ -58036,7 +57988,6 @@ strafe_mode
 strafing_enabled
 strafing_source
 strange
-strange_part_item_id
 strange_parts
 streakconvictions
 stream
@@ -58772,7 +58723,6 @@ switch_team
 switchhands
 switchhandsleft
 switchhandsright
-syd
 symbol
 symbol_criteria_names
 symbol_criteria_values
@@ -58800,15 +58750,19 @@ t+RW
 t0;?ZlP*m
 tA`KO/3G!\n7h=
 tBo
+tEk
 tGTS
 tIq
+tKW
 tLY^m`6
 tLl 
 tLsq
 tNt5
 tTH
 tTx
+tUt
 tYC
+tZP
 t\tV_isdigit_str
 t_alive
 t_choreo_exit_warp
@@ -58894,7 +58848,6 @@ taxonomy/table_display
 taxonomy/wall_display
 tbsRequest
 tbsResponseData
-tcT
 tchinese
 tdAW
 tdYv
@@ -58928,6 +58881,7 @@ team_name
 team_number
 team_place
 team_places
+team_preview_camera
 team_preview_character_position
 team_preview_position
 team_preview_random
@@ -59173,6 +59127,7 @@ tm_event_id
 tm_event_stage_id
 tm_team_id_ct
 tm_team_id_t
+tnV
 tnX
 to fetch array of rationals
 to fetch per-sample values
@@ -59569,7 +59524,6 @@ trusted
 trusted_launch
 ts datasign
 tsG7
-tsM
 tsa name mismatch
 tsa untrusted
 tst info setup error
@@ -59650,7 +59604,6 @@ types
 typesafe_float, 
 typesafe_int, 
 tyrannosaur
-tyy
 t|AO
 u axis
 u#A\rlG
@@ -59665,19 +59618,19 @@ uD>\nh
 uE]*P
 uGrants an implicit OAuth token (grant type 'token') for the specified client ID on behalf of a user without prompting
 uJ4CA2
-uMf
-uMg
+uKo
 uNE
 uPI
+uPQ
 uQ'ZH
 uQbK!
 uUv
 uVw
-uYL
 uZdX:HgYT^
 u\vMW
 uaqf
 ub=A
+uca
 ucl
 ug>c
 ugcid
@@ -59800,15 +59753,18 @@ uint8 (%d)
 uint8[128]
 uint8[CSPLAYER_MAX_KILL_QUEUE_COUNT]
 uint8[kSERVERCONTROLLEDPOINTS]
+ujh
 ukF
 uk_UA
 ukm
 ukrainian
+ulN
 ump45
 un-grabs all objects
 unClass
 unFlags
 unItemDefIdx
+unQ
 unSlot
 unable to AssignChangeAccessorPathIds!!!\n
 unable to bind socket
@@ -60019,6 +59975,7 @@ unsupported name constraint type
 unsupported option
 unsupported or invalid name constraint syntax
 unsupported or invalid name syntax
+unsupported packet format
 unsupported pkcs12 mode
 unsupported prf
 unsupported private key algorithm
@@ -60066,7 +60023,6 @@ updated_entries
 updates
 upgrade level
 upgrade threshold
-upgrade_item_id
 upgraded_defidx
 upmove
 upnext
@@ -60163,7 +60119,6 @@ uses_range
 using_varint_bitcounts
 usp_silencer
 usp_silencer_off
-utH
 utcdatetime_vals
 utf8 message string
 utf8only
@@ -60177,7 +60132,6 @@ utility_success
 utilitydamage
 utl_vector, 
 utlstringtoken
-uuz
 uxX/
 uyO
 v axis
@@ -60192,7 +60146,6 @@ v2i_GENERAL_NAME_ex
 v8::Global<v8::Function>* (demangled)
 v8::internal::Isolate* v8::internal::IsolateFromNeverReadOnlySpaceObject(uint64_t) (demangled)
 v8system
-vAK
 vAj}
 vAr>
 vAu&
@@ -60202,19 +60155,20 @@ vCompMat '%s' did not affect any target materials on model %s.\n
 vCompMat failed to load resource: %s\n
 vCompMat failed to load: %s (falling back to %s)\n
 vCompMat update exceeded %.2f seconds! [%s]\n
-vEy
 vF'l
 vForward
 vGi
 vIK \f3
 vIg
-vJp
+vKK
 vMaxs
 vMins
 vOrigin
 vQO+t
+vTO
+vTY
 vUu
-vVM
+vVe
 vWL
 vZh
 v\n,associated_workshop_file_for_direct_payments
@@ -60302,6 +60256,8 @@ vdata_choice
 vdata_classes
 vdataderived
 vdb
+vdr
+veG
 veR
 vec
 vec2
@@ -60422,7 +60378,7 @@ visited-de_train
 visited-de_vertigo
 visuals
 vjs_c
-vlY
+vkk
 vm:u
 vm_bodygroup_override
 vm_bodygroup_state_override
@@ -60527,7 +60483,7 @@ vsync
 vulture
 vv == NULL
 vxml_c
-vyl
+vyP
 vypa_defeat
 vzcrR
 w+Ce
@@ -60538,18 +60494,20 @@ w3Xc
 w8i_q
 w=Zk
 wE2C
+wFL
 wHk
 wI-S
 wOUigi<
 wPS
+wQr
 wR\fe3c
 wRlb.
+wVP
 wW>Pp4Q0D,A T7_
 wWE
 wXC
 wY[K,
 w\tV_isnand
-wag
 wait
 wait_until_end
 waiting for lock
@@ -60941,7 +60899,6 @@ webm
 webp
 webvtt-cue end-time must have value greater than start-time
 webvtt-cue-id truncated
-wedding_ring
 week_id
 week_name
 weight
@@ -60992,6 +60949,7 @@ winstreak
 wipe
 with error
 wlLYP
+wlz
 wm"h
 wm_bodygroup_override
 wm_bodygroup_state_override
@@ -61083,7 +61041,6 @@ wrap
 wrap error
 wrap mode not allowed
 wraparound
-wrapped_gift
 wrapped_sticker
 wrappedhtmlid
 wretched
@@ -61091,7 +61048,6 @@ write bio not set
 write to read only BIO
 write_game_titledata
 writekeybindings
-wrl
 wrong certificate type
 wrong cipher returned
 wrong content type
@@ -61114,11 +61070,9 @@ wrong tag
 wrong type
 wrong version number
 wstats
-wtM
 wtR
 wtj
 wvec2vec
-wwH
 www.
 www.counter-strike.net
 www.steamcommunity.com
@@ -61129,7 +61083,6 @@ wyS]
 wzH
 x axis
 x#Nb
-x%A
 x,y,z to display an X for the bomb plant in guardian missions with custom bomb plant boundaries.
 x-offset
 x/OA
@@ -61146,31 +61099,35 @@ x509_info
 x509_pkey
 x509_req
 x509_store
+xAR
+xBp
 xDD
 xFKF
-xFd
-xJc
+xFi
+xJS
+xJq
+xKl
 xOu\vsF
 xPA
-xPJ
 xQfF
 xRh
 xT?V
-xTL
 xU<d
 xUN'
 xUT
 xXq
 xYC
+xYN
+xZU
 xac
 xaxis_centroidcoords
 xbk
+xdL
 xdigit
 xform
 xg-9Ja
 xhH
 xog
-xow
 xp$=S
 xpExpr
 xpH8
@@ -61204,9 +61161,7 @@ xray
 xray_item_claim
 xray_item_reveal
 xraymachine
-xri
 xsK;
-xtJ
 xuid
 xuid, skillgroup
 xuidHost
@@ -61221,9 +61176,11 @@ y0JY
 y2Cu
 y?iLa
 yBf
+yEy
 yH/Yy
 yH3f
 yHs8=
+yIw
 yJ;Bf
 yLM
 yOc
@@ -61231,8 +61188,8 @@ yRnkB\t
 yS/h
 yUk
 yWTb?
-yXu
-yZT
+yWa
+yWe
 y\teE
 ya<O
 yak
@@ -61242,7 +61199,6 @@ yaxis_max
 yaxis_min
 yb_A
 ycg
-yea
 year
 yel
 yellow
@@ -61256,14 +61212,17 @@ yields
 yil
 ylA
 yma
-ynM
 youblocked
 youtube_account_name
 youtube_username
 youtube_videoid
 youtubevideoid
+yqR
 yres
 ytR
+yuE
+yuh
+yuj
 yxo
 yyen
 z axis
@@ -61274,16 +61233,13 @@ z/B,9d
 zAS
 zAq
 zBe
-zCl
 zF):O4
 zFar
-zLp
 zNear
 zOc
 zRXU 
 zTM
 zUn
-zVQ
 zXc
 zZg
 z\n8NETWORK_DISCONNECT_LOCALPROBLEM_HOSTEDSERVERPRIMARYRELAY
