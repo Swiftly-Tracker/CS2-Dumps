@@ -67,6 +67,7 @@
 #include is NULL 
 #int#
 #nyf
+#vpulse1
 $Ib?s
 $eax
 $ebp
@@ -202,6 +203,7 @@ $xmm9
 %s bytes used out of %s bytes available (%.2f%%)
 %s called on a pool arena (no root available)\n
 %s is out of range for KeyValues, which doesn't support signed 64-bit numbers
+%s not expected here.  A valid JSON document should be a single object, which begins with '{' and ends with '}'
 %s not expected here.  Missing ',' or ']'?
 %s not expected here.  Missing ',' or '}'?
 %s not expected here.  Missing ':'?
@@ -576,7 +578,6 @@ $xmm9
 1#QNAN
 1#SNAN
 1DBlend
-1IaP
 2,THh
 2aNuE
 3>N;kU
@@ -642,7 +643,7 @@ $xmm9
 ?8bunz8
 ???
 ?@En[vP
-?HEAP WARNING: memory pointer %p is invalid\n
+?HEAP WARNING: memory block at %p appears to be corrupt\n
 ?JV8f
 ?N]TUUU
 ?UUUUUU
@@ -2368,10 +2369,10 @@ GrJoq>@
 Group
 H$BQ
 H(VVH
-HEAP WARNING: memory block at %p appears to be corrupt\n
 HEAP WARNING: memory block at %p is unexpectedly allocated\n
 HEAP WARNING: memory block at %p is unexpectedly free\n
 HEAP WARNING: memory block at %p is unexpectedly unrecognized\n
+HEAP WARNING: memory pointer %p is invalid\n
 HH:MM:SS.z
 HH:mm:ss
 HIGHDPI
@@ -2561,7 +2562,7 @@ ISolveIKChainAnimNode
 ISubGraphAnimNode
 ISubGraphManager
 ITALIAN
-I\zH6P
+I\zH6H
 Ignore
 Ignore All Asserts
 Ignore For 24 Hours
@@ -2602,7 +2603,6 @@ InitializeSRWLock
 InitializeSecurityDescriptor
 Inline attr without expected value\n
 Input Handling
-Input contains no data
 InputService_001
 InputStackSystemVersion001
 InputSystemVersion001
@@ -4485,7 +4485,6 @@ Unable to seek to ELF shoff\n
 Unable to seek to Mach-O load commands\n
 Unable to seek to Macho-O slice base\n
 Unable to seek to module section at file offset 0x%x\n
-Unable to write file '%s'\n
 Unaccounted
 Unexpected EOF while parsing number
 Unexpected augmentation string byte 0x%x (shouldn't have augmentation data)\n
@@ -5070,7 +5069,7 @@ Vrad3_001
 Vtube
 VtuneApi32e.dll
 VuV
-W)lQP!2
+W)lQ(!2
 W4vC
 WARNING
 WARNING: %s Denied a request to load '%s'\n
@@ -5236,8 +5235,8 @@ ZwSetTimerResolution
 \n\n\n\n\n\n\n\n
 \nh?oT
 \nk>oB
-\r%s not expected here.  A valid JSON document should be a single object, which begins with '{' and ends with '}'
 \rGeneral
+\rInput contains no data
 \r\r\r\r\r\r
 \rmj>zjZ
 \sdktools\bin
@@ -6977,7 +6976,7 @@ nOffset < m_nAllocationSize
 nOverrideCPField
 nSwitchValue
 nTries < 10000000
-n\f"pA3Qx
+nUnable to write file '%s'\n
 n]?iJ
 name
 nan
@@ -8894,7 +8893,6 @@ vpcf8
 vpcf9
 vpk:
 vpulse
-vpulse1
 vpulse10
 vpulse11
 vpulse12
@@ -8959,7 +8957,7 @@ xYiu
 x`tm6
 xdL
 xnc
-xrYp
+xrYh
 xtm
 xuRCk
 yE>cb

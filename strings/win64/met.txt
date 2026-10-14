@@ -151,6 +151,7 @@ $Ib?s
 %1 [W = %2, C = %3, Instance = %4, Mode = %5]
 %1 children: \n
 %1 properties: \n
+%1 texels = 1px
 %1x
 %1x%2
 %1x%2 (%3x%4)
@@ -406,6 +407,7 @@ $Ib?s
 .vfx
 .vpk
 .vpk:
+.vtex_c
 .webp
 .xJ>Hf
 .xdata
@@ -422,10 +424,13 @@ $Ib?s
 0=Wrap,1=Mirror,2=Clamp,3=Border,4=MirrorOnce
 0x%p
 0x%p = %s '%s'
+1 texel = %1px
 1#IND
 1#INF
 1#QNAN
 1#SNAN
+1/%1x
+1:1 current mip
 1:1: Tokens : ( T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | BOOLLITERAL | ID | INTEGERLITERAL | HEXINTEGERLITERAL | FLOATLITERAL | COMMENT | WS );
 1:1: Tokens : ( T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | TOK_COLON | OPEN_BRACE | CLOSE_BRACE | OPEN_PAREN | CLOSE_PAREN | OPEN_BRACKET | CLOSE_BRACKET | SEMICOLON | OP_EQUAL | COMMA | DOUBLE_AND | NEGATIVE_TOK | DOUBLE_OR | LITERAL_TRUE | LITERAL_FALSE | POS_INTLITERAL | POS_FLOATLITERAL | SCOPE_QUALIFIER | ID | DOUBLE_QUOTED_STRING | SINGLE_QUOTED_STRING | SINGLE_LINE_COMMENT | ML_COMMENT | WS | UNRECOGNIZED );
 1AboutAction()
@@ -451,8 +456,10 @@ $Ib?s
 1OnAccept()
 1OnAcceptClicked()
 1OnAccepted()
+1OnActualSize()
 1OnAddDynamicExpressionAction()
 1OnAlphaChanged()
+1OnAlphaChannelToggled( bool )
 1OnAnnotateAction()
 1OnAttributeChanged( int, int )
 1OnAttributeSelectionChanged( const QItemSelection &, const QItemSelection & )
@@ -483,6 +490,7 @@ $Ib?s
 1OnCollapseAllGroups()
 1OnColorAccepted( QColor )
 1OnColorChanged( QColor )
+1OnColorChannelToggled( bool )
 1OnColorLineEditingFinished()
 1OnColorPicker()
 1OnColorSamplePicked( QColor )
@@ -558,13 +566,13 @@ $Ib?s
 1OnResetClicked()
 1OnResetToDefaultAction()
 1OnResolutionChanged()
-1OnRestoreSize()
 1OnRevertAction()
 1OnSanitizeMaterialsAction()
 1OnSaveAction()
 1OnSaveAsAction()
 1OnSaveIntoReference()
 1OnSaveToReference()
+1OnScreenChanged( QScreen * )
 1OnSelectionChanged( const QItemSelection &, const QItemSelection & )
 1OnSetColorInternal(FatColor_t)
 1OnSetDefault()
@@ -583,6 +591,7 @@ $Ib?s
 1OnShowPreferredShaders()
 1OnShowRawOutputAction()
 1OnShowShaderAttributes()
+1OnSingleChannelMonochrome()
 1OnSliderActionTriggered( int )
 1OnSliderReleased()
 1OnSliderValueChanged( int )
@@ -612,6 +621,7 @@ $Ib?s
 1OnVariablePopupMenuAboutToShow()
 1OnViewMenuAboutToShow()
 1OnWhitespaceWarningClickedDelayed()
+1OnZoomIndexChanged( int )
 1OpenAssetBrowser()
 1OpenBuildWatch()
 1OpenVConsole()
@@ -696,6 +706,7 @@ $Ib?s
 2mapped(int)
 2rejected()
 2returnPressed()
+2screenChanged( QScreen * )
 2selectionChanged( const QItemSelection &, const QItemSelection & )
 2sliderPressed( )
 2sliderPressed()
@@ -976,9 +987,9 @@ AutoPromptForShaderOnNewMaterialCreation
 B channel not found!\n
 BACKSLASH_CHAR
 BAL
+BBC
 BC6H
 BF>^G
-BGB
 BGR565
 BGR888
 BGRA1010102
@@ -988,7 +999,9 @@ BGRA8888_LINEAR
 BGRX8888
 BGRX8888_LINEAR
 BKbhTb~XBK!;
+BOC
 BOOLLITERAL
+BQB
 BUTTON
 B\tV_atoi
 BackGroundFill_t
@@ -1042,7 +1055,6 @@ Begin testing a condition composed of Observable values. Continues checking unti
 Begin testing a condition composed of Observable variable references. Continues checking until true.
 BenchmarkService001
 BestQualityScale
-BhB
 BinAdd
 BinDiv
 BinEq
@@ -1077,7 +1089,6 @@ Blur6
 Blur7
 Blur8
 Blur9
-BnB
 Bnc
 Bogus DAC index %d
 Bogus DAC value 0x%x
@@ -1104,7 +1115,6 @@ Browse...
 Buffer Size: 
 Buffer passed to JPEG library is too small
 BuildWatch
-ByA
 Bzw
 C-Yn
 C:\buildworker\csgo_rel_win64\build\_build_\tools\met\_vpc_met\default\win64\_msvc_\Retail\met.pdb
@@ -1533,9 +1543,9 @@ CQTabWidget
 CQTabbedStyle
 CQTextureControl
 CQTextureImage
-CQTexturePreviewImage
 CQTexturePreviewMagnify
 CQTexturePreviewPopup
+CQTexturePreviewView
 CQTextureSettingsDialog
 CQTitledGroupBox
 CQTreeWidgetWithHover
@@ -1823,9 +1833,11 @@ DBM&(
 DCT coefficient out of range
 DCT scaled block size %dx%d not supported
 DETACH_REGISTER
+DIB
 DIGIT
 DIV
 DIV_FLOAT
+DNC
 DNGBackwardVersion
 DNGPrivateData
 DNGVersion
@@ -1848,7 +1860,6 @@ Data_Branch1xy
 Data_Branch1zBranch2x
 Data_Branch2yz
 DateTime
-DdB
 Debug Focus Widget
 Debug Widget Under Mouse
 DebugTreeHover
@@ -1925,6 +1936,7 @@ DetailPropsEnabled
 DevShader
 Developer Options
 DeveloperDebug
+DhB
 Dho
 Did not execute '%s' because the 'Target' object was missing
 Didn't expect more than one scan
@@ -1932,6 +1944,9 @@ Direction3D
 Disabled due to current value of 
 Disallowed variable name: %s
 Disk
+Display Single Channel Monochrome
+Display the alpha channel in black and white, exclusive with the color channels.
+Display this color channel.
 Div R%d <- R%d / R%d
 Divide by zero!
 Do not stop the current yielding node, but do not continue to the next node afterwards.
@@ -2122,10 +2137,13 @@ ExtractModuleMetadata
 Extraneous token
 F>qUxv
 FEATURES
+FEB
 FEMh\f
-FKB
+FHB
+FJC
 FLOATLITERAL
 FLOATSUFFIX
+FQC
 F_WETNESS
 Fade Duration: 
 Fade Start Time: 
@@ -2176,7 +2194,6 @@ FeaturesVariablesSplitFactor
 Feb
 February
 FfW?
-FiB
 FieldOfViewCotangent
 File
 File Not Found!
@@ -2205,6 +2222,7 @@ Fired when the observable boolean is true, and killed when false.
 Fixed
 FixupResourceName: Illegal full path passed in ("%s")!\n
 FixupResourceName: Illegal path, missing extension passed in ("%s")!\n
+FlB
 Flat
 FlattenedSerializersVersion001
 Float
@@ -2268,7 +2286,6 @@ Format4
 Format5
 Found existing value when inserting into dict - replacing existing value with new value. If this is intended behavior, use InsertOrReplace. If leaving existing values alone is intended, use InsertIfNotFound.
 Found infinite loop to %s when resolving material layer %i
-FrB
 Frac
 Fractional component (ie. returns 0.34 for 12.34)
 Fractional sampling not implemented yet
@@ -2403,17 +2420,17 @@ Group3Options
 Group4Options
 GroupDefaultCollapseState_%s
 HAC K  Unused Binding
-HAr@
 HEADER
-HEC
 HEXINTEGERLITERAL
 HEX_DIGIT
+HGE
 HH:mm:ss
 HJN
-HPE
-HQD
+HKC
+HPD
 HRp
-HVD
+HVB
+HWE
 H\tV_cosd
 HalftoneHints
 Hammer Surface Properties
@@ -2423,8 +2440,6 @@ Handle Return Values
 HardCancel
 Has All Flags
 Has Any Flags
-HbR
-HdE
 Height
 Height Variance: 
 Height texture is constant-valued
@@ -2437,30 +2452,26 @@ HelpIdPrefix_LayeredProperty
 HelpSystem_001
 HelperLoadFbmByFileExtension(3558): Error! Unknown file type for %s\n
 Hex:
-HgE
+HfE
 Hide unless error/warning occurs
 High
 Highest
-Hir@
 History
 History - %1
 History Settings
 History_%i
+HkE
+HlE
 Home
 Horizontal differencing "Predictor" not supported with %d-bit samples
 HostComputer
 HostStateMgr001
 Hotspot Mode:
 HoverItemChanged
-HrE
 HtL
-HuA
+HuC
 Huffman code size table overflow
 Huffman table 0x%02x was not defined
-HwD
-HxD
-HxE
-HyD
 I could not work out what I was expecting, like so many of us these days!\n
 I/O Failure! Could Not Read File.
 IAssetSelectionListener
@@ -2638,15 +2649,13 @@ JUMP
 JUMP_COND
 Jan
 January
-JjA
-JtB
+JnB
 Jul
 July
 Jump to Instr I%d
 JumpOrLeap( C%d:I%d )
 Jun
 June
-JwB
 KERNEL32.dll
 KNQ\rMO
 Keep a history of all instructions run on a per graph basis.
@@ -2671,15 +2680,18 @@ LCIDToLocaleName
 LCMapStringEx
 LCMapStringW
 LDo
+LEC
 LIBRARY_INVOKE
 LINEAR_D24S8
 LINE_CONTINUATION
 LITERAL_FALSE
 LITERAL_TRUE
+LMC
 LMouse
 LMouseDoubleClick
 LOG_GENERAL
 LOOP_BREAK
+LTB
 LTE
 LTE_FLOAT
 LTE_GAMETIME
@@ -2748,9 +2760,8 @@ Line:
 Linear
 LinearResponseLimit
 LinearizationTable
-LkA
+LjB
 Lkh9Fgc^A
-LmA
 LoadEXRImageFromMemory failed! Error message: %s\n
 LoadEXRImageFromMemory() failed! Error message: %s\n
 LoadFromInMemoryEXR( %s ) failed.\n
@@ -2786,6 +2797,7 @@ LoggingSystem_PushLoggingState
 LoggingSystem_RegisterLoggingChannel
 LoggingSystem_RegisterLoggingListener
 LoggingSystem_SetLoggingResponsePolicy
+LyB
 M8MF
 MATCHFRAMEWORK_001
 MAX_ALLOC_CHUNK is wrong, please fix
@@ -2961,7 +2973,8 @@ Minimum
 Minimum of two values (float)
 Minimum of two values (int)
 MinimumExpanding
-Mip
+Mip %1: %2x%3
+Mip %1: %2x%3 (%4)
 Mip Map / Downsample Settings
 Mirror
 Miscellaneous marker 0x%02x, length %u
@@ -3005,7 +3018,6 @@ NAN
 NAN(IND)
 NAN(SNAN)
 NAR
-NEB
 NEGATE
 NEGATE_FLOAT
 NEGATE_INT
@@ -3031,7 +3043,9 @@ NE_VEC2
 NE_VEC3
 NE_VEC3WS
 NE_VEC4
+NGC
 NJ2"v
+NKB
 NO COMMAND TARGET
 NONE
 NOP
@@ -3041,7 +3055,6 @@ NQ?s
 NULL CELL 
 NULL VP8Io parameter in VP8Decode().
 NV_NULL
-NXB
 N\tV_exp2f
 Name
 Natural logarithm (base e)
@@ -3070,7 +3083,6 @@ NewValueAccepted
 Newline in string literal
 Next match (Enter)
 Nice
-NnA
 No Active Material.
 No Active Material. Open Or Select A Material.
 No Active Shader.
@@ -3125,7 +3137,6 @@ Not enough
 Not implemented yet
 Nov
 November
-NpB
 Num
 Num0
 Num1
@@ -3146,7 +3157,6 @@ NumMul
 NumSub
 NumToggle
 NumberOfInks
-NzB
 OCTAL_ESC
 OPEN_BRACE
 OPEN_BRACKET
@@ -3160,6 +3170,7 @@ Observable
 Obtained EMS handle %u
 Obtained XMS handle %u
 Oct
+Oct 14 2026
 October
 Offset
 Old outflow: %s\n
@@ -3174,8 +3185,10 @@ OnAboutToShow
 OnAccept
 OnAcceptClicked
 OnAccepted
+OnActualSize
 OnAddDynamicExpressionAction
 OnAlphaChanged
+OnAlphaChannelToggled
 OnAnnotateAction
 OnAppFocusChanged
 OnAssetCacheStatusChanged: %s\n
@@ -3209,6 +3222,7 @@ OnClicked
 OnCollapseAllGroups
 OnColorAccepted
 OnColorChanged
+OnColorChannelToggled
 OnColorLineEditingFinished
 OnColorPicked
 OnColorPicker
@@ -3298,7 +3312,6 @@ OnRenderAttributeTestValueChanged
 OnResetClicked
 OnResetToDefaultAction
 OnResolutionChanged
-OnRestoreSize
 OnReturnPressed
 OnRevertAction
 OnSanitizeMaterialsAction
@@ -3306,6 +3319,7 @@ OnSaveAction
 OnSaveAsAction
 OnSaveIntoReference
 OnSaveToReference
+OnScreenChanged
 OnSelectionChanged
 OnSetColorInternal
 OnSetDefault
@@ -3325,6 +3339,7 @@ OnShowPreferredShaders
 OnShowRawOutputAction
 OnShowShaderAttributes
 OnSingleAssetFileStatusChanged: %s - %s\n
+OnSingleChannelMonochrome
 OnSliderActionTriggered
 OnSliderReleased
 OnSliderValueChanged
@@ -3358,6 +3373,7 @@ OnVariablePopupMenuAboutToShow
 OnViewMenuAboutToShow
 OnWhitespaceWarningClicked
 OnWhitespaceWarningClickedDelayed
+OnZoomIndexChanged
 One of the client procedures is NULL pointer.
 Only DXT1/DXT5 online texture compression supported.\n
 Only the default is available because the database could not be loaded.
@@ -3384,9 +3400,6 @@ Or R%d <- R%d || R%d
 Orientation
 Origin
 Original
-Original Size
-Original: %1x%2 Mip: %3
-Original: %1x%2, Scaled: %3x%4 Mip %5
 OriginalRawFileData
 OriginalRawFileName
 Other Tools
@@ -3403,7 +3416,6 @@ Override Inherited Variable...
 Overwrite
 Overwrite With Current
 P4File
-PAD
 PANEL_ID
 PC SM 5.0 (D3D11)
 PC SM 5.0 (VULKAN)
@@ -3411,31 +3423,29 @@ PC SM 6.0 (VULKAN)
 PC_SM_5_0
 PC_SM_5_0_VULKAN
 PC_SM_6_0_VULKAN
-PDB
+PDD
 PDT
-PEC
+PED
+PFE
 PGDInstruction_t
-PID
 PIO
 PInstruction_t<43>::Run
 PInstruction_t<44>::Run
-PJE
+PKE
 PLATFORM
 PLAT_
-PLD
-PMB
-PME
 PNG\r\n
-POD
+POC
+POE
 POS_FLOATLITERAL
 POS_INTLITERAL
-PQD
 PRIVATE
 PROGRAM
 PSE
 PST
 PS_RENDER_STATE
 PS_RTX
+PUD
 PULSE_CALL_ASYNC_FIRE
 PULSE_CALL_SYNC
 PURH
@@ -3476,10 +3486,11 @@ PVAL_VEC3
 PVAL_VEC3_WORLDSPACE
 PVAL_VEC4
 PVAL_VOID
-PVD
-PWE
-PYE
+PWD
+PXD
+PXE
 P\tV_expf
+PaD
 PackBits
 PackBitsDecode: Not enough data for scanline %ld
 PackBitsDecode: discarding %ld bytes to avoid buffer overrun
@@ -3520,7 +3531,6 @@ Pause the cursor at this point.
 PerVertexLighting
 PgDn
 PgUp
-PhC
 Photometric tag is missing, assuming data is YCbCr
 Photometric tag value assumed incorrect, assuming data is YCbCr instead of RGB
 PhotometricInterpretation
@@ -3537,8 +3547,6 @@ PickColor
 Pitch
 PivotPaint
 PixarLog
-PjB
-PlE
 PlanarConfiguration
 Planarconfig tag value assumed incorrect, assuming data is contig instead of chunky
 Plat_ExitProcess
@@ -3558,6 +3566,7 @@ Plat_LoadInterface
 Plat_LoadModule
 Plat_NonFatalErrorFunc
 Plat_RegisterModule
+PmB
 Pmg
 Pointers cannot be used as numeric values
 Policy
@@ -3567,7 +3576,8 @@ Pos
 Position
 PostProcessingSystem_001
 Pow
-PqC
+PpE
+PqD
 Predictor
 PredictorEncodeTile
 PredictorSetup
@@ -3601,6 +3611,7 @@ Property '%s.%s' not writable
 Property For Wet Areas:
 PropertyEditorSystem_001
 PsE
+PuC
 Pull From Global Browser
 PullSelectionFromGlobalBrowser
 Pulse
@@ -3646,13 +3657,8 @@ PulseVariableKeysSource_t
 Push To Global Browser
 PushSelectionToGlobalBrowser
 PvP
-PwA
-PwD
-PwE
-PxD
+PxB
 PyD
-PyE
-PzE
 Q2XXR
 QAction
 QAction*
@@ -3678,6 +3684,7 @@ QProgressBar
 QPushButton
 QPushButton::menu-indicator{ image: url(does_not_exist.jpg); }
 QRadioButton
+QScreen*
 QScrollArea
 QScrollBar
 QSlider
@@ -3751,14 +3758,14 @@ RGBA8888_LINEAR
 RGBA8888_UINT
 RGBA\t%1\t%2\t%3\t%4
 RGBX8888
-RLB
+RJB
 RMouse
 RMouseDoubleClick
+RPC
 RSDSt8
 RST%d
 RTX
 RXw
-R\vpT
 R_T5Y
 Rad2 Deg
 Radius
@@ -3857,7 +3864,6 @@ ResourceCompilerSystem001
 ResourceHandleUtils001
 ResourceManifestRegistry001
 ResourceSystem013
-Restore the image's original size.
 Result
 Return
 Return the number of elements in the array.
@@ -3881,6 +3887,7 @@ Reveal in VDATA Editor
 Revert To Last Save
 Revert the material to disk contents.
 RevertAction
+RiB
 RichTIFFIPTC
 Right
 Right Mouse (Average)
@@ -3896,7 +3903,6 @@ Round - round float up or down to integer
 Round Float
 Row pixels integer overflow (rowpixels %u)
 RowsPerStrip
-RrA
 RsTextureAddressMode_t
 RtlCaptureContext
 RtlLookupFunctionEntry
@@ -3905,7 +3911,6 @@ RtlUnwind
 RtlUnwindEx
 RtlVirtualUnwind
 Run
-RxA
 S>$hkDh$h>[2
 SBK
 SCALE
@@ -4051,6 +4056,7 @@ SchemaTestExternal_Two_001
 Scopes: %s\n
 ScrLk
 ScrToggle
+Screen pixels per mip 0 texel. The mouse wheel over the image also zooms.
 Search for material variables.
 Seek error at scanline %lu
 Seek failed on temporary file
@@ -4061,7 +4067,6 @@ SelectFirstItemAfterFilter
 Selected %d colors for quantization
 Send an e-mail to GraphicsDev.
 Sep
-Sep 30 2026
 September
 SerializedEntitiesVersion001
 ServerToolsInfo_001
@@ -4157,6 +4162,7 @@ Show material load auto-sanitize fixups as modification.
 Show regardless of user setting
 Show shader variable and sort keys. Used to iterate on shader variable grouping.
 Show the Material Editor's About box.
+Show the current mip at one screen pixel per texel.
 ShowAllCommandsPopup
 ShowCompiledTextures
 ShowConsole
@@ -4296,6 +4302,8 @@ Sys
 System Material Attributes
 SystemAttributes
 SystemTimeToTzSpecificLocalTime
+T%A
+TFC
 TIFFAppendToStrip
 TIFFClientOpen
 TIFFFetchDirectory
@@ -4317,6 +4325,7 @@ TIFFSetField
 TIFFTileRowSize
 TIFFVStripSize
 TIFFVTileSize
+TLC
 TOK_COLON
 TUUUU
 Tab
@@ -4334,7 +4343,6 @@ TanFrameQuat
 Tangent of angle. Input in radians, output in radians
 TargetPrinter
 TcM
-TeB
 Terminate()
 TerminateProcess
 TernaryConditional
@@ -4351,6 +4359,7 @@ Texture
 Texture (bound to variable)
 Texture Browser
 Texture Settings%1 - %2
+Texture has only one mip level.
 Texture range [%.1f,%.1f], height range [%.1f,%.1f]
 TextureAverageColor
 TextureDim
@@ -4425,11 +4434,10 @@ True
 Truncated header.
 TryAcquireSRWLockExclusive
 TrySendVNotify - SendKV3 failed\n
-TsA
 Tue
 Tuesday
 Turn a time in seconds into a display string. NOT localized.
-TvB
+TwB
 Type
 Typesafe Int
 Typesafe Int64
@@ -4529,8 +4537,8 @@ UxA
 VApplication001
 VAsyncFileSystem2_001
 VAvi001
+VBB
 VBik001
-VCB
 VCS3 %s Load Failure: Could not find DATA block\n
 VConComm001
 VConsole
@@ -4569,7 +4577,6 @@ VNotify: %s\n
 VPhysics2_Interface_001
 VProcessUtils002
 VProfService_001
-VQB
 VRenderDeviceSetupV001
 VS_MS_RTX
 VS_RTX
@@ -4683,8 +4690,6 @@ Vis:0
 Vis:1 
 VisBuilder_001
 Visit Developer Help URL
-VlA
-VoB
 Void
 Vrad3_001
 WARNING
@@ -4715,6 +4720,7 @@ Warning: thumbnail image size does not match data length %u
 Warning: unknown JFIF revision number %d.%02d
 Wed
 Wednesday
+When only one channel is displayed, draw it in black and white instead of the channel's color.
 When we start waiting, how should we handle existing cursors?
 Whether value has ALL of the specified flags set (it may have other flags.)
 Whether value has ANY of the specified flags set (it may have other flags.)
@@ -4752,31 +4758,26 @@ WriteFile
 Wrong JPEG library version: library is %d, caller expects %d
 Wrong Variable Type '%s' for '%s'.
 X to the Y power
-XAD
 XClipPathUnits
 XEC
-XHD
-XID
 XML
 XMLPacket
-XND
-XOD
+XNB
+XNC
 XPosition
-XQD
-XRE
 XResolution
-XVD
+XYD
 XYZ, Luv
-XbR
+XZD
+XcB
+XhE
 XhL
 XjE
-XkE
-XpE
-XqA
+XoB
+XpB
+XqB
+XqD
 XsBI
-XuE
-XvE
-XwD
 XxD
 XyD
 Y>kX>M
@@ -4793,17 +4794,18 @@ YpU_Z
 Yqq
 Z@&LHA'\r:C(
 ZFP compression is not supported.
-ZIB
 ZIPDecode
 ZIPEncode
 ZIPPostEncode
 ZIPSetupDecode
 ZIPSetupEncode
 ZIPVSetField
+ZMB
+ZOC
+ZQC
 Z\tV_fmodf
 Zjz\v
-ZoA
-ZzA
+Zoom
 [ Chunk%d ]
 [ written at chunk start last-read I%d ]
 [ written by I%d last-read I%d ]
@@ -5213,7 +5215,6 @@ bChecked
 bCollapsed
 bExpanded
 bInherit
-bRB
 bValue
 bWasAnObservableComputation
 backed_by_variable
@@ -5237,7 +5238,7 @@ bc7e_init
 bc7e_init_params
 bej
 bentnormal
-bfB
+bgB
 binary
 binary_blob
 bind_targets
@@ -5552,9 +5553,9 @@ class CQSurfacePropertyPicker (demangled)
 class CQTabWidget (demangled)
 class CQTextureControl (demangled)
 class CQTextureImage (demangled)
-class CQTexturePreviewImage (demangled)
 class CQTexturePreviewMagnify (demangled)
 class CQTexturePreviewPopup (demangled)
+class CQTexturePreviewView (demangled)
 class CQTextureSettingsDialog (demangled)
 class CQTitledGroupBox (demangled)
 class CQTreeWidgetWithHover (demangled)
@@ -5875,6 +5876,9 @@ currentColorChanged
 curvature
 custom_colors
 custom_fgd_type
+dAB
+dLC
+dPC
 dQy/
 dRL>
 darkColors
@@ -5886,6 +5890,7 @@ dataWindow
 data_height = 
 data_with or data_height too large. data_width: 
 dddd, MMMM dd, yyyy
+deB
 debugger_can_create_instance
 decal
 default
@@ -5903,7 +5908,7 @@ direct_return_value_for
 directory not empty
 displayWindow
 dlBNvz!/u{1?cmR^
-dmB
+dnB
 doItemsLayout
 dock
 docked_widget
@@ -5913,10 +5918,8 @@ dot2
 dot3
 dot4
 double
-dpA
 dqe-KO{/3
 dummyfilename.tif
-dyB
 dynamicparams
 eEk
 eF>t
@@ -5951,10 +5954,10 @@ externaldescriptorset
 f5J5J5J5J5J5J5J5J5J5J5J5J5J5J5J5Jx
 fAj
 fD>b
-fHB
 fP~V
 fValue
 fWi?
+fXB
 fabs
 false
 fast
@@ -6035,7 +6038,6 @@ for strip array
 forcebc3
 foreground
 forever
-fqB
 frac
 frexp
 friendly_name
@@ -6044,7 +6046,6 @@ function not supported
 future
 future already retrieved
 fvP
-fyA
 gBV
 gWu
 g_bLayerBlendEnable
@@ -6142,40 +6143,35 @@ group_label
 group_options_button
 group_title
 h>1my
-hEC
-hHD
+hCB
+hJB
+hLB
 hMaterial
-hND
+hPD
 hPU3
-hQD
 hTarget
-hVD
 has_observable_context
 hbox
-hcE
 hcenter
 header crc mismatch
 header_icon
-hhE
+hgE
 hidden
 hidden_in_tool
-hnE
 horizontal differencing 
 horizontalPolicy
 horizontalStretch
 horizontal_header
 horizontal_header_labels
 host unreachable
-hrE
-htE
+hrB
+huC
 hullivr_edge_merge_tan
 hullivr_faceisland_merge_disp
 hullivr_faceisland_merge_tan
 hullivr_version
-hwD
 hwe
 hxD
-hyD
 iValueIn
 i]Wb
 iak
@@ -6249,10 +6245,7 @@ italic
 j'Vlk
 jAf
 jHq
-jVB
 jVg
-jZB
-jkB
 jpf
 jpg
 k;J;J;J;J;J;J;J;J;J;J;J;J;J;J;J;Jx
@@ -6268,7 +6261,13 @@ kdz
 knv
 koi
 l6qnk
+lAC
 lDa>
+lEC
+lKC
+lNC
+lOC
+lPB
 laQ
 lab
 labelPos
@@ -6276,6 +6275,7 @@ labelText
 layer
 layer_shift_down
 layer_shift_up
+lbB
 ldE
 ldexp
 left
@@ -6293,7 +6293,6 @@ lifespan
 lineOrder
 lineartogamma
 ljw
-lmA
 log
 log10
 log2
@@ -6301,7 +6300,6 @@ looks like this:\n\t\t%.*s\n
 loud
 lowprecisionuv
 lowprecisionuv1
-lvA
 m\nXo
 m_Args
 m_BaseFlow_OnAfterCancel
@@ -6712,12 +6710,10 @@ nCount
 nCursorID
 nDelayInMS
 nDenominator
-nEB
 nEditorID
 nFirst
 nFormat
 nIndex
-nKB
 nKillPriority
 nLastValidEntryIdx
 nMax
@@ -6725,12 +6721,12 @@ nMaxElements
 nMin
 nMode
 nNumerator
+nPC
 nQuality
 nRemainderDigits
 nRemainderNoiseDigits
 nRetiredAtNodeID
 nRow
-nSB
 nSecond
 nSliderAction
 nSpawnNodeID
@@ -6739,8 +6735,8 @@ nToolId
 nTries < 10000000
 nValue
 nWakePriority
-nYB
 n]?iJ
+naB
 name
 nan
 nan(ind)
@@ -6753,7 +6749,6 @@ network reset
 network unreachable
 newColor
 newValue
-niB
 no buffer space
 no child process
 no composite (not saved with Maximize Compatibility)
@@ -6786,12 +6781,9 @@ not connected
 not enough memory
 not supported
 notepad.exe
-nrA
-nrB
 nuS
 null
 null VP8Io passed to VP8GetHeaders()
-nxB
 o KPBf
 o?GS
 oI>O7
@@ -6817,45 +6809,47 @@ originalColor
 owM&
 owner dead
 pAction
-pBB
+pCD
 pCheckpointName
 pCurrentFocusWidget
+pDC
 pDescription
-pEE
 pEvent
-pFE
 pFilter
 pFx
-pHD
-pID
+pHB
+pHE
+pHJ
 pItem
 pMessage
 pMouseEvent
-pND
 pOC
 pPrevFocusWidget
+pQC
 pQD
+pScreen
 pTagName
 pTq
-pVD
-pVE
+pUE
 pWheelEvent
-paB
-paE
+pYD
+pZD
 param
 particle_debug_creation_filter
 particlesystem
 pass %u\n
 paste
+pcD
+peD
+peE
 permission denied
 pet_preview_gravity
 pet_preview_underwater
 pet_preview_wind
-pfE
 pfm
-piC
 pickedColor
 pixelAspectRatio
+plB
 pmE
 png
 polymorphic_arg
@@ -6863,7 +6857,6 @@ polymorphic_dependent_arg
 position
 posxyz
 pow
-pqE
 priority
 private: TSLNodeBase_t* CTSListBase::InternalPop(void) (demangled)
 private: bool QWidget::testAttribute_helper(Qt::WidgetAttribute) const (demangled)
@@ -7532,12 +7525,13 @@ public: QIcon::QIcon(QPixmap const&) (demangled)
 public: QIcon::QIcon(QString const&) (demangled)
 public: QIcon::QIcon(void) (demangled)
 public: QIcon::~QIcon(void) (demangled)
+public: QImage QImage::copy(QRect const&) const (demangled)
 public: QImage QImage::scaled(QSize const&, Qt::AspectRatioMode, Qt::TransformationMode) const (demangled)
-public: QImage QImage::scaled(int, int, Qt::AspectRatioMode, Qt::TransformationMode) const (demangled)
 public: QImage QImageReader::read(void) (demangled)
 public: QImage QPixmap::toImage(void) const (demangled)
 public: QImage& QImage::operator=(QImage&&) (demangled)
 public: QImage::QImage(QImage&&) (demangled)
+public: QImage::QImage(QSize const&, QImage::Format) (demangled)
 public: QImage::QImage(QString const&, char const*) (demangled)
 public: QImage::QImage(int, int, QImage::Format) (demangled)
 public: QImage::QImage(unsigned char const*, int, int, QImage::Format, void (*)(void*), void*) (demangled)
@@ -7632,6 +7626,7 @@ public: QPoint QMouseEvent::globalPos(void) const (demangled)
 public: QPoint QMouseEvent::pos(void) const (demangled)
 public: QPoint QPointF::toPoint(void) const (demangled)
 public: QPoint QRect::center(void) const (demangled)
+public: QPoint QWidget::mapFrom(QWidget const*, QPoint const&) const (demangled)
 public: QPoint QWidget::mapFromGlobal(QPoint const&) const (demangled)
 public: QPoint QWidget::mapTo(QWidget const*, QPoint const&) const (demangled)
 public: QPoint QWidget::mapToGlobal(QPoint const&) const (demangled)
@@ -7652,12 +7647,15 @@ public: QRect QFontMetrics::boundingRect(QString const&) const (demangled)
 public: QRect QImage::rect(void) const (demangled)
 public: QRect QRect::adjusted(int, int, int, int) const (demangled)
 public: QRect QRect::intersected(QRect const&) const (demangled)
+public: QRect QRectF::toAlignedRect(void) const (demangled)
 public: QRect QRectF::toRect(void) const (demangled)
+public: QRect QScreen::\n?availableGeometry(void) const (demangled)
 public: QRect QScreen::geometry(void) const (demangled)
 public: QRect QWidget::contentsRect(void) const (demangled)
 public: QRect QWidget::frameGeometry(void) const (demangled)
 public: QRect QWidget::rect(void) const (demangled)
 public: QRect const QDesktopWidget::screenGeometry(QWidget const*) const (demangled)
+public: QRect::QRect(QPoint const&, QPoint const&) (demangled)
 public: QRect::QRect(QPoint const&, QSize const&) (demangled)
 public: QRect::QRect(int, int, int, int) (demangled)
 public: QRectF::QRectF(QRect const&) (demangled)
@@ -7673,6 +7671,7 @@ public: QScrollArea::QScrollArea(QWidget*) (demangled)
 public: QScrollBar* QAbstractScrollArea::horizontalScrollBar(void) const (demangled)
 public: QScrollBar* QAbstractScrollArea::verticalScrollBar(void) const (demangled)
 public: QScrollBar::QScrollBar(QWidget*) (demangled)
+public: QSize QAbstractScrollArea::maximumViewportSize(void) const (demangled)
 public: QSize QFontMetrics::size(int, QString const&, int, int*) const (demangled)
 public: QSize QImage::size(void) const (demangled)
 public: QSize QPixmap::size(void) const (demangled)
@@ -7860,6 +7859,7 @@ public: bool QImage::save(QIODevice*, char const*, int) const (demangled)
 public: bool QImageReader::canRead(void) const (demangled)
 public: bool QImageReader::jumpToNextImage(void) (demangled)
 public: bool QKeyEvent::matches(QKeySequence::StandardKey) const (demangled)
+public: bool QLayout::activate(void) (demangled)
 public: bool QLayout::setAlignment(QWidget*, QFlags<Qt::AlignmentFlag>) (demangled)
 public: bool QLineEdit::hasAcceptableInput(void) const (demangled)
 public: bool QLineEdit::hasSelectedText(void) const (demangled)
@@ -7882,7 +7882,6 @@ public: bool QPixmap::isNull(void) const (demangled)
 public: bool QPixmap::loadFromData(QByteArray const&, char const*, QFlags<Qt::ImageConversionFlag>) (demangled)
 public: bool QProgressDialog::wasCanceled(void) const (demangled)
 public: bool QRect::contains(QPoint const&, bool) const (demangled)
-public: bool QRect::contains(QRect const&, bool) const (demangled)
 public: bool QString::contains(QString const&, Qt::CaseSensitivity) const (demangled)
 public: bool QString::endsWith(QChar, Qt::CaseSensitivity) const (demangled)
 public: bool QString::isNull(void) const (demangled)
@@ -7900,7 +7899,6 @@ public: bool QWidget::hasFocus(void) const (demangled)
 public: bool QWidget::isActiveWindow(void) const (demangled)
 public: bool QWidget::isEnabled(void) const (demangled)
 public: bool QWidget::isHidden(void) const (demangled)
-public: bool QWidget::isMaximized(void) const (demangled)
 public: bool QWidget::isVisible(void) const (demangled)
 public: bool QWidget::restoreGeometry(QByteArray const&) (demangled)
 public: char CUtlString::operator[](int) const (demangled)
@@ -7937,6 +7935,7 @@ public: double QColor::blueF(void) const (demangled)
 public: double QColor::greenF(void) const (demangled)
 public: double QColor::redF(void) const (demangled)
 public: double QFont::pointSizeF(void) const (demangled)
+public: double QPaintDevice::devicePixelRatioF(void) const (demangled)
 public: float KeyValues::GetFloat(char const*, float) const (demangled)
 public: float QString::toFloat(bool*) const (demangled)
 public: int CBufferString::AppendFormat(char const*, ...) (demangled)
@@ -8063,6 +8062,7 @@ public: static QPalette QGuiApplication::palette(void) (demangled)
 public: static QPixmap QPixmap::fromImage(QImage const&, QFlags<Qt::ImageConversionFlag>) (demangled)
 public: static QPixmap QPixmap::fromImage(QImage&&, QFlags<Qt::ImageConversionFlag>) (demangled)
 public: static QPoint QCursor::pos(void) (demangled)
+public: static QScreen* QGuiApplication::primaryScreen(void) (demangled)
 public: static QScreen* QGuiApplication::screenAt(QPoint const&) (demangled)
 public: static QString QFileDialog::getExistingDirectory(QWidget*, QString const&, QString const&, QFlags<QFileDialog::Option>) (demangled)
 public: static QString QFileDialog::getOpenFileName(QWidget*, QString const&, QString const&, QString const&, QString*, QFlags<QFileDialog::Option>) (demangled)
@@ -8109,6 +8109,8 @@ public: static void QToolTip::showText(QPoint const&, QString const&, QWidget*) 
 public: static void* KeyValues::operator new(uint64_t) (demangled)
 public: std::basic_string<char, std::char_traits<char>, std::allocator<char> > QString::toStdString(void) const (demangled)
 public: uint64_t QWidget::winId(void) const (demangled)
+public: unsigned char const* QImage::constScanLine(int) const (demangled)
+public: unsigned char* QImage::scanLine(int) (demangled)
 public: unsigned int CUtlFilenameSymbolTable::FindOrAddFileName(char const*) (demangled)
 public: unsigned int QColor::rgb(void) const (demangled)
 public: unsigned int QImage::pixel(QPoint const&) const (demangled)
@@ -8681,8 +8683,6 @@ public: void QBoxLayout::addWidget(QWidget*, int, QFlags<Qt::AlignmentFlag>) (de
 public: void QBoxLayout::insertWidget(int, QWidget*, int, QFlags<Qt::AlignmentFlag>) (demangled)
 public: void QBoxLayout::setDirection(QBoxLayout::Direction) (demangled)
 public: void QBoxLayout::setSpacing(int) (demangled)
-public: void QBrush::setColor(QColor const&) (demangled)
-public: void QBrush::setTexture(QPixmap const&) (demangled)
 public: void QButtonGroup::addButton(QAbstractButton*, int) (demangled)
 public: void QByteArray::reserve(int) (demangled)
 public: void QCheckBox::setCheckState(Qt::CheckState) (demangled)
@@ -8783,7 +8783,6 @@ public: void QLayout::getContentsMargins(int*, int*, int*, int*) const (demangle
 public: void QLayout::removeWidget(QWidget*) (demangled)
 public: void QLayout::setContentsMargins(QMargins const&) (demangled)
 public: void QLayout::setContentsMargins(int, int, int, int) (demangled)
-public: void QLayout::setMenuBar(QWidget*) (demangled)
 public: void QLayout::setSizeConstraint(QLayout::SizeConstraint) (demangled)
 public: void QLayoutItem::setAlignment(QFlags<Qt::AlignmentFlag>) (demangled)
 public: void QLineEdit::editingFinished(void) (demangled)
@@ -8832,7 +8831,8 @@ public: void QObject::setObjectName(QString const&) (demangled)
 public: void QObject::setParent(QObject*) (demangled)
 public: void QPainter::drawArc(int, int, int, int, int, int) (demangled)
 public: void QPainter::drawEllipse(QPoint const&, int, int) (demangled)
-public: void QPainter::drawImage(QPoint const&, QImage const&) (demangled)
+public: void QPainter::drawImage(QRect const&, QImage const&) (demangled)
+public: void QPainter::drawImage(QRect const&, QImage const&, QRect const&, QFlags<Qt::ImageConversionFlag>) (demangled)
 public: void QPainter::drawLine(QPointF const&, QPointF const&) (demangled)
 public: void QPainter::drawLine(int, int, int, int) (demangled)
 public: void QPainter::drawLines(QLine const*, int) (demangled)
@@ -8861,9 +8861,13 @@ public: void QPainter::fillRect(QRect const&, QBrush const&) (demangled)
 public: void QPainter::fillRect(QRect const&, QColor const&) (demangled)
 public: void QPainter::fillRect(QRect const&, Qt::GlobalColor) (demangled)
 public: void QPainter::fillRect(int, int, int, int, QColor const&) (demangled)
+public: void QPainter::restore(void) (demangled)
+public: void QPainter::save(void) (demangled)
+public: void QPainter::scale(double, double) (demangled)
 public: void QPainter::setBrush(QBrush const&) (demangled)
 public: void QPainter::setBrush(Qt::BrushStyle) (demangled)
 public: void QPainter::setBrushOrigin(QPoint const&) (demangled)
+public: void QPainter::setClipRect(QRect const&, Qt::ClipOperation) (demangled)
 public: void QPainter::setClipRegion(QRegion const&, Qt::ClipOperation) (demangled)
 public: void QPainter::setCompositionMode(QPainter::CompositionMode) (demangled)
 public: void QPainter::setFont(QFont const&) (demangled)
@@ -8872,6 +8876,7 @@ public: void QPainter::setPen(QColor const&) (demangled)
 public: void QPainter::setPen(QPen const&) (demangled)
 public: void QPainter::setPen(Qt::PenStyle) (demangled)
 public: void QPainter::setRenderHint(QPainter::RenderHint, bool) (demangled)
+public: void QPainter::translate(QPointF const&) (demangled)
 public: void QPainterPath::lineTo(double, double) (demangled)
 public: void QPainterPath::moveTo(double, double) (demangled)
 public: void QPalette::setColor(QPalette::ColorGroup, QPalette::ColorRole, QColor const&) (demangled)
@@ -8891,7 +8896,7 @@ public: void QPushButton::setAutoDefault(bool) (demangled)
 public: void QPushButton::setDefault(bool) (demangled)
 public: void QPushButton::setFlat(bool) (demangled)
 public: void QPushButton::setMenu(QMenu*) (demangled)
-public: void QRect::moveTo(QPoint const&) (demangled)
+public: void QRect::moveCenter(QPoint const&) (demangled)
 public: void QRect::setSize(QSize const&) (demangled)
 public: void QRegularExpressionValidator::setRegularExpression(QRegularExpression const&) (demangled)
 public: void QScrollArea::ensureWidgetVisible(QWidget*, int, int) (demangled)
@@ -9070,9 +9075,7 @@ pulse_save_execution_history
 pulse_save_execution_history_limit
 pulse_system.dll
 purecall
-pwD
 pxD
-pxE
 pyD
 qS>g?h3
 qTp
@@ -9080,8 +9083,8 @@ qVJ
 qangle
 quiet
 quit\n
-rAB
-r\fpT
+rFC
+rMC
 r\tVr.>T
 r_freezeparticles
 r_limit_particle_job_duration
@@ -9114,6 +9117,7 @@ restrict(
 result out of range
 retval
 right
+rkB
 root
 rotate2d
 rotateVector
@@ -9124,6 +9128,7 @@ round
 row
 rowspan
 rsqrt
+rtB
 rtx
 ru&o
 rwbuffer
@@ -9250,7 +9255,7 @@ suggestion_name
 supported_domains
 suppress_expr
 surfacePropertiesName
-tXB
+tUB
 tabStyle
 tabify
 table
@@ -9322,6 +9327,7 @@ transformVectorToLocal
 transformVectorToWorld
 transparency
 true
+tsB
 type
 type_restriction_is_enum_flags
 t|AO
@@ -9351,9 +9357,12 @@ untitled.vmat
 updatedColor
 userEdit
 uyO
+vBC
 vCenter
 vForward
+vHC
 vIK \f3
+vQB
 vQO+t
 vUu
 val
@@ -9400,7 +9409,6 @@ vfx
 vfx_dx11
 vfx_vulkan
 vfxc
-vgB
 vmat
 vmat_prefab
 vmdl
@@ -9425,7 +9433,6 @@ void ThreadAtomicNotifyAll(unsigned int const*) (demangled)
 void ThreadAtomicNotifyOne(unsigned int const*) (demangled)
 void V_SplitString(char const*, char const*, CUtlVector<CUtlString, int, CUtlVectorMemory_Growable<CUtlString, int, 0> >&, bool) (demangled)
 void qBadAlloc(void) (demangled)
-vpB
 vpcf
 vpk:
 vtex
@@ -9445,23 +9452,18 @@ wvec2vec
 wxform
 wyS]
 x0Ysqx
-xHD
-xND
-xQD
+xFE
+xGC
+xIB
+xNC
 xT?V
-xUE
-xVD
-xZE
+xcD
+xfE
 xform
-xgE
-xkE
-xlE
-xnA
-xsA
-xwD
+xjB
+xtE
+xxB
 xxD
-xyD
-xzB
 yLM
 yUk
 ycg
@@ -9469,10 +9471,9 @@ yes
 yields
 z>AlignedByteArray not properly aligned\n
 zD(knN
+zPC
 zZg
 zero sized document
-zuA
-zwA
 { className = 'IsControlFlowNode' }
 { className = 'IsStateNode' item_factory = 'BooleanSwitchState' }
 { className = 'IsWaitNode IsControlFlowNode' item_factory = 'InflowWait' }
