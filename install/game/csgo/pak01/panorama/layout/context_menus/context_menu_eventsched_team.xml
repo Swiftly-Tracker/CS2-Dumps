@@ -1,0 +1,32 @@
+<!-- xml reconstructed by Source 2 Viewer 20.1.0.0 - https://valveresourceformat.github.io -->
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/gamestyles.vcss" />
+		<include src="s2r://panorama/styles/context_menus/context_menu_eventsched_team.vcss" />
+	</styles>
+	<scripts>
+		<include src="s2r://panorama/scripts/common/formattext.vts" />
+		<include src="s2r://panorama/scripts/watch_events_debug.vjs" />
+		<include src="s2r://panorama/scripts/context_menus/context_menu_eventsched_team.vjs" />
+	</scripts>
+	<snippets>
+		<snippet name="snippet-estt-player">
+			<Button class="estt-player top-bottom-flow">
+				<Image id="id-estt-player__photo" class="estt-player__photo" />
+				<Label class="estt-player__name stratum-font" text="{s:esttplayer-name}" />
+			</Button>
+		</snippet>
+	</snippets>
+	<Panel useglobalcontext="false" onload="EventschedTeamContextMenu.Init();" acceptsfocus="true">
+		<CSGOBlurTarget class="estt-blurbackground">
+			<Image id="id-estt-blur" class="full-width full-height" />
+		</CSGOBlurTarget>
+		<Panel class="top-bottom-flow estt-root">
+			<Button id="id-estt-header" class="estt-header">
+				<Image id="id-estt-header__team-logo" class="estt-header__team-logo img-shadow" src="" clampfractionalpixelpositions="false" />
+				<Label unlocalized="true" class="stratum-font estt-header__team-name" text="{s:eventsched-tt-teamname}" />
+			</Button>
+			<Panel id="id-estt-lineup-container" class="estt-lineup left-right-flow" />
+		</Panel>
+	</Panel>
+</root>

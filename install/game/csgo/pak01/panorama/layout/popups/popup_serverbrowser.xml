@@ -1,0 +1,21 @@
+<!-- xml reconstructed by Source 2 Viewer 20.1.0.0 - https://valveresourceformat.github.io -->
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/gamestyles.vcss" />
+		<include src="s2r://panorama/styles/popups/popups_shared.vcss" />
+	</styles>
+	<scripts>
+		<include src="s2r://panorama/scripts/popups/popup_serverbrowser.vts" />
+	</scripts>
+	<PopupCustomLayout class="PopupPanel Hidden" popupbackground="dim" onload="">
+		<Label class="PopupTitle" text="#SFUI_MainMenu_ServerBrowserWarning_Title" />
+		<Label class="PopupMessage" text="#SFUI_MainMenu_ServerBrowserWarning_Text2" />
+		<Panel class="PopupButtonRow">
+			<ToggleButton id="NeverShowToggle" class="PopupButton">
+				<Label class="" text="#SFUI_MainMenu_ServerBrowserWarning_NeverShow" />
+			</ToggleButton>
+			<TextButton class="PopupButton" text="#OK" onactivate="PopupServerBrowser.OnOpen()" />
+			<TextButton class="PopupButton" text="#Cancel_Button" onactivate="PopupServerBrowser.Close()" />
+		</Panel>
+	</PopupCustomLayout>
+</root>

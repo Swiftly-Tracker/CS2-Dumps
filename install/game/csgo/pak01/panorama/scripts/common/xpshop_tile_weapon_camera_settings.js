@@ -1,0 +1,7 @@
+"use strict";
+/// <reference path="..\csgo.d.ts" />
+var XpShopWeaponCameraSettings;
+(function (XpShopWeaponCameraSettings) {
+    XpShopWeaponCameraSettings.CameraSettings = JSON.parse(InventoryAPI.GetCameraDataJson()).weapons;
+})(XpShopWeaponCameraSettings || (XpShopWeaponCameraSettings = {}));
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoieHBzaG9wX3RpbGVfd2VhcG9uX2NhbWVyYV9zZXR0aW5ncy5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL2NvbnRlbnQvY3Nnby9wYW5vcmFtYS9zY3JpcHRzL2NvbW1vbi94cHNob3BfdGlsZV93ZWFwb25fY2FtZXJhX3NldHRpbmdzLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFBQSxxQ0FBcUM7QUFFckMsSUFBVSwwQkFBMEIsQ0F3RG5DO0FBeERELFdBQVUsMEJBQTBCO0lBUXJCLHlDQUFjLEdBQWtDLElBQUksQ0FBQyxLQUFLLENBQUUsWUFBWSxDQUFDLGlCQUFpQixFQUFFLENBQUUsQ0FBQyxPQUFPLENBQUM7QUFnRHRILENBQUMsRUF4RFMsMEJBQTBCLEtBQTFCLDBCQUEwQixRQXdEbkMifQ==

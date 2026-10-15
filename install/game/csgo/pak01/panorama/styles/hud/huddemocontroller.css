@@ -1,0 +1,785 @@
+/* Prettified by Source 2 Viewer 20.1.0.0 - https://valveresourceformat.github.io */
+
+CSGOHudDemoController
+{
+	width: 100%;
+	height: 100%;
+	flow-children: none;
+	z-index: 20;
+}
+
+#Root
+{
+	width: 100%;
+	height: fit-children;
+	flow-children: down;
+	vertical-align: bottom;
+}
+
+#Contents
+{
+	width: 100%;
+	height: 0px;
+	flow-children: down;
+	box-shadow: black 0px 0px 2px 0px;
+	background-color: hud-blur-bg-color;
+	world-blur: hudWorldBlur;
+	transition-property: height;
+	transition-duration: .1s;
+	transition-timing-function: ease-out;
+	overflow: noclip;
+}
+
+.DemoControllerFull #Contents
+{
+	height: 96px;
+}
+
+.DemoControllerMinimal #Contents
+{
+	height: 45px;
+}
+
+#SliderRow
+{
+	margin-bottom: 0px;
+	width: 100%;
+	height: 50px;
+	flow-children: none;
+}
+
+#Slider
+{
+	margin: 0px 10px;
+	width: 100%;
+	height: 100%;
+	position: 0px 10px 0px;
+}
+
+#Slider #SliderThumb
+{
+	height: 16px;
+	background-color: white;
+}
+
+#Slider #SliderTrackProgress
+{
+	visibility: collapse;
+}
+
+.highlightsActive #SliderTrack Panel
+{
+	opacity: 0;
+}
+
+#RoundMarkers
+{
+	margin: 0px 10px;
+	width: 100%;
+	height: 100%;
+	vertical-align: center;
+}
+
+#RoundMarkers .roundMarker
+{
+	height: 8px;
+	margin-top: 30px;
+}
+
+#RoundMarkers .roundMarker.odd
+{
+	background-color: #ffffff20;
+}
+
+#RoundMarkers .roundMarker.even
+{
+	background-color: #ffffff50;
+}
+
+.highlightsActive #RoundMarkers Panel
+{
+	opacity: 0.2;
+}
+
+#HighlightMarkers
+{
+	margin: 0px 10px;
+	width: 100%;
+	height: 100%;
+	vertical-align: center;
+}
+
+#HighlightMarkers Panel
+{
+	height: 8px;
+	margin-top: 30px;
+	background-color: #ffffffff;
+	visibility: collapse;
+}
+
+.highlightsActive #HighlightMarkers Panel
+{
+	visibility: visible;
+}
+
+#HighlightIcons
+{
+	margin: 0px 10px;
+	position: 0px -10px 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+}
+
+#HighlightIcons .highlight-icon
+{
+	width: 22px;
+	height: 22px;
+	vertical-align: center;
+	transform-origin: 50% 50%;
+	background-repeat: no-repeat;
+	background-size: contain;
+	img-shadow: 1px 1px 1px 1.0 #0000003b;
+	brightness: 0.8;
+	transition-property: pre-transform-scale2d, transform, brightness;
+	transition-duration: 0.05s;
+	transition-timing-function: ease-out;
+}
+
+#HighlightIcons .highlight-icon:hover
+{
+	transform: translateY( -2px ) scale3d( 1.2, 1.2, 1.2 );
+	z-index: 1;
+	brightness: 2.0;
+}
+
+#HighlightIcons .highlight-icon.kill
+{
+	wash-color: #707070ff;
+	background-image: url("s2r://panorama/images/icons/ui/crosshair_circle.vsvg");
+}
+
+#HighlightIcons .highlight-icon.death
+{
+	wash-color: #707070ff;
+	background-image: url("s2r://panorama/images/icons/ui/kill.vsvg");
+}
+
+#HighlightIcons .highlight-icon.tick
+{
+	wash-color: #707070ff;
+	background-image: url("s2r://panorama/images/icons/ui/bullet.vsvg");
+}
+
+#HighlightIcons .highlight-icon.tagged
+{
+	wash-color: rgb(253, 57, 57);
+	background-image: url("s2r://panorama/images/icons/ui/alert.vsvg");
+	brightness: 1.0;
+}
+
+#HighlightIcons .highlight-icon.tagged:hover
+{
+	brightness: 2.0;
+}
+
+#HighlightIcons .highlight-icon.untagged
+{
+	background-image: url("s2r://panorama/images/icons/ui/alert.vsvg");
+	brightness: 0.4;
+}
+
+#HighlightIcons .highlight-icon.untagged:hover
+{
+	brightness: 1.0;
+}
+
+.highlightsActive #HighlightIcons Panel
+{
+	pre-transform-scale2d: 1.1;
+	transform: translateY( -4px );
+	transition-property: pre-transform-scale2d, transform, wash-color;
+	transition-duration: 0.1s;
+	transition-timing-function: ease-out;
+	brightness: 4.0;
+}
+
+.highlightsActive #HighlightIcons Panel:hover
+{
+	transform: translateY( -6px ) scale3d( 1.2, 1.2, 1.2 );
+	brightness: 6.0;
+}
+
+#ControlRow
+{
+	width: 100%;
+	height: 41px;
+	margin: 0 5px 5px 5px;
+	flow-children: right;
+}
+
+.DemoControllerMinimal #ControlRow
+{
+	visibility: collapse;
+}
+
+#PlayButton
+{
+	height: 100%;
+	width: 82px;
+	padding: 5px 0;
+	border-radius: 3px;
+	background-color: #ffffff03;
+	border: 1px solid #ffffff07;
+}
+
+#PlayButton:hover
+{
+	background-color: #ffffff40;
+	border: 1px solid #ffffff40;
+}
+
+#PlayButton Image
+{
+	width: height-percentage( 100% );
+	height: 100%;
+	horizontal-align: center;
+	transition-property: opacity;
+	transition-duration: .1s;
+}
+
+#PlayIcon
+{
+	opacity: 0;
+}
+
+.paused #PlayIcon
+{
+	opacity: 1;
+}
+
+#PauseIcon
+{
+	opacity: 1;
+}
+
+.paused #PauseIcon
+{
+	opacity: 0;
+}
+
+#TimeLabel
+{
+	margin-left: 20px;
+	vertical-align: center;
+	flow-children: right;
+}
+
+#TimeLabel Label
+{
+	font-family: Stratum2 Regular Monodigit, 'Arial Unicode MS';
+}
+
+#TimeLabel #TickLabel
+{
+	margin-left: 10px;
+}
+
+#TimeLabel.hide-tick #TickLabel,#TimeLabel.hide-tick #TickValue
+{
+	visibility: collapse;
+}
+
+#TimeLabel #TimeValueShort
+{
+	visibility: collapse;
+}
+
+#TimeLabel.short-time #TimeTitle,#TimeLabel.short-time #TimeValue
+{
+	visibility: collapse;
+}
+
+#TimeLabel.short-time #TimeValueShort
+{
+	visibility: visible;
+}
+
+#TimeControls,#RoundControls,#SpeedControls,#PlayerControls
+{
+	margin-left: 30px;
+	height: fit-children;
+	flow-children: right;
+	vertical-align: center;
+	border-radius: 2px;
+}
+
+#ControlRow Image
+{
+	height: 36px;
+	vertical-align: center;
+	padding: 5px;
+}
+
+#ControlRow Label
+{
+	padding: 5px;
+}
+
+#ControlRow .interactive
+{
+	height: 36px;
+	background-color: #ffffff03;
+	border: 1px solid #ffffff07;
+	border-radius: 2px;
+	margin: 0px 1px;
+}
+
+#ControlRow .interactive:hover
+{
+	background-color: #ffffff28;
+	border: 1px solid #ffffff40;
+}
+
+#ControlRow #TimeIcon
+{
+	padding: 2px;
+}
+
+#ControlRow #RoundPrev
+{
+	transform: rotateZ( 180deg );
+}
+
+#ControlRow #RoundRestart
+{
+	height: 100%;
+	flow-children: right;
+}
+
+#ControlRow #RoundNumber
+{
+	width: 22px;
+	padding-right: 0px;
+	padding-left: 0px;
+}
+
+#ControlRow #SpeedControls
+{
+	margin-left: 15px;
+}
+
+#ControlRow #SpeedControls Label
+{
+	width: 70px;
+	text-align: left;
+	font-family: Stratum2 Regular Monodigit, 'Arial Unicode MS';
+}
+
+#ControlRow #SpeedSliderContainer
+{
+	width: 140px;
+	height: 36px;
+	vertical-align: center;
+}
+
+#ControlRow #SpeedSlider
+{
+	width: 100%;
+	vertical-align: center;
+	transform: translateY( -6px );
+}
+
+#ControlRow #SpeedTicks
+{
+	width: 100%;
+	height: 100%;
+}
+
+#ControlRow #SpeedTicks .speed-tick
+{
+	height: 4px;
+	vertical-align: bottom;
+	margin-bottom: 3px;
+	background-color: #ffffff60;
+}
+
+#ControlRow #SpeedTicks .speed-tick-arrows
+{
+	flow-children: right;
+	vertical-align: bottom;
+	opacity: 0.376;
+}
+
+#ControlRow #SpeedTicks .speed-tick-pause
+{
+	width: 12px;
+	height: 12px;
+	padding: 0;
+	vertical-align: bottom;
+	margin-bottom: -1px;
+	wash-color: white;
+	opacity: 0.376;
+}
+
+#ControlRow #SpeedTicks .speed-tick-arrow
+{
+	width: 5px;
+	height: 10px;
+	padding: 0;
+	vertical-align: bottom;
+	transform: scaleX( -1 );
+	wash-color: white;
+}
+
+#ControlRow #PlayerName
+{
+	width: 190px;
+	text-align: center;
+	text-overflow: shrink;
+}
+
+#ControlRow #PlayerName.team-ct
+{
+	color: #b5d4ee;
+}
+
+#ControlRow #PlayerName.team-t
+{
+	color: #eadbb1;
+}
+
+#ControlRow #PlayerPrev,#ControlRow #PlayerNext
+{
+	width: 32px;
+}
+
+#ControlRow #PlayerPrev Image,#ControlRow #PlayerNext Image
+{
+	padding: 6px 0;
+	horizontal-align: center;
+}
+
+#ControlRow #PlayerNext Image
+{
+	transform: scaleX( -1 );
+}
+
+#ControlRow #NextEventButton
+{
+	margin-left: 10px;
+	flow-children: right;
+	vertical-align: center;
+	border-radius: 2px;
+}
+
+#ControlRow #NextEventButton Image
+{
+	width: height-percentage( 100% );
+	padding: 6px;
+}
+
+#ControlRow #NextEventButton .next-event-arrows
+{
+	width: 15px;
+	height: 16px;
+	padding: 0;
+	margin-left: 8px;
+	vertical-align: center;
+	transform: scaleX( -1 );
+}
+
+#ControlRow #CameraButton
+{
+	margin-left: 30px;
+	flow-children: right;
+	vertical-align: center;
+	border-radius: 2px;
+}
+
+#ControlRow #CameraButton Image
+{
+	width: height-percentage( 100% );
+	padding: 6px;
+}
+
+#ControlRow #CameraButton.hide-label #CameraModeLabel
+{
+	visibility: collapse;
+}
+
+#ControlRow Label.selected
+{
+	color: white;
+	font-weight: bold;
+}
+
+#HighlightsButton
+{
+	width: 36px;
+	vertical-align: center;
+}
+
+#HighlightsButton Image
+{
+	padding: 6px;
+	horizontal-align: center;
+	wash-color: #a0a0a0ff;
+}
+
+.highlightsActive #HighlightsButton Image
+{
+	wash-color: white;
+}
+
+#ControlRow #HighlightsButton.disabled
+{
+	opacity: 0.2;
+}
+
+#ControlRow #HighlightsButton.disabled:hover
+{
+	background-color: #ffffff03;
+	border: 1px solid #ffffff07;
+}
+
+.highlightsActive #PlayerControls,.highlightsActive #CameraButton
+{
+	opacity: 0.2;
+}
+
+#ControlRowSpacer
+{
+	width: fill-parent-flow( 1.0 );
+}
+
+#SettingsButton
+{
+	width: 36px;
+	vertical-align: center;
+	border-radius: 2px;
+}
+
+#SettingsButton Image
+{
+	padding: 6px;
+	horizontal-align: center;
+}
+
+#EndPlayback
+{
+	vertical-align: center;
+}
+
+#ControlRow #HighlightsButton,#ControlRow #SettingsButton
+{
+	margin-left: 8px;
+}
+
+#ControlRow #EndPlayback
+{
+	margin-left: 25px;
+	margin-right: 10px;
+	padding: 5px 10px;
+}
+
+#RoundMenu
+{
+	visibility: collapse;
+	flow-children: down;
+	width: 180px;
+	height: fit-children;
+	background-color: #303030f0;
+	border: 2px solid #202020f0;
+	padding: 4px 0;
+}
+
+#RoundMenu.Visible
+{
+	visibility: visible;
+}
+
+#RoundMenu .round-menu-entry
+{
+	width: 100%;
+	padding: 4px 10px;
+}
+
+#RoundMenu .round-menu-entry:hover
+{
+	background-color: #ffffff20;
+}
+
+#RoundMenu .round-menu-entry Label
+{
+	font-size: 18px;
+	color: #e0e0e0;
+}
+
+#PlayerList
+{
+	visibility: collapse;
+	flow-children: down;
+	height: fit-children;
+	max-height: 600px;
+	overflow: squish scroll;
+	background-color: #303030f0;
+	border: 2px solid #202020f0;
+	padding: 4px 0;
+}
+
+#PlayerList.Visible
+{
+	visibility: visible;
+}
+
+#PlayerList .player-list-entry
+{
+	width: 100%;
+	padding: 4px 10px;
+	flow-children: right;
+}
+
+#PlayerList .player-list-entry:hover
+{
+	background-color: #ffffff20;
+}
+
+#PlayerList .player-list-entry.dead:hover
+{
+	background-color: none;
+}
+
+#PlayerList .player-list-entry .player-list-name
+{
+	width: fill-parent-flow( 1.0 );
+	font-size: 18px;
+	color: #e0e0e0;
+	vertical-align: center;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+#PlayerList .player-list-entry .player-list-skull
+{
+	width: 16px;
+	height: 16px;
+	margin-right: 6px;
+	vertical-align: center;
+	opacity: 0;
+}
+
+#PlayerList .player-list-entry.dead .player-list-skull
+{
+	opacity: 1;
+}
+
+#PlayerList .player-list-entry.team-ct .player-list-name
+{
+	color: #b5d4ee;
+}
+
+#PlayerList .player-list-entry.team-t .player-list-name
+{
+	color: #eadbb1;
+}
+
+#PlayerList .player-list-entry.dead
+{
+	opacity: 0.4;
+}
+
+#PlayerList .player-list-entry.selected
+{
+	background-color: #ffffff10;
+}
+
+#PlayerList .player-list-entry.selected .player-list-name
+{
+	font-weight: bold;
+}
+
+#Settings
+{
+	visibility: collapse;
+	flow-children: down;
+	width: 700px;
+	height: fit-children;
+	horizontal-align: right;
+	background-color: #606060f0;
+	border: 2px solid #303030f0;
+	padding: 20px;
+}
+
+#Settings .CheckBox
+{
+	margin-top: 20px;
+	width: 100%;
+	flow-children: none;
+}
+
+#Settings .CheckBox:not(:enabled)
+{
+	opacity: .30;
+}
+
+#Settings .CheckBox ToggleButton
+{
+	margin-top: 5px;
+}
+
+#Settings .CheckBox ToggleButton,#Settings .CheckBox .CheckBoxBody
+{
+	vertical-align: top;
+}
+
+#Settings .CheckBox .CheckBoxBody
+{
+	margin-left: 42px;
+	width: 100%;
+	flow-children: down;
+}
+
+#Settings .CheckBox Label.CheckBoxTitle,#Settings .CheckBox .CheckBoxTitle Label
+{
+	font-size: 24px;
+}
+
+#Settings .CheckBox .CheckBoxTitle
+{
+	flow-children: right;
+}
+
+#Settings .CheckBox .CheckBoxTitle Image
+{
+	width: 22px;
+	height: 22px;
+	vertical-align: center;
+}
+
+#Settings .CheckBox Label.Explanation
+{
+	font-size: 18px;
+}
+
+#Settings .Explanation
+{
+	width: 100%;
+	font-size: 14px;
+}
+
+CSGOHudDemoController.SettingsVisible #Settings
+{
+	visibility: visible;
+}
+
+#SettingsButton Image
+{
+	color: #808080;
+}
+
+CSGOHudDemoController.SettingsVisible #SettingsButton Image
+{
+	color: white;
+}
+
