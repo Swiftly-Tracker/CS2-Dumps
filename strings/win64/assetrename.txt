@@ -458,6 +458,7 @@ $x(<*L(^$*.d$40.2Z$D6@$Q
 %s%02d:%02d
 %s%s: FGD Parse error: %s %s\n
 %s(%d) : %s\n
+%s(%d): error: %s
 %s(%s) = %s
 %s/%s.vmdl
 %s2-d encoding
@@ -610,6 +611,7 @@ $x(<*L(^$*.d$40.2Z$D6@$Q
 &nbsp;&nbsp;Fixing up references in VDATA file:<br>%s<br><br>\n
 &nbsp;&nbsp;Fixing up references in VMAP file:<br>&nbsp;&nbsp;%s<br>\n
 &nbsp;&nbsp;Fixing up references in VPCF file:<br>%s<br><br>\n
+&nbsp;&nbsp;Fixing up references in VSMART file:<br>%s<br><br>\n
 &nbsp;&nbsp;Fixing up references in VTEX file:<br>%s<br><br>\n
 &nbsp;&nbsp;Info - no fixup changes, file unmodified: %s<br>\n
 &nbsp;&nbsp;Info: NO C++ code manifest references.<br>\n
@@ -939,9 +941,7 @@ $x(<*L(^$*.d$40.2Z$D6@$Q
 0123456789abcdefghijklmnopqrstuvwxyz
 08@HPX`h
 08@HRP
-08@NtI!
 0:<\n\fdelta_ignore
-0vtI!
 0x%llx
 1 additional asset reference to a moved asset was found:<br>
 1 component
@@ -1089,11 +1089,10 @@ $x(<*L(^$*.d$40.2Z$D6@$Q
 8-byte data pool
 8.:D80$D>@$i
 8@HPX
-8@HPX`hp~tI!
-8@HVtI!
+8@HPX`hp~4M!
+8@HV4M!
 8BlHFL
 8Csinf
-8FtI!
 8\n\textension
 8\tV_acosf
 8b  16-May-2010
@@ -1358,24 +1357,19 @@ $x(<*L(^$*.d$40.2Z$D6@$Q
 @%s_lookFrame_1
 @%s_lookFrame_2
 @08@HPX`hpx
-@08NtI!
-@8@HVtI!
-@8@NtI!
+@8@HV4M!
 @@@
 @HPX
 @HPX&I
-@HPX`hv
-@HP^tI!
+@HPX`hvP
+@HP^4M!
 @Integer overflow in %s
-@NtI!
-@V@const char *__cdecl Reflection::Internal::GetFuncName<class CPairedSequenceComponentInstance>(void)
 @\*^*`&bl`p
 @\tV_atofloat32
 @^8U)zj
 @`hpx
-@const char *__cdecl Reflection::Internal::GetFuncName<class ILookComponentInstance>(void)
+@const char *__cdecl Reflection::Internal::GetFuncName<class CLookComponentInstance>(void)
 @fff>fff>fff>fff>
-@ftI!
 @ht@A
 @m_nParticle
 @spawn
@@ -1464,7 +1458,7 @@ AF_PANORAMA
 AF_PARTICLES
 AF_SELECTORS_WITHOUT_REQUIREMENTS
 AIM
-AJvtI!
+AJv4M!
 AK>(v
 ALIGN_TYPE is wrong, please fix
 ALWAYS
@@ -2358,7 +2352,6 @@ Best Fit Atlas
 BestQualityScale
 Between the attribute label and editor
 Bezier
-BiE
 Bias
 Bias to Center
 BinAdd
@@ -5761,7 +5754,6 @@ Duplicate Faces Reset Pivot
 Duplicate a UV Map texcoord channel
 Duplicate and transform current face selection
 Duplicate attribute name %s encountered!\n
-Duplicate bone %d renamed :: "%s" -> "%s"\n
 Duplicate child mesh name
 Duplicate hit group (%s) specified in destructible parts system data.  Please fix.
 Duplicate model config '%s'
@@ -6978,7 +6970,7 @@ FlsGetValue
 FlsSetValue
 FlushFileBuffers
 Fmt
-FntI!
+Fn4M!
 Fog Indirect Lighting %s
 FogEnabled
 FogFlowMap.vtex
@@ -7128,7 +7120,6 @@ Friction that resists motion about the spin axis. Ignored by drivable vehicles.
 Friday
 From Name
 From: %s<br>&nbsp;&nbsp;To: %s<br><br>\n
-FtI!
 Full
 Full Density Blend Weight
 Full Frame Range
@@ -7451,30 +7442,30 @@ Grow the selection by adding contiguous components to the selection.
 Gxt
 H.FM
 HAC K  Unused Binding
+HAD
+HAI
+HAj
+HCD
 HCO
+HDD
 HEADER
 HELPER_BONE
-HFO
 HFR
-HGL
-HGO
 HH:mm:ss
+HHL
 HIO
 HITGROUP_INVALID
-HIt
 HJN
-HJU
-HJu
 HMO
 HRn
 HRp
 HSequence
 HTK
 HUl
-HYO
+HWE
+HZd
 H\tV_cosd
-HaN
-HaO
+HaH
 HairShader
 Half-Angle
 HalfLife
@@ -7527,10 +7518,16 @@ Has a Path
 HasField
 HasPath
 HbF<H"L N
+HbG
+HdG
+HdM
+HdQ
 HeG
+HeY
 Head
 Health Override
 Heat
+Hec
 Heel Land Frame
 Heel Lift Frame
 Heel Offset
@@ -7549,7 +7546,6 @@ Hemisphere: Captures only the upper hemisphere. Less texture memory cost but mod
 Hex and octal numbers must be integers.
 Hexagonal Cylinder
 HfO
-HfQ
 Hidden
 Hide Materialgroup in Tools
 Hide Render Color in Tools
@@ -7605,8 +7601,9 @@ HitboxSphere
 HkB
 Hlp
 Hmr\nInst
-HnO
+HnZ
 HoB
+HoF
 HoV
 Hold
 Hold Frame %d Out Of Range, Valid Range: [ %d, %d ]
@@ -7638,9 +7635,10 @@ How should the bodies, created by these shapes, be ordered in the final model
 How the end effector should be rotated after the solve.
 However the end effector ends up after the solve, it's rotation will remain unchanged.
 HpB
+HpF
+HqF
 HqH
-HrL
-HsQ
+HsJ
 HtL
 HuB
 HuN
@@ -7654,6 +7652,7 @@ HullParams
 HullPerElement
 HullPerMesh
 HvN
+Hxw
 Hybrid
 Hybrid RT + Depth Buffer
 Hysteresis
@@ -8249,7 +8248,7 @@ January
 JawD
 JawH
 JawV
-JhB 
+JhB
 Jiggle Bone
 Jiggle Bone node (%s): No items defined; node will do nothing 
 Jiggle Bones
@@ -8281,7 +8280,7 @@ Jumping
 Jun
 June
 JustInTimeManifest
-JvtI!
+Jv4M!
 JxT
 KERNEL32.dll
 KEz
@@ -8849,7 +8848,6 @@ MVDataUseLinkedEntityClasses
 MVDataUsesComponentEditor
 MVDataVirtualNodeFactoryFn
 MYS
-M\rtI!
 Magnitude Only
 MagnitudeOnly
 Maintain Parent Orientation
@@ -10031,7 +10029,6 @@ Overwrite all bone data
 Overwrite existing flags only
 Overwriting existing wrinkle map data on mesh
 P08@J`S
-P08~tI!
 P4 Delete of GAME file
 P4 branch/copy and edit destination
 P4 branch/copy and edit successful
@@ -10043,12 +10040,8 @@ P4 edit successful
 P4 integrate (overwrite) and edit
 P4 revert and delete of CONTENT file successful
 P4File
-P6tI!
-P>tI!
 P@HPX`hpx\f
-PAN
 PANEL_ID
-PAO
 PAP
 PARENT
 PARTICLEBLEND_DARKEN
@@ -10101,11 +10094,10 @@ PATTACH_ROOTBONE_FOLLOW
 PATTACH_WATERWAKE
 PATTACH_WORLDORIGIN
 PAY
-PAj
 PAp
 PAu
 PBE
-PBO
+PBI
 PBk
 PC SM 5.0 (D3D11)
 PC SM 5.0 (VULKAN)
@@ -10120,7 +10112,6 @@ PDB
 PDD
 PDI
 PDJ
-PDQ
 PDT
 PDp
 PDu
@@ -10132,6 +10123,7 @@ PFNoiseModifier_t
 PFNoiseTurbulence_t
 PFNoiseType_t
 PFO
+PFX
 PF\n%d %d\n-1.000000\n
 PF_BIAS_TYPE_COUNT
 PF_BIAS_TYPE_EXPONENTIAL
@@ -10212,6 +10204,7 @@ PF_TYPE_RENDERER_CAMERA_DOT_PRODUCT
 PF_TYPE_SNAPSHOT_CHANGED
 PF_TYPE_SNAPSHOT_COUNT
 PGDInstruction_t
+PGO
 PGT
 PGU
 PGk
@@ -10221,20 +10214,22 @@ PHU
 PHa
 PHp
 PII
+PIJ
 PIO
 PIY
 PInstruction_t<43>::Run
 PInstruction_t<44>::Run
 PIp
+PIt
 PJi
 PJq
+PJu
 PKF
 PKf
 PKu
 PLACEHOLDER_VALUE
 PLATFORM
 PLG
-PLO
 PLS
 PLUG_TYPE_INPUT
 PLUG_TYPE_OUTPUT
@@ -10246,7 +10241,6 @@ PLUG_TYPE_UNKNOWN
 PLUS %d ADDITIONAL REFERENCES
 PLUS ADDITIONAL REFERENCES NOT LISTED HERE\n
 PLUS ONE ADDITIONAL REFERENCE
-PLZ
 PMF
 PMJ
 PM_TYPE_CONTROL_POINT
@@ -10277,13 +10271,13 @@ PPC
 PPL
 PPN
 PPNe
-PPV
 PPZ
 PQG
 PQm
 PQn
 PRI
 PRIVATE
+PRM
 PRp
 PSE
 PST
@@ -10292,7 +10286,6 @@ PS_RTX
 PSp
 PSq
 PTD
-PTE
 PTM
 PTY
 PT_TYPE_CONTROL_POINT
@@ -10302,10 +10295,8 @@ PT_TYPE_INVALID
 PT_TYPE_NAMED_VALUE
 PTn
 PTq
-PUE
 PULSE_CALL_ASYNC_FIRE
 PULSE_CALL_SYNC
-PUO
 PURH
 PUp
 PUt
@@ -10346,6 +10337,7 @@ PVAL_VEC3
 PVAL_VEC3_WORLDSPACE
 PVAL_VEC4
 PVAL_VOID
+PVE
 PVEC_TYPE_CLOSEST_CAMERA_POSITION
 PVEC_TYPE_COUNT
 PVEC_TYPE_CP_DELTA
@@ -10374,14 +10366,16 @@ PVT
 PVp
 PVq
 PWE
+PWK
 PWa
 PXI
-PXJ
 PXK
 PX`hpx
 PXl
+PYJ
 PYK
 PZE
+PZJ
 PZK
 PZN
 PZP
@@ -10389,6 +10383,7 @@ PZU
 PZm
 PZn
 PZt
+PZu
 P\tV_expf
 P\v5Pd
 PaB
@@ -10542,9 +10537,9 @@ Pathing coefficients for 1st order Ambisonics.
 Pause
 Pause the cursor at this point.
 PauseGameOnActivate
-PbN
 PbW
 Pbs
+PcG
 Pcj
 Pct
 PdC
@@ -10555,7 +10550,6 @@ Pdu
 PeB
 PeG
 PeH
-PeQ
 PeY
 Peak
 Peak Cycle
@@ -10586,11 +10580,12 @@ PermModelInfo_t::FlagEnum
 Persistent
 Perturb vertex positions using sine waves.
 PfH
-PfO
+PfQ
 Pf\n%d %d\n-1.000000\n
 PgQ
 Pgo
 PhB
+PhO
 PhQ
 Phase Matching Max Root Motion Skip
 Phc
@@ -10709,6 +10704,7 @@ PkO
 PkQ
 PlQ
 PlT
+PlV
 Place On Attachment
 Place On Bone
 Place on Floor
@@ -10759,10 +10755,12 @@ PlayerInputAnimMotorInstance
 PlayerInputMotorInstanceData_t
 Please make sure you deleted history on the mesh before exporting.\nThe mesh apparently has %d vertices, but %d blendWeights in field %s, while having %d weights per vertex\n
 Pls
+PmO
 PmQ
 Pmg
 PnD
 PnF
+PnO
 PnS
 PoS
 Point
@@ -10827,12 +10825,10 @@ PosterSettings
 Posture
 Pow
 Power scale for applying the supplemental ambient occlusion map.
-PpF
 PpH
 PpV
 Ppl
 PqF
-PqL
 PrB
 PrL
 PrP
@@ -10969,6 +10965,7 @@ Protocol Buffer reflection usage error:\n  Method      : google::protobuf::Refle
 Proxy
 Proxy Instance
 Proxy Name
+Prr
 Prune pieces < error threshold
 PsF
 PtD
@@ -11031,17 +11028,16 @@ Pvk
 PwB
 PwE
 PwH
-PwN
 PwR
 Pwh
-PxN
 Pxi
 Pxr
 PyA
+PyJ
 PyN
 PyP
 PyR
-PzC
+PzJ
 PzK
 PzT
 Pzo
@@ -13518,7 +13514,6 @@ UpdateVisibleRowData
 UpdateWindow
 Updates the paramter of the active probe on the mix graph.
 Updating references to file: %s\n
-UpscalerType_t
 Use Acceleration
 Use Best Size Match
 Use Bias + Clamp
@@ -13896,8 +13891,8 @@ Vqj
 Vrad3_001
 VsF
 VsInputSignatureElement_t
+VsInputSignature_t
 VtD
-VtI!
 VuA
 WARNING
 WARNING content and game files are in different mods:
@@ -14052,7 +14047,6 @@ Windage Tangent
 WipeRedo '%s'\n
 WipeUndo '%s'\n
 With Hands
-WkE
 Wlm
 Workplane Marker
 World
@@ -14103,65 +14097,50 @@ X to the Y power
 X24_TYPELESS_G8_UINT
 X32_TYPELESS_G8X24_UINT
 X>ZbX|*\^P*
-XAD
-XAI
+XAO
 XBZ
-XCD
-XCI
-XCO
 XClipPathUnits
 XDD
-XDI
 XFR
-XGO
-XHL
+XGL
 XIO
-XIt
-XJu
+XJO
 XLO
 XLd
 XLn
 XML
 XMLPacket
-XMO
-XNW
-XPV
+XPO
 XPosition
 XQO
-XRN
 XResolution
-XWE
-XWQ
+XXJ
 XYZ, Luv
 XYn
-XZN
-XZu
-X`hM\ftI!
+XZd
+X`hM\f4M!
 X`hrP
 X`hu
 XcB
+XeG
+Xec
+XfO
 XgO
 XhL
 XjB
-XmF
-XmO
 Xmp
-XnZ
-XoF
-XoX
 Xol
 XpJ
 XpP
 XqF
 XqU
+XrL
 XsBI
 XsZ
 Xsx
 XtB
 XuN
-XvN
-XwT
-XzY
+Xxw
 Y (Green / Left)
 Y - Left
 Y-Axis
@@ -14255,10 +14234,8 @@ ZoomSensitivityMouseWheel
 [thunk]:
 [unknown]
 \U%08x
-\fFtI!
 \f\f?focusInEvent@QLabel@@MEAAXPEAVQFocusEvent@@@Z
 \f\f\f
-\fvtI!
 \n    Actual    : 
 \n    Field type: 
 \n    near %s\n    
@@ -14390,10 +14367,7 @@ ZoomSensitivityMouseWheel
 \ng default\n
 \nh?oT
 \nk>oB
-\nntI!
-\nvtI!
-\r%s(%d): error: %s
-\r&nbsp;&nbsp;Fixing up references in VSMART file:<br>%s<br><br>\n
+\rDuplicate bone %d renamed :: "%s" -> "%s"\n
 \rModelDoc
 \rVFileSystem017
 \r\f?focusInEvent@QLineEdit@@MEAAXPEAVQFocusEvent@@@Z
@@ -14406,8 +14380,9 @@ ZoomSensitivityMouseWheel
 \r\n_V_FileBase
 \r\r?heightForWidth@QGridLayout@@UEBAHH@Z
 \r\r\r\r\r\r
-\rm_fileName
 \rmj>zjZ
+\rvpost
+\rvsmart
 \src\shaders\
 \t The lexer was matching from line %d, offset %d, which\n\t 
 \t@@@@@@@@@@@@@@@@{N{N{N{N{N{N{N{N
@@ -14451,8 +14426,6 @@ ZoomSensitivityMouseWheel
 \v\f?focusInEvent@QGroupBox@@MEAAXPEAVQFocusEvent@@@Z
 \v\n_V_ExtractFileExtension
 \v\v\v
-\vntI!
-\vvtI!
 ]\tV_fpclassifyd
 ^0`l^VJU
 ^RfN>
@@ -14597,13 +14570,12 @@ _zero
 `eh vector destructor iterator'
 `eh vector vbase constructor iterator'
 `eh vector vbase copy constructor iterator'
-`ftI!
 `generic-class-parameter-
 `generic-method-parameter-
 `generic-type-
 `hp\nU
 `ht@A
-`hvtI!
+`hv4M!
 `local static destructor helper'
 `local static guard'
 `local static thread guard'
@@ -14613,7 +14585,6 @@ _zero
 `managed vector copy constructor iterator'
 `managed vector destructor iterator'
 `non-type-template-parameter
-`ntI!
 `omni callsig'
 `placement delete closure'
 `placement delete[] closure'
@@ -14645,7 +14616,7 @@ a:fulltype
 a:typeparam
 aBV
 aBt
-aBvtI!
+aBv4M!
 aLH
 aaaaaaaazzzzzzzz
 abc
@@ -26986,7 +26957,6 @@ const char *__cdecl Reflection::Internal::GetFuncName<class CLeanMatrixUpdateNod
 const char *__cdecl Reflection::Internal::GetFuncName<class CLookAtPoseOperation>(void)
 const char *__cdecl Reflection::Internal::GetFuncName<class CLookAtUpdateNode>(void)
 const char *__cdecl Reflection::Internal::GetFuncName<class CLookComponent>(void)
-const char *__cdecl Reflection::Internal::GetFuncName<class CLookComponentInstance>(void)
 const char *__cdecl Reflection::Internal::GetFuncName<class CLookComponentUpdater>(void)
 const char *__cdecl Reflection::Internal::GetFuncName<class CMaterialAttributeAnimTag>(void)
 const char *__cdecl Reflection::Internal::GetFuncName<class CMotionGraphPreviewNodeInstance>(void)
@@ -27005,6 +26975,7 @@ const char *__cdecl Reflection::Internal::GetFuncName<class CMovementHandshakeAn
 const char *__cdecl Reflection::Internal::GetFuncName<class CMoverUpdateNode>(void)
 const char *__cdecl Reflection::Internal::GetFuncName<class COrientationWarpUpdateNode>(void)
 const char *__cdecl Reflection::Internal::GetFuncName<class CPairedSequenceComponent>(void)
+const char *__cdecl Reflection::Internal::GetFuncName<class CPairedSequenceComponentInstance>(void)
 const char *__cdecl Reflection::Internal::GetFuncName<class CPairedSequenceComponentUpdater>(void)
 const char *__cdecl Reflection::Internal::GetFuncName<class CPairedSequenceUpdateNode>(void)
 const char *__cdecl Reflection::Internal::GetFuncName<class CParticleAnimTag>(void)
@@ -27128,6 +27099,7 @@ const char *__cdecl Reflection::Internal::GetFuncName<class IFootLockAnimNodeIns
 const char *__cdecl Reflection::Internal::GetFuncName<class IFootPinningAnimNodeInstance>(void)
 const char *__cdecl Reflection::Internal::GetFuncName<class IFootstepLandedAnimTag>(void)
 const char *__cdecl Reflection::Internal::GetFuncName<class IInputStreamAnimNodeInstance>(void)
+const char *__cdecl Reflection::Internal::GetFuncName<class ILookComponentInstance>(void)
 const char *__cdecl Reflection::Internal::GetFuncName<class IMaterialAttributeAnimTag>(void)
 const char *__cdecl Reflection::Internal::GetFuncName<class IMotionGraphPreviewNodeInstance>(void)
 const char *__cdecl Reflection::Internal::GetFuncName<class IMotionMatchingAnimNodeInstance>(void)
@@ -27619,6 +27591,7 @@ effect_name
 effect_packing_material
 effortblocks = %d\n
 ehandle
+ekE
 elastic
 elastic_damping
 elasticity
@@ -28045,6 +28018,7 @@ forever
 forward
 forwardParity
 fov
+fpN=
 fps
 fr\nDh.j\lhh
 frac
@@ -28077,7 +28051,6 @@ from_name
 frustum
 ft: %-60s %-40s : %-80.80s raw:%s\n
 ftE
-ftI!
 fu`z
 fuc
 full
@@ -28302,28 +28275,26 @@ gui
 guide_hair_count
 gun_grunge.psd
 gur
-h+\npw
 h>1my
 hAI
-hAj
-hCO
-hDD
-hED
-hFL
-hFR
-hGL
-hIO
+hCD
+hCI
+hDI
+hHL
+hHt
+hIB
+hJu
 hLO
 hPU3
 hS%s SceneWorld AllViews
 hTarget
 hTn
-hUE
 hUl
+hWE
 hWG
 hXJ
 hZd
-haN
+hZu
 hair_count
 halfEdges %d,%d faces %d,%d angle %.1f deg.
 half_angle_degrees
@@ -28385,15 +28356,12 @@ has_up_frame
 has_world_collision
 has_yaw_constraint
 hbB
-hdG
-hdM
 hdQ
-heY
+heD
 header crc mismatch
 header_icon
 health
 health_override
-hec
 heelland
 heellift
 heeloffset
@@ -28424,7 +28392,7 @@ helperOffset
 hemisphere
 hero_id
 hex_cyl
-hfO
+hfQ
 hidden
 hiddenFlags
 hiddenGroups
@@ -28452,9 +28420,15 @@ hitbox_mins
 hitbox_offset
 hitgroupname
 hjC
+hkO
+hkQ
+hlz
 hmA
+hmF
+hmO
 hnZ
 hnp
+hoF
 hold
 hold_left
 hold_right
@@ -28464,10 +28438,9 @@ horizontal_pose_param_name
 host unreachable
 hotkey
 houdini
+hpF
 hpx
 hqF
-hqL
-hrJ
 hrT
 hsB
 hscript
@@ -28475,7 +28448,6 @@ hscript_lightbinding
 hsequence
 ht@A
 huJ
-huN
 hue
 hull
 hullIvr-0.obj
@@ -28487,11 +28459,10 @@ hullivr_edge_merge_tan
 hullivr_faceisland_merge_disp
 hullivr_faceisland_merge_tan
 hullivr_version
-hvN
-hvtI!
+hv4M!
+hwT
 hwe
 hxB
-hxw
 iCE
 iEA
 iMJ
@@ -30100,6 +30071,7 @@ m_fallbackChild
 m_fallbackTargetPositionParamID
 m_feet
 m_fileExt
+m_fileName
 m_finalLocalToWorld
 m_flAddWorldCollisionRadius
 m_flAlongDamping
@@ -32100,7 +32072,6 @@ npc_ability_name
 npcclass
 npcclip
 npcphysicshull{}
-ntI!
 nuS
 null
 null FbxMaterial
@@ -32258,53 +32229,52 @@ owns_polymorphic_data
 p%X
 p%f
 p%u
-p08@H^tI!
-p6tI!
-p>tI!
+p08@H^4M!
 p@HPX`h\f
-pAD
+pAO
+pAP
 pAp
 pAsset
+pBI
 pBW
-pCI
+pCN
 pCa
 pCheckpointName
 pCu
 pCz
+pDD
 pDJ
 pDM
-pDT
 pDescription
 pDt
 pEI
 pEK
 pER
 pES
+pEX
 pFF
 pFK
-pFO
 pFT
-pFX
 pFn
+pFp
 pFx
-pGJ
-pGO
 pGT
 pGp
 pGt
 pHH
+pHJ
 pHU
+pHt
 pIB
 pIC
 pIN
 pIp
 pIq
-pIt
-pJB
 pJH
+pJO
 pJp
-pJu
 pKL
+pKO
 pKP
 pKa
 pKj
@@ -32332,51 +32302,54 @@ pPE
 pPJ
 pPp
 pPw
+pQO
 pQS
 pQa
 pQg
 pQt
 pRC
 pRD
-pRM
 pRu
 pSE
 pSm
 pSq
+pTE
 pTN
+pTO
 pTagName
 pTb
 pTf
 pTh
 pTk
 pTq
+pUO
 pVE
-pVK
 pVU
 pVi
 pVp
 pVq
-pWE
 pWH
+pWJ
+pWK
 pWn
+pXJ
 pXK
+pXO
 pXa
 pXl
 pYC
 pYJ
+pYK
 pYZ
 pYl
 pYn
 pZB
 pZC
+pZJ
 pZK
 pZr@t&v@t
-pZu
 p\r0\fP!K
-p^pL=
-p^pN=
-p`ntI!
-paO
+p`n4M!
 paP
 package
 packed
@@ -32482,13 +32455,13 @@ pdi
 pdn
 pdu
 peG
-peH
 peQ
 peak
 peak_attr
 peak_cycle
 peak_frame
 peaktailend
+pec
 pel
 per_edge
 per_material_options
@@ -32496,20 +32469,19 @@ per_tile
 permission denied
 permissive
 pervertexlighting
+pf4M!
 pfH
+pfO
 pfm
 pfs
-pftI!
 pgI
-pgQ
-phE
-phO
+pgO
 phQ
 phonememap
 php_class_prefix
 php_generic_services
 php_metadata_namespace
-phvtI!
+phv4M!
 phys
 physics
 physicsCollisionProperty
@@ -32562,13 +32534,10 @@ pixelAspectRatio
 pji
 pkB
 pkC
-pkO
 pkR
 pkd
 pkm
 plC
-plQ
-plV
 place_on_floor
 placementOrigin
 placement_attach
@@ -32586,12 +32555,11 @@ playback_ticks
 playerclip
 plu
 plugTypes
-pmO
+pmE
 pmb
-pnE
-pnO
+pn4M!
+pnF
 png
-pntI!
 poB
 poG
 poJ
@@ -32657,12 +32625,12 @@ posture_nohands
 posxyz
 pow
 powf
-ppF
 ppJ
 ppW
 ppd
 pph
 pqV
+prL
 prM
 preMerge face 0
 preMerge face 1
@@ -33099,7 +33067,6 @@ protocol not supported
 proxyName
 proxySelectionHelper
 prp
-prr
 prune
 psC
 psK
@@ -33111,6 +33078,7 @@ ptb
 ptt
 puB
 puI
+puN
 public: 
 public: CKeyValues_Data::types_t KeyValues::GetDataType(char const*) const (demangled)
 public: CStrAutoEncode& CStrAutoEncode::Copy(CStrAutoEncode const&) (demangled)
@@ -34129,9 +34097,11 @@ purecall
 pushoff
 pushout_strength
 pvTarget
+pvU
 pwD
 pwa
 pwh
+pxN
 pxh
 pyH
 pyJ
@@ -37689,7 +37659,7 @@ synched
 syntax
 synthetic_default
 system_state
-tBVsInputSignature_t
+tBUpscalerType_t
 tPc
 tT:V*X&Z>X
 tVm
@@ -38373,6 +38343,7 @@ vIK \f3
 vJOnPlane2
 vJOnPlane3
 vJOnPlane4
+vLJ
 vLocalMax
 vLocalMin
 vLookTarget
@@ -38582,11 +38553,9 @@ vsDmxIO houdiniSceneIO
 vsUtils.py
 vscale
 vsky
-vsmart
 vsnap
 vsubgrph
 vsutils_py
-vtI!
 vtex
 vtx
 vwnod
@@ -38679,49 +38648,41 @@ wxform
 wyS]
 wzx
 x0Ysqx
-xAO
-xBI
-xCD
-xDI
-xFR
+xAI
+xCO
+xGL
 xGb
-xHL
 xIO
 xJH
-xJO
 xPO
-xQO
-xSE
 xT?V
-xYK
-xZd
+xUE
 xbA
-xeG
-xec
-xfO
 xfQ
 xfade
 xform
-xgO
 xgQ
 xhB
 xiB
+xkO
 xkQ
+xlO
 xlQ
 xlu
 xmF
+xnZ
+xoF
 xop
 xpe
-xqF
-xqU
 xrB
+xtN
 xtT
 xuF
-xuN
 xuS
 xwB
-xxw
+xwh
 xxx
+xyt
 yCV
 yFJ
 yLM

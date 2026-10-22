@@ -55,8 +55,6 @@
 #\n_V_strnicmp_fast
 $AYn
 $Ib?s
-$procedural
-$toolgraphs
 %*s%s.%s: %s
 %*s(%08x):Pausing: %s (%08x) : elapsed time: %.2fs\n
 %*s(%08x):Stopping: %s (%08x) : elapsed time: %.2fs\n
@@ -113,6 +111,7 @@ $toolgraphs
 %s: params.pSfx is NULL.\n
 %s::Execute: Can't find operator stack %s in %s\n
 %ta
+%tc
 %tg
 &6EUdt
 &?PPPPPPP?
@@ -137,7 +136,6 @@ $toolgraphs
 )7ESbp
 ** %s -> %s\n
 **Cleanup resources**
-**unload**
 *BYr
 *SoundEvent Data*\n\t
 *StO9>T
@@ -271,12 +269,10 @@ $toolgraphs
 <Unknown>
 <\ng_pMemAlloc
 <\tV_atan2f
-<any scope>
 <array: %u elements>
 <binary blob: %u bytes>
 <ellipsis>
 <empty member name>
-<empty vmix>
 <invalid soundevent name>
 <invalid>
 <missing 
@@ -387,7 +383,6 @@ Atomic Type: %i\n
 Attack
 Attack Time MS
 Attack time (ms)
-Attempt to recreate default mixgraph!\n
 Attempted preload of soundevent %s with no vsnds\n
 Attempted re-use of a soundevent guid to start a new soundevent: %s
 Attempting to pause non-existent soundevent: %s\n
@@ -414,10 +409,12 @@ B2Bk
 B?wMD?
 BACKSLASH_CHAR
 BAL
+BEQ
 BF>^G
+BKQ
+BLQ
 BPM
-BTQ
-BYQ
+BROADCAST
 B\tV_atoi
 Bad FLC data for resource '%s': %s\n
 Bad KV3 data for resource '%s': %s\n
@@ -482,6 +479,7 @@ Blends two containers according to parameter curves.
 Blends two containers.
 Bnc
 Branch
+Broadcast Mono
 Bxz
 By Mixgroup
 By Named Send
@@ -517,8 +515,6 @@ CDSPPresetMixgroupModifierTable
 CDspPresetModifierList
 CFieldSelectionWordAllocator: Total number of array selection bytes on soundevent exceeded.\n\t%i required\n\t%i available\n
 CKV3Arena::Root
-CKV3Transfer_ToolsOnlyBlockingResourceLoad
-CKV3Transfer_ToolsOnlyBlockingResourceLoad::CKV3Transfer_ToolsOnlyBlockingResourceLoad
 CKeyValues3Array::EnsureElementCapacity
 CKeyValues3Array::InsertMultipleBefore
 CKeyValues3Array::RemoveMultiple
@@ -701,7 +697,6 @@ CUtlLeanVectorImpl<class CUtlLeanVectorBase<struct CUtlHashMap<class CUtlStringT
 CUtlLeanVectorImpl<class CUtlLeanVectorBase<struct CUtlHashMap<int,struct SteamAudioOcclusionVizData_t,class CDefEquals<int>,struct DefaultHashFunctor<int>,int>::HashBucket_t,int,class CMemAllocAllocator>,struct CUtlHashMap<int,struct SteamAudioOcclusionVizData_t,class CDefEquals<int>,struct DefaultHashFunctor<int>,int>::HashBucket_t,int>::AddMultipleToTail
 CUtlLeanVectorImpl<class CUtlLeanVectorBase<struct CUtlHashMap<unsigned __int64,struct vcon_SoundCacheMinorUpdateDatum_t,class CDefEquals<unsigned __int64>,struct DefaultHashFunctor<unsigned __int64>,int>::HashBucket_t,int,class CMemAllocAllocator>,struct CUtlHashMap<unsigned __int64,struct vcon_SoundCacheMinorUpdateDatum_t,class CDefEquals<unsigned __int64>,struct DefaultHashFunctor<unsigned __int64>,int>::HashBucket_t,int>::AddMultipleToTail
 CUtlLeanVectorImpl<class CUtlLeanVectorBase<struct CUtlMemoryBlockAllocator<char,class CMemAllocAllocator>::MemPage_t,int,class CMemAllocAllocator>,struct CUtlMemoryBlockAllocator<char,class CMemAllocAllocator>::MemPage_t,int>::EnsureUnusedCapacity
-CUtlLeanVectorImpl<class CUtlLeanVectorBase<struct VoicetraceStopSubvoice_t,int,class CMemAllocAllocator>,struct VoicetraceStopSubvoice_t,int>::AddMultipleToTail
 CUtlLeanVectorImpl<class CUtlLeanVectorBase<unsigned __int64,int,class CMemAllocAllocator>,unsigned __int64,int>::InsertBeforeGetPtr
 CUtlLeanVectorImpl<class CUtlLeanVectorBase<unsigned int,int,class CMemAllocAllocator>,unsigned int,int>::AddMultipleToTail
 CUtlLeanVectorImpl<class CUtlLeanVectorBase<unsigned int,int,class CMemAllocAllocator>,unsigned int,int>::InsertBeforeGetPtr
@@ -709,6 +704,7 @@ CUtlMemoryBlockAllocator<char,class CMemAllocAllocator>::AddPage
 CUtlMemoryBlockAllocator<char,class CMemAllocAllocator>::Alloc
 CUtlRBTreeBase
 CUtlString
+CUtlStringToken
 CUtlSymbolTableLarge element limit of %u exceeded\n
 CUtlVector
 CVMixAdditionalOutput
@@ -753,6 +749,7 @@ CVMixParameterFloat
 CVMixPitchShiftProcessorDesc
 CVMixPlateReverbProcessorDesc
 CVMixPresetDSPProcessorDesc
+CVMixPreviewManager::VMixTableInit
 CVMixRuntimeGraph
 CVMixShaperProcessorDesc
 CVMixSteamAudioDirectProcessorDesc
@@ -762,7 +759,6 @@ CVMixSteamAudioPathingProcessorDesc
 CVMixStereoDelayProcessorDesc
 CVMixSubgraphSwitchProcessorDesc
 CVMixSubmix
-CVMixTypeManager::VMixTableInit
 CVMixUtilityProcessorDesc
 CVMixVocoderProcessorDesc
 CVMixVsndInput
@@ -818,6 +814,7 @@ Can't parse mp3 encoding %u\n
 Can't read from type %d for field %s\n
 Can't write to type %d for field %s\n
 Cannot allocate abstract class
+Cannot convert KV3 type '%s' (%u) to a string token
 Cast of %s loses value information (returning %s)\n
 Casts a ray and starts a sound event where the ray hits. The sound event will retrigger periodically if cl_snd_cast_retrigger is set. The sound event will clear previous snd_cast events if cl_snd_cast_clear is set. Usage: snd_cast <eventname> [<retrigger time>] [<max distance>]. Arguments that are specified will become defaults for the remainder of the session.
 Catch up mixing failed: %d times\n
@@ -885,18 +882,19 @@ Cutoff Freq
 Cutoff Frequency
 D>B<HuUZv
 D?AdB?
-DBO
+DAO
+DBQ
+DCQ
+DDQ
 DEFAULT_WRITE_PATH
-DEQ
 DIGIT
-DJJ
-DLO
-DMP
+DIVIDE
+DKP
+DLP
 DOUBLE_AND
 DOUBLE_OR
 DOUBLE_QUOTED_STRING
 DOUBLE_QUOTE_CHAR
-DSP
 DSP Effect Name
 DSP Mix Modifiers: Couldn't load mix file %s\n
 DSP NODE
@@ -919,8 +917,6 @@ DSP: Warning, failed to allocate mod delay.\n
 DSP: Warning, failed to allocate pitch shifter.\n
 DSP: Warning, failed to allocate reverb.\n
 DUCT Detected \n
-DUO
-DZO
 D\tV_atoui64
 D_Sharp
 Damp
@@ -929,7 +925,7 @@ Data Size: %i\n
 Data_Branch1xy
 Data_Branch1zBranch2x
 Data_Branch2yz
-DdP
+DeP
 Debug Band
 Debug dump the list of available vmix graphs
 Dec
@@ -970,24 +966,22 @@ Distance
 Distortion Mix (1.0 = wet)
 Distortion Threshold
 Distortion feedback
-DoN
+Divide into channels
 Does Not Play Sound, member of CVoiceContainerDefaultDefault
 Don't contribute to the priority system, but volume is affected by it (bool)
 Double Buffer Source Audio
 Double-save to Member '%s'
 Downward Ratio
-DqQ
+DqN
 Drive (dB)
 Dry/Wet
 DspPresetModifiers
-DtP
 DualHull
 Dump a record of current soundevents and profile data
 Dump main graph control output values
 Duration for which path remains visible. Should be close to update rate of the sound operator stack.
 Duration: %f\n
 Dynamic
-DzP
 E&'bB
 E/Co
 E>nEA
@@ -1208,7 +1202,7 @@ FILTER_SLOPE_36dB
 FILTER_SLOPE_48dB
 FILTER_SLOPE_MAX
 FILTER_UNKNOWN
-FNQ
+FJQ
 FREEING MATCH ENTRY:\n
 FWj|
 FX Mix (1.0 == wet)
@@ -1267,7 +1261,6 @@ First Sound
 Fixup corrupted .wav file if engine crashed during startmovie/endmovie, etc.
 FixupResourceName: Illegal full path passed in ("%s")!\n
 FixupResourceName: Illegal path, missing extension passed in ("%s")!\n
-FkQ
 Flag to enable spatial audio in Dota 2.
 Flat
 FlattenedSerializersVersion001
@@ -1384,90 +1377,120 @@ Grain Sample Count
 Granulator Container
 Granulator source container exposes "%s", which is already a parameter on the granulator itself. It will not be settable through "%s".\n
 Granulator source parameter "%s" has type %s, which cannot be rerendered into the source buffer.\n
-Graphs
 Group
 Group Index: %i does not reference a valid group.\n
 Group: %s\n
 Groups %i: %i\n
 Gy?K
+HAL
 HALL Detected \n
-HCL
+HCK
+HCN
+HDM
 HEAP_OFFSET
-HEL
-HFI
+HEK
+HGL
 HH:mm:ss
-HHL
-HKM
-HKO
+HIM
+HJK
+HKH
+HLK
 HLL
-HLP
-HNL
+HLO
+HMK
 HNM
-HOK
-HOO
-HPK
-HPM
-HQK
-HRK
+HNP
+HNT
+HOR
+HQG
+HQM
 HRTF calculations will calculate the player as being this far behind the camera.
-HSK
 HSO
-HTK
+HTL
 HTM
-HWO
-HYN
-HYO
+HUO
+HVK
+HWR
+HXG
+HXK
+HXL
+HYR
+HZK
+HZM
 Ha(long long) (demangled)
+HaH
 HaK
+HaL
+HaQ
 HammerMapLoader001
 Harmonics
-HbK
-HbO
+HbD
+HbH
+HcD
+HcH
 HcK
 Hcq
-HdK
-HeG
-HeK
-HeL
+HdQ
+HeR
 Height
 Height Reflectivity
 HelpSystem_001
 Hen\fM
-HfG
-HfK
-HfQ
-HgK
+HfH
+HgL
 HhG
-HhH
-HhO
+HhR
+HiG
+HiH
+HiS
 Hide unless error/warning occurs
 High Cutoff Freq
 High Cutoff Freq (Hz)
 High EQ gain (dB)
 HighPass
+HjT
+HkH
 HkM
+HkO
+HkP
+HlH
 HlK
-HmL
-HoG
+HmH
+HmK
+HmM
+HmO
+HnP
+HnR
+HoD
+HoK
 Hold Time MS
 HostStateMgr001
-HpK
-HpM
-HsM
-HsN
-HsP
+HpL
+HqG
+HqK
+HqP
+HrL
+HrQ
+HsG
 HtG
 HtL
-HvK
-HvM
-HxK
-HyM
-HzK
+HtR
+HuM
+HwG
+HwL
+HwM
+HxG
+HxJ
+HxQ
+HzG
+HzL
+HzM
 I could not work out what I was expecting, like so many of us these days!\n
 I<OXb<^
 ID of the sound device to use
 ID_CHAR
 IDt
+IKV3TransferInterface_AllowRawStringTokenTransfer
 IKV3TransferInterface_ResourceLoad
 IKV3TransferInterface_ResourceSave
 INF
@@ -1509,7 +1532,6 @@ Interpolation Mode
 Interpolation Time
 Invalid Sound Event
 Invalid Sound Event '%s'
-Invalid arg %s set for subvoice playing %s\n
 Invalid field type %s for field %s\n
 Invalid vmix graph %s\n
 InvokeMiniDumpHandler
@@ -1518,14 +1540,10 @@ IsAutomaticDSP
 IsDebuggerPresent
 IsProcessorFeaturePresent
 IsValidCodePage
-JCQ
 JIQ
-JLQ
 Jan
 January
-JhQ
 Job
-JrQ
 Jul
 July
 Jun
@@ -1553,7 +1571,6 @@ L>ev
 L?UUUUUUU?
 LCMapStringEx
 LCMapStringW
-LDQ
 LEFT
 LFO Amount
 LFO Rate
@@ -1567,24 +1584,25 @@ LFO_SHAPE_TRI
 LINE_CONTINUATION
 LITERAL_FALSE
 LITERAL_TRUE
-LJJ
-LJO
-LMO
 LOG Fade in
 LOG fade out
 LOG_GENERAL
-LON
+LRO
+LVP
 LWG>
 LWW>
+LXN
+LXP
 Late Reflections
 LayerTriggers
+LbN
 LeaveCriticalSection
 Left Only
 Length
 Length (beats)
 Length:\t%f\n
 Lexer encountered %d error(s)
-LgO
+LfO
 LightmapUV
 LightmapUVW
 Limiter
@@ -1634,10 +1652,7 @@ Low Cutoff Freq (Hz)
 Low EQ gain (dB)
 LowPass
 Lowpass4Tap
-LpO
-LqO
-LtQ
-LzN
+LpP
 MASK_WATER
 MATCHFRAMEWORK_001
 MC#e
@@ -1776,10 +1791,11 @@ NAMED_SEND
 NAN
 NAN(IND)
 NAN(SNAN)
+NCQ
 NEGATIVE_TOK
 NEW DSP NODE: size:(%.0f,%.0f) height:(%.0f) dif %.4f : refl %.4f : cobj: %.0f : sky %.0f \n
 NEWLINE
-NMQ
+NFQ
 NO_VOICES
 NQ?s
 NULL
@@ -1868,6 +1884,7 @@ Outside Distance\n%.1f
 OverlayProjectionDirection
 Override
 Oversampling
+PAM
 PANNER_TYPE_EQUAL_POWER
 PANNER_TYPE_LINEAR
 PARAM COUNT COMPARE FAIL: %s->%s\n
@@ -1875,45 +1892,58 @@ PARAMDATA COMPARE FAIL: %s->%s : %s\n
 PARAMINFO COMPARE FAIL: %s->%s\n
 PBM
 PCG
+PCM
 PCM16
 PCM8
+PDF
+PDL
+PDR
 PDT
+PER
+PET
 PFM
-PFQ
-PGL
-PGP
-PGQ
-PHO
-PIK
+PGG
+PGK
+PGO
+PHR
+PHT
 PIO
-PIT
-PJK
-PJM
-PJN
-PKI
-PKK
-PKT
-PLK
-PLM
-PMK
-PML
+PJI
+PJL
+PKL
+PKM
+PKR
+PLR
+PMH
 PNK
-POL
+PNO
 POM
+POR
 POS_FLOATLITERAL
 POS_INTLITERAL
+PPG
+PPL
+PPR
+PQD
+PQH
 PQL
-PQM
-PQT
+PRH
 PRM
-PRO
+PRT
+PSL
 PST
+PTK
 PUM
-PXN
-PYN
+PUN
+PWM
+PWR
+PYG
+PYR
 P\tV_expf
-PaG
-PaL
+PaH
+PaM
+PaP
+PaS
 Panning Control Input Name
 PanoramaTextServices001
 PanoramaUIClient001
@@ -1937,20 +1967,32 @@ Pattern Name
 Pattern Priority
 Patterns
 Pause the specified soundevent in the list
+PbH
+PbK
+PbO
+PbQ
 PbR
 PbT
-PcQ
-PcR
-PdL
-PeN
-PeT
+PcH
+PcM
+PdH
+PdO
+PdS
+PeH
+PeR
 Peak
 Peak Amplitude
 Peak Mode
 Peak mode
 PerVertexLighting
 Performing fixup on '%s'\n
-PhM
+PfL
+PgH
+PgK
+PgM
+PgT
+PhH
+PhR
 PhT
 Phase
 Phase ( 0 - 1 )
@@ -1960,14 +2002,11 @@ Phrase
 Physics
 PhysicsBuilderMgr001
 PhysicsSurfaceProperties
-PiL
+PiG
 Pitch Shift
 PivotPaint
 PjH
-PjK
-PjT
-PkK
-PlR
+PlQ
 Plain
 Plain4Tap
 Plat_CPUTickFrequency
@@ -2019,18 +2058,19 @@ Plays a single channel of silence.
 Plays a vmix graph and its containers.
 Plays vsnds based on membership in a numbered index.
 Plays vsnds based on trigger parameter changes.
-PmM
-PmQ
-PnH
-PnL
+PmL
+PmR
+PnM
 PnR
-PoH
-PoO
+PoG
+PoS
 Pointers cannot be used as numeric values
 PostProcessingSystem_001
+PpG
+PpM
 Pq?A6
-PqD
-PqN
+PrF
+PrG
 PrM
 Pre-Roll
 Pre-delay (ms)
@@ -2076,22 +2116,22 @@ Processor Sidechain
 ProcessorGenerate
 PropWorldOrigin
 PropertyEditorSystem_001
-PsQ
 PtK
-PtM
+PtR
 PtT
-PuR
+PuG
+PuL
 Public field 'delay' name.
 Public field name to query.
 Purge and reload all beat pattern data and files.
 PurgeAndDeleteAll: Deleting orphaned CSoundEvent pointer for %s via shutdown\n
 Purges the VSnd table
-PvO
 PvP
-PwL
-PwM
-PwT
-PyI
+PwJ
+PwQ
+PxM
+PxQ
+PyG
 QAf?
 QUEUE event %s | %s : elapsed time: %f, next sync time: %f, length: %f\n
 QUEUE event %s\n
@@ -2108,16 +2148,14 @@ RESOURCE_TYPE_SOUND
 RESOURCE_TYPE_SOUNDEVENTSCRIPT
 RESOURCE_TYPE_SOUNDSTACKSCRIPT
 RESOURCE_TYPE_VDSP
-RESOURCE_TYPE_VMIX_LIST
 RIGHT
 RJO_m
+RKQ
 RMS
 RMS Time MS
 ROOM Detected \n
 ROOM_VOICES
 RSDS1
-RTQ
-R\fpL
 Radio
 RaiseException
 Random
@@ -2179,7 +2217,6 @@ ReturnJobManualEventToPool
 Reverb Depth ms
 Reverb Height ms
 Reverb Width ms
-RiQ
 Right Only
 Room Size
 Room Voices
@@ -2440,6 +2477,7 @@ Soundevent Count
 Soundevent Min/Max Values
 Soundevent Priority
 Soundevent param overwrites: %s:\n
+Sounds Near Camera
 Sounds To Blend
 Sounds To Play
 Sounds To play
@@ -2518,6 +2556,7 @@ Stop sound event: %s\n
 Stop the specified track and it's queue.
 StopTime: %f\n
 Stopping All Sounds...\n
+Stopping mix voice: %s(%u) because it cannot continue after resource unload\n
 Stops a specified soundevent
 Stops all currently playing patterns
 Stops all soundevents currently on the execution list
@@ -2551,20 +2590,19 @@ T?wm\v
 TESTBED: Amped Decaying Sine Wave Container
 TESTBED: Decaying Sine Wave Container
 TESTBED: FM Synth Container
+TFN
 TFP
-TIQ
+TGQ
 TOK_COLON
 TOPOLOGY: Stack %s has %i VSND operators\n
 TOPOLOGY: Stack %s, soundevent_start operator %s, soundevent_name field, source unresolved\n
-TPO
-TQQ
 TRACK
-TRP
 TRUE
-TSO
 TUNNEL Detected \n
 TUUUU
+TXO
 Ta?jib?
+TaO
 Table of mixgroup modifiers for effect names.
 TanFrameQuat
 Tape Player
@@ -2572,8 +2610,6 @@ Taps
 Target
 Target Value
 TargetCastForModify
-TbQ
-TeO
 TerminateProcess
 TernaryConditional
 Test depth.
@@ -2604,7 +2640,6 @@ Threshold dB
 Threshold detection time (ms)
 Thu
 Thursday
-TiN
 Time Limiter
 Time Scale
 Time Signature
@@ -2615,7 +2650,6 @@ TlsAlloc
 TlsFree
 TlsGetValue
 TlsSetValue
-TnO
 Tokenset: %p\n
 Tone %d on an additive synth container didn't have any envelope specified! This isn't currently supported.
 Too few args. Syntax is: generate_trash_synth [name].vsnd [directory_of_sounds].vsnd.\n
@@ -2644,6 +2678,7 @@ Total USED Stack Ref Fields: %i\n
 Total USED Stacks: %i\n
 Total soundevents %i\nTotal param bytes: %i\nTotal field bytes: %i\nTotal combined bytes: %i\n
 Total: %.2f MB\n
+TqN
 Tracing soundscapes is only supported in the Server.\n
 Track Name
 Tracks
@@ -2663,10 +2698,9 @@ Triggers
 Trimming grain for %s from %f to %f seconds\n
 TrySendVNotify - SendKV3 failed\n
 TsP
+TtI
 Tue
 Tuesday
-TwN
-TyN
 Type
 U?:CU?K
 UA>N0Wl
@@ -2683,7 +2717,6 @@ Unable to connect convar input %s\n
 Unable to create audio thread.\n
 Unable to create voice for vmix "%s" check script for %s.\n
 Unable to detect Windows Audio devices\n
-Unable to find graph for vmix %s\n
 Unable to find queue event\n
 Unable to find soundevent: %s\n
 Unable to load sound system data.\nStarting verification of Steam Game Cache.\nRetry launching after completion.\n
@@ -2730,7 +2763,6 @@ Usage: snd_sos_unpause_soundevent <soundevent index>\n
 Usage: snd_steamaudio_display_probes <reverb|pathing|occlusion|dimensions|materials|off> <display_radius> <optional:always|once|off>\n
 Use Vsnd File
 Use perspective correction for 3D audio only in the frontal directions.
-Used main graph %s on voice %s\n
 Used stack: %s\n
 UtlRBTree_FailedInsertDuplicate
 UtlVectorMemory_Alloc
@@ -2742,6 +2774,7 @@ VAsyncFileSystem2_001
 VAvi001
 VBik001
 VConComm001
+VDQ
 VData:%s
 VDataChoice( %s )
 VDataChoice()
@@ -2750,6 +2783,7 @@ VERTICAL SHAFT Detected \n
 VES
 VEngineCvar007
 VFileSystem017
+VJQ
 VMIX %s switching to subgraph %s\n
 VMIX_AUTO_DISTANCE
 VMIX_AUTO_LISTENER_PITCH_COS
@@ -2815,6 +2849,7 @@ VMixSound
 VMixStartup
 VMixSubgraphSwitchDesc_t
 VMixSubgraphSwitchInterpolationType_t
+VMixUpMixRule_t
 VMixUtilityDesc_t
 VMixVocoderDesc_t
 VNOTIFY_DISABLE
@@ -2851,7 +2886,6 @@ VScript
 VScriptDbg
 VScriptManager010
 VStringTokenSystem001
-VUQ
 VWebm001
 V_DoubleToString_Unsafe
 V_FixDoubleSlashes
@@ -2903,22 +2937,18 @@ VertexPaintBlendParams
 VertexPaintBlendParams1
 VertexPaintTintColor
 VisBuilder_001
-VkQ
 Vka
 Vmix Convolution node (re)loaded IR vsnd.\n
 Vmix Convolution node has not yet loaded IR vsnd, but audio is processing; running pass thru.\n
-VnQ
 Voice Container Async Render Work
 Voice Container Base
 Voice Container Default
-Voice Containers: Attempted to set invalid param: %s in scope %s\n
 Voice Elapsed Time: %f\n
 Voice volume
 Volume
 Volume (in Decibels)
 Volume Control Input Name
 Volume of sounds in tools (e.g. Hammer, SFM)
-VpQ
 Vrad3_001
 Vsnd
 Vsnd 01
@@ -3008,49 +3038,64 @@ Wt<c
 X<"wP
 X?/QY?s
 X?OsX?
-XAL
-XCM
+XAG
+XBG
 XCP
-XDL
-XEQ
-XIM
-XIO
-XJL
-XJO
-XOI
-XPL
-XQN
+XHM
+XIP
+XJG
+XKN
+XMM
+XNL
+XNO
+XPD
+XPK
+XPM
+XRL
 XRp
 XSM
-XUK
-XVM
-XWL
-XXK
+XVI
+XVL
+XWR
+XXN
 XYK
-XZK
-XaM
+XYL
+XYS
+XbH
 XbM
-XcM
+XbR
+XcD
+XcQ
+XdK
 XdM
-XeG
+XeK
 XeM
-XeQ
+XeR
+XfH
 XfM
-XgL
-XhH
-XjM
-XlI
-XlQ
-XoG
-XoL
-XoM
-XpD
-XpG
-XqP
-XuL
-XuM
-XvL
-XyK
+XfS
+XgS
+XhG
+XhK
+XhL
+XhM
+XiM
+XiT
+XjL
+XlH
+XlP
+XmT
+XnK
+XnL
+XnO
+XnR
+XoD
+XqG
+XsK
+XsM
+XtM
+XwJ
+XxR
 Y>kX>M
 YHM
 Y\tV_fmodd
@@ -3091,6 +3136,7 @@ Z\tV_fmodf
 \nh?oT
 \nk>oB
 \r\r\r\r\r\r
+\rgeneric_data_type
 \t The lexer was matching from line %d, offset %d, which\n\t 
 \t dspmix %1.2f : lvol %1.2f : cvol %1.2f : rvol %1.2f : rlvol %1.2f : rrvol %1.2f\n
 \t x: %4f y: %4f z: %4f\n
@@ -3327,7 +3373,6 @@ bezier_even_bounce
 biased
 binary
 binary_blob
-bkQ
 blend_ratio
 blendindices
 blendweight
@@ -3347,8 +3392,6 @@ bool SaveKV3Text_NoHeader(KeyValues3const*, CUtlString*, CBufferString*, unsigne
 bool SaveKV3Text_NoHeader(KeyValues3const*, CUtlString*, CUtlString*, unsigned int) (demangled)
 bool SaveKV3ToFile(KV3ID_t const&, KV3ID_t const&, KeyValues3const*, CUtlString*, char const*, char const*, unsigned int) (demangled)
 broken pipe
-bsQ
-btQ
 buffer too small
 cB$$"$""""SE$4"tfFDD
 cIh
@@ -3725,14 +3768,12 @@ class CHRTFAudioProcessor (demangled)
 class CInstanceGenerator (demangled)
 class CKV3ResourceBlockHelper (demangled)
 class CKV3ResourceTypeManager<1886610550> (demangled)
-class CKV3ResourceTypeManager<2020175222> (demangled)
 class CKV3TransferContextBase (demangled)
 class CKV3TransferLoadContext (demangled)
 class CKV3TransferSaveContext (demangled)
 class CKV3Transfer_AssertAlreadyLoadedResourceLoadInterface (demangled)
 class CKV3Transfer_EmptyResourceLoadInterface (demangled)
 class CKV3Transfer_ResourceLoadInterface (demangled)
-class CKV3Transfer_ToolsOnlyBlockingResourceLoad (demangled)
 class CLogForBugBug (demangled)
 class CLoopXFadeInstance (demangled)
 class CMMNotificationClient (demangled)
@@ -4133,13 +4174,13 @@ class CVMixEnvelopeProcessorDesc (demangled)
 class CVMixFilterProcessorDesc (demangled)
 class CVMixFlangerProcessorDesc (demangled)
 class CVMixFreeverbProcessorDesc (demangled)
-class CVMixMixer (demangled)
 class CVMixModDelayProcessorDesc (demangled)
 class CVMixOscProcessorDesc (demangled)
 class CVMixPannerProcessorDesc (demangled)
 class CVMixPitchShiftProcessorDesc (demangled)
 class CVMixPlateReverbProcessorDesc (demangled)
 class CVMixPresetDSPProcessorDesc (demangled)
+class CVMixPreviewManager (demangled)
 class CVMixShaperProcessorDesc (demangled)
 class CVMixSndInstance (demangled)
 class CVMixSteamAudioDirectProcessorDesc (demangled)
@@ -4148,7 +4189,6 @@ class CVMixSteamAudioHybridReverbProcessorDesc (demangled)
 class CVMixSteamAudioPathingProcessorDesc (demangled)
 class CVMixStereoDelayProcessorDesc (demangled)
 class CVMixSubgraphSwitchProcessorDesc (demangled)
-class CVMixTypeManager (demangled)
 class CVMixUtilityProcessorDesc (demangled)
 class CVMixVocoderProcessorDesc (demangled)
 class CVSndParameterTable (demangled)
@@ -4313,10 +4353,10 @@ class `public: int CVoiceContainerBase::GenerateCompiledFloatAudioStream(CUtlBuf
 class `public: int CVoiceContainerBase::GenerateCompiledFloatAudioStream(CUtlVector<float, int, CUtlVectorMemory_Growable<float, int, 0> >&, CUtlVector<float, int, CUtlVectorMemory_Growable<float, int, 0> >&)'::`7'::<lambda_1> (demangled)
 class `public: virtual bool CAudioSourceCached::CopySamplesAndMixToMono(CUtlVector<float, int, CUtlVectorMemory_Growable<float, int, 0> >&)'::`2'::<lambda_1> (demangled)
 class `public: virtual bool CAudioSourceCached::CopySamplesFloat(CUtlVector<float, int, CUtlVectorMemory_Growable<float, int, 0> >&, CUtlVector<float, int, CUtlVectorMemory_Growable<float, int, 0> >&)'::`2'::<lambda_1> (demangled)
-class `public: virtual bool CVoiceContainerGranulator::Finalize_Internal(void)'::`5'::<lambda_1> (demangled)
-class `public: virtual bool CVoiceContainerRandomSampler::Finalize_Internal(void)'::`2'::<lambda_1> (demangled)
-class `public: virtual bool CVoiceContainerStaticAdditiveSynth::Finalize_Internal(void)'::`2'::<lambda_1> (demangled)
-class `public: virtual bool CVoiceContainerTapePlayer::Finalize_Internal(void)'::`5'::<lambda_1> (demangled)
+class `public: virtual bool CVoiceContainerGranulator::Finalize_Internal(char const*)'::`5'::<lambda_1> (demangled)
+class `public: virtual bool CVoiceContainerRandomSampler::Finalize_Internal(char const*)'::`2'::<lambda_1> (demangled)
+class `public: virtual bool CVoiceContainerStaticAdditiveSynth::Finalize_Internal(char const*)'::`2'::<lambda_1> (demangled)
+class `public: virtual bool CVoiceContainerTapePlayer::Finalize_Internal(char const*)'::`5'::<lambda_1> (demangled)
 class `public: virtual void CSosOperatorFloat::Execute(void*, CSosOperatorStack*, int) const'::`4'::<lambda_2> (demangled)
 class `public: virtual void CSosOperatorFloat::Execute(void*, CSosOperatorStack*, int) const'::`4'::<lambda_3> (demangled)
 class `public: virtual void CSosOperatorFloat::Execute(void*, CSosOperatorStack*, int) const'::`4'::<lambda_4> (demangled)
@@ -4383,10 +4423,10 @@ class std::_Func_impl_no_alloc<`public: int CVoiceContainerBase::GenerateCompile
 class std::_Func_impl_no_alloc<`public: int CVoiceContainerBase::GenerateCompiledFloatAudioStream(CUtlVector<float, int, CUtlVectorMemory_Growable<float, int, 0> >&, CUtlVector<float, int, CUtlVectorMemory_Growable<float, int, 0> >&)'::`7'::<lambda_1>, void, CUtlVector<CAudioMixBuffer, int, CUtlVectorMemory_Growable<CAudioMixBuffer, int, 0> >&> (demangled)
 class std::_Func_impl_no_alloc<`public: virtual bool CAudioSourceCached::CopySamplesAndMixToMono(CUtlVector<float, int, CUtlVectorMemory_Growable<float, int, 0> >&)'::`2'::<lambda_1>, void, float*, int, int, int> (demangled)
 class std::_Func_impl_no_alloc<`public: virtual bool CAudioSourceCached::CopySamplesFloat(CUtlVector<float, int, CUtlVectorMemory_Growable<float, int, 0> >&, CUtlVector<float, int, CUtlVectorMemory_Growable<float, int, 0> >&)'::`2'::<lambda_1>, void, float*, int, int, int> (demangled)
-class std::_Func_impl_no_alloc<`public: virtual bool CVoiceContainerGranulator::Finalize_Internal(void)'::`5'::<lambda_1>, bool> (demangled)
-class std::_Func_impl_no_alloc<`public: virtual bool CVoiceContainerRandomSampler::Finalize_Internal(void)'::`2'::<lambda_1>, bool> (demangled)
-class std::_Func_impl_no_alloc<`public: virtual bool CVoiceContainerStaticAdditiveSynth::Finalize_Internal(void)'::`2'::<lambda_1>, bool> (demangled)
-class std::_Func_impl_no_alloc<`public: virtual bool CVoiceContainerTapePlayer::Finalize_Internal(void)'::`5'::<lambda_1>, bool> (demangled)
+class std::_Func_impl_no_alloc<`public: virtual bool CVoiceContainerGranulator::Finalize_Internal(char const*)'::`5'::<lambda_1>, bool> (demangled)
+class std::_Func_impl_no_alloc<`public: virtual bool CVoiceContainerRandomSampler::Finalize_Internal(char const*)'::`2'::<lambda_1>, bool> (demangled)
+class std::_Func_impl_no_alloc<`public: virtual bool CVoiceContainerStaticAdditiveSynth::Finalize_Internal(char const*)'::`2'::<lambda_1>, bool> (demangled)
+class std::_Func_impl_no_alloc<`public: virtual bool CVoiceContainerTapePlayer::Finalize_Internal(char const*)'::`5'::<lambda_1>, bool> (demangled)
 class std::_Func_impl_no_alloc<`public: virtual void CSosOperatorFloat::Execute(void*, CSosOperatorStack*, int) const'::`4'::<lambda_2>, bool, bool, bool> (demangled)
 class std::_Func_impl_no_alloc<`public: virtual void CSosOperatorFloat::Execute(void*, CSosOperatorStack*, int) const'::`4'::<lambda_3>, bool, bool, bool> (demangled)
 class std::_Func_impl_no_alloc<`public: virtual void CSosOperatorFloat::Execute(void*, CSosOperatorStack*, int) const'::`4'::<lambda_4>, bool, bool, bool> (demangled)
@@ -4449,7 +4489,6 @@ continuous
 convar
 convar_get
 convar_set
-core.default
 core.empty
 core.null
 core.voip
@@ -4479,18 +4518,14 @@ curve_defintion_type
 curve_type
 custom_stack
 d?qq
+dCQ
 dDQ
 dFDFBB"
-dGP
-dJP
-dNP
+dFQ
 dRL>
-dSN
-dVP
+dYN
 data_type
-dcP
 dddd, MMMM dd, yyyy
-deN
 debug.bypass
 decltype(auto)
 default
@@ -4519,7 +4554,7 @@ detail_value_8
 device or resource busy
 df"DDdD
 dffDD$"`
-diP
+dgP
 diffmapping
 diffmaterials
 dimensions
@@ -4536,9 +4571,9 @@ dota_enable_spatial_audio
 dota_ground_under_water
 dota_spatial_audio_mix
 double
-dqN
 draining old buffer
 dry
+dsP
 dsp
 dsp: %3.2f 
 dsp_automatic
@@ -4626,10 +4661,8 @@ fade
 fade_type
 false
 fast
-fbQ
 fdT
 fff
-fgQ
 field
 field_name
 field_override
@@ -4659,7 +4692,6 @@ force_direction
 force_flu_basis
 forever
 forward
-fpQ
 frames
 function
 function not supported
@@ -4668,7 +4700,6 @@ g>M-a>Y
 gBV
 gSB5*!
 g_mastermixlayer:\n
-g_pApplication->IsInToolsMode()
 gain of wet signal (dB)
 gainReduction
 game
@@ -4691,7 +4722,6 @@ generate_null_container
 generate_trash_synth
 generic
 generic-type-
-generic_data_type
 get_system_globals
 graph
 graphName
@@ -4702,58 +4732,76 @@ group_title
 groups
 gwu
 h>1my
-hCN
-hCO
-hEM
-hHM
-hIK
-hJJ
-hJK
+hBL
+hBP
+hDK
+hDN
+hEI
+hFL
+hGM
+hJG
+hKH
 hKK
-hKL
-hLK
-hMK
-hNK
-hOI
-hRQ
-hTL
+hLM
+hNR
+hOL
+hOM
+hPN
+hRG
+hRM
+hSK
+hUK
 hUM
-hWM
-hZL
-hZM
-haL
+hWK
+hWL
+hWR
+hXG
+hXM
+haH
 harmonic_tools_delta_harmonic_response
 harmonic_tools_harmonic_lfos
 harmonic_tools_odds_and_evens
 harmonic_tools_spectral_spread
-hbL
-hbN
-heG
+hbH
+hbK
+hbQ
+hbR
+hcL
+hdK
+hdL
+heR
 headphones
-hfP
+hfH
 hfdDD
-hhH
-hiM
+hgM
+hiG
+hjS
+hkH
+hkK
+hkS
+hlH
 hlL
-hmK
-hmP
 hnM
-hoK
+hoL
 host unreachable
-hrL
-hsK
-hsL
-htM
-huK
+hpK
+hqL
+hrQ
+hsG
+htL
+htO
 hullivr_edge_merge_tan
 hullivr_faceisland_merge_disp
 hullivr_faceisland_merge_tan
 hullivr_version
-hvP
+hvL
+hvM
 hwK
-hwM
-hzL
-hzM
+hxG
+hxL
+hxM
+hyG
+hzK
 i\tV_ftell
 identifier removed
 idle
@@ -5235,12 +5283,7 @@ itemName
 itemPos
 itemType
 itemTypeName
-jIQ
-jUQ
 jVg
-jiQ
-jmQ
-jnQ
 jr?z7
 k=E.x=i
 k=yI
@@ -5253,16 +5296,15 @@ kZK
 key_groups
 keys
 kkWfd
-lAO
-lKN
-lKO
-lLQ
+lCD
+lHN
+lTP
+lVN
+lXN
 l`UROM=;98310-*)(&$"
 laQ
 lambda
 last_calc_time
-lcD
-leP
 left_front
 left_front1
 left_front2
@@ -5290,7 +5332,7 @@ lifespan
 line_text
 linear
 listener
-lmN
+ljN
 localPlayer
 locked
 log
@@ -5304,13 +5346,11 @@ looks like this:\n\t\t%.*s\n
 loud
 lowprecisionuv
 lowprecisionuv1
-lsQ
-ltN
-ltO
+lqO
 lvl
 lvl: %3.2f 
-lxP
-lyP
+lyN
+lzN
 m?@Zl?~\vk?k
 m\nXo
 m\vm\vm\vm\vm\vm\vm\vm\vm\vm\vm\v
@@ -5381,6 +5421,7 @@ m_bPlayHead
 m_bPlayTail
 m_bPreviewInGame
 m_bPriorityReadButDontContribute
+m_bRegisteredVMix
 m_bRenderOnly
 m_bSaveToGroup
 m_bScheduleSendTickPacket
@@ -5615,7 +5656,6 @@ m_gainSweep
 m_grainResources
 m_graphDesc
 m_graphInputs
-m_graphName
 m_graphPreview
 m_group
 m_groupBoundingBoxMaxsOpvar
@@ -5701,6 +5741,7 @@ m_nQuality
 m_nRate
 m_nRenderHeight
 m_nRenderWidth
+m_nResourceName
 m_nSampleCount
 m_nSendOperator
 m_nShape
@@ -5717,10 +5758,10 @@ m_nTotalTicks
 m_nTotalTicksThisFrame
 m_nTranspose
 m_nType
+m_nUpMixRule
 m_nValue
 m_nValueIndex
 m_nVelocity
-m_nVoiceId
 m_nWaveform
 m_name
 m_nameHashCodes
@@ -5808,6 +5849,7 @@ m_playKeyType != eSndBeatPatternTypeKeyedSndEvts
 m_playKeyType != eSndBeatPatternTypeKeys
 m_playbackType
 m_previewGraphInput
+m_previewGraphName
 m_previewList
 m_priorityContributeButDontRead
 m_priorityValue
@@ -5815,6 +5857,7 @@ m_priorityVolumeScalar
 m_processorNodes
 m_randomPannerControls
 m_resonanceSweep
+m_resourceName
 m_resultVarName
 m_samples
 m_secondSound
@@ -6014,9 +6057,12 @@ mute
 mute: %3.2f\n
 muteTrackList
 n03>Pu
+nAQ
 nCenterNote
 nDenominator
 nI9>h
+nJQ
+nLQ
 nMaxNote
 nMaxVel
 nMinNote
@@ -6034,7 +6080,6 @@ namespace
 nan
 nan(ind)
 nan(snan)
-ndQ
 ndZTNGA:3-' 
 near '%c' :\n
 near char(%#02X) :\n
@@ -6421,46 +6466,56 @@ owM&
 owner dead
 oz>!km>
 p?ff
-pBT
-pEL
-pFI
-pFL
+pAL
+pAM
+pAN
+pAT
+pBM
+pCK
+pCM
+pCo
+pDM
+pDR
+pEK
+pFH
 pFT
 pFx
-pHL
+pGO
+pGR
+pHH
+pIK
+pIL
 pIM
-pJD
-pJM
-pKM
-pKP
-pKR
-pNL
+pIT
+pJR
+pJT
+pKT
+pLL
+pMK
 pNM
+pNR
 pOC
-pPL
-pQL
-pQM
-pRM
+pPM
+pPP
+pQD
+pRL
+pSM
+pST
 pSamples
 pSource != nullptr
-pTM
-pUK
+pTL
 pVK
-pVM
+pVO
 pVelocityZones
-pWK
-pWL
-pWT
-pXK
-pXO
-pYK
-pYP
-pYR
-pZK
-pZQ
-pZT
-paK
-paO
+pWR
+pXR
+pZG
+pZL
+pZM
+pZN
+paH
+paL
+paM
 parallel filters
 paramName
 parameter
@@ -6472,39 +6527,50 @@ path_substring
 pathing
 pattern_name
 paused
-pbK
+pbH
+pbM
 pbR
 pcH
 pcK
-pdK
-pdN
-pdR
+pcM
+pcN
+pcQ
+pcS
+pdH
 peH
-peK
-peL
+peM
+peR
 perlin
 permission denied
-pfG
-pfK
-pgI
-pgK
+pgH
+pgL
+pgP
 phG
+phH
+phL
+phQ
 phrase
+piH
+piQ
+piR
 pitch.cos
 pitch.sin
-pjK
+pjH
+pjR
+pkL
 pkM
-plQ
-plT
+plO
+plR
 play
 play_event_type
 playback
 player
 playvol
-pmL
-pnT
-poG
-poL
+pnL
+pnQ
+pnS
+poD
+poK
 position
 position.x
 position.y
@@ -6512,11 +6578,10 @@ position.z
 posxyz
 pow
 ppG
-ppK
-ppM
-ppT
-pqD
-prR
+ppL
+prG
+prM
+prO
 preload_vsnds
 presets
 preview.editor
@@ -6552,9 +6617,9 @@ protected: void CUtlBuffer::AddNullTermination(void) (demangled)
 protected: void CUtlMemoryPoolBase::ClearDestruct(void (*)(void*)) (demangled)
 protocol error
 protocol not supported
-puM
-puO
-puT
+ptK
+puR
+puS
 public
 public.
 public.%s
@@ -6659,6 +6724,7 @@ public: void CBufferString::MoveFrom(CBufferString&) (demangled)
 public: void CBufferString::Purge(int) (demangled)
 public: void CBufferString::ToLowerFast(int) (demangled)
 public: void CCircularBuffer::Flush(void) (demangled)
+public: void CCircularBuffer::Resize(int) (demangled)
 public: void CTSListBase::Push(TSLNodeBase_t*) (demangled)
 public: void CThreadedJob::WaitOrImmediatelyExecute(void) (demangled)
 public: void CUniformRandomStreamImpl<CAtomicMutex>::SetSeed(int) (demangled)
@@ -6688,12 +6754,11 @@ public: void* CUtlScratchMemoryPool::AllocAligned(int, int) (demangled)
 public_field_name
 public_opvar
 purecall
-pvG
-pvK
+pwJ
 pwL
-pwO
-pxM
-pzJ
+pxG
+pzG
+pzM
 qS>g?h3
 qVJ
 qWindows Audio
@@ -6708,12 +6773,9 @@ qxs?L
 qxs?z7
 r?dar?\n
 rAb<
+rCQ
 rFQ
-rNQ
-rTQ
-rWQ
 r\tVr.>T
-r\vpL
 random
 random_distribution_factor
 random_exclusive
@@ -6756,7 +6818,6 @@ roll.sin
 room
 round
 round_to_int
-rrQ
 run_voicecontainer_async
 sHF'
 sUIL\s
@@ -7069,6 +7130,9 @@ sounds
 sounds/
 sounds/__attached_output_stream_wrapper_%d.vsnd
 sounds/common/null.vsnd
+sounds/graphs/
+sounds/graphs/__main__.vsnd
+sounds/graphs/base.vsnd
 sounds/graphs/mixgraphs.vrman
 sounds/vsndgen_TapeFx_%d.vsnd
 sounds\
@@ -7104,7 +7168,6 @@ sqrt
 sqrtf
 square
 stack buffer overrun (/GS failure)
-startSubvoice
 startVoice
 start_group
 start_mode
@@ -7122,7 +7185,6 @@ steamaudio_compute_reverb
 steamaudio_remap_ir
 step
 stereo
-stopSubvoice
 stopVoice
 stop_oldest
 stop_previous
@@ -7347,10 +7409,10 @@ sync_type
 t?;tt?74t?
 t?Dlt?e
 tCR;\HdY\
-tEQ
-tHN
-tIQ
-tUQ
+tHQ
+tKO
+tKQ
+tZP
 t\tvi
 table
 tan
@@ -7368,15 +7430,14 @@ test_water
 texcoord
 text
 text file busy
-tfQ
+thN
 this 
 threshold
 threshold_type
 tier0.dll
 time slice ms
 timed out
-tkQ
-tnO
+tkO
 too many files open
 too many files open in system
 too many links
@@ -7385,7 +7446,6 @@ tool
 tool_request_args
 tool_request_text
 tool_request_tool
-tools/
 total preset slots used: %d \n
 trace_to_farthest_surface
 track_01
@@ -7396,7 +7456,6 @@ tri
 trigger
 trigger%02d
 true
-ttQ
 type
 uV<c
 ub?L
@@ -7473,7 +7532,6 @@ vmix_preload_vsnd
 vmix_start_vmix_8track has empty vsnd string
 vmix_start_vmix_8track: Unable to create pSfx from vsnd path
 vmix_start_voice: %s invalid track name %s, using default track\n
-vmix_start_voice: %s specified invalid voicegraph %s, using %s\n
 vmix_start_vsnd: %s No available voices (%d in use), aborting starting vsnd %s\n
 vmix_voice_start
 vmix_voice_time
@@ -7498,7 +7556,6 @@ voice_threshold
 voice_threshold_delay
 void
 void 
-void Assert_ConditionFailed_Fatal(_AssertCompileTimeConstantStruct_t const&) (demangled)
 void Assert_ConditionFailed_Fatal(_AssertCompileTimeConstantStruct_t const&, char const*, ...) (demangled)
 void ConMsg(char const*, ...) (demangled)
 void DebugPrintKV3(KeyValues3const*) (demangled)
@@ -7540,56 +7597,62 @@ weights_field_name
 wrong protocol type
 wsqnmcb_OD420-+ 
 x?M\fo
-xAO
-xCQ
+xAK
+xBK
+xCO
 xDL
 xFM
-xGL
-xGM
-xKQ
-xLL
-xLM
-xLN
-xML
+xGG
+xGK
+xHG
+xJG
+xJH
+xJL
+xKL
+xNF
 xNK
-xOK
-xOL
-xOM
-xPK
-xQK
-xSK
+xOe
+xPG
+xQG
+xQM
+xRG
+xSL
 xT?V
-xTP
-xUN
-xZN
-xaM
-xaN
-xbM
-xcL
-xcM
-xcQ
-xdL
-xdM
-xeM
+xTM
+xWR
+xXG
+xYK
+xaQ
+xbH
+xbR
+xbS
+xcD
+xeL
 xe\Y]fv
+xfH
 xfM
-xgH
+xgK
 xhM
-xiP
+xhS
+xiM
+xjT
+xlH
+xmL
 xmM
+xnD
 xnK
-xnL
 xnbUH<1( 
-xpQ
-xqG
-xrM
+xpM
+xqM
+xrQ
 xrga[UNHB<6/)#
+xsG
 xsM
-xsQ
-xtI
-xuL
-xvM
-xyK
+xtD
+xuM
+xwJ
+xyG
+xyL
 yLM
 yUk
 yaw.cos
@@ -7601,11 +7664,7 @@ yslf`ZTMGA;5.
 z%o
 z?Mbz?H5z?
 zG(knN
-zHQ
 zZx
-zaQ
-zoQ
-zqQ
 zx?L
 {A7Dd
 {flat}

@@ -74408,6 +74408,163 @@
         "attributes": {
             "has_callback": true,
             "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "bool",
+        "datatype_raw": 0,
+        "default": "true",
+        "description": "WebRTC: cancel game audio echoing from the speakers into the microphone (AEC3).",
+        "flags": [
+            "archive"
+        ],
+        "module": "engine2",
+        "name": "voice_webrtc_aec"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "bool",
+        "datatype_raw": 0,
+        "default": "true",
+        "description": "WebRTC: adaptive digital automatic gain control (AGC2).",
+        "flags": [
+            "archive"
+        ],
+        "module": "engine2",
+        "name": "voice_webrtc_agc"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "bool",
+        "datatype_raw": 0,
+        "default": "false",
+        "description": "Process in-process voice chat microphone audio with the WebRTC audio processing module (requires voice_in_process).",
+        "flags": [
+            "archive"
+        ],
+        "module": "engine2",
+        "name": "voice_webrtc_apm"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": true,
+            "has_min": true
+        },
+        "datatype": "float32",
+        "datatype_raw": 7,
+        "default": "0.000000",
+        "description": "WebRTC: fixed digital gain in dB applied to the microphone before the adaptive gain stage.",
+        "flags": [
+            "archive"
+        ],
+        "max": "50.000000",
+        "min": "0.000000",
+        "module": "engine2",
+        "name": "voice_webrtc_fixed_gain_db"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "bool",
+        "datatype_raw": 0,
+        "default": "true",
+        "description": "WebRTC: high-pass filter to remove DC offset and low rumble.",
+        "flags": [
+            "archive"
+        ],
+        "module": "engine2",
+        "name": "voice_webrtc_hpf"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "bool",
+        "datatype_raw": 0,
+        "default": "true",
+        "description": "WebRTC: noise suppression.",
+        "flags": [
+            "archive"
+        ],
+        "module": "engine2",
+        "name": "voice_webrtc_ns"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": true,
+            "has_min": true
+        },
+        "datatype": "int32",
+        "datatype_raw": 3,
+        "default": "2",
+        "description": "WebRTC: noise suppression aggressiveness, 0 (low) to 3 (very high).",
+        "flags": [
+            "archive"
+        ],
+        "max": "3",
+        "min": "0",
+        "module": "engine2",
+        "name": "voice_webrtc_ns_level"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "bool",
+        "datatype_raw": 0,
+        "default": "false",
+        "description": "WebRTC: periodically print echo canceller statistics.",
+        "flags": [
+            "developmentonly"
+        ],
+        "module": "engine2",
+        "name": "voice_webrtc_stats"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "int32",
+        "datatype_raw": 3,
+        "default": "-1",
+        "description": "WebRTC: speaker-to-microphone delay hint in ms for the echo canceller; -1 relies on AEC3's own delay estimation.",
+        "flags": [
+            "developmentonly"
+        ],
+        "module": "engine2",
+        "name": "voice_webrtc_stream_delay_ms"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
             "has_max": true,
             "has_min": true
         },

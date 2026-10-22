@@ -16,7 +16,6 @@
 %08x
 %1m %2s (%3)
 %2.1fdB
-%3.2f
 %3.2f : (%1.2f, %1.2f)
 %4d: %7.1f, %7.1f, %7.1f (%7.2f)
 %6.2f : %6.2f
@@ -412,6 +411,7 @@ PlaySelected
 Pool Size:
 PostProcessingSystem_001
 PropertyEditorSystem_001
+Ptb
 QKeyEvent*
 QTableWidgetItem*
 QWidget*
@@ -543,7 +543,7 @@ VFileSystem017
 VMaterialSystem2_001
 VMediaFoundation001
 VMix Tracks
-VMix: AVG:%3.1fms  MAX:%3.1fms %d voices, %d sub-voices 
+VMix: AVG:%3.1fms  MAX:%3.1fms %d voices 
 VPhysics2_Interface_001
 VProcessUtils002
 VProfService_001
@@ -571,7 +571,6 @@ WideCharToMultiByte
 WorldRendererMgr001
 WriteConsoleW
 WriteFile
-Z\tV_fmodf
 \f\f?focusInEvent@QLabel@@MEAAXPEAVQFocusEvent@@@Z
 \n\r?heightForWidth@QBoxLayout@@UEBAHH@Z
 \r\f?focusInEvent@QLineEdit@@MEAAXPEAVQFocusEvent@@@Z
@@ -741,7 +740,6 @@ game:tools/images/showbudgettool/start.png
 game:tools/images/showbudgettool/stop.png
 game:tools/images/soundviewer/wireframe.png
 ghosts
-graph
 group
 group stop
 guid
@@ -1129,7 +1127,6 @@ public: QToolBar* QMainWindow::addToolBar(QString const&) (demangled)
 public: QToolButton::QToolButton(QWidget*) (demangled)
 public: QTreeWidget::QTreeWidget(QWidget*) (demangled)
 public: QTreeWidgetItem* QTreeWidget::takeTopLevelItem(int) (demangled)
-public: QTreeWidgetItem* QTreeWidgetItem::child(int) const (demangled)
 public: QTreeWidgetItem::QTreeWidgetItem(int) (demangled)
 public: QVBoxLayout::QVBoxLayout(QWidget*) (demangled)
 public: QVBoxLayout::QVBoxLayout(void) (demangled)
@@ -1165,7 +1162,6 @@ public: int QTableWidgetItem::column(void) const (demangled)
 public: int QTableWidgetItem::row(void) const (demangled)
 public: int QTreeWidget::indexOfTopLevelItem(QTreeWidgetItem*) const (demangled)
 public: int QTreeWidget::sortColumn(void) const (demangled)
-public: int QTreeWidgetItem::childCount(void) const (demangled)
 public: static QClipboard* QGuiApplication::clipboard(void) (demangled)
 public: static QColor QColor::fromRgb(int, int, int, int) (demangled)
 public: static QListData::Data const QListData::shared_null (demangled)
@@ -1363,6 +1359,7 @@ public: virtual void* QWidget::qt_metacast(char const*) (demangled)
 public: void CBufferString::Purge(int) (demangled)
 public: void CBufferString::ToLowerFast(int) (demangled)
 public: void CFilterString::SetString(char const*, FilterStringOp_t, FilterStringCase_t) (demangled)
+public: void CUtlString::Append(char const*) (demangled)
 public: void CUtlString::Set(char const*) (demangled)
 public: void CVariableBitStringBase::Resize(int) (demangled)
 public: void QAbstractButton::setCheckable(bool) (demangled)
@@ -1430,8 +1427,6 @@ public: void QTreeWidget::addTopLevelItem(QTreeWidgetItem*) (demangled)
 public: void QTreeWidget::setColumnCount(int) (demangled)
 public: void QTreeWidget::setHeaderLabels(QStringList const&) (demangled)
 public: void QTreeWidget::sortItems(int, Qt::SortOrder) (demangled)
-public: void QTreeWidgetItem::addChild(QTreeWidgetItem*) (demangled)
-public: void QTreeWidgetItem::removeChild(QTreeWidgetItem*) (demangled)
 public: void QTreeWidgetItem::setExpanded(bool) (demangled)
 public: void QTreeWidgetItem::setForeground(int, QBrush const&) (demangled)
 public: void QTreeWidgetItem::setText(int, QString const&) (demangled)
@@ -1474,7 +1469,6 @@ start
 start time
 stop
 substring
-subvoiceidx
 tier0.dll
 time
 time : duration
