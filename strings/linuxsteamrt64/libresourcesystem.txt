@@ -34,6 +34,7 @@
  volatile
 !m_bNeedsSort
 $ORIGIN
+$TT
 %hu
 %lld
 %llu
@@ -42,6 +43,7 @@ $ORIGIN
 %s allocation count overflow( %llu > %llu )\n
 %s called on a pool arena (no root available)\n
 %s$Fence%d
+%s.%s
 %s: __pos (which is %zu) > __size (which is %zu)
 %s: __pos (which is %zu) > this->size() (which is %zu)
 %s: allocation of %u too large, max %u\n
@@ -61,6 +63,7 @@ $ORIGIN
 &&(std::remove_reference<&&&>::type) std::forward<char const (&(std::remove_reference<&&&>::type)) [9]> (demangled)
 &&(std::remove_reference<>::type&) std::forward<int&(std::remove_reference<>::type&)> (demangled)
 &&(std::remove_reference<>::type&) std::forward<int>(std::remove_reference<>::type&) (demangled)
+(%d,%d)
 (anonymous namespace)
 *(&) std::__addressof<char>(&) (demangled)
 *(&) std::addressof<char>(&) (demangled)
@@ -71,12 +74,18 @@ $ORIGIN
 ** Forcing all resource loads to fail: "%s"\n
 *** Bad deletion request: Refcount for %s resource "%s" (%016llX) is greater than zero. (%d)!\n
 *pExisting == nTypeManifestPriority
-...
+-10 10
+-1000 1000
+-10000 10000
 ../public/tier0/tslist.h
 ../public/tier0/utlsortvector.h
 /dev/random
 /dev/urandom
 /src/
+0 1
+0 10
+0123456789
+1 4
 <INVALID>
 <array: %u elements>
 <binary blob: %u bytes>
@@ -444,7 +453,6 @@ GLIBC_2.2.5
 GLIBC_2.25
 GLIBC_2.3
 GLIBC_2.3.2
-GNU
 GameResourceServiceClientV001
 GameResourceServiceServerV001
 GameUIService_001
@@ -805,6 +813,7 @@ VEngineCvar007
 VFileSystem017
 VMaterialSystem2_001
 VMediaFoundation001
+VP4003
 VPhysics2_Interface_001
 VProcessUtils002
 VProfService_001
@@ -1290,6 +1299,7 @@ delete[](void*, unsigned long, std::align_val_t) (demangled)
 dl_iterate_phdr
 double
 dynamic_cast
+e_v
 econitem
 enable_profiling
 false
@@ -1301,6 +1311,7 @@ flc_file_ids
 flc_file_list
 flc_lines
 float
+fltx4
 fputc
 fputs
 free
@@ -1396,6 +1407,7 @@ memcpy
 memmove
 memset
 mold 2.36.0 (compatible with GNU ld)
+mt19937
 nTries < 10000000
 name
 new
@@ -2153,6 +2165,7 @@ vanim
 vanmgrph
 vcd
 vcompmat
+vcss
 vdata
 vdpn
 vdsp
@@ -2264,6 +2277,7 @@ vsnd
 vsndevts
 vsndstck
 vsurf
+vsvg
 vtable for 
 vtable for __cxxabiv1::__class_type_info (demangled)
 vtable for __cxxabiv1::__forced_unwind (demangled)
@@ -2300,6 +2314,7 @@ vwnod
 vwrld
 vxml
 wchar_t
+{0x%x}
 {default arg#
 {lambda
 {parm#

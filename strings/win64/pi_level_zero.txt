@@ -1,4 +1,5 @@
   NumEventsInWaitList %d:
+ %#llx
  ---> LEAK = %d
  Maximum length is 
  bytes aligned at 
@@ -167,8 +168,14 @@
 (zeEvent)
 , Current pool size for 
 , Current total pool size 
+,64K
+----------------------------------------------------------\n
 ---> DLL_PROCESS_ATTACH 
 ---> DLL_PROCESS_DETACH 
+-O0
+-O1
+-O2
+-O3
 -ftarget-compile-fast
 -igc_opts 'PartitionUnit=1,SubroutineThreshold=50000'
 -ze-opt-disable
@@ -225,7 +232,20 @@
 .tls$ZZZ
 .xdata
 .xdata$x
-8@JPn
+0.1
+0123456789
+05\n
+06\t
+0V\v
+0W\v
+0j\v
+14.39.1
+1i\v
+7l\v
+86\n
+8X\v
+8p\v
+9z\v
 <unknown>
 AcquireSRWLockExclusive
 AcquireSRWLockShared
@@ -240,6 +260,7 @@ Arg.Value->getZeHandlePtr(ZeHandlePtr, Arg.AccessMode, CommandBuffer->Device)
 Arg.Value->getZeHandlePtr(ZeHandlePtr, Arg.AccessMode, Queue->Device)
 Bad optional access
 BaseWaitList.createAndRetainUrZeEventList( EventWaitVector.size(), reinterpret_cast<const ur_event_handle_t *>(EventWaitVector.data()), Queue, ConvergenceCmdList->second.isCopy(Queue))
+Bn\v
 Bucket Size
 Buffer->getZeHandle(ZeHandleDst, ur_mem_handle_t_::write_only, CommandBuffer->Device)
 Buffer->getZeHandle(ZeHandleDst, ur_mem_handle_t_::write_only, Context->Devices[0])
@@ -248,6 +269,7 @@ Buffer->getZeHandle(ZeHandleDst, ur_mem_handle_t_::write_only, Queue->Device)
 Buffer->getZeHandle(ZeHandleSrc, AccessMode, Queue->Device)
 Buffer->getZeHandle(ZeHandleSrc, ur_mem_handle_t_::read_only, CommandBuffer->Device)
 Buffer->getZeHandle(ZeHandleSrc, ur_mem_handle_t_::read_only, Queue->Device)
+By\v
 C:\GA\intel\001\_work\_temp\w\build\bin\pi_level_zero.pdb
 Capacity
 CleanupCompletedEvent(Event)
@@ -272,6 +294,8 @@ Device->initialize()
 DeviceIoControl
 DisjointPool: error from memory provider: 
 DisjointPool: unexpected error: 
+Dl\v
+Ds\v
 DstBuffer->getZeHandle(ZeHandleDst, ur_mem_handle_t_::write_only, CommandBuffer->Device)
 DstBuffer->getZeHandle(ZeHandleDst, ur_mem_handle_t_::write_only, Queue->Device)
 DstImage->getZeHandle(ZeHandleDst, ur_mem_handle_t_::write_only, Queue->Device)
@@ -299,6 +323,7 @@ FormatMessageA
 FreeLibrary
 Freed 
 Frees
+Fu\v
 GetCurrentDirectoryW
 GetCurrentProcess
 GetCurrentProcessId
@@ -319,8 +344,10 @@ GetStartupInfoW
 GetSystemTimeAsFileTime
 GetTempPath2W
 GetTempPathW
+H3\n
 High
 Host
+Hq\v
 INFO
 InitOnceBeginInitialize
 InitOnceComplete
@@ -333,12 +360,16 @@ Invalid event release: event pool doesn't have unreleased events
 Invalid properties for call to piDevicePartition
 IsDebuggerPresent
 IsProcessorFeaturePresent
+Iw\v
 KERNEL32.dll
 Kernel->initialize()
 LeaveCriticalSection
 Level Zero Plugin Debug Layer
 Level Zero Plugin Layer
 Level Zero does not support kernel link flags: "
+Lj\v
+Lm\v
+Lo\v
 LoadLibraryExA
 LocalFree
 Log message syntax error: 
@@ -351,6 +382,8 @@ Mem->getZeHandle(ZeHandle, ur_mem_handle_t_::read_write)
 Mem->getZeHandle(ZeHandleImage, ur_mem_handle_t_::write_only)
 MoveFileExW
 MultiByteToWideChar
+Mv\v
+Mx\v
 NOTE: Number of queue groups = %d\n
 NOTE: link blitter/copy engines are available\n
 NOTE: link blitter/copy engines are not available\n
@@ -361,14 +394,18 @@ No compute queue available/allowed.
 No global offset extension found on this driver\n
 Normal
 Only empty braces are allowed!
+Ot\v
+PV\v
 ParamName=%d(0x%x)\n
 Parameter
 Parsing error: no valid log level for string '
 Parsing error: no valid sink for string '
 Peak Slabs in Pool
 Peak Slabs in Use
+Pl\v
 Platform->initialize()
 Pool
+Pp\v
 Proper format is: ENV_VAR="param_1:value_1,value_2;param_2:value_1"
 Provider
 Q->createCommandList(UseCopyEngine, CommandList)
@@ -398,13 +435,15 @@ Queue->executeCommandList(WaitCommandList, false, false)
 Queue->executeOpenCommandList(OpenCommandList->second.isCopy(Queue))
 Queue->insertStartBarrierIfDiscardEventsMode(CommandList)
 Queue->resetCommandList(it, true, EventListToCleanup)
-RSDSU
 Raising QueueBatchSize to %d\n
 Read from device global variable is out of range.
 ReleaseSRWLockExclusive
 ReleaseSRWLockShared
 ResetEvent
-Rpx
+Rh\v
+Ri\v
+Rk\v
+Rr\v
 RtlCaptureContext
 RtlLookupFunctionEntry
 RtlVirtualUnwind
@@ -471,6 +510,7 @@ TmpWaitList.createAndRetainUrZeEventList( NumEventsInWaitList, EventWaitList, Qu
 TmpWaitList.createAndRetainUrZeEventList(0, nullptr, Queue, UseCopyEngine)
 TryAcquireSRWLockExclusive
 TryAcquireSRWLockShared
+Tz\v
 UR ---> %s\n
 UR <--- %s(%s)\n
 UR DeviceInfoType=%d PI=%d but UR=%d\n
@@ -632,7 +672,14 @@ WideCharToMultiByte
 Write device global variable is out of range.
 Wrong format of the 
 Wrong logger environment variable parameter: '
+X0\n
+X1\n
+X2\n
+X4\n
+X6\t
+XA\n
 XPTI_FRAMEWORK_DISPATCHER
+XW\v
 ZE ---> %s%s\n
 ZES_ENABLE_SYSMAN
 ZE_DEBUG
@@ -684,6 +731,7 @@ ZeHostMemAllocHelper(&ZeHandleHost, UrContext, Size)
 ZeHostMemAllocHelper(RetMap, Queue->Context, Size)
 ZeHostMemAllocHelper(reinterpret_cast<void **>(&ZeHandle), UrContext, Size)
 ZeMemFreeHelper(UrContext, ZeHandle)
+Zm\v
 [L0] getZeQueue: failed to create queue
 [UR][L0] %s function not implemented!\n
 [WARNING] Failed to create Level Zero tracer: 
@@ -739,9 +787,9 @@ _seh_filter_dll
 _unlock_file
 _ur_buffer::free(): Unhandled release action
 _wassert
-`h\npw
 abort
 addEventToQueueCache(reinterpret_cast<ur_event_handle_t>(UREvent))
+ak\v
 amdgcn
 api-ms-win-crt-convert-l1-1-0.dll
 api-ms-win-crt-environment-l1-1-0.dll
@@ -756,6 +804,9 @@ atoi
 bad allocation
 bad array new length
 bad cast
+bj\v
+bl\v
+bn\v
 bool std::uncaught_exception(void) (demangled)
 calculateKernelWorkDimensions(Kernel, CommandBuffer->Device, ZeThreadGroupDimensions, WG, WorkDim, GlobalWorkSize, LocalWorkSize)
 calling zeCommandListAppendLaunchKernel() with  ZeEvent %#llx\n
@@ -906,6 +957,7 @@ createEventAndAssociateQueue(Queue, Event, UR_COMMAND_USM_PREFETCH, CommandList,
 debug
 device:
 die: 
+dr\v
 enqueueMemImageUpdate: unsupported image command type\n
 error
 executeCommandList: OpenCommandList should be equal tonull or CommandList
@@ -915,6 +967,7 @@ fgetc
 fgetpos
 file
 flush
+fo\v
 format layout = %d\n
 fputc
 fread
@@ -934,11 +987,14 @@ getZeHandle(ZeHandleSrc, ur_mem_handle_t_::read_only, LastDeviceWithValidAllocat
 getZeHandle(pi_device{%p}) = %p\n
 getZeHandle: last used allocation is not valid
 getenv
-hYh\n
-heo\n
-hez\n
-hic\n
+gp\v
+h5\n
+h6\t
+hd\v
+hm\v
 host:
+hs\v
+hy\v
 insertActiveBarriers(CommandList, UseCopyEngine)
 insertBarrierIntoCmdList(CmdList, TmpWaitList, *Event, IsInternal)
 insertBarrierIntoCmdList(CmdLists[0], _ur_ze_event_list_t{}, *Event, IsInternal)
@@ -949,6 +1005,8 @@ int std::_Winerror_map(int) (demangled)
 invalid hash bucket count
 invalid stoi argument
 invalid string position
+jq\v
+ku\v
 level
 list too long
 malloc
@@ -958,9 +1016,16 @@ memcmp
 memcpy
 memmove
 memset
+mw\v
 native_cpu
 nvptx64
+nz\v
 output
+p1\n
+p3\n
+p4\n
+pV\v
+pY\v
 pi2urImageCopyFlags: Unsupported use case
 pi2urImageInfoFlags: Unsupported use case
 piContextCreate
@@ -1162,6 +1227,7 @@ protected: void std::basic_streambuf<char, std::char_traits<char> >::pbump(int) 
 protected: void std::basic_streambuf<char, std::char_traits<char> >::setg(char*, char*, char*) (demangled)
 protected: void std::basic_streambuf<char, std::char_traits<char> >::setp(char*, char*) (demangled)
 protected: void std::basic_streambuf<char, std::char_traits<char> >::setp(char*, char*, char*) (demangled)
+pt\v
 public: _Cvtvec std::_Locinfo::_Getcvt(void) const (demangled)
 public: bool std::basic_istream<char, std::char_traits<char> >::_Ipfx(bool) (demangled)
 public: bool std::codecvt_base::always_noconv(void) const (demangled)
@@ -1206,6 +1272,8 @@ public: virtual void std::basic_streambuf<char, std::char_traits<char> >::_Lock(
 public: virtual void std::basic_streambuf<char, std::char_traits<char> >::_Unlock(void) (demangled)
 public: void std::basic_ios<char, std::char_traits<char> >::setstate(int, bool) (demangled)
 public: void std::basic_ostream<char, std::char_traits<char> >::_Osfx(void) (demangled)
+qi\v
+ql\v
 read_only_shared:
 resetDiscardedEvent(CommandList)
 setvbuf
@@ -1234,9 +1302,11 @@ struct usm::MemoryProviderError (demangled)
 sycl.experimental.level_zero.call
 sycl.experimental.level_zero.debug
 system
+t6\n
 terminate
 tolower
 toupper
+um\v
 ungetc
 unknown error
 unordered_map/set too long
@@ -1504,8 +1574,10 @@ ur_result_t urEnqueueUSMMemset(ur_queue_handle_t_*, void*, signed char, uint64_t
 ur_result_t urEnqueueUSMMemset2D(ur_queue_handle_t_*, void*, uint64_t, int, uint64_t, uint64_t, unsigned int, ur_event_handle_t_* const*, ur_event_handle_t_**) (demangled)
 ur_result_t urExtEventCreate(ur_context_handle_t_*, ur_event_handle_t_**) (demangled)
 ur_result_t urProgramSetSpecializationConstant(ur_program_handle_t_*, unsigned int, uint64_t, void const*) (demangled)
+ux\v
 vector too long
 vector<bool> too long
+vk\v
 void (*)(umf_memory_provider_t*) (demangled)
 void std::_Throw_C_error(int) (demangled)
 void std::_Xbad_alloc(void) (demangled)
@@ -1516,6 +1588,9 @@ void std::_Xout_of_range(char const*) (demangled)
 warmupQueueGroup(false, QueueGroup.UpperIndex - QueueGroup.LowerIndex + 1)
 warmupQueueGroup(true, QueueGroup.UpperIndex - QueueGroup.LowerIndex + 1)
 warning
+x2\n
+x6\t
+xj\v
 xptiAddMetadata
 xptiCheckTraceEnabled
 xptiFinalize
@@ -1544,6 +1619,8 @@ xptiSetUniversalId
 xptiTraceEnabled
 xptiUnregisterCallback
 xptiUnregisterStream
+yr\v
+yv\v
 zeCommandListAppendBarrier
 zeCommandListAppendEventReset
 zeCommandListAppendImageCopy

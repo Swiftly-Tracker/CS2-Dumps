@@ -29,10 +29,14 @@
  transaction_safe
  volatile
 $ORIGIN
+$TT
 %2.2d:%2.2d:%2.2d.%3.3d
+%d %d %d
 %d %d %d %d
 %lld
 %llu
+%s %s
+%s %s %s
 %s %s %s %s
 %s allocation count overflow
 %s allocation count overflow( %llu + %llu > %llu )\n
@@ -52,6 +56,7 @@ $ORIGIN
 &&(std::remove_reference<&&&>::type) std::forward<char const (&(std::remove_reference<&&&>::type)) [9]> (demangled)
 &&(std::remove_reference<>::type&) std::forward<int&(std::remove_reference<>::type&)> (demangled)
 &&(std::remove_reference<>::type&) std::forward<int>(std::remove_reference<>::type&) (demangled)
+(%d,%d)
 (anonymous namespace)
 *(&) std::__addressof<char>(&) (demangled)
 *(&) std::addressof<char>(&) (demangled)
@@ -60,12 +65,15 @@ $ORIGIN
 *(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) std::__addressof<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)> (demangled)
 *(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&) std::__addressof<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&)> (demangled)
 -nofocus
-...
-....
 ../public/tier0/tslist.h
 /dev/random
 /dev/urandom
 /src/
+0 0
+0 0 0
+0 0 0 0
+0 0 0 255
+0123456789
 <Unknown Shutdown Context>
 <Unknown>
 <no failure reason set>
@@ -73,6 +81,8 @@ $ORIGIN
 =============== End VConsole Buffered Messages ===============\n
 =============== Prior Messages Discarded at %d bytes ===============\n
 =============== VConsole Buffered Messages ===============\n
+==============================================================\n
+==========================================================\n
 APPSYSTEM: In ConnectInterfaces(), s_nRegistrationCount is %d!\n
 AddPage
 AlignedByteArray not properly aligned\n
@@ -222,7 +232,6 @@ GLIBC_2.2.5
 GLIBC_2.25
 GLIBC_2.3
 GLIBC_2.3.2
-GNU
 GameResourceServiceClientV001
 GameResourceServiceServerV001
 GameUIService_001
@@ -420,6 +429,7 @@ VEngineCvar007
 VFileSystem017
 VMaterialSystem2_001
 VMediaFoundation001
+VP4003
 VPhysics2_Interface_001
 VProcessUtils002
 VProfService_001
@@ -925,6 +935,7 @@ memcpy
 memmove
 memset
 mold 2.36.0 (compatible with GNU ld)
+mt19937
 nTries < 10000000
 name
 netadr_t::SetFromString(char const*, bool) (demangled)

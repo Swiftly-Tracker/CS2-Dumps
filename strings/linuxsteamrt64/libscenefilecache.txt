@@ -1,4 +1,3 @@
-   
   %20s = '%s' (weight %f)\n
   %20s = '%s'\n
   criterion '%25s':'%15s' 
@@ -168,12 +167,19 @@
  volatile
 #include
 $ORIGIN
+$TT
+%.*Lf
 %I:%M:%S %p
 %a %b %e %T %Y
+%d %d %d
 %d %d %d %d
+%g %g %g
 %lld
 %llu
+%s %s
+%s %s %s
 %s %s %s %s
+%s '%s'
 %s allocation count overflow
 %s allocation count overflow( %llu + %llu > %llu )\n
 %s allocation count overflow( %llu > %llu )\n
@@ -182,8 +188,13 @@ $ORIGIN
 %s referencing %d missing resources:\n
 %s | %s: discarded rule because of invalid criterion %i:  %s\n
 %s%20s : %40s %5.3f\n
+%s%s
+%s(%d)
 %s(token %i) : %s
 %s(token %i, line %i, col %i) : %s\n
+%s,%s
+%s.%s.%s
+%s/%s
 %s/%s: discarded rule because of invalid criterion %i: %s\n
 %s: __pos (which is %zu) > __size (which is %zu)
 %s: __pos (which is %zu) > this->size() (which is %zu)
@@ -193,6 +204,8 @@ $ORIGIN
 %s: max element overflow, cur count %u + %u\n
 %s: member count overflow (%u)\n
 %s: no space for allocation of %u\n
+%s\n
+%s_%s
 &&(&&) std::pair<std::basic_string_view<char, std::char_traits<char> >, int>::base object constructor<char const (&(&&)) [10], int&, (bool)1> (demangled)
 &&(&&) std::pair<std::basic_string_view<char, std::char_traits<char> >, int>::base object constructor<char const (&(&&)) [9], int, (bool)1> (demangled)
 &&(&&) std::pair<std::basic_string_view<char, std::char_traits<char> >, int>::complete object constructor<char const (&(&&)) [10], int&, (bool)1> (demangled)
@@ -207,6 +220,7 @@ $ORIGIN
 &&(std::remove_reference<std::ios_base::_Words&>::type) std::forward<std::ios_base::_Words(std::remove_reference<std::ios_base::_Words&>::type)> (demangled)
 &&(std::remove_reference<std::ios_base::{unnamed type 0}&>::type) std::forward<std::ios_base::{unnamed type 0}(std::remove_reference<std::ios_base::{unnamed type 0}&>::type)> (demangled)
 '%20s' vs. '%20s' = 
+(%d,%d)
 (anonymous namespace)
 (unknown)
 *(&) std::__addressof<char>(&) (demangled)
@@ -231,14 +245,31 @@ $ORIGIN
 +Retiming
 , not matched\n
 , score %4.2f\n
+,%s
 -+xX0123456789abcdef0123456789ABCDEF
 -+xX0123456789abcdefABCDEF
-...
+-0123456789
 ../../public/tier0/utldict.h
 ../public/tier0/utldict.h
 /dev/random
 /dev/urandom
 /src/
+0 0
+0 0 0
+0 0 0 0
+0 0 0 255
+0123456789
+0T\n
+0U\n
+49\n
+4A\n
+5v"
+7T\n
+7v$
+8T\n
+8i:
+8r$
+9q$
 < WRITE DEFAULTS >
 <array: %u elements>
 <binary blob: %u bytes>
@@ -872,9 +903,16 @@ Couldn't load KV3 for resource: %s
 CreateInterface
 Criteria
 Criteria Key/Value(s)
+D9\n
+DC1
+DC2
+DC3
+DC4
 DEFAULT
 DEL
+DH\f
 DISABLE
+DI\f
 DLE
 Data_Branch1xy
 Data_Branch1zBranch2x
@@ -996,7 +1034,6 @@ GLIBC_2.27
 GLIBC_2.3
 GLIBC_2.3.2
 GMT
-GNU
 Gait Override
 GameResourceServiceClientV001
 GameResourceServiceServerV001
@@ -1011,6 +1048,9 @@ GetResourceManifests
 GetThreadLocalStackAllocator
 Gradient()
 Graph Parameter Name
+Gv"
+Gy$
+H5\n
 HST
 Hammer/GameFeatureSet
 HammerMapLoader001
@@ -1042,6 +1082,10 @@ IPulseSystem_001
 IResourceTypeManager (demangled)
 IResponseRulesFileCache (demangled)
 IResponseSystem (demangled)
+IS1
+IS2
+IS3
+IS4
 IST
 ISceneFileCache (demangled)
 ISequence (demangled)
@@ -1101,6 +1145,7 @@ Jul
 July
 Jun
 June
+Jv$
 KV3 save transfer failed: %s
 KeyValueCache001
 KeyValues3: pre-allocated array memory is too small for %u elements (%u bytes available, %u bytes needed)\n
@@ -1113,6 +1158,7 @@ KeyValues::complete object destructor() (demangled)
 Kochanek-Bartels
 Kochanek-Bartels Early
 Kochanek-Bartels Late
+LA\n
 LC_ADDRESS
 LC_COLLATE
 LC_CTYPE
@@ -1273,6 +1319,8 @@ Public: %s
 Pulse Requirement
 Pulse Requirement Name
 PulseRequirementName
+Pv"
+Px#
 RESOURCE_TYPE_CHOREO_SCENE
 RESOURCE_TYPE_RESPONSE_RULES_LIST
 RESPONSE
@@ -1578,6 +1626,7 @@ UtlRBTree_FailedInsertDuplicate
 UtlVectorMemory_Alloc
 UtlVectorMemory_CalcNewAllocationCount
 UtlVectorMemory_FailedAllocation
+Uu$
 VApplication001
 VAsyncFileSystem2_001
 VAvi001
@@ -1591,6 +1640,7 @@ VMaterialSystem2_001
 VMediaFoundation001
 VNotify
 VNotify Abandoned (Not enabled)\n
+VP4003
 VPhysics2_Interface_001
 VProcessUtils002
 VProfService_001
@@ -1696,10 +1746,12 @@ VertexPaintBlendParams
 VertexPaintBlendParams1
 VertexPaintTintColor
 VeryFast
+Vg!
 VisBuilder_001
 Volume Matches Event Ramp
 VolumeMatchesRamp
 Vrad3_001
+Vv$
 WARNING: Resource name "%s" has the incorrect extension "%s" for the specified resource type (expected "%s")!\n
 Wait Until End
 WaitUntilEnd
@@ -1711,12 +1763,17 @@ World Offset Reference Clip
 World contexts: '%s', 
 WorldOffsetReferenceClip
 WorldRendererMgr001
+X%9
+XT\n
+XU\n
 Yes
+Yv$
 [abi:
 [friend]
 [unknown]
 \nFailed to save %s\n
 \nFailed to upconvert %s\n
+^$\.*+?()[]{}|
 _CustomCommand
 _CustomCommand%d
 _Float
@@ -2480,6 +2537,8 @@ array
 asterisk
 auto
 auto:
+av$
+bU\n
 backslash
 backspace
 bad_function_call
@@ -2881,6 +2940,8 @@ curvature
 curve_
 curve_%s_to_curve_%s
 curvetype
+dH\f
+dI\f
 decimal128
 decimal32
 decimal64
@@ -2913,10 +2974,12 @@ disabled
 displayfirst
 displaylast
 dl_iterate_phdr
+do$
 dollar-sign
 double
 double () std::basic_ostream<wchar_t, std::char_traits<wchar_t> >::<<() (demangled)
 double&() std::basic_istream<wchar_t, std::char_traits<wchar_t> >::>>() (demangled)
+dv$
 dynamic_actor
 dynamic_cast
 eCount
@@ -3052,6 +3115,7 @@ guard variable for std::time_get<char, std::istreambuf_iterator<char, std::char_
 guard variable for std::time_get<wchar_t, std::istreambuf_iterator<wchar_t, std::char_traits<wchar_t> > >::id (demangled)
 guard variable for std::time_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::id (demangled)
 guard variable for std::time_put<wchar_t, std::ostreambuf_iterator<wchar_t, std::char_traits<wchar_t> > >::id (demangled)
+hB\n
 half
 handshake_enum
 hardstopspeakevent
@@ -3131,6 +3195,7 @@ iostream error
 is_requirement_condition
 java Class for 
 java resource 
+ju$
 key
 kochanek
 kochanek_early
@@ -3320,6 +3385,7 @@ mood
 moodbody
 moods_file
 moodsfile
+mt19937
 name
 new
 new 
@@ -3358,6 +3424,8 @@ operator""
 optionallycompressedtangentframe
 orientation_relative
 out
+ov$
+pR\n
 param
 param2
 param3
@@ -3382,9 +3450,11 @@ pthread_mutex_lock
 pthread_mutex_unlock
 pthread_once
 punct
+qa!
 qangle
 question-mark
 quotation-mark
+r7\n
 random_device could not be read
 random_device: getentropy failed
 random_device: rdrand failed
@@ -5994,6 +6064,8 @@ unsigned short&() std::basic_istream<wchar_t, std::char_traits<wchar_t> >::>>() 
 unspecified
 unweighted
 upper
+ut!
+uv1
 value
 vcd3
 vcd_pulse_requirement
@@ -7370,6 +7442,7 @@ world_OFFSET
 xdigit
 zero
 zero_value
+{0x%x}
 {default arg#
 {lambda
 {parm#

@@ -1,19 +1,22 @@
-      
-       
                 
                                                        
+                                   -----------------------------------------------------------------------------------\n
                    Space (bytes)            Growth MOps/s Function\n
+                  ...\n
              %d: %3d 0x%02x
             ;;; deoptimize at 
            value(): %o\n
          Total         Max.     Abs. max.\n
         type: 
+     \u000b
+     \u000e
     #%d:%s -> #%d:%s [repr=%s]\n
     #%d:%s @ #%d:%s -> #%d:%s\n
     #%d:%s+#%d:%s -> #%d:%s [repr=%s]\n
     #%d:%s+(%d) -> #%d:%s [repr=%s]\n
     %d --> line_number: %d inlining_id: %d\n
     -- %d extra argument(s) already in the stack --\n
+    -------------------------\n
     0x%012lx: [top + %3d] <- 
     0x%012lx: [top + %3d] <- 0x%012lx ;  %s
     @ Input 
@@ -176,7 +179,9 @@
  - update_stats: %d\n
  -- already in optimization queue.\n
  -> object with constructor 
+ 000
  3@KSZ`fkoswz~
+ 3a
  ; %s (holey double)
  ; (holey double) [fp %c %d] 
  => bytecode_offset=%d, 
@@ -196,13 +201,39 @@
  Encoding root %d:
  Exceeding max recursion depth by %d for: 
  Goto
+ X "\0"\ "\
  [pretenured]
  [shape=Mrecord, color=grey, fontcolor=grey, 
  [shape=Mrecord, label="?"];\n
  [style=bold, shape=point];\n
  [style=dashed, color=grey, arrowhead=none];\n
+ \u0001
+ \u0002
+ \u0003
+ \u0004
+ \u0005
+ \u0006
+ \u0007
+ \u000f
+ \u0010
+ \u0011
+ \u0012
+ \u0013
+ \u0014
+ \u0015
+ \u0016
+ \u0017
+ \u0018
+ \u0019
+ \u001a
+ \u001b
+ \u001c
+ \u001d
+ \u001e
+ \u001f
  and 
  as it has already been optimized.\n
+ at %s:%d
  at <unknown>:%d
  at <unknown>:<unknown>
  at FieldIndex 
@@ -275,6 +306,7 @@
  phase            Time (ms)   
  pos:
  predecessors:
+ qw
  representation (expected: 
  should be prepared for optimization with %%PrepareFunctionForOptimization before  %%OptimizeFunctionOnNextCall / %%OptimizeMaglevOnNextCall / %%OptimizeOSR 
  should never have a type
@@ -317,8 +349,11 @@
 !(collection_kind == CollectionKind::kSet && iteration_kind == IterationKind::kKeys)
 !CageBaseGlobal::IsSet()
 !Contains(*moves_, HeapObject::cast(o))
+!Cu
+!DD
 !DDD$!D
 !Done()
+!Fu
 !HasBoilerplate(literal_site)
 !HasEscaped()
 !HasImmediateInput(instr, 0)
@@ -344,7 +379,10 @@
 !IsStaleReferenceStackSlot(move->source())
 !IsUndefined(obj->GetInstanceCallHandler(), isolate)
 !IsUnicodeMode()
+!Iu
+!Lu
 !NodeProperties::IsTyped(var_array[i])
+!Ou
 !StateExists(root_node)
 !allocation.IsFailure()
 !allocation_failed_
@@ -483,6 +521,8 @@
 ","type":"turboshaft_graph","data":
 ":{ "child_ranges":[
 "<dummy>"
+"X0"\ "\""\ #\
+"al9
 "allocated": 
 "assigned","op":
 "block_id":
@@ -554,11 +594,18 @@
 "type": "instance_type_data", 
 "type": "unallocated", 
 "type_data":{
+#################################################\n
+#%d:%s 
 #%d:%s if followed by IfSuccess/IfException, there should be no direct control uses, but direct use #%d:%s was found
 #%d:%s should be followed by IfSuccess/IfException, but is only followed by single #%d:%s
+#Qz
 #constructor
-$$$
+#sk
+#wk
+$%c
+$Ja
 $ORIGIN
+$fs
 % argument must be an object
 % argument must be between 0 and 100
 % called on non-object
@@ -590,10 +637,13 @@ $ORIGIN
 % requires that the property of the first argument, items[Symbol.asyncIterator], when exists, be a function
 % requires that the property of the first argument, items[Symbol.iterator], when exists, be a function
 % value is out of range.
+%$888888
+%%&M&
 %%VerifyType: unsupported type
 %*s bailed out due to '%s'\n
 %*s;;;     Inline point: script_id %d position: %zu.\n
 %*s;;; deopted at script_id: %d position: %zu with reason '%s'.\n
+%.0f
 %04d-%02d-%02dT%02d:%02d:%02d.%03dZ
 %10d bytes for context #%d\n
 %10d bytes for read-only\n
@@ -607,14 +657,21 @@ $ORIGIN
 %16zu
 %34s %10.3f (%4.1f%%)  %10zu (%4.1f%%) %10zu %10zu               
 %34s %10.3f (%4.1f%%)  %10zu (%4.1f%%) %10zu %10zu   %5.3f %6.2f
+%4d:%*s
+%5d: 
 %5u %*s %s:%d %d %d #%d
 %6zu @%6u %*c %s%s: 
 %8.0f ms: evacuation-summary: parallel=%s pages=%zu wanted_tasks=%zu cores=%d live_bytes=%ld compaction_speed=%.f aborted=%zu\n
 %: Arguments list has wrong type
 %: Invalid length parameter
 %: Out of memory
+%A]
 %Array%.from
+%Bu
 %Eu
+%Hu
+%Ku
+%Nu
 %RegExpStringIterator%.prototype.next
 %SegmentIsPrototype%[@@iterator]
 %SegmentIterator.prototype%.next
@@ -657,12 +714,14 @@ $ORIGIN
 %_DeoptimizeNow
 %closure
 %context
+%d / %s
 %d ; (int32) [fp %c %3d] 
 %d detached contexts are collected out of %d\n
 %d duplicates of size %d each (%dKB)\n
 %d flushed SharedFunctionInfo(s)\n
 %d pages. Free space: %.1f MB (waste: %.2f). Usage: %.1f/%.1f (MB) -> %.2f%%.\n
 %d.%d.%d.%d%s%s
+%d: %o\n
 %e ; %s (double)
 %e ; %s (float)
 %e ; (double) [fp %c %d] 
@@ -679,29 +738,53 @@ $ORIGIN
 %lu ; %s (uint32)
 %lx %x %.*s\n
 %new.target
+%p  %4tx  
+%p %5d %s\n
 %p is not within the current isolate's code or embedded spaces\n
+%p\r
+%s #%u
+%s %.40s\n
 %s %s %02d %04d
 %s %s %02d %04d %02d:%02d:%02d GMT%c%02d%02d (%s)
 %s %s %02d %05d
 %s %s %02d %05d %02d:%02d:%02d GMT%c%02d%02d (%s)
+%s %s,%s,
+%s / %s
 %s handle not serialized: 
 %s is not isolate-independent.\n
 %s mutator utilization = %.3f (mutator_speed=%.f, gc_speed=%.f)\n
 %s rax,0x%x
 %s st%d
+%s%.*lx
+%s%c
+%s%c %s
+%s%c %s,
+%s%s-%s.%s
+%s%s.%s
 %s%s_%s-%s.%s
+%s%s_%s.%s
 %s, %02d %s %04d %02d:%02d:%02d GMT
 %s, %02d %s %05d %02d:%02d:%02d GMT
+%s-%p-%i
+%s-%s-%i
 %s-none-%i
+%s.\n%s
 %s/jit-%d.dump
 %s/perf-%d.map
 %s:%d: assertion %s failed: %s\n
+%s:%i: %s\n
 %s\n\nFROM\n
 %this
+%u #%u
 %u ; (bool) [fp %c %3d] 
 %u ; (uint32) [fp %c %3d] 
+%zu: 
 %zu: %dx%zu\n
 &Bme
+&Kz
+&Mz
+&Uk
+&d5
 &page_allocator == &global_table_->allocator()
 &quot;
 ' already exists
@@ -714,6 +797,7 @@ $ORIGIN
 '%' returned for property '%' of object '%' is not a function
 '%' was defined without a getter
 '%' was defined without a setter
+'()*+,-./0\v\n!"#\r
 '.' == buffer[fraction_cursor]
 'Unimplemented Instruction'
 'arguments' is not allowed in class field initializer or static initialization block
@@ -726,6 +810,7 @@ $ORIGIN
 'defineProperty' on proxy: trap returned truish for defining non-configurable property '%' which is either non-existent or configurable in the proxy target
 'deleteProperty' on proxy: trap returned truish for property '%' but the proxy target is non-extensible
 'deleteProperty' on proxy: trap returned truish for property '%' which is non-configurable in the proxy target
+'fa
 'get' on proxy: property '%' is a non-configurable accessor property on the proxy target and does not have a getter function, but the trap did not return 'undefined' (got '%')
 'get' on proxy: property '%' is a read-only and non-configurable data property on the proxy target but the proxy did not return its actual value (expected '%' but got '%')
 'getOwnPropertyDescriptor' on proxy: trap reported non-configurability for property '%' which is either non-existent or configurable in the proxy target
@@ -739,6 +824,7 @@ $ORIGIN
 'has' on proxy: trap returned falsish for property '%' but the proxy target is not extensible
 'has' on proxy: trap returned falsish for property '%' which exists in the proxy target as non-configurable
 'isExtensible' on proxy: trap result does not reflect extensibility of proxy target (which is '%')
+'ni
 'ownKeys' on proxy: trap result did not include '%'
 'ownKeys' on proxy: trap returned duplicate entries
 'ownKeys' on proxy: trap returned extra keys but proxy target is non-extensible
@@ -757,6 +843,8 @@ $ORIGIN
 (*b) == schedule->GetBlockById((*b)->id())
 (*b) == schedule->block(control)
 (*prototype_map).ptr() != isolate_->initial_object_prototype()->map().ptr()
+(0x
+(9u
 (BYTECODE_COMPILER)
 (Bootstrapper)
 (Builtins)
@@ -769,6 +857,7 @@ $ORIGIN
 (Compilation cache)
 (Debugger)
 (EXTERNAL)
+(Eg
 (Eternal handles)
 (Extensions)
 (External strings)
@@ -870,9 +959,11 @@ $ORIGIN
 (isolate) != nullptr
 (isolate->thread_manager()->FirstThreadStateInUse()) == nullptr
 (isolate_) == nullptr
+(lB
 (location_) != nullptr
 (map descriptors)
 (max) != nullptr
+(mi
 (min) != nullptr
 (n) != nullptr
 (native context)
@@ -934,25 +1025,44 @@ $ORIGIN
 ) type 
 ).atomic_
 ).atomic_word32_pair_
+)Au
+)Du
+)Gu
+)Ju
+)Mu
+)li
+)vk
 *(v8::internal::Zone*, v8::internal::AstValueFactory*, v8::internal::Handle<v8::internal::ScopeInfo>) v8::internal::ClassScope::base object constructor<v8::internal::Isolate(v8::internal::Zone*, v8::internal::AstValueFactory*, v8::internal::Handle<v8::internal::ScopeInfo>)> (demangled)
 *(v8::internal::Zone*, v8::internal::AstValueFactory*, v8::internal::Handle<v8::internal::ScopeInfo>) v8::internal::ClassScope::base object constructor<v8::internal::LocalIsolate(v8::internal::Zone*, v8::internal::AstValueFactory*, v8::internal::Handle<v8::internal::ScopeInfo>)> (demangled)
 *(v8::internal::Zone*, v8::internal::AstValueFactory*, v8::internal::Handle<v8::internal::ScopeInfo>) v8::internal::ClassScope::complete object constructor<v8::internal::Isolate(v8::internal::Zone*, v8::internal::AstValueFactory*, v8::internal::Handle<v8::internal::ScopeInfo>)> (demangled)
 *(v8::internal::Zone*, v8::internal::AstValueFactory*, v8::internal::Handle<v8::internal::ScopeInfo>) v8::internal::ClassScope::complete object constructor<v8::internal::LocalIsolate(v8::internal::Zone*, v8::internal::AstValueFactory*, v8::internal::Handle<v8::internal::ScopeInfo>)> (demangled)
+*Dr
 *MMt\t
+*Nz
+*Oz
+*Pz
+*TA
 *dict == *dictionary
 *from <= *to
 *getter_map == getter->map()
 *holder == *(lookup->lookup_start_object()) || LoadHandler::CanHandleHolderNotLookupStart(*handler.object()) || IsJSPrimitiveWrapper(*holder)
 *in_object_properties == ((*instance_size - header_size) >> kTaggedSizeLog2) - requested_embedder_fields
 *internalized != *string
+*ki
 *length_value == Smi::FromInt(0)
 *previous_value == *value || (IsHeapNumber(*previous_value) && IsSmi(*value) && Object::Number(*previous_value) == Object::Number(*value))
 *setter_map == setter->map()
 *shared_->object() == f->shared()
 *type_.object() == owner->instance_descriptors(isolate)->GetFieldType(descriptor_)
 +%06d-%02d-%02dT%02d:%02d:%02d.%03dZ
++%d
 ++", shape=octagon
 ++active_safepoint_scopes_ == 1
++00:00
++Ag
++Jz
++eG
++rk
 , "blockIdToInstructionRange": {
 , "blockIdToOffset": {
 , "boxed_double_fields": %zu
@@ -987,6 +1097,7 @@ $ORIGIN
 , "tagged_fields": %zu
 , "type":"instructions"
 , "value":"
+, %02x
 , <context>:
 , Loads: 
 , Stores: 
@@ -1009,8 +1120,10 @@ $ORIGIN
 , in loop B
 , initializing
 , input_rep: 
+, line %d\n
 , live range: [
 , loop until B
+, mode: %s
 , no bytecode
 , nullopt
 , offset: 
@@ -1071,9 +1184,17 @@ $ORIGIN
 ,"tooltip": "REGISTER_OR_SLOT_OR_CONSTANT"
 ,"tooltip": "SAME_AS_INPUT: 
 ,"trace_function_count":
+,%o
+,%s,0x%x
+,%s,cl
+,%u
+,0x
+,1r
 ,<xmm0>
+,VB
 ,ZZZZZZZZZZ\t\f<
 ,\n"nodeOrigins" : 
+,in
 - Creating exception merge state at @
 - Creating loop merge state at @
 - In-place update of #
@@ -1103,13 +1224,23 @@ $ORIGIN
 ----- Graph after 
 ----- Instruction sequence 
 --------- s o u r c e   c o d e ---------\n
+----------------------------------------------------------------------------------------------------------------------\n
 --active_safepoint_scopes_ == 0
+-0x
 -1 != index_to_remove
 -1 <= index
 -1 == BuiltinFrame::cast(frame)->LookupExceptionHandlerInTable( nullptr, nullptr)
+-Cu
+-DT
 -DevTools console
+-Fu
 -Infinity
+-Iu
+-Lu
+-Ou
 -candidate
+-qw
+-xo
 . Expected 
 ...<truncated>>
 ../../src/builtins/builtins-array-gen.cc
@@ -1293,7 +1424,9 @@ $ORIGIN
 ../../third_party/libc++/src/include/string_view
 ../../third_party/libc++/src/include/vector
 .COW
+.Er
 .IGNORE_OOB
+.Me
 .STORE+COW
 .brand
 .catch
@@ -1323,8 +1456,8 @@ $ORIGIN
 /* anonymous */
 // warning: missing context slot - inconsistent frame?
 // warning: no context found - inconsistent frame?
-////////
 ////////////////
+/Jc
 /array/
 /bigint/
 /closure/
@@ -1373,10 +1506,21 @@ $ORIGIN
 0 == value
 0 == value & ((static_cast<intptr_t>(1) << kSmiShiftSize) - 1)
 0 == value_count
+0)0L0_0
 0000
+0040v0%8
+00~1
 0123456789ABCDEF
 0123456789abcdefghijklmnopqrstuvwxyz
 0Affffff\f@
+0C4t4\t5
+0Gr
+0Yn
+0\f1<1Q1c1
+0\f1]1
+0_8
+0fs
+0sx
 0u == frame_writer.top_offset()
 0u == gc_count_
 0u == new_committed_size % page_allocator_.AllocatePageSize()
@@ -1386,6 +1530,8 @@ $ORIGIN
 0u == strong_persistent_region_.NodesInUse()
 0u == weak_cross_thread_persistent_region_.NodesInUse()
 0u == weak_persistent_region_.NodesInUse()
+0u\
+0w\
 0x%012lx ;  [fp %c %3d]  
 0x%012lx ; %s 
 0x%012lx ; (literal %2d) 
@@ -1398,10 +1544,22 @@ $ORIGIN
 1 == count_true
 1 == effect_count
 1 == input_count
+1"272
 1.0 < factor
 1.2.13.1-motley
+1.3
+11.9.169.6
 123456789:;<=>?@ABCDEFGHIJ
+1Bu
+1Er
+1Eu
+1Hu
+1Ku
+1Nu
 1U == uint32_value()
+1V1
+1\nc
+1tk
 2 * sizeof(HeapObjectHeader) == dynamic_alignment
 2 <= repeat_count
 2 == children_count
@@ -1409,15 +1567,75 @@ $ORIGIN
 2 == input_count
 2 >= locations.return_count_
 2-digit
+2C]
+2Ny`
+2\tc
+2q\
+2u\
 3 == value_count
+3.r
 32 bit value in register is not zero-extended
 333333
 3333333333333333
 3333333333333333UUUUUUUUUUUUUUUU
+3Hr
+3hu
+3n`
+4G<
+4N\
+4sk
 5 == value_count
 5%c
+5Au
+5Du
+5Gu
+5I_
+5Ju
+5Mu
+5Zu
+5fa
+5lO
 6 == input_count
+6 o
+6$c
+607Y7
+637_7
+6DZ.
+6QR
+6Z&
+6Zz
+6`z
+6lB
+6zo
+7#c
+71\r
+7D7
+7~p
+8"c
 8888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888
+8:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+8N8~8
+8W{
+8bg
+8ni
+8o\
+8}p
+9 R
+9!c
+9#:8:s:";a;
+9@u
+9Cu
+9Fu
+9Iu
+9Lu
+9Ou
+9\tID
+9a&g
+9c=
+9cU
+9fc
+9mi
+9u\
 : Bypassing conversion
 : Converting phi input with a ChangeInt32ToFloat64
 : Eagerly untagging Phi on backedge
@@ -1430,12 +1648,19 @@ $ORIGIN
 : small function, skipping max-size and max-depth
 : value implied by 
 :%d] [bytecode=%p offset=%d]
-::::::::
 ::::::::::::::::
 :=$pos", shape=octagon
 :=$pos,begin-negative", shape=septagon
 :=$pos,begin-positive", shape=septagon
+:VB
+:li
+:vk
 :~%d] [pc=%p]
+;Er
+;Fz
+;Gz
+;Hz
+;ki
 <AccessCheckInfo
 <AccessorInfo 
 <AccessorPair
@@ -1485,6 +1710,7 @@ $ORIGIN
 <InterpreterData
 <Invalid Source>
 <Invalid String>
+<JS
 <JS AsyncGenerator>
 <JSArray[%u]>
 <JSAsyncFunctionObject>
@@ -1558,6 +1784,7 @@ $ORIGIN
 <embedded>
 <error>
 <false>
+<fs
 <hash_table_hole_value>
 <inlined(
 <instance_members_initializer>
@@ -1569,6 +1796,7 @@ $ORIGIN
 <null>
 <property_cell_hole_value>
 <result>
+<rk
 <static_initializer>
 <symbol %s>
 <symbol>
@@ -1588,21 +1816,35 @@ $ORIGIN
 == New block (
 == New block (single fallthrough) at 
 == New empty block ==
-===
 === Fallback attempt, hint=%p: [%p, %p)\n
 === Preferred region: [%p, %p)\n
 === Stack access counters === 
 === Stress deopt counter: %u\n
+=========================================================\n
+=Bu
+=Eu
+=Hu
+=Ku
+=Nu
+=\vp__________________________
 =init
->>>
+>9h
+>P7
 ?", shape=septagon
+?333333
+?K6
 ?N5cppgc8internal11HeapGrowing15HeapGrowingImplE
 ?ffffff
+@%p
 @.ACA~A-B
 @ConstructInvokeStub
 @Hpm
 @O_onOy
 @RVWtPp
+@d0
+@eu
+@n9
+@sk
 @wKA
 A C to Wasm entry stub
 A JavaScript to Wasm adapter
@@ -1638,6 +1880,7 @@ AND_CHECK_CHAR
 AND_CHECK_NOT_4_CHARS
 ANIMATION
 ANY
+AN\f
 API call returned invalid object
 API fatal error handler returned after process out of memory
 APISetAccessor
@@ -1680,6 +1923,9 @@ AVXFloat64Mul
 AVXFloat64Sub
 AWAIT
 AWAIT_CONTEXT_TYPE
+AX\v
+A\ta
+A\va
 Abort Descriptor
 Abort if code range is allocated further away than 4GB from the.text section
 AbortExtraWideHandler
@@ -2093,8 +2339,10 @@ Australia/ACT
 Australia/LHI
 Australia/NSW
 B!CcC!DQDfD
+B"U
 B@ffffff
 BBBBB
+BB]
 BH$I
 BIGINT
 BIGINT64_TYPED_ARRAY_CONSTRUCTOR_TYPE
@@ -2116,6 +2364,7 @@ BLOCK_SCOPE
 BOILERPLATE_ELEMENTS_TYPE
 BOILERPLATE_PROPERTY_ARRAY_TYPE
 BOILERPLATE_PROPERTY_DICTIONARY_TYPE
+BPB\tC
 BREAK
 BREAK_POINT_INFO_TYPE
 BREAK_POINT_TYPE
@@ -2128,6 +2377,7 @@ BYTECODE_COMPILER
 BYTECODE_HANDLER
 BYTES_PER_ELEMENT
 BYTE_ARRAY_TYPE
+B\nc
 BackRefIndex
 Background allocation failure: allocations=%dallocations.parked=%d
 BackgroundCompileTask::Run
@@ -2913,6 +3163,7 @@ Builtin_V8BreakIteratorSupportedLocalesOf
 Builtins::IsBuiltinId(info->builtin())
 Builtins::IsIsolateIndependentBuiltin(*code)
 Builtins::IsIsolateIndependentBuiltin(target_code)
+Bv_
 BwWdDfFCqQ
 Byte
 Bytecode length: 
@@ -2995,6 +3246,7 @@ COW_ARRAY_TYPE
 CPU profiler sampling interval in microseconds
 CSPViolation
 CST#
+C\tc
 C_WASM_ENTRY
 Call:FeedbackVectorCell
 Call:Initialize
@@ -3664,10 +3916,14 @@ Cycle in flag implications:%s
 Cyclic __proto__ value
 D"ID
 D$BH
+D4r
+D7q
+DD"
 DD$B
 DD$D
 DDD$
 DDDD
+DD`
 DEBUGGER
 DEBUG_EVALUATE_CONTEXT_TYPE
 DEBUG_INFO_TYPE
@@ -3679,7 +3935,10 @@ DEPENDENT_CODE_TYPE
 DEPRECATED_DESCRIPTOR_ARRAY_TYPE
 DISABLED
 DTiJ
+D\v\v\v\n\n\n\n\n\n\n\n\nl
+D]D
 D]DD]
+D]I
 Data cannot be cloned, out of memory.
 Data is not a Value
 DataView
@@ -3966,6 +4225,7 @@ Division by zero
 DivisionByZero
 Do not know how to serialize a BigInt
 Do not use %; %
+Do\
 DoubleArrayMax
 DoubleArrayMin
 DoubleArrayMinMax
@@ -3976,6 +4236,8 @@ Duplicate __proto__ fields are not allowed in object literals
 Duplicate capture group name
 Duplicate export of '%'
 Duplicate parameter name not allowed in this context
+E9x
+E@u
 ECu
 EDb
 EEEEE
@@ -4015,6 +4277,8 @@ EXTERNAL_POINTER_ARRAY_TYPE
 EYk
 EZE
 EZF
+E\tD
+E\va
 Effect control linearizer lowering of '%s': value output count does not agree.
 EffectPhi
 Either objectId or executionContextId or uniqueContextId must be specified
@@ -4134,6 +4398,7 @@ ExtractFastJSArray
 ExtractFastJSArray Descriptor
 ExtractHighHalf
 ExtractLowHalf
+F1{
 F32x4Abs
 F32x4Add
 F32x4Ceil
@@ -4142,7 +4407,9 @@ F32x4Eq
 F32x4ExtractLane
 F32x4Floor
 F32x4Ge
+F32x4Gt
 F32x4Le
+F32x4Lt
 F32x4Max
 F32x4Min
 F32x4Mul
@@ -4163,6 +4430,7 @@ F32x8Add
 F32x8Div
 F32x8Eq
 F32x8Le
+F32x8Lt
 F32x8Max
 F32x8Min
 F32x8Mul
@@ -4179,6 +4447,7 @@ F64x2Eq
 F64x2ExtractLane
 F64x2Floor
 F64x2Le
+F64x2Lt
 F64x2Max
 F64x2Min
 F64x2Mul
@@ -4198,6 +4467,7 @@ F64x4Add
 F64x4Div
 F64x4Eq
 F64x4Le
+F64x4Lt
 F64x4Max
 F64x4Min
 F64x4Mul
@@ -4240,6 +4510,7 @@ FUNCTION_TEMPLATE_INFO_ENTRIES_TYPE
 FUNCTION_TEMPLATE_INFO_TYPE
 FUNCTION_TEMPLATE_RARE_DATA_TYPE
 FUTURE_STRICT_RESERVED_WORD
+F^n
 Failed to allocate code range close to the .text section
 Failed to compile shared info that was already compiled before
 Failed to deserialize 
@@ -4420,6 +4691,7 @@ FreeLists statistics before collection:\n
 FreePages
 Freelists statistics per Page: [category: length || total free bytes]\n
 Fri
+Fs"
 Fsw
 FulfillPromise Descriptor
 FullEvacuator::RawEvacuatePage
@@ -4446,6 +4718,8 @@ Function_string
 Fuzzers use this flag to signal that they are ... fuzzing. This causes intrinsics to fail silently (e.g. return undefined) on invalid usage.
 FvPN2v88internal8compiler4NodeES3_PKcPNS0_4ZoneEE
 FvvE
+F}D333333\v@
+G$c
 GAJ
 GB-Eire
 GC during deserialization
@@ -4455,6 +4729,7 @@ GCC: (Debian 10.2.1-6) 10.2.1 20210110
 GCInfoTable
 GET
 GGGGG
+GH{
 GLIBC_2.14
 GLIBC_2.17
 GLIBC_2.2.5
@@ -4465,7 +4740,6 @@ GLOBAL_DICTIONARY_TYPE
 GLOBAL_ELEMENTS_TYPE
 GLOBAL_PROPERTIES_TYPE
 GMT-0
-GNU
 GTE
 GallopLeft
 GallopLeft Descriptor
@@ -4933,6 +5207,7 @@ GlobalIsFinite
 GlobalIsNaN
 GlobalMemoryController
 GlobalPropertyDependency
+Gm\
 Gnp
 GraphError: node #
 Graph\n\n
@@ -4948,10 +5223,15 @@ GrowFastSmiOrObjectElements
 GsabByteLength
 H""DHB
 H"DDD
+H#c
+H$B
+H,i
+H<u
 HD"I
 HEAP_NUMBER_TYPE
 HGb
 HIR
+HL\f
 HOLEY_DOUBLE_ELEMENTS
 HOLEY_ELEMENTS
 HOLEY_FROZEN_ELEMENTS
@@ -5019,12 +5299,15 @@ Hello World!
 Hello, World!\n
 Hello, world!
 Hfs
+Hi (demangled)
 Hms
 HoleyFloat64ToMaybeNanFloat64
 HoleyFloat64ToTagged
 Host-defined options has to be a PrimitiveArray
 How long to minimally wait after IC update before tier up
+Hr\n
 I""ID$I
+I"c
 I16x16Abs
 I16x16Add
 I16x16AddSatS
@@ -5224,6 +5507,7 @@ I8x32Sub
 I8x32SubSatS
 I8x32SubSatU
 IBu
+ID$
 IDENTIFIER
 IDLE
 IDa
@@ -5248,6 +5532,7 @@ INTERPRETED_FUNCTION
 INTERPRETER_DATA_TYPE
 INVALID ERROR CODE
 INu
+I\va
 IaI
 IdField::is_valid(id)
 Idempotent
@@ -5874,7 +6159,9 @@ IteratorPrototypeTake
 IteratorPrototypeToArray
 IteratorTakeHelperNext
 IteratorTakeHelperNext Descriptor
+J!c
 J3imS
+J?x
 JAVA_SCRIPT_BUILTIN_CONTINUATION_FRAME
 JAVA_SCRIPT_BUILTIN_CONTINUATION_WITH_CATCH_FRAME
 JCz
@@ -6283,6 +6570,7 @@ JS_WEAK_MAP_TYPE
 JS_WEAK_REF_TYPE
 JS_WEAK_SET_TYPE
 JS_WRAPPED_FUNCTION_TYPE
+J^k
 Jan
 JavaScript
 JavaScriptBuiltinContinuationFrame
@@ -6293,6 +6581,7 @@ JoinStackPop Descriptor
 JoinStackPush
 JoinStackPush Descriptor
 JrX
+Ju\
 Jul
 JumpConstant
 JumpConstantExtraWideHandler
@@ -6386,6 +6675,10 @@ JumpLoopHandler
 JumpLoopWideHandler
 JumpWideHandler
 Jun
+J}p
+K c
+K9x
+KBz
 KIz
 KUz
 KeyedHasICBaseline Descriptor
@@ -6406,15 +6699,21 @@ Kli
 Kms
 Kuk
 Kvk
+L-g
+L3{
+L7;
 LBRACE
 LBRACK
 LDoubleConstant::min_int
 LDoubleConstant::one_half
 LET
+LH_
 LIR
 LJc
 LJg
 LLLLL
+LN10
+LN2
 LNu
 LOAD
 LOAD_2_CURRENT_CHARS
@@ -6700,6 +6999,14 @@ LostPrecision
 LostPrecisionOrNaN
 LwH'
 Lwo
+L}k
+M(short) (demangled)
+M1I
+M2I
+M3a
+M4I
+M63
+M8I
 MAGLEV
 MAP_ABANDONED_PROTOTYPE_TYPE
 MAP_DEPRECATED_TYPE
@@ -6728,11 +7035,17 @@ MN2v88internal22ArrayBuiltinsAssemblerEFvvE
 MODULE_CONTEXT_TYPE
 MODULE_REQUEST_TYPE
 MODULE_SCOPE
+MR1
 MR1I
+MR2
 MR2I
+MR4
 MR4I
+MR8
 MR8I
 MRI
+M\rc
+M\va
 MachineOperatorReducer
 MachineRepresentation::kBit == inferrer_->GetRepresentation(node->InputAt(0))
 MachineRepresentation::kFloat32 == type.representation()
@@ -6909,6 +7222,7 @@ Missing initializer in % declaration
 Missing proper type (%s). Type is: %s
 Missing proper type for TruncateWord32Input. Type is: %s
 Missing } in template expression
+Mj (demangled)
 MmN
 ModExtraWideHandler
 ModHandler
@@ -6973,12 +7287,15 @@ MutableBigInt_BitwiseXorPosNegAndCanonicalize
 MutableBigInt_BitwiseXorPosPosAndCanonicalize
 MutableBigInt_LeftShiftAndCanonicalize
 MutableBigInt_RightShiftAndCanonicalize
+N,i
+N/b
 N4LV\r
 NAME_TO_INDEX_HASH_TABLE_TYPE
 NATIVE_CONTEXT_TYPE
 NEGATIVE_INFINITY
 NE_STRICT
 NEr
+NF2
 NFC
 NFC, NFD, NFKC, NFKD
 NFC_string
@@ -6996,6 +7313,7 @@ NULL_LITERAL
 NUMBER
 NUMBER_STRING_CACHE_TYPE
 NZ-CHAT
+N\fc
 NaN
 NaN_string
 Name,
@@ -7206,6 +7524,8 @@ OSR into maglev is not implemented yet
 OSREarlyExit
 OTHER
 OTHER_CONTEXT_TYPE
+O\vc
+O\x
 Object
 Object couldn't be returned by value
 Object is not available
@@ -7382,6 +7702,7 @@ PFbN2v88internal12InstanceTypeEE
 PFbN2v88internal12VariableModeEE
 PFbPKcE
 PFvPN2v88internal8compiler4NodeES3_PKcPNS0_4ZoneEE
+PN\
 POP_BT
 POP_CP
 POP_REGISTER
@@ -7576,17 +7897,29 @@ PushContextHandler
 PushContextWideHandler
 Pushing % elements on an array-like of length % is disallowed, as the total surpasses 2**53-1
 Put embedded builtins code into the code range for shorter builtin calls/jumps if system has >=4GB memory
+Q.i
+Q7^
+Q9x
+Q@u
 QCu
 QFu
 QIu
 QLu
 QOu
 QUESTION_PERIOD
+Q\va
 Qkkbal
 Qsk
+Qu\
+Qu\v
 Quad
 Quadruple
+Qw\
+Q{w
 R/Gy
+R/S
+R2a
+R3w
 R@nj
 RAB / GSAB
 RAB_GSAB_BIGINT64ELEMENTS
@@ -7617,6 +7950,7 @@ REX.W
 RGr
 RPAREN
 RPO
+RT{
 RabGsabBigInt64ElementsAccessor::TryCopyElementsFastNumber( context, source, destination, length, offset)
 RabGsabBigUint64ElementsAccessor::TryCopyElementsFastNumber( context, source, destination, length, offset)
 RabGsabFloat32ElementsAccessor::TryCopyElementsFastNumber( context, source, destination, length, offset)
@@ -7633,6 +7967,8 @@ Range(
 Range: 
 RangeError
 RangeError_string
+Rc_
+Rd.
 Re-embedded builtins: set permissions
 ReThrowHandler
 Reached heap limit
@@ -8568,6 +8904,7 @@ SWITCH
 SYMBOL_TYPE
 SYNTHETIC_MODULE_TYPE
 SYSTEMV/
+S\nc
 Safe()
 SafepointTable::TaggedSlotsBytesField::is_valid(tagged_slots_bytes)
 SameValueNumbersOnly
@@ -9189,6 +9526,7 @@ SwitchOnSmiNoFeedback
 SwitchOnSmiNoFeedbackExtraWideHandler
 SwitchOnSmiNoFeedbackHandler
 SwitchOnSmiNoFeedbackWideHandler
+Sx,
 Symbol
 Symbol(
 Symbol,
@@ -9223,6 +9561,7 @@ SyntaxError
 SyntaxError_string
 Syo
 SystemV/
+T,i
 TEMPLATE_OBJECT_DESCRIPTION_TYPE
 TEMPLATE_SPAN
 TEMPLATE_TAIL
@@ -9231,8 +9570,10 @@ THIN_TWO_BYTE_STRING_TYPE
 THIS
 THROW
 TOg
+TQ|
 TRANSITION_ARRAY_TYPE
 TRUE_LITERAL
+TR|
 TUPLE2_TYPE
 TURBOFAN_BITSET_TYPE_TYPE
 TURBOFAN_HEAP_CONSTANT_TYPE_TYPE
@@ -9249,6 +9590,8 @@ TURBOSHAFT_WORD64_RANGE_TYPE_TYPE
 TURBOSHAFT_WORD64_SET_TYPE_TYPE
 TURBOSHAFT_WORD64_TYPE_TYPE
 TYPEOF
+T\tc
+T]o
 TaggedBitcast
 TaggedEqual
 TaggedIndexConstant
@@ -9809,6 +10152,7 @@ TurboFan loop rotation
 TurboFan loop variable optimization
 TurbofanFrame
 TurbofanStubWithContextFrame
+Tx|
 Type assertion failed!
 Type assertion failed! (value/expectedType/nodeId)
 Type assertion failed! (value/expectedType/nodeId)\n
@@ -9866,6 +10210,8 @@ TypedObjectState
 TypedOptimization
 Typeof Descriptor
 Types
+U-i
+U5\v
 UBu
 UErrorCode&() icu_73::number::NumberFormatterSettings<icu_73::number::LocalizedNumberFormatter()>::toSkeleton const (demangled)
 UEu
@@ -9901,6 +10247,7 @@ USE_SIMULATOR_BOOL
 UTC
 UTC_string
 UUUUUUUUUUUUUUUU
+U\va
 U_SUCCESS(status)
 UdV
 Uint16Array
@@ -10055,6 +10402,8 @@ Used with --prof, turns on browser-compatible mode for profiling.
 Using 
 Utf16::HasUnpairedSurrogate
 Utf16::ReplaceUnpairedSurrogates
+U~p
+V2r
 V8 Code
 V8 sampling heap profiler was not started.
 V8 snapshot blob was not set during initialization. This can mean that the snapshot blob file is corrupted or missing.
@@ -10566,6 +10915,7 @@ V8_Fatal(char const*, ...) (demangled)
 V:WKW
 VAR
 VEF
+VG~
 VOID
 VTT for std::__Cr::basic_ifstream<char, std::__Cr::char_traits<char> > (demangled)
 VTT for std::__Cr::basic_istringstream<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char> > (demangled)
@@ -10649,6 +10999,9 @@ W-SU
 WASM_ARRAY_ELEMENTS
 WASM_TO_CAPI_FUNCTION
 WASM_TO_JS_FUNCTION
+WA\
+WA]
+WC]
 WEAK_ARRAY_LIST_TYPE
 WEAK_CELL_TYPE
 WEAK_FIXED_ARRAY_TYPE
@@ -10659,6 +11012,7 @@ WITH
 WITH_CONTEXT_TYPE
 WITH_SCOPE
 WIa
+W_g
 Warning: disabling flag --trace_turbo due to conflicting flags\n
 Warning: disabling flag --trace_turbo_graph due to conflicting flags\n
 Warning: disabling flag --trace_turbo_reduction due to conflicting flags\n
@@ -10677,6 +11031,7 @@ WasmObject
 WasmSuspend Descriptor
 WasmToJSWrapper Descriptor
 We should never get here - unexpected deopt info.
+We`
 WeakCallbackInfo::GetInternalField
 WeakCollectionDelete Descriptor
 WeakCollectionSet Descriptor
@@ -10813,6 +11168,7 @@ WrongMap
 WrongName
 WrongValue
 Wrote heap snapshot to %s.\n
+X$c
 X4v}:\x
 X64Add
 X64Add32
@@ -10949,6 +11305,7 @@ X64IAddSatS
 X64IAddSatU
 X64IAllTrue
 X64IBitMask
+X64IEq
 X64IExtractLane
 X64IExtractLaneS
 X64IGeS
@@ -11030,6 +11387,8 @@ X64Popcnt32
 X64Push
 X64Rol
 X64Rol32
+X64Ror
+X64Ror32
 X64S128Const
 X64S128Load16Splat
 X64S128Load16x4S
@@ -11084,11 +11443,16 @@ X64SAllOnes
 X64SAnd
 X64SAndNot
 X64SNot
+X64SOr
 X64SSelect
 X64SXor
 X64SZero
 X64Sar
 X64Sar32
+X64Shl
+X64Shl32
+X64Shr
+X64Shr32
 X64Shufps
 X64Sub
 X64Sub32
@@ -11113,35 +11477,54 @@ X64Word64AtomicOrUint64
 X64Word64AtomicStoreWord64
 X64Word64AtomicSubUint64
 X64Word64AtomicXorUint64
+X64Xor
+X64Xor32
 XCt\n
 XDR
+XHR
 XSU
 XUX
 XqN\r
+Xr\f
 Xtk
+Y#c
+Y1Y
 YAu
 YDu
 YGu
 YIELD
 YJu
+YMu
+Y\rZ
+Y\va
 Y`iW
 Yield expression not allowed in formal parameter
 Young generation
+Yw\
+Z"c
 ZEz
 ZN8v8_crdtp4cbor12_GLOBAL__N_111CBOREncoderE
+ZV|
+ZWL
 ZYp
 ZbI
 ZeroExtend
+Zi[
 Zjz\v
 Zni
 [%d:%p] %8.0f ms: 
 [%d:%p] %8.0f ms: %s%s %.1f (%.1f) -> %.1f (%.1f) MB, %.2f / %.2f ms %s (average mu = %.3f, current mu = %.3f) %s; %s\n
 [%p - %p] => %u\n
+[%s%s0x%x]
 [%s*%d%s0x%x]
 [%s+%s*%d%s0x%x]
+[%s+%s*%d]
 [%s] Limit: old size: %zu KB, new limit: %zu KB (%.1f)\n
 [%s] factor %.1f based on mu=%.3f, speed_ratio=%.f (gc=%.f, mutator=%.f)\n
 [%s]: %d pages, %d (%.1f%%) free\n
+[0;34m
+[0m
+[1;34m
 [31mNo ISEL support for: %s
 [AddressToTraceMap (%zu): \n
 [AllocationTraceTree:]\n
@@ -11162,6 +11545,7 @@ Zni
 [Deserializing from %d bytes took %0.3f ms]\n
 [Deserializing isolate (%d bytes) took %0.3f ms]\n
 [Deserializing read-only space (%d bytes) took %0.3f ms]\n
+[Dz
 [Finishing off-thread deserialize from %d bytes took %0.3f ms]\n
 [Generator].prototype.next
 [Generator].prototype.return
@@ -11280,6 +11664,7 @@ Zni
 [marking 
 [marking dependent code 
 [memory order: 
+[mi
 [migrating to slow]\n
 [migrating]
 [not marking function %s (%s) for optimization: already queued]\n
@@ -11312,12 +11697,17 @@ Zni
 \ at end of pattern
 \8 and \9 are not allowed in strict mode.
 \8 and \9 are not allowed in template strings.
-\f\f\f
-\f\f\f\f\f
-\f\f\f\f\f\f
-\f\f\f\f\f\f\f
-\f\f\f\f\f\f\f\f
+\Er
+\fPD
 \f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f
+\f\f\f\f\f\f\f\f\f\t\t\f\f\t\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\t\f
+\fam
+\ffa
+\ffs
+\fut
+\fwk
+\li
+\n          
 \n  It seems the store happened to something different than a direct allocation:\n
 \n  There is a potentially allocating node in between:\n
 \n - access_check_needed
@@ -11356,31 +11746,51 @@ Zni
 \n#\n# Fatal %s out of memory: %s\n#\n\n
 \n#\n# Fatal error in %s\n# %s\n#\n\n
 \n--- END ---\n
+\n-----------------------------------------\n
+\n1P
+\n3h
+\n7X
 \n<--- JS stacktrace --->\n%s\n
 \n<--- Last few GCs --->\n%s\n
 \n==== Details ================================================\n\n
 \n==== JS stack trace =========================================\n\n
+\nAX
 \nAfter Phi untagging
 \nAfter graph buiding
+\nDc
+\nDz
+\nEH
+\nEz
+\nG0
 \nIDa
+\nIx
 \nMaglevPhiRepresentationSelector\n
+\nSX
+\nUh
+\nYx
 \n[holes:
+\n\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f
 \n\nAttempt to print stack while printing stack (double fault)\n
-\n\n\n
-\n\n\n\n
-\n\n\n\n\n\n\n\n\n\n
 \n],\n"blocks":[
 \n],\n"edges":[
+\nfU
 \nnov
+\nyC
 \r8STs\ne
+\rBu
+\rEu
+\rGw
+\rHu
+\rKu
+\rNu
+\t0m
+\tCu
+\tFu
+\tID
+\tIu
+\tLu
+\tOu
 \t\n\n1\nF\nm\nv\n
-\t\t\t
-\t\t\t\t
-\t\t\t\t\t
-\t\t\t\t\t\t
-\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t\t
 \t\t\t\t\t\t\t\t\t\t\t
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
@@ -11388,11 +11798,28 @@ Zni
 \u%02x%02x
 \u%04X
 \u%04x
+\u0000
+\u{%06x}
 \vDDDDD\v
+\vJc
 \v\n\n\n\n\n\n\n\n\nN2v88internal25PropertyCallbackArgumentsE
 \vdec
 \x%02x
+\x2C
 ] in groups [
+]Cu
+]Fu
+]Iu
+]Lu
+]Ou
+]ki
+]wo
+^4E
+^Hr
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n
+^ax
+^wk
+_(__float128) (demangled)
 _AsyncFunctionAwaitCaught
 _AsyncFunctionAwaitUncaught
 _AsyncFunctionEnter
@@ -11433,7 +11860,6 @@ _ZTSZN2v88internal23StringBuiltinsAssembler20CopyStringCharactersINS0_6StringEEE
 _ZTSZN2v88internal23StringBuiltinsAssembler20CopyStringCharactersINS0_7RawPtrTEEEvNS0_5TNodeIT_EENS4_INS0_6StringEEENS4_INS0_7IntPtrTEEESA_SA_NS7_8EncodingESB_EUlSA_E_
 _ZTVNSt4__Cr20__shared_ptr_emplaceINS_6vectorIhNS_9allocatorIhEEEENS2_IS4_EEEE
 _ZTVNSt4__Cr20__shared_ptr_pointerIPNS_6vectorIhNS_9allocatorIhEEEENS_10shared_ptrIKS4_E27__shared_ptr_default_deleteIS7_S4_EENS2_IS4_EEEE
-________
 ________________
 __________________________
 __ctype_b_loc
@@ -11484,13 +11910,17 @@ _v8_internal_Print_StoreHandler(void*) (demangled)
 _v8_internal_Print_TransitionTree(void*) (demangled)
 `...` must be followed by an assignable reference in assignment contexts
 `...` must be followed by an identifier in declaration contexts
+`Ba
 `D`@iDiDkDq
+`fs
+a5i
 aBu
 aEu
 aHu
 aKu
 aNu
 aTb
+a\va
 ab.CanAllocateArray(arity, fixed_array_map)
 ab.CanAllocateArray(elements_length, elements_map, allocation)
 ab.CanAllocateArray(register_count, fixed_array_map)
@@ -11728,7 +12158,12 @@ await can not be used when evaluating code while paused in the debugger
 await is only valid in async functions and the top level bodies of modules
 await_context_map
 await_string
+b5=
+b:P
 bCbi\t
+bI-
+bP\
+bQ<
 back() called on an empty vector
 back_pointer
 background allocation failure
@@ -11823,6 +12258,7 @@ block_hint
 block_ids_.size() == counts_.size()
 blsi
 blsmsk
+blsr
 body
 body should be a Function
 body should return an Array
@@ -11869,6 +12305,7 @@ bound_function_name_accessor
 bound_function_with_constructor_map
 bound_function_without_constructor_map
 bound_this
+bp8
 bpl
 breakOnAsyncCall
 breakType
@@ -11968,9 +12405,11 @@ c:V8.WasmGeneratedCodeBytes
 c:V8.WasmLazilyCompiledFunctions
 c:V8.WasmRelocBytes
 c:V8.WriteBarriers
+cC]
 cGr
 c_argument_count >= kReceiver
 c_candidate_functions.size() > 0
+ca`
 cache prototype transitions
 cache_prototype_transitions
 cached
@@ -12037,6 +12476,7 @@ cause_string
 cb.use_count() == 1
 cbrt
 cc == Condition::kUnsignedLessThan || cc == Condition::kUnsignedGreaterThanEqual
+cc=
 ccccc
 cdq
 cdt
@@ -12883,8 +13323,12 @@ cvttps2dq
 cvttps2dq%c %s,
 cvttsd2si%c %s,
 cvttss2si%c %s,
+c|o
+c~o
+d@H
 dIe
 dKg
+d\nc
 data segment out of bounds
 data->top_tier_register_allocation_data() ->RangesDefinedInDeferredStayInDeferred()
 data:
@@ -12922,6 +13366,7 @@ daysInYear
 daysInYear_string
 days_string
 de-AT
+de[
 dead
 deadline_ms
 debug
@@ -13106,11 +13551,13 @@ dump_allocations_digest_at_alloc
 dump_builtins_hashes_to_file
 duplicated object #%d
 e&f]f|f
+e-g
 eAu
 eDu
 eGu
 eJu
 eMu
+e\tc
 edt
 effect linearization schedule
 effect_count == control->op()->ControlInputCount()
@@ -13365,6 +13812,7 @@ eternal
 ethioaa
 ethiopic-amete-a
 ethiopic-amete-alem
+ev\n
 evacuation[%p]: page=%p new_space=%d page_evacuation=%d executable=%d can_promote=%d live_bytes=%ld time=%f success=%d\n
 evacuation_mode
 eval
@@ -13457,14 +13905,20 @@ extra verbose optimized compilation tracing
 extractps
 extras_binding_object
 f%o
+f&4
+f&o
 f->nargs < 0 || f->nargs == num_arguments
+f.i
 f2xm1
+f3;
 f64_acos_wrapper
 f64_asin_wrapper
 f64_mod_wrapper
+f9h
 fLz
 fMy
 fOu
+f\r7
 fabs
 factor by which to grow the new space
 fadd
@@ -13490,6 +13944,7 @@ fclex
 fclose
 fcompp
 fcos
+fd2
 fdiv
 fdivp
 fdopen
@@ -13568,6 +14023,7 @@ flatMap
 flatMap mapper function is not callable
 fld
 fld1
+fld_d
 fld_s
 fldln2
 fldpi
@@ -13696,6 +14152,7 @@ fstp_s
 fsub
 fsubp
 ftell
+ftst
 fuC
 fucomi
 fucomip
@@ -13741,6 +14198,7 @@ fuzzer_random_seed
 fwait
 fwrite
 fxch
+fyl2x
 gMh
 gallon
 gap 
@@ -14174,11 +14632,16 @@ groups
 groups_string
 growable
 growable_string
+h11
 h11_string
+h12
 h12_string
+h23
 h23_string
+h24
 h24_string
 hJc
+hS 
 haddps
 hai
 half-ceiling
@@ -14306,6 +14769,7 @@ hitBreakpoints
 hitCount
 hlt
 hms
+ho\
 hole_map
 hole_nan_value
 hot and stable
@@ -14324,14 +14788,18 @@ hoursInDay
 hoursInDay_string
 hours_string
 href
+hu\
 huge_max_old_generation_size
 hypot
+h~p
 i < NumberOfOperands(bytecode)
 i < length()
 i < self->length()
+i$c
 i::Script::GetPositionInfo( script, i::StackFrameInfo::GetSourcePosition(self), &info)
 i::kMaxInt >= len
 i::kMaxInt >= length
+i@u
 iCu
 iFu
 iIu
@@ -14339,6 +14807,7 @@ iLu
 i]Wb
 i_isolate == Isolate::Current()
 i_value == static_cast<int64_t>(d_value)
+i`y
 ic-stats
 icu_73::BreakIterator::createCharacterInstance(icu_73::Locale const&, UErrorCode&) (demangled)
 icu_73::BreakIterator::createLineInstance(icu_73::Locale const&, UErrorCode&) (demangled)
@@ -15093,11 +15562,21 @@ iterator_function
 iterator_map_helper_map
 iterator_result_map
 iterator_take_helper_map
+it|
 iuj
+iy`
+j#c
+j%s %s
+j*I
+j-i
+j0{
+j?z
 jHq
 jJz
 jNk
 jNz
+jOz
+jPz
 jan
 javascript_execution_assert
 jdu
@@ -15110,11 +15589,13 @@ jmp
 jmp %s
 job_->state_ == SweepingState::kDone
 join
+jp5
 js-call
 jsMemoryEstimate
 jsMemoryEstimate_string
 jsMemoryRange
 jsMemoryRange_string
+js_
 js_array_holey_double_elements_map
 js_array_holey_elements_map
 js_array_holey_smi_elements_map
@@ -15143,9 +15624,12 @@ jsarray_array_join_concat_to_sequential_string
 json
 json_object
 jsreceiver_create_identity_hash
+ju\n
 jul
 jump_opt->is_optimizing()
 jun
+jz$
+k"c
 kAcqRel
 kArchitectureDefault
 kBinaryOperation == kind()
@@ -15252,6 +15736,7 @@ kWn
 kaE
 kana
 kana_string
+kd\v
 kdz
 keep_iterator == keep.end()
 keeps maps alive for <n> old space garbage collections
@@ -15271,9 +15756,13 @@ kind() == CodeKind::BASELINE
 kind(cage_base) != CodeKind::BASELINE
 kind_ != DeoptimizationLiteralKind::kInvalid
 kind_ == kBackgroundSerializedHeapObject
+km\
 kms
 kni
 knv
+kr{
+l!c
+lXj
 label->is_bound()
 label="$", shape=septagon
 label="(?<=\n)", shape=septagon
@@ -15386,6 +15875,7 @@ live
 live regs: 
 live_ranges_size == data()->live_ranges().size()
 lmi
+ln\
 lo_space_bytes_available
 lo_space_bytes_committed
 lo_space_bytes_used
@@ -15457,10 +15947,16 @@ lower_string
 ltT
 ltr
 ltr_string
+lw|
+lxLl
 lzcnt%c %s,
+m c
+m,M
 m.HasResolvedValue()
 m.HasResolvedValue() && m.Ref(broker).IsString() && m.Ref(broker).AsString().IsContentAccessible()
+mB\v
 mBu
+mE!
 mEu
 mHu
 mKu
@@ -15735,6 +16231,7 @@ missing ) after argument list
 miumCompileHintsexperimentalChro
 mjn
 mli
+mm\n
 mmap64
 mms
 mock_arraybuffer_allocator_limit
@@ -15813,6 +16310,14 @@ multiline
 multiline_string
 mulx%c %s,%s,
 n < static_cast<size_t>(buffer_size)
+n(6
+n,i
+n0\t
+n1y
+n4F
+n?8
+nI9
+n`B
 name
 name or length descriptors on map 
 name.IsUniqueName()
@@ -15852,6 +16357,7 @@ native_context_index_symbol
 native_context_map
 native_scope_info
 native_string
+ne^
 near_heap_limit_callbacks_.size() < kMaxCallbacks
 nearbyint
 nearbyintf
@@ -15901,8 +16407,10 @@ nextafterf
 nfc
 nfkc
 ngt
+nh[
 ni.node->opcode() != IrOpcode::kReturn
 nki
+nl\
 nle
 nlphi 
 nlt
@@ -16001,8 +16509,13 @@ numeric
 numeric_string
 nxk
 nzk
+n}k
+o%6
+o.h
+o9h
 oOi
 oOu
+o\rc
 obj->NeedsRehashing(cage_base()) implies obj->CanBeRehashed(cage_base())
 obj->is_suspended()
 object
@@ -16111,10 +16624,15 @@ over_allocated < size
 overflow
 overflow_string
 override OS page size (in KBytes)
+owG
 ownKeys
 ownKeys_string
 ownProperties
 p->SweepingDone()
+pA]
+pP|
+p\fc
+p\tp
 pabsb
 pabsd
 pabsw
@@ -16292,6 +16810,8 @@ possible_maps_are_known_
 pound
 pow
 powf
+pp@
+pp\
 pppppppppppppppp
 ppppppppprrrrrppppppppppppppppppr1]o_-']
 pqrstuvwxyz{|}~
@@ -16525,17 +17045,31 @@ push_segment_ implies push_segment_->IsEmpty()
 pushad
 pushfd
 puts
+pxor
+q6l
 qAu
 qDu
 qGu
 qJu
 qMu
+q\vc
 quarter
 quarter_string
 quarters
 query
 query_colon_string
+qu}
+r+g
+r10l
+r11l
+r12l
+r13l
+r14l
+r15l
+r8l
+r9l
 rWo
+r]y
 rab_gsab_bigint64_array_map
 rab_gsab_biguint64_array_map
 rab_gsab_float32_array_map
@@ -16740,6 +17274,7 @@ roundpd
 roundps
 roundsd
 roundss
+rqg
 rsi
 rsp
 rsqrtps
@@ -16752,6 +17287,7 @@ run young generation garbage collections in Oilpan (experimental)
 runtimeEnabled
 runtime_call_stats
 rwo
+s3\n
 sCJ
 same map added twice
 samples
@@ -17686,6 +18222,7 @@ system / WeakArrayList
 system / WeakCell
 system / WeakFixedArray
 system / WithContext
+t9G
 table
 table index is out of bounds
 table_
@@ -18357,6 +18894,7 @@ typeinfo for v8_inspector::protocol::Runtime::API::StackTraceId (demangled)
 typeinfo for v8_inspector::protocol::Schema::API::Domain (demangled)
 typeinfo for void () (demangled)
 typeinfo for void (*)(v8::internal::compiler::Node*, v8::internal::compiler::Node, char const*, v8::internal::Zone*) (demangled)
+typeinfo for void (demangled)
 typeinfo for void (v8::internal::compiler::Node*, v8::internal::compiler::Node, char const*, v8::internal::Zone*) (demangled)
 typeinfo name for bool (*)(char const*) (demangled)
 typeinfo name for bool (char const*) (demangled)
@@ -18553,10 +19091,12 @@ typeinfo name for void (*)(v8::internal::compiler::Node*, v8::internal::compiler
 typeinfo name for void (v8::internal::compiler::Node*, v8::internal::compiler::Node, char const*, v8::internal::Zone*) (demangled)
 typeof
 tzcnt%c %s,
+u@u
 uCu
 uFu
 uIu
 uLu
+u\nc
 u_charType_73
 u_foldCase_73
 u_getPropertyEnum_73
@@ -18568,13 +19108,16 @@ u_isupper_73
 u_strToLower_73
 u_strToUpper_73
 u_strcmp_73
+uc"
 ucomisd
 ucomiss
 ucurr_getDefaultFractionDigits_73
 ucurr_getName_73
 ucurr_openISOCurrencies_73
+ud2
 udata_setCommonData_73
 udata_setFileAccess_73
+ue"
 uenum_close_73
 uenum_next_73
 uint
@@ -18878,7 +19421,9 @@ uses_shared_heap_flag_address
 utc
 uuo
 uvo
+uw\
 v1rI\t
+v4\vk)
 v8-heap-
 v8.console
 v8.execute
@@ -37565,6 +38110,7 @@ v8_inspector::toString16(v8_inspector::StringView const&) (demangled)
 v8_inspector::toStringView(v8_inspector::String16 const&) (demangled)
 v8_os_page_size
 vRQ>
+v\tc
 vaddpd %s,%s,
 vaddps %s,%s,
 vaddsd %s,%s,
@@ -39929,6 +40475,9 @@ vxo
 vxorpd %s,%s,
 vxorps %s,%s,
 vyk
+v}o
+w,a
+wL\
 wait
 waitAsync
 warn
@@ -40020,6 +40569,7 @@ with_context_map
 with_string
 wln
 wn>Jj
+wn`
 word
 word32: 
 word64: 
@@ -40043,6 +40593,7 @@ wrong value
 wuk
 wuo
 wvk
+x64
 xOu
 xadd
 xchg%c rax,%s
@@ -40069,10 +40620,13 @@ xorpd
 xorps
 xqk
 yBu
+yEu
 yHu
 yKu
 yMd
 yNu
+y[z
+y\r9
 yard
 year
 yearMonthFromFields
@@ -40085,8 +40639,10 @@ yearsDisplay
 yearsDisplay_string
 years_string
 yes
+yh[
 yield
 yield* 
+yk[
 ymm0
 ymm1
 ymm10
@@ -40103,15 +40659,26 @@ ymm6
 ymm7
 ymm8
 ymm9
+ymu
 young and full garbage collection phases are not overlapping
 yqyq
+yrk
+z$c
+z(0
+z2\n
+z@P
 zD~W
 zEr
+zFz
+zM\
 zOy
 zTl
+z_U
+z_j
 zero_string
 zlib_internal::CompressHelper( zlib_internal::ZRAW, compressed_data.data(), &compressed_data_size, base::bit_cast<const Cr_z_Bytef*>(contents_for_compression_.data()), input_size, (-1), nullptr, nullptr) == 0
 zlib_internal::UncompressHelper( zlib_internal::ZRAW, base::bit_cast<Cr_z_Bytef*>(uncompressed_contents_.data()), &uncompressed_size, buffer_->GetDataStartAddress() + kCompressedDataOffset, buffer_->DataSize()) == 0
+zm}
 zombie
 zone_stats_tolerance
 zzzz
@@ -40127,6 +40694,8 @@ zzzz
 {"output" : 
 {"source":
 {"type": "v8-zone-trace", "stats": %s}\n
+{4a
+{Ri
 {\n"nodes":[
 {anonymous}
 {owner:
@@ -40157,6 +40726,34 @@ zzzz
 {virtual override thunk({virtual offset(0, -24)}, void () std::__Cr::basic_ostream<char, std::__Cr::char_traits<char>()>::deleting destructor)} (demangled)
 | strings=%d symbols=0 elements=%u || prototypes>=1 ||\n
 | strings=%d symbols=0 elements=0 || prototypes>=1 ||\n
+|8x9x9
 |MinusZero
+|Pi
+|cp
+|f32
+|f64
+|ip
+|ni
+|o5
+|s128
+|s256
+|sb
+|tp
+|ts
+|w16
+|w32
+|w64
+|w8
+|xa
+|xk
 } start{
 }, value: {lo: 
+}Au
+}Du
+}Gu
+}Ht
+}Ju
+}Mu
+}ea
+}mi
+~li

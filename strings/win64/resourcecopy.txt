@@ -9,8 +9,7 @@
     <source>                    Source filename or folder + wildcard\n
     D:\dev\game>resourcecopy -skip readonly_tools_asset_info.bin -skip tools_asset_info.bin -skip tools_thumbnail_cache.bin -errlog errors.txt dota_addons\dotaball\* dota_addons\dotaball_copy\\n
     resourcecopy [options] <source> <destination>\n
- !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`ABCDEFGHIJKLMNOPQRSTUVWXYZ{|}~
- !"#$%&'()*+,-./0123456789:;<=>?@abcdefghijklmnopqrstuvwxyz[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
+ !"#$%&'()*+,-./
  * Requested DmAttribute of value of type "%s" From DmAttribute "%s" which is type "%s"\n
  -testmode
  Base Class Array'
@@ -18,13 +17,11 @@
  Class Hierarchy Descriptor'
  Complete Object Locator'
  Type Descriptor'
- \n_V_strncmp
  delete
  delete[]
  new
  noexcept
  volatile
-!\n_V_strncpy
 "\nis running without a known mod!\n\nSet the VMOD environment variable or run with -game to set the mod name.\n
 "id" "elementid" 
 #AppFramework_InvalidLocalFiles
@@ -35,7 +32,6 @@
 #RenderSystemChange_Title
 #RenderSystemChange_Yes
 #RenderSystemOldDriver_Text
-#\n_V_strnicmp_fast
 $prefix_attribute$
 $prefix_element$
 %-40s\t%6d\t%9d\t\t%5.2f
@@ -43,19 +39,23 @@ $prefix_element$
 %.10f
 %02d
 %02i/%02i %02i:%02i:%02i 
+%d %d %d
 %d %d %d %d
-%dS
 %d_%lld_%x.dmx
 %d_%lld_%x_in.dmx
+%f %f
+%f %f %f
 %f %f %f %f
 %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f
 %hu
+%i %i %i
 %lf
 %lld
 %llu
 %llx
 %s (%s -> %s)
 %s (%s) = remove( pos %i, count %i )
+%s - %s
 %s allocation count overflow
 %s allocation count overflow( %llu + %llu > %llu )\n
 %s allocation count overflow( %llu > %llu )\n
@@ -63,10 +63,14 @@ $prefix_element$
 %s called on a pool arena (no root available)\n
 %s channel
 %s encoding %s %d format %s %d %s\n
+%s%s
 %s(%d) : %s\n
+%s(%s)
 %s(%s) = %s
+%s.%u
 %s.piw
 %s.vpk
+%s: %s\n
 %s: allocation of %u too large, max %u\n
 %s: element count overflow (%u)\n
 %s: invalid insert point %u (current count %u)\n
@@ -75,7 +79,9 @@ $prefix_element$
 %s: nLoadError: %d, RequestModule: %s, RequestInterface: %s, Module: %s, Interface: %s
 %s: no space for allocation of %u\n
 %s: unable to grow count by %u (currently %u)\n
-&Sgw
+%s:%s
+%s\n
+(%d,%d)
 (null)
 *** Converter error - element "%s" already has a non-int attribute "%s"!\n
 *** Element "%s" has attribute "%s" with an unexpected type!\n
@@ -89,21 +95,21 @@ $prefix_element$
 *** Unable to find or add attribute "%s" to element "%s"!\n
 *****************: Cannot call CAppSystemDict::AddSystems without initializing first!\n
 *LANGUAGE*
-*StO9>T
 +Auto Tags
 ,<ellipsis>
 --  Increase the size of the resource stream   --\n
 --  Need %d bytes, but only have %d bytes\n
 ---- dmxconvert cmdline ----\n
 ---- dmxconvert output ----\n
+---------------------------\n
 --------------------WARNING----------------------\n
 -con_logfile
 -consoleapp
 -consolelog
+-dx11
 -empty
 -skip
 -vulkan
-...
 ../src/shaders
 ..\content
 .00cfg
@@ -135,6 +141,7 @@ $prefix_element$
 .data$r
 .data$rs
 .dll
+.eB
 .edata
 .idata$2
 .idata$3
@@ -165,27 +172,33 @@ $prefix_element$
 .tls$ZZZ
 .vmat
 .vpk
-.xJ>Hf
 .xdata
 .xdata$x
 /content/
 /game/
 /src/
+0 0 0
+0,C
+0.0 1.0
+0.0 180.0
+0.001 1.0
+0.01 1.0
+0X.
+0kE
+0wG
 0x%llx
 1#IND
+1#INF
 1#QNAN
 1#SNAN
+1.0
 16-byte data pool
-2\vpda
-3>N;kU
 4-byte data pool
-5sfm_v8
+64 283 0
 8-byte data pool
-8text
-;1#INF
+;?0123456789:;<=>?
+;lD
 <!-- DMXVersion
-<\ng_pMemAlloc
-<\tV_atan2f
 <array: %u elements>
 <binary blob: %u bytes>
 <ellipsis>
@@ -198,15 +211,9 @@ $prefix_element$
 <unknown>
 == Non-Resource File ==\n
 == Resource File ==\n
-=imb;D
-?DmeChannelsClip
-?UUUUUU
-?qBJ
-?vtex
-?ysB
+@33
 A game file appears to be missing or corrupted.  In the Steam client go to the game's properties.  In the 'Local Files' tab select 'Verify Integrity of Game Cache' to have Steam double-check the game's installation.
 A weight determining the frequency at which this model is placed relative to other models within the detail type. The weights of all models are summed and the probability of selecting this model is its weight divided by the sum weight.
-A>pP&
 ABCDEFGHIJKLMNOPQRSTUVWXYZ
 ADDONROOT
 ADDONS
@@ -264,9 +271,6 @@ Audio
 Aug
 August
 AutoTagVDataCondition_t
-BAL
-BF>^G
-B\tV_atoi
 BakedLODBuilderMgr001
 BenchmarkService001
 Binary
@@ -275,7 +279,6 @@ Binary: Element uses unknown element type %s\n
 BinaryProperties_GetValue
 Blend Weight Scale
 Blend weight at which the model will be at full density. Must be between the minimum and maximum blend weight values. The density of this model placement will increase with the blend weight value up to this value at which point it will be at full density.
-Bnc
 Body
 BrowInV
 BuildVersion
@@ -513,6 +516,7 @@ DmeBoolLog
 DmeBoolLogLayer
 DmeCamera
 DmeChannel
+DmeChannelsClip
 DmeColorCurveInfo
 DmeColorLog
 DmeColorLogLayer
@@ -584,7 +588,6 @@ DmeVector4LogLayer
 DmeVertexData
 Double-save to Member '%s'
 Driver version below recommended version. Required: %d.%d.%d.%d Got: %d.%d.%d.%d
-EJj
 ERROR: CUtlSymbolTableLarge element limit of %u exceeded\n
 ERROR: Detected mismatched logging state. Expected matching LoggingSystem_PushLoggingState/LoggingSystem_PopLoggingState.\n
 ERROR: Unable to create an attribute handle! Save, quit, restart and clean up your file to have fewer elements!\n
@@ -635,7 +638,6 @@ Expecting quoted attribute value for attribute "%s", didn't find one!
 ExtractModuleMetadata
 FAILED to start logging errors to file '%s'\n
 FAILED to start logging to file '%s'\n
-FEMh\f
 Facial Animation File
 Factory for element type '%s' already exists (Check your IMPLEMENT_ELEMENT_FACTORY macros for duplicate lookupNames)\n
 Failed To Load '%s'! VConsole Communication Disabled!\n
@@ -686,7 +688,6 @@ GAME
 GAMEBIN
 GAMEROOT
 GCTL
-Ga=UU
 GameResourceServiceClientV001
 GameResourceServiceServerV001
 GameStartup
@@ -800,7 +801,6 @@ KeyValues3: pre-allocated table memory is too small for %u members (%u bytes ava
 KeyValues: Can't serialize attribute of type %s into KeyValues files!\n
 KeyValues: Element uses unknown element type %s\n
 KeyValuesSystem
-L>ev
 LCMapStringEx
 LCMapStringW
 LOG_DEVELOPER
@@ -944,10 +944,8 @@ Not safe to 'new' this class due to alignment requirements
 Nov
 November
 OFFICIAL_ADDONS
-OZQ%
 Oct
 October
-Omm
 OpenClipboard
 Operator cycle found during dependency graph traversal!\n
 Optional second key to check
@@ -956,9 +954,9 @@ Orient Rotation to 2D Direction
 Oscillate Scalar
 Oscillate Vector
 Other
-P2du
 PIO
 PLATFORM
+PO_
 Pagefile: estimated %llumb CPU %llumb GPU needed, %llumb pagefile free\n
 Pagefile: estimated %llumb CPU, %llumb GPU needed. Pagefile free %llumb, need ~%llumb, maximum %llumb disk free\n
 PanoramaCoreStartup
@@ -1050,7 +1048,6 @@ Procedural
 Processed %d file%s with %d error%s. (%d skipped)\n
 PropertyEditorSystem_001
 QAngle
-Q\tV_fclose
 QueryPerformanceCounter
 RESOURCE_ENCODING_COMPILEIMAGEUTILS_TEXT
 RESOURCE_ENCODING_COUNT
@@ -1067,7 +1064,6 @@ RESOURCE_ENCODING_TEXT
 RESOURCE_ENCODING_VRMAN
 RESOURCE_ENCODING_VSNAP
 RESOURCE_ENCODING_VTEX
-RSDSY
 Radius Random
 Radius Scale
 RaiseException
@@ -1265,10 +1261,10 @@ Tried to rename from '%s' to '%s', but '%s' already exists\n
 TryAcquireSRWLockExclusive
 Tue
 Tuesday
+U9\v
 UNKNOWN
 USER32.dll
 UUUUUU
-U\tV_fflush
 Unable to Start Game
 Unable to create render device for %s!\n
 Unable to create unknown element %s!\n
@@ -1320,6 +1316,7 @@ VMDL_CONVERT_TO_MODELDOC
 VMOD
 VMaterialSystem2_001
 VMediaFoundation001
+VP4003
 VPhysics2_Interface_001
 VProcessUtils002
 VProfService_001
@@ -1354,6 +1351,25 @@ V_StringToUint32
 V_StringToUint64
 V_UInt32ToString_Unsafe
 V_UInt64ToString_Unsafe
+V_UnqualifiedFileName
+V_atan2f
+V_atoi
+V_fclose
+V_fflush
+V_fileno
+V_fopenUTF8
+V_ftell
+V_fwrite
+V_log2f
+V_powf
+V_qsort_s
+V_sincosf
+V_snprintf
+V_sscanf
+V_sscanf_s
+V_stricmp_fast
+V_tanf
+V_vsnprintf
 Valid Content Absolute Path
 Valid External Path
 Valid Game Absolute Path
@@ -1384,6 +1400,7 @@ WARNING: Trying to create a CRenderContextPtr without a valid context.\n
 WARNING: You are trying to mount an addon (%s) in tools mode that is different from the addon tools mode was launched with (%s).\n
 WaitForSingleObjectEx
 WakeAllConditionVariable
+Warning
 Wed
 Wednesday
 WideCharToMultiByte
@@ -1392,41 +1409,28 @@ WipeUndo '%s'\n
 World Files
 World Node Files
 WorldRendererMgr001
+Worldsize_Init
 WriteConsoleW
 WriteFile
 Wrong alignment %d\n
 Wrote non-resource file : '%s'\n
 Wrote resource file: '%s'\n
-X\tV_fileno
 You are trying to mount addon '%s' but SetAllowAddonChanges is false which probably means you shouldn't be calling this directly.\n
 You are trying to unmount addon '%s', but SetAllowAddonChanges is false which probably means you should be using calling this directly.\n
 [%d] Aborting undo '%s'\n
 [%d] Popping undo '%s'\n
 [%d] Pushing undo '%s'\n
 [%s] Forced dmxconvert - Finished [%s] in %0.2f secs. Please re-save or upconvert this asset!\n
-[aOni*{
 [thunk]:
-\\tV_fopenUTF8
-\n_MakeGlobalSymbol
-\n_V_StringAfterPrefix
-\n_V_StringAfterPrefixCaseSensitive
-\n_V_strEndsWith
+\t%8d
 \tNAN encountered in element '%s' guid %s attribute '%s'!\n
-\tV_UnqualifiedFileName
-\tV_log2f
-\tV_powf
-\tV_qsort_s
-\tV_sincosf
-\tV_snprintf
-\tV_sscanf
-\tV_sscanf_s
-\tV_stricmp_fast
-\tV_tanf
-\tV_vsnprintf
-\tWarning
-\tWorldsize_Init
-\tcQr
-\tkE>fvw
+_MakeGlobalSymbol
+_V_StringAfterPrefix
+_V_StringAfterPrefixCaseSensitive
+_V_strEndsWith
+_V_strncmp
+_V_strncpy
+_V_strnicmp_fast
 __based(
 __cdecl
 __clrcall
@@ -1455,6 +1459,7 @@ _light
 _linked_type_
 _name
 _root_keyname
+`EH
 `RTTI
 `adjustor{
 `anonymous namespace'
@@ -2048,9 +2053,8 @@ drawGameRenderablesMask
 drawToolRenderablesMask
 duration
 durationTime
-eF>t
+e+000
 eFast
-eLK(w
 eMoveWithGait
 eSlow
 eTeleport
@@ -2118,7 +2122,7 @@ fromElement
 func_physbox
 function not supported
 functionName
-fvP
+g_pMemAlloc
 game
 game:tools/images/assettypes/generic_lg.png
 game:tools/images/assettypes/generic_sm.png
@@ -2154,7 +2158,7 @@ hold_right
 host unreachable
 houdini
 hue
-i\tV_ftell
+id&
 identifier removed
 illegal byte sequence
 inappropriate io control operation
@@ -2186,15 +2190,14 @@ isOrientation
 isPosition
 isgame
 item_item_crate
-jVg
+ja\v
 jointIndices
 jointIndicesIndices
 jointList
 jointTransforms
 jointWeights
 jointWeightsIndices
-k=yI
-k\tV_fwrite
+k#c
 kernel32
 keyvalues
 keyvalues file
@@ -2203,7 +2206,6 @@ keyvalues2_flat
 keyvalues2_flat_v
 keyvalues2_noids
 keyvalues2_v
-laQ
 lambda
 layers
 left
@@ -2240,7 +2242,6 @@ log10
 long
 long 
 lower_hemisphere_is_black
-m\nXo
 m_AdditionalExtensions
 m_AdditionalInputDependencies
 m_AdditionalRelatedFiles
@@ -2443,7 +2444,6 @@ multi
 multi_%s
 multilevel
 multilevelchannel
-n03>Pu
 nLayoffState
 nTries < 10000000
 name
@@ -2490,12 +2490,10 @@ npcclass
 null
 nullptr
 numTimeSteps
-obwQ4
 officialaddonroot
 offseTime
 offset
 offsetTime
-onI
 one
 operation canceled
 operation in progress
@@ -2515,7 +2513,6 @@ ortholightwidth
 oscillate_scalar
 oscillate_vector
 outerconeangle
-owM&
 owner dead
 ownerlog
 pFx
@@ -2703,12 +2700,10 @@ publiccontent
 publish_data
 publish_data.txt
 purecall
-qVJ
 qangle
 qangle_array
 quaternion
 quaternion_array
-r\tVr.>T
 radiusScale
 radius_random
 radius_scale
@@ -2762,6 +2757,7 @@ rotation_random
 rotation_speed_random
 rotation_spin
 rotation_spin yaw
+s9\v
 saturation
 scale
 scene
@@ -2805,6 +2801,7 @@ sfm_v4
 sfm_v5
 sfm_v6
 sfm_v7
+sfm_v8
 sfm_v9
 shadow_color_day
 shadow_color_night
@@ -2905,6 +2902,7 @@ targetname
 template-parameter-
 texcoord$0
 texcoord$0Indices
+text
 text file busy
 text_block
 texture
@@ -3014,9 +3012,9 @@ vsky
 vsnap
 vsutils_py
 vtex
+vvtx
 vwnod
 vwrld
-wXC
 wchar_t
 weightweight$0
 weightweight$0Indices
@@ -3031,8 +3029,8 @@ wrinkle$0Indices
 wrinkleIndices
 write
 wrong protocol type
-ycg
 zero
+{0x%x}
 {flat}
 {for 
 ~CGenericFilter

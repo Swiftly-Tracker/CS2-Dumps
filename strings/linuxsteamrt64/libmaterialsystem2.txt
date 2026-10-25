@@ -1,5 +1,3 @@
-    
-     
                      Cost
       -XX: Shader program -vs -ps -gs -cs -psrs -rtx -ms\n
       -show_used_combos: Verbosely spew a line for each program and the list of combos enabled\n
@@ -17,8 +15,19 @@
    mat_print_shader_info: Error! Shader "%s" not loaded!\n
   %2d: FontHandle:0x%8.8llx, %s, %s, font:%s, tall:%f.0%s\n
   what():  
+ %*s
+ %2dx 
+ %3d:
+ %5d
  %7sK
+ %7sK 
+ %f
+ %f %f
+ %f %f %f
  %f %f %f %f
+ %i
+ %s
+ %s=%d
  ( %d references )
  (, std::allocator<char> const&) std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::base object constructor<char const*(, std::allocator<char> const&), void> (demangled)
  (, std::allocator<char> const&) std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::complete object constructor<char const*(, std::allocator<char> const&), void> (demangled)
@@ -93,17 +102,25 @@
 #include
 #line
 $ORIGIN
+$TT
+%*s
+%*s 
 %10s
 %15.15s 
 %6d
 %6d %-50s
 %6s %-50s %5s %5s %5s %5s %5s %5s %10s\n
 %6s %-50s %5s %5s %5s %5s %5s %5s %5s %10s\n
+%d %d %d
 %d %d %d %d
+%d..%d\n
 %f %f %f %f
 %hu
 %lld
 %llu
+%s 
+%s %s
+%s %s %s
 %s %s %s %s
 %s --------------------------------\n
 %s Shader: %s attribute '%s' set in mode '%s' does not match VMatrix value set in another mode.\n
@@ -118,7 +135,11 @@ $ORIGIN
 %s allocation count overflow( %llu > %llu )\n
 %s allocation count overflow( add %llu + current %llu > max %llu )\n
 %s called on a pool arena (no root available)\n
+%s%s
+%s%s-%s
+%s(
 %s(): Deprecated and unimplemented. Fix client code to use new postprocessing resources.\n
+%s: %s\n
 %s: Warning: No compile targets specified! Shader will not be compiled!\n
 %s: __pos (which is %zu) > __size (which is %zu)
 %s: __pos (which is %zu) > this->size() (which is %zu)
@@ -130,6 +151,8 @@ $ORIGIN
 %s: member count overflow (%u)\n
 %s: no space for allocation of %u\n
 %s: unable to grow count by %u (currently %u)\n
+%s\
+%s\n
 %s__font_page_%d
 %s_intermediate_%d.vtex
 %vsB,
@@ -141,6 +164,7 @@ $ORIGIN
 &&(std::remove_reference<&&&>::type) std::forward<char const (&(std::remove_reference<&&&>::type)) [9]> (demangled)
 &&(std::remove_reference<>::type&) std::forward<int&(std::remove_reference<>::type&)> (demangled)
 &&(std::remove_reference<>::type&) std::forward<int>(std::remove_reference<>::type&) (demangled)
+(%d,%d)
 (On the line reading %s):\n
 (anonymous namespace)
 (channel = 
@@ -171,19 +195,23 @@ $ORIGIN
 , LoadFont used
 , at offset %d
 , near %s
----
------
-----------
+,6o
 --------------------------------------------------
 -Stop: 
+-cs
 -end of input-(
+-gs
 -memory-
+-ms
+-ps
+-psrs
 -rtx
 -show_none
 -show_used_combos
 -unknown source-
 -unknown source-(
-...
+-vs
+.%s
 ../public/tier0/utldict.h
 .ini
 .uifont
@@ -196,10 +224,26 @@ $ORIGIN
 // %s - %s\n
 // Dynamic Shader Compile Enabled\n
 // Reloading all shaders -----------------------------------------------------\n
+//---------------------------------------------------------------------------//\n
+//-----------------------------------\n
 /data/src/vfx/compiletargetexpr.g
 /dev/random
 /dev/urandom
 /src/
+0 0
+0 0 0
+0 0 0 0
+0 0 0 255
+0123456789
+0123456789)"
+0P]
+333?+
+33s?+
+3B+
+3a\f
+4t\f
+8N'
+8a\v
 : lexer error %d :\n\t%s at offset %d, 
 <<unknown_mod>>\
 <DOWN>
@@ -221,6 +265,7 @@ $ORIGIN
 <undefined>
 <unknown KV3 basic type '%s' (%d)>
 <unknown>
+=\t ();,\n\r<>
 ?18ITextureDictionary
 A%mB,
 ABGR8888
@@ -261,6 +306,7 @@ Attribute-based texture %s not bound for material "%s"! Missing render attribute
 Attribute-based texture %s not bound for material "%s"! Missing render attribute "%s"\n
 Attribute-based texture %s not bound for material "%s"!\n
 BC6H
+BC7
 BDAGlobals
 BGR565
 BGR888
@@ -510,6 +556,7 @@ CUtlVector
 CVfxShaderBuffer (demangled)
 Cannot allocate abstract class
 Cast of %s loses value information (returning %s)\n
+Cb\v
 CharacterSetBuild
 ChildOf
 ChildOf( 
@@ -538,9 +585,13 @@ Courier New
 CreateInterface
 Custom font '%s' is already registered, ignoring new registration '%s' range %d - %d\n
 Custom font file '%s' ignored because no font name was given\n
+D16
 D16_SHADOW
 D24FS8
+D24S8
+D24X8
 D24X8_SHADOW
+D32
 D32FS8
 DXT1
 DXT1_ONEBITALPHA
@@ -548,6 +599,8 @@ DXT3
 DXT5
 DXT5_NM
 D_FADE_COLOR
+Dc\v
+De\v
 Debug font name
 Decompress
 Default
@@ -667,7 +720,6 @@ GLIBC_2.25
 GLIBC_2.3
 GLIBC_2.3.2
 GLSL.std.450
-GNU
 GameResourceServiceClientV001
 GameResourceServiceServerV001
 GameStartup
@@ -688,11 +740,15 @@ HORIZ_JUSTIFICATION_CENTER
 HORIZ_JUSTIFICATION_LEFT
 HORIZ_JUSTIFICATION_NONE
 HORIZ_JUSTIFICATION_RIGHT
+Ha\v
 HammerMapLoader001
 HelpSystem_001
+Hg\v
 HorizJustification_e
 HostStateMgr001
+Hw\v
 I could not work out what I was expecting, like so many of us these days!\n
+IA88
 IAppSystem (demangled)
 IAsyncProcessedDataResult (demangled)
 IErrorListener (demangled)
@@ -723,7 +779,6 @@ IQueuedRenderable (demangled)
 IRenderShaderByteCode (demangled)
 IResourceTypeManager (demangled)
 IRuntimeShaderCreateCallbacks (demangled)
-ISGN
 IS_DIRECTX
 IS_PC
 IS_SM_
@@ -876,6 +931,7 @@ No valid vcs file found for shader %s\n
 NoZPrepass
 Not safe to 'new' this class due to alignment requirements
 OCTAL_ESC
+OSGN
 PC SM 5.0 (D3D11)
 PC SM 5.0 (VULKAN)
 PC SM 6.0 (VULKAN)
@@ -886,6 +942,7 @@ PLAT_
 POSITION
 PROGRAM
 PS_RENDER_STATE
+PS_RS
 PS_RTX
 PanoramaTextServices001
 PanoramaUIClient001
@@ -895,6 +952,7 @@ Parser encountered %i errors parsing compile targets expression "%s"\n
 ParticleSystemMgr003
 PerViewConstantBufferVR_t
 PerViewConstantBuffer_t
+Pf\v
 PhysicsBuilderMgr001
 Pixel Shader
 Pixel Shader Render State
@@ -946,8 +1004,11 @@ Program MD5 is out of date with features! %s\n
 PropertyEditorSystem_001
 R11G11B10_FLOAT
 R11_EAC
+R16
+R16F
 R16G16_UINT
 R16_UINT
+R32F
 R32G32_UINT
 R32_SINT
 R32_UINT
@@ -957,10 +1018,12 @@ R8G8_UINT
 R8_UINT
 R8_UNORM
 R9G9B9E5_FLOAT
+RD11<
 RDEFH
 RESOURCE_TYPE_MATERIAL
 RESOURCE_TYPE_POST_PROCESSING
 RG11_EAC
+RG1616
 RG1616F
 RG3232F
 RGB323232F
@@ -1011,12 +1074,12 @@ ResourceHandleUtils001
 ResourceManifestRegistry001
 ResourceSystem013
 Root
+SB+
 SHADER_SOURCE
 SHADER_SOURCE_ROOT
 SHEXt[
 SPV_KHR_storage_buffer_storage_class
 SSE and SSE2 are required.
-STAT
 SUPPORTS_CS
 SUPPORTS_GS
 SV_ClipDistance
@@ -1112,9 +1175,12 @@ SupportsMappingDimensions
 Suppress
 Sys
 TANGENT
+TB+
 TEXCOORD
 TLS init function for 
 TLS wrapper function for 
+Tag: %s \n
+Tb\f
 TestScriptMgr001
 TextLayout_001
 Texture %s doesn't exist in %s!\n
@@ -1149,6 +1215,7 @@ TypeManager
 UI_Font_New_Face_Override
 UNICODE_ESC
 UNKNOWN
+UV88
 UVWQ8888
 Unable to create dynamic index buffer with %d indices\n
 Unable to create dynamic vertex buffer with %d points\n
@@ -1200,6 +1267,7 @@ VIEW_FADE_MODULATE
 VMatError
 VMaterialSystem2_001
 VMediaFoundation001
+VP4003
 VPhysics2_Interface_001
 VProcessUtils002
 VProfService_001
@@ -1333,6 +1401,9 @@ WARNING: Resource name "%s" has the incorrect extension "%s" for the specified r
 WARNING: Trying to create a CRenderContextPtr without a valid context.\n
 Warning
 WorldRendererMgr001
+Wz\f
+Xd\v
+Xw\v
 [ mat_print_material_info ] Error! Cannot find material '%s'!\n
 [Dynamic shader compile] Reloading %d material(s)\n
 [Dynamic shader compile] Warning: %d material(s) are not reloaded because they have outstanding file I/O requests\n
@@ -1341,6 +1412,7 @@ WorldRendererMgr001
 [friend]
 \error.vmat
 \n    near %s\n    
+\n   --- ---------------------- ----------------------- ---- --------------- --------------------------------\n
 \n   NOTE: Currently showing on disk format without accounting for picmip level or streaming state!\n
 \n   Options:\n
 \n   Ref        On Disk               In Memory         MSAA     Format      File
@@ -1419,14 +1491,18 @@ WorldRendererMgr001
 \n*** vfx_common.cpp(6801): Error opening file "%s"!\n\n
 \n*** vfx_common.cpp(6840): Error opening file "%s"!\n\n
 \n*** vfx_common.cpp(6952): Error opening file "%s"!\n\n
+\n//-----------------------------------\n
+\nCS
+\nGS
 \nMS,\nVS_MS_RTX
+\nPS
 \nPS_RENDER_STATE
 \nRTX
 \nSkipped %d%% of all combos\n
 \nUsage: mat_assert_on_shader_use [shader_substring]\n       (no arguments disables the assert)\n\nExample: mat_assert_on_shader_use error.vfx - Assert when the error shader is used\n         mat_assert_on_shader_use sky       - Assert when sky.vfx or sky_cheap.vfx is used\n\n
 \nVCS file format is invalid for %s\n
 \nVCS file version is %d instead of %d for %s\n
-\n\n\n
+\nVS
 \n\t%02i%% (%i/%i)
 \n\t\tDynamic:
 \nmaterial2.cpp(119): ERROR! Can't load vfx_dx dll, dynamic shader compile unavailable!\n
@@ -1444,8 +1520,8 @@ WorldRendererMgr001
 \nvfx_common.cpp(8902): Dynamic shader compile failed for %s in "%s"!\n
 \src\shaders\
 \t The lexer was matching from line %d, offset %d, which\n\t 
+\t%.*s\n
 \t\tStatic:
-\t\t\t
 ^^^ Attribute-based texture warning is now disabled after outputting 50 warnings.\n
 ^^^ Constant buffer warning is now disabled after outputting 50 warnings.\n
 _Float
@@ -1705,7 +1781,12 @@ __test_and_acquire(long*) (demangled)
 __tls_get_addr
 _class
 _copy%u
+_cs
 _feature
+_gs
+_ms
+_ps
+_psrs
 _rtx
 _txnal_cow_string_C1_for_exceptions(void*, char const*, void*) (demangled)
 _txnal_cow_string_D1(void*) (demangled)
@@ -1714,6 +1795,7 @@ _txnal_cow_string_c_str(void const*) (demangled)
 _txnal_logic_error_get_msg(void*) (demangled)
 _txnal_runtime_error_get_msg(void*) (demangled)
 _txnal_sso_string_c_str(void const*) (demangled)
+_vs
 abort
 abs
 alignof 
@@ -1768,7 +1850,6 @@ boolean
 buffer
 byte
 byteaddressbuffer
-c$xe
 cbuffer
 ceil
 char
@@ -1866,6 +1947,8 @@ construction vtable for
 consumestructuredbuffer
 cos
 covariant return thunk to 
+cs_5_0
+cs_6_0
 debug_font_name
 debug_font_size
 decimal128
@@ -1899,6 +1982,7 @@ dot4
 dota_trajan
 dota_trajan.uifont
 double
+dv\v
 dynamic_cast
 environmentmapped
 error.vfx
@@ -2060,10 +2144,14 @@ glibcxx.eh_pool
 global constructors keyed to 
 global destructors keyed to 
 group
+gs_5_0
+gs_6_0
 guard variable for 
 half
 hardware
+hf\v
 hidden alias for 
+hw\f
 iEJA+
 initializer for module 
 int
@@ -2078,7 +2166,10 @@ ioctl
 is also the end of the line, so you must check your lexer rules\n
 java Class for 
 java resource 
+kc\v
+lb\f
 ld-linux-x86-64.so.2
+le\v
 length
 lerp
 lexer->mTokens(): Error: No lexer rules were added to the lexer yet!\n
@@ -2420,6 +2511,8 @@ memset
 min
 modes
 mold 2.36.0 (compatible with GNU ld)
+ms_6_5
+mt19937
 nBatchIndices <= 16384
 nBatchIndices <= nMaxIndexCountPerPass
 name
@@ -2450,17 +2543,25 @@ open
 operator
 operator 
 operator"" 
+pA,
+pa\v
 panorama/fonts
 panorama_text_pango
+pb\v
+pd\v
 position
 postprocessingsystem.cpp
 pow
 procedural
+ps_5_0
+ps_6_0
+psrs
 pthread_cond_broadcast
 pthread_cond_wait
 pthread_mutex_lock
 pthread_mutex_unlock
 pthread_once
+pz\f
 qangle
 radians
 random
@@ -3088,6 +3189,7 @@ time
 tools
 transaction clone for 
 true
+tv\v
 typeinfo fn for 
 typeinfo for 
 typeinfo for IFormatOutputStream (demangled)
@@ -3313,6 +3415,8 @@ void (, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<
 void (, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*)>, std::forward_iterator_tag) std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*(, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>, std::forward_iterator_tag)>::_Guard::complete object constructor (demangled)
 void (, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>, std::forward_iterator_tag) std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*(, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>, std::forward_iterator_tag)> (demangled)
 vpk:
+vs_5_0
+vs_6_0
 vtable for 
 vtable for __cxxabiv1::__class_type_info (demangled)
 vtable for __cxxabiv1::__forced_unwind (demangled)
@@ -3343,6 +3447,9 @@ vtable for std::type_info (demangled)
 vtable for std::underflow_error (demangled)
 wchar_t
 weight
+wy\f
+z50
+{0x%x}
 {default arg#
 {lambda
 {parm#

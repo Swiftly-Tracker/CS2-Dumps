@@ -1,5 +1,3 @@
-    
-      
            
         %s = %s;\n
         %s = %s[%d];\n
@@ -28,34 +26,57 @@
    primID
   special
   v%-4u %-3u 
- !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
+ !"#$%&'().
+ %-20s
+ %4u
+ %5u
+ %7s
+ %8s
+ %8u
+ %c%-4u
+ %d
+ %i
+ %s
+ %u
  %u, %u, %u
+ (%.9g
  (%u texture, %u arithmetic)
  (ordinal)
  (second)
+ -         - 
  - Try reducing number of constant branches, take bools out of structs/arrays or move them to the start of the struct
  - Try reducing number of constants referenced
  - Try reducing number of loops, take loop counters out of structs/arrays or move them to the start of the struct
  - note that the target doesn't support UAVs
  - note that the target doesn't support texture sampling intrinsics
  - note that the target doesn't support textures
+ ----- ----\n
+ 21
+ 41
+ 71
  : packoffset(c%u.%c)
  : register(%c%u)
  FLT
+ H0
+ H5
  INT
  Program Database
  Reg   Size\n
  [unused]
+ a0
  bool
  constant 
  domain_isoline
  domain_quad
  domain_tri
  expr
+ f0
  float
  fp%u[%u][%u] = {
+ in
  inout
  int
+ ip
  line 
  lineadj 
  linear 
@@ -71,8 +92,12 @@
  min16int
  min16uint
  min8uint
+ oC
  oDepthGE
  oDepthLE
+ ob
+ of
+ oi
  out
  output_line
  output_point
@@ -144,7 +169,9 @@
 #pragma warning (disable:%d)\n
 #pragma warning (error:%d)\n
 #pragma warning (once:%d)\n
+$%"#'(*,.02
 $%%&&'''())**++++,,,,-----------..////0011223344555666666789:;<=>?@ABCD
+$%s
 $CBufferForClipPlane_%u
 $Element
 $Globals
@@ -179,13 +206,24 @@ $Params
 $SKIP
 $ThisPointer
 $clip_outputs
+$lp
 $super
+%*s
 %-17s
 %-20s
+%-5u
+%.*s
 %.14fl
+%.9g
 %08x
+%2u %9u 
+%4u%c 
 %4u: Illegal instruction index\n
+%7u 
+%7u\n
+%c%u
 %cnorm can not be used with type
+%cs_%d_%d
 %d constant registers (c#) read by instruction.  Max. constant registers readable per instruction (even if they are the same) is %d.  This is in addition to the read port limit of %d for constants, which restricts how many *different* constants can be read. (There is one exception: none of this applies to the SINCOS macro instruction.)
 %d different constant registers (c#) read by instruction.  Max. different constant registers readable per instruction is %d.
 %d different constant registers (c#) read by instruction.  Max. different constant registers readable per instruction is %d. 
@@ -202,10 +240,16 @@ $super
 %d different texture coordinate registers (t#) read by instruction.  Max. different texture registers readable per instruction is %d.
 %d different texture registers (t#) read by instruction.  Max. different texture registers readable per instruction is %d.
 %d different texture registers (t#) read over 2 co-issued instructions. Max. different register numbers from any one register type readable across co-issued instructions is %d.
+%d%s
+%d.
+%d[%d].
+%d]
 %gf
-%ihD
+%s 
+%s %s
 %s %s[%d] = \n{\n
 %s FAILED!\n
+%s X%u: 
 %s array index must be a literal expression
 %s array signature parameter %s cannot be indexed dynamically.
 %s bem cannot be co-issued.
@@ -299,15 +343,31 @@ $super
 %s snap offset must be in the range -8 to 7
 %s target does not support texture lookups
 %s tessfactor %ss missing
+%s%d
 %s%d must be a four-component vector
+%s%d%s
+%s%s
 %s%s contains a system-interpreted value (%s) which must be written in every execution path of the shader.  Unconditional initialization may help. <| A%u (B%u)
 %s%s contains a system-interpreted value (%s) which should be written in every execution path of the shader <| A%u (B%u)
 %s%s requires replicate swizzle for this parameter in order to select component. i.e. .x | .y | .z | .w (or rgba equivalent)
+%s%u
 %s%u,space%u
+%s%u.%c
+%s%u[%u:
 %s%ux%u
+%s(
+%s+%s
+%s.
+%s.a
+%s.b
+%s.g
+%s.r
+%s/
 %s: ERROR: If either a HullShader or DomainShader is set then both must be set. Technique %s, Pass %s.
 %s: ERROR: No valid %s-%s combination could be found in Technique %s, Pass %s.
 %s: WARNING: There exist invalid %s-%s combinations in Technique %s, Pass %s, depending on which elements of the specified shader array(s) are chosen.
+%s<
+%s<%d
 %sInvalid register number: %d.  Max allowed for this type is %d.
 %sInvalid register number: %d. Max allowed for this type is %d.
 %sInvalid register type.
@@ -327,11 +387,19 @@ $super
 %sSource swizzles not allowed on tex* instruction.
 %sTexture coordinate registers (t#) are not available to arithmetic instructions.
 %sUnexpected source parameter.
+%s[
+%s[%s]
+%s[%u +
+%s[%u]
+%s[%u].%c
 %s[%u][%u].%c
 %s[eval(
 %s[r%u.%c/%u]<
 %s[r%u.%c]<
+%s\%s
+%s\n
 %s_%s_n%u_%u
+%s_n%u_%u
 %sa
 %sb
 %sg
@@ -340,6 +408,9 @@ $super
 %sx
 %sy
 %sz
+%u%s
+%u\n
+%u]
 %uu
 %ux%u
 '#pragma def' is no longer supported on DX10+ and 10level9 targets.  Use compatibility mode to allow compilation for now.
@@ -498,6 +569,8 @@ $super
 'label' is only permitted directly after a 'ret' instruction. Aborting shader validation. 
 'ret' instruction not permitted from inside any flow control block. Aborting shader validation. 
 (%f, %f, %f, %f)
+(%fl, %fl)
+(%i,%i,%i)
 (%s source param) Invalid register number: %d.  Max allowed for this type is %d.
 (%s source param) Modifiers are not allowed on constants for ps_1_x.
 (%s source param) Negate or abs modifiers not permitted on source parameters to texld*
@@ -587,10 +660,15 @@ $super
 (unknown scope value kind)
 (unknown)
 (unnamed)
+* Linker *
 ***globals***
 +#INF
++,,,,,,,,,,,,,,,,-----....///000111112223344556677889:;<
+, %.9g
 , dynamicIndexed
+, fb%u
 , forcing loop to unroll
+, ft%u
 , immediateIndexed
 , mode_comparison
 , mode_default
@@ -599,16 +677,19 @@ $super
 , space=%u
 , stride=%u
 , texm3x2depth
+,%d
+,\n                              
 -#INF
--* Linker *
 --- Compilation status for library function '%s' ---\n
 -dtof(x) -> dtof(-x) <| MR.GenSimplifyInstructionsOpt1_Excl
 -ftod(x) -> ftod(-x) <| MR.GenSimplifyInstructionsOpt1_Excl
 -sin(x) -> sin(-x) <| MR.GenSimplifyInstructionsOpt1_Excl
 . The compiler cannot always detect that an array is fully assigned to. Fully initializing the array in its declaration may help avoid this error
 .$super
-...
+.%S
+.%c
 .00cfg
+.10.40116.11 (demangled)
 .Base
 .CRT$XCA
 .CRT$XCL
@@ -617,6 +698,7 @@ $super
 .CRT$XIA
 .CRT$XIAA
 .CRT$XIZ
+._m%u%u
 .bss
 .data
 .data$brc
@@ -652,10 +734,12 @@ $super
 .text$yd
 .xdata
 .xdata$x
+/               
 /* Interface parameter %u bound to: %s
 /* Stream %u out decl: "%s" */
 /* Stream %u to rasterizer */
 /* Stream out decl: "%s" */
+//              
 //             Slots\n
 //       %s\n
 //     %c%-4u= 
@@ -675,6 +759,19 @@ $super
 // %u %s object(s)\n
 // %u groups(s)\n
 // %u technique(s)\n
+// +----------+---------+---------------------------------------\n
+// ---------- ------- --------- --------- ----------------------\n
+// ---------- ------- ---------- ---------\n
+// ---------- --------------------------------------------------\n
+// -------------- --------------- ----------------\n
+// -------------------- ----- ------ -------- -------- ------- ------\n
+// -------------------- -------------------- --------------- ---------------- ------------------------------ \n
+// -------------------- --------------------\n
+// --------------------------- ---- -- --------- ------- -------\n
+// ------------------------------ ---- --------- ------- -------\n
+// ------------------------------ ---------- ------- ----------- ------- -------------- ------\n
+// ------------------------------ ---------- ------- ----------- -------------- ------\n
+// ------------------------------ ------------------\n
 // <internal error> column mismatch in debug info\n
 // <internal error> could not find inner most frame in PDB\n
 // <internal error> could not get UDT child length in PDB\n
@@ -780,34 +877,64 @@ $super
 /Cube/CubeArray
 /LinkInfo
 /names
+00)
+00\f
 00ffff
+01+
 0123456789abcdef
 0123456789abcdefS_BLOCK32
+021
+05,
+051
+08&
+08)
+081
+091
+0A(
+0K#
+0K(
+0K)
+0O)
+0P(
+0R1
+0S1
+0V(
 0WEIGHTS
+0\f1
+0\r1
+0g.
+0h$
+0j#
+0p(
+0s)
+0s*
+0u-
+0w1
 0x%016I64xUI64
 0x%02x
 0x%08X: 
 0x%08x
 0x%08x 
 0x%x
+0y)
+0z,
 1 / sqrt(x) -> rsq(x) <| MR.GenSimplifyInstructionsOpt1_NoExcl
 1 / x -> rcp(x) <| MR.GenSimplifyInstructionsOpt1_NoExcl
 1.#IND
 1.#INF
 1.#QNAN
 1.#SNAN
+1/0
 1WEIGHTS
 2WEIGHTS
 32-bit floating-point operations flush denorm float literals to zero, %g is losing precision (this warning will only be shown once per compile)
-3333333333333333UUUUUUUUUUUUUUUU
 3WEIGHTS
 4 component with no swizzle expected for operand #%d of opcode #%d (counts are 1-based). 
+5869
 64 UAV slots
-7xicuU
 ::<unnamed-tag>
 ::__unnamed
 :;<=>?@ABCD
-;Wtq
 <!-- id=%d -->
 <%s return value>
 </font>
@@ -856,10 +983,13 @@ $super
 <unnamed>
 <unused>
 <| dependent on I%u (B%u), A%u (B%u)
-=FALSE
-???
+@51
+@91
 @ILT
-@Module %d
+@ILT+%d(
+@N0
+@O0
+@z1
 A 'ret' instruction must be followed by either (1) the end of the shader or (2) a 'label' instruction. Aborting shader validation.
 A * (1/A) = 1 <| Explicit
 A * B for boolean A & B -> AND A, B <| MR.GenSimplifyInstructionsOpt1_NoExcl
@@ -1031,6 +1161,7 @@ CAMERASPACENORMAL
 CAMERASPACEPOSITION
 CAMERASPACEREFLECTIONVECTOR
 CB%d
+CB%d[%d:
 CBV
 CB[%d] already declared, repeated declaration on opcode #%d (count is 1-based). 
 CCW
@@ -1038,7 +1169,6 @@ CCW_STENCILFAIL
 CCW_STENCILFUNC
 CCW_STENCILPASS
 CCW_STENCILZFAIL
-CGO
 CLAMP
 CLIPDST
 CLIPPING
@@ -1127,7 +1257,6 @@ CaseStmts
 Change swizzle of parameters to dot <| Explicit
 CheckAccessFullyMapped
 CheckAccessFullyMapped requires shader model 5 or higher
-CiH
 Clip plane attribute parameters must be non-literal constants
 Clip planes cannot be addressed in %s
 Clip planes must be non-literal constants with identity swizzles in %s
@@ -1209,6 +1338,7 @@ CryptReleaseContext
 CullMode
 Cycle Counter already declared.  Opcode #%d (count is 1-based). 
 Cycle Counter declaration must have mask of .x or .xy.  Opcode #%d (count is 1-based). 
+D0x%I64x
 D3D10_COMPILER
 D3D10_SHADER_AVOID_FLOW_CONTROL
 D3D10_SHADER_DEBUG
@@ -1274,7 +1404,6 @@ D3DX: (WARN) D3DX11 relies upon this behavior.\r\n
 D3DX: (WARN) Overloaded ::new and ::delete operators do not conform to C++ standards:\r\n
 D3DX: (WARN) least zero bytes. Deletion of a null pointer should quietly do nothing.\r\n
 D3DX_VERSION
-D=>3[FG
 DATA_STATIC
 DATA_STATIC_WHILE_SET_AT_EXECUTE
 DATA_VOLATILE
@@ -1482,6 +1611,7 @@ Expected sample count of 0 but encountered %d for resource t%d.  Opcode #%d (cou
 Expected single component mask (or in certain cases also NULL or single component output operand allowed) for operand #%d of opcode #%d (counts are 1-based). 
 Extended 11.1 double operations not supported unless globalFlags includes enable11_1DoubleExtensions.
 Extended 11.1 shader operations not supported unless globalFlags includes enable11_1ShaderExtensions.
+FALSE
 FCIAddFile
 FCICreate
 FCIDestroy
@@ -1529,7 +1659,6 @@ FILTER_MIN_MAG_POINT_MIP_LINEAR
 FILTER_MIN_POINT_MAG_LINEAR_MIP_POINT
 FILTER_MIN_POINT_MAG_MIP_LINEAR
 FLAT
-FMZ
 FOG
 FOG must be a scalar
 FOGCOLOR
@@ -1579,7 +1708,6 @@ FrontFaceStencilDepthFail
 FrontFaceStencilFail
 FrontFaceStencilFunc
 FrontFaceStencilPass
-FzX\v
 GAUSSIANQUAD
 GCTL
 GEOMETRY
@@ -2077,10 +2205,8 @@ Invalid texm* register.
 Invalid texm* sequence.
 Isoline
 It is invalid to use eval_* on position input due to hardware limitation.  Opcode #%d (count is 1-based). 
-JhKz
 Join phase declared the same component(s) of output patch constant register o[#d] as already declared for output by a previous fork phase or other joint phase.
 Join phase declaring component(s) of input patch constant register vpc[%d] which have not been output by previous fork phase(s) or other join phase(s).
-KDw
 KEEP
 KERNEL32.dll
 Known literals reduced to mov <| Explicit
@@ -2247,7 +2373,6 @@ LIGHTTYPE
 LINEAR
 LINEDEN
 LINEDET
-LMIRSZWT
 LOCALVIEWER
 Label is defined inside a subroutine or main program. Label must follow the ret instruction. Aborting shader validation. 
 LeaveCriticalSection
@@ -2265,7 +2390,6 @@ Legacy NOT LT => GE <| MR.GenSimplifyInstructionsOpt1_NoExcl
 LegacyLocalResourceArrays
 Length
 Level9
-LhX
 Library entry points cannot be overloaded ('%s')
 Line
 LineStream
@@ -2282,6 +2406,11 @@ LocalAlloc
 LocalFree
 M*x* matrix instructions cannot write to scalar output register.
 M*x* matrix instructions cannot write to scalar output registers (oFog, oPts).
+M3x2
+M3x3
+M3x4
+M4x3
+M4x4
 MAGFILTER
 MATERIAL
 MATERIALAMBIENT
@@ -2294,7 +2423,6 @@ MAXANISOTROPY
 MAXLOD
 MAXMIPLEVEL
 MAXTESSELLATIONLEVEL
-MGiI
 MIN
 MINFILTER
 MINTESSELLATIONLEVEL
@@ -2361,6 +2489,7 @@ Mismatch between shader declaration of 11.1 shader extensions and accompanying S
 Mismatch between shader declaration of double precision floats and accompanying Shader Feature Info blob (or lack thereof). Both the shader must declare double precision float use and a Shader Feature Info blob must specify the same thing as well, or neither should request it. 
 Mismatch between shader declaration of minimum precision and accompanying Shader Feature Info blob (or lack thereof). Both the shader must declare minimum precision use and a Shader Feature Info blob must specify the same thing as well, or neither should request it. 
 Mismatch between shader declaration of raw and structured buffers for shader 4_x and accompanying Shader Feature Info blob (or lack thereof). Both the shader must declare raw and structured buffer use and a Shader Feature Info blob must specify the same thing as well, or neither should request it. 
+Module %d
 More than 2 constants (even identical ones) cannot be read by an instruction. (There is one exception: this rule does not apply to the SINCOS instruction.)
 MostRecentApplication
 Mulitply by 1 reduces to no-op move <| Explicit
@@ -2383,7 +2512,6 @@ Must use texture register a dest param for tex* instructions.
 NEVER
 NMLK
 NONE
-NOPQ9:?@H
 NORMAL
 NORMALDEGREE
 NORMALIZENORMALS
@@ -2461,10 +2589,26 @@ Overflow for shader register range: BaseShaderRegister=%u, NumDescriptor=%u; (de
 Overflow of resource binding range\n
 Overlapping input index range decl encountered.  Opcode #%d (count is 1-based). 
 Overlapping output index range decl encountered.  Opcode #%d (count is 1-based). 
+P 1
+P0&
+P0+
+P0-
+P21
+P31
+P4-
+P41
+P4\n
+P6)
+P61
+P71
+PA0
 PASSTHRU
 PATCHEDGESTYLE
 PATCHSEGMENTS
+PD(
+PD,
 PHONG
+PI.
 PIXEL
 PIXELSHADER
 PIXELSHADERCONSTANT
@@ -2475,6 +2619,9 @@ PIXELSHADERCONSTANT4
 PIXELSHADERCONSTANTB
 PIXELSHADERCONSTANTF
 PIXELSHADERCONSTANTI
+PK0
+PL,
+PO(
 POINT
 POINTSCALEENABLE
 POINTSCALE_A
@@ -2488,6 +2635,10 @@ POS
 POSITION
 POSITIONDEGREE
 POSITIONT
+PP,
+PQ(
+PQ)
+PR(
 PREMODULATE
 PRIMID
 PROJECTED
@@ -2508,7 +2659,13 @@ PS output stencil ref requires feature flag enableStencilRef.  Opcode #%d (count
 PSIZE
 PSIZE must be a scalar
 PSize
+PU(
+PV)
+PX*
 PYRAMIDALQUAD
+PZ*
+P\f5
+Pa(
 Parameter '%s' can be specified only once
 Parameter(s) for %s instruction must specify default swizzle (.xyzw, or none specified.) 
 Parameter(s) for %s instruction must specify default swizzle (.xyzw, or none specified.).  The exception is (on shader version > ps_2_0) if the condition is the predicate register, p0, in which case a replicate swizzle must be used in order to select a component. i.e. .x | .y | .z | .w (or rgba equivalent) 
@@ -2523,10 +2680,15 @@ Patch constant signature parameter #%d (1-based) specifies out of range register
 Patch constant signature parameter #%d (1-based) specifies register %d (or components in the register) that have already been defined. 
 Patch constant signature signature does not specify component %d of register %d which is declared in the shader code. 
 Patch semantics must live in the enclosed type, outer semantic ignored.
+Pb(
+Pc(
+Pd(
+Pe0
 Phase marker cannot be co-issued.
 Pixel Shader allows output semantics to be SV_Target, SV_Depth, SV_DepthGreaterEqual, SV_DepthLessEqual, SV_Coverage only, or SV_StencilRef.  Output signature parameter #%d (1-based) specifies semantic %s. 
 Pixel shader must minimally write to oC0 (with a mov instruction).
 PixelShader
+Pm*
 Point
 PointStream
 Position
@@ -2534,6 +2696,7 @@ PositionT
 Possible %ss are:
 Possible integer divide by zero
 Post-call locations: 
+Pq)
 Precise mask not permitted for opcode #%d (counts are 1-based). 
 Predicate register (p0) parameter to %s instruction must specify replicate swizzle in order to select component. i.e. .x | .y | .z | .w (or rgba equivalent)
 Predicate register read, but uninitialized. Note that the predicate register must be written by setp before it is used, and that flow control instructions invalidate the predicate register's contents. Affected components(*): %s
@@ -2550,12 +2713,15 @@ ProcessTriTessFactorsAvg
 ProcessTriTessFactorsMax
 ProcessTriTessFactorsMin
 Psize
+Pt)
+Pt-
+Pu)
+Py%
 QUAD
 QUADEDGE
 QUADINT
 QUADRATIC
 QUINTIC
-Qkkbal
 Quadrilateral
 QueryPerformanceCounter
 RANGEFOGENABLE
@@ -2565,7 +2731,6 @@ RESULTARG
 REVSUBTRACT
 REV_SUBTRACT
 RPCRT4.dll
-RSDS
 RTINDEX
 RWBuffer
 RWByteAddressBuffer
@@ -3225,7 +3390,6 @@ TRI
 TRIEDGE
 TRIINT
 TRUE
-TVJ
 TWEENFACTOR
 TWEENING
 TWOSIDEDSTENCILMODE
@@ -3414,6 +3578,7 @@ UAVs must be declared in slots greater than PS outputs.  UAV declared in slot %d
 UGE a,a -> true <| MR.GenSimplifyInstructionsOpt1_NoExcl
 UINT
 ULT a,a -> false <| MR.GenSimplifyInstructionsOpt1_NoExcl
+UNKN
 UNKNOWN
 USEW
 Unable to calculate derivative of %s. %s
@@ -3587,18 +3752,21 @@ XYZB4
 XYZB5
 XYZRHW
 XYZW
+X\f5
 ZENABLE
 ZERO
 ZFUNC
 ZWRITEENABLE
 Zero character semantics aren't allowed
-Zjz\v
+[%8I64u] 
+[%s%d.%c]
 [%s%d[%s].%c]
+[%s.%c]
 [%s[%s].%c]
 [%s[%u + %s].%c]
 [%s[%u].%c]
 [internal error]
-\f\f\f\f
+\fH5
 \n    NULL,\n
 \n    asm {\n\n
 \n// <internal error> incorrect instruction offset in debug info\n
@@ -3610,6 +3778,9 @@ Zjz\v
 \n// | Table ID |         |
 \n\n[RootSignature(%s)]void ___DummyMainForRS(){}\n
 \nvoid main(
+_%d_%d.
+_%s
+_2d
 _CxxThrowException
 _XcptFilter
 __%s_n%u_%u
@@ -3631,6 +3802,7 @@ _bias
 _binormal
 _blendindices
 _blendweight
+_bx2
 _bx2 cannot be used on src register for texbem or texbeml instructions.
 _bx2 cannot be used on src register for texreg2ar or texreg2gb instructions.
 _bx2 is a valid src mod for texM* instructions only (%s source param).
@@ -3643,36 +3815,48 @@ _close
 _color
 _controlfp
 _cube
+_d2
+_d4
+_d8
 _depth
+_dw
 _dw(=_da) modifier on source param for texld only allowed if source is a texture coordinate register (t#).
 _dw(=_da) modifier on source param must be paired with source selector .xyw(=.rga).
 _dynamicindexed
+_dz
 _dz(=_db) modifier cannot be used on source parameter for texcrd. It is only available to texld instruction, when source parameter is temp register (r#).
 _dz(=_db) modifier may only be used at most 2 times in a shader.
 _dz(=_db) modifier on source param for texld must be paired with source selector .xyz(=.rgb). Note: Using no selector is treated same as .xyz here.
 _dz(=_db) modifier on source param for texld only allowed if source is a temp register (r#).
+_eq
 _errno
 _filelengthi64
 _fileno
 _finite
 _fog
 _fpclass
+_ge
 _get_osfhandle
 _glc
+_gt
 _indexable
 _initterm
 _isnan
+_le
 _lock
 _lseeki64
+_lt
 _mbscmp
 _mbstrlen
 _memicmp
+_ne
 _normal
 _onexit
 _opc
 _open_osfhandle
 _position
 _positiont
+_pp
 _psize
 _purecall
 _rcpfloat 
@@ -3711,11 +3895,21 @@ _wmakepath_s
 _write
 _wsopen
 _wsplitpath_s
+_x2
+_x4
+_x8
+`21
+`31
+`61
+`71
+`80
+`M1
 `OTHER
+`P1
 `PACKED
-`Rs%a
 `TEMP
 `UUe?
+`y1
 a + (F - a) -> append_arg(F) <| SMR.RangeDataAnalysis
 a + -a -> append_arg(0) <| SMR.RangeDataAnalysis
 a << L | b (bfi(w=32-L, o=L, a, b) if( mask_is_zero(w, o, b) && allbutwidth_is_zero(w, a) -> imad (a, 1 << L, B) <| MR.GenMad
@@ -3730,6 +3924,7 @@ a uint specifying the number of iterations to unroll
 a | r : if( known_bfi_bitmask_noshift_impmask(a,r) && and_is_zero(a,r) ) -> bfi(bfi_bitwidth_noshift_impmask(a,r), 0i, a, r) <| MR.GenD3D10_OptimizeEarlyTranslate_Excl
 a%u
 a*(1/(b*a)) -> 1 / b <| MR.GenSimplifyInstructionsOpt1_Excl
+a/w
 a0a0a0
 aL can only be referenced in the following scenarios: (1) inside a loop/endloop block, or (2) in a subroutine for which in all cases some call below in the stack is in a loop/endloop block. 
 abort
@@ -3871,6 +4066,8 @@ b | (a & c) | (a & d) -> or(b, and(a, or(c,d)) <| MR.GenSimplifyInstructionsOpt1
 b%d already def'd in the shader. 
 b%d must only be defined as true (0x00000001) or false (0x00000000). 
 b%u
+b/z
+b_%s
 back-propagate negate through iadd <| MR.GenSimplifyInstructionsOpt1_Excl
 back-propagate negate through imul <| MR.GenSimplifyInstructionsOpt1_Excl
 base type is not a struct, class or interface
@@ -3943,7 +4140,6 @@ bine(b,0) -> b <| MR.GenSimplifyInstructionsOpt2_NoExcl
 bine(i/ushr(a, n),0) : if(lower_n_bits_are_zero(a, n)) -> bine (a, 0) <| MR.GenSimplifyInstructionsOpt1_NoExcl
 bine(ishl(a, n),0) : if(upper_n_bits_are_zero(a, n)) -> bine (a, 0) <| MR.GenSimplifyInstructionsOpt1_NoExcl
 binormal
-bkK
 blendindices
 blendweight
 blt fp_flags <| SFPS
@@ -4001,6 +4197,7 @@ breakc
 breakp
 breakp requires parameter to be predicate register (p0). 
 bsearch
+btof
 btof -> movc <| MR.GenSimplifyInstructionsOpt1_NoExcl
 btof fp_flags <| SFPS
 btoi
@@ -4026,11 +4223,13 @@ bult bits_known <| SFPS
 bult fp_flags <| SFPS
 bult int_literal <| SFPS
 bult int_range <| SFPS
+bx2
 byte
 byteOffset
 c%d already def'd in the shader. 
 c%u
 c1, c2, c3, c4, c5, c6
+c_%s
 calclod1d fp_flags <| SFPS
 calclod1d_a fp_flags <| SFPS
 calclod1d_u fp_flags <| SFPS
@@ -4239,6 +4438,11 @@ countbits int_literal <| SFPS
 countbits(i) -> and/shift/add sequence <| MR.Gen_RequiredTranslate
 cross
 crs
+cs_%d_%d\n
+cs_4_0
+cs_4_1
+cs_5_0
+cs_5_1
 cube
 cubearray
 cull_distance
@@ -4485,8 +4689,11 @@ double negative to original <| MR.GenSimplifyInstructionsOpt1_NoExcl
 double rcp identity <| MR.GenSimplifyInstructionsOpt1_NoExcl
 double-precision floating point division by zero
 doubles cannot be used as shader inputs or outputs. If you need to pass a double between shader stages you must pass it as two uints and use asuint and asdouble to convert between forms
+dp2
 dp2add
+dp3
 dp3 which writes alpha cannot co-issue since it uses up both the alpha and color pipes.
+dp4
 dp4 cannot be coissued.
 dp4 instruction cannot be co-issued.
 drcp
@@ -4494,6 +4701,9 @@ drcp_approx float_literal <| SFPS
 drcp_approx fp_flags <| SFPS
 drcp_approx fp_range <| SFPS
 drcp_approx fp_specials <| SFPS
+ds_%d_%d\n
+ds_5_0
+ds_5_1
 dsat float_literal <| SFPS
 dsat fp_flags <| SFPS
 dsat fp_range <| SFPS
@@ -4626,10 +4836,12 @@ expression has a minimum precision type and cannot be marked precise <| A%u (B%u
 expressions returning objects in an array or struct not yet implemented
 expressions with side effects are illegal as attribute parameters
 extern
+f16tof32
 f16tof32 bits_known <| SFPS
 f16tof32 float_literal <| SFPS
 f16tof32 fp_flags <| SFPS
 f16tof32(i) -> conversion sequence <| MR.Gen_RequiredTranslate
+f32tof16
 f32tof16 fp_flags <| SFPS
 f32tof16 int_literal <| SFPS
 f32tof16 int_range <| SFPS
@@ -4782,6 +4994,7 @@ friend
 fseek
 ft%u
 ftell
+ftob
 ftob fp_flags <| SFPS
 ftob int_literal <| SFPS
 ftob int_range <| SFPS
@@ -4819,9 +5032,14 @@ functional defines in preprocessor expressions not yet implemented
 functionif fp_flags <| SFPS
 fwidth
 fwx
+fx_2_0
+fx_4_0
+fx_4_1
+fx_5_0
 fxgroup
 fxl_2_0
 fxl_4_0
+g/y
 gather2d fp_flags <| SFPS
 gather2d_a fp_flags <| SFPS
 gather2d_a_o fp_flags <| SFPS
@@ -4864,14 +5082,22 @@ gradient operation uses a value that may not be defined for all pixels (in %s UA
 gradient-based operations must be moved out of flow control to prevent divergence. Performance may improve by using a non-gradient operation
 groupshared
 groupshared variables cannot contain resources such as textures, samplers or UAVs
+gs_%d_%d\n
+gs_4_0
+gs_4_1
+gs_5_0
+gs_5_1
 half
 height
 hex value truncated to 64 bits
 hlslDefines
 hlslTarget
 hlsl_full_path
+hs_%d_%d\n
+hs_5_0
 hs_5_0 control point
 hs_5_0 patch constant
+hs_5_1
 hs_control_point_phase
 hs_decls
 hs_fork_phase
@@ -4888,7 +5114,7 @@ i%d.y (which represents loop initial value) must be in the range [0, %d]. i%d.y 
 i%d.yzw have no meaning in this shader model; they must simply be 0. 
 i%d.z (which represents loop step value) must be in the range [-%d, %d]. i%d.z is currently def'd as %d. 
 i%u
-i]Wb
+i_%s
 iadd
 iadd bits_known <| SFPS
 iadd fp_flags <| SFPS
@@ -5017,6 +5243,7 @@ imul one reduces to no-op mov <| MR.GenSimplifyInstructionsOpt1_NoExcl
 imul(a, iv_pow2) -> ishl(a, get_lowest_bit(iv_pow2)) <| MR.GenD3D10_OptimizeEarlyTranslate
 imul(iadd(a, iv1), iv2) -> iadd(imul(a, iv2), imul(iv1, iv2)) <| MR.GenSimplifyInstructionsOpt1_Excl
 imul(ishl(iv1, a), iv2) -> ishl(imul(iv1, iv2), a) <| MR.GenSimplifyInstructionsOpt1_NoExcl
+in 
 in %s uints can only be used with known-positive values, use int if possible
 include
 incorrect bind semantic
@@ -5294,12 +5521,7 @@ itof
 itof fp_flags <| SFPS
 itof(ftoi(x)) -> trunc(x) <| MR.GenSimplifyInstructionsOpt1_NoExcl
 ixr
-jHq
 jmp
-kaE
-kdz
-kh/{x
-knv
 l%u
 l-value specifies const object
 label
@@ -5328,6 +5550,7 @@ ld_uav_typed
 ld_uav_typed cannot be used on a UAV that is not declared as typed (u%d). Opcode #%d (counts are 1-based).
 ld_uav_typed_s
 ldexp
+ldms
 ldms_s
 length
 lerp
@@ -5337,6 +5560,7 @@ lerp(fbool, finite a, 0) -> append_arg(a,0) <| SMR.RangeDataAnalysis
 lerp(fbool, finite a, finite b) -> append_arg(a,b) <| SMR.RangeDataAnalysis
 levels
 lib
+lib_%d_%d\n
 lib_4_0
 lib_4_0_level_9_1
 lib_4_0_level_9_1_ps
@@ -5411,6 +5635,12 @@ lt fp_range <| SFPS
 lt of known range reduction <| Explicit
 lt(a, b) -> cmp(a - b, 0f, 1f) <| MR.Gen_RequiredTranslate
 m%u
+m%u:
+m3x2
+m3x3
+m3x4
+m4x3
+m4x4
 mad
 mad float_literal <| SFPS
 mad fp_flags <| SFPS
@@ -5606,6 +5836,7 @@ multiple concrete base types specified
 multiple variables found with the same user-specified location
 multiply
 mutable
+n/a
 namespace
 namespace %s\n{    \n
 neg
@@ -5726,6 +5957,27 @@ overlapping register semantics not yet implemented '%c%u'
 overlapping register semantics not yet implemented 'c%u'
 overloaded function not found
 p%u
+p+1
+p0\f
+p21
+p5(
+p7&
+p7)
+p7.
+p71
+p9&
+p91
+p:1
+p;1
+pF1
+pH(
+pI0
+pL)
+pL0
+pM1
+pO,
+pR1
+pT(
 pack_matrix
 packoffset
 packoffset cannot have a target qualifier
@@ -5755,8 +6007,10 @@ pixel shader must minimally write all four components of %s
 pixel shader must minimally write all four components of COLOR0
 pixelfragment
 pixelshader
+pj1
 placement_mov fp_flags <| SFPS
 placement_mov mov <| SFPS
+po.
 point
 pos cmp sequence -> sat <| MR.Gen_OptimizeEarlyTranslate_SAT_NoExcl
 position
@@ -5771,7 +6025,11 @@ potentially unintended use of a comma expression in a variable initializer
 pow
 pow(f, e) will not work for negative f, use abs(f) or conditionally handle negative values if you expect them
 pow2
+pp(
 ppShader pointer is invalid
+pq)
+pr)
+pr0
 pragma
 precise
 precise 
@@ -5801,15 +6059,30 @@ propagate special floating point values through sqrt <| Explicit
 propogate swizzles <| Explicit
 protected
 proto
+ps)
+ps.1.0
+ps.1.1
+ps.1.2
+ps.1.3
+ps.1.4
+ps.2.0
 ps.2.a
 ps.2.b
 ps.2.sw
 ps.2.x
+ps.3.0
 ps.3.sw
+ps_%d_%d\n
+ps_1_0
 ps_1_0 is no longer supported.  It turned out that pixel shader capable hardware will always support at least ps_1_1 (which is not as limited a model as ps_1_0 was). To convert a ps_1_0 shader up to ps_1_1, the only change needed is to make the version number 1_1. 
 ps_1_0 is no longer supported; using ps_1_1
+ps_1_1
+ps_1_2
+ps_1_3
+ps_1_4
 ps_1_x is no longer supported; use /Gec in fxc to automatically upgrade to ps_2_0
 ps_1_x is no longer supported; using ps_2_0
+ps_2_0
 ps_2_0 does not support predication.
 ps_2_a
 ps_2_b
@@ -5820,14 +6093,21 @@ ps_2_x extended instruction not supported by the hardware (gradient instructions
 ps_2_x extended instruction not supported by the hardware (neither predication or static flow control supported).
 ps_2_x extended instruction not supported by the hardware (predication not supported).
 ps_2_x extended instruction not supported by the hardware (static flow control not supported).
+ps_3_0
 ps_3_sw
+ps_4_0
 ps_4_0_level_9_0
 ps_4_0_level_9_1
 ps_4_0_level_9_3
+ps_4_1
+ps_5_0
+ps_5_1
 psize
 ptr
 public
 public: virtual type_info::~type_info(void) (demangled)
+px)
+pz,
 qsort
 quad
 r | (a & n) : if( known_bfi_bitmask_noshift(n,a,r) && and_is_zero(n,r) ) -> bfi(bfi_bitwidth_noshift(n,a,r), 0i, a, r) <| MR.GenD3D10_OptimizeEarlyTranslate_Excl
@@ -5835,7 +6115,10 @@ r | (a = bfi(w, o, v, 0i)) : if( mask_is_zero(w,o,r) ) -> bfi(w, o, v, r) <| MR.
 r | (n & a) : if( known_bfi_bitmask_noshift(n,a,r) && and_is_zero(n,r) ) -> bfi(bfi_bitwidth_noshift(n,a,r), 0i, a, r) <| MR.GenD3D10_OptimizeEarlyTranslate_Excl
 r | a : if( known_bfi_bitmask_noshift_impmask(a,r) && and_is_zero(a,r) ) -> bfi(bfi_bitwidth_noshift_impmask(a,r), 0i, a, r) <| MR.GenD3D10_OptimizeEarlyTranslate_Excl
 r%u
+r/o
+r/w
 r/w+cnt
+r/x
 r0 must be written by shader. Uninitialized component%s(*): %s
 r0 must be written by shader. Uninitialized component%s(*): %s. Note that an unfortunate effect of the phase marker in the shader is that the moment it is encountered in certain hardware, values previously written to alpha in any r# register, including r0, are lost. So after a phase marker, the alpha component of r0 must be written.
 r0 must be written by shader. Uninitialized component%s(*): %s. Note that when texcrd is used with a .xy(==.rg) writemask, as it is in this shader, a side effect is that anything previously written to the z(==b) component of the destination r# register is lost and this component becomes uninitialized. The blue component of r0 must to be written after the texcrd.
@@ -5950,6 +6233,7 @@ rsq(x) * rsq(x) -> rcp(x) for positive x <| MR.GenSimplifyInstructionsOpt1_Excl
 rsqrt
 ruledisable
 s%u
+s_%s
 sample
 sample 
 sample count must be non-zero
@@ -6448,6 +6732,7 @@ trunc(utof(x)) -> utof(x) <| MR.GenSimplifyInstructionsOpt1_NoExcl
 try
 tsi
 tunnelable move(a) -> append_arg(a) <| SMR.RangeDataAnalysis
+tx_1_0
 type
 type mismatch
 type mismatch between conditional values
@@ -6465,8 +6750,6 @@ u/ishr(or(m, a), n) : if( or_is_identity_ignore_lower_n_bits(a, m, n) -> u/ishr(
 u/ishr/l(and(a, iv1), iv2) -> and(u/ishr/l(a, iv2), u/ishr/l(iv1, iv2)) <| MR.GenSimplifyInstructionsOpt1_Excl
 u/ishr/l(or(a, iv1), iv2) -> or(u/ishr/l(a, iv2), u/ishr/l(iv1, iv2)) <| MR.GenSimplifyInstructionsOpt1_Excl
 u/ishr/l(xor(a, iv1), iv2) -> xor(u/ishr/l(a, iv2), u/ishr/l(iv1, iv2)) <| MR.GenSimplifyInstructionsOpt1_Excl
-uEL}
-uEL}_
 uaddc
 uaddc bits_known <| SFPS
 uaddc fp_flags <| SFPS
@@ -6484,7 +6767,6 @@ ubfe(w, o, a >> s) : if( o + s < 32 ) -> ubfe(w, o + s, a) <| MR.GenSimplifyInst
 ubfe(w, o, a) >> s -> ubfe(w, o + s, a) <| MR.GenSimplifyInstructionsOpt1_Excl
 ubfe(w, o, a) >> s : if( o + s < 32 && w >= s ) -> ubfe(w - s, o + s, a) <| MR.GenSimplifyInstructionsOpt1_NoExcl
 ubi
-udH
 udiv
 udiv bits_known <| SFPS
 udiv fp_flags <| SFPS
@@ -6587,6 +6869,7 @@ usage semantics do not apply to %ss
 use flow control and logical conditions to tighten ranges <| Explicit
 use of potentially uninitialized variable (%s)
 ushort
+ushr
 ushr bits_known <| SFPS
 ushr fp_flags <| SFPS
 ushr int_literal <| SFPS
@@ -6602,6 +6885,7 @@ usubb int_range <| SFPS
 uti
 utod
 utod fp_flags <| SFPS
+utof
 utof fp_flags <| SFPS
 utof(sampleinfo_uint(x)) -> sampleinfo(x) <| MR.GenSimplifyInstructionsOpt1_NoExcl
 utof(sampleinfo_uint_rt(x)) -> sampleinfo_rt(x) <| MR.GenSimplifyInstructionsSampleMask_Both
@@ -6656,6 +6940,7 @@ vertex_id
 vertexfragment
 vertexshader
 vfunctab
+vicp
 viewportArrayIndex already declared for input.  Opcode #%d (count is 1-based). 
 viewportArrayIndex already declared for output.  Opcode #%d (count is 1-based). 
 viewport_array_index
@@ -6668,12 +6953,20 @@ void terminate(void) (demangled)
 volatile
 volume
 vpc
+vs.1.0
+vs.1.1
+vs.2.0
 vs.2.a
 vs.2.sw
 vs.2.x
+vs.3.0
 vs.3.sw
+vs_%d_%d\n
+vs_1_0
 vs_1_0 is no longer supported.  It turned out that vertex shader capable hardware will always support at least vs_1_1 (which is not as limited a model as vs_1_0 was). To convert a vs_1_0 shader up to vs_1_1, the only change needed is to make the version number 1_1. 
 vs_1_0 is no longer supported; using vs_1_1
+vs_1_1
+vs_2_0
 vs_2_0 does not support predication.
 vs_2_a
 vs_2_sw
@@ -6681,10 +6974,15 @@ vs_2_x
 vs_2_x extended instruction not supported by the hardware (dynamic flow control not supported).
 vs_2_x extended instruction not supported by the hardware (predication not supported).
 vs_2_x predication not supported by the hardware.
+vs_3_0
 vs_3_sw
+vs_4_0
 vs_4_0_level_9_0
 vs_4_0_level_9_1
 vs_4_0_level_9_3
+vs_4_1
+vs_5_0
+vs_5_1
 warning
 warning location reached from this location
 warning treated as error
@@ -6698,7 +6996,6 @@ wcstoul
 when multiple GS output streams are used they must be pointlists
 while
 width
-wn>Jj
 x / x -> 1 <| MR.GenSimplifyInstructionsOpt1_NoExcl
 x ? firstbit*(x) : -1 -> firstbit*(x) <| MR.GenSimplifyInstructionsOpt1_NoExcl
 x%u
@@ -6710,6 +7007,7 @@ xor int_literal <| SFPS
 xor(xor(a, iv1), iv2) -> xor(a, xor(iv1, iv2)) <| MR.GenSimplifyInstructionsOpt1_NoExcl
 xra
 xrai
+xrao
 xxi
 xyz
 xyzw

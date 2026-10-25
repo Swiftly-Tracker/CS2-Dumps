@@ -1,7 +1,3 @@
-   
-    
-       
-        
                           
     Chapter #%d:%d: 
     Stream #%d:%d
@@ -10,11 +6,12 @@
   Program %d %s\n
   duration=%0.3f\n
   keyframe=%d\n
- !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`ABCDEFGHIJKLMNOPQRSTUVWXYZ{|}~
+  size=%d\n
  !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
- !"#$%&'()*+,-./0123456789:;<=>?@abcdefghijklmnopqrstuvwxyz[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
+ %.2s:%.2s
  %02X
  %02x
+ %d%c
  (attached pic)
  (captions)
  (clean effects)
@@ -36,6 +33,9 @@
  Base Class Descriptor at (
  Class Hierarchy Descriptor'
  Complete Object Locator'
+ EX
+ HD
+ HD422
  NULL\n
  Type Descriptor'
  bandwidth="%d"
@@ -46,6 +46,7 @@
  frameRate="%d/%d"
  full %hhu
  inflate 1.2.11 Copyright 1995-2017 Mark Adler 
+ lang="%s"
  maxFrameRate="%d/%d"
  maxPlayoutRate="%d"
  maxWidth="%d" maxHeight="%d"
@@ -62,7 +63,6 @@
  volatile
 !(e=av_dict_get(*options, "protocol_blacklist", ((void *)0), 0)) || (uc->protocol_blacklist && !strcmp(uc->protocol_blacklist, e->value))
 !(e=av_dict_get(*options, "protocol_whitelist", ((void *)0), 0)) || (uc->protocol_whitelist && !strcmp(uc->protocol_whitelist, e->value))
-!AxU
 !blacklist || !(e=av_dict_get(*options, "protocol_blacklist", ((void *)0), 0)) || !strcmp(blacklist, e->value)
 !dst->codec_whitelist && !dst->format_whitelist && !dst->protocol_whitelist && !dst->protocol_blacklist
 !flv->keyframe_filepositions
@@ -91,15 +91,21 @@
 #EXTINF:%f,\n
 #EXTINF:%ld,\n
 #EXTM3U\n
-#bML"
 $Bandwidth
 $Number
 $RepresentationID$
 $Time
 $ext$
+%%%s
 %*X %X %X %X
 %+08.4f%+09.4f
+%+f
+%.*s
 %.*s\n%.*s\n%.*s
+%.4s
+%.6g
+%.f
+%0*d
 %0.3f
 %02d:%02d:%012.9f
 %02d:%02d:%02d%c%02d
@@ -111,11 +117,17 @@ $ext$
 %06x, %06x, %06x, %06x, %06x, %06x, %06x, %06x, %06x, %06x, %06x, %06x, %06x, %06x, %06x, %06x
 %08x
 %08x 
+%1.0f %s
 %1.0fk %s
+%1.4f %s
+%3.2f %s
 %Id bytes of comment header remain\n
 %Y-%m-%dT%H:%M:%S
 %a, %d %b %Y %H:%M:%S %z
 %c%02d%02d
+%d %X %d \n
+%d.%dS
+%d/%d
 %dH
 %dM
 %dx%d
@@ -124,6 +136,7 @@ $ext$
 %lld kb/s
 %lld%s
 %llu
+%s 
 %s  %-16s: 
 %s #%d, %s, %s '%s':\n
 %s %d,%d,%d,%d
@@ -133,25 +146,33 @@ $ext$
 %s only supported in MP4.\n
 %s rawvideo cannot be written to mov, output file will be unreadable\n
 %s size:%d dts:%s pts:%s\n
+%s%c%s
 %s%d.%06d
+%s%s
+%s-
+%s-%s
 %s-stream%d.%s
 %s.tmp
+%s/%s
+%s: %s\n
 %s: pri %d trc %d matrix %d
 %s: sequence_number: %d, width: %u, height: %u, x_offset: %u, y_offset: %u, delay_num: %hu, delay_den: %hu, dispose_op: %d, blend_op: %d\n
+%s@
 %sMetadata:\n
 %sSide data:\n
+%s\n
+%s_%d
 %smaster.m3u8
 %smedia_%d.m3u8
-&Sgw
 &amp;
 &apos;
 &opaque=%s
 &quot;
 (%f/%f/%f) 
+('8PW
 (none)
 (null)
 (start&1) == 0
-*StO9>T
 *pkt_buffer
 +dash+delay_moov+global_sidx+skip_trailer
 +dash+delay_moov+skip_sidx+skip_trailer
@@ -172,20 +193,28 @@ $ext$
 ,NAME="subtitle_%d",DEFAULT=%s,
 ,RESOLUTION=%dx%d
 ,SUBTITLES="%s"
-----
+-%.2s-%.2s
 --prefix=/c/buildslave/libav_win32/build/dev/build_win64 --toolchain=msvc --enable-shared --disable-static --enable-runtime-cpudetect --disable-all --enable-avcodec --enable-avfilter --enable-avutil --enable-avresample --enable-avformat --enable-swscale --enable-parser='h264,hevc' --enable-decoder='aac,h264,hevc,gif,vorbis,mp3,flac,alac,pcm*,valve*,apng,libvpx_vp8,libvpx_vp9' --enable-encoder='h264_vaapi,hevc_vaapi' --enable-demuxer='aac,matroska,gif,ogg,mov,mp3,flac,wav,flv,apng' --enable-hwaccels --enable-dxva2 --enable-muxer='flv,mp4,dash,webm' --disable-decoder='h263,mpeg1video,mpeg2video,vc1,vp8,vp9' --enable-libvpx --enable-libvorbis --enable-protocol='file,rtmp'
 .%01u.%01u%01u%01u.%02u.%02u.%02u.%01u
 .%01u.%02u%s.%02u
 .%02x
 .%02x%02x%02x
 .%03dZ
-...
+.%d
+.f4v
 .flv
-.xJ>Hf
+.mp1
+.mp4
+/%s
 /_definst_
 /ondemand/
-/yQA
+0,C
+00000001
 0123456789ABCDEF0123456789abcdef
+0X.
+0h5
+0kE
+0wG
 0x%016llX%016llX%016llX%016llX
 0x%016llX%016llX%016llX%016llX%016llX%016llX%016llX%016llX
 0x%llx
@@ -194,25 +223,32 @@ $ext$
 1#INF
 1#QNAN
 1#SNAN
+1.2.11
+100 >= 100
 16-bit big-endian audio in flv is valid but most likely unplayable (hardware dependent); use s16le\n
-1v7dl
 2 F!\#J&U(8*W+A-;0O1]3Y7_=LCSMP
+2006/04/01 11:11:11
+24BG
+24BG\r
+2Vu1\r
 2vuy\r
 32x32 pixels 'file icon'
 333333
-3>N;kU
+33f33333
+3IV2\f
 3IVD\r
 3ff3f33f
+3g2
+3gp
 4XMV
+700WP
 77214d4b196a87cd520045fd20a51d67
 8BPS1
-8d83Lm8U^v8
-:Feje$
-;1\UF1J
+:%d
+;lD
 <%s systemBitrate="%lld">\n
 </switch>\n
 <?xml version="1.0" encoding="utf-8"?>\n
-<A-sv
 <GSpherical:InitialViewHeadingDegrees>
 <GSpherical:InitialViewPitchDegrees>
 <GSpherical:InitialViewRollDegrees>
@@ -231,27 +267,24 @@ $ext$
 <smil xmlns="http://www.w3.org/2001/SMIL20/Language">\n
 <switch>\n
 <unknown>
-=imb;D
-?UUUUUU
 ?authmod=%s&user=%s
 ?authmod=%s&user=%s&challenge=%s&response=%s
 ?authmod=%s&user=%s&nonce=%s&cnonce=%s&nc=%s&response=%s
 ?listen&listen_timeout=%d
-?qBJ
 ?reason=authfailed
 ?reason=needauth
 ?reason=nosuchuser
-?ysB
-@=OEI=m
-@@@
+@KL
 @setDataFrame
 A Cappella
 A bright coloured fish
 A non-recoverable error occurred
-A>pP&
 AAC sequence header: %02x %02x.\n
 AACH
+AACL
+AACP
 AALP
+AAS4J
 AASCK
 ABCDEFGHIJKLMNOPQRSTUVWXYZ
 ABGR 
@@ -270,6 +303,7 @@ AGM7,
 ALBUMARTIST
 AMF_DATA_TYPE_STRING parsing failed\n
 AMVF
+AP41
 APE Tag is a header\n
 APE tag size too large.\n
 APETAGEX
@@ -284,6 +318,7 @@ ASV2#
 AUR2
 AURA|
 AV1x\r
+AV32\r
 AVDJ
 AVFormatContext
 AVI1
@@ -294,7 +329,6 @@ AVIndex stream %d, sample %d, offset %llx, dts %lld, size %u, distance %d, keyfr
 AVIndex stream %d, sample %u, offset %llx, dts %lld, size %u, distance %u, keyframe %d\n
 AVRn
 AVS2X
-AVUI
 AVd1
 AVdh
 AVdnc
@@ -302,7 +336,6 @@ AVdv
 AVin
 AVj2Y
 AVmp
-AVrp
 AVupe
 AYUV
 A_AAC
@@ -368,7 +401,6 @@ April
 AreFileApisANSI
 Art Rock
 Artist/performer
-AsX
 Aspect ratio mismatch between muxer (%d/%d) and encoder layer (%d/%d)\n
 Assertion %s failed at %s:%d\n
 Assuming WavPack version 4.10 in absence of valid CodecPrivate.\n
@@ -390,12 +422,14 @@ August
 Authentication failed\n
 Automatically inserted bitstream filter '%s'; args='%s'\n
 Avantgarde
-BAL
+B565
+B565\r
 BBCD
-BF>^G
 BGRA 
 BGRA\r
 BLZ0\f
+BT20&
+BW10
 Ballad
 Band/Orchestra
 Band/artist logotype
@@ -412,33 +446,30 @@ BitsPerSample
 Black Metal
 Bluegrass
 Blues
-Bnc
 Booty Bass
 BottomUp
 Breakbeat
 BritPop
 Broken file, %skeyframe not correctly marked.\n
 Broken file, trak/mdat not at top-level\n
-Bzw
-C-Yn
 C:\buildslave\libav_win32\build\dev\libavcodec/bytestream.h
 C:\buildslave\libav_win32\build\dev\libavcodec/put_bits.h
 C:\buildslave\libav_win32\build\dev\libavformat\libavformat-58.pdb
 CAVS
 CDV5
+CDVH
 CENC-AVC: nal size %d remaining %d\n
 CENC-AVC: remaining size %d smaller than nal length+type %d\n
-CFHD
 CHAP
 CHAPTER
 CHQX
 CJPG
 CLJRt
+CLLC
 COL0
 COL1
 COM
 COMM
-CPh
 CRAM.
 CRC mismatch!\n
 CSCDQ
@@ -574,8 +605,8 @@ DVI4
 DVOO\r
 DVR 
 DVX3
+DX50\f
 DXD3
-DXDI
 DXGM\f
 DYM4\f
 D_WEBVTT/CAPTIONS
@@ -628,18 +659,16 @@ Duplicated STSZ atom\n
 Duplicated STTS atom\n
 During performance
 During recording
+E130
 EBM
 EBML header parsing failed\n
 EBML header using unsupported features\n(EBML version %llu, doctype %s, doc version %llu)\n
 EBML version %llu, doctype %s, doc version %llu
 EDTS using dts:%lld cts:%d instead of dts:%lld cts:%lld tid:%d\n
-EEE
-EJj
 ELST atom of %lld bytes, bigger than %d entries.
 EM2V
 EM4A\f
 EPHV\f
-EVZ
 EXT-X-MEDIA-SEQUENCE:%lld\n
 Easy Listening
 Eclectic
@@ -705,10 +734,11 @@ FCPublish
 FCPublish stream...\n
 FCSubscribe
 FCUnpublish
-FEMh\f
+FFDS\f
 FFV1)
 FFVH
 FFmpeg version 4.3.4
+FICV
 FLAC
 FLV
 FLV (Flash Video)
@@ -723,6 +753,7 @@ FMLE/3.0 (compatible; %s)
 FMP4\f
 FMS/3,0,1,123
 FPS1
+FRWU
 FSV1
 FVFW\f
 Failed to add index entry\n
@@ -802,12 +833,21 @@ Fri
 Friday
 Funk
 Fusion
-Fzw
 G-Funk
-G7e8Q7
+G264\f
+G2M2
+G2M3
+G2M4
+G2M5
+G722
+G723
+G728
+G729
+GAVC
 GEO
 GEOB
 GEOV\f
+GEOX\f
 GIF demuxer
 GIF87a
 GIF89a
@@ -848,12 +888,17 @@ Gothic Rock
 Graphic Control Extension block's size less than 4.\n
 Grunge
 H.263 macroblock info
+H261
+H263
+H264
+H265
 HDX4\f
 HDYC\r
+HEVC
 HFYUC
 HH:mm:ss
-HRp
 HTTP protocol options
+HYMT*
 HandBrake %d.%d.%d
 Handshaking...\n
 Hap1
@@ -876,16 +921,31 @@ Hit EOF while reading saio\n
 Hit EOF while reading senc\n
 House
 Humour
+I09B\r
+I09L\r
 I0AB\r
 I0AL\r
 I0CB\r
 I0CL\r
 I0FB
 I0FL\r
+I263
+I29B\r
+I29L\r
 I2AB\r
 I2AL\r
 I2CB\r
 I2CL\r
+I40A\r
+I410\r
+I411\r
+I420\r
+I422\r
+I42A\r
+I440\r
+I444\r
+I49B\r
+I49L\r
 I4AB\r
 I4AL\r
 I4CB\r
@@ -909,6 +969,7 @@ ICMT
 ICOP
 ICRD
 ICRP
+ID3
 ID3v2.%d tag skipped, cannot handle %s\n
 IDIM
 IDM
@@ -935,7 +996,6 @@ IPLT
 IPRD
 IPRT
 ISBJ
-ISCC
 ISFT
 ISHP
 ISMP
@@ -944,8 +1004,11 @@ ISRC
 ISRF
 ITCH
 ITRK
+IV2 (demangled)
+IV31
 IV32o
 IV41p
+IV50
 IYUV\r
 If writing colr atom prioritise usage of ICC profile if it exists in stream packet side data
 Ignore IO errors during open and write. Useful for long-duration runs with network output
@@ -972,7 +1035,6 @@ Ignoring saio box with non-zero aux_info_type_parameter\n
 Ignoring saiz box with non-zero aux_info_type\n
 Ignoring saiz box with non-zero aux_info_type_parameter\n
 Ignoring unsupported var %s\n
-IiGM>nw
 Illbient
 Illustration
 Impossible to open the '%s' protocol for reading\n
@@ -1049,9 +1111,14 @@ Invalid timing values.\n
 Invalid track number %llu\n
 Invalid value of WAVEFORMATEXTENSIBLE_CHANNEL_MASK\n
 IsValidLocaleName
+J420\r
+J422\r
+J440\r
+J444\r
 JPEG
 JPG
 JPGL\v
+JR24\t
 Jam Band
 Jan
 JanFebMarAprMayJunJulAugSepOctNovDec
@@ -1071,14 +1138,17 @@ KW-DIRAC
 Key '%s' not found.\n
 Keyframe index parsing failed\n
 Krautrock
-Kz2Uo
-L>ev
+L16
+L263
+L555
+L555\r
+L565
+L565\r
 LAGSk
 LANGUAGE="%s",
 LCIDToLocaleName
 LCMapStringEx
 LDash option will be ignored as streaming is not enabled\n
-LDo
 LEAD_PERFORMER
 LHLS is experimental, Please set -strict experimental in order to enable it.\n
 LHLS option will be ignored as hls_playlist is not enabled\n
@@ -1086,22 +1156,22 @@ LHLS option will be ignored as streaming is not enabled\n
 LJ2CX
 LJ2KX
 LJPG
+LM20-
 LMP2
 LNX
 LOCOI
 LPC
+LSCR.
 Last packet was truncated to %d due to end trimming.\n
 Latin
 Lavc58.91.100
 Lavf
 Lavf%d.%d.%d
 Lavf58.45.100
-LeM
 Lead artist/lead performer/soloist
 Leaflet page
 Leftfield
 Length %d indicated by an EBML number's first byte 0x%02x at pos %lld (0x%llx) exceeds max length %d.\n
-LhX
 List of decoders that are allowed to be used
 List of demuxers that are allowed to be used
 List of protocols that are allowed to be used
@@ -1115,22 +1185,22 @@ Lounge
 Low Latency mode enabled without Producer Reference Time element option! Resulting manifest may not be complaint\n
 Lucida Grande
 Lyricist/text writer
-M0RA
-M0RG
-M2RA
-M2RG
+M263
+M4A 
 M4CC\f
-M8MF
-M8RA
-M8RG
-M8YA
+M4S2\f
+M4T3\f
+M4V 
+M701
+M702
+M703
+M704
+M705
 MAC3\nP
 MAC6*P
-MAGY
 MAIN
 MEGA
 METADATA_BLOCK_PICTURE
-MGiI
 MJ2CX
 MJLS
 MJLS\v
@@ -1144,6 +1214,9 @@ MOV muxer flags
 MP2/3 (MPEG audio layer 2/3)
 MP2T
 MP4 (MPEG-4 Part 14)
+MP41
+MP42
+MP43
 MP4S\f
 MPA
 MPEG
@@ -1162,6 +1235,7 @@ MSVC.
 MSZH6
 MTS2
 MTSJ
+MV303
 MVDV0
 MVHA2
 MVJP
@@ -1213,7 +1287,7 @@ Multiple fisbone for the same stream\n
 Multiple mdhd?\n
 Musical
 Muxing VP6 in flv will produce flipped video on playback.\n
-Mvc
+N/A
 NAL_unit_type[%hhu]:                    %hhu\n
 NAME
 NAN
@@ -1221,11 +1295,12 @@ NAN(IND)
 NAN(SNAN)
 NELL
 NGINX RTMP
-NJ2"v
-NONE
+NO16\r
 NOPTS
 NTP time format roll over detected\n
 NULL
+NV12\r
+NV21\r
 Name of application to connect to on the RTMP server
 Name of live stream to subscribe to. Defaults to rtmp_playpath.
 National Folk
@@ -1272,11 +1347,9 @@ Nu-Breakz
 Number of lookahead entries for ISM files
 Number of packets flushed in the same request (RTMPT only).
 Number of streams exceeds max_streams parameter (%d), see the documentation if you wish to increase it\n
+O1#
 OUTdelayed:%d/%d pts:%s, dts:%s cur_dts:%s st:%d (%d)\n
 OVP80
-OYX
-OZQ%
-OZw3(?
 Oct
 October
 Offset DTS by %lld to make first pts zero.\n
@@ -1284,7 +1357,6 @@ Ogg
 OggS
 Oldies
 Omit the base data offset in tfhd atoms
-Omm
 Omnia A/XE
 OnTextData packet
 One or many segment file names doesn't end with .webm. Override -init_seg_name and/or -media_seg_name and/or -single_file_name to end with the extension .webm\n
@@ -1307,6 +1379,7 @@ Output
 Overflow during bit rate calculation %lld * 8 * %d\n
 Overflow in display width\n
 Override major brand
+P422\r
 PART_NUMBER
 PCMA
 PCMU
@@ -1319,6 +1392,7 @@ PLV1\f
 PM4V\f
 PNG
 PNG1=
+PO_
 PRIV
 PSP mode need one video and one audio stream\n
 PST
@@ -1370,21 +1444,28 @@ Publisher/Studio logotype
 Punk
 Punk Rock
 Put AAC sequence header based on stream data
+Q1.0<
+Q1.1G
+Q264
 QCELP
 QDM22P
 QDMC#P
+QIVG
 QMP4\f
 QPEG<
-Qclp
-Qclq
 QkBk\r
-Qkkbal
 QuickTime / MOV
+R&B
+R10g
+R10k
+R411
+R420\r
 RASC)
 REPLAYGAIN_ALBUM_GAIN
 REPLAYGAIN_ALBUM_PEAK
 REPLAYGAIN_TRACK_GAIN
 REPLAYGAIN_TRACK_PEAK
+RF64
 RGB2\r
 RGBA 
 RGBA\r
@@ -1393,7 +1474,6 @@ RIFX
 RMP4\f
 RPZA*
 RSCC
-RSDS9
 RT21L
 RTMP Handshake C1 Error\n
 RTMP Handshake C2 Error\n
@@ -1403,7 +1483,11 @@ RTMP packet size mismatch %d != %d\n
 RTMP packet type '%s'(%d) for channel %d, timestamp %d, extra field %d size %d\n
 RTMP protocol version mismatch\n
 RTP muxer flags
-RXw
+RV15\r
+RV16\r
+RV24\r
+RV32\r
+RV40
 Rap
 Rave
 Raw RGB is not supported Natively in Matroska, you can use AVI or NUT or\nIf you would like to store it anyway using VFW mode, enable allow_raw_vfw (-allow_raw_vfw 1)\n
@@ -1431,29 +1515,23 @@ RoUninitialize
 Rock
 Rock & Roll
 Run a second pass to put the index (moov atom) at the beginning of the file
+S263V
 SBR
 SEDG\f
 SHA256 hash of the decompressed SWF file (32 bytes).
-SHQ0
-SHQ1
-SHQ2
-SHQ3
-SHQ4
-SHQ5
-SHQ7
-SHQ9
 SIPP\f
-SKyu
+SL25
 SLDV
 SLMJ
 SM4V\f
 SMI 
 SMP4\f
 SMV2
+SN40\f
 SNAN)
 SNOW"
+SP54{
 SPV1
-SPXN
 SRGC$
 SSR
 STCO outside TRAK\n
@@ -1464,7 +1542,6 @@ STSZ sample size %d invalid (too large), ignoring\n
 STSZ sample size %d invalid (too small), ignoring\n
 SUDS
 SVQ1
-SVQ3
 SVQ3\f
 S_ASS
 S_DVBSUB
@@ -1522,14 +1599,6 @@ Setting default whitelist '%s'\n
 Shifting DTS by %d because of negative CTTS.\n
 Shoegaze
 Showtunes
-Shr0
-Shr1
-Shr2
-Shr3
-Shr4
-Shr5
-Shr6
-Shr7
 Signal that the next fragment is discontinuous from earlier ones
 Signature mismatch\n
 Size of the decompressed SWF file, required for SWFVerification.
@@ -1592,9 +1661,11 @@ Symphonic Rock
 Symphony
 Synthpop
 SystemFunction036
+T263
 TAL
 TALB
 TALBTBPMTCOMTCONTCOPTDLYTENCTEXTTFLTTIT1TIT2TIT3TKEYTLANTLENTMEDTOALTOFNTOLYTOPETOWNTPE1TPE2TPE3TPE4TPOSTPUBTRCKTRSNTRSOTSRCTSSE
+TCMP
 TCO
 TCOM
 TCON
@@ -1616,6 +1687,9 @@ TIME
 TIT2
 TLAN
 TMP
+TP1
+TP2
+TP3
 TPE1
 TPE2
 TPE3
@@ -1630,6 +1704,7 @@ TSOA
 TSOP
 TSOT
 TSSE
+TT2
 TUUUU
 TXX
 TXXX
@@ -1640,7 +1715,6 @@ Tag size is way too big\n
 Tango
 Target latency option will be ignored as Producer Reference Time element will not be written\n
 Target latency option will be ignored as streaming is not enabled\n
-TcM
 Techno
 Techno-Industrial
 Temporary failure in name resolution
@@ -1689,7 +1763,7 @@ Truncating packet of size %d to %lld\n
 Tue
 Tuesday
 Type answer %d\n
-UCOD
+U263
 UDTA parsing failed retrying raw\n
 ULDX\f
 ULH0
@@ -1705,6 +1779,7 @@ UMH2
 UMH4
 UMP4\f
 UMRA
+UMRG
 UMSV
 UMY2
 UMY4
@@ -1714,6 +1789,7 @@ UQRA
 UQRG
 UQY0
 UQY2
+URI="%s"\n
 URL
 URL of the SWF player. By default no value will be sent
 URL of the page that will return the UTC timestamp in ISO format
@@ -1817,21 +1893,35 @@ Using MS style audio codec tag, the file may be unplayable!\n
 Using MS style video codec tag, the file may be unplayable!\n
 Using absolute path on user request, this is a possible security issue\n
 Using scaling to seek VBR MP3; may be imprecise.\n
-UxA
+V264
+V422\r
 VBLE
 VCR1!
 VCR2
 VDTZ\r
 VIDM\f
+VIXL<
 VMnc]
-VNna
-VNo7
+VP30-
+VP31
+VP31*
+VP40Z
+VP50[
+VP60[
+VP61[
 VP62j
 VP6A\
 VP6F
 VP6F\
+VP70
+VP71
 VP8 muxing is currently not supported.\n
+VP80
+VP90
 VSM4\f
+VSPX\f
+VSSH
+VX1K
 VYUY\r
 V_AV1
 V_DIRAC
@@ -1858,8 +1948,6 @@ V_UNCOMPRESSED
 V_VP8
 V_VP9
 Variable %s has NULL value\n
-Vc0a
-Vdk
 Version %d
 Version of the Flash plugin used to run the SWF player.
 Video
@@ -1873,6 +1961,7 @@ WAVE
 WAVEFORMATEX support for RIFX files
 WAVEFORMATEXTENSIBLE_CHANNEL_MASK
 WAWV\f
+WCMV(
 WHAM.
 WMAP
 WMV1
@@ -1886,6 +1975,7 @@ WRLE:
 WV1F\f
 WVC1
 WVC1F
+WVP2H
 Warning, extension is not .m4a nor .m4v Quicktime/Ipod might not play the file\n
 Warning: Speex stream has more than 8 frames per packet. Adobe Flash Player cannot handle this!\n
 Warning: some tools, like mp4split, assume a timescale of 10000000 for ISMV.\n
@@ -1909,13 +1999,20 @@ Write producer reference time box with specified time source
 Write producer reference time element
 Write separate moof/mdat atoms for each track
 Writing block of size %d with pts %lld, dts %lld, duration %lld at relative offset %lld in cluster at offset %lld. TrackNumber %u, keyframe %d\n
+X263
+X264
 XDCAM
 XMPG
 XVID\f
 XVIX\f
-XhL
-XsBI
 Xxanq
+Y216
+Y411\r
+Y41B\r
+Y41P2
+Y422\r
+Y42B\r
+Y800\r
 YES
 YUNV\r
 YUV8J
@@ -1923,30 +2020,30 @@ YUV9\r
 YUVA\r
 YUY2\r
 YUYV\r
+YV12\r
+YV16\r
+YV24\r
+YVU9\r
 YVYU\r
 You requested a copy of the original timecode track so timecode metadata are now ignored\n
 ZECO
 ZJPG
-ZLIB\f
 ZMBVU
 ZMP4\f
 Zero bytes per frame, but %d samples per frame
-Zjz\v
 ZyGo
 [%Iu, %Iu, %Iu, %Iu] 
-[aOni*{
+[0x%x]
 [aax] activation_bytes option is missing!\n
 [aax] activation_bytes value needs to be 4 bytes!\n
 [aax] audible_fixed_key value needs to be 16 bytes!\n
 [aax] error in drm blob decryption!\n
 [aax] file checksum == 
 [aax] mismatch in checksums!\n
+[pad %u] 
 [thunk]:
 \fencd
 \n%s  %-16s: 
-\n\n\n
-\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
-\rmj>zjZ
 \t</Period>\n
 \t</ProgramInformation>\n
 \t</ServiceDescription>\n
@@ -1983,8 +2080,6 @@ ZyGo
 \t\t\t\t\t<SegmentURL mediaRange="%lld-%lld" 
 \t\t\t\t\t<UTCTiming schemeIdUri="urn:mpeg:dash:utc:http-xsdate:2014" value="%s"/>\n
 \tavailabilityStartTime="%s"\n
-\tcQr
-\tkE>fvw
 \tmaxSegmentDuration="
 \tmediaPresentationDuration="
 \tminBufferTime="
@@ -1994,8 +2089,7 @@ ZyGo
 \ttimeShiftBufferDepth="
 \ttype="%s"\n
 \x%02x
-]5ctg5
-^oEZ_
+_%s
 __based(
 __cdecl
 __clrcall
@@ -2015,13 +2109,19 @@ __swift_2
 __thiscall
 __unaligned
 __vectorcall
+_ad
 _cabs
+_cc
 _checkbw
 _error
 _hypot
 _logb
 _nextafter
 _result
+_y0
+_y1
+_yn
+`EH
 `RTTI
 `adjustor{
 `anonymous namespace'
@@ -2036,7 +2136,6 @@ _result
 `eh vector vbase copy constructor iterator'
 `generic-class-parameter-
 `generic-method-parameter-
-`h`hhh
 `local static destructor helper'
 `local static guard'
 `local static thread guard'
@@ -2071,6 +2170,7 @@ _result
 `virtual displacement map'
 `vtordispex{
 `vtordisp{
+a12v
 a=control:streamid=%d\r\n
 aART
 aac
@@ -2083,6 +2183,7 @@ abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+-.
 abk
 abort decoding on minor error detection
 ac-3(P
+ac3
 account_id
 account_type
 ace
@@ -2100,14 +2201,21 @@ adobe
 adrm
 advanced_editlist
 ady
-aeO
 afa
 afh
 afr
 aggressive
 agsm;P
+ai12
+ai13
+ai15
+ai16
 ai1p
 ai1q
+ai52
+ai53
+ai55
+ai56
 ai5p
 ai5q
 ai_socktype not supported
@@ -2197,6 +2305,7 @@ author
 auto
 autobsf
 auv2\r
+av01
 av1C
 av_add_index_entry
 av_append_packet
@@ -2391,9 +2500,14 @@ avpriv_set_pts_info
 avs2t
 avss
 awa
+aym
 aze
 azpr*
-bN9UQW9w>`96*i9
+b16g
+b16g\r
+b48r0
+b48r\r
+b64a\r
 background
 bad
 bad exception
@@ -2448,7 +2562,6 @@ bul
 bur
 bxbg\r
 bxrg\r
-bxy2
 bxyv\r
 byn
 bytes <= 8
@@ -2456,6 +2569,7 @@ bytes >= needed_bytes
 bytes read
 bytestream2_tell(&gb) >= 0 && bytestream2_tell(&gb) <= data_end - data
 c->fc->nb_streams >= 1
+c608
 cache
 cad
 cai
@@ -2527,9 +2641,11 @@ cli::pin_ptr<
 clli
 cluster_size_limit
 cluster_time_limit
+cmaf
 cmc
 cmov
 cmt
+co64
 coclass 
 code
 code=403 need auth
@@ -2585,7 +2701,7 @@ crh
 crp
 cryptokey
 csb
-csm
+ctts
 ctts_index
 ctts_sample
 ctype=%s\n
@@ -2594,8 +2710,9 @@ cvid0
 cvid3
 cym
 cze
+d38
+d="%lld" 
 dOps
-dQy/
 dac3
 dak
 dan
@@ -2640,6 +2757,7 @@ detect improper bitstream length
 deu
 dfLa
 dgr
+dhlr
 dialogue
 dimensions not set\n
 din
@@ -2679,12 +2797,11 @@ drac*
 dracc
 dref
 drop a frame at curr_cts: %lld @ %lld\n
+ds64
 dsb
+dscp
 dts
 dts shift %d\n
-dtsc
-dtse
-dtsl
 dua
 dum
 dump_separator
@@ -2692,6 +2809,8 @@ duration
 duration="%lld" 
 duration=%lld time=%lld rate=%f\n
 dut
+dv25
+dv50
 dv5n
 dv5p
 dva1
@@ -2701,7 +2820,8 @@ dvbsub
 dvbtxt
 dvc 
 dvc1
-dvca
+dvcC
+dvcp
 dvcs
 dvh1
 dvh2
@@ -2711,16 +2831,17 @@ dvh5
 dvh6
 dvhd
 dvhe
+dvhp
 dvhq
 dvis
+dvpp
 dvsd
 dvsl
+dvvC
 dynamic
 dyu
 dzo
-eF>t
-eGn
-eLK(w
+e+000
 eac3
 earth
 edit_date
@@ -2773,7 +2894,6 @@ est
 eus
 every_frame
 ewe
-ewh/?y
 ewo
 exp
 experimental
@@ -2787,11 +2907,10 @@ extern "C"
 extra_window_size
 extract_extradata
 f3ff33f3
-fAj
+f4v
 fLaC
 fLaC,P
 fLaC<P
-fP~V
 f_err_detect
 f_strict
 fabs
@@ -2847,6 +2966,8 @@ first_dts %s not matching first dts %s (pts %s, duration %lld) in the queue\n
 fisbone
 fishead
 fiu
+fl32
+fl64
 flac
 flac demuxer
 flag indicating that the input is a live file that only has the headers.
@@ -2866,6 +2987,7 @@ flvdec
 flvflags
 fmod
 fmsVer
+fo 
 follow
 fon
 force or disable writing tmcd
@@ -2923,12 +3045,10 @@ frr
 frs
 fry
 ftyp
-fu`z
 ful
 fur
-fvP
-g69Pq6
-gWu
+g2a (demangled)
+g2b (demangled)
 gaa
 gamma value %g\n
 gamma value for gama atom
@@ -2971,8 +3091,9 @@ goh
 gon
 gor
 got
+gp4 (demangled)
+gp6 (demangled)
 gpmd
-gqr<
 grb
 grc
 gre
@@ -2982,8 +3103,9 @@ grp
 gsw
 guj
 gwi
+h263
+h264
 h264_mode0
-hPU3
 hai
 handler_name
 hasAudio
@@ -3012,6 +3134,7 @@ heb
 height
 her
 hev1
+hevc
 hil
 him
 hin
@@ -3024,6 +3147,7 @@ hmo
 host_computer
 how strictly to follow the standards
 how strictly to follow the standards (deprecated; use strict, save via avconv)
+hr 
 hrv
 hsb
 http
@@ -3037,17 +3161,16 @@ hun
 hup
 hvc1
 hvcC
-hwe
 hye
 iTunSMPB
-i]Wb
-iak
 iba
 ibo
 ice
 icod
+id&
 id3v2 ver:%d flags:%02X len:%d\n
 id3v2_priv.%s
+id=
 ido
 idx >= 0 && idx < num_tracks
 igndts
@@ -3077,7 +3200,10 @@ ilbc\tP
 ile
 ilo
 ilst
-ima4
+im1
+im24
+im32
+im8
 image/bmp
 image/gif
 image/jpeg
@@ -3085,6 +3211,9 @@ image/jpg
 image/png
 image/tiff
 image2
+in24\f
+in24\t
+in32
 ina
 inc
 incompatible version
@@ -3157,23 +3286,22 @@ ism_lookahead
 isml
 ismv
 ita
-jAf
-jHq
-jVg
+j2c
+j2k
+ja\v
 jav
 jbo
 jls
+jp2
 jp2h
 jpc
 jpeg
-jpf
 jpg
 jpn
 jpr
 jps
 jrb
-k=yI
-kaE
+k#c
 kaa
 kab
 kac
@@ -3188,7 +3316,6 @@ kau
 kaw
 kaz
 kbd
-kdz
 keepside
 key
 keyframe filepositions = %lld times = %lld\n
@@ -3206,8 +3333,6 @@ kik
 kin
 kir
 kmb
-knv
-koi
 kok
 kom
 kon
@@ -3224,10 +3349,6 @@ kur
 kut
 kux
 kuxdec
-l6qnk
-lDa>
-laQ
-lab
 lad
 lah
 lam
@@ -3239,7 +3360,6 @@ lasttimestamp
 lat
 latm
 lav
-ldE
 ldash
 ldes
 ldexp
@@ -3252,6 +3372,7 @@ length < sizeof(temp)
 lengthSizeMinusOne:                  %hhu\n
 level
 lez
+lhls
 libavformat license: LGPL version 2.1 or later
 libavformat-58.dll
 libavformat/apetag.c
@@ -3300,8 +3421,8 @@ live stream
 live_flv
 live_flvdec
 ljpg
-ljw
 lld
+llnw
 loas
 location
 loci too short (%u bytes left, need at least %d)\n
@@ -3329,7 +3450,13 @@ lyr
 lyrics
 lyrics-%s%s%s
 lzw minimum code size must be >= 1\n
-m\nXo
+m1v 
+m1v1
+m2v1
+m4a
+m4b
+m4s
+m4v
 mac
 mad
 mag
@@ -3374,7 +3501,6 @@ maximum number of packets to read while waiting for the first timestamp
 maximum number of streams
 maximum valid delay between frames (in hundredths of seconds)
 may
-mcf
 mdat
 mdcv
 mdf
@@ -3421,7 +3547,6 @@ mkh
 mkv,mk3d,mka,mks
 mlg
 mlpa<P
-mlpa\fP
 mlt
 mnc
 mng
@@ -3453,12 +3578,14 @@ movflags
 mp1v
 mp2,mp3,m2a,mpa
 mp2vX
+mp3
+mp4
 mp4 muxer
+mp4:
 mp4a
 mp4a config channels %d obj %d ext obj %d sample rate %d ext sample rate %d\n
 mp4a,P
 mp4a-P
-mp4s
 mp4v
 mp4v=
 mp4vF
@@ -3500,7 +3627,6 @@ mx5p
 mya
 myn
 myv
-n03>Pu
 nah
 nai
 nalUnitLength[%hhu][%hu]:                 %hu\n
@@ -3515,6 +3641,7 @@ nav
 nb_attempts > 0
 nbl
 nclc
+nclx
 nde
 ndo
 nds
@@ -3566,7 +3693,6 @@ nothing to probe for stream %d\n
 notification
 nqo
 nso
-nuS
 nub
 numNalus[%hhu]:                         %hu\n
 numOfArrays:                         %hhu\n
@@ -3583,9 +3709,7 @@ nym
 nyn
 nyo
 nzi
-o14.z1B
 objectEncoding
-obwQ4
 oci
 ogg
 ogg_packet: curidx=%i\n
@@ -3597,7 +3721,6 @@ onCaption
 onCaptionInfo
 onCuePoint
 onFCPublish
-onI
 onMetaData
 onStatus
 onTextData
@@ -3628,12 +3751,12 @@ out-of-memory error. Skipping cover art block.\n
 output_ts_offset
 overread end of atom '%.4s' by %lld bytes\n
 override User-Agent field in HTTP header
-owM&
 pFx
 pOC
-pTq
+pa 
 paa
 packetsize
+pad %d %d\n
 pag
 pageUrl
 pal
@@ -3656,6 +3779,7 @@ payload_type
 pbm
 pct
 pcx
+pdvc
 peo
 per
 perf
@@ -3694,6 +3818,7 @@ pra
 prefer_icc
 premature end of file while reading INFO tag\n
 premiere_version
+prft
 print specific debug info
 private: 
 pro
@@ -3707,6 +3832,7 @@ protected:
 protocol_blacklist
 protocol_whitelist
 psp
+pssh
 pts
 pts %lld calculated dts %lld sc->dts_shift %d ctts.duration %d sc->time_offset %lld flags & MOV_TRUN_SAMPLE_CTS %d\n
 pts (%s) < dts (%s) in stream %d\n
@@ -3717,13 +3843,12 @@ publish
 publisher
 purchase_date
 pus
-qTp
-qVJ
+pxlt3
 qdrw1
 quality factor: %d, pict_type: %c
 que
 quicktime_version
-r\tVr.>T
+r210
 raj
 rap
 rar
@@ -3815,17 +3940,19 @@ rtmpts
 rtp
 rtpflags
 rtphint
-ru&o
+rtpo
 rum
 run
 rup
 rus
+rv64
 rw_timeout
 s->buf_ptr < s->buf_end
 s->iformat
 s->nb_streams>0
 s->oformat
 s->streams[ s->nb_streams - 1 ] == st
+s263
 sac3
 sad
 sag
@@ -3843,11 +3970,9 @@ sample rate not set\n
 sample_count=%d, sample_duration=%d\n
 sample_rate %u, 
 sample_size = %u sample_count = %u\n
-samr
 san
 sas
 sat
-sawb
 sbgp
 sbtl
 sc->listen
@@ -3940,6 +4065,7 @@ skip_rtcp
 skip_sidx
 skip_trailer
 sla
+slif
 slist=
 slk
 slo
@@ -3975,16 +4101,15 @@ specify how many microseconds are analyzed to probe the input
 speex packet too small\n
 spex#P
 spherical: 
-sqcp
 sqi
 sqrt
+sr 
 srd
 srn
 srp
 srr
 ssa
 ssegment
-ssmv\fP
 ssw
 st->index_entries
 st->internal->avctx->ticks_per_frame
@@ -4002,6 +4127,8 @@ start_time_realtime
 static
 static 
 status
+stbl
+stco
 std::nullptr_t
 std::nullptr_t 
 stereo
@@ -4031,14 +4158,17 @@ stream index %d is not valid\n
 stream_index < ogg->nstreams
 streaming
 streams=
+strf
 strftime error in ff_hls_write_file_entry\n
 strict
 strictly conform to a older more strict version of the spec or reference software
 strictly conform to all the things in the spec no matter what the consequences
 struct 
 stsc
+stsd
 stss
 stsz
+stts
 stts: %lld ctts: %lld, ctts_index: %lld, ctts_count: %lld\n
 stype=%s\n
 stz2
@@ -4070,6 +4200,7 @@ syr
 systemBitrate
 systemBitrate="
 systemLanguage
+t="%lld" 
 tah
 tai
 tam
@@ -4133,6 +4264,7 @@ tls:
 tmcd
 tmh
 tmp_pos > pos_max
+tmpo
 tog
 ton
 too
@@ -4182,6 +4314,7 @@ truncated file\n
 try to interleave outputted packets by dts
 ts_min < ts_max
 tscc9
+tshd
 tsi
 tsn
 tso
@@ -4191,15 +4324,18 @@ tum
 tup
 tur
 tut
+tven
 tvl
+tvnn
+tvsh
 twi
 twos
+tx3g
 type
 type %d, len %d\n
 type:%d, size:%d, last:%d, dts:%lld pos:%lld\n
 type:'%s' parent:'%s' sz: %lld %lld %lld\n
 tyv
-uUv
 udm
 udta
 uga
@@ -4258,17 +4394,16 @@ using cached pos_max=0x%llx pos_limit=0x%llx dts_max=%s\n
 using cached pos_min=0x%llx dts_min=%s\n
 utc_timing_url
 uuid
-uyO
 uyv1\r
 uzb
-v;Qv
-vQO+t
-vUu
+v210
+v408
+v410
 vai
 vbv_delay: %llu
 vbv_delay: N/A
+vc-1W
 vc-1t
-vdva
 ven
 verify embedded CRCs
 version
@@ -4299,13 +4434,13 @@ volatile
 volume %s, len %d\n
 vorbis
 vot
+vp08
 vp09.%02d.%02d.%02d
+vp8
+vp9
 vp9_superframe
+vpcC
 vu(unsigned long long) (demangled)
-w+OQvr
-w3Xc
-wHk
-wXC
 wak
 wal
 wall-clock time when stream begins (PTS==0)
@@ -4332,6 +4467,7 @@ webm_dash_manifest_track_number
 webp
 wel
 wen
+wfex
 wham+
 wide
 width
@@ -4340,7 +4476,6 @@ window acknowledgement size
 window_size
 wln
 wma 
-wn>Jj
 wol
 write a CRC32 element inside every Level 1 element
 write zero-length name string in hdlr atoms within mdia and minf atoms
@@ -4355,10 +4490,14 @@ writing gama value %d\n
 wrong chunk count %u\n
 wrong sample count\n
 wrt
-wwwUUUDDD"""
+x264
 xal
 xalg
 xbm
+xd51
+xd54
+xd55
+xd59
 xd5a
 xd5b
 xd5c
@@ -4366,6 +4505,7 @@ xd5d
 xd5e
 xd5f
 xdh2
+xdhd
 xdv1
 xdv2
 xdv3
@@ -4385,16 +4525,14 @@ xface
 xho
 xmp
 xpm
-xpxxxx
 xtor
 xwd
-xwpwpp
 xyz
 yao
 yap
-ycg
 yid
 yor
+ypk
 yrrc
 yuv10
 yuv2
@@ -4402,7 +4540,6 @@ yuv2\r
 yuv4
 yuvs
 yuvs\r
-zZg
 zap
 zbl
 zen
@@ -4415,5 +4552,4 @@ zxx
 zza
 {flat}
 {for 
-{kHw
 |RtmpSampleAccess

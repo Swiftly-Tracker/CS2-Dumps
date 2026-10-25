@@ -34,10 +34,16 @@
  volatile
 !!SyncExtref!!%s
 !!SyncExtref_Material!!%s
+#%d
 $ORIGIN
+$TT
+%d %d %d
 %d %d %d %d
+%f %f %f
 %lld
 %llu
+%s %s
+%s %s %s
 %s %s %s %s
 %s (Color)
 %s (Material)
@@ -46,6 +52,8 @@ $ORIGIN
 %s allocation count overflow( %llu > %llu )\n
 %s allocation count overflow( add %llu + current %llu > max %llu )\n
 %s called on a pool arena (no root available)\n
+%s%s_%i
+%s: %s\n
 %s: __pos (which is %zu) > __size (which is %zu)
 %s: __pos (which is %zu) > this->size() (which is %zu)
 %s: allocation of %u too large, max %u\n
@@ -77,6 +85,7 @@ $ORIGIN
 &&(std::remove_reference<&&&>::type) std::forward<char const (&(std::remove_reference<&&&>::type)) [9]> (demangled)
 &&(std::remove_reference<>::type&) std::forward<int&(std::remove_reference<>::type&)> (demangled)
 &&(std::remove_reference<>::type&) std::forward<int>(std::remove_reference<>::type&) (demangled)
+(%d,%d)
 (anonymous namespace)
 *(&) std::__addressof<char>(&) (demangled)
 *(&) std::addressof<char>(&) (demangled)
@@ -84,7 +93,6 @@ $ORIGIN
 *(*&) std::addressof<char const>(*&) (demangled)
 *(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) std::__addressof<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)> (demangled)
 *(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&) std::__addressof<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&)> (demangled)
-...
 ../public/scenesystem/memoryvertex.h(145): 
 ../public/tier0/tslist.h
 ../public/tier0/utldict.h
@@ -92,7 +100,19 @@ $ORIGIN
 /dev/random
 /dev/urandom
 /src/
+0 0
+0 0 0
+0 0 0 0
+0 0 0 255
+0123456789
+0N\f
 2_BONE_IK
+48\f
+85\r
+87\r
+89\f
+8G\f
+8n\v
 <array: %u elements>
 <binary blob: %u bytes>
 <empty member name>
@@ -497,6 +517,7 @@ CreateMeshInstance
 Cylinder - Centered (SLOW PERF)
 Cylinder - Ground (SLOW PERF)
 D16_UNORM
+D1\n
 D24_UNORM_S8_UINT
 D32_FLOAT
 D32_FLOAT_S8X24_UINT
@@ -631,7 +652,6 @@ GLIBC_2.25
 GLIBC_2.27
 GLIBC_2.3
 GLIBC_2.3.2
-GNU
 GameResourceServiceClientV001
 GameResourceServiceServerV001
 GameStartup
@@ -643,8 +663,13 @@ GetResourceManifestCount
 GetResourceManifests
 GetThreadLocalStackAllocator
 GrowCount
+H1\f
+H6\r
+H7\r
 HELPER_BONE
+HH\f
 HITGROUP_INVALID
+HN\f
 HammerMapLoader001
 Height
 HelpSystem_001
@@ -704,6 +729,7 @@ InsertMultipleBefore
 InstallSchemaBindings
 Instant Stop
 InvokeMiniDumpHandler
+Ip\v
 JArray
 JIGGLE_BONE
 JOINT_FLAGS_BODY1_FIXED
@@ -724,9 +750,11 @@ KeyValues::complete object constructor(char const*, IKeyValuesSystem*, bool) (de
 KeyValues::complete object destructor() (demangled)
 LOG_CONSOLE
 LOG_GENERAL
+LU\f
 Lean
 LightmapUV
 LightmapUVW
+Lo\v
 LoadKV3(CKV3Arena*, CUtlString*, CUtlBuffer*, KV3ID_t const&, char const*, unsigned int) (demangled)
 LoadKV3(KeyValues3*, CUtlString*, CUtlBuffer*, KV3ID_t const&, char const*, unsigned int) (demangled)
 LoadKV3(KeyValues3*, CUtlString*, char const*, KV3ID_t const&, KV3ID_t, unsigned int) (demangled)
@@ -865,6 +893,8 @@ PARENT
 POINT
 POSE_SPACE_BONE
 POSE_SPACE_MORPH
+PQ\f
+PR\f
 PackedAABB_t
 PanoramaTextServices001
 PanoramaUIClient001
@@ -873,6 +903,7 @@ ParallelForSharedCode
 ParentAttachmentName()
 ParticleSystemMgr003
 Particles
+Pb\r
 PerVertexLighting
 PermModelDataAnimatedMaterialAttribute_t
 PermModelData_t
@@ -898,10 +929,12 @@ Plat_GetTime
 Plat_IsInDebugSession
 Plat_NonFatalErrorFunc
 Plat_RelativeTicks
+Po\v
 Pointers cannot be used as numeric values
 PooledLayout
 PosXyz
 PostProcessingSystem_001
+Pr\v
 Print model load-time conversion info
 Prints the bind pose of the specified model. Optionally limits to a particular bone and its parent chain, otherwise prints the entire skeleton.
 ProjectedSceneObjectDesc
@@ -954,6 +987,7 @@ R32_FLOAT_X8X24_TYPELESS
 R32_SINT
 R32_TYPELESS
 R32_UINT
+R3\t
 R8G8B8A8_SINT
 R8G8B8A8_SNORM
 R8G8B8A8_TYPELESS
@@ -1088,6 +1122,7 @@ SkeletonAnimCapture_t::Frame_t
 SkeletonBoneBounds_t
 SkeletonDemoDb_t
 Slow
+Sm\v
 SmartPropsSystem_001
 SoundOpSystem001
 SoundOpSystemEdit001
@@ -1193,6 +1228,7 @@ VFileSystem017
 VMaterialSystem2_001
 VMediaFoundation001
 VModelError
+VP4003
 VPhysXAggregateData_t
 VPhysXAggregateData_t::VPhysXFlagEnum_t
 VPhysXBodyPart_t
@@ -1310,6 +1346,11 @@ Width
 WorldRendererMgr001
 X24_TYPELESS_G8_UINT
 X32_TYPELESS_G8X24_UINT
+X8\n
+X9\f
+XX\f
+Xl\v
+Xr\v
 [abi:
 [friend]
 [idx=%d] "%s"
@@ -1724,6 +1765,7 @@ const_cast
 construction vtable for 
 covariant return thunk to 
 curvature
+dU\f
 data_block
 debris
 decimal128
@@ -1858,9 +1900,15 @@ getentropy
 glibcxx.eh_pool
 global constructors keyed to 
 global destructors keyed to 
+gn\v
 group
 group_data_block
 guard variable for 
+h5\r
+h6\r
+h9\f
+hP\f
+hY\f
 hair
 hairindirectargsbuffer
 half
@@ -1887,6 +1935,7 @@ ioctl
 java Class for 
 java resource 
 key
+l9\r
 ld-linux-x86-64.so.2
 legacy_models_supported
 libc.so.6
@@ -1894,6 +1943,7 @@ libm.so.6
 libmeshsystem.so
 libpthread.so.0
 libtier0.so
+lo\v
 long
 long double
 long long
@@ -2724,6 +2774,7 @@ morph_block
 morph_name
 morph_texture
 motiondisabled
+mt19937
 multiplayer_break
 nBegin
 nBeginDynamic
@@ -2785,12 +2836,14 @@ obj_count
 obj_size
 occlusionFactor
 offset
+op\v
 open
 operator
 operator 
 operator"" 
 optionallycompressedtangentframe
 particles_list
+pf\r
 phys_data_block
 phys_res
 physics
@@ -2798,6 +2851,8 @@ placementattachment
 placementbone
 position
 posxyz
+pq\r
+pr\v
 print_model_bind_pose
 projectedDecal
 pthread_cond_broadcast
@@ -3385,6 +3440,8 @@ strtoul
 surfacePropertyName
 syscall
 system
+t8\r
+tV\f
 table
 tangent
 tangentu_signv
@@ -3528,6 +3585,8 @@ unsigned long (void const*) std::__new_allocator<char>::allocate(void const*) (d
 unsigned long long
 unsigned long&(unsigned long) std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_create(unsigned long) (demangled)
 unsigned short
+uv1
+v1x
 vCenter
 vCenterOfMass
 vLocalMax
@@ -3657,7 +3716,9 @@ vtable for std::underflow_error (demangled)
 wchar_t
 wheeldrag
 wheelfrictionscale
+wk\v
 { node_name_key = 'm_sName' }
+{0x%x}
 {default arg#
 {lambda
 {parm#

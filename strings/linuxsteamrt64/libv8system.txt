@@ -36,9 +36,13 @@
  transaction_safe
  volatile
 $ORIGIN
+$TT
+%d %d %d
 %d %d %d %d
 %lld
 %llu
+%s %s
+%s %s %s
 %s %s %s %s
 %s allocation count overflow
 %s allocation count overflow( %llu + %llu > %llu )\n
@@ -66,10 +70,14 @@ $ORIGIN
 *(*&) std::addressof<char const>(*&) (demangled)
 *(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) std::__addressof<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)> (demangled)
 *(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&) std::__addressof<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&)> (demangled)
-...
 /dev/random
 /dev/urandom
 /src/
+0 0
+0 0 0
+0 0 0 0
+0 0 0 255
+0123456789
 <no failure reason set>
 <undefined>
 APPSYSTEM: In ConnectInterfaces(), s_nRegistrationCount is %d!\n
@@ -161,8 +169,12 @@ ClientServerSharedHandleSystem001
 ClientToolsInfo_001
 CommandLine
 CreateInterface
+DF128_
+DF16_
 DF16b
+DF32_
 DF32x
+DF64_
 DF64x
 Default size of stack region v8 is allowed to use (in kBytes)
 DemoUpconverterVersion001
@@ -191,7 +203,6 @@ GLIBC_2.2.5
 GLIBC_2.25
 GLIBC_2.3
 GLIBC_2.3.2
-GNU
 GameResourceServiceClientV001
 GameResourceServiceServerV001
 GameUIService_001
@@ -224,7 +235,6 @@ JArray
 KeyValueCache001
 KeyValues3: pre-allocated array memory is too small for %u elements (%u bytes available, %u bytes needed)\n
 KeyValues3: pre-allocated table memory is too small for %u members (%u bytes available, %u bytes needed)\n
-LFR
 LOG_CONSOLE
 LoadKV3(CKV3Arena*, CUtlString*, CUtlBuffer*, KV3ID_t const&, char const*, unsigned int) (demangled)
 LocalServerClientAccess001
@@ -269,11 +279,13 @@ PKDF32_
 PKDF32x
 PKDF64_
 PKDF64x
+PKDd
 PKDe
 PKDf
 PKDi
 PKDn
 PKDs
+PKDu
 PKa
 PKb
 PKc
@@ -399,6 +411,7 @@ VEngineCvar007
 VFileSystem017
 VMaterialSystem2_001
 VMediaFoundation001
+VP4003
 VPhysics2_Interface_001
 VProcessUtils002
 VProfService_001
@@ -960,6 +973,7 @@ memcpy
 memmove
 memset
 mold 2.36.0 (compatible with GNU ld)
+mt19937
 name
 new
 new 
@@ -1672,6 +1686,7 @@ typeinfo for unsigned short (demangled)
 typeinfo for unsigned short const* (demangled)
 typeinfo for unsigned short* (demangled)
 typeinfo for v8::ArrayBuffer::Allocator (demangled)
+typeinfo for void (demangled)
 typeinfo for void const* (demangled)
 typeinfo for void* (demangled)
 typeinfo for wchar_t (demangled)

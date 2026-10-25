@@ -1,6 +1,5 @@
                           
- !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`ABCDEFGHIJKLMNOPQRSTUVWXYZ{|}~
- !"#$%&'()*+,-./0123456789:;<=>?@abcdefghijklmnopqrstuvwxyz[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
+ !"#$%&'()*+,-./
  * Requested DmAttribute of value of type "%s" From DmAttribute "%s" which is type "%s"\n
  -testmode
  Base Class Array'
@@ -8,43 +7,47 @@
  Class Hierarchy Descriptor'
  Complete Object Locator'
  Type Descriptor'
- \n_V_strncmp
  delete
  delete[]
  new
-!\n_V_strncpy
 "\nis running without a known mod!\n\nSet the VMOD environment variable or run with -game to set the mod name.\n
 "id" "elementid" 
 #AppFramework_InvalidLocalFiles
 #AppFramework_OutOfMemory
 #General_UnableToStartGame
-#\n_V_strnicmp_fast
 $prefix_attribute$
 $prefix_element$
 %-40s\t%6d\t%9d\t\t%5.2f
 %.04f
 %.10f
 %02i/%02i %02i:%02i:%02i 
+%d %d %d
 %d %d %d %d
-%dS
 %d_%lld_%x.dmx
 %d_%lld_%x_in.dmx
+%f %f
+%f %f %f
 %f %f %f %f
 %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f
 %hu
+%i %i %i
 %lld
 %llu
 %llx
 %s (%s -> %s)
 %s (%s) = remove( pos %i, count %i )
+%s - %s
 %s allocation count overflow
 %s allocation count overflow( %llu + %llu > %llu )\n
 %s allocation count overflow( %llu > %llu )\n
 %s allocation count overflow( add %llu + current %llu > max %llu )\n
 %s channel
 %s encoding %s %d format %s %d %s\n
+%s%s
 %s(%d) : %s\n
+%s(%s)
 %s(%s) = %s
+%s.%u
 %s.piw
 %s.vpk
 %s: allocation of %u too large, max %u\n
@@ -55,6 +58,8 @@ $prefix_element$
 %s: nLoadError: %d, RequestModule: %s, RequestInterface: %s, Module: %s, Interface: %s
 %s: no space for allocation of %u\n
 %s: unable to grow count by %u (currently %u)\n
+%s:%s
+%s\n
 *** Converter error - element "%s" already has a non-int attribute "%s"!\n
 *** Element "%s" has attribute "%s" with an unexpected type!\n
 *** Log "%s" has attribute "%s" with an unexpected type (expected int array)!\n
@@ -66,10 +71,11 @@ $prefix_element$
 *** TimeFrame "%s" is missing attribute "%s"!\n
 *** Unable to find or add attribute "%s" to element "%s"!\n
 *****************: Cannot call CAppSystemDict::AddSystems without initializing first!\n
+*.%s%s
 *LANGUAGE*
-*StO9>T
 ---- dmxconvert cmdline ----\n
 ---- dmxconvert output ----\n
+---------------------------\n
 -con_logfile
 -consoleapp
 -consolelog
@@ -104,6 +110,7 @@ $prefix_element$
 .data$r
 .data$rs
 .dll
+.eB
 .edata
 .idata$2
 .idata$3
@@ -134,32 +141,28 @@ $prefix_element$
 .tls$ZZZ
 .vmat
 .vpk
-.xJ>Hf
 .xdata
 .xdata$x
 /content/
 /game/
 /src/
+0 0 0
+0,C
+0X.
+0kE
+0wG
 0x%llx
+1.0
 16-byte data pool
-3>N;kU
 4-byte data pool
-5sfm_v8
+64 283 0
 8-byte data pool
-8text
+;?0123456789:;<=>?
 <!-- DMXVersion
-<\ng_pMemAlloc
-<\tV_atan2f
 <no failure reason set>
 <unknown>
-=imb;D
-?DmeChannelsClip
-?UUUUUU
-?qBJ
-?vtex
-?ysB
+@33
 A game file appears to be missing or corrupted.  In the Steam client go to the game's properties.  In the 'Local Files' tab select 'Verify Integrity of Game Cache' to have Steam double-check the game's installation.
-A>pP&
 ABCDEFGHIJKLMNOPQRSTUVWXYZ
 ADDONROOT
 ADDONS
@@ -211,8 +214,6 @@ Attempted to read an attribute ("%s") of unknown type %s!\n
 Audio
 Aug
 August
-BF>^G
-B\tV_atoi
 BakedLODBuilderMgr001
 BenchmarkService001
 Binary
@@ -408,6 +409,7 @@ DmeBoolLog
 DmeBoolLogLayer
 DmeCamera
 DmeChannel
+DmeChannelsClip
 DmeColorCurveInfo
 DmeColorLog
 DmeColorLogLayer
@@ -556,7 +558,6 @@ GAME
 GAMEBIN
 GAMEROOT
 GCTL
-Ga=UU
 GameResourceServiceClientV001
 GameResourceServiceServerV001
 GameStartup
@@ -658,7 +659,6 @@ KeyValues3: pre-allocated table memory is too small for %u members (%u bytes ava
 KeyValues: Can't serialize attribute of type %s into KeyValues files!\n
 KeyValues: Element uses unknown element type %s\n
 KeyValuesSystem
-L>ev
 LCMapStringEx
 LCMapStringW
 LOCAL
@@ -756,7 +756,6 @@ NostrilFlare
 Nov
 November
 OFFICIAL_ADDONS
-OZQ%
 Oct
 October
 OpenClipboard
@@ -768,6 +767,7 @@ Other
 P4File
 PIO
 PLATFORM
+PO_
 PanoramaCoreStartup
 PanoramaTextServices001
 PanoramaUIClient001
@@ -827,9 +827,7 @@ Prefix element cannot contain element or element_array attributes. ('%s')
 Preset File
 Procedural
 PropertyEditorSystem_001
-Q\tV_fclose
 QueryPerformanceCounter
-RSDS*
 Radius Random
 Radius Scale
 RaiseException
@@ -988,7 +986,6 @@ Tue
 Tuesday
 USER32.dll
 UUUUUU
-U\tV_fflush
 Unable to Start Game
 Unable to create unknown element %s!\n
 Unable to set type unless you're creating untyped elements!\n
@@ -1029,6 +1026,7 @@ VFileSystem017
 VMOD
 VMaterialSystem2_001
 VMediaFoundation001
+VP4003
 VPhysics2_Interface_001
 VProcessUtils002
 VProfService_001
@@ -1056,6 +1054,25 @@ V_StringToInt32
 V_StringToInt64
 V_StringToUint16
 V_StringToUint64
+V_UnqualifiedFileName
+V_atan2f
+V_atoi
+V_fclose
+V_fflush
+V_fileno
+V_fopenUTF8
+V_ftell
+V_fwrite
+V_log2f
+V_powf
+V_qsort_s
+V_sincosf
+V_snprintf
+V_sscanf
+V_sscanf_s
+V_stricmp_fast
+V_tanf
+V_vsnprintf
 Valve Map File
 ValveMain
 Velocity Inherit from Control Point
@@ -1072,6 +1089,7 @@ Vrad3_001
 WARNING: You are trying to mount an addon (%s) in tools mode that is different from the addon tools mode was launched with (%s).\n
 WaitForSingleObjectEx
 WakeAllConditionVariable
+Warning
 Wed
 Wednesday
 WideCharToMultiByte
@@ -1080,39 +1098,28 @@ WipeUndo '%s'\n
 World Files
 World Node Files
 WorldRendererMgr001
+Worldsize_Init
 WriteConsoleW
 WriteFile
-X\tV_fileno
 You are trying to mount addon '%s' but SetAllowAddonChanges is false which probably means you shouldn't be calling this directly.\n
 You are trying to unmount addon '%s', but SetAllowAddonChanges is false which probably means you should be using calling this directly.\n
 [%d] Aborting undo '%s'\n
 [%d] Popping undo '%s'\n
 [%d] Pushing undo '%s'\n
 [%s] Forced dmxconvert - Finished [%s] in %0.2f secs. Please re-save or upconvert this asset!\n
-\\tV_fopenUTF8
-\n_V_StringAfterPrefix
-\n_V_StringAfterPrefixCaseSensitive
-\n_V_strEndsWith
+\t%8d
 \t-r argument does a recursive search if the in file specifies wildcards\n
 \t-upconvert will auto-check out the files. If -i is not specified, it will operate on all DMX files\n
 \tIf no output file is specified, dmx to dmx conversion will overwrite the input\n
 \tNAN encountered in element '%s' guid %s attribute '%s'!\n
 \tSupported DMX file encodings:\n
 \tSupported DMX file formats:\n
-\tV_UnqualifiedFileName
-\tV_log2f
-\tV_powf
-\tV_qsort_s
-\tV_sincosf
-\tV_snprintf
-\tV_sscanf
-\tV_sscanf_s
-\tV_stricmp_fast
-\tV_tanf
-\tV_vsnprintf
-\tWarning
-\tWorldsize_Init
-\tkE>fvw
+_V_StringAfterPrefix
+_V_StringAfterPrefixCaseSensitive
+_V_strEndsWith
+_V_strncmp
+_V_strncpy
+_V_strnicmp_fast
 __based(
 __cdecl
 __clrcall
@@ -1135,6 +1142,7 @@ _light
 _linked_type_
 _name
 _root_keyname
+`EH
 `RTTI
 `anonymous namespace'
 `copy constructor closure'
@@ -1666,7 +1674,6 @@ drawGameRenderablesMask
 drawToolRenderablesMask
 duration
 durationTime
-eF>t
 eFast
 eMoveWithGait
 eSlow
@@ -1732,6 +1739,7 @@ fromElement
 func_physbox
 function not supported
 functionName
+g_pMemAlloc
 game
 game_audiolanguage
 game_lowviolence
@@ -1764,7 +1772,6 @@ hold_right
 host unreachable
 houdini
 hue
-i\tV_ftell
 identifier removed
 illegal byte sequence
 inappropriate io control operation
@@ -1798,7 +1805,6 @@ jointList
 jointTransforms
 jointWeights
 jointWeightsIndices
-k\tV_fwrite
 keyvalues
 keyvalues file
 keyvalues2
@@ -1887,7 +1893,6 @@ multi
 multi_%s
 multilevel
 multilevelchannel
-n03>Pu
 nLayoffState
 nTries < 10000000
 name
@@ -2132,7 +2137,6 @@ qangle
 qangle_array
 quaternion
 quaternion_array
-r\tVr.>T
 radiusScale
 radius_random
 radius_scale
@@ -2210,6 +2214,7 @@ sfm_v4
 sfm_v5
 sfm_v6
 sfm_v7
+sfm_v8
 sfm_v9
 shadow_color_day
 shadow_color_night
@@ -2299,6 +2304,7 @@ target_source
 targetname
 texcoord$0
 texcoord$0Indices
+text
 text file busy
 text_block
 texture
@@ -2397,6 +2403,7 @@ vsky
 vsnap
 vsutils_py
 vtex
+vvtx
 vwnod
 vwrld
 weightweight$0

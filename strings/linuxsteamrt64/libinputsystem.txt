@@ -29,9 +29,13 @@
  transaction_safe
  volatile
 $ORIGIN
+$TT
+%d %d %d
 %d %d %d %d
 %lld
 %llu
+%s %s
+%s %s %s
 %s %s %s %s
 %s allocation count overflow
 %s allocation count overflow( %llu + %llu > %llu )\n
@@ -45,6 +49,7 @@ $ORIGIN
 %s: max element overflow, cur count %u + %u\n
 %s: member count overflow (%u)\n
 %s: no space for allocation of %u\n
+%u%n
 &&(&&) std::pair<std::basic_string_view<char, std::char_traits<char> >, int>::base object constructor<char const (&(&&)) [10], int&, (bool)1> (demangled)
 &&(&&) std::pair<std::basic_string_view<char, std::char_traits<char> >, int>::base object constructor<char const (&(&&)) [9], int, (bool)1> (demangled)
 &&(&&) std::pair<std::basic_string_view<char, std::char_traits<char> >, int>::complete object constructor<char const (&(&&)) [10], int&, (bool)1> (demangled)
@@ -62,17 +67,21 @@ $ORIGIN
 *(*&) std::addressof<char const>(*&) (demangled)
 *(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) std::__addressof<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)> (demangled)
 *(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&) std::__addressof<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&)> (demangled)
+,%d
 -------------------- PollInputState_SDL (frame %llu, elapsed ms = %.2f) --------------------\n
 --> SDL_PumpEvents - %d new events (elapsed time from last pump %.2f ms)\n
-...
 .bmp
 /cursor.res
 /dev/random
 /dev/urandom
 /src/
+0 0
+0 0 0
+0 0 0 0
+0 0 0 255
+0123456789
 <no failure reason set>
 <undefined>
-???
 ACTIVE
 ACUTE_ACCENT
 AC_BACK
@@ -250,6 +259,21 @@ EnsureElementCapacity
 EnsureMemberCapacity
 EnsureUnusedCapacity
 ExtractModuleMetadata
+F10
+F11
+F12
+F13
+F14
+F15
+F16
+F17
+F18
+F19
+F20
+F21
+F22
+F23
+F24
 FEMININE_ORDINAL_INDICATOR
 FIND
 Failed to load cursor from '%s'\n
@@ -265,7 +289,6 @@ GLIBC_2.2.5
 GLIBC_2.25
 GLIBC_2.3
 GLIBC_2.3.2
-GNU
 GREATER
 GameResourceServiceClientV001
 GameResourceServiceServerV001
@@ -391,6 +414,18 @@ KEY_CYRILLIC_HARD_SIGN
 KEY_CYRILLIC_IO
 KEY_CYRILLIC_YU
 KEY_CYRILLIC_ZHE
+KP_0
+KP_00
+KP_000
+KP_1
+KP_2
+KP_3
+KP_4
+KP_5
+KP_6
+KP_7
+KP_8
+KP_9
 KP_A
 KP_AMPERSAND
 KP_AT
@@ -812,6 +847,7 @@ VMaterialSystem2_001
 VMediaFoundation001
 VOLUMEDOWN
 VOLUMEUP
+VP4003
 VPhysics2_Interface_001
 VProcessUtils002
 VProfService_001
@@ -1323,6 +1359,7 @@ memset
 mold 2.36.0 (compatible with GNU ld)
 mouse %d %s (%d) at %g %g on window %d\n
 mouse motion %g %g at %g %g with buttons "%s" on window %d\n
+mt19937
 name
 new
 new 

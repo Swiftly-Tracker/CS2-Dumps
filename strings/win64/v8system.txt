@@ -3,8 +3,6 @@
     v8 heap space space_available_size = %llu\n
     v8 heap space space_size = %llu\n
     v8 heap space space_used_size = %llu\n
- !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`ABCDEFGHIJKLMNOPQRSTUVWXYZ{|}~
- !"#$%&'()*+,-./0123456789:;<=>?@abcdefghijklmnopqrstuvwxyz[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
  --disallow-code-generation-from-strings
  --jitless
  --stack-size=%d
@@ -16,11 +14,12 @@
  delete
  delete[]
  new
-!\n_V_strncpy
+%d %d %d
 %d %d %d %d
-%dS
 %lld
 %llu
+%s %s
+%s %s %s
 %s %s %s %s
 %s allocation count overflow
 %s allocation count overflow( %llu + %llu > %llu )\n
@@ -31,7 +30,6 @@
 %s: max element overflow, cur count %u + %u\n
 %s: member count overflow (%u)\n
 %s: no space for allocation of %u\n
-*StO9>T
 .00cfg
 .CRT$XCA
 .CRT$XCC
@@ -78,19 +76,19 @@
 .tls
 .tls$
 .tls$ZZZ
-.xJ>Hf
 .xdata
 .xdata$x
 /src/
-3>N;kU
-<\ng_pMemAlloc
+0 0
+0 0 0
+0 0 0 0
+0 0 0 255
+0,C
+0X.
+0kE
+0wG
 <no failure reason set>
 <undefined>
-=imb;D
-?UUUUUU
-?qBJ
-?ysB
-A>pP&
 ABCDEFGHIJKLMNOPQRSTUVWXYZ
 APPSYSTEM: In ConnectInterfaces(), s_nRegistrationCount is %d!\n
 AcquireSRWLockExclusive
@@ -109,7 +107,6 @@ AssetSystem001
 AssetSystemTest001
 Aug
 August
-BF>^G
 Bad KV3 data for resource '%s': %s\n
 BakedLODBuilderMgr001
 BenchmarkService001
@@ -227,7 +224,6 @@ KERNEL32.dll
 KeyValueCache001
 KeyValues3: pre-allocated array memory is too small for %u elements (%u bytes available, %u bytes needed)\n
 KeyValues3: pre-allocated table memory is too small for %u members (%u bytes available, %u bytes needed)\n
-L>ev
 LCMapStringEx
 LCMapStringW
 LeaveCriticalSection
@@ -264,10 +260,10 @@ NetworkService_001
 NetworkSystemVersion001
 Nov
 November
-OZQ%
 Oct
 October
 PIO
+PO_
 PanoramaTextServices001
 PanoramaUIClient001
 PanoramaUIEngine001
@@ -284,7 +280,6 @@ PropertyEditorSystem_001
 QueryPerformanceCounter
 RESOURCE_TYPE_JAVASCRIPT
 RESOURCE_TYPE_TYPESCRIPT
-RSDS
 RaiseException
 RegisterConCommand: Unknown error registering con command "%s"!\n
 RegisterConVar: Unknown error registering convar "%s"!\n
@@ -378,6 +373,7 @@ VEngineCvar007
 VFileSystem017
 VMaterialSystem2_001
 VMediaFoundation001
+VP4003
 VPhysics2_Interface_001
 VProcessUtils002
 VProfService_001
@@ -407,19 +403,19 @@ V_StringToVector
 V_StringToVector2D
 V_StringToVector4D
 V_StringToVectorWS
+V_qsort_s
+V_stricmp_fast
 VisBuilder_001
 Vrad3_001
 WakeAllConditionVariable
+Warning
 Wed
 Wednesday
 WideCharToMultiByte
 WorldRendererMgr001
 WriteConsoleW
 WriteFile
-\tV_qsort_s
-\tV_stricmp_fast
-\tWarning
-\tkE>fvw
+_V_strncpy
 __based(
 __cdecl
 __clrcall
@@ -435,6 +431,7 @@ __swift_3
 __thiscall
 __unaligned
 __vectorcall
+`EH
 `RTTI
 `anonymous namespace'
 `copy constructor closure'
@@ -516,7 +513,6 @@ dddd, MMMM dd, yyyy
 destination address required
 device or resource busy
 directory not empty
-eF>t
 executable format error
 false
 file exists
@@ -525,6 +521,7 @@ filename too long
 float32
 float64
 function not supported
+g_pMemAlloc
 generic
 group
 host unreachable
@@ -542,7 +539,6 @@ io error
 is a directory
 log10
 message size
-n03>Pu
 name
 network down
 network reset
@@ -601,7 +597,7 @@ public: static v8::Isolate* v8::Isolate::GetCurrent(void) (demangled)
 public: static v8::Isolate* v8::Isolate::New(v8::Isolate::CreateParams const&) (demangled)
 public: static void v8::V8::DisposePlatform(void) (demangled)
 public: static void v8::V8::InitializePlatform(v8::Platform*) (demangled)
-public: static void v8::V8::etFlagsFromString::operator~(char const*, uint64_t) (demangled)
+public: static void v8::V8::SetFlagsFromString(char const*, uint64_t) (demangled)
 public: uint64_t v8::Isolate::NumberOfHeapSpaces(void) (demangled)
 public: v8::HandleScope::HandleScope(v8::Isolate*) (demangled)
 public: v8::HandleScope::~HandleScope(void) (demangled)
@@ -619,6 +615,7 @@ public: void CBufferString::ToLowerFast(int) (demangled)
 public: void CUtlString::Set(char const*) (demangled)
 public: void v8::Context::Enter(void) (demangled)
 public: void v8::Context::Exit(void) (demangled)
+public: void v8::Isolate::AddNearHeapLimitCallback(uint64_t (*)(void*, uint64_t, uint64_t), void*) (demangled)
 public: void v8::Isolate::Dispose(void) (demangled)
 public: void v8::Isolate::Enter(void) (demangled)
 public: void v8::Isolate::Exit(void) (demangled)
@@ -626,13 +623,11 @@ public: void v8::Isolate::GetHeapStatistics(v8::HeapStatistics*) (demangled)
 public: void v8::Isolate::LowMemoryNotification(void) (demangled)
 public: void v8::Isolate::SetCaptureStackTraceForUncaughtExceptions(bool, int, v8::StackTrace::StackTraceOptions) (demangled)
 public: void v8::Isolate::SetFatalErrorHandler(void (*)(char const*, char const*)) (demangled)
-public: void v8::Isolate::\v?AddNearHeapLimitCallback(uint64_t (*)(void*, uint64_t, uint64_t), void*) (demangled)
-public: void v8::Isolate::etOOMErrorHandler::operator~(void (*)(char const*, v8::OOMDetails const&)) (demangled)
-public: void v8::Isolate::etPromiseRejectCallback::operator~(void (*)(v8::PromiseRejectMessage)) (demangled)
+public: void v8::Isolate::SetOOMErrorHandler(void (*)(char const*, v8::OOMDetails const&)) (demangled)
+public: void v8::Isolate::SetPromiseRejectCallback(void (*)(v8::PromiseRejectMessage)) (demangled)
 public: void v8::ResourceConstraints::ConfigureDefaultsFromHeapSize(uint64_t, uint64_t) (demangled)
 purecall
 qangle
-r\tVr.>T
 range check failure
 read only file system
 resource deadlock would occur
@@ -675,6 +670,7 @@ v8 heap total_heap_size_executable = %llu\n
 v8 heap total_physical_size = %llu\n
 v8 heap used_global_handles_size = %llu\n
 v8 heap used_heap_size = %llu\n
+v8.dll
 v8::Platform* v8::platform::V_NewDefaultPlatform(int) (demangled)
 v8_dump_heap_snapshot
 v8_jitless

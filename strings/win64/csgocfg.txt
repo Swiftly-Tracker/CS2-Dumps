@@ -1,12 +1,12 @@
                           
- !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`ABCDEFGHIJKLMNOPQRSTUVWXYZ{|}~
- !"#$%&'()*+,-./0123456789:;<=>?@abcdefghijklmnopqrstuvwxyz[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
+ !"#$%&'()*+,-./
  (Start: 
  -asset maps/%s.vmap
  -gpuraytracing -vulkan
  -retail
  -tools
  -tools -tool cs2_item_editor
+ 255
  : Extraneous input - expected %s ...\n
  : Extraneous input - expected <EOF>\n
  : Extraneous input...
@@ -29,13 +29,11 @@
  Complete Object Locator'
  LinePos:
  Type Descriptor'
- \n_V_strncmp
+ \t\n\r@()[]{}=&,:*|;'!
  delete
  delete[]
  near '%s' -
  new
-!\n_V_strncpy
-"""
 "%s" -addon %s
 "Test"\n{\n"TestKeyForAddon" "%s"\n}\n
 "\nis running without a known mod!\n\nSet the VMOD environment variable or run with -game to set the mod name.\n
@@ -99,18 +97,22 @@
 #WorkshopCfg_ShowHelp
 #WorkshopCfg_ShowLaunchCommandLine
 #WorkshopCfg_WindowTitle
-#\n_V_strnicmp_fast
 %02i/%02i %02i:%02i:%02i 
-%dS
 %lld
 %llu
+%s %s
 %s %s.lnk
 %s allocation count overflow
 %s allocation count overflow( %llu + %llu > %llu )\n
 %s called on a pool arena (no root available)\n
+%s%s
 %s%s: FGD Parse error: %s %s\n
+%s(
+%s.%u
 %s.piw
 %s.vpk
+%s/%s
+%s: %s %s
 %s: Variable '%s' is multiply defined with different types.
 %s: allocation of %u too large, max %u\n
 %s: element count overflow (%u)\n
@@ -122,8 +124,10 @@
 %s: nLoadError: %d, RequestModule: %s, RequestInterface: %s, Module: %s, Interface: %s
 %s: no space for allocation of %u\n
 %systemdrive%\users\%username%\Desktop
+%u\n
 '%s' is not a valid variable type
 'OverrideClass' was specified but class '%s' has not been previously defined.\n
+(%d,%d)
 (Expecting %s)
 (Expecting EOF)
 (None)
@@ -134,7 +138,6 @@
 *.psd
 *.tga
 *LANGUAGE*
-*StO9>T
 +inf
 , at offset %d
 , near %s
@@ -143,8 +146,10 @@
 -con_logfile
 -consolelog
 -deprecated_dx9
+-dx11
 -end of input-(
 -fulllog
+-gl
 -inf
 -mantle
 -memory-
@@ -154,6 +159,7 @@
 -unknown source-
 -unknown source-(
 -vulkan
+.%s
 ../src/shaders
 ..\content
 ..\csgo_addons\addon_template
@@ -216,13 +222,17 @@
 .tls$
 .tls$ZZZ
 .vpk
-.xJ>Hf
 .xdata
 .xdata$x
 /content/
 /e,/select,"
 /game/
 /src/
+0,C
+08:59:15
+0X.
+0kE
+0wG
 1:1: Tokens : ( T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | TOK_COLON | OPEN_BRACE | CLOSE_BRACE | OPEN_PAREN | CLOSE_PAREN | OPEN_BRACKET | CLOSE_BRACKET | SEMICOLON | OP_EQUAL | COMMA | DOUBLE_AND | NEGATIVE_TOK | DOUBLE_OR | LITERAL_TRUE | LITERAL_FALSE | POS_INTLITERAL | POS_FLOATLITERAL | SCOPE_QUALIFIER | ID | DOUBLE_QUOTED_STRING | SINGLE_QUOTED_STRING | SINGLE_LINE_COMMENT | ML_COMMENT | WS | UNRECOGNIZED );
 1AcceptIfItemPicked()
 1OnAccept()
@@ -268,16 +278,15 @@
 2textChanged(QString)
 2timeout()
 2triggered()
-3>N;kU
 488:1: POS_FLOATLITERAL : ( ( DIGIT )+ '.' ( DIGIT )* ( EXPONENT )? | '.' ( DIGIT )+ ( EXPONENT )? | ( DIGIT )+ EXPONENT );
 : lexer error %d :\n\t%s at offset %d, 
 :/images/lock.png
+;?0123456789:;<=>?
 <DOWN>
 <EOF>
 <EOR>
 <UNKNOWN>
 <Unknown>
-<\ng_pMemAlloc
 <array: %u elements>
 <binary blob: %u bytes>
 <empty member name>
@@ -293,15 +302,8 @@
 <unknown KV3 basic type '%s' (%d)>
 <unknown>
 <unnamed>
-=imb;D
-???
-?UUUUUU
-?\tV_atof
-?material
-?qBJ
-?ysB
+@33
 A game file appears to be missing or corrupted.  In the Steam client go to the game's properties.  In the 'Local Files' tab select 'Verify Integrity of Game Cache' to have Steam double-check the game's installation.
-A>pP&
 ABCDEFGHIJKLMNOPQRSTUVWXYZ
 ADDONROOT
 ADDONS
@@ -362,8 +364,6 @@ Audio
 Aug
 August
 BACKSLASH_CHAR
-BF>^G
-B\tV_atoi
 Bad GD variable type
 Bad class description
 Bad dynamic_cast!
@@ -405,6 +405,7 @@ BinSub
 BinaryProperties_GetValue
 Black
 Blue
+Bool( %s )
 BreakpadAppId
 BreakpadAppId_Tools
 BrightText
@@ -648,6 +649,7 @@ FreeLibrary
 FreeLibraryAndExitThread
 Fri
 Friday
+Func( %s )
 Functions not supported in this evaluator (%s)
 GAME
 GAMEBIN
@@ -711,7 +713,6 @@ Highlight
 HighlightedText
 HostStateMgr001
 I could not work out what I was expecting, like so many of us these days!\n
-IDAT8
 ID_CHAR
 IEND
 INLINE
@@ -728,6 +729,7 @@ InputService_001
 InputStackSystemVersion001
 InputSystemVersion001
 InstallSchemaBindings
+Int( %d )
 Invalid %s: %s
 Invalid search path specified for '%s'. Search path '%s' does not contain '%s'\n
 InvokeMiniDumpHandler
@@ -751,7 +753,6 @@ KeyValueCache001
 KeyValues3: pre-allocated array memory is too small for %u elements (%u bytes available, %u bytes needed)\n
 KeyValues3: pre-allocated table memory is too small for %u members (%u bytes available, %u bytes needed)\n
 KeyValuesSystem
-L>ev
 LCMapStringEx
 LCMapStringW
 LEFT
@@ -874,7 +875,6 @@ OPEN_BRACE
 OPEN_BRACKET
 OPEN_PAREN
 OP_EQUAL
-OZQ%
 Oct
 Oct 22 2026
 October
@@ -911,9 +911,9 @@ OnTextUpArrow
 OnToggleOrientationAction
 PIO
 PLATFORM
-PNG\r\n
 POS_FLOATLITERAL
 POS_INTLITERAL
+PO_
 PanoramaCoreStartup
 PanoramaImage()
 PanoramaLayout()
@@ -967,6 +967,7 @@ Plat_UnloadModule
 Plat_UnloadSDL
 Pointers cannot be used as numeric values
 PostProcessingSystem_001
+Prop( %s )
 PropertyEditorSystem_001
 QAbstractButton*
 QAbstractScrollArea
@@ -976,14 +977,11 @@ QPlainTextEdit
 QTextDocument*
 QTreeWidgetItem*
 QWidget*
-Q\tV_fclose
 Qt5Core.dll
 Qt5Gui.dll
 Qt5Widgets.dll
 QueryPerformanceCounter
 RIGHT
-RSDSY
-R\vpD
 RaiseException
 Recognition Exception
 Recognition exception
@@ -1171,7 +1169,6 @@ Tue
 Tuesday
 UNRECOGNIZED
 UUUUUU
-U\tV_fflush
 UnInvalid
 UnNegate
 UnNot
@@ -1220,6 +1217,7 @@ VFileSystem017
 VMOD
 VMaterialSystem2_001
 VMediaFoundation001
+VP4003
 VPhysics2_Interface_001
 VProcessUtils002
 VProfService_001
@@ -1258,6 +1256,26 @@ V_StringToInt64
 V_StringToUint64
 V_StripFilename
 V_UInt64ToString_Unsafe
+V_UnqualifiedFileName
+V_atof
+V_atoi
+V_fclose
+V_fflush
+V_fileno
+V_fmodd
+V_fopenUTF8
+V_fpclassifyd
+V_fprintf
+V_ftell
+V_fwrite
+V_isnand
+V_qsort
+V_qsort_s
+V_snprintf
+V_sscanf
+V_stricmp_fast
+V_vsnprintf
+Var( %s )
 Variable %s has bad default value %s (no choices with that name or value)
 Video
 ViewportBackground
@@ -1271,48 +1289,34 @@ WARNING: Resource name "%s" has the incorrect extension "%s" for the specified r
 WARNING: You are trying to mount an addon (%s) in tools mode that is different from the addon tools mode was launched with (%s).\n
 WaitForSingleObjectEx
 WakeAllConditionVariable
+Warning
 Wed
 Wednesday
 WideCharToMultiByte
 Window
 WindowText
 WorldRendererMgr001
+Worldsize_Init
 WriteConsoleW
 WriteFile
-X\tV_fileno
-Y\tV_fmodd
 You are trying to mount addon '%s' but SetAllowAddonChanges is false which probably means you shouldn't be calling this directly.\n
 You are trying to unmount addon '%s', but SetAllowAddonChanges is false which probably means you should be using calling this directly.\n
 [Index: 
 [a-zA-Z0-9][a-zA-Z0-9_]*
-\\tV_fopenUTF8
-\f\f?focusInEvent@QLabel@@MEAAXPEAVQFocusEvent@@@Z
 \n    near %s\n    
-\n\r?heightForWidth@QBoxLayout@@UEBAHH@Z
 \n\t\t\tQPushButton {\n\t\t\t\tbackground-color : rgb( 49, 69, 80 );\n\t\t\t\tborder: 2px solid rgb( 143, 171, 187 );\n\t\t\t\tborder-radius: 5px;\n\t\t\t\tmin-height : 18px;\n\t\t\t\tfont: bold 12pt;\n\t\t\t}\n\t\t\tQPushButton:hover:!pressed {\n\t\t\t\tbackground-color : rgb( 100, 140, 160 );\n\t\t\t}\n\t\t\tQPushButton:disabled {\n\t\t\t\tbackground-color : rgb( 40, 44, 46 );\n\t\t\t\tborder: 2px solid rgb( 106, 111, 114 );\n\t\t\t}\n\t\t
 \n\t\t\t\tQPushButton {\n\t\t\t\t\tbackground-color : rgb( 49, 69, 80 );\n\t\t\t\t\tborder: 2px solid rgb( 143, 171, 187 );\n\t\t\t\t\tborder-radius: 5px;\n\t\t\t\t\tfont: bold 10pt;\n\t\t\t\t}\n\t\t\t\tQPushButton:hover:!pressed {\n\t\t\t\t\tbackground-color : rgb( 100, 140, 160 );\n\t\t\t\t}\n\t\t\t\tQPushButton:disabled {\n\t\t\t\t\tbackground-color : rgb( 40, 44, 46 );\n\t\t\t\t\tborder: 2px solid rgb( 106, 111, 114 );\n\t\t\t\t}\n\t\t\t
-\n_MakeGlobalSymbol
-\n_V_StringAfterPrefix
-\n_V_StringAfterPrefixCaseSensitive
-\n_V_strEndsWith
 \rIHDR
-\r\f?focusInEvent@QLineEdit@@MEAAXPEAVQFocusEvent@@@Z
 \t The lexer was matching from line %d, offset %d, which\n\t 
-\tV_UnqualifiedFileName
-\tV_qsort
-\tV_qsort_s
-\tV_snprintf
-\tV_sscanf
-\tV_stricmp_fast
-\tV_vsnprintf
-\tWarning
-\tWorldsize_Init
-\t\n_V_ComposeFileName
-\t\v?brushOrigin@QPainter@@QEBA?AVQPoint@@XZ
-\tkE>fvw
-\v\f?focusInEvent@QGroupBox@@MEAAXPEAVQFocusEvent@@@Z
-]\tV_fpclassifyd
-^\tV_fprintf
+\t%.*s\n
+_MakeGlobalSymbol
+_V_ComposeFileName
+_V_StringAfterPrefix
+_V_StringAfterPrefixCaseSensitive
+_V_strEndsWith
+_V_strncmp
+_V_strncpy
+_V_strnicmp_fast
 __CACHED_editcontext_provider_lookup
 __IsValveCQTabbedStyle
 __based(
@@ -1336,6 +1340,7 @@ _class
 _dir.vpk
 _fgd
 _root_keyname
+`EH
 `RTTI
 `anonymous namespace'
 `copy constructor closure'
@@ -1585,6 +1590,7 @@ console.log
 core
 cross device link
 cs2.exe
+csgo
 csgocfg
 csgocfg.exe
 curve
@@ -1600,7 +1606,6 @@ device or resource busy
 directory not empty
 disable_reset_to_default
 double
-eF>t
 edit_context_override
 editor
 ehandle
@@ -1633,6 +1638,7 @@ floatchoices choice
 frameColor
 friendly_name
 function not supported
+g_pMemAlloc
 game
 game:tools/cs2_item_editor/appicon.png
 game:tools/images/assetbrowser/appicon.ico
@@ -1690,7 +1696,6 @@ helpsystem
 hidden
 host unreachable
 https://www.counter-strike.net/workshop/workshop
-i\tV_ftell
 icon
 identifier removed
 illegal byte sequence
@@ -1727,10 +1732,10 @@ items/assets/keychains/workshop
 items/assets/paintkits/workshop
 items/assets/sprays/workshop
 items/assets/stickers/workshop
-k\tV_fwrite
 key
 keyframe
 keyframeclass
+kv3
 lexer->mTokens(): Error: No lexer rules were added to the lexer yet!\n
 local_point
 localaxis
@@ -1749,6 +1754,7 @@ mapkeys_suggestion_name
 mapped
 maps
 maps/
+material
 materialgroup
 max
 mesh
@@ -1773,7 +1779,6 @@ modelgamedata
 modelstatechoices
 move
 moveclass
-n03>Pu
 nTries < 10000000
 name
 nan
@@ -1996,6 +2001,7 @@ protected: virtual void QFrame::changeEvent(QEvent*) (demangled)
 protected: virtual void QFrame::paintEvent(QPaintEvent*) (demangled)
 protected: virtual void QGroupBox::changeEvent(QEvent*) (demangled)
 protected: virtual void QGroupBox::childEvent(QChildEvent*) (demangled)
+protected: virtual void QGroupBox::focusInEvent(QFocusEvent*) (demangled)
 protected: virtual void QGroupBox::mouseMoveEvent(QMouseEvent*) (demangled)
 protected: virtual void QGroupBox::mousePressEvent(QMouseEvent*) (demangled)
 protected: virtual void QGroupBox::mouseReleaseEvent(QMouseEvent*) (demangled)
@@ -2003,6 +2009,7 @@ protected: virtual void QGroupBox::paintEvent(QPaintEvent*) (demangled)
 protected: virtual void QGroupBox::resizeEvent(QResizeEvent*) (demangled)
 protected: virtual void QLabel::changeEvent(QEvent*) (demangled)
 protected: virtual void QLabel::contextMenuEvent(QContextMenuEvent*) (demangled)
+protected: virtual void QLabel::focusInEvent(QFocusEvent*) (demangled)
 protected: virtual void QLabel::focusOutEvent(QFocusEvent*) (demangled)
 protected: virtual void QLabel::keyPressEvent(QKeyEvent*) (demangled)
 protected: virtual void QLabel::mouseMoveEvent(QMouseEvent*) (demangled)
@@ -2016,6 +2023,7 @@ protected: virtual void QLineEdit::dragEnterEvent(QDragEnterEvent*) (demangled)
 protected: virtual void QLineEdit::dragLeaveEvent(QDragLeaveEvent*) (demangled)
 protected: virtual void QLineEdit::dragMoveEvent(QDragMoveEvent*) (demangled)
 protected: virtual void QLineEdit::dropEvent(QDropEvent*) (demangled)
+protected: virtual void QLineEdit::focusInEvent(QFocusEvent*) (demangled)
 protected: virtual void QLineEdit::focusOutEvent(QFocusEvent*) (demangled)
 protected: virtual void QLineEdit::inputMethodEvent(QInputMethodEvent*) (demangled)
 protected: virtual void QLineEdit::keyPressEvent(QKeyEvent*) (demangled)
@@ -2264,6 +2272,7 @@ public: QPixmap QIcon::pixmap(int, QIcon::Mode, QIcon::State) const (demangled)
 public: QPixmap::QPixmap(QPixmap const&) (demangled)
 public: QPixmap::QPixmap(QString const&, char const*, QFlags<Qt::ImageConversionFlag>) (demangled)
 public: QPlainTextEdit::QPlainTextEdit(QWidget*) (demangled)
+public: QPoint QPainter::brushOrigin(void) const (demangled)
 public: QPoint& QVector<QPoint>::operator[](int) (demangled)
 public: QPolygon::QPolygon(int) (demangled)
 public: QPolygon::~QPolygon(void) (demangled)
@@ -2634,6 +2643,7 @@ public: virtual bool QWidget::hasHeightForWidth(void) const (demangled)
 public: virtual int QAbstractItemView::sizeHintForRow(int) const (demangled)
 public: virtual int QAction::qt_metacall(QMetaObject::Call, int, void**) (demangled)
 public: virtual int QBoxLayout::count(void) const (demangled)
+public: virtual int QBoxLayout::heightForWidth(int) const (demangled)
 public: virtual int QBoxLayout::minimumHeightForWidth(int) const (demangled)
 public: virtual int QCommonStyle::layoutSpacing(QSizePolicy::ControlType, QSizePolicy::ControlType, Qt::Orientation, QStyleOption const*, QWidget const*) const (demangled)
 public: virtual int QCommonStyle::pixelMetric(QStyle::PixelMetric, QStyleOption const*, QWidget const*) const (demangled)
@@ -2932,7 +2942,6 @@ qt5core.dll
 qt5cored.dll
 qt_dockwidget_closebutton
 qt_dockwidget_floatbutton
-r\tVr.>T
 randomizable
 range check failure
 read only file system
@@ -3055,7 +3064,6 @@ vpost
 vsky
 vsnap
 vtex
-w\tV_isnand
 windows
 workshop_items
 world_angle
@@ -3065,3 +3073,4 @@ writable_func
 write
 wrong protocol type
 xxx_mapname_xxx
+{0x%x}

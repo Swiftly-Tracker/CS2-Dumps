@@ -1,7 +1,6 @@
                           
- !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`ABCDEFGHIJKLMNOPQRSTUVWXYZ{|}~
- !"#$%&'()*+,-./0123456789:;<=>?@abcdefghijklmnopqrstuvwxyz[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
  -enable_qaccessible
+ -pid %d
  -retail
  Base Class Array'
  Base Class Descriptor at (
@@ -11,12 +10,13 @@
  delete
  delete[]
  new
-!\n_V_strncpy
 %2.2d:%2.2d:%2.2d.%3.3d
+%d %d %d
 %d %d %d %d
-%dS
 %lld
 %llu
+%s %s
+%s %s %s
 %s %s %s %s
 %s allocation count overflow
 %s allocation count overflow( %llu + %llu > %llu )\n
@@ -26,9 +26,8 @@
 %s: max element overflow, cur count %u + %u\n
 %s: member count overflow (%u)\n
 %s: no space for allocation of %u\n
-*StO9>T
+(%d,%d)
 -nofocus
-....
 .00cfg
 .CRT$XCA
 .CRT$XCC
@@ -75,24 +74,26 @@
 .tls
 .tls$
 .tls$ZZZ
-.xJ>Hf
 .xdata
 .xdata$x
 /src/
-3>N;kU
+0 0
+0 0 0
+0 0 0 0
+0 0 0 255
+0,C
+0X.
+0kE
+0wG
 <Unknown Shutdown Context>
 <Unknown>
-<\ng_pMemAlloc
 <no failure reason set>
 <undefined>
 =============== End VConsole Buffered Messages ===============\n
 =============== Prior Messages Discarded at %d bytes ===============\n
 =============== VConsole Buffered Messages ===============\n
-=imb;D
-?UUUUUU
-?qBJ
-?ysB
-A>pP&
+==============================================================\n
+==========================================================\n
 ABCDEFGHIJKLMNOPQRSTUVWXYZ
 APPSYSTEM: In ConnectInterfaces(), s_nRegistrationCount is %d!\n
 AcquireSRWLockExclusive
@@ -111,7 +112,6 @@ AssetSystem001
 AssetSystemTest001
 Aug
 August
-BF>^G
 BakedLODBuilderMgr001
 BenchmarkService001
 BinaryProperties_GetValue
@@ -240,7 +240,6 @@ KERNEL32.dll
 KeyValueCache001
 KeyValues3: pre-allocated array memory is too small for %u elements (%u bytes available, %u bytes needed)\n
 KeyValues3: pre-allocated table memory is too small for %u members (%u bytes available, %u bytes needed)\n
-L>ev
 LCMapStringEx
 LCMapStringW
 LeaveCriticalSection
@@ -298,12 +297,12 @@ NetworkSystemVersion001
 No VConsole, Ignoring.\n
 Nov
 November
-OZQ%
 Oct
 October
 OpenProcess
 PID %d @ %s\n
 PIO
+PO_
 PanoramaTextServices001
 PanoramaUIClient001
 PanoramaUIEngine001
@@ -326,8 +325,8 @@ PostProcessingSystem_001
 PropertyEditorSystem_001
 QWidget
 QWindowIcon
+Qt5
 QueryPerformanceCounter
-RSDS<O
 RaiseException
 RegisterConCommand: Unknown error registering con command "%s"!\n
 RegisterConVar: Unknown error registering convar "%s"!\n
@@ -443,6 +442,7 @@ VFileSystem017
 VGAME
 VMaterialSystem2_001
 VMediaFoundation001
+VP4003
 VPLATFORM
 VPhysics2_Interface_001
 VProcessUtils002
@@ -471,11 +471,14 @@ V_StringToVector
 V_StringToVector2D
 V_StringToVector4D
 V_StringToVectorWS
+V_qsort_s
+V_stricmp_fast
 VisBuilder_001
 Vrad3_001
 WS2_32.dll
 Waiting For VConsole To Connect...\n
 WakeAllConditionVariable
+Warning
 Wed
 Wednesday
 WideCharToMultiByte
@@ -483,14 +486,11 @@ WorldRendererMgr001
 WriteConsoleW
 WriteFile
 Xbox VDP is not supported on this platform.
-\n_V_StringAfterPrefix
-\n_V_StringAfterPrefixCaseSensitive
-\n_V_strEndsWith
 \t%s@%d.%d.%d.%d, connected: %s\n
-\tV_qsort_s
-\tV_stricmp_fast
-\tWarning
-\tkE>fvw
+_V_StringAfterPrefix
+_V_StringAfterPrefixCaseSensitive
+_V_strEndsWith
+_V_strncpy
 __based(
 __cdecl
 __clrcall
@@ -507,6 +507,7 @@ __thiscall
 __unaligned
 __vectorcall
 _class
+`EH
 `RTTI
 `anonymous namespace'
 `copy constructor closure'
@@ -595,10 +596,10 @@ clearall
 color
 commandline
 dddd, MMMM dd, yyyy
-eF>t
 false
 float32
 float64
+g_pMemAlloc
 generic
 group
 int16
@@ -623,7 +624,6 @@ m_szName
 m_szValue
 m_vecDetails
 m_vecEnum
-n03>Pu
 nTries < 10000000
 name
 operator
@@ -691,7 +691,6 @@ public: void KeyValues::RecursiveSaveToFile(CUtlBuffer&, int, bool, bool) const 
 public: void KeyValues::SetString(char const*, char const*) (demangled)
 purecall
 qangle
-r\tVr.>T
 range check failure
 resource_manifests
 resources

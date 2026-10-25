@@ -11,6 +11,7 @@
   R%d: %15s %25s %s\n
   V%d: '%s' (%s)\n
   what():  
+ %f
  (, std::allocator<char> const&) std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::base object constructor<char const*(, std::allocator<char> const&), void> (demangled)
  (, std::allocator<char> const&) std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::complete object constructor<char const*(, std::allocator<char> const&), void> (demangled)
  (, std::allocator<char> const&) std::string::base object constructor<char const*(, std::allocator<char> const&)> (demangled)
@@ -64,8 +65,10 @@
  transaction_safe
  volatile
 !g_pPulseSystem->GetWeakHandleTable()->AnyHandlesAllocated()
-"""
 $ORIGIN
+$TT
+%0*d
+%d %d %d
 %d %d %d %d
 %d CallInfos:\n
 %d Cells:\n
@@ -79,6 +82,8 @@ $ORIGIN
 %d register(s) %d byte(s)\n
 %lld
 %llu
+%s %s
+%s %s %s
 %s %s %s %s
 %s '%s' (%s)
 %s (uid=%d)
@@ -91,6 +96,11 @@ $ORIGIN
 %s allocation count overflow( add %llu + current %llu > max %llu )\n
 %s called on a pool arena (no root available)\n
 %s%02d:%02d
+%s%s
+%s(
+%s->R%d
+%s: %s %s
+%s: %s\n
 %s: __pos (which is %zu) > __size (which is %zu)
 %s: __pos (which is %zu) > this->size() (which is %zu)
 %s: allocation of %u too large, max %u\n
@@ -101,11 +111,14 @@ $ORIGIN
 %s: max element overflow, cur count %u + %u\n
 %s: member count overflow (%u)\n
 %s: no space for allocation of %u\n
+%s::%s
 %s::%s (%u)
 %s::%s (Entity Output Handler)
 %s:autowake
 %s:interrupt
 %s:wait
+%s\n
+%u %u %u
 &&(&&) std::pair<std::basic_string_view<char, std::char_traits<char> >, int>::base object constructor<char const (&(&&)) [10], int&, (bool)1> (demangled)
 &&(&&) std::pair<std::basic_string_view<char, std::char_traits<char> >, int>::base object constructor<char const (&(&&)) [9], int, (bool)1> (demangled)
 &&(&&) std::pair<std::basic_string_view<char, std::char_traits<char> >, int>::complete object constructor<char const (&(&&)) [10], int&, (bool)1> (demangled)
@@ -116,6 +129,8 @@ $ORIGIN
 &&(std::remove_reference<>::type&) std::forward<int>(std::remove_reference<>::type&) (demangled)
 &(std::_Tuple_impl<, std::default_delete<std::thread::_State&>, ...>) std::__get_helper<(unsigned long)1, std::default_delete<std::thread::_State(std::_Tuple_impl<, std::default_delete<std::thread::_State&>, ...>)>, > (demangled)
 &(std::_Tuple_impl<, std::default_delete<std::thread::_State>, ...>&) std::__get_helper<(unsigned long)0, std::thread::_State*(std::_Tuple_impl<, std::default_delete<std::thread::_State>, ...>&), std::default_delete<std::thread::_State> > (demangled)
+(%d,%d)
+(%s:%d)
 (Expecting %s)
 (Expecting EOF)
 (None)
@@ -133,6 +148,7 @@ $ORIGIN
 *MOVE=>
 , at offset %d
 , near %s
+,%u
 - Graph Def '
 -Stop: 
 -end of input-(
@@ -144,16 +160,37 @@ $ORIGIN
 . Req PASS
 . Tag Added: '%s'
 . Tag Removed: '%s'
-...
 ../../_build_/pulse_system/_vpc_pulse_system/default/linuxsteamrt64/_schema_/release/../../../../../../../src/pulse_system/pulse_test_domain.cpp
 ../public/tier0/utlmap.h
 /data/src/mathlib/extended/generic_expr.g
 /dev/random
 /dev/urandom
 /src/
+0 0
+0 0 0
+0 0 0 0
+0 0 0 255
+0123456789
+0H\v
+0a\f
+0g\r
+0j\r
+0l\r
+0q\r
+0s\r
+0t\r
+0v\v
 1:1: Tokens : ( T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | TOK_COLON | OPEN_BRACE | CLOSE_BRACE | OPEN_PAREN | CLOSE_PAREN | OPEN_BRACKET | CLOSE_BRACKET | SEMICOLON | OP_EQUAL | COMMA | DOUBLE_AND | NEGATIVE_TOK | DOUBLE_OR | LITERAL_TRUE | LITERAL_FALSE | POS_INTLITERAL | POS_FLOATLITERAL | SCOPE_QUALIFIER | ID | DOUBLE_QUOTED_STRING | SINGLE_QUOTED_STRING | SINGLE_LINE_COMMENT | ML_COMMENT | WS | UNRECOGNIZED );
 222
 488:1: POS_FLOATLITERAL : ( ( DIGIT )+ '.' ( DIGIT )* ( EXPONENT )? | '.' ( DIGIT )+ ( EXPONENT )? | ( DIGIT )+ EXPONENT );
+4d\v
+4x\t
+6b\r
+7f\r
+88\v
+8h\r
+8m\r
+9w\n
 : lexer error %d :\n\t%s at offset %d, 
 <DOWN>
 <EOF>
@@ -242,6 +279,7 @@ AssetSystemTest001
 Async Call Method (Child Cursor) C%d:I%d
 Async Outflow (Child Cursor) C%d:I%d
 Asynchronous - This node executes independently using a new Cursor. Formerly 'Fire and Forget'. Equivalent to scheduling using an additional 'Fire Child Cursors' node.
+Ay\n
 BACKSLASH_CHAR
 BLACK
 BLUE
@@ -271,6 +309,7 @@ Base recognizer function recoverFromMismatchedSet called by unknown parser type 
 Base recognizer function recoverFromMismatchedToken called by unknown parser type - provide override for this function\n
 BaseDomain
 Basic Function
+Bb\r
 Begin testing a condition composed of Observable values. Continues checking until canceled.
 Begin testing a condition composed of Observable variable references. Continues checking until true.
 BenchmarkService001
@@ -291,10 +330,12 @@ BinSub
 BinaryProperties_GetValue
 Black
 Blue
+Bool( %s )
 Boolean
 Break node reached a Method-call boundary without finding an enclosing loop.
 Breakpoint Log [%u]
 Breakpoint Log [%u] - %s
+Bv\r
 CALL_TO_PULSE
 CAtomicMutex::AcquireLock(unsigned long long) (demangled)
 CBaseAppSystem<IPulseSystem> (demangled)
@@ -826,6 +867,7 @@ Cast of %s loses value information (returning %s)\n
 Causes each execution cursor to pause at this node for a fixed period of time. Each cursor will wake up and resume execution when the time expires, unless aborted or early-woken.
 Causes each execution cursor to wait for the completion of all prior cursors that have visited this node. Use this to safely support multiple triggers to areas of the graph that take time to complete.
 Causes this execution cursor to wait for the completion of other cursors with the given tag. Can optionally kill the tag while waiting.
+Ch\r
 CharacterSetBuild
 Check Requirement
 Check if any yielded cursors on the graph already have the given tag.
@@ -880,6 +922,8 @@ DOUBLE_QUOTE_CHAR
 Data breakpoint [%s]
 Data breakpoint [%s] - %s
 Data breakpoint hit
+Db\v
+Dc\v
 DebugPrintKV3(KeyValues3 const*) (demangled)
 Default echo string.
 DefaultComponentString
@@ -955,6 +999,7 @@ EntityName
 Enum flags '%s' invalid value '%s'
 Enumeration '%s' does not have a value '%s'
 Eq R%d <- R%d == R%d
+Et\r
 Eval
 Evaluate the curve at the specified input position
 Evaluate the gradient at a position between 0 and 1
@@ -1032,6 +1077,8 @@ FormatArgumentsToBuffer(IFormatOutputStream*, char const*, CTypeErasedFormatting
 FormatTo(IFormatOutputStream*, CFormatStringElement, float) (demangled)
 FormatTo(IFormatOutputStream*, CFormatStringElement, int) (demangled)
 Free
+Ft\r
+Func( %s )
 Function signature which has been replaced after compilation.
 Function signature which will be replaced after compilation.
 Functions not supported in this evaluator (%s)
@@ -1051,7 +1098,6 @@ GLIBC_2.2.5
 GLIBC_2.25
 GLIBC_2.3
 GLIBC_2.3.2
-GNU
 GREEN
 Game Blackboards: 
 Game Time
@@ -1104,6 +1150,9 @@ GetVar R%d <- V%d (%s)
 GetVar R%d <=MOVE*V%d (%s)
 Gradient
 Green
+H3\v
+H9\v
+HL\f
 HPulseCell
 HPulseCellBase
 HYieldedCursor
@@ -1113,7 +1162,11 @@ HandleInt
 HandleIntDerived
 HardCancel
 HelpSystem_001
+Hm\r
+Hm\v
 HostStateMgr001
+Hq\f
+Hy\f
 I could not work out what I was expecting, like so many of us these days!\n
 IAppSystem (demangled)
 IAsyncProcessedDataResult (demangled)
@@ -1181,6 +1234,7 @@ InputSystemVersion001
 InsertBeforeGetPtr
 InsertMultipleBefore
 InstallSchemaBindings
+Int( %d )
 Integer
 Internal cursor flow error: halting due to leaf cell bug!
 InterruptElegantly
@@ -1248,6 +1302,7 @@ Leap to Chunk C%d
 Less R%d <- R%d < R%d
 LessEq R%d <- R%d <= R%d
 Lexer encountered %d error(s)
+Lh\v
 Library Destroy Fake Entity
 Library Find Fake Entity By Name
 Library Spawn Fake Entity
@@ -1281,6 +1336,7 @@ LoggingSystem_SetChannelVerbosity
 LoggingSystem_UnregisterLoggingListener
 LooksLikeKV3TextData(void const*, int, KV3ID_t*, char*, int) (demangled)
 Lower pen.
+Ly\t
 MATCHFRAMEWORK_001
 MAtomicTransfersAsPlainString
 MCustomFGDMetadata
@@ -1324,6 +1380,7 @@ MUL_INT
 MapListService_001
 Material Group
 MaterialUtils_001
+Md\v
 MemAlloc_AllocFunc
 MemAlloc_CallocFunc
 MemAlloc_FreeFunc
@@ -1339,6 +1396,7 @@ Missing cell class '%s', replacing with 'CPulseCell_Unknown'\n
 Missing required transfer interface: %s
 Missing token
 Missing token %s
+Ml\r
 Mod R%d <- R%d %% R%d
 ModelDocUtils001
 Monitor Observable
@@ -1348,6 +1406,7 @@ Msg
 Mul R%d <- R%d * R%d
 Multiple Return Test
 Multiple pointer returns
+Mv\n
 NEGATE
 NEGATE_FLOAT
 NEGATE_INT
@@ -1401,6 +1460,7 @@ None
 Not R%d <- !R%d
 Not safe to 'new' this class due to alignment requirements
 NotReloading
+Nz\v
 OPEN_BRACE
 OPEN_BRACKET
 OPEN_PAREN
@@ -1420,6 +1480,7 @@ Or R%d <- R%d || R%d
 OutflowWithRequirements_t
 PANEL_ID
 PGDInstruction_t
+PI\v
 POISONED 
 POS_FLOATLITERAL
 POS_INTLITERAL
@@ -1480,6 +1541,7 @@ Particle Object
 ParticleSystemMgr003
 Pause
 Pause the cursor at this point.
+Pd\f
 Pen Down
 Pen Up
 PhysicsBuilderMgr001
@@ -1526,6 +1588,8 @@ Plat_UnloadSDL
 Plat_UpdateThisProcessStdioRedirect(int, int) (demangled)
 Pointers cannot be used as numeric values
 PostProcessingSystem_001
+Pr#
+Pr\r
 Preventing new cursor (%s)
 Print String With Editor Suggestions
 Print String With Leaf Suggestions
@@ -1541,7 +1605,9 @@ Proceed Elegantly.
 Proceed Immediately
 Proceed Immediately.
 Process Selector
+Prop( %s )
 PropertyEditorSystem_001
+Pu\r
 Pulse
 Pulse system: minimal vpulse definition loading enabled - graphs may be incomplete!\n
 Pulse: %s 
@@ -1737,6 +1803,7 @@ SetBlackboardReference BR%d (%s) <- R%d
 SetTempVar 
 SetVar V%d (%s) <- R%d
 SetVarArrayElement1D V%d (%s) [ R%d ] <- R%d R%d
+Sf\r
 Signature hook to fill out arguments for CallResume1
 Signature hook to fill out arguments for CallResume2
 Signature hook to fill out arguments for OnAsyncChild1
@@ -1809,6 +1876,7 @@ String( %s )
 Strings Are Equal Case Sensitive
 Sub R%d <- R%d - R%d
 Synchronous - Wait for this node to fully complete before proceeding.
+T%d (%s)
 THIRD
 TLS init function for 
 TLS wrapper function for 
@@ -1882,6 +1950,7 @@ Turn
 Turn a time in seconds into a display string. NOT localized.
 Turtle Graphics Domain
 TurtleGraphics
+Tx\v
 Typesafe Int
 Typesafe Int64
 UNKNOWN
@@ -1921,6 +1990,7 @@ VMAP
 VMDL
 VMaterialSystem2_001
 VMediaFoundation001
+VP4003
 VPhysics2_Interface_001
 VProcessUtils002
 VProfService_001
@@ -2011,10 +2081,12 @@ V_strnlen(char const*, int) (demangled)
 V_tanf
 V_vsnprintf
 Value 0-1 how far along duration (always 0 if duration is -1)
+Var( %s )
 Variant
 Vector
 Vector2D
 Vector4D
+Vh\r
 VisBuilder_001
 Void
 Vrad3_001
@@ -2043,9 +2115,20 @@ World Transform
 World Vector
 WorldRendererMgr001
 Worldsize_Init
+Wt\f
+X0\v
+XB\v
+XD\v
 XML
+Xb\f
+Xl\r
+Xm\v
+Xq\f
+Xu\r
+Xw\v
 Yes
 Yield, Resume=%s
+Yz\r
 [ Chunk%d ]
 [ written at chunk start last-read I%d ]
 [ written by I%d last-read I%d ]
@@ -2067,6 +2150,7 @@ Yield, Resume=%s
 [unknown]
 \n    near %s\n    
 \t The lexer was matching from line %d, offset %d, which\n\t 
+\t%.*s\n
 _Float
 _GLOBAL_
 _GLOBAL__N_1::generic_error_category (demangled)
@@ -2399,6 +2483,7 @@ bool (std::__cxx11::basic_string<, , > const&, const*) std::==<char, std::char_t
 bool8
 boolean
 byte
+cc\v
 cell_info
 char
 char () std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::+=() (demangled)
@@ -2499,6 +2584,9 @@ cursor_id
 cursors
 cursors[ 0 ]->DomainCursorAssertCast< CPulseGraphInstance_TestDomain_Derived >()->m_nCursorValueA == values[ 0 ]
 cursors[ 1 ]->DomainCursorAssertCast< CPulseGraphInstance_TestDomain_Derived >()->m_nCursorValueA == values[ 1 ]
+dM\f
+db\v
+dc\v
 decimal128
 decimal32
 decimal64
@@ -2520,7 +2608,13 @@ delete[](void*, unsigned long) (demangled)
 delete[](void*, unsigned long, std::align_val_t) (demangled)
 dl_iterate_phdr
 double
+dr\f
+dx\v
 dynamic_cast
+dz\t
+dz\v
+eb\r
+eh\r
 ehandle
 entity_name
 execution_history
@@ -2577,14 +2671,20 @@ global constructors keyed to
 global destructors keyed to 
 group
 guard variable for 
+h8\v
 hEntity
+hH\v
 hInstance
+hS\t
 hTarget
 half
 hardware
 hidden alias for 
 highlight_instance_id
 highlight_node_id
+hn\r
+ho\r
+hq\r
 initializer for module 
 instance
 instances
@@ -2599,7 +2699,12 @@ ioctl
 is also the end of the line, so you must check your lexer rules\n
 java Class for 
 java resource 
+ji\f
 key
+kw\n
+la\v
+lb\v
+lc\v
 ld-linux-x86-64.so.2
 lexer->mTokens(): Error: No lexer rules were added to the lexer yet!\n
 libc.so.6
@@ -2612,6 +2717,8 @@ long
 long double
 long long
 looks like this:\n\t\t%.*s\n
+lx\f
+lx\t
 m_Args
 m_AsyncChild1
 m_AsyncChild2
@@ -2859,6 +2966,7 @@ memcpy
 memmove
 memset
 mold 2.36.0 (compatible with GNU ld)
+mt19937
 nAsyncRet1
 nColor
 nCursorID
@@ -2920,8 +3028,10 @@ operator
 operator 
 operator"" 
 pAsyncRet2
+pC\v
 pClass
 pEnt
+pI\v
 pMessage
 pName
 pParam
@@ -2935,14 +3045,20 @@ pTraceStringA
 pTraceStringB
 pValue
 pYieldArg2
+pa#
 panorama
 param
 parent_cursor_id
 pending_events
+pi\r
+pl\v
+po\r
 pointer
 polymorphic_arg
 port_name
+pp\r
 previous_value
+ps\r
 pthread_cond_broadcast
 pthread_cond_wait
 pthread_create
@@ -2968,8 +3084,13 @@ pulse_save_execution_history_limit
 pulse_system
 pulse_system.dll
 pulse_test_example_suggestion
+py#
+py\n
 qangle
+qb\r
+qu\r
 quaternion
+qz\n
 random_device could not be read
 random_device: getentropy failed
 random_device: rdrand failed
@@ -3628,6 +3749,8 @@ tools/images/pulse_editor/requirements.png
 transaction clone for 
 transform
 true
+tv\r
+ty\v
 typeinfo fn for 
 typeinfo for 
 typeinfo for CThreadSyncObject (demangled)
@@ -3918,13 +4041,27 @@ vtable for std::thread::_State (demangled)
 vtable for std::type_info (demangled)
 vtable for std::underflow_error (demangled)
 wchar_t
+wt\r
+wv\n
+xR\t
+xc\f
+xg\r
+xh\r
+xs\r
+xu\v
+xy\f
+xz\r
 yield_token
+zS\t
+ze\r
+zu\r
 { className = 'IsControlFlowNode' }
 { className = 'IsStateNode' item_factory = 'BooleanSwitchState' }
 { className = 'IsWaitNode IsControlFlowNode' item_factory = 'InflowWait' }
 { className='IsControlFlowNode AllOutflowsInSpecialSection IsSelectorNode' create_special_outflows_section=true }
 { item_factory = 'IntervalTimer' }
 { standard_yielding_flow = true }
+{0x%x}
 {default arg#
 {lambda
 {parm#

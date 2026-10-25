@@ -1,6 +1,5 @@
                           
- !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`ABCDEFGHIJKLMNOPQRSTUVWXYZ{|}~
- !"#$%&'()*+,-./0123456789:;<=>?@abcdefghijklmnopqrstuvwxyz[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
+ !"#$%&'()*+,-./
  (Abstract)
  Base Class Array'
  Base Class Descriptor at (
@@ -11,17 +10,16 @@
  delete[]
  new
 !GlobalTypes
-!\n_V_strncpy
 %-10s%-10s %-8s %-40s %-40s %-40s\n
 %-10s%-10u %-8u %-40s %-40s %-40s
 %-10s[ Inline %s ]\n
 %-40s = 0x%016llX (%lld)\n
+%-60s 
 %-60s %-25s %-25s 
 %-60s %-25s %-25s %s\n
 %5s: %s (%.3f%% of all %s bindings)\n
 %d base classe%s:\n
 %d enumerators:\n
-%dS
 %s #%d: '%s'/'%s': %d != %d
 %s #%d: '%s'/'%s': '%s' != '%s'
 %s %s bindings with metadata (out of %s); %s total metadata items; %s unique metadata names\n
@@ -33,6 +31,8 @@
 %s called on a pool arena (no root available)\n
 %s registrations; %s were redundant; %s were ignored (%s bytes of ignored data)\n
 %s schema bindings in %u modules (%s classes, %s enums)\n
+%s%c%s
+%s*
 %s+-- Schema Class: %s\n
 %s: %d != %d
 %s: '%s' != '%s'
@@ -42,9 +42,11 @@
 %s: max element overflow, cur count %u + %u\n
 %s: member count overflow (%u)\n
 %s: no space for allocation of %u\n
+%s:%s
 %s:%s needs base %s:%s to be registered\n
 %s< %s, %s >
 %s< %s, %zu >
+%s[%d]
 %s\r\n\tMismatch - %s\r\n\tModule 1 - %s\r\n\tModule 2 - %s\r\n\r\n
 %s|  % 2d: %s [Offset: %d]\n
 %s|  % 2d: [% 3d] %-12s %s\n
@@ -54,12 +56,14 @@
 %s| Project: '%s' Binary: '%s'\n
 %s| SizeOf: %d\n
 %s| Virtual: %s; Abstract: %s; TrivialConstr: %s; TrivialDestr: %s\n
+(%d,%d)
 (detailed layout)
 (dump)
 (layout)
 ***!        ENTERING THE DANGER ZONE         !***\n
 ***! Disregarding mismatched schema bindings !***\n
-*StO9>T
+*************************************************\n
+----------------------------------------------------------------------------------------------------------\n
 .00cfg
 .CRT$XCA
 .CRT$XCC
@@ -111,25 +115,23 @@
 .tls
 .tls$
 .tls$ZZZ
-.xJ>Hf
 .xdata
 .xdata$x
 /src/
-3>N;kU
+0,C
+0X.
+0kE
+0wG
+37/
+;?0123456789:;<=>?
 <%s, cat %d>
 <No schema binary for binding>
 <No schemasystem>
-<\ng_pMemAlloc
 <empty member name>
 <invalid>
 <no failure reason set>
 <unknown: %d>
 <unknown>
-=imb;D
-?UUUUUU
-?qBJ
-?ysB
-A>pP&
 AABB_t
 ABCDEFGHIJKLMNOPQRSTUVWXYZ
 APPSYSTEM: In ConnectInterfaces(), s_nRegistrationCount is %d!\n
@@ -154,7 +156,6 @@ AssetSystemTest001
 Aug
 August
 BAD BINDING\n
-BF>^G
 BakedLODBuilderMgr001
 BenchmarkService001
 Binary
@@ -428,7 +429,6 @@ FreeLibrary
 Fri
 Friday
 GCTL
-G\tV_containsWhitespace
 GameResourceServiceClientV001
 GameResourceServiceServerV001
 GameUIService_001
@@ -501,12 +501,12 @@ July
 Jun
 June
 KERNEL32.dll
+K_N
 KeyValueCache001
 KeyValues
 KeyValues3
 KeyValues3: pre-allocated array memory is too small for %u elements (%u bytes available, %u bytes needed)\n
 KeyValues3: pre-allocated table memory is too small for %u members (%u bytes available, %u bytes needed)\n
-L>ev
 LCMapStringEx
 LCMapStringW
 LeaveCriticalSection
@@ -563,7 +563,6 @@ No binding found named '%s'\n
 No class or enum found named '%s'\n
 Nov
 November
-OZQ%
 Oct
 October
 Offset
@@ -571,6 +570,7 @@ Opaque Indirection
 OpaqueType
 OuterOffset
 PIO
+PO_
 PanoramaTextServices001
 PanoramaUIClient001
 PanoramaUIEngine001
@@ -598,7 +598,6 @@ QAngle
 Quaternion
 QuaternionStorage
 QueryPerformanceCounter
-RSDS
 RadianEuler
 RaiseException
 Reference
@@ -721,6 +720,7 @@ VFileSystem017
 VMaterialSystem2_001
 VMatrix
 VMediaFoundation001
+VP4003
 VPhysics2_Interface_001
 VProcessUtils002
 VProfService_001
@@ -739,7 +739,12 @@ V_PrettifyNum
 V_StringParseError
 V_StringToInt32
 V_UInt64ToString_Unsafe
+V_containsWhitespace
+V_qsort
+V_qsort_s
+V_stricmp_fast
 V_uuid_t
+V_vsnprintf
 Vector
 Vector2D
 Vector4D
@@ -752,6 +757,7 @@ WARNING: SchemaSystem tried to load schema data for module '%s' but failed to lo
 WARNING: SchemaSystem tried to load schema data for module '%s' but failed to locate InstallSchemaBindings.\n
 WARNING: Unknown schema class '%s' referenced.\n
 WakeAllConditionVariable
+Warning
 Wed
 Wednesday
 WideCharToMultiByte
@@ -760,13 +766,8 @@ WorldRendererMgr001
 WriteConsoleW
 WriteFile
 Yes
-\n_MakeGlobalSymbolCaseSensitive
-\tV_qsort
-\tV_qsort_s
-\tV_stricmp_fast
-\tV_vsnprintf
-\tWarning
-\tkE>fvw
+_MakeGlobalSymbolCaseSensitive
+_V_strncpy
 __based(
 __cdecl
 __clrcall
@@ -783,6 +784,7 @@ __thiscall
 __unaligned
 __vectorcall
 _class
+`EH
 `RTTI
 `anonymous namespace'
 `copy constructor closure'
@@ -893,9 +895,10 @@ device or resource busy
 directory not empty
 double
 eEL
-eF>t
+e_v
 enum
 executable format error
+fR\
 false
 fieldtype_t
 file exists
@@ -904,8 +907,10 @@ filename too long
 float
 float32
 float64
+fltx4
 function not supported
 gYGw
+g_pMemAlloc
 global scope
 group
 host unreachable
@@ -963,7 +968,6 @@ m_value
 matrix3x4_t
 matrix3x4a_t
 message size
-n03>Pu
 nNode
 nSide
 name
@@ -1034,7 +1038,6 @@ public: void CUtlMemoryPoolBase::Free(void*) (demangled)
 public: void CUtlString::Set(char const*) (demangled)
 public: void* CUtlMemoryPoolBase::Alloc(void) (demangled)
 purecall
-r\tVr.>T
 range check failure
 read only file system
 resource deadlock would occur

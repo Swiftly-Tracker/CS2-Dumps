@@ -1,6 +1,3 @@
-   
-    
-     
                  %s rendertarget binds, %s push-constant sets\n
                  tiles  %2i%% of atlas   (%s all-lit, %s all-shadow, %s penumbra)\n
      light objects      env %-3s   lpv  %-3s\n
@@ -27,6 +24,7 @@
   %-14s %10s instances  (%s geometries, %s tris)\n
   %-14s %10s\n
   %-14s %12s %12s %12s\n
+  %-5s
   %s empty indirect draws compacted\n
   %s objects starting to fade\n
   %s pre-cull   ->   %s tested   ->   %s passing  (%.1f%%)\n
@@ -67,8 +65,9 @@
   w/ zero threshold: (%.1f, %.1f)
   what():  
  !"#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$N6google8protobuf2io14ErrorCollectorE
- !"#$%%&'()*+,-../0123456789:;<=>?@ABCDEFGHIJKLLMNOPQRSTUVWXY[]_`bdefhjlnprtvz|~
- !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
+ !"#$$$$$$\n\v\f\r
+ %d
+ %i
  %s | Flags %lld \n
  ( const&, ) std::__niter_wrap<std::Catalog_info**( const&, )> (demangled)
  (&, &&) std::__exchange<_IO_FILE*(&, &&), std::nullptr_t> (demangled)
@@ -161,6 +160,7 @@
  CentralNode=1
  DebugLevel:
  DockingEnable
+ EU
  HasCentralNodeChild
  HasGamepad
  HasMouseCursors
@@ -170,6 +170,7 @@
  HiddenTabBar=%d%n
  HiddenTabBar=1
  ID=0x%08X
+ IU
  IsActive
  IsAlive
  IsCentralNode
@@ -177,6 +178,7 @@
  IsFocused
  IsMinimized
  IsPlatformMonitor
+ JB
  LockThisFrame
  LockUntilRelease
  Meshes: %d
@@ -224,9 +226,11 @@
  Tokenizer::ParseStringAppend() passed text that could not have been tokenized as a string: 
  TopMost
  UserID=%08X
+ VE
  ViewportsEnable
  Visible=%d
  WantLockSizeOnce
+ Wb
  Weight=%.4f
  Width=%d
  Window=0x%08X
@@ -236,6 +240,9 @@
  [cur %i, targ %i %s, %.1fs]
  [default = $0
  [lod
+ [mesh %i]
+ [shd %i]
+ [sz %.2f]
  _Complex
  _Imaginary
  __vector(
@@ -363,19 +370,30 @@
  const*(std::locale const&) std::__try_use_facet<std::time_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > > >(std::locale const&) (demangled)
  const*(std::locale const&) std::__try_use_facet<std::time_put<wchar_t, std::ostreambuf_iterator<wchar_t, std::char_traits<wchar_t> > > >(std::locale const&) (demangled)
  contains invalid UTF-8 data when 
+ dH
  definition file imports the proto which defines the option.
  details: 
  exceeded maximum protobuf size of 2GB: 
+ fH
  for 
+ gB
+ gH
+ hH
  has the same name as 
+ iH
  if you ignore case and strip out the enum name prefix (if any). This is error-prone and can lead to undefined behavior. Please avoid doing this. If you are using allow_alias, please assign the same numeric value to both enums.
  is unused.
+ lH
  message of type "
+ nH
  neon
  noexcept
  not found
  of the Protocol Buffer runtime library, but the installed version is 
  of the Protocol Buffer runtime library, which is not compatible with the installed version (
+ qB
+ qH
+ rH
  requires 
  restrict
  stack frames not accounted for stack unwind.
@@ -387,6 +405,7 @@
  type does not match\n
  volatile
  was modified concurrently during serialization.
+!N2
 !is_large()
 !pObj->HasFlags( SCENEOBJECTFLAG_DELETED )
 !pObj->IsDeleted()
@@ -433,8 +452,8 @@
 " which is a proto3 message type.
 " which is not defined or is not an extension of "
 " which is.
-"""
 "$0" does not declare $1 as an extension number.
+"%s" %d
 "%s" [window]
 ") is not compatible with this reflection object (which is for type "
 ") to start from the outermost scope.
@@ -451,6 +470,7 @@
 ". Value: "
 "/*" inside block comment.  Block comments cannot be nested.
 "0x" must be followed by hex digits.
+"????'????????????????????????????????????????????????????\????
 "Context" functions are simple helpers to associate a Popup to a given Item or Window identifier.
 "DeleteMapValue"
 "GetMapData"
@@ -461,10 +481,8 @@
 "MapEnd"
 "MapSize"
 "MutableRawRepeatedField"
-"b}b*XhUu
 "e" must be followed by exponent.
 "imgui"
-###
 ###Name
 ###NoLabel
 ##%s_child_wrapper
@@ -629,12 +647,16 @@
 #%02X%02X%02X%02X
 #%02X%02X%02X%02X\nR:%d, G:%d, B:%d, A:%d\n(%.3f, %.3f, %.3f, %.3f)
 #%02X%02X%02X\nR: %d, G: %d, B: %d\n(%.3f, %.3f, %.3f)
+#%03d: 
 #%d: %s 0x%p @ (%g,%g,%g)
+#%s/%s%s
 #%s/SemaphoreWait(%s)
 #%s/SemaphoreWaitOnBuiltInCommandList
+#23
+#8465
+#9f
 #CLOSE
 #COLLAPSE
-#CfU7
 #IMPLOT_DRAG_LINE_Y
 #IMPLOT_DRAG_POINT
 #IMPLOT_DRAG_RECT
@@ -649,41 +671,70 @@
 #UNHIDE
 #WindowMenu
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$%.0f
 $0  extend .$1 {\n
 $0  extensions $1 to $2;\n
 $0  reserved 
 $0 to max, 
+$0$1$2 $3 = $4
 $0enum $1 {\n
 $0message $1
 $0oneof $1 {
 $0option $1;\n
 $0rpc $1($4.$2) returns ($5.$3)
+$2H
+$3H
+$Fz
+$KO
 $ORIGIN
+$TT
+%%:
+%%s: %s
+%*s
+%*s%.*s
+%*s%s%*s
 %*sHello, sailor! Making this line long enough for the example.
 %*sThis is line %d
+%-16s 
+%.*Lf
+%.*g
+%.*s
+%.*s\n
 %.02f
 %.06f ns
+%.0f
 %.0f (Always)
 %.0f deg
 %.0f us
+%.0f%%
+%.0f/%.0f
 %.0fx%.0f
 %.10f
 %.10f grams
+%.1f
+%.1f s
 %.1fmb / %.1fmb filtered resident
 %.1fmb / %.1fmb resident
 %.1fms
 %.1fms culling, %.1fms rendering in %i jobs\n
+%.2f
 %.2f ms
 %.2f px
 %.2f x %.2f
 %.2f\nsec
 %.2fms
+%.3f
+%.3f V
 %.3f ms
 %.3f | %i%% %i/%i
+%.3g
 %.3s %s %.*s %s %.3s\n
 %.3s %s %.*s\n
+%.4f
+%.8f
 %0.2f
 %0.3f
+%0.f
 %02X%02X%02X
 %02X%02X%02X%02X
 %02d Hz
@@ -699,10 +750,17 @@ $ORIGIN
 %08X
 %08dx.geo
 %3d
-%A Is
+%3d: %s\n
+%I2
 %I:%M:%S %p
+%W2
+%\v%\v%\v%\v%\v%\v%\v%\v%\v%\v%\v%\v%\v%\v%\v%\v
 %a %b %e %T %Y
 %c [%02d] where %03d, insert %03d, delete %03d, char_storage %03d "%.*s"
+%c%c
+%c%c%c
+%d 
+%d %d %d
 %d %d %d %d
 %d assets
 %d columns
@@ -711,17 +769,26 @@ $ORIGIN
 %d some text
 %d vertices, %d indices (%d triangles)
 %d visible windows, %d current allocations
+%d%%
+%d%s
 %d-%02d
 %d-%02d-%02d
+%d-%d
+%d.%d.%d
+%d/%d
+%d/%d/%02d
+%d: %8.4g
 %d: %8.4g\n%d: %8.4g
 %d:%02d%s
 %d:%02d:%02d%s
 %d:%02d:%02d.%03d%s
 %dx%dTriStrippedVB
 %e grams
+%g %s%s
 %g dB
 %g ms
 %hu
+%i - %i
 %i The quick brown fox jumps over the lazy dog
 %i The quick brown fox jumps over the lazy dog\n
 %i dynamic, %i cached, %i failed, %i lru'd in %ix%i atlas | %i requests, %i reused, %i re-renders drawn (%i held)
@@ -740,13 +807,23 @@ $ORIGIN
 %lld
 %llu
 %lu ms
+%s 
+%s %.*s%s
 %s %.1f %.1f %.1f %s
 %s %04d: pos (%8.2f,%8.2f), uv (%.6f,%.6f), col %08X\n
+%s %d
+%s %d,%d
 %s %d: DPI %.0f%%\n MainMin (%.0f,%.0f), MainMax (%.0f,%.0f), MainSize (%.0f,%.0f)\n WorkMin (%.0f,%.0f), WorkMax (%.0f,%.0f), WorkSize (%.0f,%.0f)
+%s %s
+%s %s %s
 %s %s %s %s
+%s '%s'%s
 %s (%-14s): FAIL %s\n
 %s (%-14s): FAIL aborted\n
 %s (%-14s): pass\n
+%s (%d)
+%s (%i)
+%s (%s)
 %s - Dynamic Shadow %d
 %s - Mixed Shadow %d
 %s 0x%04X%s: %d windows (vis: '%s')
@@ -762,15 +839,25 @@ $ORIGIN
 %s is not a 2D texture!\n
 %s is wrong format %s - expected %s!\n
 %s###Menu_%02d
+%s###doc%d
 %s##path
+%s%s%s%s%s
+%s'%s'
+%s, %s
 %s, 0x%08x+%s -- Overlaps:
+%s.%s
 %s.ini
 %s.log
 %s/%08X
 %s/%s's viewport (%d,%d - %d,%d) extends outside of the framebuffer (%d,%d)
+%s/%s_%08X
 %s/DockSpace_%08X
+%s:
+%s: %.3f
+%s: %d
 %s: %d entries, %d bytes
 %s: %i dynamic, %i cached, %i failed, %i lru, %i requests, %i reused, %i re-renders (%i held)
+%s: %s
 %s: '%s' %d vtx, %d indices, %d cmds
 %s: 0x%08X (scored %d)
 %s: 0x%08X%s
@@ -787,11 +874,14 @@ $ORIGIN
 %s: no space for allocation of %u\n
 %s: pass\n
 %s: unable to grow count by %u (currently %u)\n
+%s:%d
 %s:%s after sort (%s %s)\n
 %sLayer
+%s\n
 %s\n%.0f/%.0f
 %s\nIndex: %d
 %s\nLOD Level: %d Draw Calls: %d Triangles: %d
+%s_
 %u ms
 &&(&&) std::pair<bool, unsigned long>::base object constructor<bool, int, (bool)1>(&&) (demangled)
 &&(&&) std::pair<bool, unsigned long>::base object constructor<bool, unsigned long, (bool)1>(&&) (demangled)
@@ -818,20 +908,23 @@ $ORIGIN
 &(std::_Tuple_impl<, std::default_delete<std::__future_base::_State_baseV2::_Make_ready>, ...>&) std::__get_helper<(unsigned long)0, std::__future_base::_State_baseV2::_Make_ready*(std::_Tuple_impl<, std::default_delete<std::__future_base::_State_baseV2::_Make_ready>, ...>&), std::default_delete<std::__future_base::_State_baseV2::_Make_ready> > (demangled)
 &(std::_Tuple_impl<, std::default_delete<std::thread::_State&>, ...>) std::__get_helper<(unsigned long)1, std::default_delete<std::thread::_State(std::_Tuple_impl<, std::default_delete<std::thread::_State&>, ...>)>, > (demangled)
 &(std::_Tuple_impl<, std::default_delete<std::thread::_State>, ...>&) std::__get_helper<(unsigned long)0, std::thread::_State*(std::_Tuple_impl<, std::default_delete<std::thread::_State>, ...>&), std::default_delete<std::thread::_State> > (demangled)
+&S2
 '%c' (0x%04X)
-'CU\tA
 (!((uintptr_t)(src_height) & ((2)-1)))
 (!((uintptr_t)(src_width) & ((2)-1)))
+(%.02f)
 (%.1f,%.1f)
 (%.3ff, %.3ff, %.3ff, %.3ff)
 (%6.1f,%6.1f) (%6.1f,%6.1f) Size (%6.1f,%6.1f) %s
 (%6.1f,%6.1f) (%6.1f,%6.1f) Size (%6.1f,%6.1f) Col %d %s
+(%d,%d)
 (%d,%d,%d,%d)
 (%s depth-only
 (2) Or right-click this text
 (3) Or click this button
 (<-- right-click here)
 (ActiveIdUsing: AllKeyboardKeys: %d, NavDirMask: 0x%X)
+(BZ
 (Click and drag to scroll)
 (Context Name: "%s")
 (Debug Log: Auto-disabled some ImGuiDebugLogFlags after 2 frames)\n
@@ -841,6 +934,7 @@ $ORIGIN
 (Hold Shift to display a dummy viewport)
 (Internal Buffer: TextA Size: %d, Capacity: %d)
 (Left) Using ImGui::PushClipRect():\nWill alter ImGui hit-testing logic + ImDrawList rendering.\n(use this if you want your clipping rectangle to affect interactions)\n\n(Center) Using ImDrawList::PushClipRect():\nWill alter ImDrawList rendering only.\n(use this as a shortcut if you are only using ImDrawList calls)\n\n(Right) Using ImDrawList::AddText() with a fine ClipRect:\nWill alter only this specific ImDrawList::AddText() rendering.\nThis is often used internally to avoid altering the clipping rectangle and minimize draw calls.
+(Lv
 (Main menu bar)
 (None)
 (Popup)
@@ -851,6 +945,7 @@ $ORIGIN
 (also access from 'Examples->Assets Browser' in menu)
 (and more errors)
 (anonymous namespace)
+(as %s)
 (c) 2014-2025 Omar Cornut
 (cannot determine missing fields for lite message)
 (demo menu)
@@ -865,6 +960,7 @@ $ORIGIN
 (in ChildE: using same Shortcut)
 (in PopupF)
 (in WindowA)
+(j9
 (merge 
 (no material)
 (no model)
@@ -876,6 +972,7 @@ $ORIGIN
 (viewmodel) max error (distance away in depth) candidate plane is allowed before rejecting.
 (viewmodel) precision for depth compression at SST leaf nodes.
 (void*)0x%p
+(w: %5.1f)
 )", which is not defined. The innermost scope is searched first in name resolution. Consider using a leading '.'(i.e., "(.
 ).  Contact the program author for an update.  If you compiled the program yourself, make sure that your headers are from the same version of Protocol Buffers as your link-time library.  (Version verification failed in "
 *(&) std::__addressof<char>(&) (demangled)
@@ -904,33 +1001,43 @@ $ORIGIN
 *Missing Text*
 *N24CParallelProcessLauncher18CParallelLambdaJobIZ11ParallelForILb1EZN25CAggregateSceneObjectDesc21OnBeginRenderingFrameEvEUliE_EviiPKcOT0_ii13JobPriority_tQ14is_invocable_vIS6_JiEEEUliE_EE
 *Unknown item*
+*\f*\f*\f*\f*\f*\f*\f*\f*\f*\f*\f*\f*\f*\f*\f*\f
+*j1
++%.0f px
++%i
 +Alts
 , %s alpha-tested
 , but was 
-, name%Y
 , not just within "
-,Ncmap
+,CS
+,Ct
+,l4
+,lX
 - First Input that contains the glyph is used.\n- Use ImFontConfig::GlyphExcludeRanges[] to specify ranges to ignore glyph in given Input.\n- Prefer using a small number of ranges as the list is scanned every time a new glyph is loaded,\n  - e.g. GlyphExcludeRanges[] = { ICON_MIN_FA, ICON_MAX_FA, 0 };\n- This tool doesn't cache results and is slow, don't keep it open!
 - Load additional fonts with io.Fonts->AddFontXXX() functions.\n- Read FAQ and docs/FONTS.md for more details.
 - Load additional fonts with io.Fonts->AddFontXXX() functions.\n- The font atlas is built when calling io.Fonts->GetTexDataAsXXXX() or io.Fonts->Build().\n- Read FAQ and docs/FONTS.md for more details.\n- If you need to add/remove fonts at runtime (e.g. for DPI change), do it before calling NewFrame().
 - Path "%s"
 - Press 'Pause/Break' on keyboard.\n- or Click (may alter focus/active id).\n- or navigate using keyboard and press space.
 - This is scaling font only. General scaling will come later.
+-%i
 -+xX0123456789abcdef0123456789ABCDEF
 -+xX0123456789abcdefABCDEF
 -- %d Scene Worlds: --\n
 -- Dumping Scene World %d: 0x%p '%s': %d objects --\n
+--%02d
 --%02d-%02d
----
+--------------------------------\n
 --> granting current route\n
+-0123456789
 ->\n  [%s:%s]
 ->\n  [%s:%s] %s
+-I8
+-W2
 -inf
 .  Please update your library.  If you compiled the program yourself, make sure that your headers are from the same version of Protocol Buffers as your link-time library.  (Version verification failed in "
 . Difference of 
 .%03d %03d
 ..-         -XXXXXXX-    X    -           X           -XXXXXXX          -          XXXXXXX-     XX          - XX       XX ..-         -X.....X-   X.X   -          X.X          -X.....X          -          X.....X-    X..X         -X..X     X..X---         -XXX.XXX-  X...X  -         X...X         -X....X           -           X....X-    X..X         -X...X   X...XX           -  X.X  - X.....X -        X.....X        -X...X            -            X...X-    X..X         - X...X X...X XX          -  X.X  -X.......X-       X.......X       -X..X.X           -           X.X..X-    X..X         -  X...X...X  X.X         -  X.X  -XXXX.XXXX-       XXXX.XXXX       -X.X X.X          -          X.X X.X-    X..XXX       -   X.....X   X..X        -  X.X  -   X.X   -          X.X          -XX   X.X         -         X.X   XX-    X..X..XXX    -    X...X    X...X       -  X.X  -   X.X   -    XX    X.X    XX    -      X.X        -        X.X      -    X..X..X..XX  -     X.X     X....X      -  X.X  -   X.X   -   X.X    X.X    X.X   -       X.X       -       X.X       -    X..X..X..X.X -    X...X    X.....X     -  X.X  -   X.X   -  X..X    X.X    X..X  -        X.X      -      X.X        -XXX X..X..X..X..X-   X.....X   X......X    -  X.X  -   X.X   - X...XXXXXX.XXXXXX...X -         X.X   XX-XX   X.X         -X..XX........X..X-  X...X...X  X.......X   -  X.X  -   X.X   -X.....................X-          X.X X.X-X.X X.X          -X...X...........X- X...X X...X X........X  -  X.X  -   X.X   - X...XXXXXX.XXXXXX...X -           X.X..X-X..X.X           - X..............X-X...X   X...XX.........X -XXX.XXX-   X.X   -  X..X    X.X    X..X  -            X...X-X...X            -  X.............X-X..X     X..XX..........X-X.....X-   X.X   -   X.X    X.X    X.X   -           X....X-X....X           -  X.............X- XX       XX X......XXXXX-XXXXXXX-   X.X   -    XX    X.X    XX    -          X.....X-X.....X          -   X............X--------------X...X..X    ---------   X.X   -          X.X          -          XXXXXXX-XXXXXXX          -   X...........X -             X..X X..X   -       -XXXX.XXXX-       XXXX.XXXX       -------------------------------------    X..........X -             X.X  X..X   -       -X.......X-       X.......X       -    XX           XX    -           -    X..........X -             XX    X..X  -       - X.....X -        X.....X        -   X.X           X.X   -           -     X........X  -                   X..X  -       -  X...X  -         X...X         -  X..X           X..X  -           -     X........X  -                    XX   -       -   X.X   -          X.X          - X...XXXXXXXXXXXXX...X -           -     XXXXXXXXXX  -             -------------       -    X    -           X           -X.....................X-           -------------------                                 ----------------------------------- X...XXXXXXXXXXXXX...X -                                                                                                 -  X..X           X..X  -                                                                                                 -   X.X           X.X   -                                                                                                 -    XX           XX    -                                           
-...
 ...<truncated>...
 ../../_build_/scenesystem/_vpc_scenesystem/default/linuxsteamrt64/_schema_/release/../../../../../../../src/scenesystem/lightbinner_gpu.cpp
 ../../src/thirdparty/tinybvh/inc_tiny_bvh.h
@@ -960,12 +1067,13 @@ $ORIGIN
 ./google/protobuf/stubs/casts.h
 ./google/protobuf/stubs/stringpiece.h
 ./google/protobuf/unknown_field_set.h
-.AY4I
 .PLACEHOLDER_VALUE
+.S2
 .dummy
 .foo = value".
 .placeholder.proto
 .vtex
+/%s
 /*\n The Pentium F00F bug, shorthand for F0 0F C7 C8,\n the hexadecimal encoding of one offending instruction,\n more formally, the invalid operand with locked CMPXCHG8B\n instruction bug, is a design flaw in the majority of\n Intel Pentium, Pentium MMX, and Pentium OverDrive\n processors (all in the P5 microarchitecture).\n*/\n\nlabel:\n\tlock cmpxchg8b eax\n
 /dev/random
 /dev/urandom
@@ -978,11 +1086,37 @@ $ORIGIN
 /path/to/some/folder/with/long/filename.cpp
 /path/two
 /src/
+0 %s
+0 0
+0 0 0
+0 0 0 0
+0 0 0 255
 0 < %.10f < 1
+0..255
+0.00..1.00
 0.18 WIP
+00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899
+0123456789
 0123456789abcdef
 06IImGui
 0: spheres, 1: cubes
+0BZ
+0HU
+0IB
+0J;
+0Jw
+0_1
+0dH
+0eH
+0fH
+0hH
+0kH
+0lH
+0lz
+0mH
+0oH
+0pH
+0tH
 0x%02X
 0x%04X
 0x%08X
@@ -993,28 +1127,69 @@ $ORIGIN
 0x%p
 0xDDDDDDDD
 1. I am selectable
+1.92.5
+100
+123.456
+1234
+123456
 16236_2179048632_0_expectfail
 1: Highlight guide hairs, 2: draw only guide hairs
+1GB
+1I2
 2-wide
 2. I am selectable
+2/3
 24 Hour Clock
+25%
+2H:
 2d arr
+2v:
 3 (tab skip)
+3!8
 3-wide
 3. I am selectable
-3Z5\nNa
+34:
+34}
+3Jw
+3n:
 4 (tab skip)
 4-wide
 4. I am double clickable
+47H
+4B:
+4Eu
+4GB
+4Kv
+4d8
 4fff>fff>fff>fff>
+4g9
+4h9
+4kX
+50x50
+515
 5;FJ$,XEK4<
-5J5J5J5J5J5J5J5J5J5J5J5J5J5J5J5Jx
+5G8
+5W2
 5by Tristan GrimmerRegularTTX ProggyCleanTT2004/
-7&F|If
-8"3hrf
+6GB
+6S2
+70:
+75%
+7I;
+7^8
+80x80
+87Z
 888
 8888
+8<Z
+8DZ
+8GB
+8IO
+913
 999
+9KO
+9LO
+9l~
 : DrawCmd: +%d (in child window), Scroll: (%.f/%.f) (%.f/%.f)
 : DrawCmd: +%d (in same window)
 : Tried to copy from a message with a different type. to: 
@@ -1023,13 +1198,19 @@ $ORIGIN
 :%02d.%03d
 :%02d.%03d %03d
 :%02d:%02d.%03d
+:%i
 ::google::protobuf::FieldDescriptorProto_Label_IsValid(value)
 ::google::protobuf::FieldDescriptorProto_Type_IsValid(value)
-;$hmtx
-;J;J;J;J;J;J;J;J;J;J;J;J;J;J;J;Jx
+:M2
+;Kv
 <- %d frames ago
 </table>
+<5H
 <<PRESS SPACE TO DISABLE>>
+<CS
+<Fz
+<G9
+<IU
 <Left click for details>
 <NULL>
 <None>
@@ -1038,8 +1219,10 @@ $ORIGIN
 <b>Viewport X</b>=%d <b>Y</b>=%d <b>Width</b>=%d <b>Height</b>=%d  <b>MinZ</b>=%.3f <b>MaxZ</b>=%.3f
 <empty member name>
 <font color="red">Display lists discarded</font>
+<hR
 <hashed>
 <i>Label Layer</i>
+<kR
 <no failure reason set>
 <none>
 <password>
@@ -1102,65 +1285,54 @@ $ORIGIN
 <unknown enum value>
 <unknown>
 <unnamed>
-=ffn?
-=n4X?e
-=uvz?
-=v?ke
->0G??Ou
->c<yXH?B
->fff>
->fff?333?
->pwn?
->pxs
->qxs?y7
->qxs?{7
->uYL>
+=I2
+=W2
+>333?
+>7Z
+>S2
+>l4
 ?28CSceneLightProbeVolumeObject
-???
-?Bxt>
+???\f???????\n???\r?\t?\v
+@33333#
+@333333
+@333339
+@33333A
+@33333Q
+@33333S
+@33333i
+@33333k
+@33333u
 @@@@@@@@@@@@@@@@
 @@@@@@@@@@@@@@@@/home/saml/dev/steam/thirdpartycode/nonredist/libyuv/libyuv/source/scale_uv.cc
+@BZ
+@CZ
+@Du
+@F9
+@FU
+@Lv
+@RB
+@SF
+@Tc
+@dH
+@eH
+@fH
 @fffff
 @fffff"
-@fffff$
 @fffff&
-@fffff(
-@fffff*
-@fffff,
-@fffff0
 @fffff2
-@fffff4
-@fffff6
-@fffff8
-@fffff:
 @fffff<
-@fffff>
 @fffff@
-@fffffD
-@fffffF
-@fffffH
-@fffffJ
-@fffffL
-@fffffN
-@fffffP
-@fffffR
-@fffffT
 @fffffX
-@fffff\
-@fffff\f
-@fffff\n
-@fffff^
-@fffff`
-@ffffff
-@fffffh
-@fffffj
-@ffffft
-@fffffv
-@fffffx
-@fffffz
 @fffff|
+@gH
+@hH
+@kH
+@lH
+@qH
+@sH
 A file with this name is already in the pool.
 A protocol message was rejected because it was too big (more than 
+A/3
 A0 Row 0
 A0 Row 1
 A1 Row 0
@@ -1205,14 +1377,12 @@ ACTION
 AE_BODYGROUP_SET_VALUE
 AE_CL_DISABLE_BODYGROUP
 AE_CL_ENABLE_BODYGROUP
-AI\vE
 AKST
 ALL_GRAPHICS
 ALPHA_TESTED 
 ALPHA_TEST_ZPREPASS 
 ALREADY_EXISTS
 ALT 
-AN?NbX?\f
 ANIMATION_PROCESSING_CLIENT_INTERPOLATION
 ANIMATION_PROCESSING_CLIENT_PREDICTION
 ANIMATION_PROCESSING_CLIENT_RENDER
@@ -1226,7 +1396,6 @@ ANIMATION_SNAPSHOT_CLIENT_SIMULATION
 ANIMATION_SNAPSHOT_FINAL_COMPOSITE
 ANIMATION_SNAPSHOT_MAX
 ANIMATION_SNAPSHOT_SERVER_SIMULATION
-AO*AG
 AOProxies
 APPSYSTEM: In ConnectInterfaces(), s_nRegistrationCount is %d!\n
 AR30ToAB30
@@ -1479,7 +1648,6 @@ Advanced
 Advanced & Close Button
 Advanced, with Selectable nodes
 After reordering, contents of channel 0 appears below channel 1.
-Ag3l
 Age of cached allocation to be considered for re-allocation
 AgeList
 Aggregate Debugger
@@ -1488,7 +1656,6 @@ AggregateRTProxyDesc
 AggregateRTProxySceneObjectManifest
 AggregateSceneObjectDesc
 AggregateSceneObjectManifest
-Ai1B
 Air
 Align
 Align label with current X position
@@ -1655,7 +1822,6 @@ BAKED_LIGHTING_VERTEX_STREAM
 BBB
 BBBB
 BBBBBBBB
-BC%N
 BC1_TYPELESS
 BC1_UNORM
 BC1_UNORM_SRGB
@@ -1672,6 +1838,7 @@ BC5_SNORM
 BC5_TYPELESS
 BC5_UNORM
 BC6H
+BC7
 BG/FG draw lists
 BGR565
 BGR888
@@ -1689,13 +1856,14 @@ BGRAToYRow_C
 BGRAToYRow_SSSE3
 BGRX8888
 BGRX8888_LINEAR
-BK!qg\tW
+BL2
 BLAS
 BLAS %d
 BLAS build requires %i bytes, we only have %i\n
 BLAS dynamic
-BU\vS
 BVH::Build( void (*customGetAABB)( .. ), instCount ), instCount == 0.
+BW2
+B[%d]=%.2f
 Bachman
 BackUp() can not exceed the size of the last Next() call.
 BackUp() can only be called after a successful Next().
@@ -1757,7 +1925,6 @@ BenchmarkService001
 Bernard
 Betty
 Between 100x100 and 500x500
-Bg\vF\r
 Bias for LOD selection of instanced meshes
 Bias for LOD selection of instanced meshes in shadowmaps
 Bias for size culling instanced meshes in shadowmaps
@@ -1781,6 +1948,8 @@ Blue
 Blue shape is drawn first, into channel 1: appears in front
 Blue shape is drawn first: appears in back
 Blueberry
+Bl~
+Bm?
 Bobby
 Bok Choy
 Boolean default must be true or false.
@@ -1799,14 +1968,13 @@ Box
 Box Select
 Box select and left click mouse to create a new query rect.
 BoxSelect ID=0x%08X, Starting = %d, Active %d
-Bp\fE
+BrBG
 Bream
 Brianna
 Broccoli
 Broken promise
 Brussels Sprouts
 Bryn
-Bs'Kk
 BudgetGroupName - FIXME
 BufCapacity: %d, LineCount: %d
 Buffer
@@ -1855,7 +2023,6 @@ C++ lambdas can be passed as function pointers as well!
 C6FaceSkyboxObject (demangled)
 C6FaceSkyboxObjectDesc
 C6FaceSkyboxObjectDesc (demangled)
-C?DL
 CAN
 CANCELLED
 CAN_RENDER_INTO_SST 
@@ -1961,7 +2128,6 @@ CFilterLayerRenderer (demangled)
 CFixedSizeCircularBuffer<CGPUProfHistoryFrame, 128, int> (demangled)
 CFormatStringElement::complete object constructor(char const*) (demangled)
 CFullscreenQuadRenderer (demangled)
-CG,T
 CGPUProfHistory (demangled)
 CHECK failed: !AllocPolicy(): 
 CHECK failed: !HasUnknownFieldsTag(): 
@@ -2241,6 +2407,7 @@ CHECK failed: uninterpreted_options_field != nullptr:
 CHECK failed: unknown_fields->SerializeToString(outstr): 
 CHECK failed: value != nullptr: 
 CHECK failed: z.first != NULL: 
+CH\f
 CHairRenderContext (demangled)
 CHairRenderManager: missing call to UpdateHairContext() - skipping hair for model '%s' in view '%s' (flags 0x%x, FOV %f), layer '%s'.\n
 CImGuiWrapper (demangled)
@@ -2254,14 +2421,12 @@ CInstancedMeshSceneObjectDesc::DrawArray(IRenderContext*, CMeshDrawPrimitive_t*,
 CInstancedMeshSceneObjectDesc::DrawArrayMeshlets(IRenderContext*, CMeshDrawPrimitive_t*, int, ISceneView const*, ISceneLayer*, SceneSystemPerFrameStats_t&)::{lambda()#1} (demangled)
 CInstancedMeshSceneObjectDesc::OnBeginSubmitDisplayLists(IRenderContext*)::ReadStatsCallback_t (demangled)
 CJK text will only appear if the font was loaded with the appropriate CJK character ranges. Call io.Fonts->AddFontFromFileTTF() manually to load extra character ranges. Read docs/FONTS.md for details.
-CK0U
 CKV3TransferContextBase (demangled)
 CKV3TransferLoadContext (demangled)
 CKV3TransferSaveContext (demangled)
 CKeyValues_Data::Internal_GetString(char const*, char*, unsigned long) (demangled)
 CLASSIFY
 CLEAR
-CLc
 CLcx
 CLightBinnerGPU (demangled)
 CLightBinnerGPU::AddEnvironmentMapsForView(CSceneView*)::{lambda(CEnvMapSceneObject*)#1} (demangled)
@@ -2627,7 +2792,7 @@ CVertexKDTree::FindVertsInBox(CUtlVectorFixedGrowable<float const*&, (unsigned l
 CVertexKDTree::Nearest(Vec3D<float> const&, CUtlVectorFixedGrowable<float const*&, (unsigned long)64, int>) const (demangled)
 CVolumetricFog (demangled)
 CVolumetricFogRenderer (demangled)
-CWa
+CW4"
 CWindController (demangled)
 CWindController::CRenderer (demangled)
 Cabbage
@@ -2689,7 +2854,6 @@ Category B
 Category C
 Cattywampus
 Cauliflower
-CbC
 Cbasic_ios::clear
 Celcuce
 Celery
@@ -2969,7 +3133,6 @@ Count
 Courier New
 Course Grade
 CpuId
-Cq\fAI
 Create a docking node and tab-bar on single floating windows.
 CreateBLASForDrawCall
 CreateBLASForRigidPart
@@ -3034,15 +3197,24 @@ CustomTexture0
 CustomTexture1
 Cut
 Cycles focus between the game window and undocked imgui windows
+D16
 D16_SHADOW
 D16_UNORM
 D24FS8
+D24S8
+D24X8
 D24X8_SHADOW
 D24_UNORM_S8_UINT
+D32
 D32FS8
 D32_FLOAT
 D32_FLOAT_S8X24_UINT
+D;H
 DATA_LOSS
+DC1
+DC2
+DC3
+DC4
 DDD
 DDDD
 DDt
@@ -3055,11 +3227,16 @@ DEPTH_STENCIL_ATTACHMENT_OPTIMAL
 DEPTH_STENCIL_ATTACHMENT_READ_BIT
 DEPTH_STENCIL_ATTACHMENT_WRITE_BIT
 DEPTH_STENCIL_READ_ONLY_OPTIMAL
+DF128_
+DF16_
 DF16b
+DF32_
 DF32x
+DF64_
 DF64x
 DHO
 DISK
+DJU
 DKU
 DKw
 DLE
@@ -3075,6 +3252,7 @@ DXT3
 DXT5
 DXT5_NM
 DYN
+D]2
 Daikon
 Dark
 Data
@@ -3085,6 +3263,7 @@ Data: %p\nSize: %d\nCapacity: %d
 Data_Branch1xy
 Data_Branch1zBranch2x
 Data_Branch2yz
+Day:   %s
 Days
 Dear ImGui %s (%d)
 Dear ImGui 1.92.5 (19250)
@@ -3204,6 +3383,7 @@ DivideRow_16_AVX2
 DivideRow_16_Any_AVX2
 DivideRow_16_C
 Division or mod by zero: dividend.hi=
+Dj2
 DnR
 DoNotCastShadows
 DockId: %X%s\n
@@ -3304,7 +3484,6 @@ Dynamic
 Dynamic Decals
 Dynamic list with Delete key support.
 Dynamically adjust shadow resolution
-E<G&Iw
 EARLY_FRAGMENT_TESTS
 EEE
 EEEE
@@ -3327,8 +3506,8 @@ ESceneViewDebugOverlaysListenerDataType_t
 ESilhouetteType_t
 ETB
 ETX
-EXE
 EXPORTSYSTEM_INTERFACE_VERSION_001
+EZ\v
 EarlyInit_Tier0
 Earth
 East
@@ -3423,12 +3602,10 @@ ErrorBar
 ErrorBarSize
 ErrorBarWeight
 Errors
-Es\fB
 Escape
 Escape to clear selection.
 Escape to deactivate a widget, close popup,\nexit a child window or the menu layer, clear focus.
 Escape to revert.
-Euro
 Even more contents
 Exact
 Example: Assets Browser
@@ -3504,18 +3681,35 @@ Extensions in proto3 are only allowed for defining options.
 Extensions of MessageSets must be optional messages.
 Extensions to non-lite types can only be declared in non-lite files.  Note that you cannot extend a non-lite type to contain a lite type, but the reverse is allowed.
 ExtractModuleMetadata
+Ey:
 EyeBallDataConstants_t
+F10
+F11
+F12
+F13
+F14
+F15
+F16
+F17
+F18
+F19
+F20
+F21
+F22
+F23
+F24
+F9}
 FAILED_PRECONDITION
 FAQ
 FATAL
 FFF
 FFFF
-FG%D
+FI8
 FORCE_UINT
 FORWARD_LAYER_ONLY 
 FRAGMENT_SHADER
 FRAME
-FTF
+FS2
 Factor
 Failed to allocate scratch rendertarget for %s from pool. The following pool entries were matches:\n
 Failed to allocate space for morph!\n
@@ -3699,6 +3893,7 @@ Frozen columns
 Frozen rows
 Frust+Illum
 Frustum
+Fs}
 Full-width:
 Fullscreen
 Fullscreen window
@@ -3712,6 +3907,7 @@ G:%0.3f
 G:%3d
 GAME
 GAME_OVERLAY_LAYER 
+GB (demangled)
 GC now
 GCC: (SteamRT 14.2.0-19~steamrt3.1+bsrt3.1) 14.2.0
 GCC: (SteamRT 4.8.4-1ubuntu15~12.04+steamrt1.2+srt2) 4.8.4
@@ -3735,9 +3931,7 @@ GLIBC_2.4
 GLIBC_2.7
 GLOBAL
 GMT
-GNU
 GOOGL
-GO\fQ
 GPOS
 GPU
 GPU Animated Vertex Cache allocation too large! Requested: %d, max allowed: %d\nUse smaller draw calls or increase cache buffer block size\n
@@ -3748,7 +3942,8 @@ GPU Time: %.2f ms
 GPU Transform Mem : %s allocated, %s written, %s used
 GPUProfiler
 GPUSort
-GW\fI
+G[O
+G\t9
 GameResourceServiceClientV001
 GameResourceServiceServerV001
 GameStartup
@@ -3831,11 +4026,9 @@ GetThreadLocalStackAllocator
 GetUInt32
 GetUInt64
 GetXCR0
-Gf95)1&!\ry9I
 Gfx
 Gingrich
 Giving access to some ImGuiStyle value in this demo for convenience.
-Gk\rC
 Global Alpha
 Glyph
 Glyphs
@@ -3862,8 +4055,8 @@ Grow
 GrowCount
 Guide Hair Visualization
 Guide Hair update
-GzG
 H Clinton
+H$s
 H-scrollbar
 H010ToAB30
 H010ToABGR
@@ -3896,7 +4089,7 @@ HAS_OVERLAY
 HELP
 HHHH
 HISTORY
-HO#Cq
+HL;
 HOP##1
 HOP##2
 HST
@@ -3904,9 +4097,7 @@ HSV
 HSV encoded colors
 HSV shown as HSV##1
 HSV shown as RGB##1
-HTH
 HW Does not support occlusion queries!\n
-HW\nC
 Haddock
 Hair Cull and Compute Segment Depth For Sort
 Hair Debug Settings
@@ -4022,7 +4213,6 @@ HoveredWindow->Root: '%s'
 HoveredWindow: '%s'
 HoveredWindowUnderMovingWindow: '%s'
 Hovering the colored canvas will override io.WantCaptureXXX fields.\nNotice how normally (when set to none), the value of io.WantCaptureKeyboard would be false when hovering and true when clicking.
-Hs\vH
 Hyperlink
 HzH
 I am a a tooltip for a disabled item.
@@ -4088,7 +4278,6 @@ I212ToARGBRow_C
 I212ToARGBRow_SSSE3
 I212ToI422
 I212ToP212
-I37mM
 I400Mirror
 I400ToARGB
 I400ToARGBMatrix
@@ -4238,12 +4427,14 @@ I444ToARGBRow_SSSE3
 I444ToI420
 I444ToNV12
 I444ToNV21
+IA88
 IAppSystem (demangled)
 IBaseSequence (demangled)
 ICharacterDecalRenderer (demangled)
 ICommandCallback (demangled)
 ICommandCompletionCallback (demangled)
 ID Stack Tool
+ID: 0123456789
 ID: 0x%08X, ActiveID: 0x%08X
 ID:%08X, used:%d, { w:%3d, h:%3d } { x:%4d, y:%4d }
 ID=0x%08X%n
@@ -4274,7 +4465,6 @@ INPUT_ATTACHMENT_READ_BIT
 INTERNAL
 INVALID_ARGUMENT
 INVALID_CPPTYPE
-IOCDw\v
 IPVS (demangled)
 IPathTraceSceneWorld (demangled)
 IPathTraceSceneWorld::IPipeline (demangled)
@@ -4286,6 +4476,10 @@ IRefCounted (demangled)
 IRenderReadCallback (demangled)
 IRenderingPipeline (demangled)
 IRenderingPipelineFactory (demangled)
+IS1
+IS2
+IS3
+IS4
 ISO 8601
 ISSUES_QUERIES 
 IST
@@ -4337,12 +4531,10 @@ IVConCommDataReceived (demangled)
 IVDataResourceListener (demangled)
 IVolumetricFog (demangled)
 IWindController (demangled)
-Ic\nG
 Icon
 Icon Hit Spacing
 Icon Size
 Icon Spacing
-Ie\rDU
 If ImPlotAxisFlags_RangeFit is disabled, the axis will fit ALL data.
 If enabled, the camera's translation will be included in the projection matrix.
 If lb_csm_override_staticgeo_cascades, ensure only objects without animated verts, i.e. SCENEOBJECTFLAG_CAN_RENDER_INTO_SST flag will be excluded (as opposed to all static objects).
@@ -4670,7 +4862,6 @@ Invalid wire type for CPPTYPE_UINT32:
 Invalid wire type for CPPTYPE_UINT64: 
 Invert
 InvokeMiniDumpHandler
-Io%a
 IsBatchable
 IsChild=%d
 IsChild=1\n
@@ -4731,13 +4922,12 @@ J422ToARGB
 J444ToABGR
 J444ToARGB
 JArray
-JC&F
 JJJJ
 JST
+JW2
 Jan
 January
 Jet
-Jo%H
 Job
 Jobs
 Joint Indices (%d) Out Of Range for SINT16: Skinning will not work!\n
@@ -4750,7 +4940,6 @@ June
 KDt
 KEY OWNERS
 KEYBOARD/GAMEPAD/MOUSE KEYS
-KFX
 KKKK
 KKKKKKK
 KO Blahblah
@@ -4811,6 +5000,8 @@ Keys mods: %s%s%s%s
 Keys pressed:
 Keys released:
 Kiwi
+Kj2
+Kl~
 LATE_FRAGMENT_TESTS
 LCS
 LC_ADDRESS
@@ -4836,7 +5027,6 @@ LOD Debugging
 LOG_CONSOLE
 LOG_GENERAL
 LPVIndex
-LU\fF
 Label
 Label1
 Label2
@@ -4941,6 +5131,8 @@ List root nodes
 List the object class names known by scenesystem\n
 ListBox
 Lists:
+Lj9
+Ll:
 LoR
 Load a nice font for better results!
 Load all
@@ -4989,7 +5181,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 Low level command to set the flags byte associated with an object class. sc_SetClassFlags <classname> <value>\n
 Low:   $%.2f
-Ls?q
+M:0.000
+M:000
 MATCHFRAMEWORK_001
 MATERIALS
 MATERIAL_SUPPORTS_SHADOWS 
@@ -5081,7 +5274,6 @@ May
 Maybe
 MaybeAllocateAligned cannot fail here.
 MbP?
-Mc'_A$Cm
 McCain
 Mem
 MemAlloc_AllocFunc
@@ -5242,7 +5434,6 @@ Missing TreePop()
 Missing field: FileDescriptorProto.name.
 Missing name.
 Mixed items
-MnZ/rs
 ModAlt
 ModCtrl
 ModShift
@@ -5356,7 +5547,7 @@ MyTag
 MyVec2
 N Bins
 N-gon sides
-N/(AO
+N/A
 NAK
 NAV,FOCUS
 NB: Cursor & selection are preserved when refocusing last used item in code.
@@ -5366,7 +5557,6 @@ NEEDS_DYNAMIC_REFLECTION_OR_REFRACTION
 NEEDS_FRAMEBUFFER_COPY
 NEEDS_GPU_CULLING
 NEEDS_STATIC_ENVMAP_BINDING 
-NI>R
 NKO
 NONE
 NOT_BATCHABLE
@@ -5374,6 +5564,7 @@ NOT_BATCHABLE flag change
 NOT_FOUND
 NO_MOTION_VECTORS 
 NO_Z_PREPASS 
+NS2
 NST
 NUL
 NULL
@@ -5457,7 +5648,6 @@ NavWindowingDimBg
 NavWindowingHighlight
 NavWindowingTarget: '%s'
 Navigation cursor is always visible.
-Nc\tH
 Need better plotting and graphing? Consider using ImPlot:
 Need space between identifier and decimal point.
 Need space between number and identifier.
@@ -5549,13 +5739,13 @@ Number of cascades in sunlight shadow
 Number of lines
 Number of targets (%d) exceeds maximum (%d).  List of targets:\n
 Numbers starting with leading zero must be in octal.
-OAk
+O$s
 OBJs
 OCCLUSION_RECULLED 
 OK Blahblah
 OOOOOOO
-OS\td
 OUT_OF_RANGE
+OW2
 Obama
 Object
 Object %05d: %s
@@ -5567,6 +5757,7 @@ ObjectDesc
 OcclusionQueryIssueLayer
 Oct
 October
+Od8
 Oem102
 Off
 Offset
@@ -5617,7 +5808,6 @@ Order=%d%n
 Original
 OrthoAxis: 0x%08X
 OrthoLight
-Ot1T
 Other:
 Out
 Out Mem
@@ -5654,7 +5844,6 @@ Override. Old default was 3.0
 Override. Old default was 45.
 Override. Old value was 1.0
 Overrides the map's fog settings (-1 populates fog_ vars with map's values)
-P+\fGj
 P010ToAR30Matrix
 P010ToARGBMatrix
 P010ToP410
@@ -5681,6 +5870,8 @@ P410ToARGBRow_Any_AVX2
 P410ToARGBRow_Any_SSSE3
 P410ToARGBRow_C
 P410ToARGBRow_SSSE3
+P7Z
+P<Z
 PDF128_
 PDF16_
 PDF16b
@@ -5696,11 +5887,14 @@ PDi
 PDn
 PDs
 PDu
+PE:
 PERMISSION_DENIED
 PEZ
+PF:
 PFvP12CSceneObjectE
-PG\f 3n
 PHU
+PI:
+PI;
 PIPELINE_SPECIFIC_0 
 PIPELINE_SPECIFIC_1 
 PIPELINE_SPECIFIC_2 
@@ -5708,7 +5902,7 @@ PIPELINE_SPECIFIC_3
 PIPELINE_SPECIFIC_4 
 PIPELINE_SPECIFIC_5 
 PIPELINE_SPECIFIC_6 
-PK/G
+PJ;
 PKDF128_
 PKDF16_
 PKDF16b
@@ -5716,11 +5910,13 @@ PKDF32_
 PKDF32x
 PKDF64_
 PKDF64x
+PKDd
 PKDe
 PKDf
 PKDi
 PKDn
 PKDs
+PKDu
 PKa
 PKb
 PKc
@@ -5750,7 +5946,6 @@ PRE_RASTERIZATION_SHADERS
 PROGRAMMER GUIDE:
 PST
 PUNCTUAL
-PURH
 PZB
 PackId: 0x%X (%dx%d rect at %d,%d)
 Package name is too long
@@ -5894,6 +6089,7 @@ Pos: %2.3f, %2.3f, %2.3f\nRange: %2.3f, Falloff: %2.3f\nAtten0: %2.3f Atten1: %2
 Pos: %2.3f, %2.3f, %2.3f\nRange: %2.3f, Falloff: %2.3f\nAtten0: %2.3f Atten1: %2.3f Atten2: %2.3f\nColor: %1.3f, %1.3f, %1.3f\nTheta: %3.1f Phi: %3.1f
 Pos: (%.1f,%.1f), Size: (%.1f,%.1f), ContentSize (%.1f,%.1f) Ideal (%.1f,%.1f)
 Pos: (%.2f,%.2f)->(%.2f,%.2f)
+Pos=%d,%d\n
 Pos=%i,%i
 PosColorUVNormalTangentVertexLayout
 Position
@@ -5945,12 +6141,12 @@ Proto file starts with 0xEF but not UTF-8 BOM. Only UTF-8 is accepted for proto 
 Protobuf: %s(%d): %s\n
 Protocol Buffer map usage error:\n
 Protocol Buffer reflection usage error:\n  Method      : google::protobuf::Reflection::
+Ps?
 Push
 PushID
 PushPlotClipRect() needs to be called between BeginPlot() and EndPlot()!
 QPI
 QUAD
-Qc\nE
 Quad-shaped light
 Qualitative
 Qualitative: %s
@@ -5962,12 +6158,15 @@ Querying Item Status (Edited/Active/Hovered etc.)
 Querying Window Status (Focused/Hovered etc.)
 Quit
 Quit generating Sparse Shadow Tree - no valid sunlight\n
+R.N
 R10G10B10A2_TYPELESS
 R10G10B10A2_UINT
 R10G10B10A2_UNORM
 R11G11B10F
 R11G11B10_FLOAT
 R11_EAC
+R16
+R16F
 R16G16B16A16_FLOAT
 R16G16B16A16_SINT
 R16G16B16A16_SNORM
@@ -5989,6 +6188,7 @@ R16_UNORM
 R1_UNORM
 R24G8_TYPELESS
 R24_UNORM_X8_TYPELESS
+R32F
 R32G32B32A32_FLOAT
 R32G32B32A32_SINT
 R32G32B32A32_TYPELESS
@@ -6032,7 +6232,6 @@ R: %.f\nN: %d
 R: MMM\nN: MMM
 R:%0.3f
 R:%3d
-R?vlD>
 RAWToARGB
 RAWToARGBRow_Any_SSSE3
 RAWToARGBRow_C
@@ -6065,6 +6264,7 @@ REFLECTS
 RENDER DEVICE
 RESOURCE_EXHAUSTED
 RG11_EAC
+RG1616
 RG1616F
 RG3232F
 RGB
@@ -6129,9 +6329,9 @@ RGBColorTable
 RGBColorTableRow_C
 RGBColorTableRow_X86
 RGBX8888
+RJ2
 RTProxy Layout
 RTProxyBLAS
-R_T5Y
 Rand Paul
 RandomFloat
 RandomInt
@@ -6145,6 +6345,7 @@ Ray trace shader material %s has invalid RayTypeCount %d - must be between 1 and
 RayGen
 RayTrace
 RaytraceLightBins
+RdBu
 Reached an unintended state: CPPTYPE_MESSAGE
 Reached impossible case in HasBit().
 Reached maximum recursion limit for nested messages.
@@ -6296,6 +6497,7 @@ RightBracket
 RightCtrl
 RightShift
 RightSuper
+Rj2
 Romney
 Root
 Root with Long Name
@@ -6315,8 +6517,11 @@ RowBg1
 Rows
 Rubio
 Run simulation
-Rw8N
 Ryan
+S10
+S16
+S32
+S64
 S:%0.3f
 S:%3d
 SCENEOBJECT_MESHLET_VIS_CULLED
@@ -7315,11 +7520,14 @@ Synced Table %d
 Synced instances
 Synthetic oneofs must be after all other oneofs
 System file
-Syu\tWY
-T>gaW?:]f?AHV>'
+T6}
+T7+
+T9H
+T: %7.3f\n
 TEST
 TEST##1
 TEST##2
+TF8
 TLAS
 TLS init function for 
 TLS wrapper function for 
@@ -7331,6 +7539,7 @@ TRANSFER_SRC_OPTIMAL
 TRANSFER_WRITE_BIT
 TUBE
 TUBE_WITH_END_CAPS
+TV;
 Tab
 Tab Bars (%d)
 Tab bar
@@ -7425,6 +7634,7 @@ Text aligned to framed item
 Text baseline:
 Text wrapped
 Text() elements don't have stable identifiers so we need to provide one.
+Text: "%s"
 TextDisabled
 TextInput
 TextLayout_001
@@ -7540,6 +7750,8 @@ TitleBgActive
 TitleBgCollapsed
 TitleText
 Tkz
+Tl}
+Tl~
 To +INF
 To -INF
 To Clipboard
@@ -7647,6 +7859,7 @@ Type appears to be in generated pool but wasn't
 Type is already registered: 
 TypingSelect
 TypingSelect (%d)
+U!8
 U+%04X
 U+%04X-U+%04X: %d codepoints in %d inputs
 U+%04X..U+%04X (%d %s)
@@ -7654,18 +7867,21 @@ U010ToAB30
 U010ToABGR
 U010ToAR30
 U010ToARGB
+U16
 U210ToAB30
 U210ToABGR
 U210ToAR30
 U210ToARGB
+U32
 U420ToABGR
 U420ToARGB
 U422ToABGR
 U422ToARGB
 U444ToABGR
 U444ToARGB
-UG\vHs\vI@
+U64
 UID: 0x%08X
+UN2
 UNAUTHENTICATED
 UNAVAILABLE
 UNDEFINED
@@ -7685,6 +7901,9 @@ UTF-8 Encoding viewer
 UTF-8 Text
 UTF-8 input
 UUUU
+UV0
+UV1
+UV88
 UV: (%.3f,%.3f)->(%.3f,%.3f)
 UVScale
 UVScale_16
@@ -7714,6 +7933,7 @@ UYVYToYRow_Any_AVX2
 UYVYToYRow_Any_SSE2
 UYVYToYRow_C
 UYVYToYRow_SSE2
+Uh9
 Unable to AddTextureToSet( %s ): %s\n
 Unable to AddTextureToSet( %s ): Loading Texture failed\n
 Unable to reload texture %s into textureset: %s\n
@@ -7808,6 +8028,7 @@ VFileSystem017
 VIEWMODEL_LAYER 
 VMaterialSystem2_001
 VMediaFoundation001
+VP4003
 VP8CheckSignature
 VP8GetCPUInfo
 VP8GetInfo
@@ -7817,6 +8038,7 @@ VPhysics2_Interface_001
 VProcessUtils002
 VProfService_001
 VRenderDeviceSetupV001
+VS2
 VScript
 VScriptDbg
 VScriptManager010
@@ -7948,7 +8170,6 @@ Value out of range for int64 option "
 Value out of range for uint32 option "
 Values
 Variables
-Ve\fK
 Vector2f
 Vert:
 VertCount
@@ -8007,6 +8228,7 @@ Voxelize Density
 Voxelize Tangents
 VrForward
 Vrad3_001
+W: %.1f
 WANTS_FRAMEBUFFER_COPY_TEXTURE 
 WANTS_PROBE_LIGHTING 
 WARNING
@@ -8014,6 +8236,7 @@ WARNING: Encountered %d total problems with vertex data (first %d shown above)\n
 WARNING: Trying to create a CRenderContextPtr without a valid context.\n
 WINDOWING
 WS hair verts
+WW2
 Wait
 WaitForRenderingToComplete
 Walker
@@ -8240,7 +8463,10 @@ X32_TYPELESS_G8X24_UINT
 XBZ
 XEz
 XLv
-Xo1 WB
+Xb:
+Xg9
+Xg:
+Xv:
 XyH
 Y-Axis
 Y-Axis %d
@@ -8249,6 +8475,7 @@ Y-Axis 1
 Y-Axis 2
 Y-Axis 3
 Y-Axis index out of bounds!
+Y4:
 YSN[RUZP>8c7NXNZdPE4\HNKLY_
 YUY2ToARGB
 YUY2ToARGBRow_AVX2
@@ -8275,9 +8502,11 @@ YUY2ToYRow_Any_AVX2
 YUY2ToYRow_Any_SSE2
 YUY2ToYRow_C
 YUY2ToYRow_SSE2
+Y^8
 Yellow
 Yes
 Yes, you can\ndrag this!
+Yj2
 You can also call ImGui::DebugTextEncoding() from your code with a given string to test that your UTF-8 encoding settings are correct.
 You can also call ImGui::LogText() to output directly to the log without a visual output.
 You can also call ImGui::ShowDebugLogWindow() from your code.
@@ -8295,13 +8524,16 @@ You can use the ImGuiInputTextFlags_CallbackResize facility if you need to wire 
 You can't pop more modifiers than have been pushed!
 Your application can render a different mouse cursor based on what ImGui::GetMouseCursor() returns. If software cursor rendering (io.MouseDrawCursor) is set ImGui will draw the right cursor for you, otherwise your backend needs to handle it.
 Your current configuration is:
-Z>wg}?0
+Yr)
+ZA:
+ZF:
+Z\v8
 Zero-area light
-Zo\fn
 Zoom %f\n
 Zoom Constraints
 Zoom and pan the X-axis. Disable Stems to see a difference in fit.
 [%04d] Window
+[%05d] 
 [%05d] [%s] Hello, current time is %.1f, here's a word: '%s'\n
 [%s] [%05d] 
 [%s][0x%08X,%d]\n
@@ -8363,6 +8595,7 @@ Zoom and pan the X-axis. Disable Stems to see a difference in fit.
 [io] %s: Text: %c (U+%08X)\n
 [io] Calling Platform_SetImeDataFn(): WantVisible: %d, InputPos (%.2f,%.2f) for Viewport 0x%08X\n
 [io] LockWheelingWindow() "%s"\n
+[kz
 [lazy = true] can only be specified for submessage fields.
 [libprotobuf %s %s:%d] %s\n
 [missing]
@@ -8398,10 +8631,20 @@ Zoom and pan the X-axis. Disable Stems to see a difference in fit.
 [viewport] Window '%s' closed by PlatformRequestClose\n
 [viewport] Window '%s' steal Viewport %08X from Window '%s'\n
 \%03o
+\CS
+\Ct
+\E2
+\J2
+\Kw
 \U%08x
-\fBK L
-\fPy\vE
-\fT>M-+?#gy?
+\f*\f*\f*\f*\f*\f*\f*\f*\f*\f*\f*\f*\f*\f*\f*\f*
+\fDt
+\fFz
+\fHO
+\fO2
+\fnX
+\fqR
+\lX
 \n    Actual    : 
 \n    Field type: 
 \n  Field       : 
@@ -8412,12 +8655,15 @@ Zoom and pan the X-axis. Disable Stems to see a difference in fit.
 \n Render %d specific objects
 \n Render world : %s\n
 \n%s SST (%d x %d):\n
+\n0N
 \n<i>Not using PerViewConstantBuffer_t</i>
 \n<i>PerViewConstantBuffer_t</i>
 \n<i>Procedural Layer</i>
-\nAM\nA
 \nParsing attempt:  
-\n\n\n
+\rI2
+\rW2
+\t$$$$$$$\n\v\f\r
+\tKD
 \tLayer %d "%s": %d inputs, %d outputs\n
 \tLayer %d "%s"\n
 \tRT %dx%d %s %dx MSAA used by %s\n
@@ -8427,23 +8673,26 @@ Zoom and pan the X-axis. Disable Stems to see a difference in fit.
 \t\tOutputs:\n
 \t\tRender Attributes:\n
 \t\tRender Target Desc:\n
-\t\t\t
 \t\t\t"%s": msaa = %s\n
 \t\t\tColor Target %d: HRT = %llX, MSAA = %s, Resolve = %llX, Width = %d, Height = %d\n
 \t\t\tDepth Target: HRT = %llX, MSAA = %s, Resolve = %llX, Width = %d, Height = %d\n
 \t\t\tHRT = %llX, MSAA = %s\n
 \t\tviewport TopLeftX: %d TopLeftY: %d Width: %d Height: %d\n
-\vDC\vL
-\vMn1Y?
-\v\v\v\v\v\v
+\v%\v%\v%\v%\v%\v%\v%\v%\v%\v%\v%\v%\v%\v%\v%\v%
+\vDu
+\vlz
 \x%02x
+^S2
+^l4
 _AngledHeader
 _COL3F
 _COL4F
+_Ct
 _DefaultHide
 _DefaultSort
 _Disabled
 _Dup
+_Ez
 _Float
 _GLOBAL_
 _GLOBAL__N_1::future_error_category (demangled)
@@ -8451,6 +8700,7 @@ _GLOBAL__N_1::generic_error_category (demangled)
 _GLOBAL__N_1::io_error_category (demangled)
 _GLOBAL__N_1::system_error_category (demangled)
 _HighlightHoveredColumn
+_I8
 _IMWINDOW
 _IO_FILE*() __gnu_cxx::stdio_sync_filebuf<char, std::char_traits<char> >::base object constructor() (demangled)
 _IO_FILE*() __gnu_cxx::stdio_sync_filebuf<char, std::char_traits<char> >::complete object constructor() (demangled)
@@ -9356,7 +9606,22 @@ _txnal_cow_string_c_str(void const*) (demangled)
 _txnal_logic_error_get_msg(void*) (demangled)
 _txnal_runtime_error_get_msg(void*) (demangled)
 _txnal_sso_string_c_str(void const*) (demangled)
-aJ!\vA
+`82
+`DZ
+`EU
+`KB
+`PG
+`Qd
+`SV
+`dH
+`eH
+`ff
+`j2
+`kH
+`lz
+`pH
+`qH
+a+b
 aaa1.c
 aaa2.cpp
 aaaa
@@ -9432,8 +9697,12 @@ auto:
 avg %f
 b%d
 b%d (%.02f secs)
+b%d (%d)
+b%d: %d
 bDisableDynamicRefractionMap
+bG8
 bReflectDynamicObjectsOnly
+b]2
 backface
 backslash
 backspace
@@ -9489,9 +9758,9 @@ batchlist.flags_str
 batchlist.flags_uint
 batchlist.last_batch_break
 batchlist.view_gpu_cull_id
+bbb1.c
 bbb2.cpp
 bbbb
-bej
 benb_32028_2897001788_0_expectfail
 bentnormal
 binary
@@ -9507,6 +9776,7 @@ blendindices
 blendweight
 blendweights
 blue
+bm:
 bodygroup
 bonename
 bool
@@ -9600,7 +9870,8 @@ button
 by %s
 byte
 bytes
-c?zS9?
+c#s
+c5:
 cabasa
 calloc
 can fit within a text block.
@@ -9985,7 +10256,9 @@ cullstats
 curvature
 custom_scale
 custom_size
+d2H
 dEu
+dF:
 data%d
 data_ == other.data_
 dddd
@@ -10017,7 +10290,6 @@ define: __GNUC__=%d
 define: __cplusplus=%d
 define: __linux__
 degenerate
-delete
 delete 
 delete(void*) (demangled)
 delete(void*, std::align_val_t) (demangled)
@@ -10059,7 +10331,6 @@ dollar-sign
 double
 double () std::basic_ostream<wchar_t, std::char_traits<wchar_t> >::<<() (demangled)
 double&() std::basic_istream<wchar_t, std::char_traits<wchar_t> >::>>() (demangled)
-dqe-KO{/3
 drag double
 drag double log
 drag float
@@ -10100,6 +10371,8 @@ dual_lobe_roughness_1
 dual_lobe_roughness_mix
 dummybuffer
 dx != __null
+dx == 65536 * 2
+dx == 65536 * 4
 dy != __null
 dynamic_cast
 eIO
@@ -10151,7 +10424,8 @@ f(x) = sin(x)*3+1
 f(x) = sin(x)+1
 f(x) = sin(x+.5)*100+200 
 f5J5J5J5J5J5J5J5J5J5J5J5J5J5J5J5Jx
-f?yu
+fJ2
+fS2
 fakeview
 false
 far_blue
@@ -10163,7 +10437,6 @@ fcntl
 fdopen
 feof
 ffF@
-fffff\r
 fffff\v
 fflush
 fgets
@@ -10201,6 +10474,7 @@ float1
 float32
 float64
 floorf
+fl~
 fog volumes
 fog_cached
 fog_color
@@ -10232,6 +10506,7 @@ fullscreenquad
 func
 future
 fwrite
+fy:
 g_BitBuf_BitWriteMasks
 g_BitBuf_ExtraMasks
 g_Mathlib_GammaToLinearByteTable
@@ -10254,6 +10529,7 @@ getc
 getentropy
 gettimeofday
 getwc
+gj2
 glibcxx.eh_pool
 global constructors keyed to 
 global destructors keyed to 
@@ -10526,9 +10802,11 @@ guard variable for std::time_get<char, std::istreambuf_iterator<char, std::char_
 guard variable for std::time_get<wchar_t, std::istreambuf_iterator<wchar_t, std::char_traits<wchar_t> > >::id (demangled)
 guard variable for std::time_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::id (demangled)
 guard variable for std::time_put<wchar_t, std::ostreambuf_iterator<wchar_t, std::char_traits<wchar_t> > >::id (demangled)
-h>4hp?
+h7Z
 hEZ
 hJw
+hN:
+h_1
 hair
 hairdensityaccumvolume
 hairdummybuffer
@@ -10544,6 +10822,7 @@ hairtangentaccumvolume
 half
 hardware
 has_preferred_x: %d (%.2f)
+hb;
 head
 heat
 heat1
@@ -10560,10 +10839,10 @@ hihat-o
 hitgroup_default_opaque:%d
 hitgroup_default_transparent:%d
 hitgroup_shader_%p
-hl?S
 hmtx
 horizontal
 horizontal split
+hr}
 hsv
 https://github.com/epezent/implot
 https://github.com/ocornut/imgui
@@ -10585,9 +10864,9 @@ hullivr_faceisland_merge_disp
 hullivr_faceisland_merge_tan
 hullivr_version
 hyphen
-h}?fN
 i < V_ARRAYSIZE( s_szMissShaderNames )
 i < length_
+iN2
 ibl
 iboxwidth > 0
 iconv
@@ -10819,7 +11098,6 @@ java resource
 json_name = "
 jstype is only allowed on int64, uint64, sint64, fixed64 or sfixed64 fields.
 k;J;J;J;J;J;J;J;J;J;J;J;J;J;J;J;Jx
-k>Mg
 kBgrF709Constants
 kBgrH709Constants
 kBgrI601Constants
@@ -10839,6 +11117,7 @@ kRgbF709Constants
 kRgbH709Constants
 kRgbI601Constants
 kRgbJPEGConstants
+kS2
 kYuv2020Constants
 kYuvF709Constants
 kYuvH709Constants
@@ -10861,8 +11140,11 @@ k_ESceneViewDebugOverlaysListenerDataType_Unknown
 kern
 key
 kick
-ko\tB
+l13
+l:H
 lCS
+lU;
+lV;
 label
 last used by %s
 lb_allow_shadow_rotation
@@ -10935,6 +11217,7 @@ lb_use_ellipsoid_bounds
 lb_use_illumination_silhouette
 lb_use_illumination_volume
 ld-linux-x86-64.so.2
+ld8
 left pane
 left-curly-bracket
 left-parenthesis
@@ -10942,6 +11225,7 @@ left-square-bracket
 len >= input_len
 length_ >= n
 less-than-sign
+lh1
 libc.so.6
 libm.so.6
 libpthread.so.0
@@ -11029,7 +11313,8 @@ lower
 lowprecisionuv
 lowprecisionuv1
 lseek
-mL\tfm\t 
+m3}
+mY:
 m_DecodeDump
 m_Endpoints
 m_LayerName
@@ -11222,6 +11507,7 @@ model_default_preview_sequence_name
 mold 2.36.0 (compatible with GNU ld)
 morphcomposite
 msa
+mt19937
 my image
 my popup
 my_file_popup
@@ -11230,7 +11516,9 @@ my_toggle_popup
 mycolumns
 mycolumns3
 mypicker
+n/a
 nCompressedSize == nUncompressedSize
+nE2
 nIndex < m_RenderTargets.Count()
 nPrevTransformBufferIndex < V_ARRAYSIZE( m_transformBufferSlotsForIndex )
 nTries < 10000000
@@ -11260,6 +11548,7 @@ new[](unsigned long, void*) (demangled)
 newline
 nextafterf
 nine
+nj2
 no blank
 no memory during frame initialization.
 no verts
@@ -11269,29 +11558,29 @@ non-virtual thunk to
 none
 normal
 not 
+nr?
 null
 null VP8Io passed to VP8GetHeaders()
 nullptr output boolean given.
 number of steps to push candidate plane behind depths.
 number-sign
 nxnstripped
-o KPBf
 oJw
-oY.o<
 obj %d
 obj_count
 obj_size
 objects
+occl
 occlusionproxyvb
 off
 offset_angles
 offset_origin
+ol~
 one
 open
 operator
 operator 
 operator"" 
-opqMU
 option json_name is not allowed on extension fields.
 optional
 optionallycompressedtangentframe
@@ -11301,9 +11590,14 @@ outer_child
 outer_size
 output specified is nullptr
 overlay_deferred
+ox|
+p8Z
+p=Z
 pCZ
-pOm
+pJ&
+pJ2
 pSB
+p\tB
 package $0;\n\n
 parallel
 parse
@@ -11318,7 +11612,6 @@ password (w/ hint)
 password123
 path_trace_light_flags
 pathtracesceneworld.cpp
-pc\nAG\vI
 pdH
 peH
 per instance data
@@ -11326,10 +11619,12 @@ percent-sign
 period
 permutations
 pervertexlighting
+pf\n
 pgH
 phys_res
 picker
 pixelvis_debug
+pj9
 please implement MergeFrom for your type.
 plots
 plus-sign
@@ -11340,18 +11635,17 @@ poll
 pos2Dtex2D
 position
 posix_memalign
-post
 posxyz
 pow
 powf
 precision for depth compression at SST leaf nodes.
-prepi
 print
 printf
 proto
 proto2
 proto3
 psH
+pt?
 pthread_cond_broadcast
 pthread_cond_destroy
 pthread_cond_signal
@@ -11375,14 +11669,15 @@ punct
 pure virtual method called\n
 putc
 putwc
-pxs
-pxs?
-pxs?{7
+pv:
+q\f8
 qangle
 qsort
 quadLayout
 question-mark
 quotation-mark
+r+b
+rI:
 r_allow_onesweep_gpusort
 r_animatable_mesh_shaders
 r_animatable_mesh_shaders_visualize_bounds
@@ -11497,7 +11792,6 @@ right-curly-bracket
 right-parenthesis
 right-square-bracket
 rim
-rk\vA
 root
 rot, inv
 rotated
@@ -11507,12 +11801,15 @@ roundf
 row bg target
 row bg type
 row_min_height
+rp:
 rtx_dynamic_blas
 rtx_dynamic_blas_caching
 rtx_force_default_hitgroup
 rtx_random_samples.vtex
 rtx_texture_resolution
+s0:
 s5J5J5J5J5J5J5J5J5J5J5J5J5J5J5J5Jx
+sS2
 s_hScrambledHalton != GENERIC_DATA_HANDLE_INVALID
 sc_aggregate_bvh
 sc_aggregate_bvh_threshold
@@ -13967,11 +14264,12 @@ sun_light_min_brightness
 syntax = "$0";\n\n
 syscall
 system
-t/2 Wjc\tt1
+t$s
 tJU
 tKU
 tKv
 tKw
+tL2
 tab
 tabbar
 table
@@ -14336,6 +14634,7 @@ typeinfo for unsigned long* (demangled)
 typeinfo for unsigned short (demangled)
 typeinfo for unsigned short const* (demangled)
 typeinfo for unsigned short* (demangled)
+typeinfo for void (demangled)
 typeinfo for void const* (demangled)
 typeinfo for void* (demangled)
 typeinfo for wchar_t (demangled)
@@ -14618,6 +14917,9 @@ typeinfo name for wchar_t const* (demangled)
 typeinfo name for wchar_t* (demangled)
 typename
 t|AO
+u*j
+uN:
+ue}
 uint
 uint16
 uint32
@@ -14627,6 +14929,7 @@ uint32_t libyuv::SumPixels_16(int, const uint32_t*)
 uint64
 uint64_t google::protobuf::UnknownField::fixed64() const
 uint64_t google::protobuf::UnknownField::varint() const
+uj2
 ull
 unable to register all schema data: %s\n
 unbatchable
@@ -14635,7 +14938,6 @@ undo_point: %d, redo_point: %d, undo_char_point: %d, redo_char_point: %d
 undopoints
 ungetc
 ungetwc
-unicode#0x0001
 uniform_sky_color
 unimplemented type: 
 uninitialized __any_string
@@ -14905,8 +15207,10 @@ utils/volumetricfog.cpp
 utils/windcontroller.cpp
 uv x offset during copy to cascade.
 uv y offset during copy to cascade.
+uv1
 uvtangent
-vIK \f3
+v7}
+vN2
 value
 valveextensions.proto
 vector2
@@ -14932,6 +15236,7 @@ viewport
 views
 virtual thunk to 
 vis
+vn:
 void
 void (&&...) std::deque<long, std::allocator<long> >::_M_push_back_aux<long const&(&&...)> (demangled)
 void (&&...) std::deque<std::__detail::_StateSeq<std::regex_traits<char> >(&&...), std::allocator<std::__detail::_StateSeq<std::regex_traits<char> > > >::_M_push_back_aux<std::__detail::_StateSeq<std::regex_traits<char> > const&> (demangled)
@@ -16462,8 +16767,12 @@ vtable for std::time_put_byname<char, std::ostreambuf_iterator<char, std::char_t
 vtable for std::time_put_byname<wchar_t, std::ostreambuf_iterator<wchar_t, std::char_traits<wchar_t> > > (demangled)
 vtable for std::type_info (demangled)
 vtable for std::underflow_error (demangled)
+w!8
+w+b
 w+bx
-wH>r
+w+x
+wJ2
+w^8
 waitpid
 warn
 way(short) (demangled)
@@ -16657,20 +16966,34 @@ wyS]
 x != __null
 x%ixAA
 x-axis
-x0Ysqx
-xF%\nD
+x=150
+x=300
+xDz
+xI8
+xS2
+x_1
 xdg-open
 xdigit
+xh1
+xlz
 y != __null
 y-axis
+yF:
 yes
 you can drag analog plots over the rising/falling digital edge.
-zW>w
+zD`
+zM2
+z^2
 zero
+{0x%x}
+{G9
+{Kv
 {default arg#
+{g9
 {lambda
 {parm#
 {unnamed type#
+{vB
 {virtual override thunk({offset(-16)}, std::basic_iostream<char, std::char_traits<char> >::complete object destructor())} (demangled)
 {virtual override thunk({offset(-16)}, std::basic_iostream<char, std::char_traits<char> >::deleting destructor())} (demangled)
 {virtual override thunk({offset(-16)}, void () std::basic_fstream<char, std::char_traits<char> >::complete object destructor())} (demangled)
@@ -16719,5 +17042,8 @@ zero
 {virtual override thunk({virtual offset(0, -24)}, void () std::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >::deleting destructor())} (demangled)
 {virtual override thunk({virtual offset(0, -24)}, void () std::basic_stringstream<wchar_t, std::char_traits<wchar_t>, std::allocator<wchar_t> >::complete object destructor())} (demangled)
 {virtual override thunk({virtual offset(0, -24)}, void () std::basic_stringstream<wchar_t, std::char_traits<wchar_t>, std::allocator<wchar_t> >::deleting destructor())} (demangled)
+|6H
+|Dt
+|j2
 };\nImPlotColormap %s = ImPlot::AddColormap("%s", %s_Data, %d);
-~}|{zyxwvutsrqponmlkjihgfedcba`_^]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)('&%$#"! 
+~J2

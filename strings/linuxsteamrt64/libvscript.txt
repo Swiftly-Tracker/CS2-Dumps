@@ -1,6 +1,4 @@
   what():  
- !"#$%&'()*+,-./0123456789:;<=>?@abcdefghijklmnopqrstuvwxyz[\]^_`ABCDEFGHIJKLMNOPQRSTUVWXYZ{|}~
- !"#$%&'()*+,-./0123456789:;<=>?@abcdefghijklmnopqrstuvwxyz[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
  (, std::allocator<char> const&) std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::base object constructor<char const*(, std::allocator<char> const&), void> (demangled)
  (, std::allocator<char> const&) std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::complete object constructor<char const*(, std::allocator<char> const&), void> (demangled)
  (, std::allocator<char> const&) std::string::base object constructor<char const*(, std::allocator<char> const&)> (demangled)
@@ -21,6 +19,7 @@
  _Complex
  _Imaginary
  __vector(
+ at %p
  class
  const
  const&( const&, const&) std::min<int>( const&, const&) (demangled)
@@ -35,18 +34,25 @@
  throw
  transaction_safe
  volatile
-!AxU
-#bML"
+"%s":%d
 $ORIGIN
+$TT
 %016llx
 %02x
 %12.6f
+%d %d %d
 %d %d %d %d
+%d:
+%g %g
+%g %g %g
 %g %g %g %g
 %lf
 %lld
 %llu
+%p:%d
 %s %p [%f %f %f]
+%s %s
+%s %s %s
 %s %s %s %s
 %s <null>
 %s allocation count overflow
@@ -57,6 +63,9 @@ $ORIGIN
 %s expected, got %s
 %s near '%s'
 %s parameter %d: expected %s but got %s.\n
+%s%s
+%s%u
+%s: %s
 %s: __pos (which is %zu) > __size (which is %zu)
 %s: __pos (which is %zu) > this->size() (which is %zu)
 %s: allocation of %u too large, max %u\n
@@ -65,7 +74,14 @@ $ORIGIN
 %s: max element overflow, cur count %u + %u\n
 %s: member count overflow (%u)\n
 %s: no space for allocation of %u\n
+%s:%d
+%s:%d: %s
+%s:%u
+%s\n
+%s|%d
 %u nesting levels not completed\n
+%u-%s
+%x\r
 &&(&&) std::pair<std::basic_string_view<char, std::char_traits<char> >, int>::base object constructor<char const (&(&&)) [10], int&, (bool)1> (demangled)
 &&(&&) std::pair<std::basic_string_view<char, std::char_traits<char> >, int>::base object constructor<char const (&(&&)) [9], int, (bool)1> (demangled)
 &&(&&) std::pair<std::basic_string_view<char, std::char_traits<char> >, int>::complete object constructor<char const (&(&&)) [10], int&, (bool)1> (demangled)
@@ -86,11 +102,11 @@ $ORIGIN
 'package.preload' must be a table
 'setfenv' cannot change environment of given object
 'tostring' must return a string to 'print'
+(%s) %s:%d
 (*MARK) must have an argument
 (*VERB) not recognized or malformed
 (*temporary)
 (*vararg)
-(04\n \n008@HPX\n
 (?R or (?[+-]digits must be followed by )
 (anonymous namespace)
 (binary)
@@ -108,7 +124,7 @@ $ORIGIN
 *(*&) std::addressof<char const>(*&) (demangled)
 *(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) std::__addressof<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)> (demangled)
 *(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&) std::__addressof<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&)> (demangled)
-...
+.(.5) (demangled)
 ... Waiting for an incoming Inspector connection, %llus so far, timeout in %llus\n
 ./?.lua;/usr/local/share/luajit-2.1.0-beta3/?.lua;/usr/local/share/lua/5.1/?.lua;/usr/local/share/lua/5.1/?/init.lua
 ./?.so;/usr/local/lib/lua/5.1/?.so;/usr/local/lib/lua/5.1/loadall.so
@@ -123,14 +139,26 @@ $ORIGIN
 /process/%u
 /process/%u/%s
 /src/
-/yQA
+0 0
+0 0 0
+0 0 0 0
+0 0 0 255
+0123456789
 0123456789ABCDEF
 0123456789ABCDEFPX
 0123456789abcdef
 0123456789abcdefpx
+0S\n
+0Z\r
+1.0
+1.3
 10B99CC24B46CCF94E0E371687C756DB
+127.0.0.1
 1434713789_main
 258EAFA5-E914-47DA-95CA-C5AB0DC85B11
+7m\r
+9f\r
+<%s
 <?xml version="1.0" encoding="UTF-8"?>\n
 <Global scope>
 <Global>
@@ -154,9 +182,10 @@ $ORIGIN
 =(debug command)
 =(load)
 =stdin
+>%s
 ><![CDATA[%s]]>
+@%s
 @(\fEtobitDbnotEbswapFlshift
-@BXV
 ACCEPT
 ANY)
 ANYCRLF)
@@ -170,7 +199,6 @@ AnimationSystem_001
 Any
 Arabic
 Armenian
-AsX
 Assert_ConditionFailed(_AssertCompileTimeConstantStruct_t const&, char const*, ...) (demangled)
 Assert_ConditionFailed_Fatal(_AssertCompileTimeConstantStruct_t const&, char const*, ...) (demangled)
 AssetBrowserSystem_001
@@ -194,16 +222,16 @@ BitwiseAnd
 BitwiseNot
 BitwiseOr
 BitwiseXor
+Bj\r
 Bopomofo
 Brahmi
 Braille
 Breakpoint type (%s) not supported.
 Browser.
+Bu\r
 Buginese
 Buhid
-Bzw
 C++ exception
-C-Yn
 CAtomicMutex::AcquireLock(unsigned long long) (demangled)
 CBaseAppSystem<IScriptManager> (demangled)
 CBaseVModuleMetadataProvider (demangled)
@@ -233,8 +261,8 @@ CMemAllocSystemInitialize
 CModuleMetadataProvider_ResourceManifests (demangled)
 CNopVM (demangled)
 COMMIT
-CPh
 CPostConnectCallback (demangled)
+CR)
 CRC32_ProcessBuffer
 CRC64_ProcessBuffer
 CRLF)
@@ -341,10 +369,8 @@ EDesc
 ERROR: CUtlSymbolTableLarge element limit of %u exceeded\n
 ERROR: Debugger.getScriptSource: invalid scriptId '%s' requested
 ERROR: Debugger.getScriptSource: no scriptId given
-EVZ
 EXPORTSYSTEM_INTERFACE_VERSION_001
 EarlyInit_Tier0
-Eatan2
 EconItemToolModel_001
 Egyptian_Hieroglyphs
 Emulation.
@@ -356,12 +382,10 @@ Epairs@
 Error text not found (please report)
 Error: Duplicate command handler registered (%s)!\n
 Ethiopic
-Eup^
 Eval
 ExtractModuleMetadata
 FAIL
 FDesc
-FFFFFFFFFFFFFFFF
 FILE*
 Failed to accept an incoming %s connection\n
 Failed to find %s
@@ -374,7 +398,6 @@ FormatArgumentsToBuffer(IFormatOutputStream*, char const*, CTypeErasedFormatting
 FormatTo(IFormatOutputStream*, CFormatStringElement, float) (demangled)
 FormatTo(IFormatOutputStream*, CFormatStringElement, int) (demangled)
 Forward
-Fzw
 GAME
 GCC: (SteamRT 14.2.0-19~steamrt3.1+bsrt3.1) 14.2.0
 GCC: (SteamRT 4.8.4-1ubuntu15~12.04+steamrt1.2+srt2) 4.8.4
@@ -389,7 +412,6 @@ GLIBC_2.29
 GLIBC_2.3
 GLIBC_2.3.2
 GLIBC_2.7
-GNU
 GameResourceServiceClientV001
 GameResourceServiceServerV001
 GameUIService_001
@@ -408,8 +430,7 @@ Gothic
 Greek
 Gujarati
 Gurmukhi
-HCB
-HRp
+HR\n
 HTTP/1.1 101 Switching Protocols\r\n
 HTTP/1.1 200 OK\r\n
 HTTP/WebSocket
@@ -422,6 +443,9 @@ Hebrew
 HelpSystem_001
 Hiragana
 HostStateMgr001
+Hr\r
+Hx\r
+Hz\r
 IAppSystem (demangled)
 IGNORING Event '%s'\n
 IGNORING Result for %llu\n
@@ -432,8 +456,6 @@ IPulseSystem_001
 IScriptDebugger (demangled)
 IScriptManager (demangled)
 IScriptVM (demangled)
-Ian
-IiGM>nw
 Imperial_Aramaic
 Incoming Inspector message: %s\n
 Inert VModuleMetadata
@@ -472,10 +494,10 @@ IsBitSet
 IsNull
 IsNull called without an object - did you call obj.IsNull() instead of obj:IsNull()?
 JArray
+JE\f
 JIT compiler disabled
 Javanese
 JsVersion
-K2K2K2
 Kaithi
 Kannada
 Katakana
@@ -492,7 +514,10 @@ KeyValues::delete(void*) (demangled)
 KeyValues::new(unsigned long) (demangled)
 Kharoshthi
 Khmer
-LDo
+Kl\r
+Ks\r
+Kv\r
+LF)
 LIMIT_MATCH=
 LIMIT_RECURSION=
 LOADLIB: %s
@@ -504,13 +529,11 @@ LUA_NOENV
 LUA_PATH
 Lao
 Latin
-LeM
 Left
 Length
 Length2D
 Lepcha
 Lerp
-LhX
 Limbu
 Linear_B
 Lisu
@@ -547,12 +570,9 @@ LuaTable
 Lua_AtPanic
 Lycian
 Lydian
-M8MF
 MARK
 MATCHFRAMEWORK_001
-MGiI
 MODEL_PROCESSING_SERVICES_INTERFACE_001
-MQT
 Malayalam
 Malformed VMDbg Runtime.getProperties for '%s'\n
 Mandaic
@@ -574,9 +594,7 @@ ModelDocUtils001
 Mongolian
 Msg
 Multiple locals named '%s'
-Mvc
 Myanmar
-NJ2"v
 NO_AUTO_POSSESS)
 NO_START_OPT)
 NavGameTest001
@@ -598,8 +616,6 @@ No script available to set URL breakpoint at %s:%u
 NodeWorker.
 Nop
 Normalized
-OYX
-OZw3(?
 Ogham
 Ol_Chiki
 Old_Italic
@@ -610,11 +626,15 @@ Oriya
 Osmanya
 Overlay.
 PANIC: unprotected error in call to Lua API (
+PA\v
 PCRE does not support \L, \l, \N{name}, \U, or \u
+PD\v
+PF\v
 POSIX collating elements are not supported
 POSIX named classes are supported only within a class
 PRNG state must be an array with up to 8 integers or an integer
 PRUNE
+PY\r
 Page.
 PanoramaTextServices001
 PanoramaUIClient001
@@ -647,21 +667,8 @@ Print a warning
 Profiler.
 PropertyEditorSystem_001
 QAngle
-QQQQQQQQQQGQQQQQYYYYQQQQREQQQQQQRRRRRRRR
-QQQQQQQQQQQQQQQQQQ
-QQQQRRRRRRRRRRRRRRRR
-QQRRR
-QQcfQQQQQQ
-Qkkbal
+Q\E
 Quaternion
-REQ 
-RRQQ
-RRR
-RRRRRRQRQ
-RRRRRRRR
-RRRRRRRR4Q5QQQQQ
-RRRRRRRREEGRQQQQ
-RXw
 RandomFloat
 RandomFloatWrapper
 RandomInt
@@ -684,10 +691,7 @@ Runic
 Runtime.
 Runtime.executionContextCreated
 SKIP
-SKyu
-SQpq
 SSE and SSE2 are required.
-SSSSSSSS
 Samaritan
 Saurashtra
 SceneSystem_002
@@ -714,6 +718,7 @@ Sharada
 Shavian
 Sinhala
 SmartPropsSystem_001
+Snlf
 Socket error: %d\n
 Sora_Sompeng
 SoundOpSystem001
@@ -759,8 +764,7 @@ Syriac
 THEN
 TLS init function for 
 TLS wrapper function for 
-TQSQQRQQ
-TTT
+TV\r
 Tagalog
 Tagbanwa
 Tai_Le
@@ -771,7 +775,6 @@ Tamil
 Target.
 Target.attachedToTarget
 Target.targetCreated
-TcM
 Telugu
 TestScriptMgr001
 TextLayout_001
@@ -834,7 +837,6 @@ UtlRBTree_FailedInsertDuplicate
 UtlVectorMemory_Alloc
 UtlVectorMemory_CalcNewAllocationCount
 UtlVectorMemory_FailedAllocation
-UxA
 VApplication001
 VAsyncFileSystem2_001
 VAvi001
@@ -846,6 +848,7 @@ VLua
 VM handler failed: 
 VMaterialSystem2_001
 VMediaFoundation001
+VP4003
 VPhysics2_Interface_001
 VProcessUtils002
 VProfService_001
@@ -914,8 +917,6 @@ V_strnlen(char const*, int) (demangled)
 V_tanf
 V_vsnprintf
 Vai
-Vc0a
-Vdk
 Vector
 Vector2D
 Vector4D
@@ -935,13 +936,13 @@ WebSocket
 WorldRendererMgr001
 Xan
 Xbox VDP is not supported on this platform.
-XhL
 Xps
-XsBI
 Xsp
+Xuc
 Xwd
-Zjz\v
+Z9\t
 [ { "description" : "Lua VM Debugging", "devtoolsFrontendUrl" : "/devtools/inspector.html?ws=localhost:41000/process/%u/%s", "id" : "%s", "title" : "%s", "url" : "http://vscript/lua/%s", "type" : "page", "webSocketDebuggerUrl" : "ws://localhost:41000/process/%u/%s" } ]\r\n
+[%02d]
 [abi:
 [builtin#
 [builtin:
@@ -953,7 +954,6 @@ Zjz\v
 \N is not supported in a class
 \c at end of pattern
 \c must be followed by an ASCII character
-\f\f\f\f\f\f\f\f\f\f
 \g is not followed by a braced, angle-bracketed, or quoted name/number or by a plain number
 \k is not followed by a braced, angle-bracketed, or quoted name
 \n//# sourceURL=
@@ -961,13 +961,11 @@ Zjz\v
 \n\tno field package.preload['%s']
 \n\tno file '%s'
 \n\tno module '%s' in file '%s'
-\nrandomseed
-\rmj>zjZ
 \tisrunning
 \u%04x
 \vgetregistry\fgetmetatable\fsetmetatable
 ] is an invalid data character in JavaScript compatibility mode
-^oEZ_
+_%x%llx_%s
 _Float
 _GLOBAL_
 _GLOBAL__N_1::generic_error_category (demangled)
@@ -1322,6 +1320,7 @@ breakpoint_update
 buffer
 buffer error
 builtin:%s
+bxor
 byte
 bytecode instructions
 call
@@ -1454,7 +1453,6 @@ collectgarbage
 color
 columnNumber
 command
-concat
 concatenate
 condition
 conditional group contains more than two branches
@@ -1482,7 +1480,8 @@ createEyieldFresume
 cstring
 cur
 currentline
-dQy/
+d9\n
+dR"
 data error
 dead
 debug
@@ -1514,6 +1513,7 @@ delete[](void*, unsigned long, std::align_val_t) (demangled)
 desc
 description
 detachFromTarget
+dh\r
 dict
 different names for subpatterns of the same number are not allowed
 digit
@@ -1532,7 +1532,6 @@ dump
 duplicate label '%s'
 duplicate table key
 dynamic_cast
-eGn
 ehandle
 else
 elseif
@@ -1554,7 +1553,6 @@ eval
 evaluate
 evaluate ignored
 evaluateOnCallFrame
-ewh/?y
 exception
 exceptionDetails
 exceptionId
@@ -1563,8 +1561,6 @@ exit
 exp
 expression
 external hook
-fAj
-fP~V
 failed to get memory
 false
 fclose
@@ -1595,7 +1591,6 @@ float64
 floor
 flush
 fmod
-fmodEldexpCmin
 fopen64
 for
 foreach
@@ -1609,7 +1604,6 @@ free
 frexp
 fseeko64
 ftello64
-fu`z
 full
 fullname
 func
@@ -1621,7 +1615,6 @@ function or level expected
 function too long for return fixup
 functionName
 fwrite
-gWu
 g_flTValues0To1Inclusive<float> (demangled)
 g_nSequentialBytes<int> (demangled)
 g_nSequentialIndices<float> (demangled)
@@ -1656,14 +1649,11 @@ globalThis.__jsDebugIsReady = true; \n//# sourceURL=
 globalsymbol
 gmatch
 goto
-gqr<
 graph
 group
 group name must start with a non-digit
 gsub
 guard variable for 
-h5uv
-hPU3
 half
 handle
 handle_lightbinding
@@ -1681,10 +1671,6 @@ hit_value
 hscript
 hscript_lightbinding
 http://vscript/lua/%s
-huge
-hwe
-i]Wb
-iak
 idekey
 incompatible version
 inconsistent NEWLINE options
@@ -1697,7 +1683,6 @@ inflate failed, result %d\n
 info
 init
 initializer for module 
-input
 insert
 instrumentation
 insufficient memory
@@ -1750,33 +1735,23 @@ isOwn
 isarray
 isempty
 isvararg
-jAf
-jHq
 java Class for 
 java resource 
-jpf
+jg\r
 js_array
 js_object
 js_raw_args
 js_value
-kaE
-kdz
-knv
-koi
-l6qnk
-lDa>
-lab
+lU\r
 language
 languages/lua/vlua/vlua.cpp
 lastlinedefined
 ld-linux-x86-64.so.2
-ldE
 ldexp
 left-over data in buffer
 len
 level
 level out of range
-liH
 libc.so.6
 libdl.so.2
 libm.so.6
@@ -1790,7 +1765,6 @@ lineno
 lines
 listen
 lj_alloc_f_VALVE_OVERRIDEN
-ljw
 load\nloadstring
 loaded
 loaders
@@ -1970,6 +1944,8 @@ luaopen_package
 luaopen_string
 luaopen_string_buffer
 luaopen_table
+l|%d|%s
+mG\v
 main
 main function has more than %d %s
 malformed \P or \p sequence
@@ -1980,12 +1956,10 @@ malformed pattern (missing ']')
 malloc
 match
 math
-max
 max_children
 max_data
 max_depth
 maxn
-mcf
 memchr
 memcmp
 memcpy
@@ -2010,6 +1984,7 @@ mold 2.36.0 (compatible with GNU ld)
 move
 mprotect
 mremap
+mt19937
 munmap
 nSl
 name
@@ -2058,7 +2033,6 @@ not
 not enough memory
 nothing to repeat
 nparams
-nuS
 number
 number after (?C is > 255
 number is too big
@@ -2067,7 +2041,6 @@ number too big in {} quantifier
 numbers out of order in {} quantifier
 numchildren
 nups
-o*do^
 obj_count
 obj_size
 object
@@ -2080,8 +2053,8 @@ operator
 operator 
 operator"" 
 origin
-output
-pTq
+pD\v
+pX\r
 package
 page
 pagesize
@@ -2120,11 +2093,9 @@ pthread_once
 punct
 put
 putf
-qTp
 qangle
 quaternion
 rad
-random
 random_device could not be read
 random_device: getentropy failed
 random_device: rdrand failed
@@ -2174,7 +2145,6 @@ rint
 rol
 rorDband
 rshift
-ru&o
 run
 runIfWaitingForDebugger
 running
@@ -2247,7 +2217,6 @@ sizeof
 sizeof...
 skip
 socket
-sort
 source
 source_file
 source_line
@@ -2868,7 +2837,6 @@ thread
 throw
 throw 
 timestamp
-tmpfile
 tmpfile64
 tohex
 too deep to serialize
@@ -2948,7 +2916,6 @@ typeinfo name for std::underflow_error (demangled)
 typename
 typeof process === 'undefined' || process.pid === undefined ? 'process not defined' : ({ processId: process.pid, nodeVersion: process.version, architecture: process.arch }
 typeof process === 'undefined' || process.pid === undefined ? 'process not defined' : Object.assign(process.env,
-uUv
 uint16
 uint32
 uint64
@@ -3050,9 +3017,8 @@ userAgent
 userdata
 userdata length overflow
 utlstringtoken
-uyO
-vQO+t
-vUu
+u|%d|%s
+v15.0.0
 value
 value expected
 variable names
@@ -3169,34 +3135,25 @@ vtable for std::runtime_error (demangled)
 vtable for std::system_error (demangled)
 vtable for std::type_info (demangled)
 vtable for std::underflow_error (demangled)
-w+OQvr
-w3Xc
-wHbr^
-wHk
-wJb
-wLc
-wNcvn
-wPc
-wTP
 waitForDebugger
 waitingForDebugger
 wchar_t
 what
 while
-wn>Jj
 word
 wrap
 writable
 write
 wrong number of arguments to 'insert'
+x86_64
 xdigit
 xmlns
 xpcall
+yi\r
 zPR
-zZg
+zp\r
 { "Browser" : " INSPECTOR_BROWSER_NAME ", "Protocol-Version" : " INSPECTOR_PROTOCOL_VERSION ", "User-Agent" : " INSPECTOR_USER_AGENT ", "webSocketDebuggerUrl" : "ws://localhost:41000/process/%u" }\r\n
 {default arg#
-{kHw
 {lambda
 {parm#
 {unnamed type#

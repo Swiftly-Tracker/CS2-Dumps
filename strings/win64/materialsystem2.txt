@@ -1,5 +1,3 @@
-    
-     
                           
                      Cost
       -XX: Shader program -vs -ps -gs -cs -psrs -rtx -ms\n
@@ -17,10 +15,20 @@
    Usage:
    mat_print_shader_info: Error! Shader "%s" not loaded!\n
   %2d: FontHandle:0x%8.8llx, %s, %s, font:%s, tall:%f.0%s\n
- !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`ABCDEFGHIJKLMNOPQRSTUVWXYZ{|}~
- !"#$%&'()*+,-./0123456789:;<=>?@abcdefghijklmnopqrstuvwxyz[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
+ !"#$%&'()*+,-./
+ %*s
+ %2dx 
+ %3d:
+ %5d
  %7sK
+ %7sK 
+ %f
+ %f %f
+ %f %f %f
  %f %f %f %f
+ %i
+ %s
+ %s=%d
  ( %d references )
  (Fallback Shader)
  (NumShaderHandles 
@@ -55,39 +63,42 @@
  [No Valid Layers]
  [Not Loaded]
  [error.vfx]
- \n_V_strncmp
  delete
  delete[]
  mat_print_material_info <mod\path\file.vmat>\n
  mat_print_shader_info <file.vfx> [options]\n
  new
  using substring "%s"
-!\n_V_strncpy
 "%.*s" is #defined in terms of itself
 "%.*s" is not a valid integer
 "%.*s" is too long to be a #define name
 "%s" is #defined as "%s", which is not an integer or the name of another #define
 "%s" is #defined as multiple values ("%s" in %s and as "%s" in %s), it cannot be used in a rule
 "%s" is not an integer and is not #defined in this shader or anything it includes
-#\n_V_strnicmp_fast
 #define
 #else
 #endif
 #if defined(__cplusplus)
 #include
 #line
+%*s
+%*s 
 %10s
 %15.15s 
 %6d
 %6d %-50s
 %6s %-50s %5s %5s %5s %5s %5s %5s %10s\n
 %6s %-50s %5s %5s %5s %5s %5s %5s %5s %10s\n
+%d %d %d
 %d %d %d %d
-%dS
+%d..%d\n
 %f %f %f %f
 %hu
 %lld
 %llu
+%s 
+%s %s
+%s %s %s
 %s %s %s %s
 %s --------------------------------\n
 %s Shader: %s attribute '%s' set in mode '%s' does not match VMatrix value set in another mode.\n
@@ -102,7 +113,11 @@
 %s allocation count overflow( %llu > %llu )\n
 %s allocation count overflow( add %llu + current %llu > max %llu )\n
 %s called on a pool arena (no root available)\n
+%s%s
+%s%s-%s
+%s(
 %s(): Deprecated and unimplemented. Fix client code to use new postprocessing resources.\n
+%s: %s\n
 %s: Warning: No compile targets specified! Shader will not be compiled!\n
 %s: allocation of %u too large, max %u\n
 %s: element count overflow (%u)\n
@@ -112,16 +127,16 @@
 %s: member count overflow (%u)\n
 %s: no space for allocation of %u\n
 %s: unable to grow count by %u (currently %u)\n
+%s\
+%s\n
 %s__font_page_%d
 %s_intermediate_%d.vtex
 %vsB,
-%x3
+(%d,%d)
 (On the line reading %s):\n
-(\tV_ZSTD_createDCtx
 (channel = 
 (end of input).\n\t This indicates a poorly specified lexer RULE\n\t or unterminated input element such as: "STRING["]\n
 (unnamed)
-)\tV_ZSTD_createDDict_byReference
 *** CVfx::StartupSanityCheck(7445): Programmer Error! The order of VfxVariableSourceType_t does not match s_shaderVariableSource!\n
 *** Error adding variable to array!\n
 *** Error masking unused parts! Equal sign not found after token "%s"! (line %d)\n
@@ -137,25 +152,26 @@
 *** VfxPopulateSourceCache(1217): Error opening file "%s"!\n\n
 *** VfxReadAndPrepForCrc(1369): Source cache incomplete, file "%s" missing!\n\n
 *** VfxReadAndPrepForCrc(1381): Error masking unused parts for "%s"!\n\n
-*StO9>T
-*\tV_ZSTD_decompress
 , GetFont used
 , LoadFont used
 , at offset %d
 , near %s
-,\tV_ZSTD_decompress_usingDDict
----
------
-----------
 --------------------------------------------------
 -Stop: 
+-cs
 -end of input-(
+-gs
 -memory-
+-ms
+-ps
+-psrs
 -rtx
 -show_none
 -show_used_combos
 -unknown source-
 -unknown source-(
+-vs
+.%s
 .00cfg
 .CRT$XCA
 .CRT$XCC
@@ -181,7 +197,7 @@
 .data
 .data$r
 .data$rs
-.eBVfx
+.eB
 .edata
 .idata$2
 .idata$3
@@ -215,25 +231,38 @@
 .vpk
 .vpk:
 .vtex
-.xJ>Hf
 .xdata
 .xdata$x
 // %s - %s\n
 // Dynamic Shader Compile Enabled\n
 // Reloading all shaders -----------------------------------------------------\n
-/\tV_ZSTD_freeDCtx
+//---------------------------------------------------------------------------//\n
+//-----------------------------------\n
 /src/
-0\tV_ZSTD_getDictID_fromDDict
-1\tV_ZSTD_getDictID_fromFrame
-2\tV_ZSTD_getFrameContentSize
-3>N;kU
+0 0
+0 0 0
+0 0 0 0
+0 0 0 255
+0,C
+0123456789)"
+0P]
+0X.
+0kE
+0wG
+333?+
+33s?+
+3B+
+4n\r
+51\n
+7n\r
+8N'
 : lexer error %d :\n\t%s at offset %d, 
+;?0123456789:;<=>?
 <<unknown_mod>>\
 <DOWN>
 <EOF>
 <EOR>
 <Unknown font>
-<\ng_pMemAlloc
 <anon>/
 <anon>:
 <array: %u elements>
@@ -249,13 +278,8 @@
 <undefined>
 <unknown KV3 basic type '%s' (%d)>
 <unknown>
-=imb;D
->\ng_pThreadPool
-?UUUUUU
-?qBJ
-?ysB
+=\t ();,\n\r<>
 A%mB,
-A>pP&
 ABCDEFGHIJKLMNOPQRSTUVWXYZ
 ABGR8888
 ALL
@@ -265,7 +289,6 @@ APPSYSTEM: In ConnectInterfaces(), s_nRegistrationCount is %d!\n
 ARGB8888
 ATI1N
 ATI2N
-A\fEA4
 AcquireSRWLockExclusive
 Actually dude, we didn't seem to be expecting anything here, or at least\n
 AddFontMemResourceEx
@@ -277,6 +300,7 @@ AddRenderStateVariableToCommandBuffer(2019): Unsupported render state type in ma
 AddRenderStateVariableToCommandBuffer(2167): Unsupported render state in material "%s"!\n
 AddSamplerStateVariableToCommandBuffer(2240): Unsupported sampler state type for "%s" in material "%s"!\n
 AddSamplerStateVariableToCommandBuffer(2262): Unsupported sampler state type for "%s" in material "%s"!\n
+AlignedByteArray not properly aligned\n
 All Bad! Talk to Brian and Alex. g_pRenderHardwareConfig is NULL which means we won't load this material correctly: %s\n
 All static combo permutations currently loaded:\n
 All static combos set to zero
@@ -305,8 +329,8 @@ Attribute-based texture %s not bound for material "%s"!\n
 Aug
 August
 BC6H
+BC7
 BDAGlobals
-BF>^G
 BGR565
 BGR888
 BGRA1010102
@@ -320,7 +344,6 @@ BLENDWEIGHT
 BLOOM_BLEND_ADD
 BLOOM_BLEND_BLUR
 BLOOM_BLEND_SCREEN
-B\tV_atoi
 Bad KV3 data for resource '%s': %s\n
 BakedLODBuilderMgr001
 Base recognizer function 'alreadyParsedRule' called by unknown parser type - provide override for this function\n
@@ -354,7 +377,6 @@ C:\buildworker\csgo_rel_win64\build\src\public\tier0\utldict.h
 C:\buildworker\csgo_rel_win64\build\src\tier2\utlstreambuffer.cpp
 C:\buildworker\csgo_rel_win64\build\src\vfx\compiletargetexpr.g
 C:\buildworker\csgo_rel_win64\build\src\vfx\vfx_common.cpp
-CAlignedByteArray not properly aligned\n
 CCommand::Tokenize: Encountered command which overflows the tokenizer buffer.. Skipping!\n
 CFontTextureCache: Cache Page out of bounds %d (curr count %d)\n
 CFontTextureCache::IsCharCached
@@ -475,9 +497,13 @@ CreateFontA
 CreateInterface
 Custom font '%s' is already registered, ignoring new registration '%s' range %d - %d\n
 Custom font file '%s' should be assocated with a font name, will be ignored on Linux and Mac\n
+D16
 D16_SHADOW
 D24FS8
+D24S8
+D24X8
 D24X8_SHADOW
+D32
 D32FS8
 DXT1
 DXT1_ONEBITALPHA
@@ -583,7 +609,6 @@ GAMEROOT
 GCTL
 GDI32.dll
 GLSL.std.450
-Ga=UU
 GameResourceServiceClientV001
 GameResourceServiceServerV001
 GameStartup
@@ -650,18 +675,17 @@ HelpSystem_001
 HorizJustification_e
 HostStateMgr001
 I could not work out what I was expecting, like so many of us these days!\n
+IA88
 IKV3TransferInterface_ResourceLoad
 IKV3TransferInterface_ResourceSave
 IMAGE_FORMAT_IMC2
 IMAGE_FORMAT_NV12
 INT
 IPulseSystem_001
-ISGN
 IS_DIRECTX
 IS_PC
 IS_SM_
 IS_VULKAN
-I\tV_cosf
 Incorrect vpk path delimiter for shader %s\n
 InfoForResourceTypeCTextureBase
 InitializeCriticalSectionAndSpinCount
@@ -689,7 +713,6 @@ KeyValueCache001
 KeyValues3: pre-allocated array memory is too small for %u elements (%u bytes available, %u bytes needed)\n
 KeyValues3: pre-allocated table memory is too small for %u members (%u bytes available, %u bytes needed)\n
 KeyValuesSystem
-L>ev
 LAYOUTPOSITIONTYPE_FRACTIONAL
 LAYOUTPOSITIONTYPE_NONE
 LAYOUTPOSITIONTYPE_VIEWPORT_RELATIVE
@@ -798,12 +821,10 @@ MoveToEx
 Msg
 MultiByteToWideChar
 Must run with -shaderstats to use mat_shading_complexity!\n
-MxF
 NORMAL
 NOTE: Each static combo creates multiple shader programs based on the dynamic combos available.\n\n
 NULL shader pointer!\n
 NV_NULL
-N\tV_exp2f
 NavGameTest001
 NavSystem001
 NeedsLightProbe
@@ -821,7 +842,7 @@ Not safe to 'new' this class due to alignment requirements
 Nov
 November
 OCTAL_ESC
-OZQ%
+OSGN
 Oct
 October
 PC SM 5.0 (D3D11)
@@ -833,10 +854,11 @@ PC_SM_6_0_VULKAN
 PIO
 PLAT_
 POSITION
+PO_
 PROGRAM
 PS_RENDER_STATE
+PS_RS
 PS_RTX
-P\tV_expf
 PanoramaTextServices001
 PanoramaUIClient001
 PanoramaUIEngine001
@@ -888,8 +910,11 @@ PropertyEditorSystem_001
 QueryPerformanceCounter
 R11G11B10_FLOAT
 R11_EAC
+R16
+R16F
 R16G16_UINT
 R16_UINT
+R32F
 R32G32_UINT
 R32_SINT
 R32_UINT
@@ -899,10 +924,12 @@ R8G8_UINT
 R8_UINT
 R8_UNORM
 R9G9B9E5_FLOAT
+RD11<
 RDEFH
 RESOURCE_TYPE_MATERIAL
 RESOURCE_TYPE_POST_PROCESSING
 RG11_EAC
+RG1616
 RG1616F
 RG3232F
 RGB323232F
@@ -917,7 +944,6 @@ RGBA8888
 RGBA8888_LINEAR
 RGBA8888_UINT
 RGBX8888
-RSDS
 RTX
 RaiseException
 RandomFloat
@@ -957,12 +983,12 @@ RtlLookupFunctionEntry
 RtlPcToFileHeader
 RtlUnwindEx
 RtlVirtualUnwind
+SB+
 SHADER_SOURCE
 SHADER_SOURCE_ROOT
 SHEXt[
 SPV_KHR_storage_buffer_storage_class
 SSE and SSE2 are required.
-STAT
 SUPPORTS_CS
 SUPPORTS_GS
 SV_ClipDistance
@@ -1054,8 +1080,10 @@ SupportsMappingDimensions
 Suppress
 Sys
 TANGENT
+TB+
 TEXCOORD
 TUUUU
+Tag: %s \n
 Tahoma
 TerminateProcess
 TestScriptMgr001
@@ -1096,6 +1124,7 @@ TypeManager
 UNICODE_ESC
 UNKNOWN
 UUUUUU
+UV88
 UVWQ8888
 Unable to create dynamic index buffer with %d indices\n
 Unable to create dynamic vertex buffer with %d points\n
@@ -1148,6 +1177,7 @@ VIEW_FADE_MODULATE
 VMatError
 VMaterialSystem2_001
 VMediaFoundation001
+VP4003
 VPhysics2_Interface_001
 VProcessUtils002
 VProfService_001
@@ -1193,6 +1223,40 @@ V_StringToVectorWS
 V_UInt32ToString_Unsafe
 V_UInt64ToString_Unsafe
 V_UInt8ToString_Unsafe
+V_UnqualifiedFileName
+V_ZSTD_createDCtx
+V_ZSTD_createDDict_byReference
+V_ZSTD_decompress
+V_ZSTD_decompress_usingDDict
+V_ZSTD_freeDCtx
+V_ZSTD_getDictID_fromDDict
+V_ZSTD_getDictID_fromFrame
+V_ZSTD_getFrameContentSize
+V_atoi
+V_cosf
+V_exp2f
+V_expf
+V_fprintf
+V_iswcntrl
+V_log10f
+V_log2_uint
+V_log2f
+V_logf
+V_powd
+V_powf
+V_qsort
+V_qsort_s
+V_sincosf
+V_sinf
+V_snprintf
+V_sscanf
+V_stricmp_fast
+V_strspn
+V_strtoi64
+V_strtoui64
+V_tanf
+V_towupper32
+V_vsnprintf
 Vector
 Vector2D
 Vector4D
@@ -1202,6 +1266,7 @@ VertJustification_e
 Vertex Shader
 VertexColorUVPos_t
 VertexUVPosColorNormalAndTangent_t
+Vfx
 Vfx file "%s" has both compute shader and other shaders. Compute shaders must be the only shader type in a vfx file.\n
 VfxComboType_t
 VfxDynamicShaderCompile(), C:\buildworker\csgo_rel_win64\build\src\vfx\vfx_common.cpp:8821
@@ -1226,6 +1291,7 @@ WARNING: Invalid resource version (%d): %s\n
 WARNING: Resource name "%s" has the incorrect extension "%s" for the specified resource type (expected "%s")!\n
 WARNING: Trying to create a CRenderContextPtr without a valid context.\n
 WakeAllConditionVariable
+Warning
 Wed
 Wednesday
 WideCharToMultiByte
@@ -1238,6 +1304,7 @@ WriteFile
 [Index: 
 \error.vmat
 \n    near %s\n    
+\n   --- ---------------------- ----------------------- ---- --------------- --------------------------------\n
 \n   NOTE: Currently showing on disk format without accounting for picmip level or streaming state!\n
 \n   Options:\n
 \n   Ref        On Disk               In Memory         MSAA     Format      File
@@ -1316,6 +1383,7 @@ WriteFile
 \n*** Unknown text found in FEATURES section in %s: "%s"\n\n
 \n*** VfxGetCompileTargetsFromVfxFile(1484): Error opening file "%s"!\n\n
 \n*** VfxGetUsedShaderProgramsFromVfxFile(1561): Error opening file "%s"!\n\n
+\n//-----------------------------------\n
 \nCMaterial2::LoadShadersAndSetupModes(1595): Error! Material "%s" is already loaded!\n
 \nCMaterial2::LoadShadersAndSetupModes(1626): Cannot find shader entry in material "%s"! Using error.vfx!\n
 \nCMaterial2::LoadShadersAndSetupModes(1666): Error creating shader %s and cannot load error.vfx instead!\n
@@ -1327,50 +1395,33 @@ WriteFile
 \nCMaterial2::LoadShadersAndSetupModes(1763): Error creating static combos for shader %s and error.vfx instead!\n
 \nCMaterialMode::ComputeRenderablePassesForContextInternal(3373): All bad! The error material failed in dynamic shader compile!\n
 \nCMaterialMode::CreateCommandBuffer(4281): Find a graphics programmer! Trying to bind a "%s" shader that doesn't exist! for %s\n
+\nCS
+\nGS
 \nInitDynamicShaderCompileDLL(119): ERROR! Can't load vfx_dx dll, dynamic shader compile unavailable!\n
 \nMS,\nVS_MS_RTX
+\nPS
 \nPS_RENDER_STATE
 \nRTX
 \nSkipped %d%% of all combos\n
 \nUsage: mat_assert_on_shader_use [shader_substring]\n       (no arguments disables the assert)\n\nExample: mat_assert_on_shader_use error.vfx - Assert when the error shader is used\n         mat_assert_on_shader_use sky       - Assert when sky.vfx or sky_cheap.vfx is used\n\n
 \nVCS file format is invalid for %s\n
 \nVCS file version is %d instead of %d for %s\n
+\nVS
 \nVfxDynamicShaderCompile(8902): Dynamic shader compile failed for %s in "%s"!\n
-\n\n\n
 \n\t%02i%% (%i/%i)
 \n\t\tDynamic:
-\n_V_StringAfterPrefix
-\n_V_strEndsWith
-\n_V_strcspn
 \src\shaders\
 \t The lexer was matching from line %d, offset %d, which\n\t 
-\tV_UnqualifiedFileName
-\tV_log10f
-\tV_log2_uint
-\tV_log2f
-\tV_logf
-\tV_powd
-\tV_powf
-\tV_qsort
-\tV_qsort_s
-\tV_sincosf
-\tV_sinf
-\tV_snprintf
-\tV_sscanf
-\tV_stricmp_fast
-\tV_strspn
-\tV_strtoi64
-\tV_strtoui64
-\tV_tanf
-\tV_towupper32
-\tV_vsnprintf
-\tWarning
+\t%.*s\n
 \t\tStatic:
-\t\t\t
-\tkE>fvw
-^\tV_fprintf
 ^^^ Attribute-based texture warning is now disabled after outputting 50 warnings.\n
 ^^^ Constant buffer warning is now disabled after outputting 50 warnings.\n
+_V_StringAfterPrefix
+_V_strEndsWith
+_V_strcspn
+_V_strncmp
+_V_strncpy
+_V_strnicmp_fast
 __Attribute__
 __Expression__
 __FROM_ATTRIBUTE_OR_FEATURE__
@@ -1402,8 +1453,15 @@ __unaligned
 __vectorcall
 _class
 _copy%u
+_cs
 _feature
+_gs
+_ms
+_ps
+_psrs
 _rtx
+_vs
+`EH
 `RTTI
 `anonymous namespace'
 `copy constructor closure'
@@ -1469,7 +1527,6 @@ bool4
 broken pipe
 buffer
 byteaddressbuffer
-c$xe
 cbuffer
 ceil
 char const* V_stristr_fast(char const*, char const*) (demangled)
@@ -1591,6 +1648,8 @@ connection reset
 consumestructuredbuffer
 cos
 cross device link
+cs_5_0
+cs_6_0
 dddd, MMMM dd, yyyy
 debug_font_name
 debug_font_size
@@ -1606,7 +1665,6 @@ dot2
 dot3
 dot4
 double
-eF>t
 environmentmapped
 error.vfx
 error.vmat
@@ -1686,6 +1744,8 @@ g_matWorldToView
 g_matvCubeFogSkyWsToOs
 g_nScaleTexCoordUByModelScaleAxis
 g_nScaleTexCoordVByModelScaleAxis
+g_pMemAlloc
+g_pThreadPool
 g_sTransformTexture
 g_tTransformTexture
 g_vAoProxyDownres
@@ -1753,6 +1813,8 @@ game_controls
 gamelayer
 generic
 group
+gs_5_0
+gs_6_0
 host unreachable
 iEJA+
 identifier removed
@@ -2051,7 +2113,7 @@ max
 message size
 min
 modes
-n03>Pu
+ms_6_5
 nBatchIndices <= 16384
 nBatchIndices <= nMaxIndexCountPerPass
 name
@@ -2093,6 +2155,7 @@ operator ""
 operator co_await
 operator<=>
 owner dead
+pA,
 pFx
 pOC
 permission denied
@@ -2112,6 +2175,9 @@ protected: void CUtlBuffer::AddNullTermination(void) (demangled)
 protected: void CUtlBuffer::SetOverflowFuncs(bool (CUtlBuffer::*)(int), bool (CUtlBuffer::*)(int)) (demangled)
 protocol error
 protocol not supported
+ps_5_0
+ps_6_0
+psrs
 public: CStrAutoEncode& CStrAutoEncode::Copy(CStrAutoEncode const&) (demangled)
 public: CUtlBinaryBlock& CUtlBinaryBlock::operator=(CUtlBinaryBlock&&) (demangled)
 public: CUtlBuffer::CUtlBuffer(int, int, CUtlBuffer::BufferFlags_t) (demangled)
@@ -2199,7 +2265,6 @@ public: void const* CUtlBuffer::PeekGet(int, int) (demangled)
 public: void* CUtlScratchMemoryPool::AllocAligned(int, int) (demangled)
 purecall
 qangle
-r\tVr.>T
 radians
 random
 range check failure
@@ -2301,6 +2366,9 @@ void ThreadAtomicNotifyOne(unsigned int const*) (demangled)
 void ThreadAtomicWait(unsigned int volatile*, unsigned int) (demangled)
 void V_SplitString(char const*, char const*, CUtlVector<CUtlString, int, CUtlVectorMemory_Growable<CUtlString, int, 0> >&, bool) (demangled)
 vpk:
+vs_5_0
+vs_6_0
 win98japanese
 wrong protocol type
-}\tV_iswcntrl
+z50
+{0x%x}

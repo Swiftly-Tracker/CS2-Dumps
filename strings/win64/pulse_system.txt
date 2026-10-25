@@ -11,8 +11,8 @@
   Output%d: '%s' (%s)\n
   R%d: %15s %25s %s\n
   V%d: '%s' (%s)\n
- !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`ABCDEFGHIJKLMNOPQRSTUVWXYZ{|}~
- !"#$%&'()*+,-./0123456789:;<=>?@abcdefghijklmnopqrstuvwxyz[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
+ !"#$%&'()*+,-./
+ %f
  (Start: 
  ** Entrypoint For Method '%s'
  *** COMPILE ERROR ***
@@ -41,16 +41,15 @@
  Vector b
  [*OBSERVABLE*]
  [loop body, break -> C%d:I%d]
- \n_V_strncmp
  delete
  delete[]
  new
  noexcept
  volatile
-!\n_V_strncpy
 !g_pPulseSystem->GetWeakHandleTable()->AnyHandlesAllocated()
-"""
 "Limit Count: " + m_nLimitCount
+%0*d
+%d %d %d
 %d %d %d %d
 %d CallInfos:\n
 %d Cells:\n
@@ -62,10 +61,11 @@
 %d Vars:\n
 %d instruction(s)\n
 %d register(s) %d byte(s)\n
-%dS
 %lf
 %lld
 %llu
+%s %s
+%s %s %s
 %s %s %s %s
 %s '%s' (%s)
 %s (uid=%d)
@@ -78,6 +78,12 @@
 %s allocation count overflow( add %llu + current %llu > max %llu )\n
 %s called on a pool arena (no root available)\n
 %s%02d:%02d
+%s%s
+%s%s%s!%s
+%s(
+%s->R%d
+%s: %s %s
+%s: %s\n
 %s: allocation of %u too large, max %u\n
 %s: element count overflow (%u)\n
 %s: invalid insert point %u (current count %u)\n
@@ -86,13 +92,17 @@
 %s: max element overflow, cur count %u + %u\n
 %s: member count overflow (%u)\n
 %s: no space for allocation of %u\n
+%s::%s
 %s::%s (%u)
 %s::%s (Entity Output Handler)
 %s:autowake
 %s:interrupt
 %s:wait
 %s<br><br>%s
-&Sgw
+%s\n
+%u %u %u
+(%d,%d)
+(%s:%d)
 (Expecting %s)
 (Expecting EOF)
 (None)
@@ -102,9 +112,9 @@
 (null)
 *** Test failure: "%s"
 *MOVE=>
-*StO9>T
 , at offset %d
 , near %s
+,%u
 ,<ellipsis>
 - Graph Def '
 -Stop: 
@@ -117,7 +127,6 @@
 . Req PASS
 . Tag Added: '%s'
 . Tag Removed: '%s'
-...
 .00cfg
 .CRT$XCA
 .CRT$XCC
@@ -141,6 +150,7 @@
 .data
 .data$r
 .data$rs
+.eB
 .edata
 .idata$2
 .idata$3
@@ -167,29 +177,33 @@
 .tls
 .tls$
 .tls$ZZZ
-.xJ>Hf
 .xdata
 .xdata$x
 /src/
+0 0
+0 0 0
+0 0 0 0
+0 0 0 255
+0,C
+0X.
+0kE
+0wG
 1#IND
+1#INF
 1#QNAN
 1#SNAN
 1:1: Tokens : ( T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | TOK_COLON | OPEN_BRACE | CLOSE_BRACE | OPEN_PAREN | CLOSE_PAREN | OPEN_BRACKET | CLOSE_BRACKET | SEMICOLON | OP_EQUAL | COMMA | DOUBLE_AND | NEGATIVE_TOK | DOUBLE_OR | LITERAL_TRUE | LITERAL_FALSE | POS_INTLITERAL | POS_FLOATLITERAL | SCOPE_QUALIFIER | ID | DOUBLE_QUOTED_STRING | SINGLE_QUOTED_STRING | SINGLE_LINE_COMMENT | ML_COMMENT | WS | UNRECOGNIZED );
 222
-3>N;kU
 488:1: POS_FLOATLITERAL : ( ( DIGIT )+ '.' ( DIGIT )* ( EXPONENT )? | '.' ( DIGIT )+ ( EXPONENT )? | ( DIGIT )+ EXPONENT );
-7\tV_acosd
-8Csinf
-9\tV_asind
+5i\t
 : lexer error %d :\n\t%s at offset %d, 
-;1#INF
+;?0123456789:;<=>?
+;lD
 <DOWN>
 <EOF>
 <EOR>
 <No Cell>
 <Unknown>
-<\ng_pMemAlloc
-<\tV_atan2f
 <array: %u elements>
 <binary blob: %u bytes>
 <ellipsis>
@@ -211,20 +225,12 @@
 <unknown>
 == PulseGraphDef ==\n
 => TempVarBank: Bank%d\n
-=\tV_atand
-=imb;D
-?UUUUUU
-?\tV_atof
-?qBJ
-?ysB
-@\tV_atofloat32
 @fff>fff>fff>fff>
 A default string (set)
 A string associated with this Cursor, to use later for remote Kill or Wait requests. Cursors can have any number of Tags associated with them.
 A testing-only domain for target-owned graphs.
 A testing-only domain that doesn't correspond to any in-engine use case.
 A testing-only domain that draws on a 2D canvas with a LOGO-like 'turtle' cursor.
-A>pP&
 ABCDEFGHIJKLMNOPQRSTUVWXYZ
 ADD
 ADD_FLOAT
@@ -323,11 +329,8 @@ Asynchronous - This node executes independently using a new Cursor. Formerly 'Fi
 Aug
 August
 BACKSLASH_CHAR
-BAL
-BF>^G
 BLACK
 BLUE
-B\tV_atoi
 Bad FLC data for resource '%s': %s\n
 Bad KV3 data for resource '%s': %s\n
 Bad array index %d (array has %d elements)
@@ -383,7 +386,7 @@ BinSub
 BinaryProperties_GetValue
 Black
 Blue
-Bnc
+Bool( %s )
 Boolean
 Break node reached a Method-call boundary without finding an enclosing loop.
 Breakpoint Log [%u]
@@ -948,7 +951,6 @@ Domain: %s\n
 Dot Product Vector
 Dot Product of Vector a 
 Double-save to Member '%s'
-EJj
 ELEMENT_ACCESS
 ELEMENT_ACCESS_COLOR_RGB
 ELEMENT_ACCESS_VEC2
@@ -1010,7 +1012,6 @@ External system requesting an int from the test graph
 External system requesting an int from the test graph (variant)
 ExtractModuleMetadata
 Extraneous token
-FEMh\f
 FIRST
 Fail Outflow
 Failed to allocate a lexer for '%s'. (Out of memory?)
@@ -1093,6 +1094,7 @@ FreeEnvironmentStringsW
 FreeLibrary
 Fri
 Friday
+Func( %s )
 Function signature which has been replaced after compilation.
 Function signature which will be replaced after compilation.
 Functions not supported in this evaluator (%s)
@@ -1189,7 +1191,6 @@ HH:mm:ss
 HPulseCell
 HPulseCellBase
 HYieldedCursor
-H\tV_cosd
 HammerMapLoader001
 Handle Return Values
 HandleInt
@@ -1241,6 +1242,7 @@ InputStackSystemVersion001
 InputSystemVersion001
 Insert 'element' in the given index in 'a', increasing its count by one and moving the elements after index.
 InstallSchemaBindings
+Int( %d )
 Integer
 Integer Divide
 Integer division - unlike the divide (/) node, this will truncate any remainder (floor) and return an integer.
@@ -1287,7 +1289,6 @@ Kill All Other Cursors
 Kill Cursors With Tag
 Kill Elegantly.
 Kill Immediately.
-L>ev
 LAST_SERIALIZED_CODE
 LCMapStringEx
 LCMapStringW
@@ -1495,7 +1496,6 @@ NO_FLAGS
 NULL
 NULL CELL 
 NULL_ENT
-N\tV_exp2f
 Name
 Natural logarithm (base e)
 NavGameTest001
@@ -1531,13 +1531,11 @@ OPEN_BRACKET
 OPEN_PAREN
 OP_EQUAL
 OUTPUT!%s::%s
-OZQ%
 Observable
 Oct
 October
 Offset
 Old outflow: %s\n
-Omm
 On Interval
 On True
 OnAsyncChild1
@@ -1572,6 +1570,7 @@ PLUG_TYPE_UNKNOWN
 POISONED 
 POS_FLOATLITERAL
 POS_INTLITERAL
+PO_
 PRIVATE
 PULSE_CALL_ASYNC_FIRE
 PULSE_CALL_SYNC
@@ -1613,7 +1612,6 @@ PVAL_VEC3
 PVAL_VEC3_WORLDSPACE
 PVAL_VEC4
 PVAL_VOID
-P\tV_expf
 PanelID
 Panorama Panel Handle
 PanoramaTextServices001
@@ -1665,6 +1663,7 @@ Proceed Elegantly.
 Proceed Immediately
 Proceed Immediately.
 Process Selector
+Prop( %s )
 PropertyEditorSystem_001
 Pulse
 Pulse system: minimal vpulse definition loading enabled - graphs may be incomplete!\n
@@ -1726,7 +1725,6 @@ RESOURCE_TYPE_PULSE_GRAPH_DEF
 RETURN
 RETURN_VALUE
 RETURN_VOID
-RSDS
 Rad2 Deg
 Raise pen.
 RaiseException
@@ -1980,6 +1978,7 @@ Sub R%d <- R%d - R%d
 Sun
 Sunday
 Synchronous - Wait for this node to fully complete before proceeding.
+T%d (%s)
 THIRD
 TOK_COLON
 TRIANGLE
@@ -2117,6 +2116,7 @@ VMAP
 VMDL
 VMaterialSystem2_001
 VMediaFoundation001
+VP4003
 VPhysics2_Interface_001
 VProcessUtils002
 VProfService_001
@@ -2158,7 +2158,35 @@ V_UInt16ToString_Unsafe
 V_UInt32ToString_Unsafe
 V_UInt64ToString_Unsafe
 V_UInt8ToString_Unsafe
+V_UnqualifiedFileName
+V_acosd
+V_asind
+V_atan2f
+V_atand
+V_atof
+V_atofloat32
+V_atoi
+V_cosd
+V_exp2f
+V_expf
+V_fmodd
+V_fmodf
+V_fpclassifyd
+V_fprintf
+V_isnand
+V_log10f
+V_log2f
+V_logf
+V_powf
+V_qsort_s
+V_roundf
+V_sincosf
+V_sind
+V_snprintf
+V_stricmp_fast
+V_tand
 Value 0-1 how far along duration (always 0 if duration is -1)
+Var( %s )
 Variant
 Vector
 Vector To World Vector
@@ -2186,6 +2214,7 @@ Wake Resume
 WakeAllConditionVariable
 WakeElegantly
 WakeImmediate
+Warning
 Watch For Float Value
 Watch For String Value
 Wed
@@ -2208,13 +2237,11 @@ WriteConsoleW
 WriteFile
 X to the Y power
 XML
-Y\tV_fmodd
 Yaw
 Yes
 Yield Resume1
 Yield Resume2
 Yield, Resume=%s
-Z\tV_fmodf
 [ Chunk%d ]
 [ written at chunk start last-read I%d ]
 [ written by I%d last-read I%d ]
@@ -2230,34 +2257,19 @@ Z\tV_fmodf
 [Test] Explicit Yes/No Outflow
 [Test] Int Value 50
 [Test] Random Yes/No Outflow
-[aOni*{
 [test]
 [thunk]:
 [unknown]
 \n    near %s\n    
-\n_MakeGlobalSymbol
-\n_MakeGlobalSymbolCaseSensitive
-\n_V_StringAfterPrefix
-\n_V_StringAfterPrefixCaseSensitive
 \t The lexer was matching from line %d, offset %d, which\n\t 
-\tV_UnqualifiedFileName
-\tV_log10f
-\tV_log2f
-\tV_logf
-\tV_powf
-\tV_qsort_s
-\tV_roundf
-\tV_sincosf
-\tV_sind
-\tV_snprintf
-\tV_stricmp_fast
-\tV_tand
-\tWarning
-\tcQr
-\tkE>fvw
-]\tV_fpclassifyd
-^\tV_fprintf
+\t%.*s\n
+_MakeGlobalSymbol
+_MakeGlobalSymbolCaseSensitive
 _Target
+_V_StringAfterPrefix
+_V_StringAfterPrefixCaseSensitive
+_V_strncmp
+_V_strncpy
 __CursorQueue__
 __FireCursorsParent__
 __RaceCursorsParent__
@@ -2287,6 +2299,7 @@ __unaligned
 __vectorcall
 _cells
 _class
+`EH
 `RTTI
 `adjustor{
 `anonymous namespace'
@@ -2664,8 +2677,7 @@ domain_scope
 domain_subtype_info
 dot
 double
-eF>t
-eLK(w
+e+000
 edit_context_override
 editor
 editor_canvas_item_spec
@@ -2743,7 +2755,7 @@ fmt
 frac
 friendly_name
 function not supported
-fvP
+g_pMemAlloc
 gamedata
 gameitemclass
 gameunitclass
@@ -2765,6 +2777,7 @@ hidden_in_tool
 highlight_instance_id
 highlight_node_id
 host unreachable
+id&
 identifier removed
 idiv
 illegal byte sequence
@@ -2812,11 +2825,12 @@ is_pure_value
 is_selector
 is_spontaneous
 is_state_cell
-jVg
-k=yI
+ja\v
+k#c
 key
 keyframeclass
-laQ
+ki\t
+kv3
 lambda
 legacy_name_replacement
 legacy_names
@@ -2837,7 +2851,6 @@ log2
 long
 long 
 looks like this:\n\t\t%.*s\n
-m\nXo
 m_Args
 m_AsyncChild1
 m_AsyncChild2
@@ -3126,7 +3139,6 @@ modelbreakcommand
 modelgamedata
 modelstatechoices
 moveclass
-n03>Pu
 nAsyncRet1
 nColor
 nCount
@@ -3200,9 +3212,7 @@ observable_listeners
 observable_scope
 observable_true
 observer_cursors
-obwQ4
 omni
-onI
 open_asset %s
 open_current_map_pulse_in_tool
 operation canceled
@@ -3218,7 +3228,6 @@ origin
 outbound
 output
 overrideclass
-owM&
 owner dead
 pAsyncRet2
 pCheckpointName
@@ -3341,9 +3350,7 @@ pulse_system
 pulse_system.dll
 pulse_test_example_suggestion
 purecall
-qVJ
 qangle
-r\tVr.>T
 rad2deg
 random_position
 range check failure
@@ -3371,13 +3378,11 @@ restrict(
 result out of range
 return_values
 retval
-rg3o
 rotateVector
 rotateVectorToLocal
 rotateVectorToWorld
 round
 rsqrt
-sHF'
 saturate
 scheduled_hooks
 schemasystem
@@ -3400,6 +3405,7 @@ sidelist
 sign
 signed 
 sin
+sinf
 solidclass
 sound
 source_file
@@ -3547,18 +3553,16 @@ volatile
 volatile 
 vpcf
 vpulse_c2
-wXC
-w\tV_isnand
 wchar_t
 worldTransformInverse
 world_angle
 world_point
 world_transform
 wrong protocol type
+wvec
 wvec2vec
 wxform
 xform
-ycg
 yield_token
 yields
 { className = 'IsControlFlowNode' }
@@ -3567,5 +3571,6 @@ yields
 { className='IsControlFlowNode AllOutflowsInSpecialSection IsSelectorNode' create_special_outflows_section=true }
 { item_factory = 'IntervalTimer' }
 { standard_yielding_flow = true }
+{0x%x}
 {flat}
 {for 

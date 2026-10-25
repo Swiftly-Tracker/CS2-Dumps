@@ -3,11 +3,16 @@
     Total committed memory: %d KB\n
     Total used memory:      %d KB\n
    Avg Time/Frame (%s)
+  !!""##$$$$%%%%&&&&&&&&''''''''(((((((((((((((())))))))))))))))********************************
   %52.52s%12d%12.3f%12.3f%7.2f%12.3f%7.2f%12.3f%12.3f%12.3f%12.3f\n
+  ---------- ------------  
+  ------------ ----------  
+  ------------ ------------  
+  ---------------------------------------------------- ----------- ----------- ----------- ------ ----------- ------ ----------- ----------- ----------- -----------\n
   Count  
   Scope                                                      Calls Calls/Frame  Time+Child    Pct        Time    Pct   Avg/Frame    Avg/Call Avg-NoChild        Peak\n
   what():  
- #%&(38:HJLPSUVXZ\^`cefksx}
+ %%%d.%ds 
  %%-%d.%ds 
  %02u:%02u:%02u
  ( const&, ) std::__niter_wrap<std::Catalog_info**( const&, )> (demangled)
@@ -63,9 +68,14 @@
  + light verifier
  + mem init
  + stackstats
+ - %uP/%uE
  0x%llx
  File
+ GB
  HUF_buildCTable error \n
+ KB
+ MB
+ [%llu]
  [clone 
  _Complex
  _Imaginary
@@ -172,7 +182,8 @@
  failed to dlopen "%s" error=%s\n
  failed to dlopen %s error=%s\n
  for 
- nZL
+ max. %s
+ min. %s
  new
  noexcept
  requires 
@@ -188,24 +199,28 @@
 !  note : calculated dictionary significantly larger than requested (%u > %u) \n
 !  note : larger dictionaries are not necessarily better, test its efficiency on samples \n
 !  warning : selected content significantly smaller than requested (%u < %u) \n
-!AxU
+!B9
+!I9
 !V_isempty( pSecretKey )
-"""
 "0x%llX"
 "[ARRAY]"
 "[BINARY BLOB]"
 "[EHANDLE]"
 "[POINTER]"
 #%llu
-#bML"
+#%x
 #base
 #base is NULL 
 #empty#
 #include
 #include is NULL 
 #int#
-#nyf
+$%d
+$%s
 $ORIGIN
+$TT
+$cs
+$ds
 $eax
 $ebp
 $ebx
@@ -214,15 +229,35 @@ $edi
 $edx
 $eflags
 $eip
+$es
 $esi
 $esp
 $fcw
-$ffn
+$fs
 $fs.base
 $fsw
+$gs
 $gs.base
 $ldtr
+$mm0
+$mm1
+$mm2
+$mm3
+$mm4
+$mm5
+$mm6
+$mm7
 $mxcsr
+$o0
+$p0
+$r10
+$r11
+$r12
+$r13
+$r14
+$r15
+$r8
+$r9
 $rax
 $rbp
 $rbx
@@ -233,6 +268,17 @@ $rflags
 $rip
 $rsi
 $rsp
+$ss
+$st0
+$st1
+$st2
+$st3
+$st4
+$st5
+$st6
+$st7
+$tI
+$tr
 $unused1
 $unused2
 $unused3
@@ -254,10 +300,20 @@ $xmm6
 $xmm7
 $xmm8
 $xmm9
+%%-%ds 
+%%.%if
+%%.%if%s
+%*s
+%*s%s
+%*u %zu
+%-*s 
+%-32s    
+%-32s\n
 %-4d    %-32s    %-10s    
 %-4s    %-32s    %-10s    %-10s    %-32s    %-32s\n
 %-80s : %-16s : %-32s : %s\n
-%-y5DQ
+%.*Lf
+%.*f
 %.0f pct of time accounted for\n
 %0*llx bytes at %0*llx is the largest open user-space VA region%s\n
 %0*llx bytes of %s at %0*llx%s\n
@@ -271,6 +327,7 @@ $xmm9
 %08x %s size %08x\n
 %10s:
 %10s: %11s %11s %11s %11s %11s\n
+%10s: %5i\n
 %10s: %5lld.%lld avg\n
 %10s: %5zu.%03zu s\n
 %10s: user: %zu.%03zu s, system: %zu.%03zu s, faults: %zu, peak rss: 
@@ -278,6 +335,7 @@ $xmm9
 %12s
 %14.3f %12.2f
 %14s %10s
+%2u :%7u \n
 %3d
 %3u:%3u bytes at pos %8u, savings %7u bytes |
 %6.3f: ThreadPoolTest: Testing with %d jobs! Sleep %d, interleave %d, prioritized %d \n
@@ -289,13 +347,17 @@ $xmm9
 %9d
 %I:%M:%S %p
 %a %b %e %T %Y
-%ct
+%d %d %d
 %d %d %d %d
 %d frames sampled for %.2f seconds\n
+%d.
 %d.%d.%d.%d:%d
+%f %f
+%f %f %f
 %f %f %f %f
 %hd
 %hu
+%i%s
 %i.%i.%i.%i
 %i.%i.%i.%i:%i
 %ld
@@ -308,17 +370,25 @@ $xmm9
 %llu %s entries but no formats were defined\n
 %llu,%u,%u,%s\r\n
 %llud.%02u:%02u:%02u
-%oD
+%o\f
+%p::%p:%d
+%s %c%s
+%s %d +
+%s %i %s\n
+%s %s
+%s %s %s
 %s %s %s %s
 %s %s %s %s\n
 %s %s -nominidumps
 %s %s has conflicting %s flags (child: %s%s, parent: %s%s, parent wins)\n
 %s %s has multiple help strings:\n\tparent (wins): "%s"\n\tchild: "%s"\n
+%s '%s'
 %s (%d) : %s
 %s (%d) : %s\n
 %s (%i) : %s\n
 %s (before "%s")
 %s (tweaked to NOT wait for child outflows)
+%s * %f
 %s + 0x%llx
 %s [wstring, len = %d]
 %s allocation count overflow
@@ -343,8 +413,16 @@ $xmm9
 %s test: single thread push/pop, interleaved... 
 %s total bytes in user-space regions (%s bytes in kernel-space regions)\n
 %s unable to allocate %u bytes\n
+%s%s
+%s%s#%d
+%s%s%s
+%s%s\n
+%s(
 %s.exe
+%s/
+%s/%s%d
 %s/source_engine_%u.lock
+%s: %s\n
 %s: CDwarfVector count overflow\n
 %s: Invalid lock state %d\n
 %s: ThreadPoolTest: YieldWaitPerFrameJobs - Basic test (%d jobs executed)\n
@@ -387,8 +465,12 @@ $xmm9
 %s: unable to grow count by %u (currently %u)\n
 %s: unable to load '%s', error %d\n
 %s:%d: assertion failed: %s
+%s\n
+%s_%s
 %sthread 0x%tx: 
+%u - %u
 %u CPU%s
+%u_%u_%u
 %uh:%02u:%02u
 %um:%02u
 %us
@@ -423,6 +505,7 @@ $xmm9
 &Ograve;
 &Oslash;
 &Otilde;
+&Ouml;
 &THORN;
 &Uacute;
 &Ucirc;
@@ -480,6 +563,7 @@ $xmm9
 &ordm;
 &oslash;
 &otilde;
+&ouml;
 &para;
 &plusmn;
 &pound;
@@ -505,11 +589,13 @@ $xmm9
 &yacute;
 &yen;
 &yuml;
+'%s' %s
 ':' not expected inside an array.  ('[]' used when '{}' was intended?)
 'false'
 'null'
 'true'
 ( %s ) * %f
+(%d,%d)
 (Missing)
 (None)
 (Unaccounted)
@@ -522,14 +608,9 @@ $xmm9
 (omitted %u following lines...)\n
 (omitted %u previous lines...)\n
 (unknown)
-(wPu@
 ) : AssertMsg Failed in function 
 ) : Assertion Failed in function 
-)14:;EFIJ^de
-)14:EFIJNOde\
-)EIWde
-)EVs
-)n/h%fPn
+)g6
 *(&) std::__addressof<char>(&) (demangled)
 *(&) std::__addressof<wchar_t>(&) (demangled)
 *(&) std::addressof<char>(&) (demangled)
@@ -550,10 +631,8 @@ $xmm9
 ***** OUT OF MEMORY! Attempted allocation size: %llu ****\n
 ******** BEGIN VPROF REPORT ********\n
 ******** END VPROF REPORT ********\n
-*fj\rv
 *nullptr*
 +inf
-+tPOu
 ,  Features: 
 , %uP/%uE cores
 , Frequency: %.01f %s
@@ -561,8 +640,10 @@ $xmm9
 , efficiency class %lld
 , max frequency %.01f %s
 , peak commit: 
-,!MbDg[
 ,%03d
+,f5
+,f6
+,m0
 -+xX0123456789abcdef0123456789ABCDEF
 -+xX0123456789abcdefABCDEF
 -- Background Threads --\n
@@ -574,12 +655,15 @@ $xmm9
 -- Profile scopes sorted by time (including children) --
 -- Profile scopes sorted by time (without children) --
 -- Summary --\n
-----
----------
+----------------------------------------------------------------------------------------------------------------------------------------------------\n
 ---------------------------------------------------------\nEncountered %s.\n%s minidump to %s\n---------------------------------------------------------
+-------------------------------------------\n
+--------------------------------\n
 --------------\n%3i convars/concommands for [%s]\n
 --------------\n%3i total convars/concommands\n
 --hint
+-. +0123456789.
+-0123456789
 -RestartSelfFromAlternateLocation_RelaunchTime
 -abandoned
 -attachtodebugger
@@ -596,8 +680,12 @@ $xmm9
 -testscript_inline requires -insecure
 .%0*llu
 .%03u
+.%c
 .%x.%x.copy_tmp
-...
+............| 
+...........| 
+..........| 
+.........| 
 ../public/tier0/globallist.h
 ../public/tier0/quantizedfloatencoder.h
 ../public/tier0/threadmutex.h
@@ -606,8 +694,7 @@ $xmm9
 ../public/tier0/utldict.h
 ../thirdparty/fmt/format-inl.h
 ../thirdparty/fmt/format.h
-.DZP(7'
-.Ncp
+.G9
 .build-id/
 .cfa
 .copy_tmp
@@ -621,8 +708,10 @@ $xmm9
 .gnu_debuglink doesn't have string terminator\n
 .mdmp
 .pdb
+.ra
 .raSearch
 .raSearchStart
+.so
 .so.zip
 .sym
 .txt
@@ -631,8 +720,10 @@ $xmm9
 /dev/null
 /dev/random
 /dev/urandom
+/e%s%s
 /executable
 /game/
+/k6
 /mnt/
 /mnt/symbols_
 /proc/%u/maps
@@ -651,29 +742,62 @@ $xmm9
 /sys/devices/system/cpu/cpu%u/topology/physical_package_id
 /sys/devices/system/node/node%u
 /tmp
-/yQA
+0 0
+0 0 0
+0 0 0 0
+0 0 0 255
+00000000-0000-0000-0000-000000000000
+00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899
+0123456789
 0123456789ABCDEF
 0123456789abcdef
+02!
+0a\v
+0m?
+0n?
+0o?
+0q?
+0t?
+0u?
+0v?
 0x%016llX
+0x%08X    
 0x%p
+0x?
+0y?
+1.2.11
+1.5.7
+1.8.2
+122
+127.0.0.1
 1DBlend
-2,THh
-2aNuE
-3Pzr)
-4JpI?=
+2500
+2h\v
+3h\v
+3s,
+4'Q
+4/0
+4/1
+4Vx
 4^K\fOI
-5nsfZ
+4l\v
+4v(
+4y5
+55\f
+5e5
+5x7
 64-bit DWARF format is not supported\n
-8TRb
-9QX*r
+7j#
+8j5
+8m\f
+9e\v
 : proc group %u:%u, physical ID %d, core ID %d
 ::string literal
 ::{ default arg#
-:R;uD
-:iEF
 <!-- kv3 encoding:%s:version{%s} format:%s:version{%s} -->\n
 </link>
 </script>
+<50
 << NULL >>\n
 <EOF>
 <NULL>
@@ -682,7 +806,6 @@ $xmm9
 <array: %u elements>
 <binary blob: %u bytes>
 <built-in>
-<dS\fH\t\nFE
 <img src="
 <link cmd="%s">
 <null>
@@ -698,11 +821,11 @@ $xmm9
 <undefined>
 <unknown KV3 basic type '%s' (%d)>
 <unknown>
-=9tau
-=JRJ
-???
-@aQY
-AA40J6
+>i6
+@40
+@NM
+@TM
+A'5
 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/
 AE_ACTION_SET_TURN_RATE_SCALE
 AE_BODYGROUP_SET_VALUE
@@ -822,7 +945,6 @@ AppendFormatV
 ApplyDiffs
 Apr
 April
-AsX
 Assert
 AssertMsg_ConditionFailed_Internal
 AssertMsg_ConditionFailed_State
@@ -854,7 +976,6 @@ Authenticate
 AutoLayer
 Available flags to search for: \n
 Average %.2f fps, %.2f ms per frame\n
-BEZ
 BOOL
 BREAKPAD CFI UNWIND: unwind frame to IP 0x%llx, FP 0x%llx, SP 0x%llx\n
 BREAKPAD WIN FPO UNWIND: general use of base pointer not supported\n
@@ -884,7 +1005,6 @@ BREAKPAD: reopen cached file '%s'\n
 BREAKPAD: search for '%s'\n
 BREAKPAD: try and open '%s'\n
 BREAKPAD_SYMBOL_PATH
-BTcq
 Background Thread
 Background Threads
 Bad Shortcut
@@ -927,11 +1047,11 @@ BlendList
 Blob size is larger than remaining bytes.  Blob %i/%i Blob Size: %u Bytes Remaining: %d\n
 Block
 Block-level external sequence producer returned an error code
-BmP
 BodyGroup
 BodyGroupChoice
 Bone
 Boundary_Radius
+Bq5
 Break
 Break on unknown stall cause
 BreakCommand
@@ -943,9 +1063,7 @@ Build ID too large, %d bytes\n
 Build ID too large\n
 Building dictionary\n
 BuiltDebug
-Bzw
-C-Yn
-C5yr
+C.5
 CAddAnimNode
 CAimMatrixAnimNode
 CAndCondition
@@ -1531,7 +1649,6 @@ CFA location set off the end of the FDE\n
 CFA offset set to invalid value (%llu)\n
 CFA register set to invalid value (%llu)\n
 CFA set_loc uses an invalid address\n
-CFH
 CFI
 CFI def_cfa_expression not supported\n
 CFI restore_state without pushed state\n
@@ -1666,6 +1783,7 @@ CKeyValues_Data::Internal_HasEscapeSequences() const (demangled)
 CKeyValues_Data::Internal_IsEqual(CKeyValues_Data*) (demangled)
 CKeyValues_Data::Internal_SetColor(Color) (demangled)
 CKeyValues_Data::Internal_SetFloat(float) (demangled)
+CKeyValues_Data::Internal_SetFromString() conversion error
 CKeyValues_Data::Internal_SetFromString(CKeyValues_Data::types_t, char const*) (demangled)
 CKeyValues_Data::Internal_SetHasEscapeSequences(bool) (demangled)
 CKeyValues_Data::Internal_SetInt(int) (demangled)
@@ -1845,7 +1963,6 @@ CPathString::Set(char const*) (demangled)
 CPathString::Set(char const*, char const*) (demangled)
 CPathString::base object destructor() (demangled)
 CPathString::complete object destructor() (demangled)
-CPh
 CPlayerInputAnimMotor
 CPoolAllocator::ActivePoolHighWatermark() const (demangled)
 CPoolAllocator::Allocate(unsigned int, unsigned int) (demangled)
@@ -2573,7 +2690,6 @@ CUtlVectorBase<*>::IsValidIndex
 CUtlVectorBase<*>::operator[]
 CUtlVectorEmbeddedNetworkVar<*>::IsValidIndex
 CUtlVectorMemory_Growable<*>::operator[]
-CV@@R
 CVAR_
 CVBinaryModule (demangled)
 CVBreakpadSymbolModule (demangled)
@@ -2893,7 +3009,6 @@ CatchAndWriteMiniDumpEx
 CatchAndWriteMiniDumpExForVoidPtrFn
 CatchAndWriteMiniDumpExReturnsInt
 CatchAndWriteMiniDumpForVoidPtrFn
-CdZ
 Channel Name
 CharacterSetBuild
 CheckForUnsafeInputString
@@ -2911,7 +3026,6 @@ ClothShapeCapsule
 ClothShapeList
 ClothShapeSphere
 CmpJob
-CnC
 Color
 Color has extra '%s' after values\n
 Color(r=%d, g=%d, b=%d)
@@ -3014,22 +3128,15 @@ CreateNewThreadPool
 CreateSimpleProcess
 CreateSimpleThread
 CreateUniqueId
-CuaW
-Cupv
-Cxl2i5n (demangled)
 Cycle or diamond double-reference to '%s'
 CycleOverride
-D"A/oyu
 DAMAGEORDEATH_INTERRUPTABILITY
 DEATH_INTERRUPTABILITY
 DEBUG_EXITPROCESS
 DEMO
 DEVELOPMENTONLY
-DGC
 DISCARD
 DONTRECORD
-DRI
-DRs
 DWARF
 DWARF UNWIND: CFA op %u not supported\n
 DWARF UNWIND: CFA relative to unknown register %u\n
@@ -3082,6 +3189,7 @@ DWARF: unable to find matching separate debug info for %s, check the primary fil
 DWARF: virtual extent too large (0x%llx), not supported\n
 DWARF_LOCAL_TRANSLATE
 DWARF_SYMBOL_PATH
+D\v2
 Data corruption detected
 Debug server download process failed with exit code %d
 Debug server download running more than %u seconds, aborted
@@ -3112,26 +3220,22 @@ DevWarning(char const*, ...) (demangled)
 Developer
 DeveloperConsole
 DeveloperVerbose
+Dh\v
 Dictionary is corrupted
 Dictionary mismatch
 Diff
 Discard data buffer mismatch\n
-Dk(s
-DmeC
+Dk\v
 DoAssertDialog
 DoAssertDialog: invalid Assert response returned from dialog/vxconsole - breaking to debugger
+Do\v
 Double-register of KV3 conversion (from '%s' to '%s')
 Download process succeeded but didn't write a local file
 Dumps information about all logging channels.
 Duplicate abbrev code 0x%x at 0x%x\n
-DwZ
-Dw`z
-Dx,2$E
 DynamicConfigList
-E)nT
-E9NF
+E!6
 EET
-EIde
 ELF DWARF symbols
 ELF fallback symbols
 EMPTY - ok for slot zero only!
@@ -3142,14 +3246,11 @@ ERROR: %s\n
 ERROR: CUtlSymbolTableLarge element limit of %u exceeded\n
 ERROR: DWARF breakpad CFI is incomplete, breakpad symbols are incomplete\n
 EST
-EVZ
 EXECUTE_PER_TICK
 EXPORTSYSTEM_INTERFACE_VERSION_001
 EarlyInit_Tier0
-EcT3
 EconItemToolModel_001
 EditorDynamicConfig
-EkY
 EmptyAnim
 Enabling flag '%s' on channel '%s'.\n
 Encoder alias '%s': field %s declares bits %d flags %d range [%f->%f] but field %s already declared bits %d flags %d range [%f->%f]; keeping the first definition.\n
@@ -3206,8 +3307,8 @@ Expected value.
 Expected {
 Expected }
 External sequences are not valid
-E}aj
 F/M/S %u/%u/%u 
+F70
 FAIL: !IsEmpty()\n
 FAIL: !Validate()\n
 FAIL: Not all items popped\n
@@ -3217,7 +3318,6 @@ FASTCOVER must have at least one input file\n
 FASTCOVER parameters incorrect\n
 FATAL
 FATAL ERROR: 
-FAYz
 FCMOV 
 FCVAR_ARCHIVE
 FCVAR_CHEAT
@@ -3228,7 +3328,6 @@ FDE aug data too large (%llu bytes)\n
 FDE encoded pointer 0x%llx out of range (base 0x%llx)\n
 FDE size 0x%llx out of range (start RVA 0x%x)\n
 FDE table ID 0x%x doesn't refer to a CIE\n
-FGNOXZ\^~
 FILE
 FLOAT
 FRAME UNWIND: doesn't appear to have a valid frame (frame ptr 0x%llx)\n
@@ -3262,7 +3361,6 @@ Failed to write
 Fatal Error
 Feb
 February
-FiYW
 Fiber Job
 Fiber Pool Default Worker
 FiberPoolDefaultWorker(void*)::CFiberPoolDefaultWorker (demangled)
@@ -3336,7 +3434,6 @@ FioWriteAt(int, unsigned long long, void const*, int, int*) (demangled)
 First character of flag specifier must be + or -.\n
 Flags
 FlattenedSerializersVersion001
-Flk
 Float array has extra '%s' after values\n
 Float array only parsed %u value(s) when expecting %u\n
 Float value %f above maximum %f\n
@@ -3380,9 +3477,7 @@ Free
 FreeCommandLine
 Fri
 Friday
-Fzw
 GAMEDLL
-GBx
 GCC: (SteamRT 14.2.0-19~steamrt3.1+bsrt3.1) 14.2.0
 GCoroutineMgr().IsValidCoroutine( hCoroutine )
 GENERAL_INTERRUPTABILITY
@@ -3409,7 +3504,6 @@ GLIBC_2.8
 GLIBC_2.9
 GMT
 GNU
-GQlN
 GameBlackboard
 GameResourceServiceClientV001
 GameResourceServiceServerV001
@@ -3465,8 +3559,6 @@ Goal_Distance
 Group
 GrowByChunks
 GrowCount
-H$BQ
-H(VVH
 HEAP WARNING: memory block at %p appears to be corrupt\n
 HEAP WARNING: memory block at %p is unexpectedly allocated\n
 HEAP WARNING: memory block at %p is unexpectedly free\n
@@ -3475,23 +3567,24 @@ HEAP WARNING: memory pointer %p is invalid\n
 HH:MM:SS.z
 HIGHDPI
 HOME
-HRp
 HST
 HUF_writeCTable error \n
+H\n2
 Hammer/GameDefaultFarZ
 HammerMapLoader001
+Hb\v
+He\v
 Header of Literals' block doesn't respect format specification
 Heap: standard allocator
 Heap: standard allocator pass-through to low-level\n
 HelpSystem_001
-Hh0u
 High PC attr without addr value (form %u)\n
 Hit Rate %
 Hit end of input before closing quote (%c)
 Hit end of line before closing quote (%c)
 Hits/Min
-Hj`F
 HostStateMgr001
+Hs,
 IAnimAction
 IAnimClipData
 IAnimClipDataManager
@@ -3621,7 +3714,6 @@ IFormatOutputStream::RemainingCapacity() const (demangled)
 IFormatOutputStream::SetAnchor() (demangled)
 IFormatOutputStream::SetTargetLine(int) (demangled)
 IFormatOutputStream::Terminate() (demangled)
-IFw
 IGlobalSymbolMap (demangled)
 IGraphMotionItem
 IJumpHelperAnimNode
@@ -3669,7 +3761,6 @@ INFO
 INHERITABLE_BOOL_INHERIT
 INHERITABLE_BOOL_TRUE
 INIT
-INOWY^_
 INTEGER
 INodeBlend2DItem
 IParameterProvider
@@ -3691,7 +3782,6 @@ ISequencePreviewSource
 ISequenceUser
 ISingleFrameAnimNode
 ISlopeComponent
-ISo
 ISolveIKChainAnimNode
 ISubGraphAnimNode
 ISubGraphManager
@@ -3706,7 +3796,6 @@ Ignore This File
 IgnoreAssertForADay
 IgnoreAssertsInCurrentFile
 IgnoreAssertsNearby
-IiGM>nw
 IkLockLocal
 Illegal char string format specifier '%c' (%d) in '%s'
 Illegal wchar_t string format specifier '%c' (%d) in '%s'
@@ -3720,7 +3809,6 @@ Incorrect parameters\n
 Incorrect splitPoint\n
 Indicate to a test script that a checkpoint has been reached
 Indirect FDE pointer encoding is not supported\n
-Inf
 Inflow_
 Inflow_Generic
 Inflow_Method
@@ -3822,25 +3910,22 @@ IsUniqueIdValid
 IterateCapturedStackAnnotations
 JAPANESE
 JArray
-JIxX
-JJK1
 JSON error, unterminated element: 
 JST
 Jan
 January
-Jjw[Sc
+Jh(
+Jl5
 JmpToAlternateStack
-Joa
 Job
 Jobs/Coroutines
-JrX
+Js5
 JsonEscape(char const*) (demangled)
 Jul
 July
 Jun
 June
-KJN
-KM^bM
+KL9
 KOREAN
 KV Conditional Evaluation Error
 KV Conditional: Unknown symbol %s\n
@@ -3977,9 +4062,9 @@ KeyValuesJSONParser::complete object constructor(char const*, int) (demangled)
 KeyValuesJSONParser::complete object destructor() (demangled)
 KeyValuesSystem
 KeyValuesToJSON
+Kh\v
 KiB
-Kp0qb
-Ksa}?
+L50
 LC_ADDRESS
 LC_COLLATE
 LC_CTYPE
@@ -3992,12 +4077,8 @@ LC_NUMERIC
 LC_PAPER
 LC_TELEPHONE
 LC_TIME
-LDo
 LINKED_CONCOMMAND
 LINUX
-LIT
-LLv
-LMe
 LOADING
 LODGroup
 LOG_ASSERT
@@ -4009,16 +4090,13 @@ LOG_GENERAL
 LOG_SYMBOLS
 LOG_VPROF
 LOWVIOLENCE
-LZN
 Last %u output lines:\n
 Last %u stderr lines:\n
 Launch Debugger
-LeM
 Leaked KeyValues blocks: %d\n
 LengthOfMatchingPaths
 LerpCPs
 LerpTransforms
-LhX
 Lightweight memory verifier is ON (allocation sizes %s, %uMiB reserved, %s, %s)\n
 Line %d at "%s": 
 Line %d at "%s": %s
@@ -4145,7 +4223,8 @@ LooksLikeOldSchemaText(void const*, int, KV3ID_t*) (demangled)
 Low PC attr without addr value\n
 Low-level allocator: mimalloc\n
 Lowest-level allocator stats:\n
-M8MF
+Lr,
+Lv(
 MATCHFRAMEWORK_001
 MD5Final
 MD5Init
@@ -4154,10 +4233,8 @@ MD5Value_t::IsZero() const (demangled)
 MD5_Print
 MD5_ProcessSingleBuffer
 MD5_PseudoRandom
-MDz
 MENUBAR_ITEM
-MFUL
-MGiI
+MH*
 MHz
 MMX 
 MODEL_PROCESSING_SERVICES_INTERFACE_001
@@ -4216,6 +4293,7 @@ MemAlloc_WcStrDupFunc
 MeshSimplify
 MeshSystem001
 MeshUtils001
+Mh\v
 MiniDumpAdditionalStringData_t
 MiniDumpCommentEnsureOSDescription
 MiniDumpExceptionHandler
@@ -4247,7 +4325,6 @@ MorphSuppressedShape
 MoveConstruct
 Move_Heading
 Move_Speed
-Mqe
 Msg
 Multiple -testscript commandline arguments are from different directories. The current system only supports 1 directory. Currently "%s"
 Multiple abstract origin attrs\n
@@ -4264,15 +4341,10 @@ Multiple sibling attrs\n
 Multiple specific types given, '%s' and also '%s'
 Multiple specification attrs\n
 Multiple statement lists\n
-Mvc
-N5pB
 NAN
-NJ2"v
-NLv
 NOTE: this is the total bytes of the regions above, not the growth since the old snapshot\n
 NOTHING
 NOTIFY
-NOZ[
 NO_GAME_ASSERT_DIALOG
 NO_RAISE_ON_ASSERT
 NPCAbilityHint
@@ -4283,7 +4355,6 @@ Name
 Name attr without string value\n
 NavGameTest001
 NavMesh
-NdP#
 NetworkClientService_001
 NetworkMessagesVersion001
 NetworkP2PService_001
@@ -4295,8 +4366,6 @@ NeverNetwork
 New FDs were %d and %d\n
 Newline in string literal
 NextBot
-Ngm
-NnI
 No Buffer
 No closing */ before end of file
 No error detected
@@ -4304,7 +4373,6 @@ No samples\n
 No unwind info found in FDE\n
 No valid CFA rule defined by FDE (op %u, refreg 0x%x)\n
 No valid format conversion from '%s' to '%s'
-No%>M
 NoPoseControl
 None
 Not enough data for 1-byte element array
@@ -4325,24 +4393,16 @@ Nov
 November
 Number contains invalid character 0x%02x
 Number contains invalid character 0x%02x ('%c')
-Nww
-N}zhA
-OAG
 OFF
-OFk
-OInH&
-OIw
 OS type: %s (%d)\n
+OS: %s\n
 OSTypesAreCompatible
 OSX
 OVERRIDE_MINIDUMP_PATH
-OYX
-OZw3(?
 Oct
 October
 Offset
 Offset Code Frequencies : \n
-Omj
 OnCanceled
 OnFailedToPerform
 OnFinished
@@ -4366,6 +4426,7 @@ Outflow_NPCScriptedMoveTo
 Outflow_NPCUseScriptedAbility
 Outflow_Simultaneous
 OverrideQuantizedFloatEncoderAlias
+Ow7
 PARTICLE_DEPTH_FEATHERING_OFF
 PARTICLE_DEPTH_FEATHERING_ON_OPTIONAL
 PARTICLE_DIR_NOISE_CURL
@@ -4433,8 +4494,10 @@ PM_TYPE_CONTROL_POINT
 POLISH
 PORTUGUESE
 POSIX
+PQ\v
 PRIVATE
 PROTECTED
+PS3
 PST
 PT_TYPE_CONTROL_POINT
 PT_TYPE_CONTROL_POINT_RANGE
@@ -4476,6 +4539,7 @@ Peak total virtual bytes: %s\n
 Peak working set: %s\n
 PerFrameTest_Basic
 PerFrameTest_OnlyPerFrameExecuted
+Pf\v
 PhysicsBodyMarkup
 PhysicsBoneMarkup
 PhysicsBuilderMgr001
@@ -4737,12 +4801,18 @@ Plat_gmtime64
 Plat_localtime64
 Plat_mktime64
 Plat_timegm64
-PnN%
+Pm?
+Pm\f
+Pn?
+Po?
 PointerAndPayloadBase_t::GetVoidPointer
 PointerAndPayload_t<*>::GetPointer
 PopCoroutineStack
 PopThread
 PostProcessingSystem_001
+Pp6
+Pq?
+Pr?
 Prediction
 PreviewAttachmentModel
 PreviewBoneAttachedModel
@@ -4752,25 +4822,22 @@ PreviewPresetList
 Print the current number of FDs reported by getrlimit
 Program launched from bad shortcut. Please delete this shortcut or unpin from the taskbar.
 PropertyEditorSystem_001
+Pt?
 PulseEntFireMode_t::HANDLE
 Push
 PushPopThread
 PushThread
-Q]XV
-QguI
-Qkkbal
+Pv?
+Px\n
+Q\r7
+Qb#
 Qt_GetCustomAllocators
 RAISE_ON_ASSERT
-RD?4KF?=GH?9FJ?8HL?
 RDTSC 
 RDTSCP 
 RELEASE
 REPLICATED
-REa
-RJY
 RUSSIAN
-RVfQp
-RXw
 RaiseException
 RandomFloat
 RandomFloatExp
@@ -4884,6 +4951,7 @@ ReverseChars
 Root
 Root_Motion_Speed
 Root_Motion_Turn_Speed
+Rs,
 RtlEnterCriticalSection
 RtlpEnterCriticalSectionContended
 RtlpWaitOnCriticalSection
@@ -4895,9 +4963,6 @@ RunThreadPoolPerFrameTests
 RunThreadPoolTests
 RunWithAlternateStack
 Running %s...\n
-RzR
-S;uD
-S>T7W>
 SCAN UNWIND: found reasonable frame pointer 0x%llx below retaddr, using\n
 SCAN UNWIND: found reasonable return address 0x%llx on the stack at 0x%llx\n
 SCHINESE
@@ -5076,7 +5141,6 @@ SEQUENCE_COMBINE_MODE_USE_SEQUENCE_1
 SEQUENCE_COMBINE_MODE_WEIGHTED_BLEND
 SERVER_CANNOT_QUERY
 SERVER_CAN_EXECUTE
-SIF2
 SIGABRT
 SIGALRM
 SIGBUS
@@ -5111,8 +5175,6 @@ SIGVTALRM
 SIGWINCH
 SIGXCPU
 SIGXFSZ
-SJt
-SKyu
 SPANISH
 SPONLY
 SPRITECARD_TEXTURE_ANIMMOTIONVEC
@@ -5137,7 +5199,6 @@ STRING
 STUB_GetStatStructName
 SUBMODEL_AS_BODYGROUP_SUBMODEL
 SUBMODEL_AS_MESHGROUP_MASK
-SaR|
 Sat
 Saturday
 SaveBitString
@@ -5201,7 +5262,6 @@ Setting channel '%s' color to %s.\n
 Setting channel '%s' verbosity to '%s'.\n
 Severity
 SgI
-Sgu
 Short read of args file %d < %lld\n
 ShouldAllowRestart
 Show all convars which are not at their default values (optional restricted to specific flags).
@@ -5211,7 +5271,6 @@ Sibling attr without reference value (form 0x%x)\n
 SignHash
 Size
 SkipBlanks
-Skuz
 Sleep randomly 0..net_async_job_random_sleep ms in the parallel server jobs; sleep is per job
 Sleeping
 Slope_Angle
@@ -5423,11 +5482,12 @@ Symbol name index invalid (%lld)\n
 Symbol name index too large\n
 Symbol nesting too deep\n
 Symbols
+T?0
 TCHINESE
 TEMP
 TESTSCRIPT: CheckPoint -> '%s'.\n
 TESTSCRIPT: waiting for checkpoint '%s'%s\n
-TII
+TG*
 TLS init function for 
 TLS wrapper function for 
 TMP
@@ -5438,13 +5498,11 @@ TSListTests::CListOps (demangled)
 TSListTests::CQueueOps (demangled)
 TSListTests::CTestOps (demangled)
 TSPointerList Nodes
-TX\rH
-TYT
+T\v1
 Table has potentially invalid member names and cannot be persisted
 Tags
 TargetStateBlendWeight
 Target_Move_Speed
-TcM
 Test bucket %d has an invalid value %d\n
 TestFormatA
 TestFormatB
@@ -5486,7 +5544,6 @@ Test_WaitForCheckPoint <checkpoint name> [once]: requires checkpoint name.
 Testing on %u samples of total size %u\n
 Tests done, purging test memory...
 TextLayout_001
-TfAX
 The specific type '%s' cannot be persisted
 The specific type '%u' cannot be persisted
 This convar is being accessed prior to ConVar_Register being called
@@ -5571,6 +5628,8 @@ TimestampedEvent
 TimestampedEventMsg
 TimestampedEventMsgV
 TimestampedEvent_RegisterListenerAndFlushBuffer
+Tm0
+To0
 ToLowerFast
 ToUpperFast
 Too few compact unwind index entries (0x%x)\n
@@ -5611,19 +5670,21 @@ Tue
 Tuesday
 Two Bone
 Two KV3 format GUIDs with the same human-friendly name ('%s')
+U(6
+U22
 UCS-2
 UNLOGGED
 UNWIND %u: unwind IP 0x%llx (%s); FP 0x%llx; SP 0x%llx\n
 UNWIND: unable to find debug info for %s\n
 UNWIND: unable to init dbghelp for process\n
 UNWIND: unable to load dbghelp\n
-UNhkk%
-URdN
 USED
 USER
 USERINFO
 UTF-8
 UUID_1.0
+Ud\v
+Uh(
 Uint value %llu above maximum %llu\n
 Uint value %llu below minimum %llu\n
 UnRegisterGlobalObject
@@ -5742,7 +5803,6 @@ UtlVectorMemory_Alloc
 UtlVectorMemory_AllocAligned
 UtlVectorMemory_CalcNewAllocationCount
 UtlVectorMemory_FailedAllocation
-UxA
 VALVE_CLOCK_SPEED_CALCULATION
 VALVE_TESTMODE
 VApplication001
@@ -5770,6 +5830,7 @@ VGAME
 VMAP
 VMaterialSystem2_001
 VMediaFoundation001
+VP4003
 VPLATFORM
 VPROJECT
 VPhysics2_Interface_001
@@ -5803,7 +5864,6 @@ VWMD_tier0_MiniDumpWriteDump(CVDebugProcess*, char const*, bool, VWMD_MINIDUMP_T
 VWMD_tier0_MiniDumpWriteDump(unsigned int, char const*, bool, VWMD_MINIDUMP_TYPE, _VWMD_MINIDUMP_EXCEPTION_INFORMATION*, _VWMD_MINIDUMP_USER_STREAM_INFORMATION*, _VWMD_MINIDUMP_CALLBACK_INFORMATION*) (demangled)
 VWMD_tier0_MiniDumpWriteDump(void*, unsigned int, int, VWMD_MINIDUMP_TYPE, _VWMD_MINIDUMP_EXCEPTION_INFORMATION*, _VWMD_MINIDUMP_USER_STREAM_INFORMATION*, _VWMD_MINIDUMP_CALLBACK_INFORMATION*) (demangled)
 VWebm001
-VYN
 V_AbbreviatePathInPlace
 V_AddBackSlashesToSpecialChars
 V_AppearsToBeANumber
@@ -6274,15 +6334,11 @@ ValueInitializeConstruct
 Value_Generic
 VariableDefinition
 VariantIndex
-Vbv
-Vc0a
-Vdk
 Vec3D<*>::operator+
 Vec3D<*>::operator-
 VectorWS::operator+
 VectorWS::operator-
 Version not supported
-Vgh$
 Virtual Memory %s Report for PID %u\n
 Virtual memory regions sorted by size:\n
 Virtual reservation exceeded limit /+/ %llu > %llu
@@ -6290,9 +6346,9 @@ VisBuilder_001
 VisibilityInputs
 VoidFnPtrLookup_Tier0
 Vrad3_001
-Vtube
-VuV
+V|7
 W4vC
+W;9
 WARNING
 WARNING: %s Denied a request to load '%s'\n
 WARNING: %u CFI problems encountered\n
@@ -6324,7 +6380,7 @@ WINDOWS
 WINXP
 WITH
 WORLD
-WVm.
+WO\v
 Wait
 WaitForAllDone
 Warning
@@ -6369,17 +6425,12 @@ X360HIDEF
 X360LODEF
 X360SPLITSCREEN
 X360WIDE
-XHh
+X40
 XML
 XXXXXX: found leading plus sign while parsing string '%s' as float64, ignoring it\n
-XhL
-XsBI
-Xxw
-Y5us
-YCx
+Xv(
+Y4:
 YES
-YtO
-Z.xgU
 ZDICT_addEntropyTablesFromBuffer
 ZDICT_finalizeDictionary
 ZDICT_getDictHeaderSize
@@ -6567,29 +6618,40 @@ ZSTD_toFlushNow
 ZSTD_versionNumber
 ZSTD_versionString
 ZSTD_writeSkippableFrame
-Zjz\v
 [   func+child         func ]
 [   func+child       func ]
 [ func+child         func ]
 [/code]
 [/list]
 [1;31m%s
+[1;32m:%i:
 [1;33mASSERT: 
 [A:%u:%u:%u]
+[C:%u:%u]
 [ConsoleOnly]
 [DoNotEcho]
+[G:%u:%u]
+[I:%u:%u]
+[L:%u:%u]
 [M:%u:%u:%u]
+[P:%u:%u]
 [Running headless mode, no notes collected.]
+[T:%u:%u]
 [U:%u:%u:%u]
+[U:%u:%u]
+[a:%u:%u]
 [abi:
+[c:%u:%u]
 [code]
 [friend]
+[g:%u:%u]
+[i:%u:%u]
 [img]
 [list]
+[o5
 [url=http://
 [url=https://
-\QSX9
-\f\f\f\f\f\f\f\f
+\50
 \n %u segments found, of total size %u \n
 \n%.3f: Testing %d threads:\n
 \n%d total counted strings.
@@ -6600,17 +6662,18 @@ Zjz\v
 \nOS memory stats:\n
 \nThreadPoolTest: ===== RunThreadPoolPerFrame Tests =====\n
 \n\nCMiniDumpComment encountered an error while generating the comment
-\n\n\n\n\n\n\n\n
 \r%4.2f %% \r
+\r%70s\r
+\r%79s\r
 \r%u%%       
-\rmj>zjZ
-\t6RtcZO"
+\t\t\t\n\n\n\n\v\v\v\f\f\f\r\r\r\r
 \u must be followed by exactly 4 hex digits
-\v\v\v\v\v\v\v\v
-]xEc
-^oEZ_
+\u00
+]E9
 _%d_%02d%02d_%02d%02d%02d_%d
+_%llx_%x
 _-report-_
+_C9
 _CCallStackStatsGatherer_GetSharedGlobalInstance
 _CCallStackStatsGatherer_Internal_DumpStatsToFile
 _CCallStackStatsGatherer_ReleaseSharedGlobalInstance
@@ -6624,7 +6687,6 @@ _Float
 _GLOBAL_
 _GLOBAL__N_1::generic_error_category (demangled)
 _GLOBAL__N_1::system_error_category (demangled)
-_H^zvd
 _ITM_RU1
 _ITM_RU8
 _ITM_addUserCommitAction
@@ -7376,20 +7438,19 @@ _txnal_cow_string_c_str(void const*) (demangled)
 _txnal_logic_error_get_msg(void*) (demangled)
 _txnal_runtime_error_get_msg(void*) (demangled)
 _txnal_sso_string_c_str(void const*) (demangled)
-_wWT+
-a?y#c?sIe?
-aC.B
+`MM
+`m1
+a1\n
 abandoned_page_purge
 abandoned_page_reset
 abandoned_reclaim_on_free
 abort
-aciL
-aco-nz
 acos
 acosf
 active
+ad\v
+af\v
 after alignment, the size of the arena becomes too small (memory at %p with size %zu)\n
-agW
 ai_model_info
 alarm
 aligned allocation request is too large (size %zu, alignment %zu)\n
@@ -7445,7 +7506,6 @@ animgraph6
 animgraph7
 animgraph8
 animgraph9
-aq8D
 archive
 arena_eager_commit
 arena_purge_mult
@@ -7460,6 +7520,7 @@ asin
 asinf
 assert
 assert_cast
+at+
 atan
 atan2
 atan2f
@@ -7474,6 +7535,7 @@ auto
 auto:
 auto_unragdoll_duration
 autoargs
+av5
 bForceLookAtPath
 bKill
 bReacquireAfterBreak
@@ -7506,8 +7568,6 @@ basic_string::replace
 basic_string::resize
 basic_string::substr
 basic_string_view::substr
-bbL
-bbe
 bin
 bin/linuxsteamrt64/libtier0.so
 binary_auto
@@ -7625,7 +7685,7 @@ buildid/
 burst_randomize
 burst_scale
 byte
-cO^c
+c\n2
 cable
 cache*
 calloc
@@ -7942,12 +8002,13 @@ curve
 cvar list\n--------------\n
 cvarlist
 cvarlist: [ partial ]\n
-dQy/
-dX%g
+d.1
+d/0
+d=%u\n
+d?0
 damage
 darwin
 darwin/
-deT
 debris
 debug level : %d\n
 debug_abbrev
@@ -8019,29 +8080,30 @@ dmg.bullets
 dmg.club
 dmg.explosive
 dmg.fire
+do\v
 does not use
 domain_value
 done\n
 donotecho
 double
-ds\fw
 dup
 dup2
 duration
 dxX
+dxXu
 dynamic_cast
 dynamic_interaction
 dynstr
 dynsym
+dz7
 eCombat
 eDamageOrDeath
 eDeath
 eGeneral
-eGn
-eVu#
 eager_commit
 eager_commit_delay
 eager_region_commit
+ec\v
 eh_frame
 ehandle
 elapsed
@@ -8070,7 +8132,6 @@ event_ramp
 eventfd
 eventindex
 events
-ewh/?y
 execlp
 execute_per_tick
 execvpe
@@ -8090,9 +8151,6 @@ extractbuildid -multi %u -getsrcmapopt - "%s"
 extractbuildid -multi %u -setdbg "%s" "%s"
 extractbuildid -multi %u -setsrcmap "%s" "%s"
 eye
-fAj
-fLk
-fP~V
 face
 faceMergeAngle
 failed to bind huge (1GiB) pages to numa node %d (error: %ld (0x%lx))\n
@@ -8148,12 +8206,10 @@ fork
 format
 format specifier requires numeric argument
 found %3u matches of length >= %i at pos %7u  
-fp>x
 fprintf
 fps
 fputc
 fputs
-fqUn
 frame
 frame_end
 fread
@@ -8162,19 +8218,16 @@ freopen64
 frexp
 frexpf
 friction
+fs,
 fseek
 fseeko64
 ftell
 ftello64
 ftruncate64
-fu`z
 fullbody
 fwrite
-f|TGm
-g&yR?V
-gFiiN
-gWu
-gWx
+g 6
+g5 (demangled)
 g_BitBuf_BitWriteMasks
 g_BitBuf_ExtraMasks
 g_BitStringEndMasks
@@ -8228,7 +8281,7 @@ global destructors keyed to
 glow
 gmtime_r
 got
-gqr<
+gr6
 graph
 gravity
 guard after
@@ -8282,14 +8335,11 @@ guarded_min
 guarded_precise
 guarded_sample_rate
 guarded_sample_seed
-gwP
 hEntity
 hEntityNPC
 hEntityTarget
-hLG
-hPU3
 hTarget
-hUL
+h\t7
 half
 handindex
 hardware
@@ -8302,27 +8352,20 @@ heap stats
 help
 help text
 help:  no cvar or command named %s\n
-hgn
 hidden alias for 
 hljztL
 holdevent
+ht5
 huge OS page allocation timed out (after allocating %zu page(s))\n
 hurt_me
 hurt_them
-hwe
 hypot
 hypotf
-i&Ma.
-i(char, long) (demangled)
 iOS
-i]Wb
-iak
 iconv
 iconv_close
 iconv_open
-ieg!
 ignored_assertions.txt
-ih0sUr
 ikdata
 iklockleftarm
 iklockrightarm
@@ -8434,37 +8477,25 @@ iswspace
 iswupper
 isz
 item_definition_index_t::{ctor}
-jAf
-jHq
-jPu
+j3\f
+jG*
+j_6
 java Class for 
 java resource 
 jointWeightWeight
-jpf
-jwK\v\n
-k*WBjL
-kPu
-kaE
-kdz
+k=%u\n
+k>9
+k\fC
 keyvalues3_kv1textwriter.cpp
 keyvalues3_textreader.cpp
 keyvaluessystem.cpp
-kfm
+kh(
 kill
-kmM
-knv
-koi
+kv3
 kv3format_manager.cpp
-kyc
-l6qnk
-lDa>
-lR(g 
-lab
-labM
 large_os_pages
-lcZ
+ld-
 ld-linux-x86-64.so.2
-ldE
 ldexp
 ldexpf
 length
@@ -8485,7 +8516,7 @@ linux/
 list %u best segments \n
 literal
 live process inspection, process 
-ljw
+lj\v
 locale::_Impl::_M_replace_facet
 locale::_S_normalize_category category not found
 locale::facet::_S_create_c_locale name not valid
@@ -8541,15 +8572,12 @@ loop_in_action
 loopback
 looping
 lower
+lr,
 lrucache_flush
 lrucache_reset_stats
 lrucache_set_size
 lrucache_stats
 lseek64
-lva=
-lxq
-m?H5p?
-mSx@
 m_AllowedSurfaceProperties
 m_Arg0
 m_Arg0Name
@@ -9099,9 +9127,7 @@ m_vecTailColorScale
 m_vecTexturesInput
 m_vecTraceDir
 m_velocityInput
-maT
 macos
-mad
 madvise
 mallinfo
 mallinfo.arena: %s\n
@@ -9134,7 +9160,7 @@ max_warnings
 mbrtowc
 mbsnrtowcs
 mbsrtowcs
-mcf
+md\v
 mem tracking: %s\n
 memcheck
 memchr
@@ -9154,7 +9180,7 @@ mesh_name
 mesh_references
 meshes
 message
-mhq
+mf\v
 mimalloc: 
 mimalloc: error: 
 mimalloc: warning: 
@@ -9222,6 +9248,7 @@ moodycamel::details::ConcurrentQueueProducerTypelessBase (demangled)
 moredetailed
 moveto
 mprotect
+mt19937
 mtx
 multiplayer_break
 munmap
@@ -9238,7 +9265,6 @@ nan
 nanosleep
 nav_attribute_avoid
 nav_data
-ndx
 net_async_job_random_sleep
 netadr_t::<(netadr_t const&) const (demangled)
 netadr_t::Clear() (demangled)
@@ -9281,10 +9307,10 @@ new[](unsigned long, std::nothrow_t const&) (demangled)
 new[](unsigned long, void*) (demangled)
 next_element_id
 nexttoken
+no 
 no guard
 no results\n
 no symbols
-no7=?BE
 noexcept
 noicon
 nolog
@@ -9299,7 +9325,6 @@ not found
 not in a module
 notify
 notify-send
-nuS
 null
 numa node %i: reserved %zu GiB huge pages (of the %zu GiB requested)\n
 numa nodes
@@ -9326,7 +9351,6 @@ osx*
 pAbilityName
 pClass
 pFrameBottom > m_pStackHigh || pFrameTop < m_pStackLow
-pKp\nZ
 pMessage
 pName
 pParam
@@ -9334,9 +9358,8 @@ pSearchFromEntity
 pStartEntity
 pSwitchValue
 pTarget
-pTq
 pTraceString
-pV }S
+p`6
 page with tag %u cannot be reclaimed by a heap with the same tag (using heap tag %u instead)\n
 pages
 panorama
@@ -9350,13 +9373,13 @@ particle
 particles/
 pass\n
 pathconf
-pb>pAf>
 pclose
 peak   
 peak_frame
 peak_scale
 per_user
 persistent
+pf\v
 physgun_interactions
 physical id
 physics_joint_modification_mode
@@ -9373,6 +9396,8 @@ play_endcap
 pledged buffer stability condition is not respected
 plt
 pltgot
+pm?
+pn?
 point0
 point1
 pointer
@@ -9383,6 +9408,7 @@ pose_control_type
 posix_fadvise64
 pow
 powf
+pp?
 prctl
 pre
 pread64
@@ -9437,13 +9463,11 @@ purge_extend_delay
 purged
 purges
 puts
+pv?
 pwrite64
-qEP
-qJK8
-qTp
-q\nXA
+q40
+qH*
 qangle
-qbJ
 qemError
 qsort
 qsort_r
@@ -9451,8 +9475,9 @@ quantizedfloatencoderregistry.cpp
 quaternion
 queue force advance\n
 queue max wait\n
-r%kf
-rT+6ZNw
+r10
+r11
+r12
 radius
 radius0
 radius1
@@ -9504,7 +9529,6 @@ resumecondition
 retry_on_oom
 retval
 rewind
-rgW
 rmdir
 rootNode
 rotation
@@ -9512,13 +9536,29 @@ rotation_vector
 rotation_xyz
 round
 roundf
-rq7x;P
-ru&o
-rucG
-s1Y3JrMH]
-sCB
-sK9gh
-sVwES
+s10
+s11
+s12
+s13
+s14
+s15
+s16
+s17
+s18
+s19
+s20
+s21
+s22
+s23
+s24
+s25
+s26
+s27
+s28
+s29
+s30
+s31
+s^6
 sample set too large : reduced to %u MB ...\n
 scandir64
 sched_setaffinity
@@ -9546,6 +9586,7 @@ shapeType
 short
 show_errors
 show_stats
+si5
 sigaction
 sigaddset
 sigemptyset
@@ -10945,6 +10986,7 @@ subclass
 suppress
 suppressed_shapes
 surface_prop
+sx\n
 symbol
 symlink
 symtab
@@ -10952,7 +10994,7 @@ syscall
 sysconf
 sysinfo
 system
-t#tvI
+t\v1
 table
 tableLog requires too much memory : unsupported
 tail_frame
@@ -10972,7 +11014,6 @@ test_angles_relative
 testscript_debug
 text
 texturescale
-tgi
 the arena size is too large (memory at %p with size %zu)\n
 the arena size is too small (memory at %p with size %zu)\n
 thin_element_threshold
@@ -10986,7 +11027,8 @@ tier0_strtools.cpp
 time
 timegm
 timestamped.log
-tjv
+tk\v
+tl\v
 tmp
 tolower
 too many huge pages requested: %zu\n
@@ -10999,6 +11041,7 @@ touched
 toupper
 towlower
 towupper
+tq,
 transaction clone for 
 transform
 true
@@ -11319,9 +11362,10 @@ typeinfo name for std::type_info (demangled)
 typeinfo name for std::underflow_error (demangled)
 typename
 tzset
+u/0
+u5\f
 u64( %lld = 0x%llX )
-uRDZZ
-uUv
+uc6
 uchar32
 ugc:
 uint
@@ -11329,8 +11373,8 @@ uint16
 uint32
 uint64
 uint8
-ujQD
 ull
+um1
 unable to allocate OS memory (error: %d (0x%x), addr: %p, size: 0x%zx bytes, align: 0x%zx, commit: %d, allow large: %d)\n
 unable to allocate aligned OS memory directly, fall back to over-allocation (size: 0x%zx bytes, address: %p, alignment: 0x%zx, commit: %d)\n
 unable to allocate huge (1GiB) page, trying large (2MiB) pages instead (errno: %i)\n
@@ -11599,21 +11643,34 @@ using %zd numa regions\n
 usleep
 utlmemoryarena.cpp
 utlvectormemory.cpp
-uu\T
 uuid_generate
 uuids/
 uvWeight
 uxX
-uyO
 v%i.%i.%i%s%s\n
-v,n%\nDH
-vARr5U)e
-vEu
+v10
+v11
+v12
+v13
+v14
+v15
+v16
+v17
+v18
+v19
+v20
+v21
+v22
+v23
+v24
+v25
+v26
+v27
+v28
+v29
+v30
+v31
 vH7B
-vNh
-vQO+t
-vTh
-vUu
 valgrind
 value
 vanmgrph
@@ -11635,6 +11692,7 @@ vectorws
 verbose
 version
 vfprintf
+vh(
 virtual table for 
 virtual thunk to 
 visit_abandoned
@@ -12768,11 +12826,7 @@ vtable for std::type_info (demangled)
 vtable for std::underflow_error (demangled)
 vtest
 vtune
-w!hy
-w+OQvr
-w3Xc
-wHk
-wa=jv
+w'6
 wait
 waitpid
 wakeup job
@@ -12781,7 +12835,7 @@ warning : ZSTD_compressBegin_usingCDict failed \n
 warning : could not compress sample size %u \n
 warning : pathological dataset : literals are not compressible : samples are noisy or too regular \n
 wayland
-wbJ
+wb+
 wchar_t
 wchar_t () std::__ctype_abstract_base<wchar_t>::tolower() const (demangled)
 wchar_t () std::__ctype_abstract_base<wchar_t>::toupper() const (demangled)
@@ -12911,7 +12965,6 @@ wcstoull
 wctob
 weldPositionTolerance
 weldVertices
-wet
 width
 width/precision is not integer
 width/precision is out of range
@@ -12922,44 +12975,49 @@ wmemcmp
 wmemcpy
 wmemmove
 wmemset
-wn>Jj
-wo=N
 workSpace buffer is not large enough
-wqBv/?
 write
-wsbdp
-wsj=
-xSvf$
-xYiu
-x`tm6
+x10
+x11
+x12
+x13
+x14
+x15
+x16
+x17
+x18
+x19
+x20
+x21
+x22
+x23
+x24
+x25
+x26
+x27
+x28
+x29
+x30
+x86
+x86_64
 xdigit
-xtm
-xuRCk
-yJI
-yTu=
-y]So
 yaw
 yaw_end
 yaw_start
+yd\v
 yes
-z3zr
-z:KEZ
-zES
-zEz
-zN,W
-zQ3W
-zZg
-z^KD
-z`%1Is}
-zc%C1
-zs}O
+yx\n
 { lambda
 { parm#
 {default arg#
-{kHw
 {lambda
 {parm#
 {unnamed type
 {unnamed type#
+{}0.{:0>{}s}{}
+{}[]()=&, \t\n'"*;
+{}[]=, \t\n'":|;
+{}{}{:0<{}s}.0
+|j6
+|m0
 ~DSTRCT
-~viF
