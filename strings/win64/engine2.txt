@@ -146,8 +146,8 @@
  %4u Delta Frames  = %12s bytes\n
  %4u Hltv Frames   = %12s bytes\n
  %4u stashed frames = %12s bytes
+ %c
  %d
- %e
  %f
  %i refs\n
  %s
@@ -168,18 +168,21 @@
  -component "%s"
  -noscreenshot
  -product "%s"
- 0c
- 0e
- 1m
+ 0d
+ 1d
+ 2d
  2e
  2l
+ 3c
  3l
+ 4c
  4e
- 5c
- 5e
- 5m
- 8m
- 9m
+ 6c
+ 6d
+ 7m
+ 8c
+ 8e
+ 9c
  : Extraneous input - expected %s ...\n
  : Extraneous input - expected <EOF>\n
  : Extraneous input...
@@ -195,11 +198,10 @@
  : syntax not recognized...\n
  : unexpected input...\n  expected one of : 
  = { <proto text format> }". To set fields within it, use syntax like "
- Ac
- Ae
+ Ad
  Base Class Array'
  Base Class Descriptor at (
- Bd
+ Bm
  CBaseClient::ProcessCreateStringTable(%s)-done
  CPU %s Threads %d\n
  CServerSideClientBase::ProcessClassInfo
@@ -209,45 +211,40 @@
  CServerSideClientBase::SendSignonData
  Class Hierarchy Descriptor'
  Complete Object Locator'
+ Dc
  Driver %s (vendorid %x, deviceid %x DXSupport Level %d)\n
- Ec
- Gc
+ Fe
  Gd
- Hc
  Hz, num render channels: 
- Jd
- Km
- Ld
+ Il
  LinePos:
- Md
+ Nc
  Not all fragments ready [+%d][tick+%d]. %d, %d.\n
  OVERFLOW range [%5d->%5d = %5d cmds]
- Oc
- Od
  Om
  Outdent() without matching Indent().
  Pm
- Sc
+ Qd
+ Ql
  String table memory      : %12s bytes\n
- Td
- Tl
  Tokenizer::ParseFloat() passed text that could not have been tokenized as a float: 
  Tokenizer::ParseStringAppend() passed text that could not have been tokenized as a string: 
  Type Descriptor'
- Wd
- Yl
+ Ul
+ Vc
+ Yc
+ Zc
+ Zd
  [%s] %d:%s 
  [%s] %d:%s(%s) 
  [%s] %d:%s(%s) compressed from %u down to %u
  [default = $0
  [max spawn group creation sequence to (%u)]
  a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
- aJ
  adr
  args were given.  Full format string was: "
  at block 
  avi = .avi video and audio\n
- bd
  blocks
  blocks.
  by IP
@@ -257,71 +254,66 @@
  cQ
  cannot be required.
  changing AEC3 parameter value from 
- cl
  conflicts with an existing enum type.
  conflicts with an existing field.
  conflicts with an existing nested message type.
  conflicts with an existing oneof type.
  contains invalid UTF-8 data when 
  cpu_fast = favors encoding speed over quality when encoding without hardware acceleration\n
- dd
+ db
+ dc
  definition file imports the proto which defines the option.
  delay %.1fs
  delete
  delete[]
+ dj
+ ed
  exceeded maximum protobuf size of 2GB: 
- fc
  for the first time
  frame snapshot pool      : %12s allocated     -> %12s bytes\n
  framerate mmm = sets fixed framerate for recording, default %d\n
- gb
- gl
  has the same name as 
- hl
- id
+ hm
+ ib
+ ic
  if you ignore case and strip out the enum name prefix (if any). This is error-prone and can lead to undefined behavior. Please avoid doing this. If you are using allow_alias, please assign the same numeric value to both enums.
  is not evenly divisible by 
  is unused.
- jb
  jpeg_quality nnn = sets jpeq quality to nnn (range 1 to 100), default %d\n
  jpg/jpeg = outputs .jpg files\n
- kb
- kc
+ kd
  mb
  message of type "
  mp4 = .mp4 video and audio\n
  name\n
- ne
+ nb
  never used\n
  new
  noexcept
  not found
- od
+ ob
+ oc
  path(%u = '%s/')
- pc
- pl
+ pd
  png = outputs .png files\n
- q4
  quit = quit when movie recording stops\n
  raw = outputs .tga + .wav file (same as default)\n
+ rc
  tP
- td
+ tc
  tga = outputs .tga files\n
+ tl
  type does not match\n
- ud
- ul
- um
- vb
- vc
  volatile
  wav = write .wav file\n
  wb
  webm = .webm video and audio\n
  with bitrate=%dMbps
- wl
  xb
- xd
+ xl
+ yc
  yd
+ ym
  | gain_db: 
  | headroom_db: 
  | identity: 
@@ -341,7 +333,6 @@
  }}}, gain_controller2: { enabled: 
 !!!FIXME:  SOSGetOpvarFloat API not ported\n
 !!!FIXME:  SOSSetOpvarFloat API not ported\n
-!OB
 !engine_frametime_warnings_enable
 !m_bNeedsSort
 " because it is missing required fields: 
@@ -419,6 +410,7 @@
 "MapEnd"
 "MutableRawRepeatedField"
 "\nis running without a known mod!\n\nSet the VMOD environment variable or run with -game to set the mod name.\n
+"bj
 "e" must be followed by exponent.
 # of seconds to wait after final client leaves before hibernating.
 # userid name uniqueid connected ping loss state rate
@@ -503,7 +495,9 @@
 #Valve_SelectLanguage_Turkish
 #Valve_SelectLanguage_Ukrainian
 #Valve_SelectLanguage_Vietnamese
+#ej
 #end\n
+#ie
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 $0  extend .$1 {\n
 $0  extensions $1 to $2;\n
@@ -514,6 +508,8 @@ $0enum $1 {\n
 $0message $1
 $0oneof $1 {
 $0option $1;\n
+$Qe
+$ie
 $tI(knN
 % 4d : %s matched to %s\n
 % 5d: % 5d\n
@@ -589,6 +585,7 @@ $tI(knN
 %6sms
 %8.8s: %-5d entries, '%s', ...
 %Lg
+%OB
 %Y-%m-%d-%H_%M_%S
 %\v%\v%\v%\v%\v%\v%\v%\v%\v%\v%\v%\v%\v%\v%\v%\v
 %c%c%c%c%c%s
@@ -618,7 +615,6 @@ $tI(knN
 %d: rgb(%d, %d, %d) : hsv( %g, %g, %g ) : %s%s\n
 %d:%d
 %d:%s
-%ej
 %f %f %f
 %f FRAME end %d server ticks, %d client ticks (%.2fms elapsed)\n
 %f FRAME end %d ticks (%.2fms elapsed)\n
@@ -876,92 +872,91 @@ $tI(knN
 %u:%u:%u
 %u[%d items changed]
 %u\n
-&bj
 &cj
 &final
 ' (found in trial: "
 ' in trial: "
 '%s' already awaiting full update\n
 '%s' is malformed\n
-'PB
 (%d,%d)
 (*MARK) must have an argument
 (*VERB) not recognized
-(1d
-(2c
-(3c
-(4d
-(4m
-(5d
+(0c
+(3e
 (64-bit process)
-(7c
-(7d
+(6e
+(6m
 (7e
+(9d
 (?R or (?[+-]digits must be followed by )
-(Be
-(Dd
+(Ac
+(Ae
+(Cc
+(Cd
 (Direct Routing)
+(Ec
 (Expecting %s)
 (Expecting EOF)
 (Fd
-(Jc
-(Kd
+(Id
+(Jd
+(Kc
 (Mc
-(Nd
 (None)
-(Pd
-(Qe
+(Oc
+(Pc
+(Rd
 (Relay)
-(Uc
-(Ud
+(Sc
 (Untested Direct Routing)
-(Xc
+(Wc
 (Xm
-(bc
+(Yj
+(Zj
+(Zm
+(ab
+(ac
+(ae
+(bb
 (cQ
 (cannot determine missing fields for lite message)
-(cc
 (channel = 
-(db
 (dump took %.1fms)\n
+(em
 (end of input).\n\t This indicates a poorly specified lexer RULE\n\t or unterminated input element such as: "STRING["]\n
-(fj
+(fb
+(fc
+(fl
 (fm
 (gd
-(hb
-(hc
-(ie
-(jm
-(km
-(lb
-(ld
-(mc
+(jb
+(kc
 (merge 
-(nc
-(nl
-(nm
+(ml
 (no landmark)
 (no reason given)
 (no server running)
 (none)
 (null)
 (nullptr)
-(qc
-(rb
+(od
+(ol
+(pc
+(pm
+(qb
 (rd
 (root)
-(sc
+(sb
 (sd
 (secure mode enabled, connected to Steam3) 
 (secure mode enabled, disconnected from Steam3) 
-(sl
 (unknown)
-(wd
-(xc
-(zb
-(zl
+(vb
+(vc
+(xd
 ) failed.
 )", which is not defined. The innermost scope is searched first in name resolution. Consider using a leading '.'(i.e., "(.
+)MB
 )VG
 *                                                  *\n
 *  Connections will be restricted to LAN only.     *\n
@@ -976,14 +971,15 @@ $tI(knN
 ***PROTECTED***
 *.sav
 *.vpk
+*47
 *LANGUAGE*
 *MOVE=>
-*PB
 *\f*\f*\f*\f*\f*\f*\f*\f*\f*\f*\f*\f*\f*\f*\f*\f
 *` histogram stats.
 ++CBaseSpawnGroup
 ++CNetworkGameClientBase
 ++CNetworkGameServerBase
++KB
 +alt
 +bugvoice
 +ctrl
@@ -1034,7 +1030,6 @@ $tI(knN
 , window_length: 
 ,%d
 ,<ellipsis>
-,Fe
 - plays a demo file\n
 -%d
 -%s %d\n
@@ -1058,6 +1053,7 @@ $tI(knN
 --startmovie
 -> Reservation cookie %llx:  reason %s\n
 -DT
+-LB
 -Stop: 
 -all
 -applaunch %d
@@ -1069,7 +1065,6 @@ $tI(knN
 -consoleapp
 -consolelog
 -diff
--dj
 -dx11
 -empty
 -end of input-(
@@ -1191,136 +1186,134 @@ $tI(knN
 /src/
 /sync
 /sync?fragment=%d
-/zC
 0 0
 0 0 0
 0 0 0 0
 0 0 0 255
-0"c
+0!c
+0!e
+0!m
+0"m
 0#d
-0%c
-0%d
-0%m
-0'e
-0'm
-0(d
-0*c
-0*m
-0+d
+0$c
+0$d
+0%e
+0&d
+0'd
+0(c
+0(e
+0)e
+0)m
+0+m
 0,C
-0,e
+0,d
+0-c
+0.d
 0.f < noise
-0/c
-0/e
 00000000-0000-0000-0000-000000000000
 00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899
-00d
+00e
 0123456789abcdef
 0123456789abcdefghijklmnopqrstuvwxyz
 01e
-02d
+02c
 03d
-03j
+03m
 04c
-06d
+05c
+05d
 06l
+07c
 07l
-08c
 08d
-08e
 09:02:57
+09l
 0: run all send jobs on main thread; 1: send jobs run asynchronously (except on dedicated server); 2: send jobs asynchronously; 3: send jobs run in parallel but block to not overlap the next tick; 4: main server clients' send jobs run in parallel, then HLTV server jobs; this approximately matches pre-async profile for a single HLTV server configuration
-0:c
+0:l
+0;d
 0;e
-0<d
-0<m
+0<c
 0=Off, 1=Surface Wireframe, 2=Transparent Wireframe
 0=Off, 1=Visualize trace from camera, 2=Visualize occlusion, 3=Visualize far field trace from camera
-0>l
+0=l
 0?PU5?
 0?c
-0?e
-0?l
 0@c
 0@d
-0@e
-0Ad
-0Bc
-0Dc
+0@m
+0Be
+0De
 0Ed
+0Gc
 0Go
+0Hc
 0Hd
-0Il
-0Im
-0Kc
-0Lc
-0Nc
+0Jc
+0Kd
+0Ld
+0Md
+0Mm
+0Nd
 0Nm
-0Pc
-0Qd
-0Ql
-0Rc
-0Rm
+0PB
+0Rl
+0Sd
 0Sm
-0Ul
-0Vc
+0Uc
+0Ud
+0Wd
 0X.
+0Xc
 0Xd
-0Yd
-0Yj
-0Zc
-0[j
-0\fd
-0\fm
-0\nc
-0\rd
+0Xl
+0\c
+0\rc
 0\tc
-0\ve
-0^c
-0^j
-0_b
-0_j
+0^d
+0^l
 0`d
-0bb
+0bc
 0cQ
+0cc
 0cd
 0cm
-0ec
-0fb
-0fd
 0gm
-0hd
-0jc
+0hb
+0hc
+0id
+0im
 0jd
+0jl
 0kE
+0kl
+0ld
 0lj
+0mc
+0md
+0nc
 0nd
-0ob
-0oc
+0om
 0pb
-0pd
-0qb
+0qc
 0qd
-0rc
-0sm
-0tl
+0rl
+0sc
 0tr
-0uP
-0ub
-0uc
 0vd
+0vl
 0wG
+0wd
+0wl
 0x%x,
-0xP
-0xl
-0xm
-0zc
+0xc
+0yP
+0yb
 0zd
-0{m
-0|d
-0|m
-0}c
-0~b
+0zm
+0{d
+0}b
+0}l
+0~l
 1 = Pause the game when pressing ~ to open the console. CTRL+~ opens the console without pause.
 1 = Unpause the game when pressing ~ to close the console. 0 = Leave the game paused.
 1#IND
@@ -1330,88 +1323,105 @@ $tI(knN
 1.2.11
 127.0.0.1
 1:1: Tokens : ( T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | TOK_COLON | OPEN_BRACE | CLOSE_BRACE | OPEN_PAREN | CLOSE_PAREN | OPEN_BRACKET | CLOSE_BRACKET | SEMICOLON | OP_EQUAL | COMMA | DOUBLE_AND | NEGATIVE_TOK | DOUBLE_OR | LITERAL_TRUE | LITERAL_FALSE | POS_INTLITERAL | POS_FLOATLITERAL | SCOPE_QUALIFIER | ID | DOUBLE_QUOTED_STRING | SINGLE_QUOTED_STRING | SINGLE_LINE_COMMENT | ML_COMMENT | WS | UNRECOGNIZED );
+1V!
 2 8
+2+F
 200000
 2]V
+3$B
 3$EE\f
 30000
 488:1: POS_FLOATLITERAL : ( ( DIGIT )+ '.' ( DIGIT )* ( EXPONENT )? | '.' ( DIGIT )+ ( EXPONENT )? | ( DIGIT )+ EXPONENT );
 48T
-4OE
 4\V
 4\vy
+4|P
 5-A
 5Cl
 64-bit
-6kK
-6|P
 7SE
 7z>
-8 c
-8#c
-8#e
+7|1
+8!d
+8"c
+8$e
 8%Q
-8%e
-8'c
+8%c
+8'e
+8*c
+8*e
 8*l
-8,c
-8,m
-8-m
-8/m
-81c
-83e
-85c
-86c
-86e
-86m
-89d
-89l
-8;l
-8=l
-8>c
-8>d
-8Am
-8Cc
-8Cd
-8Ce
-8Ee
-8Fc
-8Gc
-8Ic
-8Jm
-8Ld
+8-d
+8-e
+8/c
+80m
+81m
+84d
+84e
+86d
+87d
+88c
+89e
+89m
+8:c
+8:m
+8<l
+8=d
+8?e
+8@e
+8@l
+8Ad
+8Bd
+8Km
+8Lc
+8Nc
+8Od
 8PB
-8Rd
-8Tc
-8Vd
-8Wc
-8[d
-8\fc
+8Pl
+8Qc
+8Rc
+8Td
+8Vc
+8Vl
+8Wl
+8Yd
+8[c
+8\fd
+8\fe
+8\nc
 8\nl
-8\re
-8^d
-8`b
+8\rm
+8\td
+8]d
+8_c
+8_d
+8_j
+8ac
 8ad
+8ae
 8b  16-May-2010
-8bc
+8bd
 8cQ
 8cb
-8fl
-8gb
-8gc
-8kd
-8lc
-8ml
-8od
-8ol
-8pc
-8wc
-8ym
-8{b
-8{d
-8}b
-8~c
-8~d
+8eb
+8ec
+8fd
+8hd
+8ib
+8jc
+8jm
+8oc
+8pd
+8rc
+8td
+8ub
+8uc
+8yl
+8zb
+8zc
+8{l
+8|b
+8}c
 :    processpacketentities: server executed through command %d\n
 : Tried to copy from a message with a different type. to: 
 : failed to parse contents
@@ -1419,23 +1429,23 @@ $tI(knN
 : start: 
 :%d
 ::ExecGameTypeCfg
+:dj
 ;?0123456789:;<=>?
+;SB
 ;lD
 <<unknown>>
 <DOWN>
 <EOF>
 <EOR>
-<Qe
 <Unknown>
 <array: %u elements>
 <binary blob: %u bytes>
+<bj
 <cj
 <ellipsis>
 <empty member name>
 <empty>
-<ie
 <invalid>
-<mC
 <missing 
 <missing>
 <no failure reason set>
@@ -1455,69 +1465,69 @@ $tI(knN
 === %sEntity List Summary (%s) ===\n
 === FRAME ===  %s\n
 === Total: %s/%s %s entities%s ===\n
-=HD
-=dj
+=PB
+=RB
+=ej
 >>> %s: %s\n
->bj
 >fff?fff?fff?fff?invalid_hitbox
 ?333?
 ?UUUUUU
 @ Current  :  %s\n
-@1d
-@4d
-@7d
+@%d
+@1c
+@4m
+@6c
 @7e
-@7m
 @8l
-@9c
-@9e
-@Be
+@Bc
+@Cc
+@Ce
 @Cm
-@De
+@Dc
+@Dd
+@Ec
+@Ee
+@Fc
+@Fm
+@Hl
+@Ic
+@Im
 @Jc
-@Kd
-@Mc
-@Od
-@Qc
-@Rl
-@Sd
-@Uc
-@Ud
+@Jl
+@Kl
+@Md
+@Ol
+@Pc
+@Pd
+@Rm
+@Tc
+@Vd
+@Wc
 @Wm
-@Xl
-@Yc
-@Zc
-@Zd
-@Zm
 @ab
-@aj
-@dc
-@eb
-@ed
-@ib
-@ic
-@jl
-@kl
-@md
-@mm
-@nb
-@nc
-@ne
-@pm
-@qc
-@rl
-@rm
+@dd
+@gb
+@gc
+@il
+@kb
+@kd
+@lb
+@lc
+@lj
+@ll
+@lm
+@pc
+@rb
 @sb
+@sm
 @tb
-@tc
-@tm
-@vl
+@uP
+@ud
+@um
 @wP
-@wl
-@wm
-@yP
-@yb
-@yc
+@wc
+@xP
+@xm
 @zD
 A command with the specified name already exists. Cannot create an alias with the same name.\n
 A dB floor of when to stop transmitting packets, the volume between this and voice_threshold will still transmit packets to allow for volume ramping.
@@ -1547,7 +1557,6 @@ API
 APM configuration not valid: 
 APPSYSTEM: In ConnectInterfaces(), s_nRegistrationCount is %d!\n
 ARGB8888
-ATB
 ATI1N
 ATI2N
 ATI_TC_CalculateBufferSize_Wrapper
@@ -1608,7 +1617,6 @@ Adds a splitscreen user.
 Adds an I/O connection that will call the named function on the passed entity when the specified output fires.
 Adds an I/O connection that will call the named function on this entity when the specified output fires.
 Adobe APP14 marker: version %d, flags 0x%04x 0x%04x, transform %d
-Aej
 After this many seconds without a message from fully connected client, the client is dropped
 After this many seconds without receiving a packet from the server, the client will disconnect itself
 Agc2
@@ -1724,7 +1732,6 @@ Automatically broadcasts all games as GOTV[1] demos through Steam.
 Automatically records all games as SourceTV demos.
 Avestan
 AwaitAsyncJobs
-B/7
 BACKSLASH_CHAR
 BC6H
 BC7
@@ -1737,6 +1744,7 @@ BGRA8888_LINEAR
 BGRX8888
 BGRX8888_LINEAR
 BOT
+BPB
 BROADCAST
 BSR_ANYCRLF)
 BSR_UNICODE)
@@ -1894,6 +1902,7 @@ By default, player must ack delta ticks in order. How to enforce it: 2 = kick al
 By default, player must maintain a reliable connection to Steam servers. When player Steam session drops, enforce it: 2 = instantly kick, 1 = kick at next spawn, 0 = do not kick.
 Bypass secure challenge on TV port
 C2S_CONNECTION_Message_t::GetProtobufBinding()->WriteToBuffer failed\n
+C9E
 C:\buildworker\csgo_rel_win64\build\_build_\engine2\_vpc_engine2\default\win64\_msvc_\Retail\engine2.pdb
 C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp
 C:\buildworker\csgo_rel_win64\build\src\common\protobuf_helpers.cpp
@@ -3007,6 +3016,7 @@ DOUBLE_OR
 DOUBLE_QUOTED_STRING
 DOUBLE_QUOTE_CHAR
 DOWNSTREAM (server->client)
+DSB
 DXT1
 DXT1_ONEBITALPHA
 DXT3
@@ -3933,49 +3943,46 @@ Green
 Groups are not supported in proto3 syntax.
 Gujarati
 Gurmukhi
-H"c
-H"e
-H#d
-H&c
-H'd
-H'e
+H!c
+H#e
+H$c
+H$d
+H%e
+H&e
 H(d
-H+c
+H)c
+H)d
+H*m
+H.c
 H.l
+H.m
 H/l
-H0c
-H0e
-H0m
-H1m
-H2e
-H4e
+H0d
+H1d
+H2d
+H2m
+H3c
+H3d
+H5d
 H5l
-H8c
-H8d
-H9$
-H9m
-H<l
-H=d
-H@c
+H5m
+H8e
+H9c
+H:e
+H;e
+H;m
+H<d
+H=c
+H>e
 H@d
-H@l
-HAc
-HAe
-HBc
-HBd
-HCc
-HEc
-HEe
-HFm
-HGd
-HGm
+HBe
+HDe
+HFd
+HFe
 HH:mm:ss
 HHc
-HHd
-HHm
-HId
 HJN
-HJd
+HJm
 HK$
 HLTV
 HLTV Broadcast
@@ -3987,31 +3994,23 @@ HLTV send full frame %d: %d bytes\n
 HLTV:  SetSignonState( %s )\n
 HLTV:maxplayers set to %i\n
 HLTVServerAsync
-HMd
-HMm
-HOc
-HPd
-HPl
+HLd
+HNd
+HQd
+HQl
+HRc
 HSR_GAME_REMOTE_CHANGELEVEL_RECONNECT
-HSc
-HTd
 HUD
-HVc
-HVd
-HVl
-HWd
-HWl
-HYd
-H[c
-H\fd
-H\fe
-H\rm
-H\td
-H\vc
-H\vd
+HUm
+HYc
+HZc
+HZd
+H\d
+H\rd
+H\te
 H\vl
-H]d
-H_m
+H^c
+H`C
 HammerMapLoader001
 Han
 Handle Return Values
@@ -4021,18 +4020,18 @@ HardCancel
 HasField
 HasLegacyGameUI
 HasModAppSystems
-Hbd
+Hbb
 HcQ
-Hdd
+Hdb
+Hdc
 Hebrew
+Hed
 Hello world!
 HelpSystem_001
 Hex and octal numbers must be integers.
-Hfb
-Hfc
-Hfd
+Hhb
 Hibernating
-Hid
+Hic
 Hide the console.
 Hides the game UI
 Highest unlocked game chapter.
@@ -4040,9 +4039,7 @@ Highlight expensive physics objects
 Highlight expensive physics objects strength
 Hiragana
 Hjb
-Hjd
-Hkb
-Hkc
+Hkm
 Hltv Replay
 Hltv Replay Failure: cannot find stash %d\n
 Hltv Replay failure: HLTV frame is not ready\n
@@ -4052,7 +4049,10 @@ Hltv Replay failure: inconsistent parameters scheduling stashed replay in the fu
 Hltv Replay failure: requests are rate limited to no more than 1 per %g seconds\n
 Hltv replay delay %u cannot match the requested delay %u\n
 Hmb
-Hoc
+Hnb
+Hnc
+Hnm
+Hob
 Host SourceTV[0] port
 Host SourceTV[1] port
 Host activate: %s\n
@@ -4068,32 +4068,25 @@ Hostname for server.
 How far back before our current playback head in seconds to hold onto fragments.
 How long to show the message about Killer Replay after death. The best setting is a bit shorter than spec_replay_autostart_delay + spec_replay_leadup_time + spec_replay_winddown_time
 How often to flash demo recording/playback overlay (0 - disable overlay, -1 - show always)
-Hqb
-Hqd
-Hqm
-Hrc
-Htd
-Hub
-Hud
+Hqc
+Hsd
+Htc
 HudUpdate
 Huffman code size table overflow
 Huffman table 0x%02x was not defined
+Hul
 Hungarian
-Hvb
-Hvc
 Hwb
-Hwd
 Hxb
-Hxd
+Hyc
 Hyd
-Hyl
-Hzm
-H{c
-H{l
-H|b
-H~b
+Hzl
+H|d
+H|l
+H~c
 I could not work out what I was expecting, like so many of us these days!\n
 IA88
+ID (demangled)
 ID filter list has %i entries\n
 ID: %i, "%s" %s, Time %s, %s, In %.1f, Out %.1f.\n
 ID_CHAR
@@ -4119,7 +4112,6 @@ INTERNAL ERROR: Cannot convert or reinterpret from %s to %s
 INVALID_CPPTYPE
 IO Failure
 IP filter list has %d entries\n
-IPB
 IPulseInstanceLoadAPI
 IPulseInstanceSaveAPI
 IPulseSystem_001
@@ -4273,7 +4265,6 @@ IsValidLocale
 IsValidLocaleName
 Issue an rcon command.
 Italian
-J/7
 J7ms
 J?PUU?
 JFIF APP0 marker: version %d.%02d, density %dx%d  %d
@@ -4333,9 +4324,7 @@ Knm
 Known Peer State "%s"
 Known by handlers: 
 Korean
-K|1
 L %02i/%02i/%04i - %02i:%02i:%02i: %s
-L=K
 LATE
 LCIDToLocaleName
 LCMapStringEx
@@ -4366,6 +4355,7 @@ Latest:%6.2f   Excess:%6.2f   Actual:%6.2f..%6.2f (@%d,%d)   Est:%6.2f..%6.2f (@
 Latin
 Launch path: %s\n
 LayeredOnMod
+Lbj
 LeaveCriticalSection
 LeavePVS
 LegacyGameUI001
@@ -4471,7 +4461,6 @@ Lost RCON connection, please retry command\n
 Low
 Lycian
 Lydian
-Lz=
 M0>B
 MARK
 MATCHFRAMEWORK_001
@@ -4521,6 +4510,7 @@ MPulseRequirementCommit
 MPulseSignatureForOutflow
 MPulseValuePure
 MQC,ARD
+MRB
 MSAADefaultNonVR
 MVDataNodeType
 MVDataOverlayType
@@ -4681,7 +4671,6 @@ Multiply specified convar value.
 MutableMessage
 MutableRawRepeatedField
 Myanmar
-N.7
 NAN
 NAN(IND)
 NAN(SNAN)
@@ -4693,6 +4682,7 @@ NETWORK_DISCONNECT_REJECT_SERVERFULL to %s: Cannot get free client\n
 NETWORK_DISCONNECT_REJECT_SERVERFULL to %s: GetNumClients()[%d] - GetNumFakeClients()[%d] + numSlotsRequested[%d] > m_numGameSlots[%d]\n
 NET_Tick
 NEWLINE
+NID
 NO SUNLIGHT/CSMs HERE, SHADOW ATLAS FREE - OPTIMAL SHADOWED DLIGHT PLACEMENT HERE.
 NO VIEWMODEL SUNLIGHT/SHADOWS. SUNLIT AREAS STILL VISIBLE TO/FROM HERE.
 NON-DELTA
@@ -4817,6 +4807,7 @@ Number of seconds to skip back to instant replay from live
 Number of seconds to track failed rcon authentications
 Number of times a user can fail rcon authentication in sv_rcon_minfailuretime before being banned
 Numbers starting with leading zero must be in octal.
+OB (demangled)
 OFFICIAL_ADDONS
 OPEN_BRACE
 OPEN_BRACKET
@@ -4829,7 +4820,6 @@ Obtained XMS handle %u
 Oct
 Oct 22 2026
 October
-Odj
 Ogham
 Ol_Chiki
 Old outflow: %s\n
@@ -4932,86 +4922,86 @@ OverrideQuantizedFloatEncoderAlias
 Overrides the SourceTV master root address.
 Overrides the max players reported to prospective clients
 Overriding minidump handler with Engine2MinidumpFunction\n
-P c
-P!d
-P!m
-P#c
-P$e
-P%d
-P%e
-P&d
-P&e
-P(c
-P(m
-P*e
+P e
+P"c
+P"d
+P%c
+P&c
+P&m
+P'e
+P*d
 P+4
-P-c
+P+c
+P+e
+P,d
+P-e
 P-l
-P.D
-P/d
-P0d
+P/m
+P0c
 P1l
-P2c
+P2e
 P2l
-P3c
-P3j
+P3e
 P3l
 P4File
+P4e
 P4l
-P4m
-P5d
-P6d
-P7c
-P8e
+P5c
+P5e
+P6e
+P8c
+P8m
+P9d
 P9e
-P:d
-P;c
-P;m
-P<K
-P<c
+P;l
+P<m
 P=Q
 P>d
 P>r
 P?PUU?
-P?e
 P?fff?33s?{
-P?m
+PAc
+PAd
+PAe
+PAm
 PBDEMS2
+PBm
 PCRE does not support \L, \l, \N{name}, \U, or \u
+PCd
 PDT
-PDc
-PDd
-PDe
-PEm
-PGc
-PHl
+PDm
+PEc
+PGl
+PGm
 PIO
+PId
 PInstruction_t<43>::Run
 PInstruction_t<44>::Run
-PJl
-PKl
+PJd
 PLACEHOLDER_VALUE
 PLATFORM
 PLAYBACK: At end of data\n
 PLAYBACK: ReadReplayMessage returning deltaFrame clientTick=%d tick=%d delta=%d\n
 PLAYBACK: ReadReplayMessage waiting for next tick at clientTick=%d\n
+PLl
+PMc
+PMl
 PNG\r\n
-PNd
 POSIX collating elements are not supported
 POSIX named classes are supported only within a class
 POS_FLOATLITERAL
 POS_INTLITERAL
 PO_
-POl
-PPc
-PQc
-PQd
+POc
+PPB
 PQm
 PREP
 PRUNE
+PRd
 PST
 PS_FAILED %s in sequence for %s\n
 PS_SATISFIED %s in sequence for %s [%.3f msec]\n
+PSc
 PVAL_ANIM_SEQUENCE
 PVAL_ANY
 PVAL_ARRAY
@@ -5051,26 +5041,23 @@ PVAL_VEC4
 PVAL_VOID
 PVS cluster %d\n
 PVS origin %s\n
+PVc
 PVm
-PXc
-PXd
-PZB
-PZj
-P\d
+PX#
+PYj
+PZl
+P[c
+P[j
 P\nU
-P\rc
-P\rd
-P\re
 P\rl
-P\te
+P\tc
+P\vc
+P\vd
+P\ve
 P]m
-P^c
-P^d
 P^j
 P^m
-P_d
-P`d
-Pac
+P`b
 PackEntities_Normal EnsureInstanceBaseline
 PackEntity: SnagChangeFrameList returned null
 PackEntity: ent(%d) at tick %d Encountered field '%s' %s in incremental change that was not in the diff change. This can lead to slight network inefficiency\n
@@ -5086,6 +5073,7 @@ PacketEntities with delta_from=%d, tick=%d??\n
 Packets
 Pagefile: estimated %llumb CPU %llumb GPU needed, %llumb pagefile free\n
 Pagefile: estimated %llumb CPU, %llumb GPU needed. Pagefile free %llumb, need ~%llumb, maximum %llumb disk free\n
+Pam
 Panorama Anim Update
 Panorama HUD
 Panorama Panel Handle
@@ -5119,30 +5107,28 @@ Paused: %s
 Pauses demo playback.
 Pauses instant replay.
 Pauses when the 'render time' reaches the specified tick.
-Pbj
+Pbl
+Pbm
 PcQ
-Pcc
-Pdb
 Peak commit charge: %.2f MiB\n
 Peak resident memory:    %s\n
 Peeked %d demo packets but didn't find a message %d ticks in advance.  CurrentTick=%d, HighestTickPeeked=%d\n
-Pej
 PerFrameSleepChanged
 PerFrameSleepMS
 Perf stats buffer full, no more data will be collected.\n
 Performs a bind <key> "increment var <cvar> 0 1 1".
 Permission denied
+Pfb
+Pfc
 Pgd
 Ph)
 Phags_Pa
-Phb
-Phc
 Phd
 Phoenician
 PhysicsBuilderMgr001
-Pil
 Ping
-Pkj
+Pjd
+Pkc
 Plain assert text (has prefix)\n
 Plain general text (no prefix)\n
 Plat_AlertUser
@@ -5281,11 +5267,11 @@ Playing '%s'\n
 Playing Broadcast (%s)
 Playing Demo (%s)
 Playing back demo: '%s' at tick %u\n
-Plb
-Pld
-Pll
-Pmc
 Pmg
+Pmm
+Pnd
+Poc
+Pod
 Pointers cannot be used as numeric values
 Polish
 PollAndProcessInput
@@ -5293,7 +5279,9 @@ Poor man's restart: reload the current map from disk.
 Portuguese
 Post Source2 Client
 PostProcessingSystem_001
-Ppc
+Pqb
+Pqm
+Prc
 Prd
 Pre Pack Entities Callback
 Pre Source2 Client
@@ -5343,6 +5331,7 @@ Prints server performance variables
 Priority boost already disabled.\n
 Priority boost already enabled.\n
 Private:  %s\n
+Prm
 Proceed Elegantly.
 Proceed Immediately.
 ProcesPacketEntitiesWorkItems_Combined
@@ -5381,9 +5370,8 @@ Protobuf: %s(%d): %s\n
 Protocol Buffer map usage error:\n
 Protocol Buffer reflection usage error:\n  Method      : google::protobuf::Reflection::
 Psapi.dll
-Psc
-Psd
-PtP
+Psl
+Pub
 Public :  %s\n
 Pulse
 PulseCursorCancelPriority_t
@@ -5397,13 +5385,21 @@ PulseSymbol_t
 PulseValueType_t
 Puts the server into extremely low CPU usage mode when no clients connected
 PvP
-Pxc
+Pvb
+Pvc
+Pvl
+Pwm
+Pxd
 Pzb
-P}m
-P~m
+Pzd
+P{b
+P{c
+P}b
+P}c
+P}d
 Q%llx,
-Q.K
 Q2XXR
+QTB
 Q\E
 Quantization table 0x%02x was not defined
 Quantize to %d Values
@@ -5431,7 +5427,6 @@ R32F
 R32G32_UINT
 R32_SINT
 R32_UINT
-R37
 R8G8B8A8_ETC2_EAC
 R8G8B8_ETC2
 R8G8_UINT
@@ -6576,7 +6571,6 @@ U:\thirdpartycode\nonredist\protobuf\protobuf-3.21.8\src\google\protobuf\text_fo
 U:\thirdpartycode\nonredist\protobuf\protobuf-3.21.8\src\google\protobuf\wire_format.cc
 U:\thirdpartycode\nonredist\protobuf\protobuf-3.21.8\src\google\protobuf\wire_format_lite.cc
 UCP)
-UID
 UILanguage
 UISubLanguage
 UNKNOWN
@@ -6585,6 +6579,7 @@ UNKNOWN FAILURE
 UNKNOWN VALUE
 UNKNOWN_ENUM_VALUE_%s_%d
 UNRECOGNIZED
+UPB
 UPSTREAM (client->server)
 URL of the broadcast relay
 URL of the broadcast relay1
@@ -6906,6 +6901,7 @@ Value out of range for uint32 option "
 Valve.Source
 Var( %s )
 Variant
+Vdj
 VeaFOfb
 Vector
 Vector vPos( %.1f, %.1f, %.1f )\nout of bounds - LOS needs to pass through outside space, hint this in the level!\n
@@ -6932,8 +6928,6 @@ Voice: WebRTC audio processing enabled (aec %d, ns %d level %d, agc %d, hpf %d).
 Void
 VolumeCallbacks returned an invalid level=
 Vrad3_001
-V|P
-W<0
 WARNING
 WARNING! TextConsole::Init: Could not attach console hook.\n
 WARNING:  FlushEntityPacket, %s
@@ -6993,6 +6987,7 @@ WSASYSNOTREADY
 WSATRY_AGAIN
 WSAVERNOTSUPPORTED
 WSWSAECONNABORTEDAEINTR
+WX#
 Wait
 Wait, Resume=%s
 WaitForSingleObject
@@ -7236,122 +7231,88 @@ Writing vprof lite report to %s\n
 Wrong JPEG library version: library is %d, caller expects %d
 Wrote vis errors to %s\n
 Wrote_Screenshot
-X!c
-X$c
-X%c
-X*c
-X*d
-X*m
-X+d
-X,d
-X,e
+W|1
+X c
+X"e
+X#c
+X#d
+X&d
+X(c
 X-Origin-Auth
 X-Origin-Auth header of the broadcast POSTs
 X-Origin-Auth header of the broadcast1 POSTs
 X-Origin-Delay
 X-Reason
-X-d
-X-e
-X.m
-X/c
-X/e
-X/m
-X2d
-X2m
-X3d
+X-c
+X.d
+X.e
+X0e
+X2c
 X4c
-X5m
-X7e
-X:c
-X:e
-X;e
-X<d
-X<e
+X4d
+X7c
+X7d
+X;d
+X<c
 X=Q
-X=c
-X=e
-X>e
-X>m
+X>l
+X?c
 X?d
-X@c
-X@e
-X@m
-XAd
-XBe
-XBm
-XDm
 XEd
-XFd
-XIm
-XJc
+XEm
+XGc
+XHd
+XHm
 XKd
-XLc
-XLd
-XLm
-XMc
-XNc
-XOc
-XOd
-XQl
-XRc
-XRd
+XPB
+XPd
+XQc
 XSd
 XUc
 XUd
-XUm
+XWd
+XXc
+XXd
 XXm
-XYc
 XYm
-XZc
-X\c
-X\j
-X\nc
-X\nd
-X\ne
-X\td
-X\ve
+X[d
+X\fm
+X\rc
+X\re
 X]c
-X_b
-X_j
-X`b
+X]d
+X^d
+X_d
+X`d
+Xab
 Xan
-Xbb
 XcQ
+Xcc
 Xcd
-Xeb
-Xec
-Xed
-Xhm
-Xjc
-Xkd
-Xlm
+Xfl
+Xgb
+Xhc
+Xib
+Xid
+Xld
+Xmc
 Xmd
-Xnb
-Xnc
-Xnd
-Xob
+Xml
 Xpb
-Xpd
+Xpc
 Xps
-Xqb
-Xqc
-Xrb
-Xsb
+Xqd
+Xsc
 Xsp
 Xtb
-Xub
-Xuc
-Xul
+Xtl
 Xvd
 Xwd
-Xzc
-Xzd
-Xzl
+Xxc
+Xyb
+Xym
 X{d
-X|d
-X|l
-X}b
-Y+F
+X{m
 Y7M
 YHM
 Yes
@@ -7364,6 +7325,7 @@ Yqq
 ZF?
 ZPKE?81("
 ZW][Rbmxv\fqsuwc;Wo?opP~|}|
+Zcj
 Zpm"U
 [%03lld:%03lld]
 [%d] Changing player name to Steam name '%s'\n
@@ -7485,9 +7447,11 @@ Zpm"U
 \nbl code %2d 
 \nbl counts: 
 \nbl tree: sent %ld
+\ncj
 \ndist data: dyn %ld, stat %ld
 \ndist tree: sent %ld
 \ndyn trees: dyn %ld, stat %ld
+\nej
 \ngen_codes: max_code %d 
 \nlast_lit %u, last_dist %u, in %ld, out ~%ld(%ld%%) 
 \nlit data: dyn %ld, stat %ld
@@ -7497,7 +7461,6 @@ Zpm"U
 \p{Xps}
 \p{Xsp}
 \p{Xwd}
-\rRB
 \t The lexer was matching from line %d, offset %d, which\n\t 
 \t"%s" has %d known peers:\n
 \t"%s" has no known peers.\n
@@ -7507,6 +7470,7 @@ Zpm"U
 \t%s
 \t%s manifest end\n
 \tQo
+\tRB
 \t[%d]Demo playback max rate capped at %f.\n
 \t\n\v\n\v\n\v\n\v\n\v\n\v\n\v\n\v\f\r\f\r\f\r\f\r\f\r\f\r\f\r\f\r
 \tnTargetServerTick:%d\n\tm_streamStartRef.nTick:%d\n\tm_nStartHostTick:%d\n\tg_pNetworkClientService->GetTotalTicks():%d\n
@@ -7516,8 +7480,9 @@ Zpm"U
 \vInterp
 \vSimulationTicks
 \vSource
-\vdj
 ] is an invalid data character in JavaScript compatibility mode
+]bC
+]ej
 ^^^ Duplicate connection allowed\n
 _%i
 _%s
@@ -7588,66 +7553,62 @@ _temp_mapcycle.txt
 _y0
 _y1
 _yn
-`0e
-`1c
-`3e
-`6c
-`6e
-`8c
-`9d
-`Bc
+`%e
+`0m
+`1d
+`3m
+`9l
+`Bd
+`Be
 `Bt
-`Cd
-`Ce
+`Dc
 `EH
 `Ek
-`Fc
-`Gl
-`Hd
-`Ic
+`Hc
 `KC
-`Km
-`Ll
-`Ml
-`Pd
+`Kc
+`Lc
+`Ld
+`Mm
+`Nc
+`Nd
+`Nl
+`Od
+`Pc
 `Pm
-`Qc
+`Qd
 `RTTI
-`Tc
+`Rc
+`Sl
 `Td
-`Vc
-`Wc
+`Tl
 `Yd
-`Zl
-`ac
+`aJ
 `ad
 `adjustor{
-`am
 `anonymous namespace'
 `bc
-`bl
+`bd
 `cQ
 `cb
 `copy constructor closure'
 `default constructor closure'
 `dynamic atexit destructor for '
 `dynamic initializer for '
-`eP
+`eb
+`ec
 `eh vector constructor iterator'
 `eh vector copy constructor iterator'
 `eh vector destructor iterator'
 `eh vector vbase constructor iterator'
 `eh vector vbase copy constructor iterator'
-`em
-`gb
-`gc
+`fd
 `generic-class-parameter-
 `generic-method-parameter-
 `generic-type-
-`id
-`im
-`km
-`lc
+`gl
+`hl
+`jc
 `local static destructor helper'
 `local static guard'
 `local static thread guard'
@@ -7656,28 +7617,34 @@ _yn
 `managed vector constructor iterator'
 `managed vector copy constructor iterator'
 `managed vector destructor iterator'
-`nm
+`nb
+`nc
+`nl
 `non-type-template-parameter
-`oc
-`od
+`ob
+`ol
 `omni callsig'
+`pd
+`pl
 `placement delete closure'
 `placement delete[] closure'
-`rc
+`q4
+`qc
 `scalar deleting destructor'
-`sl
 `string'
+`tP
+`td
 `template static data member constructor helper'
 `template static data member destructor helper'
 `template-parameter
 `template-parameter-
 `template-type-parameter-
+`tm
 `typeof'
+`ub
+`uc
 `udt returning'
-`um
 `unknown ecsu'
-`vP
-`vb
 `vbase destructor'
 `vbtable'
 `vcall'
@@ -7689,17 +7656,17 @@ _yn
 `vector vbase copy constructor iterator'
 `vftable'
 `virtual displacement map'
-`vl
+`vm
 `vtordispex{
 `vtordisp{
 `wb
-`wc
 `xb
-`xd
-`xm
 `z8
+`zc
+`zm
 a numbered reference must not be zero
 a+t
+aOB
 abcdefghijklmnopqrstuvwxyz
 abortflag
 acos
@@ -7723,7 +7690,6 @@ address
 address family not supported
 address in use
 address not available
-adj
 advanced_view
 alias
 all
@@ -7773,7 +7739,6 @@ avi
 avi 
 avisound 
 bY\f
-bZ$
 backColorBuffer
 backDepthBuffer
 backbuffer,
@@ -7804,6 +7769,7 @@ base
 basefilename
 baseline counter change %d:%s [%d changes] to %d:%s [%d changes]\n
 bat
+bbj
 bc7e.dll
 bc7e_compress
 bc7e_init
@@ -7839,7 +7805,6 @@ bindtoggle
 bitcount
 bitrate
 bits
-bj (demangled)
 blank
 blink
 blink disabled\n
@@ -9503,11 +9468,9 @@ cyclevar
 cyclevar: cvar "%s" not found\n
 cyclevar: no varname specified\n
 czech
-d#K
 da_DK
 danish
 data error
-dbj
 dddd, MMMM dd, yyyy
 de_DE
 debug_draw_enable
@@ -9696,7 +9659,6 @@ expecting to re-create serializers from server serializers
 expr
 extend .$0 {\n
 extern "C" 
-f%K
 f5J5J5J5J5J5J5J5J5J5J5J5J5J5J5J5Jx
 fE/
 fabs
@@ -9708,7 +9670,6 @@ fakeView
 fake_test_config
 false
 fast path %d at %d\n
-fcj
 fd$
 fi_FI
 field_flags
@@ -9788,7 +9749,8 @@ fullpath
 function not supported
 future
 future already retrieved
-gQB
+f}1
+gPB
 g_BitBuf_BitWriteMasks
 g_Mathlib_GammaToLinearByteTable
 g_VProfCurrentProfile
@@ -9872,58 +9834,77 @@ group %u not async loaded
 group%d
 grp:%si
 gwu
-h c
-h!e
-h"d
-h#c
-h$d
-h$e
-h%e
-h)c
+h"c
+h%c
+h%d
+h'c
 h*l
-h+e
-h.c
-h.d
-h.e
-h/d
-h1d
-h3c
-h4d
-h6d
-h7d
+h+d
+h,c
+h,e
+h,m
+h-e
+h-m
+h/e
+h1c
+h4e
+h6c
+h6m
+h7e
 h7l
-h8m
-h9c
-h9l
-h;d
+h8c
+h8d
+h9e
+h9m
+h:d
+h:l
 h=e
+h>c
 h>d
-h>l
-h?e
-hDe
-hGc
-hKc
-hQd
+h?l
+h?m
+h@c
+h@e
+hAd
+hBc
+hCc
+hCe
+hDd
+hEe
+hFc
+hGd
+hIc
+hIm
+hJc
+hMd
+hPl
+hRd
 hTarget
-hZc
-hZd
-h\fm
-h\re
-hab
+hTc
+hVc
+hVd
+hWc
+h[j
+h\fc
+h\nd
+h\rm
+h\vd
+h^j
+h`j
 has_observable_context
-hdb
-hdc
+hdd
 header crc mismatch
 header_icon
 heartbeat\n
 height
 height,
-hfd
-hfl
+hem
+hfb
 hfm
-hib
+hgc
+hhb
+hhm
 hibernating
-hic
 hidden
 hidden_in_tool
 hideconsole
@@ -9931,9 +9912,13 @@ high
 highest
 histo 1 by offset
 history
-hjm
+hkb
+hkd
 hl1mp
 hl2mp
+hlb
+hlc
+hlm
 hltv
 hltv memory statistics. Use with "ent 10" (dump entity 10 memory usage) or "top 8" (dump top 8 memory users) or "class" CWorld (dump CWorld class)
 hltv1
@@ -9944,8 +9929,8 @@ hltv_proxies
 hltv_slots
 hltv_spectate
 hltv_update_stats
-hmc
-hml
+hmj
+hoc
 host
 host unreachable
 host_force_frametime_to_equal_tick_interval
@@ -9963,24 +9948,26 @@ hostname
 hostname : %s\n
 hostname_in_client_status
 hostport
-hpc
+hpm
+hqb
+hrb
+hrc
 hscript
 hscript_lightbinding
-hsm
-htb
-htc
-htl
 http Send %.3f ms ave, %.3f ms max\n
 http://localhost:8080
 hu_HU
+hud
 hungarian
-hwd
-hwm
-hyb
-hyc
-hz=
-h}d
-h~b
+hvb
+hwc
+hwl
+h|c
+h|d
+h}l
+h~c
+h~d
+h~m
 iController
 id&
 id_ID
@@ -10105,6 +10092,7 @@ it_IT
 italian
 j'Vlk
 j?PUu?
+jPB
 ja\v
 ja_JP
 japanese
@@ -10134,7 +10122,7 @@ js_value
 json_name = "
 jstype is only allowed on int64, uint64, sint64, fixed64 or sfixed64 fields.
 k#c
-k%C
+k,F
 k;J;J;J;J;J;J;J;J;J;J;J;J;J;J;J;Jx
 k_EUniverseBeta
 k_EUniverseDev
@@ -10165,6 +10153,7 @@ latest=%.2f   Excess:%6.2f(%6.2f)   Margin:%.2f...%.2f   Actual:%.2f..%.2f   Dea
 launch_url
 launchoptions
 layout.xsd
+lcj
 ldexp
 leave
 left4dead2
@@ -10215,7 +10204,6 @@ low_violence
 lower
 lowest
 lua_is_currently_executing
-m#B
 m_Args
 m_Attributes
 m_BaseFlow_OnAfterCancel
@@ -10404,7 +10392,7 @@ mp_disable_autokick %d\n
 multvar
 multvar: cvar "%s" not found\n
 multvar: no varname specified!\n
-n.F
+m{P
 nBits != 32
 nMax
 nMin
@@ -10507,8 +10495,6 @@ number is too big
 number too big in {} quantifier
 numbers out of order in {} quantifier
 numframes,
-n}1
-o07
 objectid
 objects
 octal value is greater than \377 (not in UTF-8 mode)
@@ -10587,106 +10573,85 @@ oversubscribed dynamic bit lengths tree
 oversubscribed literal/length tree
 overwatch
 owner dead
-p d
+ozC
+p c
 p m
-p!K
-p!c
 p!l
-p"e
-p"m
-p$c
-p&c
-p'd
+p#c
+p#d
+p#e
+p#m
+p'm
 p(d
 p(l
-p)e
+p)c
+p)d
 p)m
-p*d
-p+c
-p+m
-p,d
-p-e
-p0c
-p0m
+p.c
+p.d
+p.e
+p.m
+p/d
+p0d
 p1?
 p2d
-p2e
 p2p_listpeers
 p2p_ping "%s"
-p3m
-p4e
+p3c
+p3d
+p4d
 p4edit
 p5c
 p5d
-p5e
-p7e
-p8d
-p9j
-p:c
+p7d
+p7m
+p8e
+p9c
 p:e
-p<l
-p=c
-p=d
-p=l
+p;l
+p<d
+p<e
 p>e
+p>m
+p?c
 p?d
-pAc
-pAe
-pBd
-pBe
-pCc
 pClass
 pClass->m_ClassID(%i) >= %i\n
 pClient
-pCm
 pDQ
-pDc
-pEc
-pEe
-pFm
+pDe
+pFd
+pFe
 pFx
-pGd
-pHc
+pGc
 pJ&
-pJd
-pJm
 pKd
-pLd
-pMc
-pMd
+pKm
+pLm
 pMessage
 pNewSet->m_readPipe.OpenPipe_Named( false, szReadPipeParam, true )
 pNewSet->m_readPipe.OpenPipe_OSFILEHANDLE( false, (OSFILEHANDLE)nReadHandle, nPipeSourcePID )
 pNewSet->m_writePipe.OpenPipe_Named( true, szWritePipeParam, true )
 pNewSet->m_writePipe.OpenPipe_OSFILEHANDLE( true, (OSFILEHANDLE)nWriteHandle, nPipeSourcePID )
-pNl
 pOC
 pOm
-pPc
-pRd
-pSc
+pPd
+pQc
+pQl
+pSd
 pServerClass
-pSl
-pTl
-pUc
-pVd
 pWd
+pXl
+pYc
+pZc
+pZd
+pZj
 pZm
-p\fe
+p\c
+p\d
 p\nl
 p\rd
-p\tc
-p\td
-p\vc
-p\vd
-p]b
-p]d
-p]j
-p_b
 p_c
-p_d
-p`c
-pac
 panorama
 panorama/
 panoramauiclient
@@ -10703,9 +10668,13 @@ password
 path
 pause
 paused
-pbd
+pbb
 pc64
-pdd
+pdb
+pdc
+pdj
+pdl
+ped
 pending
 perforce.inf
 performance
@@ -10715,18 +10684,15 @@ permanent
 permanently
 permission denied
 pf\n
-pfb
-pfc
-pgl
-phl
 phys_highlight_expensive_objects
 phys_highlight_expensive_objects_strength
+pic
+pid
 ping
 pitch_based_vad_.VoicingProbability( features_, &chunkwise_voice_probabilities_[0]) >= 0
 pjb
-pjd
-pkb
-pkc
+pjl
+pkl
 pl_PL
 playcast
 playcast: Packet tick %d size %u\n
@@ -10747,17 +10713,14 @@ playing %s from '%s'\n
 playsound
 playsound 
 playsound <soundname>
-pld
 pmb
-pnc
-pnd
+pmd
+pnb
 png
 png 
 png_screenshot
-pnl
-pob
+pnm
 pointer, 
-pol
 polish
 polymorphic_dependent_arg
 pop_var_values
@@ -10768,10 +10731,9 @@ postnetupdate
 pow
 powf
 ppb
-ppl
+ppc
 pq9
-pqc
-pqd
+prd
 prerequisite
 prev
 previouslevel
@@ -10821,10 +10783,11 @@ protocol
 protocol error
 protocol not supported
 psb
+psd
 pt_BR
 pt_PT
-ptd
-ptm
+ptb
+ptc
 puP
 public
 public: 
@@ -11108,7 +11071,6 @@ public: void* CUtlScratchMemoryPool::AllocAligned(int, int) (demangled)
 publiccontent
 publish_data
 publish_data.txt
-pud
 pulse_cursor_infinite_loop_detection_threshold
 pulse_feature_tag
 pulse_inflows
@@ -11122,12 +11084,16 @@ pulse_system.dll
 punct
 purecall
 push_var_values
-pvc
+pvl
+pxP
+pxl
+pyb
+pyc
 pyd
-pzd
-p{c
-p|b
-qID
+pyl
+p{l
+p|l
+p}d
 qangle
 quality %d 
 quaternion
@@ -11275,7 +11241,6 @@ resume
 retail
 retval
 reuse
-rmK
 rnd_down
 rnd_up
 ro_RO
@@ -11643,6 +11608,7 @@ sys_minidumpexpandedspew
 sys_minidumpspewlines
 system/network
 tCR;\HdY\
+tOE
 table
 table %32.32s  %5i\n
 tan
@@ -11650,7 +11616,6 @@ tanh
 target
 target_type
 tchinese
-tdj
 temp/%s.wav
 temp/bugreport.wav
 template-parameter-
@@ -11819,11 +11784,7 @@ type.googleapis.com/
 type.googleprod.com/
 typesafe_float, 
 typesafe_int, 
-tzP
-u,F
 uV<
-uW!
-ubj
 udp/ip   : %s:%i
 udp_port
 uint
@@ -11894,7 +11855,6 @@ userinfo
 users
 utl_vector, 
 utlstringtoken
-v/F
 vWewe
 value
 value too large
@@ -11952,6 +11912,7 @@ vis_debug_tracelos
 vis_enable
 vis_sunlight_enable
 vjs
+vkK
 vmat
 vmdl
 vmem_dump
@@ -12025,6 +11986,7 @@ vts
 vtune
 vtune "pause" | "resume" : Suspend or resume VTune's sampling.\n
 vxml
+v|P
 w8#
 wKVq
 wait_time
@@ -12056,92 +12018,101 @@ writing %d resources to %s\n
 wrong protocol type
 wrong submessage type
 wrote CSVCMsg_FlattenedSerializer_t to '%s'\n
-x!d
+x e
+x!c
 x!e
-x"c
-x#d
-x&d
-x&e
-x(c
-x(e
-x)d
-x*e
-x,m
-x-c
+x"d
+x$c
+x$d
+x%e
+x&c
+x*d
+x+c
+x+e
+x,d
+x-d
 x-l
-x-m
 x.l
-x0d
-x2c
-x3c
+x/m
+x0c
+x2m
 x3e
 x4l
-x5l
-x6m
-x7c
-x8c
-x9e
-x9m
-x:d
-x:l
-x<c
-x=e
-x?l
+x4m
+x5m
+x6d
+x8d
+x9d
+x:m
+x=c
+x=l
 x@d
-xAm
-xBc
-xDd
-xHd
-xJc
+x@l
+xAc
+xAe
+xBe
+xCd
+xEc
+xFm
+xHc
+xId
+xLd
+xMc
 xNd
-xPl
-xSd
-xVc
-xXc
-xXd
-xYc
-xYj
-x\c
-x\d
-x\fd
-x\rc
-x\rm
-x]c
-x^d
-x^m
-x`d
-xad
+xOc
+xOd
+xPB
+xQd
+xRl
+xSc
+xTd
+xWl
+xYd
+x[d
+x\j
+x\td
+x\vc
+x\vd
+x\ve
+x^c
+x`b
 xcb
-xcc
 xdigit
-xfj
+xeb
+xej
+xfc
+xgb
 xgd
-xgm
-xhb
-xhc
 xhd
-xlb
-xmd
+xjd
+xjm
+xkc
+xld
 xml
-xnb
-xoc
-xrd
-xsc
-xsd
+xnc
+xnd
+xod
+xpd
+xqc
+xtd
 xuidReserve
+xul
 xvb
+xvc
+xvd
 xwb
-xwl
-xxc
-xym
-xzb
-xzm
-x}l
-yZ$
+xxb
+xxd
+xzd
+xzl
+x{b
+x{c
+x{m
+x}b
+x~l
 y[E
 yes
 yields
-zHB
 zero
 zh_CN
 zh_TW
@@ -12151,12 +12122,13 @@ zt?
 {%%%d.%ds} %%%d.%ds: %%-%d.%ds %%-%d.%ds: %%%d.%ds %%%d.%ds %%%d.%ds %%%d.%ds %%%d.%ds %%%d.%ds [%%-%d.%ds bits]\n
 {%s}cfg/%s
 {0x%x}
-{PB
+{bj
 {flat}
 {for 
 {print|<interval>} [summary|detail]  Print timing stats now, or set report interval
-|MB
+|mC
 } Dispatched EventAppShutdown_t\n
+}HD
 }nR
 ~3s
 ~CServerChangelevelState with non empty m_Clients, failed change level to %s!!!\n
