@@ -100,6 +100,7 @@
 %s:wait
 %s<br><br>%s
 %s\n
+%s_c
 %u %u %u
 (%d,%d)
 (%s:%d)
@@ -195,7 +196,7 @@
 1:1: Tokens : ( T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | TOK_COLON | OPEN_BRACE | CLOSE_BRACE | OPEN_PAREN | CLOSE_PAREN | OPEN_BRACKET | CLOSE_BRACKET | SEMICOLON | OP_EQUAL | COMMA | DOUBLE_AND | NEGATIVE_TOK | DOUBLE_OR | LITERAL_TRUE | LITERAL_FALSE | POS_INTLITERAL | POS_FLOATLITERAL | SCOPE_QUALIFIER | ID | DOUBLE_QUOTED_STRING | SINGLE_QUOTED_STRING | SINGLE_LINE_COMMENT | ML_COMMENT | WS | UNRECOGNIZED );
 222
 488:1: POS_FLOATLITERAL : ( ( DIGIT )+ '.' ( DIGIT )* ( EXPONENT )? | '.' ( DIGIT )+ ( EXPONENT )? | ( DIGIT )+ EXPONENT );
-5i\t
+6j\t
 : lexer error %d :\n\t%s at offset %d, 
 ;?0123456789:;<=>?
 ;lD
@@ -1666,6 +1667,7 @@ Process Selector
 Prop( %s )
 PropertyEditorSystem_001
 Pulse
+Pulse graphs not allowed from untrusted addons.\n
 Pulse system: minimal vpulse definition loading enabled - graphs may be incomplete!\n
 Pulse: %s 
 PulseApiFeature_t
@@ -2078,6 +2080,7 @@ Typesafe Int64
 UNKNOWN
 UNRECOGNIZED
 UUUUUU
+Uj\t
 UnInvalid
 UnNegate
 UnNot
@@ -2829,7 +2832,6 @@ ja\v
 k#c
 key
 keyframeclass
-ki\t
 kv3
 lambda
 legacy_name_replacement
@@ -3312,6 +3314,7 @@ public: int CBufferString::Replace(char const*, char const*, bool) (demangled)
 public: int CUtlBuffer::ParseToken(characterset_t const*, char*, int, bool) (demangled)
 public: int CUtlString::Format(char const*, ...) (demangled)
 public: int CUtlString::FormatV(char const*, char*) (demangled)
+public: int KeyValues::GetInt(char const*, int) const (demangled)
 public: static void KeyValues::operator delete(void*) (demangled)
 public: void CBufferString::MoveFrom(CBufferString&) (demangled)
 public: void CBufferString::Purge(int) (demangled)
@@ -3327,6 +3330,7 @@ public: void CUtlSymbolTable::RemoveAll(void) (demangled)
 public: void* CUtlScratchMemoryPool::AllocAligned(int, int) (demangled)
 public_output::%s
 public_output::%s::%s
+pulse/pulse_enabled_for_untrusted_addons
 pulse_bindings
 pulse_cursor_infinite_loop_detection_threshold
 pulse_debug_print
