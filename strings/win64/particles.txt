@@ -17,11 +17,12 @@
  %u:%u [%i%%]
  (Start: 
  ** Entrypoint For Method '%s'
+ 04
  1T
- 3U
- 54
+ 2T
+ 6T
  6U
- 8T
+ 9T
  9U
  : Extraneous input - expected %s ...\n
  : Extraneous input - expected <EOF>\n
@@ -39,6 +40,8 @@
  : unexpected input...\n  expected one of : 
  <-- Arg '%s'
  <-- Retval '%s'
+ AT
+ AU
  Base Class Array'
  Base Class Descriptor at (
  Child collection: [%p]
@@ -49,16 +52,14 @@
  DU
  HU
  KT
+ LT
  LU
  LinePos:
- NT
  NU
- QT
+ RT
  Type Descriptor'
  Vector b
  WS
- WX
- ZE
  [*OBSERVABLE*]
  [loop body, break -> C%d:I%d]
  aS
@@ -69,23 +70,24 @@
  dT
  delete
  delete[]
+ fT
+ hT
  jT
  kS
- nT
  new
  next: %p, parent: %p\n
  noexcept
  oS
+ pT
  tT
- tX
  uT
- uX
+ vX
  volatile
  xS
  xT
  yS
  zS
- zX
+ zT
 !(m_bAnimated && m_bManualAnimFrame)
 !(m_bAnimated && m_bScaleAnimationRate)
 !is_gpu_particle_system
@@ -114,16 +116,14 @@
 !m_bUseRadius
 !m_bUseScalarForTextureCoordinate
 !m_bUseTexture
-"34
-"74
+"24
 "Limit Count: " + m_nLimitCount
 "Position within sphere random" no longer supports the "randomly distribute to highest supplied Control Point" feature\n\t"Emit continuously" and "Emit noise" no longer support "scale emission to used control points".\n\t"Position from control points" had a max control point added to it.
 "Remap control point orientation to rotation" does something approaching sanity for the cases I looked at.  If we have cases where this isn't appropriate, we can split out the behavior.\n
 "Remap control point orientation to rotation" rewritten to make more sense.\n
 "Set control point rotation" pre-emission operator now correctly produces right-handed matrices [previously it would produce left-handed ones].
 "Twist around axis" force now rotates around the specified control point instead of control point 0.\n
-"sX
-"tC
+"qX
 "yX
 # of children to enable
 # of children to set
@@ -165,7 +165,6 @@ $SPECULARCOLOR
 $SPECULAREXPONENT
 $SPECULAREXPONENTBLENDTOFULL
 $SPECULARSCALE
-$cX
 $rX
 %%.%if
 %0*d
@@ -228,17 +227,14 @@ $rX
 %s<br><br>%s
 %s\n
 %u %u %u
-&Z8
-&lX
-'d8
+&U8
 ( m_nTextureType == SPRITECARD_TEXTURE_NORMALMAP || m_nTextureType == SPRITECARD_TEXTURE_ANIMMOTIONVEC || m_nTextureType == SPRITECARD_TEXTURE_6POINT_XYZ_A || m_nTextureType == SPRITECARD_TEXTURE_6POINT_NEGXYZ_E || m_nTextureType == SPRITECARD_TEXTURE_SPHERICAL_HARMONICS_A || m_nTextureType == SPRITECARD_TEXTURE_SPHERICAL_HARMONICS_B || m_nTextureType == SPRITECARD_TEXTURE_SPHERICAL_HARMONICS_C || m_nTextureType == SPRITECARD_TEXTURE_ILLUMINATION_GRADIENT || m_nTextureType == SPRITECARD_TEXTURE_DEPTH )
 (%d,%d)
 (3T
+(3U
 (5U
-(6T
-(7T
 (7U
-(AU
+(BU
 (CT
 (CU
 (Expecting %s)
@@ -251,23 +247,22 @@ $rX
 (OT
 (QS
 (RS
-(RT
 (ST
-(UX
+(TX
 (VS
+(YT
 (ZS
 (builtin)
 (channel = 
 (dS
+(dX
 (end of input).\n\t This indicates a poorly specified lexer RULE\n\t or unterminated input element such as: "STRING["]\n
 (fS
-(gT
 (gX
-(hT
+(hX
 (iS
 (iT
 (kT
-(lT
 (min=%g max=%g)
 (null)
 (optional) index buffer size (k)
@@ -276,15 +271,13 @@ $rX
 (rT
 (tS
 (vS
+(vT
+(yT
 (zF
-(zT
 *** Test failure: "%s"
 *MOVE=>
-*hX
-*mX
+*cX
 *nullptr*
-*qX
-+04
 +Base Properties
 +Collection Options
 +Color and alpha adjustments
@@ -293,19 +286,19 @@ $rX
 +Renderer Modifiers
 +Rope Global UV Controls
 +Trail Length
-+X8
-+f8
 , at offset %d
 , near %s
 ,<ellipsis>
-,fX
+,VX
+,jX
 ,m_nStride=%d m_pData=%p )
 ,tX
 -1 for all asleep, 1 for all awake
+-94
 -Stop: 
--V8
--Z8
+-U8
 -end of input-(
+-h8
 -memory-
 -unknown source-
 -unknown source-(
@@ -323,7 +316,6 @@ $rX
 .CRT$XIZ
 .CRT$XLA
 .CRT$XLC
-.CRT$XLD
 .CRT$XLZ
 .CRT$XPA
 .CRT$XPX
@@ -332,7 +324,6 @@ $rX
 .CRT$XTA
 .CRT$XTZ
 .bss
-.d8
 .data
 .data$r
 .data$rs
@@ -343,7 +334,9 @@ $rX
 .idata$4
 .idata$5
 .idata$6
+.lX
 .pdata
+.rX
 .rdata
 .rdata$00
 .rdata$T
@@ -378,45 +371,42 @@ $rX
 0 255
 0 3
 0 5
-0!T
 0"T
 0#T
-0$T
+0&U
+0)4
+0*T
 0,C
-0-T
-0.4
-0/T
+0,T
+00T
 00U
+00^
 0123456789abcdefghijklmnopqrstuvwxyz
 01U
-01^
-02T
 02U
-02]
-04T
 05T
+05]
+07^
+08T
 08U
-09T
+09^
 0:T
 0;U
+0=U
 0=don't clear particle attrs at init 1=clear to zero 2=clear to 0xdb -1=clear to zero at first sim
 0>e
 0?m
 0@U
-0A]
-0A^
 0BT
 0B]
 0FU
 0GT
 0Go
 0HT
-0IT
-0JT
+0H]
 0KU
-0O,
 0OU
-0O]
+0QT
 0QU
 0RU
 0SS
@@ -424,41 +414,37 @@ $rX
 0TT
 0U?
 0US
-0UT
+0UX
 0VT
 0X.
 0XS
 0XT
-0YT
-0\T
-0\fT
-0\fU
-0\nU
-0\rU
-0\tU
+0\nT
+0`T
 0a?
 0aT
 0bT
 0eS
 0eT
+0f+
 0f?
+0gT
 0g]
-0i&
 0kE
 0mS
 0mT
 0nS
-0n]
 0oT
+0o\v
 0qS
-0sX
 0tr
 0uS
-0vT
 0wG
 0wT
 0z]
+0|T
 0}T
+0}X
 0~T
 1 1000
 1 512
@@ -470,89 +456,102 @@ $rX
 16 Segment
 1:1: Tokens : ( T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | TOK_COLON | OPEN_BRACE | CLOSE_BRACE | OPEN_PAREN | CLOSE_PAREN | OPEN_BRACKET | CLOSE_BRACKET | SEMICOLON | OP_EQUAL | COMMA | DOUBLE_AND | NEGATIVE_TOK | DOUBLE_OR | LITERAL_TRUE | LITERAL_FALSE | POS_INTLITERAL | POS_FLOATLITERAL | SCOPE_QUALIFIER | ID | DOUBLE_QUOTED_STRING | SINGLE_QUOTED_STRING | SINGLE_LINE_COMMENT | ML_COMMENT | WS | UNRECOGNIZED );
 1D Luminance to Color Lookup
-1m\v
-2,4
-204
+1N;
+2'4
+2+4
+22\r
 2D Orient
-2k&
-2|X
-3?4
+2d+
+2q+
 3E"
-3Y+
+3m\v
+3w&
+3y&
 488:1: POS_FLOATLITERAL : ( ( DIGIT )+ '.' ( DIGIT )* ( EXPONENT )? | '.' ( DIGIT )+ ( EXPONENT )? | ( DIGIT )+ EXPONENT );
-4nX
-4uX
-5S9
-5u<
-6E4
+4x.
+4~X
+57A
+5C9
+5G\f
+5\8
+6jX
+6oX
+6zX
+6{X
 7 Segment
-78\v
 7?B
 7?sk3mx>>*vn[9d
-7m\v
-8&U
+7_8
+8!T
+8"U
 8'T
 8'U
 8(T
-8+T
+8-T
+8.U
+8/T
+80]
+84T
 84U
 86U
-86]
-88T
-8:U
 8<T
-8@T
-8AT
-8BU
-8B^
+8A]
 8DT
 8EU
 8FT
+8JT
 8LT
 8PT
 8PU
+8UT
 8WS
 8WT
 8YS
-8\nT
-8\vT
-8_T
+8YX
+8[T
+8\nU
+8\tT
+8^T
 8`S
 8aS
+8a]
 8bS
-8b]
 8cS
+8fT
+8h]
 8jS
-8k]
+8kX
 8lS
+8nT
 8pT
-8p]
+8qT
 8sS
 8sT
-8tT
-8wX
 8xS
-8xX
 8zF
 8{S
 8}S
 8~S
 9?T
 : lexer error %d :\n\t%s at offset %d, 
-:74
-:rX
-;h8
+:24
+:yX
+;a8
 ;lD
+<54
 <DEBUG-Only>
 <DOWN>
 <EOF>
 <EOR>
 <Unknown>
+<VX
 <array: %u elements>
+<bX
 <binary blob: %u bytes>
 <ellipsis>
 <elt type not set>
 <empty member name>
+<gX
 <invalid>
 <missing 
 <missing>
@@ -562,47 +561,50 @@ $rX
 <none>
 <none>\n
 <pointer>
+<qX
 <table: %u members>
 <undefined>
 <unimplemented>
 <unknown KV3 basic type '%s' (%d)>
 <unknown>
+<xX
 <y5
 == PulseGraphDef ==\n
 => TempVarBank: Bank%d\n
->fX
-?6A
-?7A
+>S9
+>aX
+>sX
 ?t$7?t$7?t$7?t$7?
-@0T
+@3T
+@3U
 @7T
+@AT
 @ET
+@IT
 @IU
 @MU
+@NT
 @NU
 @QS
 @RT
-@UX
-@XX
+@SX
 @ZT
 @cT
 @dT
-@fT
 @fff>fff>fff>fff>
 @gS
 @hS
+@iT
+@lT
 @pS
-@qT
 @rS
-@uX
-@vX
 @wS
 @yT
 @zS
+A 4
 A minimum on particle simulation time, particle simulation happening more frequently than this will lerp.
 A string associated with this Cursor, to use later for remote Kill or Wait requests. Cursors can have any number of Tags associated with them.
 A#B
-A0\f
 ABCDEFGHIJKLMNOPQRSTUVWXYZ
 ADD
 ADD_FLOAT
@@ -766,9 +768,7 @@ Avg Intersection Tests
 Avg. Render (us)
 Avg. Sim (us)
 Avoid Vertical Axis Singularity
-B%4
-B)4
-B0\r
+B$4
 BACKSLASH_CHAR
 BBOX_DIMENSIONS
 BBOX_MINS_MAXS
@@ -784,6 +784,8 @@ BOX_ANGLES
 BOX_FLAGS
 BOX_MAXS
 BOX_MINS
+Ba+
+Ba8
 Bad KV3 data (%s)
 Bad KV3 data for resource '%s': %s\n
 Bad array index %d (array has %d elements)
@@ -823,12 +825,9 @@ Base recognizer function recoverFromMismatchedToken called by unknown parser typ
 Base-10 logarithm
 Base-2 logarithm
 BaseDomain
-Bb+
-BeX
 Begin testing a condition composed of Observable values. Continues checking until canceled.
 Begin testing a condition composed of Observable variable references. Continues checking until true.
 BenchmarkService001
-Bf+
 Bias relative to Entity
 Bias relative to Hitbox
 BinAdd
@@ -847,13 +846,13 @@ BinNe
 BinSub
 BinaryProperties_GetValue
 BindlessParticleShader
-BjX
 Blend Add (Pre-Mult Alpha)
 Blend Amount
 Blue Channel
 Blue with Blue as Alpha
 BlurFilterType_t
 Bm?
+Bo\v
 BodyGroup SubModel
 Bone Indices
 Bone Weights
@@ -883,7 +882,11 @@ Break Value of >= 1
 Break node reached a Method-call boundary without finding an enclosing loop.
 Breakpoint Log [%u]
 Breakpoint Log [%u] - %s
+BuX
 Bump Strength
+C54
+C6A
+C74
 C:\buildworker\csgo_rel_win64\build\_build_\particles\_vpc_particles\default\win64\_msvc_\Retail\particles.pdb
 C:\buildworker\csgo_rel_win64\build\src\mathlib\extended\generic_expr.g
 C:\buildworker\csgo_rel_win64\build\src\particles\gpu_implicit_renderer.cpp
@@ -899,7 +902,6 @@ CBaseRendererSource2
 CBaseTrailRenderer
 CBufferString
 CColorGradient
-CE4
 CELL_INVOKE
 CEntityNameString
 CGeneralRandomRotation
@@ -1705,6 +1707,7 @@ Causes all single-fire particle assertions to trigger once more.
 Causes each execution cursor to pause at this node for a fixed period of time. Each cursor will wake up and resume execution when the time expires, unless aborted or early-woken.
 Causes each execution cursor to wait for the completion of all prior cursors that have visited this node. Use this to safely support multiple triggers to areas of the graph that take time to complete.
 Causes this execution cursor to wait for the completion of other cursors with the given tag. Can optionally kill the tag while waiting.
+Ce8
 Ceiling - round float up to nearest integer)
 Ceiling Float
 Channel Mix
@@ -1813,6 +1816,8 @@ Cosine of angle. Input in radians, output in radians
 Could not execute '%s' because this graph domain does not support the required IPulseHost
 Count the number of codepoints in the string (unicode-aware). If you want rendered glyphs, you probably want to consider using Panorama.
 Cp to Radial direction of Screen Space
+Cp&
+Cr&
 Create External Particle Impulse
 Create and destroy N particle systems for every one created normally
 Create vortices from parent particles
@@ -1826,7 +1831,6 @@ Cross Product
 Cross Product Vector
 Cross Product of Vector a x Vector b
 Crossfade
-Cu&
 Cubes
 Cull Lifetime
 Cull or modify relative to neighboring particles
@@ -1849,7 +1853,6 @@ Cursors Allowed To Wait
 Curve
 Custom
 Custom Shader
-Cw&
 Cycle Scalar
 Cycle time
 DETACH_REGISTER
@@ -1882,7 +1885,6 @@ Data breakpoint hit
 Data_Branch1xy
 Data_Branch1zBranch2x
 Data_Branch2yz
-DbX
 Debris
 Debug Traces
 Dec
@@ -1916,7 +1918,6 @@ Detach R%d
 Detail2Combo_t
 DetailCombo_t
 Detect from CP's Object
-DiX
 Did not execute '%s' because the 'Target' object was missing
 Diffuse Infinite Zoom
 Diffuse Texture
@@ -1951,7 +1952,6 @@ Divide by zero!
 Do Nothing
 Do not repeat cycle
 Do not stop the current yielding node, but do not continue to the next node afterwards.
-DoX
 Domain Class
 Domain: %s\n
 Don't Break
@@ -1967,12 +1967,10 @@ DualHull
 Dump all new particles, optional name substring.
 Dump all simulating particles, optional name substring.
 Duration value for path point
-DyX
 Dynamic Bounce (RTGI)
 Dynamic Entities Only
 Dynamic Fog No Shadows
 Dynamic Fog with Shadows
-D~X
 ELEMENT_ACCESS
 ELEMENT_ACCESS_COLOR_RGB
 ELEMENT_ACCESS_VEC2
@@ -2002,11 +2000,12 @@ ERROR: CUtlSymbolTableLarge element limit of %u exceeded\n
 ERROR:NoEnum:%s:%d
 ERROR:NoEnumerator:%s:%d
 ERROR:NoFlags:%s:%d
+ES9
 ESCAPE_CHAR
 ESCAPE_CODE
+EU8
 EXPONENT
 EXPORTSYSTEM_INTERFACE_VERSION_001
-EZ8
 Early exit
 EarlyInit_Tier0
 EconItemToolModel_001
@@ -2014,7 +2013,6 @@ Effect Config
 Elapsed time = %f\n
 Electrified
 Element Access R%d <- R%d[R%d]
-Em\v
 Emission
 Emit continuously
 Emit instantaneously
@@ -2063,7 +2061,6 @@ Extra Arc Data Point
 ExtractModuleMetadata
 Extraneous token
 Eyes
-F:4
 FIXME:A particle control point is trying to use an invalid slot %d! Only 64 are available. Ignoring for now, but a crash may happen later if this system is used.\n
 FORCE_SCALE
 FX Light
@@ -2115,6 +2112,7 @@ False
 Fan
 Feb
 February
+FiX
 Fifty Percent/Zero Percent Distance
 FillAttr
 Find all the yielded cursors on this graph and cancel them.
@@ -2138,7 +2136,6 @@ Fixed Rate
 Fixed bugs in "Position along path sequential" where it could incorrectly create too many particles at the last control point. Also fixed issues with control points specified in backward order in that operator as well as "Movement lock to saved position along path".\n
 FixupResourceName: Illegal full path passed in ("%s")!\n
 FixupResourceName: Illegal path, missing extension passed in ("%s")!\n
-FkX
 Flashlight
 Flat
 FlattenedSerializersVersion001
@@ -2179,6 +2176,7 @@ Format2
 Format3
 Format4
 Format5
+FpC
 Frac
 Fractional component (ie. returns 0.34 for 12.34)
 Frames Measured: %d\n
@@ -2191,14 +2189,13 @@ From Normal
 From Rotations
 From Velocity
 Frozen
+Ft<
 Full 3-Axis Rotation
 Full Loop Increment Amount
 Func( %s )
 Function "%s" not found while loading particle system\n
 Functions not supported in this evaluator (%s)
-G<4
 GCTL
-GD9
 GET_ARRAY_ELEMENT
 GET_BLACKBOARD_REFERENCE
 GET_CONST
@@ -2218,7 +2215,7 @@ GPUParticleRemapTexture
 GPUParticleRequiredResources
 GPUParticle_perframes
 GPUParticle_readbacks
-G]8
+GX8
 Game Blackboards: 
 Game Time
 Game Time To Float
@@ -2288,29 +2285,36 @@ Gravity
 Greater Than
 Green Channel
 Green with Green as Alpha
+H T
+H U
+H!U
 H#U
-H%T
+H)T
+H*T
+H+T
 H+U
-H-T
-H.U
 H/U
+H0T
+H0U
 H1T
-H3T
-H3U
-H6A
-H7A
+H2T
+H2U
+H4^
+H5T
+H6T
 H8U
+H9T
 H9U
+H:U
 H<U
-H=T
-H=U
 H?U
+H@T
 HAC K  Unused Binding
 HAU
 HBT
+HB^
 HCT
 HCU
-HC]
 HDU
 HH:mm:ss
 HHU
@@ -2319,34 +2323,32 @@ HITBOX_LERP_CONSTANT
 HITBOX_LERP_LIFETIME
 HITBOX_RELATIVE_XYZ
 HJU
+HJ]
 HKT
-HLU
-HNT
+HK]
 HOU
-HQT
 HSV Shift Control Point
 HSV Shift to control point
-HVT
+HUX
 HWS
-HWX
+HW]
 HXS
-HX]
+HXT
+HZ]
 H\S
 H\fT
 H\rT
-H\tT
-H^T
+H\vT
 H_S
-H`T
+HaU
 Half Blend Add
 HammerMapLoader001
 Handle Return Values
 HardCancel
 Has All Flags
 Has Any Flags
-HcU
+He]
 HelpSystem_001
-HgT
 HhT
 High
 Hit maximum implicit index buffer size of %u, desired %u\n
@@ -2360,27 +2362,27 @@ Hitboxes fall back to render bounds
 Hitboxes fall back to snapshot
 HjT
 HkS
-HnT
+HkT
 HoS
+HoT
 Honors the per-particle radius (multiplied by radius scale) but is more expensive to render.  Some particles with large radii can make things much costlier
 HostStateMgr001
 How aggressive the switch to fallbacks will be depending on how far over the cl_particle_sim_fallback_threshold_ms the sim time is.  Higher numbers are more aggressive.
-HpX
 HqU
-HsX
+HtT
 HuT
 HwT
-HwX
 HxT
 HyS
 Hybrid Box/Capsule
 Hybrid RT + Depth Buffer
 HzT
 H{T
-H}T
-H}X
+H|T
+H~X
 I cannot be refracted through refracting objects like water
 I could not work out what I was expecting, like so many of us these days!\n
+I:E
 I>e
 ID_CHAR
 IKV3TransferInterface_EHandle_Load
@@ -2505,23 +2507,25 @@ Is Valid World Vector
 IsDebuggerPresent
 IsProcessorFeaturePresent
 IsValidCodePage
-J04
+J+4
+J74
 JUMP
 JUMP_COND
 Jan
 January
-Jf8
-Jk&
+Je8
+Jo\v
+Jr&
 Jul
 July
 Jump to Instr I%d
 JumpOrLeap( C%d:I%d )
 Jun
 June
-Jw&
-K"4
 K?2
 KERNEL32.dll
+KZ+
+Kc8
 Keep a history of all instructions run on a per graph basis.
 Keep running normally.
 KeyValueCache001
@@ -2538,7 +2542,8 @@ Kill Particle
 Killed
 Killed by Cull
 Killed on Collision
-L34
+Kz\v
+L.4
 LAST_SERIALIZED_CODE
 LCMapStringEx
 LCMapStringW
@@ -2562,6 +2567,7 @@ LTE_INT
 LT_FLOAT
 LT_GAMETIME
 LT_INT
+LaX
 Last/Newest Particle
 Lazily Cull on Float Comparison
 Leap to Chunk C%d
@@ -2590,6 +2596,7 @@ LessEq R%d <- R%d <= R%d
 Level Override
 Level Volume
 Lexer encountered %d error(s)
+Li&
 Life Duration
 Lifespan clamp count decay
 Lifespan decay
@@ -2618,7 +2625,6 @@ Line:
 Linear
 Linear Falloff
 Liquid Contents ( negative for water, positive for oil, zero for noop )
-Ln&
 LoadLibraryExW
 Local
 Local acceleration force
@@ -2643,7 +2649,7 @@ Low
 Lumens
 Lumens Per Meter
 Luminance
-M 4
+L}X
 MANUAL_ANIMATION_FRAME
 MATCHFRAMEWORK_001
 MATERIAL_PROXY_STATUS_EFFECT
@@ -2863,7 +2869,7 @@ Movement set to control point
 Movement skin to bones
 Movement skin to bones rigid
 Msg
-Mu<
+Mt<
 Mul R%d <- R%d * R%d
 Multi-Segment Display Snapshot Generator
 MultiByteToWideChar
@@ -2874,7 +2880,6 @@ N?u
 NAN
 NAN(IND)
 NAN(SNAN)
-ND9
 NEGATE
 NEGATE_FLOAT
 NEGATE_INT
@@ -2909,8 +2914,8 @@ NO_FLAGS
 NPC
 NULL
 NULL CELL 
-N]8
-N_8
+NX8
+NZ8
 Named Values
 Named model body part random
 Named model mesh group random
@@ -2968,7 +2973,6 @@ Number Of Lights To Create
 Number of Children to Use
 Numer of points along path
 O6?
-O<4
 O@33S@1
 OPEN_BRACE
 OPEN_BRACKET
@@ -3033,36 +3037,31 @@ Overlay
 OverlayProjectionDirection
 Override Color
 Override Position
-P T
-P U
-P!U
-P"T
-P"U
+P#T
+P$T
+P%U
 P&U
-P(T
+P'T
 P(U
-P)T
 P)U
-P*T
 P+4
 P,U
-P.T
-P2T
-P2U
+P1^
+P4T
 P4U
+P4]
 P5U
-P6T
+P61
 P6U
 P6^
 P7U
+P7]
 P8?2
-P8]
-P8^
-P:T
-P;T
+P8T
 P;U
+P=T
+P>4
 P>r
-P?T
 PANEL_ID
 PARENT_PARTICLE_ID
 PARENT_PARTICLE_INDEX
@@ -3316,6 +3315,7 @@ PATTACH_RENDERORIGIN_FOLLOW
 PATTACH_ROOTBONE_FOLLOW
 PATTACH_WATERWAKE
 PATTACH_WORLDORIGIN
+PBU
 PB]
 PDT
 PET_GROUND_GRID
@@ -3325,7 +3325,6 @@ PET_SupportFadingOpaqueModels
 PFNoiseModifier_t
 PFNoiseTurbulence_t
 PFNoiseType_t
-PFU
 PFUNC_VISUALIZATION_BOX
 PFUNC_VISUALIZATION_CYLINDER
 PFUNC_VISUALIZATION_LINE
@@ -3414,13 +3413,12 @@ PF_TYPE_SNAPSHOT_COUNT
 PFuncVisualizationType_t
 PGDInstruction_t
 PGU
-PG]
 PIO
 PITCH
 PInstruction_t<43>::Run
 PInstruction_t<44>::Run
-PK]
 PL?
+PLU
 PMT
 PM]
 PM_TYPE_CONTROL_POINT
@@ -3432,12 +3430,15 @@ POS_FLOATLITERAL
 POS_INTLITERAL
 POT
 PO_
+PQT
 PQU
 PRECIPITATION
 PREV_XYZ
 PRIVATE
 PRS
 PST
+PTT
+PTX
 PT_TYPE_CONTROL_POINT
 PT_TYPE_CONTROL_POINT_RANGE
 PT_TYPE_COUNT
@@ -3504,15 +3505,17 @@ PVEC_TYPE_PARTICLE_VELOCITY
 PVEC_TYPE_RANDOM_UNIFORM
 PVEC_TYPE_RANDOM_UNIFORM_OFFSET
 PVS
-PVX
-PW]
+PV]
+PX+
+PX]
 PYT
 PZS
 P\T
-P\nT
 P\nU
+P\vU
 P]T
-P_T
+P^T
+P`T
 PaT
 PanelID
 Panorama Panel Handle
@@ -3651,7 +3654,6 @@ Pause
 Pause particle simulation
 Pause the cursor at this point.
 PdS
-PeT
 Per-Frame Planeset
 Per-Particle
 Per-Particle Force
@@ -3666,19 +3668,18 @@ Performance Options
 Perlin
 PetGroundType_t
 PfS
-PgX
 Ph)
 Physics
 PhysicsBuilderMgr001
 Pi?
 PiS
-PiT
+Pi]
 Pin Particle to control point
 Pin Rope Segment Particle to Parent Particle
 Pitch
 PivotPaint
-PkT
-PlT
+Pj]
+Pk]
 Place Particle at Trace End
 Plat_DemangleRawTypeName
 Plat_ExitProcess
@@ -3695,8 +3696,9 @@ Play EndCap when Finished
 Player
 Player Wake Radius
 PmT
-Pm\v
-PoT
+PnT
+Pn]
+Po\v
 Point
 Point Away
 Point at Previous instead of next
@@ -3742,7 +3744,6 @@ PostSimulate
 Pow
 PpT
 PqS
-Pq]
 PrT
 Prepend Empty Digits
 Prevent passing through a plane
@@ -3770,6 +3771,7 @@ PropertyEditorSystem_001
 Props
 PsS
 PtS
+Pu]
 Pull towards control point
 Pulse
 Pulse domain which enables particle content to query leaf code to introspect game state.
@@ -3814,10 +3816,11 @@ PulseVariableKeysSource_t
 PvP
 PvS
 PvT
-Pw]
+Px]
 P{S
 P}S
 P~S
+P~T
 Q#B
 QAngle
 Quadratic/Linear Bias
@@ -3826,7 +3829,6 @@ Quantize Float
 Quantize Float to Control Point Component
 QueryPerformanceCounter
 R Sqrt
-R"4
 R%d%s%s
 RADIUS
 REFCOUNTED_PTR
@@ -3849,6 +3851,8 @@ ROPE_SEGMENT_DATA
 ROPE_SEGMENT_ID
 ROTATION
 ROTATION_SPEED
+RVX
+RZ+
 Rad2 Deg
 Radial
 Radial Amount (-1..1)
@@ -4068,10 +4072,8 @@ Returns the inverse of a world transform.
 Returns true if the Vector is valid
 Returns true if the World Vector is valid
 Returns up to the maximum requested elements. Never grows the array (unlike SetCount).
+RhX
 Right Hand
-RmX
-RnX
-RoX
 Roll
 Roll Speed
 Rope
@@ -4111,9 +4113,9 @@ RtlUnwindEx
 RtlVirtualUnwind
 Run
 Run Only Once
-S/8
-S34
-S54
+Ry&
+S.4
+S04
 SCALAR_EXPRESSION_ADD
 SCALAR_EXPRESSION_DIVIDE
 SCALAR_EXPRESSION_EQUAL
@@ -4390,6 +4392,7 @@ Show all used controlpoints
 Show rope segments when debugging particle systems - specify a number to isolate to that segment id
 Show specific attribute when debugging particle systems
 Show the sorting position when debugging particle systems
+Si&
 Sign Float
 Sign Int
 Signature hook to fill out arguments for OnInterval
@@ -4403,12 +4406,12 @@ Sin
 Sine
 Sine of angle. Input in radians, output in radians
 Sink
+Sk&
 Skip this node after the limit. Check Type does not apply, the limit will always be checked.
 Skirt
 Skirt (far falloff)
 SleepConditionVariableSRW
 SmartPropsSystem_001
-Sn&
 Snapshot Index
 Snapshot Index T Value
 Snapshot Options
@@ -4440,7 +4443,6 @@ Source2Host001
 Source2ModTools001
 Source2Server001
 Source2V8System001
-Sp&
 Spacing Scale
 Spawned
 Specified Particle Number
@@ -4537,7 +4539,6 @@ Target
 Target color control point number
 Target density
 Target with Roll
-TcX
 Teleport Beam
 Terminate()
 TerminateProcess
@@ -4580,6 +4581,7 @@ TlsAlloc
 TlsFree
 TlsGetValue
 TlsSetValue
+TnX
 Took %g uS per iteration to create+destroy %s, %gUs for create+sim
 ToolEditContext_ID_VPCF
 ToolFramework2_002
@@ -4589,7 +4591,7 @@ Total Frames
 Total Render (us)
 Total Sim (us)
 Total particles created : %u
-TrX
+TpX
 Trace
 Trace Bloat Radius Scale
 Trace Caching
@@ -4620,12 +4622,11 @@ Triangles
 Tried to load a polymorphic pointer with no '%s' key
 Tried to load resource reference '%s' from a value without a resource reference specific type.
 True
-TsX
-TuX
 Tue
 Tuesday
 Turbulent force
 Turn a time in seconds into a display string. NOT localized.
+TvX
 Twist amount (-1..1)
 Twist around axis
 Type
@@ -4642,8 +4643,8 @@ UV Distortion
 UV Distortion Infinite Zoom
 UV Offset
 UV Scale
-U_8
-Ua\n
+UZ8
+Ud\n
 Ultra
 UnInvalid
 UnNegate
@@ -4665,7 +4666,6 @@ Unknown property %s
 Unknown variable %s
 Unsupported KV3 basic type '%s' (%d)!
 Unwanted token '%s' %s
-Uo3
 Update lights
 Usage: particle_profile <'systems'|'operators'> <num_frames>\n
 Usage: particle_profile_spike <'systems'|'operators'> <spike_threshold_ms>\n
@@ -4696,6 +4696,7 @@ UtlRBTree_FailedInsertDuplicate
 UtlVectorMemory_Alloc
 UtlVectorMemory_CalcNewAllocationCount
 UtlVectorMemory_FailedAllocation
+Ux0
 V Spacing
 VApplication001
 VAsyncFileSystem2_001
@@ -4816,7 +4817,6 @@ Var( %s )
 Variable
 Variable '%s' is referenced but not declared in this system (%s). Adding a fallback now.\n
 Variant
-Vc8
 VecInputMaterialVariable_t
 Vector
 Vector Component
@@ -4858,16 +4858,15 @@ Visualization Ring
 Visualization Sphere Solid
 Visualization Sphere Wireframe
 Void
+VqX
 Vrad3_001
-VtX
-V}X
+V{X
 WARNING: Discarding existing in-progress particle performance request.\n
 WARNING: Particle system '%s' was not precached correctly. Performing blocking load....\n
 WARNING: Particle system '%s' with missing path was not found in existing particle system list.\n
 WARNING: Removing circular reference to particle child '%s'.\n
 WARNING: Resource name "%s" has the incorrect extension "%s" for the specified resource type (expected "%s")!\n
 WARNING: Trying to create a CRenderContextPtr without a valid context.\n
-WV8
 Wait
 Wait Complete
 Wait For Completion
@@ -4885,6 +4884,7 @@ Warning: Missing fallback for particle system "%s"!\n
 Water
 Wed
 Wednesday
+Wh8
 When Steady State in %f Seconds
 When we start waiting, how should we handle existing cursors?
 Whether value has ALL of the specified flags set (it may have other flags.)
@@ -4915,20 +4915,22 @@ X Dimension Spacing
 X axis scaling scalar field
 X offset of center point
 X to the Y power
-X!T
-X#T
-X$T
-X/T
-X0U
+X"T
+X$U
+X,T
 X1U
-X4T
-X5T
-X9T
+X3T
+X3U
+X:T
+X<T
 X=U
-X@T
 X@U
-XAT
+XC]
+XC^
 XDT
+XD]
+XEU
+XFU
 XGT
 XHT
 XIT
@@ -4940,31 +4942,30 @@ XQS
 XRU
 XSS
 XTS
-XTT
 XUS
 XUT
-XXT
-XXX
+XVT
 XY velocity only
 XYZ
+XY]
 XZT
-XZ]
 X[S
-X[T
-X\fU
+X\nT
+X\nU
 X\rU
 X\tU
 X]S
 XbT
-XbX
 XeS
+XeT
+XgT
 XmS
 XnS
-XtT
+Xo\v
+Xp]
+XqT
 XuS
-XvX
-X|T
-X~T
+X}T
 Y Axis
 Y Dimension Count
 Y Dimension Spacing
@@ -4974,19 +4975,18 @@ YAW
 Yaw
 Yield, Resume=%s
 Yz'x
+Yz\v
 Z Axis
 Z Dimension Count
 Z Dimension Spacing
 Z axis scaling scalar field
-Z)4
-Z31
-Z54
+Z$4
+Z04
+Za+
+Za8
 Zero Gravity
 Zero Gravity Duration
-Zf+
-ZgX
-Zp&
-Z|X
+Zk&
 Z~X
 [ Chunk%d ]
 [ written at chunk start last-read I%d ]
@@ -5004,23 +5004,29 @@ Z~X
 [test]
 [thunk]:
 [unknown]
-\cU
-\ftX
+\aU
+\fbX
+\feX
+\fhX
+\fpX
 \fu0
+\jX
 \n    near %s\n    
-\n34
-\nX
 \n\n----------------------------\nInstance Count:\n
+\ncX
+\nuX
 \nvX
 \qU
 \t The lexer was matching from line %d, offset %d, which\n\t 
 \t%.*s\n
 \t%4d -  %s\n
-]c8
-^V8
-^X8
-^hX
-^wX
+\tX
+\vS9
+]S9
+^61
+^h8
+^oX
+^zX
 _MakeGlobalSymbol
 _MakeGlobalSymbolCaseSensitive
 _Target
@@ -5057,26 +5063,21 @@ __vectorcall
 _class
 _procedural_particle_snapshot.vsnap
 _w|9^yq=v0
-`3U
-`8T
 `8U
-`BT
-`BU
+`9T
 `Bt
 `EH
-`ET
-`EU
 `Ek
 `FT
 `IU
+`JU
 `KC
 `LT
-`NT
 `PT
 `PU
 `RTTI
+`SX
 `WT
-`WX
 `YS
 `aS
 `adjustor{
@@ -5084,22 +5085,20 @@ _w|9^yq=v0
 `bS
 `cS
 `copy constructor closure'
-`dX
 `default constructor closure'
 `dynamic atexit destructor for '
 `dynamic initializer for '
+`eX
 `eh vector constructor iterator'
 `eh vector copy constructor iterator'
 `eh vector destructor iterator'
 `eh vector vbase constructor iterator'
 `eh vector vbase copy constructor iterator'
 `fT
-`fX
 `generic-class-parameter-
 `generic-method-parameter-
 `generic-type-
 `jS
-`jT
 `lS
 `local static destructor helper'
 `local static guard'
@@ -5109,18 +5108,17 @@ _w|9^yq=v0
 `managed vector constructor iterator'
 `managed vector copy constructor iterator'
 `managed vector destructor iterator'
-`nT
 `non-type-template-parameter
+`oT
 `omni callsig'
 `placement delete closure'
 `placement delete[] closure'
-`qT
 `rF
 `rS
 `sT
-`sX
 `scalar deleting destructor'
 `string'
+`tT
 `template static data member constructor helper'
 `template static data member destructor helper'
 `template-parameter
@@ -5142,10 +5140,11 @@ _w|9^yq=v0
 `virtual displacement map'
 `vtordispex{
 `vtordisp{
+`wT
 `xS
 `yS
+`yX
 `z8
-a8 (demangled)
 a:fulltype
 a:typeparam
 abcdefghijklmnopqrstuvwxyz
@@ -5232,18 +5231,19 @@ attribute to use for rope segment id
 attribute to write to
 attribute_range
 attributes
+au(
 auto
 avg_num_tests
 avg_num_traces
 avg_render
 avg_sim
 b#Bg
-b>4
+b%1
+b74
 bE"g
 bInherit
 bValue
 bWasAnObservableComputation
-bX+
 backed_by_variable
 bad address
 bad exception
@@ -5251,6 +5251,7 @@ bad file descriptor
 bad function call
 bad message
 batch particle systems (DO NOT USE)
+be8
 behavior if parent particle dies
 behindness output field
 behindness output remap
@@ -5267,13 +5268,12 @@ bias type
 biased 0 500
 binary_auto
 binary_blob
+blX
 blend sequence animation frames
 blendindices
 blendweight
 blendweights
 blob indirect draw
-bo3
-boX
 body part
 bodygroup field
 bone
@@ -5292,6 +5292,7 @@ bounding box depth sort bias
 box_angles
 box_maxs
 box_mins
+br&
 break age
 break comparison control point 1
 break comparison control point 2
@@ -5300,13 +5301,17 @@ break speed
 break value
 broken pipe
 brush only
+bt;
 bulge control 0=random 1=orientation of start pnt 2=orientation of end point
 buoyancy force
-bw&
-bxX
-b{X
-c,4
-c.4
+bv&
+bx0
+c'4
+c)4
+c2\r
+c94
+c<4
+cJ\f
 cable end cap offset amount
 cable end cap shape factor
 cable material
@@ -5324,11 +5329,13 @@ capsule behavior
 capsule height
 capsule length
 cast shadows
+cd+
 ceil
 center around control point
 center core radius
 center mesh
 center offset
+cf+
 channel type
 char
 char 
@@ -5341,7 +5348,6 @@ child group ID
 child group ID to affect
 childID
 choice_name
-ci&
 cl_aggregate_particles
 cl_max_particle_pvs_aabb_edge_length
 cl_particle_batch_mode
@@ -6462,6 +6468,7 @@ count back from last particle
 count to maintain
 cp field
 cpu
+cq+
 creation control point number
 creation type
 creation_time
@@ -6495,6 +6502,7 @@ cylinder outer output
 cylinder outer radius
 cylindrical bottom transform
 cylindrical top transform
+d;4
 dampen gravity/buoyancy near water plane
 dampen on only one side of plane
 dampen outside instead of inside
@@ -6503,7 +6511,6 @@ dampening
 data_offset
 data_size
 dddd, MMMM dd, yyyy
-deX
 debug orientation
 debugger_can_create_instance
 decal
@@ -6574,20 +6581,23 @@ distance squared output attribute
 distribution bias
 divide by deltatime (for comparing motion since last simulation)
 do not draw in particle pass
+do\v
 domain_scope
 dot
 double
 drag
 draw as opaque
 draw caps at each end of the cable
+dsX
 dumpparticlelist
 duration at which to stop
 duration field
 duration scale
+dxX
 dynamic bounce (RTGI)
 dynamic control point count
+d{X
 e+000
-eX8
 ease in and out
 ease out
 edit_context_override
@@ -6639,6 +6649,7 @@ ensure line of sight
 enum 
 environment map texture
 error.vpcf
+et<
 even distribution
 even distribution count
 even distribution within boxes
@@ -6659,7 +6670,9 @@ expression type
 expression_type
 extern "C" 
 extra velocity field to write
-f8 (demangled)
+f4\r
+f6A
+f^8
 facing strength falloff
 fade bias
 fade end time
@@ -6684,6 +6697,7 @@ falloff range
 falloff zero percent
 false
 fast
+fbX
 features
 field to init
 field to read
@@ -6704,6 +6718,7 @@ first input control point
 first parent control point to set from
 first particle to copy
 first vector
+fkX
 flDegrees
 flDuration
 flDurationSec
@@ -6781,8 +6796,7 @@ fresnel color warp texture (3d)
 fresnel warp texture
 friendly_name
 function not supported
-g/8
-g<4
+fvX
 g_flConfigMaxCoord
 g_pMemAlloc
 g_pThreadPool
@@ -6819,42 +6833,43 @@ group
 group ID to affect
 group emission times for new particles
 group id
-h#U
+h%T
 h%U
 h&T
+h)T
+h)U
+h*T
 h*U
-h,T
 h,U
-h-T
 h-U
-h0T
+h.T
+h/U
+h0]
 h2T
 h2U
-h31
-h3]
-h3^
-h41
+h6T
+h6U
 h7T
-h:T
-h:X
+h;T
+h>T
 h>U
-hB^
+h?T
+hAT
+hBT
+hET
+hGU
 hMU
+hNT
 hOU
 hQU
 hRS
 hRT
 hTarget
-hU]
-hVX
-hV]
-hY]
-h\fT
-h\tT
-h\vU
+h\fU
 h]S
+h]T
 h^S
-ha8
+h`T
 half-lambert normals
 hand
 hand control point number
@@ -6864,18 +6879,16 @@ has_observable_context
 hcT
 hdS
 hdT
-hd]
-heT
 head alpha scale
 head color scale
 head taper scale
 header_icon
 height override control point number
 hfS
+hfX
 hgS
 hhS
 hhT
-hh]
 hiT
 hidden
 hidden_in_tool
@@ -6887,29 +6900,36 @@ hitbox shell thickness
 hitbox velocity inherited scale
 hitbox_offset
 hlT
-hoT
+hl\v
+hm]
+hnT
 hollow
 horizontal texture offset
 horizontal texture scale
 host unreachable
 how long before a trail grows to its full length
 hpS
-hpT
-hp]
+hpX
+hs]
 htS
-ht]
 hue adjust
 hullivr_edge_merge_tan
 hullivr_faceisland_merge_disp
 hullivr_faceisland_merge_tan
 hullivr_version
+hvT
+hv]
 hwS
+hxT
 hyT
 hybrid ratio
 hzS
+hzX
+h{T
 h|S
 h}S
 h~S
+h~T
 id&
 identifier removed
 idiv
@@ -7035,13 +7055,20 @@ is_pure_value
 is_selector
 is_state_cell
 itemgroups
-j"4
-j.4
+j)4
 j>P
+jZ+
 ja\v
-ji&
+jf+
+jqX
+jy;
+j}X
 k#c
-kS9
+k44
+k<4
+kC9
+kVX
+k\8
 key
 kill density scale
 kill newest instead of oldest
@@ -7049,15 +7076,11 @@ kill particle on collision
 kill physics particles
 kill radius
 kill unused
-kt&
+ko&
 kv3
-l%4
-l'5
-l0\r
 lambda
 latency CP
 latency CP field
-lb+
 legacy_name_replacement
 legacy_names
 length max
@@ -7128,6 +7151,7 @@ limit per update
 limit rope impulses to Z
 linear
 lit segment color
+lo\v
 local gravity buoyancy scale
 local gravity scale
 local offset max
@@ -7152,9 +7176,11 @@ lookup tables
 low violence definition
 lowprecisionuv
 lowprecisionuv1
-lsX
+m 4
+m4\r
 m>T
-m_8
+mZ8
+m^8
 m_ActivityName
 m_AggregationPos
 m_Args
@@ -9177,8 +9203,6 @@ models
 modify amount
 motion vector scale U
 motion vector scale V
-n6A
-n94
 nCount
 nCursorID
 nDenominator
@@ -9211,8 +9235,7 @@ network down
 network reset
 network unreachable
 ng=
-nh8
-njX
+nmX
 no buffer space
 no child process
 no link
@@ -9261,13 +9284,11 @@ not enough memory
 not obeying particle system stencil of failure to parse stencil comparison string %s\n
 not rendering particle system because of failure ot parse stencil write string %s\n
 not supported
-nrX
-nuX
 null
 nullptr
 num to emit
 num_particles
-n~X
+o%1
 o?u
 o\t\raHC
 object local space axis 0/1
@@ -9347,6 +9368,7 @@ oscillation rate
 oscillation rate max
 oscillation rate min
 oscillation start phase
+ot;
 outer angle
 outer cone angle
 outline alpha
@@ -9393,61 +9415,67 @@ override translucent materials
 owner dead
 p T
 p!U
-p"T
+p#U
 p$8
-p%T
-p(T
-p)U
+p$T
+p+T
 p+U
-p/U
+p/8
 p0?
+p0T
 p0U
-p0^
 p1T
-p2]
-p3T
+p1]
+p24
+p2^
 p4?
-p5U
-p5^
-p74
-p7]
+p5T
 p9U
+p;U
+p<T
 p<U
+p=T
 p=U
+p@T
 pAU
+pA]
+pB]
+pB^
 pCT
 pCU
 pCheckpointName
 pDU
-pD]
 pDescription
+pF]
 pFx
-pGU
+pGT
 pHU
-pJU
-pJ]
 pKT
+pK]
 pMessage
 pOC
 pQT
 pRU
 pSS
+pST
 pT?
 pTS
+pT]
 pTagName
 pUS
-pVT
+pUT
+pUX
 pWS
 pXS
 pXT
-pYT
-p[T
 p\S
-p\fU
-p\nT
-p]T
+p\T
+p\rT
+p\rU
 p_S
-p`T
+paT
+paX
+pa]
 param
 parent particle radius scale
 particle density
@@ -9503,7 +9531,6 @@ particleslib
 particlesystem
 particlesystemmgr
 path points
-pc]
 pd?
 peS
 peak strength
@@ -9526,8 +9553,7 @@ percentage maximum
 percentage minimum
 perform final emit on stop
 permission denied
-pgT
-phX
+pf]
 pickover A parameter
 pickover B parameter
 pickover C parameter
@@ -9538,15 +9564,18 @@ pitch field
 pitch scale
 pitch yaw roll
 pitch yaw roll max
+pjT
 pkS
 pkT
+pl\v
+pl]
 plane cache retest rate
 plane normal
 plane point
 play end cap effect
 play endcap when children are removed
 play when emission ends
-pmT
+pm&
 pnS
 poS
 point list
@@ -9564,8 +9593,7 @@ position t value
 position to get
 posxyz
 pow
-pr&
-pr]
+pqT
 pre-simulation time
 prepare for rigid lock
 preserve initial Z-offset relative to cp
@@ -9600,7 +9628,6 @@ proxy type
 psS
 puS
 puT
-pu]
 public: 
 public: CBufferStringFormatOutputStream::CBufferStringFormatOutputStream(CBufferString&) (demangled)
 public: CPoolAllocator::CPoolAllocator(unsigned int) (demangled)
@@ -9697,15 +9724,16 @@ pulse_system.dll
 purecall
 pvec_color_black
 pvec_color_white
-pwT
-pxT
+pwX
+py]
 pzT
 p{S
-p{T
 p|T
 p}T
 qangle
-r54
+qu(
+r04
+r44
 r_draw_particle_children_with_parents
 r_drawparticles
 r_freezeparticles
@@ -9857,12 +9885,15 @@ reverse order
 reverse point order
 reverse warp (0/1)
 reverse z-buffer test
+riX
 rigid lock
 rigid rotation interpolation
 rigid rotation offset pitch/yaw/roll
 rigid set rotation from bones
 rising edge event type
 rising edge value
+rk&
+ro&
 roll
 root
 rope shake
@@ -9891,15 +9922,13 @@ rotation_speed
 roughness texture
 round
 roundness factor
-rp&
+rsX
 rsqrt
 rt env control point component
-rt&
-r}X
-s%4
-s'4
-s0\r
-s2\r
+rxX
+rzX
+s"4
+sZ>
 sample local gravity
 sample position
 sample water current
@@ -9907,7 +9936,6 @@ sample wind
 saturate
 saturation adjust
 save offset
-sb+
 sc_particle_debug_visualizer
 scalar to use for texture coordinate
 scale
@@ -9946,7 +9974,6 @@ screen edge alignment distance
 screen size to fade away
 screen size to start fading
 screen space effect
-sd+
 second control point location
 second control point number
 second dimension 0-2 (-1 disables)
@@ -10057,7 +10084,6 @@ spritecardparticlesnormal
 spritecardparticlestrail
 spritecardparticlestrailwithnormal
 spritecardtessvb
-sq+
 sqr
 sqrt
 sqrtf
@@ -10134,7 +10160,6 @@ tangent
 tangentu_signv
 target layer ID for rendering
 target position
-tcX
 temperature
 template-parameter-
 terminates
@@ -10153,7 +10178,6 @@ texture repetition mode
 texture repetitions
 texture repetitions around cable
 texture rotation / animation rate scale
-tf8
 thickness
 third control point location
 third control point number
@@ -10175,6 +10199,7 @@ tint clamp min
 tint control point
 tint perc
 tint update movement threshold
+to\v
 too many files open
 too many files open in system
 too many links
@@ -10221,10 +10246,10 @@ turn on optimized particle init
 twist axis
 type
 type_restriction_is_enum_flags
-u94
+tz\v
+t~X
+u 4
 u?G
-uc8
-uh8
 uint
 uint16
 uint32
@@ -10272,12 +10297,10 @@ use the derivative
 use velocity for test direction
 use vertical velocity for weighting
 uv1
-vC9
 vCenter
 vForward
 vMins=%?
-vX (demangled)
-v\8
+vW8
 value
 value to lerp to
 value too large
@@ -10319,7 +10342,6 @@ virtual
 visibility maximum
 visibility minimum
 visibility radius
-vkX
 vmat
 vmdl
 vn[90
@@ -10343,7 +10365,7 @@ volume scale
 vpcf
 vpcf66
 vr camera right eye
-vyX
+vtX
 wait for children to finish
 warp amount
 warp max
@@ -10359,7 +10381,6 @@ weight
 weight update control point
 weighted list
 wind scale
-wm\v
 world noise scale control point
 world spatial noise coordinate scale
 world time noise coordinate scale
@@ -10371,88 +10392,71 @@ write stencil on z-buffer test failure
 write stencil on z-buffer test success
 written field
 wrong protocol type
-wu<
+wt.
 wvec
 wvec2vec
 wxform
-x U
+x!T
 x"U
-x$T
+x#T
 x&U
+x'T
 x(U
-x)T
-x*T
-x.T
 x.U
-x0]
+x/T
 x1U
-x1]
+x4T
 x4U
-x6T
-x6U
-x6]
+x5U
 x7U
-x8U
-x9]
+x8T
+x9T
+x:T
 x:U
-x;T
-x;U
-x=T
-x>T
-x?T
-x@T
-xAT
-xBT
 xBU
-xB]
-xC]
 xDT
 xFU
+xIU
+xJT
 xLU
 xMT
 xNU
 xOT
-xST
 xTT
-xTX
-xUT
 xVS
-xWX
-xX]
+xYT
 xZS
 xZT
 x[S
-x\T
-x\nU
-x\rT
-x\tU
-x\vT
+x\tT
+x\vU
 x^T
 x_T
-xaT
+xd]
+xeT
 xform
+xgT
+xhX
 xiS
-xjX
-xm]
+xmT
+xpT
 xpU
 xqS
+xq]
 xrT
-xsX
-xs]
+xuX
 xvS
-xvT
-xwX
+x|X
 yaw
 yields
-z'4
-z2\r
+z"4
 z=7
-z>4
-zX+
-zd+
-zm\v
-zq+
-ztX
+zZ>
+zjX
+znX
+zoX
+zo\v
+zv&
 { KV3DefaultTestFnName = 'CParticleModelInputDefaultTestFunc' }
 { SkipImprintFGDClassOnKV3 = true SkipRemoveKeysInKV3AtFGDDefault = true KV3DefaultTestFnName = 'CParticleFloatInputDefaultTestFunc' }
 { SkipImprintFGDClassOnKV3 = true SkipRemoveKeysInKV3AtFGDDefault = true KV3DefaultTestFnName = 'CParticleTransformInputDefaultTestFunc' }
@@ -10464,14 +10468,11 @@ ztX
 { item_factory = 'IntervalTimer' }
 { standard_yielding_flow = true }
 {0x%x}
-{24
-{Z8
-{f8
+{U8
 {flat}
 {for 
-|nX
+|R1
 |zX
-}C9
-}X8
-~qX
-~uX
+}W8
+~bX
+~c8

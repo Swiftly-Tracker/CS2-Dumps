@@ -5763,17 +5763,17 @@
             "has_max": false,
             "has_min": true
         },
-        "datatype": "int32",
-        "datatype_raw": 3,
-        "default": "3",
-        "description": "Maximum number of ticks the clock is allowed to drift before the client snaps its clock to the server's.",
+        "datatype": "float32",
+        "datatype_raw": 7,
+        "default": "0.125000",
+        "description": "Maximum duration the client clock is allowed to drift from server snapshots, before the client snaps its clock to the latest server snapshot received",
         "flags": [
             "hidden",
             "release"
         ],
-        "min": "0",
+        "min": "0.000000",
         "module": "engine2",
-        "name": "cl_clockdrift_max_ticks"
+        "name": "cl_clockdrift_max_secs"
     },
     {
         "attributes": {
@@ -9898,6 +9898,24 @@
         ],
         "module": "client",
         "name": "cl_observed_bot_crosshair"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "bool",
+        "datatype_raw": 0,
+        "default": "true",
+        "description": "When an entity is decoded from a baseline plus a wire delta, merge the two and decode once (true), or decode the baseline and then the delta as two passes (false, the old behaviour, which can invoke change callbacks with baseline values for an entity that already exists).",
+        "flags": [
+            "developmentonly",
+            "defensive"
+        ],
+        "module": "engine2",
+        "name": "cl_packetentities_merge_before_decode"
     },
     {
         "attributes": {
@@ -39155,15 +39173,185 @@
             "has_max": false,
             "has_min": false
         },
-        "datatype": "int32",
-        "datatype_raw": 3,
-        "default": "32",
-        "description": "Server will reject message larger than N kb",
+        "datatype": "bool",
+        "datatype_raw": 0,
+        "default": "false",
+        "description": "GatherSendProxyResults only walks struct and array fields, skipping scalar fields.",
         "flags": [
             "release"
         ],
         "module": "networksystem",
-        "name": "net_limit_sv_recv_max_message_size_kb"
+        "name": "net_gather_child_fields_only"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "int32",
+        "datatype_raw": 3,
+        "default": "3",
+        "description": "Server: max SteamNetworkingSockets message size in kb accepted from a connection that does not yet have a netchan",
+        "flags": [
+            "release"
+        ],
+        "module": "networksystem",
+        "name": "net_limit_sv_listen_max_message_size_kb"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "int32",
+        "datatype_raw": 3,
+        "default": "16",
+        "description": "Server: SteamNetworkingSockets will not buffer more than N kb from a connection that does not yet have a netchan",
+        "flags": [
+            "release"
+        ],
+        "module": "networksystem",
+        "name": "net_limit_sv_listen_recvbuffer_kb"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "int32",
+        "datatype_raw": 3,
+        "default": "4",
+        "description": "Server: SteamNetworkingSockets will not buffer more than N messages from a connection that does not yet have a netchan",
+        "flags": [
+            "release"
+        ],
+        "module": "networksystem",
+        "name": "net_limit_sv_listen_recvbuffer_msg"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "float32",
+        "datatype_raw": 7,
+        "default": "300.000000",
+        "description": "Drop a client if processing their messages consumes more than N ms of CPU time in a burst (token bucket capacity)",
+        "flags": [
+            "release"
+        ],
+        "module": "networksystem",
+        "name": "net_limit_sv_message_process_time_ms_drop_burst"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "float32",
+        "datatype_raw": 7,
+        "default": "500.000000",
+        "description": "Drop a client if processing their messages consumes more than N ms of CPU time *PER SECOND*, sustained (token bucket fill rate)",
+        "flags": [
+            "release"
+        ],
+        "module": "networksystem",
+        "name": "net_limit_sv_message_process_time_ms_drop_rate_per_sec"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "float32",
+        "datatype_raw": 7,
+        "default": "50.000000",
+        "description": "Warn if processing messages from a client consumes more than N ms of CPU time in a burst (token bucket capacity)",
+        "flags": [
+            "release"
+        ],
+        "module": "networksystem",
+        "name": "net_limit_sv_message_process_time_ms_warn_burst"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "float32",
+        "datatype_raw": 7,
+        "default": "150.000000",
+        "description": "Warn if processing messages from a client consumes more than N ms of CPU time *PER SECOND*, sustained (token bucket fill rate)",
+        "flags": [
+            "release"
+        ],
+        "module": "networksystem",
+        "name": "net_limit_sv_message_process_time_ms_warn_rate_per_sec"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "int32",
+        "datatype_raw": 3,
+        "default": "1000",
+        "description": "Max number of source engine messages that can be queued in a netchan receive buffer for an ordinary connection from a client.",
+        "flags": [
+            "release"
+        ],
+        "module": "networksystem",
+        "name": "net_limit_sv_recv_chan_buffer_messages"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "int32",
+        "datatype_raw": 3,
+        "default": "500",
+        "description": "Max number of source engine messages an ordinary client connection may put in a single network frame.  Exceeding this disconnects the client.",
+        "flags": [
+            "release"
+        ],
+        "module": "networksystem",
+        "name": "net_limit_sv_recv_chan_msgs_per_frame"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "int32",
+        "datatype_raw": 3,
+        "default": "64",
+        "description": "Server will reject uncompressed Source engine frame larger than N kb.  Also sets limit on SteamNetworkingSockets message size",
+        "flags": [
+            "release"
+        ],
+        "module": "networksystem",
+        "name": "net_limit_sv_recv_max_frame_size_kb"
     },
     {
         "attributes": {
@@ -39175,7 +39363,7 @@
         "datatype": "int32",
         "datatype_raw": 3,
         "default": "50",
-        "description": "Server will reject packets with more than N segments",
+        "description": "Server: SteamNetworkingSockets will reject packets with more than N message segments",
         "flags": [
             "release"
         ],
@@ -39192,7 +39380,7 @@
         "datatype": "int32",
         "datatype_raw": 3,
         "default": "128",
-        "description": "Server will not buffer more than N kb from connected clients",
+        "description": "Server: SteamNetworkingSockets will not buffer more than N kb from connected clients",
         "flags": [
             "release"
         ],
@@ -39209,7 +39397,7 @@
         "datatype": "int32",
         "datatype_raw": 3,
         "default": "100",
-        "description": "Server will not buffer more than N messages from connected clients",
+        "description": "Server: SteamNetworkingSockets will not buffer more than N messages from connected clients",
         "flags": [
             "release"
         ],
@@ -45372,6 +45560,186 @@
             "has_max": false,
             "has_min": false
         },
+        "datatype": "float32",
+        "datatype_raw": 7,
+        "default": "20.000000",
+        "description": "Seconds for the melted frost to dry",
+        "flags": [
+            "developmentonly",
+            "clientdll"
+        ],
+        "module": "client",
+        "name": "r_csgo_frost_dry_time"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "int32",
+        "datatype_raw": 3,
+        "default": "-1",
+        "description": "Frost on players, weapons and chickens: -1 = the map's (info_map_parameters frostenabled), 0 = off, 1 = on (outdoors; melts indoors)",
+        "flags": [
+            "developmentonly",
+            "clientdll"
+        ],
+        "module": "client",
+        "name": "r_csgo_frost_force"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "float32",
+        "datatype_raw": 7,
+        "default": "10.000000",
+        "description": "Seconds outdoors for frost to grow to full",
+        "flags": [
+            "developmentonly",
+            "clientdll"
+        ],
+        "module": "client",
+        "name": "r_csgo_frost_grow_time"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "float32",
+        "datatype_raw": 7,
+        "default": "0.330000",
+        "description": "Frost: where the barrel heat sits, from the shell eject (0) to the muzzle (1)",
+        "flags": [
+            "developmentonly",
+            "clientdll"
+        ],
+        "module": "client",
+        "name": "r_csgo_frost_heat_barrel_position"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "float32",
+        "datatype_raw": 7,
+        "default": "20.000000",
+        "description": "Frost: seconds for a hot barrel to cool down",
+        "flags": [
+            "developmentonly",
+            "clientdll"
+        ],
+        "module": "client",
+        "name": "r_csgo_frost_heat_cool_time"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "float32",
+        "datatype_raw": 7,
+        "default": "1.000000",
+        "description": "Frost: seconds after a molotov is lit before its rag starts to heat (the flame shows a moment after)",
+        "flags": [
+            "developmentonly",
+            "clientdll"
+        ],
+        "module": "client",
+        "name": "r_csgo_frost_heat_light_delay"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "float32",
+        "datatype_raw": 7,
+        "default": "10.000000",
+        "description": "Frost: seconds for a lit molotov's rag to reach full heat",
+        "flags": [
+            "developmentonly",
+            "clientdll"
+        ],
+        "module": "client",
+        "name": "r_csgo_frost_heat_light_time"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "float32",
+        "datatype_raw": 7,
+        "default": "0.050000",
+        "description": "Frost: barrel heat per shot (1 = hot enough to clear the whole barrel)",
+        "flags": [
+            "developmentonly",
+            "clientdll"
+        ],
+        "module": "client",
+        "name": "r_csgo_frost_heat_per_shot"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "float32",
+        "datatype_raw": 7,
+        "default": "128.000000",
+        "description": "Frost: distance under cover (no sky) over which the cold fades out (indoors)",
+        "flags": [
+            "developmentonly",
+            "clientdll"
+        ],
+        "module": "client",
+        "name": "r_csgo_frost_indoor_distance"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "float32",
+        "datatype_raw": 7,
+        "default": "10.000000",
+        "description": "Seconds indoors for full frost to melt",
+        "flags": [
+            "developmentonly",
+            "clientdll"
+        ],
+        "module": "client",
+        "name": "r_csgo_frost_melt_time"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
         "datatype": "bool",
         "datatype_raw": 0,
         "default": "true",
@@ -46116,6 +46484,25 @@
         ],
         "module": "client",
         "name": "r_csgo_outline_glow_scaledenom"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "int32",
+        "datatype_raw": 3,
+        "default": "1",
+        "description": "Parallax occlusion mapping (Advanced Video setting): 0 = off, 1 = on",
+        "flags": [
+            "developmentonly",
+            "clientdll",
+            "defensive"
+        ],
+        "module": "client",
+        "name": "r_csgo_parallax"
     },
     {
         "attributes": {
@@ -66168,74 +66555,6 @@
             "has_max": false,
             "has_min": false
         },
-        "datatype": "float32",
-        "datatype_raw": 7,
-        "default": "500.000000",
-        "description": "Drop a client if processing their messages consumes more than N ms of CPU time in a burst (token bucket capacity)",
-        "flags": [
-            "release"
-        ],
-        "module": "networksystem",
-        "name": "sv_net_client_message_process_time_ms_drop_burst"
-    },
-    {
-        "attributes": {
-            "has_callback": true,
-            "has_default": true,
-            "has_max": false,
-            "has_min": false
-        },
-        "datatype": "float32",
-        "datatype_raw": 7,
-        "default": "200.000000",
-        "description": "Drop a client if processing their messages consumes more than N ms of CPU time per second, sustained (token bucket fill rate)",
-        "flags": [
-            "release"
-        ],
-        "module": "networksystem",
-        "name": "sv_net_client_message_process_time_ms_drop_rate"
-    },
-    {
-        "attributes": {
-            "has_callback": true,
-            "has_default": true,
-            "has_max": false,
-            "has_min": false
-        },
-        "datatype": "float32",
-        "datatype_raw": 7,
-        "default": "50.000000",
-        "description": "Warn if processing messages from a client consumes more than N ms of CPU time in a burst (token bucket capacity)",
-        "flags": [
-            "release"
-        ],
-        "module": "networksystem",
-        "name": "sv_net_client_message_process_time_ms_warn_burst"
-    },
-    {
-        "attributes": {
-            "has_callback": true,
-            "has_default": true,
-            "has_max": false,
-            "has_min": false
-        },
-        "datatype": "float32",
-        "datatype_raw": 7,
-        "default": "5.000000",
-        "description": "Warn if processing messages from a client consumes more than N ms of CPU time per second, sustained (token bucket fill rate)",
-        "flags": [
-            "release"
-        ],
-        "module": "networksystem",
-        "name": "sv_net_client_message_process_time_ms_warn_rate"
-    },
-    {
-        "attributes": {
-            "has_callback": true,
-            "has_default": true,
-            "has_max": false,
-            "has_min": false
-        },
         "datatype": "bool",
         "datatype_raw": 0,
         "default": "false",
@@ -67355,24 +67674,6 @@
         ],
         "module": "server",
         "name": "sv_record_item_time_data"
-    },
-    {
-        "attributes": {
-            "has_callback": true,
-            "has_default": true,
-            "has_max": false,
-            "has_min": false
-        },
-        "datatype": "int32",
-        "datatype_raw": 3,
-        "default": "1024",
-        "description": "Max number of messages that can be queued in a netchan receive buffer for an ordinary connection from a client.",
-        "flags": [
-            "developmentonly",
-            "defensive"
-        ],
-        "module": "engine2",
-        "name": "sv_recvbuf_messages"
     },
     {
         "attributes": {
@@ -73614,6 +73915,25 @@
         },
         "datatype": "int32",
         "datatype_raw": 3,
+        "default": "0",
+        "description": "",
+        "flags": [
+            "developmentonly",
+            "clientdll",
+            "defensive"
+        ],
+        "module": "client",
+        "name": "videocfg_parallax_detail"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "int32",
+        "datatype_raw": 3,
         "default": "1",
         "description": "",
         "flags": [
@@ -74891,6 +75211,23 @@
         ],
         "module": "engine2",
         "name": "vprof_counters_show_minmax"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_default": true,
+            "has_max": false,
+            "has_min": false
+        },
+        "datatype": "bool",
+        "datatype_raw": 0,
+        "default": "true",
+        "description": "Let demo playback and the game rules start, dump and stop the vprof lite profiler on their own.  The vprof_lite_start, vprof_lite_stop and vprof_lite_dump commands set this to 0 so that a script can drive the profiler itself.",
+        "flags": [
+            "release"
+        ],
+        "module": "server",
+        "name": "vprof_lite_auto"
     },
     {
         "attributes": {

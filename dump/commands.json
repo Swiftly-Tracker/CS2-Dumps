@@ -9677,6 +9677,45 @@
             "has_callback": true,
             "has_completion_callback": false
         },
+        "description": "vprof_lite_start [clear=1]\nStart the vprof lite profiler, clearing any data it holds.  clear=0 keeps the data and continues adding to it.\nSets vprof_lite_auto 0, so the game will not stop or dump the profiler on its own.",
+        "flags": [
+            "developmentonly",
+            "defensive"
+        ],
+        "module": "engine2",
+        "name": "vprof_lite_start"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_completion_callback": false
+        },
+        "description": "vprof_lite_stop [clear=1]\nStop the vprof lite profiler and clear its data.  clear=0 keeps the data, for engine_frametime_print_report or vprof_lite_dump.\nSets vprof_lite_auto 0, so the game will not start the profiler on its own.",
+        "flags": [
+            "developmentonly",
+            "defensive"
+        ],
+        "module": "engine2",
+        "name": "vprof_lite_stop"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_completion_callback": false
+        },
+        "description": "vprof_lite_dump [filename] [stop=1]\nWrite the vprof lite budget group statistics as CSV, then stop the profiler and clear its data.\nstop=0 leaves the profiler running with its data.  The default filename is vprof_lite.csv in the mod directory;\nan absolute path is used as given.  Sets vprof_lite_auto 0, so the game will not stop or dump the profiler on its own.",
+        "flags": [
+            "developmentonly",
+            "defensive"
+        ],
+        "module": "engine2",
+        "name": "vprof_lite_dump"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_completion_callback": false
+        },
         "description": "Increment the timescale by one step",
         "flags": [
             "cheat"
@@ -11160,7 +11199,7 @@
             "has_callback": true,
             "has_completion_callback": true
         },
-        "description": "Play a recorded demo file (.dem ).",
+        "description": "Play a recorded demo file (.dem ).  Options: start=<tick> end=<tick> timescale=<float> (run with no arguments for details).",
         "flags": [
             "release"
         ],
@@ -12729,6 +12768,32 @@
         ],
         "module": "materialsystem2",
         "name": "spew_fonts"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_completion_callback": false
+        },
+        "description": "Clear per-entity decode change callback stats",
+        "flags": [
+            "developmentonly",
+            "defensive"
+        ],
+        "module": "networksystem",
+        "name": "net_decode_callback_queue_stats_clear"
+    },
+    {
+        "attributes": {
+            "has_callback": true,
+            "has_completion_callback": false
+        },
+        "description": "Print per-entity decode change callback stats",
+        "flags": [
+            "developmentonly",
+            "defensive"
+        ],
+        "module": "networksystem",
+        "name": "net_decode_callback_queue_stats_dump"
     },
     {
         "attributes": {
