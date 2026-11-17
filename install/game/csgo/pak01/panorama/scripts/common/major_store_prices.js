@@ -1,0 +1,130 @@
+"use strict";
+/// <reference path="../csgo.d.ts" />
+/// <reference path="../generated/items_event_current_generated_store.d.ts" />
+/// <reference path="../generated/items_event_current_generated_store.ts" />
+var MajorStorePrices;
+(function (MajorStorePrices) {
+    const TOP_TEAM_COUNT = 10;
+    const MIN_REAL_PRICE_TOKENS = 100;
+    const FAKE_SALES_ENABLED = false;
+    const fakeSales = new Map();
+    function _GetPriceTrend(itemId, szField) {
+        return MissionsAPI.GetSeasonalOperationFauxItemTrend(g_ActiveTournamentInfo.credits_id, itemId, szField);
+    }
+    function GetItemPrice(itemId) {
+        const high = _GetPriceTrend(itemId, 'high');
+        let low = _GetPriceTrend(itemId, 'low');
+        if (FAKE_SALES_ENABLED) {
+            if (!fakeSales.has(itemId)) {
+                fakeSales.set(itemId, Math.random() < 0.25);
+            }
+            if (fakeSales.get(itemId)) {
+                low = Math.round(high * 0.67);
+            }
+        }
+        const bOnSale = low > 0 && low < high;
+        return {
+            price: high,
+            salePrice: bOnSale ? low : undefined,
+            discountPct: bOnSale ? Math.round((high - low) * 100 / high) : undefined,
+        };
+    }
+    MajorStorePrices.GetItemPrice = GetItemPrice;
+    function GetEffectivePrice(price) {
+        return price.salePrice ?? price.price;
+    }
+    MajorStorePrices.GetEffectivePrice = GetEffectivePrice;
+    function SetPriceOnPanel(elPanel, price) {
+        elPanel.SetDialogVariableInt('price', GetEffectivePrice(price));
+        elPanel.SetDialogVariableInt('regular-price', price.price);
+        elPanel.SetDialogVariableInt('discount', price.discountPct ?? 0);
+        elPanel.SetHasClass('on-sale', price.salePrice !== undefined);
+        elPanel.FindChildInLayoutFile('id-store-item-price').text = $.Localize('#major_store_price', elPanel);
+    }
+    MajorStorePrices.SetPriceOnPanel = SetPriceOnPanel;
+    function ShowRealPrice(elPanel, price) {
+        const nPrice = GetEffectivePrice(price);
+        elPanel.FindChildInLayoutFile('id-store-item-real-price').SetHasClass('show', nPrice >= MIN_REAL_PRICE_TOKENS);
+        elPanel.SetDialogVariable('local-price', StoreAPI.GetStoreItemTokensBundlePrice('' + g_ActiveTournamentInfo.itemid_charge, nPrice, ''));
+    }
+    MajorStorePrices.ShowRealPrice = ShowRealPrice;
+    function HideRealPrice(elPanel) {
+        elPanel.FindChildInLayoutFile('id-store-item-real-price').SetHasClass('show', false);
+    }
+    MajorStorePrices.HideRealPrice = HideRealPrice;
+    function _RandomInt(max) {
+        return Math.floor(Math.random() * (max + 1));
+    }
+    function _Shuffle(aItems) {
+        const aShuffled = aItems.slice();
+        for (let top = aShuffled.length - 1; top > 0; --top) {
+            const j = _RandomInt(top);
+            [aShuffled[top], aShuffled[j]] = [aShuffled[j], aShuffled[top]];
+        }
+        return aShuffled;
+    }
+    function _ToStickerItemIds(aStickerIds) {
+        const defidxSticker = InventoryAPI.GetItemDefinitionIndexFromDefinitionName('sticker');
+        return aStickerIds.map(id => InventoryAPI.GetFauxItemIDFromDefAndPaintIndex(defidxSticker, id));
+    }
+    function _Rarest(aItemIds) {
+        return aItemIds.reduce((best, id) => InventoryAPI.GetItemRarity(id) > InventoryAPI.GetItemRarity(best) ? id : best);
+    }
+    function GetTopTeams() {
+        return _Shuffle(g_ActiveTournamentTeams.slice(0, TOP_TEAM_COUNT));
+    }
+    MajorStorePrices.GetTopTeams = GetTopTeams;
+    function GetTeamGoldSticker(team) {
+        return team.stickerids.length > 0 ? _Rarest(_ToStickerItemIds(team.stickerids)) : '';
+    }
+    MajorStorePrices.GetTeamGoldSticker = GetTeamGoldSticker;
+    function PickPlayerStickers(team, nCount) {
+        return _Shuffle(team.players.filter(player => player.stickerids.length > 0))
+            .slice(0, nCount)
+            .map(player => _ToStickerItemIds(player.stickerids)[_RandomInt(player.stickerids.length - 1)]);
+    }
+    MajorStorePrices.PickPlayerStickers = PickPlayerStickers;
+    function PickTeamSticker(team, bRarest) {
+        const aSets = [team.stickerids, ...team.players.map(player => player.stickerids)].filter(ids => ids.length > 0);
+        if (aSets.length === 0) {
+            return '';
+        }
+        const aItemIds = _ToStickerItemIds(aSets[_RandomInt(aSets.length - 1)]);
+        if (bRarest) {
+            return _Rarest(aItemIds);
+        }
+        return aItemIds[_RandomInt(aItemIds.length - 1)];
+    }
+    MajorStorePrices.PickTeamSticker = PickTeamSticker;
+    function GetStoreStickerItemIds() {
+        const defidxSticker = InventoryAPI.GetItemDefinitionIndexFromDefinitionName('sticker');
+        const aRawIds = [
+            ...g_ActiveTournamentTeams.flatMap(team => [
+                ...team.stickerids,
+                ...team.players.flatMap(player => player.stickerids),
+                ...team.champions.flatMap(player => player.stickerids),
+            ]),
+            ...g_ActiveTournamentInfo.stickerids,
+        ];
+        return aRawIds.map(id => InventoryAPI.GetFauxItemIDFromDefAndPaintIndex(defidxSticker, id));
+    }
+    MajorStorePrices.GetStoreStickerItemIds = GetStoreStickerItemIds;
+    function GetStickerPriceRange() {
+        let low = 0;
+        let high = 0;
+        let maxDiscountPct = 0;
+        GetStoreStickerItemIds().forEach(itemId => {
+            const price = GetItemPrice(itemId);
+            const nPrice = GetEffectivePrice(price);
+            if (nPrice <= 0) {
+                return;
+            }
+            low = (low === 0) ? nPrice : Math.min(low, nPrice);
+            high = Math.max(high, nPrice);
+            maxDiscountPct = Math.max(maxDiscountPct, price.discountPct ?? 0);
+        });
+        return { low, high, maxDiscountPct };
+    }
+    MajorStorePrices.GetStickerPriceRange = GetStickerPriceRange;
+})(MajorStorePrices || (MajorStorePrices = {}));
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWFqb3Jfc3RvcmVfcHJpY2VzLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vY29udGVudC9jc2dvL3Bhbm9yYW1hL3NjcmlwdHMvY29tbW9uL21ham9yX3N0b3JlX3ByaWNlcy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQUEscUNBQXFDO0FBQ3JDLDhFQUE4RTtBQUM5RSw0RUFBNEU7QUFHNUUsSUFBVSxnQkFBZ0IsQ0FxTHpCO0FBckxELFdBQVUsZ0JBQWdCO0lBRXpCLE1BQU0sY0FBYyxHQUFHLEVBQUUsQ0FBQztJQUMxQixNQUFNLHFCQUFxQixHQUFHLEdBQUcsQ0FBQztJQVNsQyxNQUFNLGtCQUFrQixHQUFHLEtBQUssQ0FBQztJQUNqQyxNQUFNLFNBQVMsR0FBRyxJQUFJLEdBQUcsRUFBbUIsQ0FBQztJQUU3QyxTQUFTLGNBQWMsQ0FBRSxNQUFjLEVBQUUsT0FBdUI7UUFFL0QsT0FBTyxXQUFXLENBQUMsaUNBQWlDLENBQUUsc0JBQXNCLENBQUMsVUFBVSxFQUFFLE1BQU0sRUFBRSxPQUFPLENBQUUsQ0FBQztJQUM1RyxDQUFDO0lBSUQsU0FBZ0IsWUFBWSxDQUFFLE1BQWM7UUFFM0MsTUFBTSxJQUFJLEdBQUcsY0FBYyxDQUFFLE1BQU0sRUFBRSxNQUFNLENBQUUsQ0FBQztRQUM5QyxJQUFJLEdBQUcsR0FBRyxjQUFjLENBQUUsTUFBTSxFQUFFLEtBQUssQ0FBRSxDQUFDO1FBRTFDLElBQUssa0JBQWtCLEVBQ3ZCO1lBQ0MsSUFBSyxDQUFDLFNBQVMsQ0FBQyxHQUFHLENBQUUsTUFBTSxDQUFFLEVBQzdCO2dCQUNDLFNBQVMsQ0FBQyxHQUFHLENBQUUsTUFBTSxFQUFFLElBQUksQ0FBQyxNQUFNLEVBQUUsR0FBRyxJQUFJLENBQUUsQ0FBQzthQUM5QztZQUNELElBQUssU0FBUyxDQUFDLEdBQUcsQ0FBRSxNQUFNLENBQUUsRUFDNUI7Z0JBQ0MsR0FBRyxHQUFHLElBQUksQ0FBQyxLQUFLLENBQUUsSUFB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

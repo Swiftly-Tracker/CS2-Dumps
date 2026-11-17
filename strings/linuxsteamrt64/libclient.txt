@@ -173,6 +173,8 @@
  %.*s %.*s:%d
  %02X
  %6d %4d\n
+ %C
+ %d
  %d %s is interpolating on %s %s\n
  %dms faster than direct ping of %dms
  %f
@@ -270,26 +272,25 @@
  - (Additive)
  -retail 
  ... Skipping view model attachment creation.\n
- 0B
- 0b
- 1a
- 1b
- 20
+ 0V
+ 0e
+ 1z
  240 frames: %5.1f fps, avg time:%5.2fms, abs_range:%7.2fms, min_time:%5.2fms, max_time:%5.2fms\n
  240 frames: %5.1f fps, avg:%5.2fms +/- %-7.2f | min:%5.2fms, max:%5.2fms
  240 server ticks: %5.1f tps, avg time:%5.2fms, abs_range:%7.2fms, min_time:%5.2fms, max_time:%5.2fms
- 2O
- 3a
- 3u
- 4E
- 4a
- 5B
- 5a
+ 2E
+ 2e
+ 2t
+ 4f
+ 4v
  5q
- 6a
- 7a
- 9a
- 9b
+ 7C
+ 8C
+ 8g
+ 8t
+ 9e
+ 9g
+ 9h
  : Extraneous input - expected %s ...\n
  : Extraneous input - expected <EOF>\n
  : Extraneous input...
@@ -309,71 +310,68 @@
  <b>@import</b> 
  = { <proto text format> }". To set fields within it, use syntax like "
  ACTIVE GROUP
- Ag
- Ah
- BE
+ AV
+ Aw
  BVH
  BackUp() can only be called after Next().
- Bi
+ C0
  C_PhysPropClientside::Spawn: SetupPhysicsAsModel() failed for %s.\n
  Can't back up over more bytes than were returned by the last call to Next().
- Ci
- DB
- Ed
- Ee
- Eh
- Ew
- FP
+ Da
+ Dh
+ EV
  Fade
  Failed to pack %s\n
+ Fe
  GB/s
  GMT
- Gd
- IB
- IP
- Ic
- Ih
- JP
- Jc
- Je
- Jh
- KP
- LP
- Li
+ GO
+ HU
+ Hi
+ Hu
+ Ie
+ In
+ Ja
+ Kt
+ Lb
+ Le
  LinePos:
  MB
  MB (100.00%), 
  MISSING MUSICKIT NAME
  MISSING PETKIT NAME
  MISSING STICKER NAME
- Mn
+ Mp
  Mprim/s, 
  Mutator
  Mutators
- NB
  NOT
  Not Depth Pre-passed
+ Og
  On-Disk size: %dx%dm%d Resident size: %dx%dm%d Pinned: %s
+ Op
  Outdent() without matching Indent().
  Parameter to BackUp() can't be negative.
- Pd
- Pg
- Qc
- Qe
- Qp
- SB
- Se
- Sp
+ Pn
+ Pp
+ SW
+ Sd
+ Sh
  Tn
  Tokenizer::ParseFloat() passed text that could not have been tokenized as a float: 
  Tokenizer::ParseStringAppend() passed text that could not have been tokenized as a string: 
- WW
- WY
- Wc
- XB
- Xn
- Yh
- Yn
+ Tt
+ Un
+ Vb
+ WP
+ Wa
+ Xb
+ Xe
+ Ya
+ Ye
+ ZP
+ Zb
+ Zh
  [*OBSERVABLE*]
  [clone 
  [default = $0
@@ -388,8 +386,10 @@
  _Imaginary
  __vector(
  a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+ aP
+ ac
+ ah
  and 
- ap
  arg%u: %s\n
  arg%u: %u bytes is too much data loaded from file: %s\n
  arg%u: failed to load from file: %s\n
@@ -397,13 +397,12 @@
  args were given.  Full format string was: "
  arguments. 
  asimd
- bB
+ bP
  bn0s}Q_@r~aoPq
  bytes
  bytes).  To increase the limit (or to disable these warnings), see CodedInputStream::SetTotalBytesLimit() in third_party/protobuf/io/coded_stream.h.
  bytes.
  cannot be required.
- ch
  character 
  characters
  class
@@ -520,13 +519,19 @@
  const*(std::locale const&) std::__try_use_facet<std::time_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > > >(std::locale const&) (demangled)
  const*(std::locale const&) std::__try_use_facet<std::time_put<wchar_t, std::ostreambuf_iterator<wchar_t, std::char_traits<wchar_t> > > >(std::locale const&) (demangled)
  contains invalid UTF-8 data when 
+ cu
  cubic-bezier( %1.3f, %1.3f, %1.3f, %1.3f ) 
+ dW
  definition file imports the proto which defines the option.
  details: 
+ du
+ ee
  ellipsis
  exceeded maximum protobuf size of 2GB: 
  export
  failed to restore %s\n
+ fc
+ fe
  filename="%s"%s
  filename="smime.p7s"%s%s
  fnumber=%d ofs=0x%x sz=%d
@@ -557,27 +562,22 @@
  for BVH8<Triangle4vMB>
  for BVH8MB<GridMesh>
  for QBVH8<Quad4i>
- gB
- gK
- ge
- gu
- hI
- hV
- hW
+ gd
  has the same name as 
+ hd
  if you ignore case and strip out the enum name prefix (if any). This is error-prone and can lead to undefined behavior. Please avoid doing this. If you are using allow_alias, please assign the same numeric value to both enums.
- ih
  invert
  is unused.
- jV
  je
- kg
+ kw
+ lY
+ lc
  line 
- mK
+ mY
  message of type "
  micalg="
  min( %gpx )
- nB
+ nJ
  na
  name=
  name="%s"%s
@@ -585,42 +585,53 @@
  neon
  noexcept
  not found
- nw
+ oJ
+ oY
  oe
  of the Protocol Buffer runtime library, but the installed version is 
  of the Protocol Buffer runtime library, which is not compatible with the installed version (
  offset size\n
  offset=
+ pJ
+ pY
  parent-relative
+ pg
  protocol="%ssignature";
- qh
- ra
+ qY
+ qg
  repeat
  requires 
  restrict
  round
  run all  update {  gameSettingType %d  gameSettingMode %d  gameSettingSkirmishId %d  gameSettingMap %s  gameSettingPrivacy %d  gameSettingAnyTypeMode %d  } 
  run host  update {  } 
+ sh
  smime-type=%s;
  space
  stack frames not accounted for stack unwind.
  stretch
  system {  network LIVE  }  options {  action joinsession  } 
+ td
  thread=%lu, file=%s, line=%d, info="
  throw
  took %d bits, %d bytes\n
  transaction_safe
+ tw
  type does not match\n
- uk
+ uh
  update { Game {  type %s mode %s mapgroupname %s skirmishmode %d map %s  }  options {  anytypemode %d  }  } 
+ uw
+ vn
  volatile
  was modified concurrently during serialization.
+ wc
  with 
  with %.1fs delay.
- xd
- yc
- zc
- zh
+ xs
+ yK
+ zI
+ zK
+ zY
  zn
  { "limit": %u, "label": "%s" }, 
  {0x%x, 0x%x}
@@ -658,10 +669,10 @@
 !m_pRecording->m_recordedUpdateData.IsEmpty()
 !pPanel || pResult
 !player
+!qZ
 !self
 !string==
 !string_one_of
-!uZ
 " because it is missing required fields: 
 " conflicts with field "
 " conflicts with the existing symbol "
@@ -2273,6 +2284,7 @@
 #a2ff47
 #annotations_grenade_info
 #annotations_grenade_info_guides_off
+#au
 #ba81f0
 #bfff90
 #buymenu_cost_amount
@@ -2295,7 +2307,6 @@
 #ebe2ca
 #ede47a
 #emptystring
-#eu
 #ff0000
 #ffdf93
 #ffffff
@@ -2326,6 +2337,7 @@
 #play_maps_section_detailed_rules_capt_loadingscreen
 #playerstat_name_%d
 #playerstat_name_%d_long
+#qs
 #quest_%s
 #quest_attrremaining_points_desc
 #quest_bonus_desc
@@ -2357,7 +2369,6 @@
 #tournament
 #unique
 #unusual
-#us
 #vintage
 #volatile
 #winpanel_end_cts_surrender
@@ -2377,13 +2388,13 @@ $0message $1
 $0oneof $1 {
 $0option $1;\n
 $0rpc $1($4.$2) returns ($5.$3)
-$7U
+$3U
 $95
-$Ji
+$Fi
+$IX
+$JI
 $KeychainAttrsReady
 $KeychainSeed
-$MX
-$NI
 $ORIGIN
 $PQ
 $PQ%u
@@ -2393,12 +2404,14 @@ $PremierSeasonBand3Color
 $PremierSeasonBand4Color
 $PremierSeasonBand5Color
 $PremierSeasonGold
+$Rp
+$Sp
 $SprayPlaneColorTint
 $SprayPlaneTextureColor
+$TN
 $TT
-$Vp
 $Wp
-$XN
+$bb
 $bone_bind_space_pos$bone_name
 $bone_upvector$bone_name
 $ent_abs_velocity
@@ -2415,7 +2428,8 @@ $ent_renderbounds
 $ent_stattrak
 $ent_viewmodel_lefthanded
 $ent_weapon_shake
-$fb
+$hn
+$ib
 $keychain_audible$arg
 $keychain_bombplanted$arg
 $keychain_clutch$arg
@@ -2424,13 +2438,11 @@ $keychain_headshot$arg
 $keychain_kdratio$arg
 $keychain_lit$arg
 $keychain_noenemies$arg
-$ln
-$mb
-$qW
+$mW
+$pW
 $sticker_rarity_color
-$tW
 $taser_charge
-$yg
+$ug
 % chance (0-1) of dealing 'critical' damage, which destroys this damage level, regardless of damage pass through type.
 % filled), 
 %%%d.%ds %%%d.%ds
@@ -2568,6 +2580,7 @@ $yg
 %5d\t%s\n
 %5ld:
 %5lu file=%s, line=%d, 
+%6U
 %8.3f
 %8.3f 
 %8.3f %8.3f %8.3f
@@ -3174,7 +3187,7 @@ $yg
 '%s' is not a valid language.
 '()+,-./:=?
 'Play reversed' has no effect when used with time synchronization!
-'ZP
+'VP
 'align' cue-setting already used
 'align' cue-setting must have a value of either 'start', 'middle', or 'end'
 'line' cue-setting already used
@@ -3204,86 +3217,75 @@ $yg
 ((long)msg_hdr->msg_len) > 0
 (*MARK) must have an argument
 (*VERB) not recognized or malformed
-(0A
 (0x%08X)'??'
-(5A
-(5n
-(9U
+(1n
+(5U
+(6t
+(8i
 (?R or (?[+-]digits must be followed by )
 (ACTIVE)
 (CLIENT) Inventory:\n
-(DA
+(Ci
+(EB
 (Expecting %s)
 (Expecting EOF)
 (Fade Removed: [%d,%d,%d,%d])\n
-(Gi
-(IA
-(IB
 (IImageSource)
 (Interp Ready=%s)
-(NA
+(ME
+(Mn
 (NONE)
 (None)
-(QE
-(Qn
-(SA
 (SST) Disconnecting for the purpose of editing %s\n
 (SST) Disconnecting for the purpose of removing all SST data from vpk\n
 (SST) Moving %s to %s\n
 (SST) Unzipping %s (%d files)\n
 (SST) Zipping %s (%d files)\n
 (This list may include POPs without any gameservers)\n
+(Tp
+(VY
 (WIPE AND EXTRACT)
-(XA
-(Xp
-(ZY
+(Y7
 (anonymous namespace)
-(bA
-(bw
+(c8
 (cannot determine missing fields for lite message)
 (channel = 
-(dW
 (default)
 (dst_width % 2 == 0) && (dst_width >= 0)
 (dst_width % 3 == 0) && (dst_width > 0)
 (dy & 0x1ffff) == 0
 (dy & 0x3ffff) == 0
+(eW
 (end of input).\n\t This indicates a poorly specified lexer RULE\n\t or unterminated input element such as: "STRING["]\n
 (end of track)
+(fW
 (fWeightSumLeft + fWeightSumRight) > 0.0f
 (fWeightSumTop + fWeightSumBottom) > 0.0f
 (from angle, to angle, time) - Spherical lerp of angle from->to based on time
-(g8
-(gA
-(iW
 (int iIndex, int iPoint, Vector vecOffset ) - Set the linear offset for a control on a particle effect
 (int iIndex, int iPoint, VectorWS vOrigin, QAngle qAngles ) - Set the transform for a control on a particle effect
 (int iIndex, int iPoint, VectorWS vOrigin, Vector vecForward ) - Set the origin and forward direction for a control on a particle effect
 (int index, bool bDestroyImmediately) - Destroy a particle, if bDestroyImmediately destroy it without playing end caps.
-(jW
-(lA
+(l9
 (memory)
 (merge 
 (needs match)
 (no controller?)
 (none)
 (null)
-(p9
 (parent %d)
 (partial match ok)
-(qA
 (quaternion,quaternion,float) very basic interpolation of v0 to v1 over t on [0,1]
 (quaternion,vector,float) rotates a quaternion by the specified angle around the specified vector axis
+(ru
+(ss
 (unknown)
 (update disabled)
-(vA
 (vector,float) constructs a quaternion representing a rotation by angle around the specified vector axis
 (vector,vector) cross product between two vectors
 (vector,vector,float) lerp between two vectors by a float factor returning new vector
 (vector,vector,float) very basic interpolation of v0 to v1 over t on [0,1]
-(vu
-(ws
-(zr
+(vr
 ) == false\n
 )", which is not defined. The innermost scope is searched first in name resolution. Consider using a leading '.'(i.e., "(.
 )->AmmoEmpty() 
@@ -3295,7 +3297,7 @@ $yg
 )->AmmoPercentage() >= 30 
 )->AmmoPercentage() >= 30\n
 ).  Contact the program author for an update.  If you compiled the program yourself, make sure that your headers are from the same version of Protocol Buffers as your link-time library.  (Version verification failed in "
-)Ju
+)Fu
 * Matchmaking '%s' -vs- '%s' in '%s' '%s'
 *(&) std::__addressof<char>(&) (demangled)
 *(&) std::__addressof<std::basic_ios<char, std::char_traits<char> > const>(&) (demangled)
@@ -3376,7 +3378,6 @@ $yg
 *lootlist
 *paintkit
 ++CLoopModeGame::SetWorldSession
-+0T
 +Damage
 +Death
 +Gibbing
@@ -3384,7 +3385,7 @@ $yg
 +Model Setup
 +Model Setup/+Body Group
 +Retiming
-+Zp
++Vp
 +attack
 +attack, +jump etc are used for spectator control instead of being passed on to spectated bot
 +attack2
@@ -3449,22 +3450,24 @@ $yg
 ,%llu
 ,%s
 ,%s=%u
-,1M
-,3n
-,3t
+,6T
+,7g
 ,7~5d
-,Nr
+,Jr
 ,Reason=
-,WP
-,YE
+,SP
+,UE
+,Xp
+,Yn
+,Yp
 ,ar_monastery
 ,fQM(
 ,name:
+,qb
+,rZ
 ,section=
-,ub
-,vZ
+,tg
 ,value:
-,xg
 - "%s" = "%.2f"\n
 - "%s" = "%i"\n
 - "%s" = "%llu"\n
@@ -3501,7 +3504,7 @@ $yg
 -1000 1000
 -10000 10000
 -180 180
--Qp
+-Mp
 -Stop: 
 -accountid
 -allents
@@ -3795,13 +3798,13 @@ $yg
 .self
 .svg
 .txt
+.uD
 .valve.net/730/
 .vcompmat
 .vmat
 .vmdl
 .vpk
 .vpk:maps
-.yD
 /%s
 /?appid=%u
 /\*<>{}[]() 
@@ -3878,20 +3881,19 @@ $yg
 0 == all alive, any other number is the number the CT's need to rescue to win the round.
 0 == bilinear upsampe, 1 == FSR upsample, 2 == FSR + RCAS upsample
 0 enemies
-0!U
-0"0
-0"g
-0$t
+0 t
+0"L
+0#D
+0$G
+0$a
+0&t
 0(V
-0(t
-0)b
-0*a
-0*e
-0*t
+0(n
+0)W
+0+f
 0,0
 0,0,0
-0,n
-0-W
+0,B
 0.0 1.0
 0.0 to 1.0
 0.00001
@@ -3905,19 +3907,32 @@ $yg
 0.59
 0.67
 0.75
-0.b
+0.V
+0.v
+0/f
 00 
 00-
 000
 00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899
+00f
 0123456789
 0123456789ABCDEF
 0123456789ABCDEFCS2
 0123456789abcdef
-04>
-04e
-06%
-09U
+01B
+02@
+030
+03@
+03t
+04@
+05@
+05U
+06@
+06B
+07a
+08T
+08e
+08t
 0: Not Started, 1: Needs Training, 2: Training Complete, -1: Disabled
 0: Use connect method requested by GC.  >0: Always use SDR if possible.  <0: Always use direct UDP if possible
 0: cannot detach; 1: press secondary fire to detach
@@ -3929,106 +3944,110 @@ $yg
 0: regular radar; 1: always disabled; 2: disabled in warmup
 0:0
 0:off | 1: view-only | 2: edit.
-0<T
-0<t
+0;B
+0;a
 0=Never; 1=Only if there is a problem; 2=always
-0=e
+0=V
 0=low, 1=medium, 2=high, 3=ultra
-0=t
-0?a
-0@e
-0A?
-0AU
-0Ae
-0Ap
-0B?
-0Bd
-0Be
-0C?
-0Ce
-0D?
-0E?
-0F?
-0FP
-0G\n
-0I?
-0IP
-0Jd
-0K?
-0Mb
-0N_
-0On
-0Ow
-0Q6
-0Rc
-0Re
-0UA
-0WW
-0WY
-0Yn
-0Yp
-0Z]
-0[9
-0[Y
-0[w
-0\7
-0\J
-0\fC
+0>t
+0@B
+0Bb
+0CV
+0C\n
+0E>
+0EB
+0Eb
+0Fb
+0GO
+0Ge
+0He
+0I%
+0Ia
+0Ie
+0JB
+0Ja
+0Je
+0Ka
+0Kn
+0Kw
+0La
+0M@
+0NF
+0Nn
+0O=
+0O?
+0P?
+0PP
+0Pa
+0Q?
+0R?
+0Ra
+0Rd
+0Rp
+0S?
+0SW
+0Se
+0T?
+0TB
+0U?
+0Un
+0V2
+0V?
+0W9
+0W?
+0Ww
+0X7
+0YB
+0Yu
+0Z?
 0\nV
-0\na
-0\ne
-0\nf
-0\rV
-0]J
-0]u
-0_h
-0`d
-0`p
-0a`
-0b;
-0cc
-0e8
-0eg
+0\p
+0\r1
+0\rD
+0\rg
+0\t1
+0^B
+0`L
+0a8
+0aA
+0cB
+0c`
+0fd
 0g*
-0ga
-0hK
-0hV
-0iK
-0k=
-0mK
-0nh
-0oe
+0g=
+0gh
+0hB
+0hh
+0ie
+0jg
+0jp
+0lY
+0lg
+0mB
+0mg
+0nJ
+0oW
+0o`
+0pY
 0pc
-0rd
-0sW
-0t`
-0tg
-0ug
-0uh
-0w=
+0rB
+0s;
+0s=
+0sd
+0th
+0wB
 0x%.*s
 0x%4.4x 
 0x%X
 0x%X 
 0x%s
-0x=
-0x>
-0x_
-0x`
-0y=
-0y>
-0ya
-0ze
-0zg
-0{6
-0{g
+0xa
+0{K
 0|2;#GameUI_Retake_Card_BackInAFlash,1,1,weapon_ump45,grenade0|2;#GameUI_Retake_Card_AllIn,1,1,weapon_galilar|1;#GameUI_Retake_Card_BoomBox,1,1,weapon_mac10,grenade2,grenade1|1;#GameUI_Retake_Card_SetThemFree,1,1,weapon_ssg08,grenade0
 0|2;#GameUI_Retake_Card_BlindFire,1,0,weapon_elite,grenade0|2;#GameUI_Retake_Card_QueOta,0,0,weapon_deagle|1;#GameUI_Retake_Card_SmokeScreen,0,0,weapon_p250,grenade1|1;#GameUI_Retake_Card_TecTecBoom,0,0,weapon_tec9,grenade2
 0|2;#GameUI_Retake_Card_OlReliable,1,1,rifle1,grenade0|1;#GameUI_Retake_Card_SmokeShow,1,1,rifle1,grenade1|1;#GameUI_Retake_Card_HotShot,1,1,rifle1,grenade3|1;#GameUI_Retake_Card_EyeSpy,1,1,weapon_sg556,grenade2
 0|3;#GameUI_Retake_Card_4BadGuysLeft,1,0,secondary0|1;#GameUI_Retake_Card_LookAway,0,0,secondary0,grenade0;#GameUI_Retake_Card_WhenThereIsSmoke,0,0,secondary0,grenade1
-0|d
-0}0
-0~g
+0}r
 1 4
 1 = bloom output (before thresholding), 2 = quarter res downsample, 3 = quarter res effects bloom 4 = quarter res effects raw
 1 == client, 2 == server
@@ -4227,12 +4246,11 @@ $yg
 2xNEON 
 2|2;#GameUI_Retake_Card_TakeFive,0,0,weapon_fiveseven|2;#GameUI_Retake_Card_BlindFire,1,0,weapon_p250,grenade0|2;#GameUI_Retake_Card_OnlyTakesOne,0,0,weapon_deagle|2;#GameUI_Retake_Card_SneakyBeakyLike,0,0,weapon_p250,grenade1
 2|a
-3 X
 300
 360
 36c
 36w-
-3;s
+37s
 3D Skybox Procedural
 3DES(168)
 3DSkyBox
@@ -4243,35 +4261,34 @@ $yg
 3g*
 3p\n
 3|2;#GameUI_Retake_Card_UmpInSmoke,1,1,weapon_ump45,grenade1|2;#GameUI_Retake_Card_FunNGun,1,1,weapon_mp9,grenade2|2;#GameUI_Retake_Card_Sharpshooter,1,1,weapon_ssg08,grenade0|2;#GameUI_Retake_Card_BurstBullpup,1,1,weapon_famas
-4#n
-4)v
-4+t
+4't
+4.i
 40 40 40 196
-42i
+40n
 4352
-44n
 48(
 488:1: POS_FLOATLITERAL : ( ( DIGIT )+ '.' ( DIGIT )* ( EXPONENT )? | '.' ( DIGIT )+ ( EXPONENT )? | ( DIGIT )+ EXPONENT );
+4;v
 4>6
-4Br
-4Ei
-4Kn
-4M7
-4NI
-4Un
-4VP
-4Wp
-4XN
-4\fH
+4>r
+4Ai
+4Gn
+4I7
+4JI
+4Qn
+4RP
+4Sp
+4TN
+4\P
+4_Y
 4`P
-4cY
-4dP
 4fff>fff>fff>fff>
 4g*
-4mn
-4oT
+4in
+4kT
 4x3
 4|2;#GameUI_Retake_Card_LightEmUp,1,1,rifle1,grenade0|2;#GameUI_Retake_Card_Kobe,1,1,rifle1,grenade2|1;#GameUI_Retake_Card_1g,1,1,rifle1,grenade3|1;#GameUI_Retake_Card_DisappearingAct,1,1,rifle1,grenade1|1;#GameUI_Retake_Card_EyesOnTarget,1,1,weapon_aug
+4~9
 512
 5248
 560
@@ -4280,9 +4297,9 @@ $yg
 58\
 5;FJ$,XEK4<
 5g*
-5p=
+5l=
+6/n
 6144
-63n
 640
 666666666666666666666666666666666666666666666666
 6;2
@@ -4290,49 +4307,66 @@ $yg
 6E0C3V8\9]}
 6g*
 768
-7Tn
+7Pn
 7g*
 7qp9
-8"g
-8)v
-8,W
-8/M
+8 A
+8%A
+8(W
+8*A
+8+M
+8/A
 8192
 8285-YOAZ-6049
+84A
 8835-KLXV-0292
-8;F
-8?s
-8Hi
-8Ju
-8Ku
-8LC
-8Mn
-8Pp
-8QC
-8VC
-8XW
-8YP
-8[C
-8[n
-8\rH
-8_p
-8`C
+89A
+8;s
+8;v
+8>A
+8>W
+8CA
+8DW
+8Di
+8Fu
+8Gu
+8HA
+8In
+8Lp
+8MA
+8RA
+8TW
+8UP
+8WA
+8Wn
+8[p
+8\A
+8\C
+8\ng
+8\tC
+8\tH
+8_w
+8`W
+8aA
+8aC
 8b  16-May-2010
-8cw
-8dW
+8b8
 8d\t
-8eC
-8f8
+8fA
+8fC
 8g*
-8jC
-8l=
-8oC
+8h=
+8kA
+8kC
+8pA
+8pC
 8p~
-8tC
-8yC
-8|s
-8~C
-9`6
+8uA
+8uC
+8xs
+8zA
+8zC
+9\6
 9g*
 9o!5
 :    %i/%i (%d) full repredict\n
@@ -4372,8 +4406,9 @@ $yg
 <%s:%llu>
 <%s:%s>
 </font></b>
-<3M
-<4U
+<0U
+<7s
+<8U
 << LIST TRUNCATED >>
 << Unconverted type %d >>
 <<ERROR>>
@@ -4400,16 +4435,18 @@ $yg
 <Team>
 <Tournament>
 <Type>
+<UW
 <Unknown>
-<YW
+<Z7
 <a href="
 <array: %u elements>
+<bW
 <binary blob: %u bytes>
+<cb
 <empty member name>
 <empty>
 <entindex> <fieldname>:  Track changes to entity index entindex, for field fieldname.
 <externally specified>
-<fW
 <failure>
 <font color="%s">%s %s</font> %s <font color="%s">%s</font>
 <font color="%s">%s %s</font>: %s
@@ -4419,7 +4456,6 @@ $yg
 <font color='#999999'>
 <font color='#FFE87C'>
 <font color='%s'>
-<gb
 <i>"%s"</i>
 <img src='file://{images}/hud/icon_original_owner_ingame.svg' class='original-owner-seal'  texturewidth=16px textureheight=-1/>%s
 <img src='target_skull.png' height='8'/>
@@ -4442,6 +4478,7 @@ $yg
 <none>\n
 <null>
 <pointer>
+<qs
 <span class="%s"> %s="</span>
 <span class="%s"> address="</span>
 <span class="%s"> context="</span>
@@ -4458,7 +4495,6 @@ $yg
 <unknown KV3 basic type '%s' (%d)>
 <unknown>
 <unsupported>
-<us
 <weapon>
 =%s
 == %d Entities Dumped\n
@@ -4481,110 +4517,100 @@ $yg
 > using 
 >0 enemies, 0 teammates
 ?16ILoggingListener
-?3U
+?8s
 ???CRR_Response bogus index
 ???\f???????\n???\r?\t?\v
-?g8
+?c8
 ?referer=csgo_client&steamID=%llu
 @%s
-@0E
-@0e
-@1h
-@2a
-@2h
-@3B
-@3V
-@3e
-@4e
-@4n
-@5n
-@8B
-@9X
-@9g
+@0f
+@1E
+@1b
+@4f
+@4t
+@5e
+@5g
+@8e
+@9U
 @@@@@@@@@@@@@@@@
 @@@@@@@@@@@@@@@@/home/saml/dev/steam/thirdpartycode/nonredist/libyuv/libyuv/source/scale_uv.cc
 @AA
-@BB
-@Bd
-@Cb
-@Ch
-@FP
-@GB
-@GP
-@Gi
-@Gt
-@HP
-@Hd
-@Hh
-@IP
-@Jt
-@LB
-@LP
-@Me
-@NP
-@Pj
+@Bb
+@Bh
+@CV
+@Ci
+@EE
+@Eb
+@Ed
+@Eh
+@En
+@Eu
+@FE
+@Fa
+@Fb
+@Fe
+@Fh
+@GO
+@HB
+@Ha
+@Ht
+@Ia
+@Ih
+@In
+@Ja
+@K0
+@K2
+@Ka
+@La
+@Lw
+@MF
+@Nb
+@OP
+@Ob
+@On
 @Pn
-@Pw
-@QB
-@Qd
-@Qe
 @Ra
-@Sn
-@TV
-@Te
+@Rb
+@Rd
+@Re
 @USRLOCAL{pet}
-@VB
-@WY
-@Xe
-@ZY
-@ap
-@cc
-@eB
-@eU
-@eg
-@fg
-@gK
-@hK
-@hV
-@hW
-@ha
-@iB
-@iK
+@VY
+@XW
+@Zd
+@Zh
+@aP
+@aj
+@bd
+@bg
+@dW
+@et
+@fe
+@gh
+@hh
 @icon_camera
 @icon_character
 @icon_gloves
 @icon_item
-@jc
-@je
+@ie
+@jg
 @keyframes 
 @keyframes '%s'\r\n{\r\n
-@kh
-@lD
-@lk
-@mK
-@me
-@nh
-@pd
-@qe
-@rd
-@sg
-@sj
-@tg
-@ua
-@ug
-@uh
+@lY
+@mg
+@nJ
+@oJ
+@pY
+@pc
+@qc
+@rc
+@sY
+@th
 @v1
-@vg
-@vh
-@w6
-@wY
-@we
+@vw
 @workshop
-@ya
-@za
-@ze
-@zg
-@zp
+@xc
+@yI
+@yK
 A 220x45 (<16kb) image file in /csgo/ that will be displayed to spectators.
 A 360x60 (<16kb) image file in /csgo/ that will be displayed to spectators.
 A file with this name is already in the pool.
@@ -5701,8 +5727,6 @@ Asynchronous - This node executes independently using a new Cursor. Formerly 'Fi
 Asynchronously spawn an entity group from a list of spawn tables. A callback will be triggered when the spawning is complete
 Asynchronously spawns a single entity from a table
 At marker 0x%02x, recovery action %d
-At the end of the match, perform a changelevel even if next map is the same
-At the end of the match, perform a restart instead of loading a new map
 AtMaximum
 AtMinimum
 AttachModelToItem
@@ -6214,6 +6238,7 @@ BinNe
 BinSub
 BinaryProperties_GetValue
 Bind
+BindFireConstantBufferCsgo
 BindingLabelContainer
 Bindings for CBaseAnimGraphDestructibleParts_GraphController\n
 Bindings for CCS2ChickenGraphController\n
@@ -8865,6 +8890,8 @@ CFilterTeam
 CFilterTeam (demangled)
 CFilterTeam_API
 CFireCrackerBlast
+CFireEnvironment
+CFireEnvironment (demangled)
 CFireObjectDesc
 CFireSceneObject (demangled)
 CFireSceneObjectDesc (demangled)
@@ -9249,6 +9276,7 @@ CGameSystemStaticFactory<CEnvCubemapFogSystem, CEnvCubemapFogSystem> (demangled)
 CGameSystemStaticFactory<CEnvVolumetricFogControllerSystem, CEnvVolumetricFogControllerSystem> (demangled)
 CGameSystemStaticFactory<CExplosionDebrisEffectsManager, CExplosionDebrisEffectsManager> (demangled)
 CGameSystemStaticFactory<CExplosionTypeSystemGameSystem, CExplosionTypeSystemGameSystem> (demangled)
+CGameSystemStaticFactory<CFireEnvironment, CFireEnvironment> (demangled)
 CGameSystemStaticFactory<CFlashlightEffectManager, CFlashlightEffectManager> (demangled)
 CGameSystemStaticFactory<CFlashlightReceiver_Manager, CFlashlightReceiver_Manager> (demangled)
 CGameSystemStaticFactory<CFlexSceneFileManager, CFlexSceneFileManager> (demangled)
@@ -10502,6 +10530,8 @@ CMsgVDebugGameSessionIDEvent (demangled)
 CMsgVector (demangled)
 CMsgVector2D (demangled)
 CMsgVoiceAudio (demangled)
+CMsgVolatileContainerPricesheet (demangled)
+CMsgVolatileContainerPricesheet_Entry (demangled)
 CMsg_CVars (demangled)
 CMsg_CVars_CVar (demangled)
 CMultiFOVCamera (demangled)
@@ -15393,7 +15423,7 @@ CWrappedVar<CWrappedInterpolatedVar<CNetworkViewOffsetVector> > (demangled)
 CWrappedVar<CWrappedInterpolatedVar<QAngle> > (demangled)
 CWrappedVar<CWrappedInterpolatedVar<Vec3D<float> > > (demangled)
 CWrappedVar<CWrappedInterpolatedVar<float> > (demangled)
-C\p
+CXp
 C_%s
 C_AK47
 C_AK47 (demangled)
@@ -17276,6 +17306,7 @@ Cubemap is still loaded -- will force reload after map load: %s\n
 Cubic
 Cue
 CuesContainer
+Cug
 Cultivating Trouble
 CumulativeSumToAverageRow_C
 CumulativeSumToAverageRow_SSE2
@@ -17315,18 +17346,15 @@ CustomLayoutPanel
 CycleButton
 Cycles through teammate color preference
 Cyclone
-Cyg
 Cypriot
 Cyrillic
 Czech
-D#n
-D#t
-D$H
-D&t
-D(t
+D H
+D!v
+D"t
+D$t
 D+^0D!S~-Y+B)Ll^~\t`\f`@"Gg
-D,v
-D0T
+D,T
 D16
 D16_SHADOW
 D24FS8
@@ -17346,17 +17374,17 @@ D2I_X509
 D2I_X509_CINF
 D32
 D32FS8
-D?u
+D;u
+D=r
+D?W
 DARRYL_DEFEAT
 DATA_LOSS
-DAr
 DC1
 DC2
 DC3
 DC4
 DCT coefficient out of range
 DCT scaled block size %dx%d not supported
-DCW
 DEAD
 DEADLINE_EXCEEDED
 DEBRIS
@@ -17522,6 +17550,7 @@ DH_compute_key
 DH_generate_key
 DH_generate_parameters_ex
 DH_new_method
+DHn
 DHparams_print_fp
 DIALOG_ASKCONNECT
 DIALOG_ENTRY
@@ -17530,6 +17559,7 @@ DIALOG_MSG
 DIALOG_TEXT
 DIALOG_TYPE
 DIGIT
+DII
 DIORAMA
 DIRECT
 DIRECTORYSTRING
@@ -17546,6 +17576,7 @@ DIST_POINT
 DIST_POINT_NAME
 DIV
 DIV_FLOAT
+DJI
 DLC Install Status
 DLE
 DLFCN_BIND_FUNC
@@ -17560,7 +17591,6 @@ DL_LOAD
 DL_MERGER
 DL_NAME_CONVERTER
 DL_UNLOAD
-DLn
 DMG_%s
 DMG_ACID
 DMG_BLAST
@@ -17585,8 +17615,6 @@ DMG_SHOCK
 DMG_SLASH
 DMG_SONIC
 DMG_VEHICLE
-DMI
-DNI
 DNS
 DNS:%s
 DO NOT PARSE: fields may be stripped and missing.\n
@@ -17625,6 +17653,7 @@ DO_PVK_HEADER
 DO_RSA_PRINT
 DO_SIGVER_INIT
 DO_SSL3_WRITE
+DQn
 DROPDOWN
 DROPPED
 DROWN
@@ -17692,7 +17721,6 @@ DTLSv1
 DTLSv1.2
 DURATION OF SOUND: %f\n
 DURING_OUTRO
-DUn
 DVCS
 DX11
 DXT1
@@ -17700,12 +17728,12 @@ DXT1_ONEBITALPHA
 DXT3
 DXT5
 DXT5_NM
+DXp
 DYING
 DYNAMIC SHADOWS\t%d    \t\t\t\t\t\n
-D\ng
-D\nu
-D\p
-D^d
+DZd
+D^Y
+D^u
 D_ENABLE_VOLUMETRIC_FOG is set, but cannot find CVolumetricFog via "VolumetricFog"\n
 D_ER
 D_ERROR
@@ -17717,6 +17745,7 @@ D_LI
 D_LIKE
 D_NEUTRAL
 D_NU
+DaP
 Daisy
 Daisy wheel input mode: RS | ABXY
 DaisyInputTypeABXY
@@ -17769,10 +17798,8 @@ Data_Branch1xy
 Data_Branch1zBranch2x
 Data_Branch2yz
 Date Cell
-DbY
 DbgTestEndOfMatch
-Dbu
-DeP
+DcW
 Deactivate
 Dead players can hear all dead enemy communication (voice, chat)
 Dead players can speak (voice, text) to the living
@@ -18099,7 +18126,6 @@ DeviceConfigurationEnum
 DeviceConfigurationPanel
 DeviceID
 Dg*
-DgW
 DialogVariablesHeader
 Diamond
 Did not execute '%s' because the 'Target' object was missing
@@ -18289,6 +18315,7 @@ Downsample and BloomThreshold
 DownsampleDepth
 DownsampleDepthForWaterEffects
 Downtown
+DpW
 DrBoom
 Draft is fully completed!\n
 Draft upload: first veto teamid = %d\n
@@ -18346,7 +18373,6 @@ Draw text with a line offset (x, y, lineOffset, text, r, g, b, a, duration)
 Draw the name of a rendered joint.
 Draw trajectory of the deployed grenade if thrown from this position. Takes an optional parameter for how long the drawn trajectory will last.
 DrawAllSceneObjects
-DrawArrayFire
 DrawDebug
 DrawDepth Fade
 DrawDepth%s
@@ -18410,7 +18436,6 @@ DropInputFocus
 DropdownMenuFocusChanged
 Dropped grenades detonate when shot.
 DroppedBomb
-DtW
 DualHull
 Duck
 Dump all new particles, optional name substring.
@@ -18471,6 +18496,7 @@ Dust
 Dust II
 Dutch
 DxLvl
+Dxn
 Dynamic
 Dynamic 
 Dynamic - MBOIT Pass %d
@@ -18487,10 +18513,9 @@ DynamicPreview
 DynamicPreviewLabel
 DynamicPropAnimEvent
 DynamicShadows
-D|n
 E*3
 E-mail Protection
-E<i
+E8i
 EAST
 EBaseClientMessages
 EBaseEntityMessages
@@ -18708,6 +18733,7 @@ ELEMENT_ACCESS_VEC3
 ELEMENT_ACCESS_VEC3WS
 ELEMENT_ACCESS_VEC4
 ELeaderboardType (demangled)
+ELp
 EM_DoSpark
 EM_FixAngle
 EM_PlayJingle
@@ -18754,7 +18780,6 @@ ENetworkDisconnectionReason
 EOC
 EOF on memory BIO
 EOT
-EPp
 EProceduralRagdollWeightIndexPropagationMethod
 EProtoDebugVisiblity
 EPulseGraphExecutionHistoryFlag
@@ -18905,7 +18930,7 @@ EXRReadFile() - cannot read image data!\n
 EXTENDED_KEY_USAGE
 EXTERNAL
 EZ\v
-E`6
+E\6
 Early exit
 Early prediction command %d was already full predicted, but predicted time did not lurch?\n
 Early prediction command %d was full predicted but not marked as predicted?\n
@@ -19938,7 +19963,6 @@ FireGameEvent
 FireGameEventLocal
 FireObject
 FireOutput
-FireRenderer
 FireWinCondition
 Fired after spawning an instance of this template.
 Fired to hide the store panel.
@@ -20153,13 +20177,6 @@ Friend reqd to join lobby
 FriendInvitedFromContextMenu
 FriendsListAPI
 Frog
-Frost on players, weapons and chickens: -1 = the map's (info_map_parameters frostenabled), 0 = off, 1 = on (outdoors; melts indoors)
-Frost: barrel heat per shot (1 = hot enough to clear the whole barrel)
-Frost: distance under cover (no sky) over which the cold fades out (indoors)
-Frost: seconds after a molotov is lit before its rag starts to heat (the flame shows a moment after)
-Frost: seconds for a hot barrel to cool down
-Frost: seconds for a lit molotov's rag to reach full heat
-Frost: where the barrel heat sits, from the shell eject (0) to the muzzle (1)
 FrostState
 Frostbite
 Full Buy Round
@@ -20724,13 +20741,13 @@ GRENADE_TYPE_FLASH
 GRENADE_TYPE_SMOKE
 GRENADE_TYPE_TOTAL
 GROUP
+GSW
 GSync
 GSyncHelpLink
 GSyncPanel
 GSyncSeparator
 GUERILLA
 GUERILLA02
-GWW
 Gait Override
 Game
 Game Blackboards: 
@@ -21890,25 +21907,18 @@ Gujarati
 Gunsmith
 Gurmukhi
 Gwalior
-H"g
-H$A
-H)A
-H)X
-H-t
-H.A
-H.W
+H)t
+H-U
+H-i
+H/U
 H010ToAB30
 H010ToABGR
 H010ToAR30
 H010ToARGB
-H1U
-H1i
 H210ToAB30
 H210ToABGR
 H210ToAR30
 H210ToARGB
-H3A
-H3U
 H420ToAB30
 H420ToABGR
 H420ToAR30
@@ -21920,21 +21930,18 @@ H422ToABGR
 H422ToARGB
 H444ToABGR
 H444ToARGB
-H8A
-H<T
-H<i
-H=A
+H8T
+H8i
+H=W
 HAC K  Unused Binding
 HAS
-HAW
-HBA
 HDR
 HDR Color Scale: %0.3f
 HDRColorScale
 HEAD 
 HEGRENADE
 HEX
-HGA
+HFu
 HIERARCHY
 HIERARCHY_ABSORIGIN
 HIERARCHY_ATTACHMENT
@@ -21962,27 +21969,25 @@ HITGROUP_SPECIAL
 HITGROUP_STOMACH
 HITGROUP_UNUSED
 HJN
-HJu
 HK$
 HKD
-HLA
 HMAC
 HMAC GOST 34.11-94
 HMAC routines
 HMAC-MD5
 HMAC-SHA1
 HMAC_Init_ex
+HME
 HMTLLinkAtPosition
 HMTLThumbNailImage
 HMaterialStrong
 HModelStrong
+HNF
 HNmGraphDefinitionStrong
 HOLSTERED
 HOME
 HParticleSystemDefinitionStrong
 HPostProcessingStrong
-HQA
-HQE
 HRenderTextureStrong
 HSCRIPT
 HST
@@ -22163,12 +22168,11 @@ HULL_TINY
 HULL_TINY_CENTERED
 HULL_WIDE_HUMAN
 HUMAN_HULL
-HVA
-H[A
-H[d
-H\7
-H_P
-H`A
+HWd
+HX7
+H[P
+H]w
+HaP
 HairBuilderSAH
 HairMBlurBuilderSAH
 HalfFloatPlane
@@ -22233,9 +22237,7 @@ HaticsType_Default
 HaticsType_None
 Have closed caption Panorama panel perform depth testing against the scene
 HaveActivePopups
-Haw
-HeA
-HeP
+Hbu
 Head
 Header
 Header dump: %s\n
@@ -22272,7 +22274,6 @@ Heron
 Hex and octal numbers must be integers.
 HexDecode
 HexRgb
-Hfu
 Hg*
 Hidden
 HiddenByPopup
@@ -22339,11 +22340,9 @@ Hitboxes
 HitboxesContainerLabels
 HitboxesContainerTooltips
 Hive
-HjA
+Hj9
+HjT
 Hltv Director
-Hn9
-HnT
-HoA
 Hold
 Hold Event
 Hold Instruction Call Issuer
@@ -22424,7 +22423,7 @@ How to allocate defusers to CTs at start or round: 0=none, 1=random, 2=everyone
 HowManyMinutesAgoCached
 HpDmgInflicted
 HpDmgSuffered
-HtA
+Hru
 HtmlUserAgent
 Hud
 HudBottomCenter
@@ -22477,10 +22476,8 @@ Hull_t
 Hungarian
 Hurricane
 Husky
-Hvu
-HyA
 HydroGraphic
-H~A
+H|n
 I could not work out what I was expecting, like so many of us these days!\n
 I-w
 I010AlphaToARGBMatrix
@@ -23419,7 +23416,10 @@ IndirectVoxelDimZ
 Indonesian
 Inert VModuleMetadata
 Inferno
+Inferno Influence
 Inferno dlights are at least this far apart
+InfernoInfluence
+InfernoInfluenceScaled
 InfernoMaterials_client
 Inferno_concav_plane_threshold
 Infinite time value
@@ -23708,7 +23708,9 @@ Invoke binding %d (%s) not found, converting to NOP\n
 InvokeJSCallback
 InvokeMiniDumpHandler
 IpAddressMask (demangled)
+IqZ
 IquO
+Irb
 Iris
 Iron Sights
 IronSight
@@ -23905,8 +23907,6 @@ ItemTypeDescKillEater
 ItemTypeDescKillEaterAlt
 Item_%c
 Item_%s
-IuZ
-Ivb
 J.t
 J400ToARGB
 J400ToARGBRow_Any_SSE2
@@ -23921,7 +23921,7 @@ J422ToABGR
 J422ToARGB
 J444ToABGR
 J444ToARGB
-J:U
+J6U
 JArray
 JFIF APP0 marker: version %d.%02d, density %dx%d  %d
 JFIF extension marker: JPEG-compressed thumbnail image, length %u
@@ -24001,7 +24001,7 @@ K-233
 K-283
 K-409
 K-571
-K6U
+K2U
 KDF failed
 KDR
 KEY_BACKSPACE: Accepted.\n
@@ -24017,9 +24017,9 @@ KILL_SHOCK
 KILL_SLASH
 KISA
 KNQ\r
+KQP
 KRB5
 KRW
-KUP
 KV3 instances cannot be set to an unspecified specific type
 KWD
 KZT
@@ -24142,15 +24142,13 @@ Kochanek-Bartels Early
 Kochanek-Bartels Late
 Korean
 K~l
-L P
-L X
-L&B
-L,t
-L3t
-L8U
-L:g
-L;g
-L>W
+L"B
+L(t
+L/t
+L4U
+L6g
+L7g
+L:W
 LARGE_CENTERED_HULL
 LARGE_HULL
 LAST_SERIALIZED_CODE
@@ -24191,6 +24189,7 @@ LEVELMASK_BIT_7
 LEVELMASK_BIT_8
 LEVELMASK_BIT_9
 LF)
+LGn
 LIBRARY_INVOKE
 LIFE_ALIVE
 LIFE_DEAD
@@ -24205,7 +24204,8 @@ LINE_CONTINUATION
 LITERAL_FALSE
 LITERAL_TRUE
 LIVE
-LKn
+LNE
+LNn
 LOADOUT GC UPDATE BaseItem "%s" to slot: %i\n
 LOADOUT_SLOT_C4
 LOADOUT_SLOT_CLOTHING_APPEARANCE
@@ -24309,8 +24309,9 @@ LOOSE_VARIABLE_TYPE_STRING
 LOOSE_VARIABLE_TYPE_SYSTEMVAR
 LOW
 LPVIndex
-LRE
-LRn
+LQT
+LRW
+LTB
 LTE
 LTE_FLOAT
 LTE_GAMETIME
@@ -24319,21 +24320,17 @@ LT_FLOAT
 LT_GAMETIME
 LT_INT
 LT_txt
-LUT
-LVW
-LXB
-LYE
-LYW
-LYg
+LUE
+LUW
+LUg
+LV`
+LX9
+LY9
 LZCNT 
-LZ`
-L\9
-L\fm
-L\ru
-L]9
-L^P
-L^n
-L_7
+LZP
+LZn
+L[7
+L\tu
 Label
 Label.BgColor
 Label.DisabledFgColor1
@@ -24397,6 +24394,7 @@ Layout is invalid.\n
 Layout xml did not pass CustomHud validation "%s"\n
 Layout xml is an invalid resource name "%s"\n
 LayoutDirtied
+Lbb
 Leaderboard name request succeeded = [%s]\n
 LeaderboardHoverPlayer
 LeaderboardsAPI
@@ -24437,8 +24435,8 @@ LetterboxTop
 Level
 Level: %s\n
 Lexer encountered %d error(s)
-Lfb
 Lg*
+Lhb
 Library
 LifeState_t
 Lifetime
@@ -24510,7 +24508,6 @@ Lite
 Live Map Annotation limit of %d reached. This node will only appear during practice\n
 Live Map Annotation limit of %d reached.\n
 Living players can hear all living enemy communication (voice, chat)
-Llb
 Load annotation to a file after first clearing existing annotations
 Load annotation to a file without clearing existing annotations
 Load certs from files in a directory
@@ -24654,14 +24651,15 @@ Low priority dlights are replaced by high priority ones
 LowHealth
 LowOnFood
 Lower bound below Average Human Contribution Score that a bot must be below to change its difficulty
-Lt=
+Lp=
 Lunacy
 Lurking player xray glow scaling.
+Lwb
 Lycian
 Lydian
-L{b
+L~9
 M/s
-M>g
+M:g
 MAE_DEFEAT
 MAIN_MENU
 MARK
@@ -26162,7 +26160,6 @@ NV21ToYUV24
 NV21ToYUV24Row_C
 NV_NULL
 NZD
-Na=
 Name
 Name : 
 Name Tag
@@ -26404,6 +26401,7 @@ NotifyManager
 Notifying GC we don't need a session.\n
 Nov
 November
+NuD
 Nuke
 NumCols() <= V_ARRAYSIZE( s_DummyRow )
 NumCores
@@ -26417,7 +26415,6 @@ Number of base points to award for a kill in deathmatch.  Cheaper weapons award 
 Number of cascades in sunlight shadow
 Number of degrees of aim 'fishtail' when making an extreme strafe direction change
 Number of players currently waiting to find a match for this map group
-Number of players required to be connected to end warmup early. 0 to require maximum players for mode.
 Number of seconds after round start to allow a player to join a game
 Number of seconds forced between similar lesson start sounds.
 Number of seconds to delay before restarting a round after a win
@@ -26435,7 +26432,6 @@ NumberEntryChanged
 NumberEntryDecrementValue
 NumberEntryIncrementValue
 Numbers starting with leading zero must be in octal.
-NyD
 O/lc\r=<1\r-,!@
 OBJ lib
 OBJECT
@@ -26512,10 +26508,10 @@ OFFSET_NOPATH
 OFFSET_OK
 OID
 OID_MODULE_INIT
+OIn
 OLD_DSA_PRIV_DECODE
 OLD_EC_PRIV_DECODE
 OLD_RSA_PRIV_DECODE
-OMn
 ONFRAME_FALSE
 ONFRAME_TRUE
 ONFRAME_UNKNOWN
@@ -26581,7 +26577,7 @@ OVERLAY_VIEWOFFSET
 OVERLAY_VISIBILITY_TRACES_BIT
 OVRWTCH1%08X
 OWC#XXXXXXX%03d
-O[p
+OWp
 Oakley-EC2N-3
 Oakley-EC2N-4
 Object Signer
@@ -26962,18 +26958,16 @@ Overview: scale %.2f, pos_x %.0f, pos_y %.0f\n
 OverwatchAPI
 OwnerContext
 OwningSlotOnlyRecipientsFilter
-P"g
-P#0
-P#V
-P&V
-P(x
-P)0
-P*t
+P"L
+P"V
+P(V
+P)a
 P-192
 P-224
 P-256
 P-384
 P-521
+P/B
 P00***33*-*-****P00000,00+**....0................(...........***PP
 P010ToAR30Matrix
 P010ToARGBMatrix
@@ -26989,7 +26983,7 @@ P15CLightComponent
 P16CCSGameModeRules
 P16CChoreoComponent
 P19CPlayer_UseServices
-P1O
+P1|
 P20CPlayer_ItemServices
 P210ToAR30Matrix
 P210ToAR30Row_AVX2
@@ -27018,6 +27012,7 @@ P25CCSPlayer_HostageServices
 P26CCSPlayer_AimPunchServices
 P26CPlayer_FlashlightServices
 P27CDestructiblePartsComponent
+P2@
 P2P Voice
 P2P ping to "%s". Timed out after %.2fms\n
 P2P_Messages
@@ -27025,7 +27020,8 @@ P32CCSPlayer_ActionTrackingServices
 P34CCSPlayerController_DamageServices
 P37CCSPlayerController_InventoryServices
 P39CCSPlayerController_InGameMoneyServices
-P3V
+P3@
+P40
 P410ToAR30Row_AVX2
 P410ToAR30Row_Any_AVX2
 P410ToAR30Row_Any_SSSE3
@@ -27037,22 +27033,24 @@ P410ToARGBRow_Any_SSSE3
 P410ToARGBRow_C
 P410ToARGBRow_SSSE3
 P42CCSPlayerController_ActionTrackingServices
-P4>
+P4@
+P4B
 P4File
 P4V
-P5V
+P5@
+P5t
 P8CUI_Page
-P:t
-P;F
-P<g
-P<h
-P=d
-P=h
-P>a
-P>p
-P@e
-P@g
-PA?
+P8g
+P9B
+P:0
+P:D
+P<e
+P=V
+P=W
+P>B
+P>b
+P?a
+P?i
 PANEL_ID
 PANORAMA_LAYOUTFILE
 PARALLAX DETAIL\t %d    \t\t\t\t\t\n
@@ -27085,9 +27083,6 @@ PATTACH_RENDERORIGIN_FOLLOW
 PATTACH_ROOTBONE_FOLLOW
 PATTACH_WATERWAKE
 PATTACH_WORLDORIGIN
-PAW
-PAe
-PB?
 PBE-MD2-DES
 PBE-MD2-RC2-64
 PBE-MD5-DES
@@ -27106,15 +27101,13 @@ PBES2
 PBKDF2
 PBKDF2PARAM
 PBMAC1
-PBe
-PC?
+PC"
+PCB
 PCRE does not support \L, \l, \N{name}, \U, or \u
 PC_NETWORKED_ONLY
 PC_NON_NETWORKED_ONLY
-PCe
-PCi
+PCb
 PCrate%d
-PD?
 PDF128_
 PDF16_
 PDF16b
@@ -27129,7 +27122,7 @@ PDi
 PDn
 PDs
 PDu
-PE?
+PE>
 PEM lib
 PEM part of OpenSSL 1.0.2j  26 Sep 2016
 PEM routines
@@ -27160,10 +27153,8 @@ PEM_write
 PEM_write_bio
 PEN
 PERMISSION_DENIED
-PEk
 PEvent
 PF10CTransformRKS_S1_E
-PF?
 PFT_SOUND
 PFvP12CSceneObjectE
 PFvPK14C_EconItemViewR10CUtlBufferiiyE
@@ -27172,7 +27163,9 @@ PGL 2017 Krakow CS:GO Major Championship
 PGL 2021 Stockholm CS:GO Major Championship
 PGL 2022 Antwerp CS:GO Major Championship
 PGL Copenhagen 2024 CS2 Major Championship
-PH?
+PGL Singapore 2026 CS2 Major Championship
+PGe
+PHB
 PHP
 PHYSGUN
 PHYS_SAVE_RESTORE_VERSION
@@ -27188,8 +27181,7 @@ PIID_UNKNOWN
 PISTOL
 PI_FirstRotated
 PI_NonRotated
-PIb
-PJP
+PIe
 PK14C_EconItemView
 PK18CSteamProfileItems
 PK30CCSUsrMsg_RoundEndReportData_t
@@ -27348,9 +27340,10 @@ PLASMA
 PLATFORM
 PLAYER LOADOUT - Received 
 PLAY_CS2
-PLB
 PLN
-PLd
+PLe
+PM@
+PMB
 PM_NORMAL
 PM_NO_GIBS
 PN2v86GlobalINS_8FunctionEEE
@@ -27363,6 +27356,9 @@ PN8panorama8CPanel2DE
 PN8panorama8IUIPanelE
 PN8panorama9IUIWindowE
 PNG\r\n
+PO=
+PO?
+PO@
 POINT_WORLD_TEXT_JUSTIFY_HORIZONTAL_CENTER
 POINT_WORLD_TEXT_JUSTIFY_HORIZONTAL_LEFT
 POINT_WORLD_TEXT_JUSTIFY_HORIZONTAL_RIGHT
@@ -27388,7 +27384,12 @@ POST
 POST 
 POS_FLOATLITERAL
 POS_INTLITERAL
-POe
+POp
+PP?
+PQ?
+PQg
+PR?
+PRB
 PRECIPITATION
 PRECIPITATIONBLOCKER
 PREDFIELD_ATTACHMENT_HANDLE
@@ -27458,6 +27459,7 @@ PRINTABLESTRING
 PRIORITY
 PRIVATE
 PRIVATE KEY
+PRN
 PRNG not seeded
 PROCESS_PCI_VALUE
 PROPINTER_FIRE_LEAK_OIL
@@ -27467,6 +27469,7 @@ PROVIDER_WEAPON
 PROXY_CERT_INFO_EXTENSION
 PROXY_POLICY
 PRUNE
+PS?
 PSK
 PSK-3DES-EDE-CBC-SHA
 PSK-AES128-CBC-SHA
@@ -27474,13 +27477,19 @@ PSK-AES256-CBC-SHA
 PSK-RC4-SHA
 PSPECIFIED
 PST
+PSp
+PT?
 PT\ra)
+PTa
+PTn
+PU?
 PUBLIC KEY
 PULSE_CALL_ASYNC_FIRE
 PULSE_CALL_SYNC
 PULSE_SHARED_SAVE_RESTORE_BLOCK_HANDLER_VERSION
 PUNCHING
 PUT 
+PV?
 PVAL_ANIM_SEQUENCE
 PVAL_ANY
 PVAL_ARRAY
@@ -27518,27 +27527,25 @@ PVAL_VEC3
 PVAL_VEC3_WORLDSPACE
 PVAL_VEC4
 PVAL_VOID
+PVk
 PW server denied
 PW server required
-PWY
-PWp
-PXc
-PXn
-PZY
-PZg
-P[J
-P[Y
-P[d
-P[g
-P[w
-P\J
-P\P
-P\W
-P\h
+PW?
+PWB
+PWw
+PXP
+PXW
+PY?
+P[P
+P\B
+P\n1
 P\nV
-P\tg
-P]J
-P]h
+P\rD
+P]n
+P^d
+P`1
+P`L
+PaB
 Pack item "%s" included in more than one pack bundle - not allowed!
 PackDirectory
 Package name is too long
@@ -27570,7 +27577,6 @@ PaintDirtied
 PaintStatusBar
 Palacio
 Palais
-Pan
 PanZoomEnabled
 Panel
 Panel.BgColor
@@ -27698,8 +27704,6 @@ PanoramaWorldPanelSystem
 Paper
 Parallax occlusion mapping (Advanced Video setting): 0 = off, 1 = on
 ParallaxDetail
-ParallaxPanel
-ParallaxSeparator
 ParallelForSharedCode
 Parameter [%s=%s] 
 Parameterized Clip Selector: Failed to select a valid option!
@@ -27808,12 +27812,13 @@ PauseMenuBackground
 PauseSound
 Pawn: %s
 Pawn: (%d) Name: %s
-Pb;
-Pbp
-Pcd
-Pde
+Pbb
+Pcu
+PdU
+Pdg
 Pearlescence Mask
 Peer haven't sent GOST certificate, required for selected ciphersuite
+Peg
 Pelican
 Pending downloads must be finished before downloading match!\n
 Pending downloads must be finished before playing back match!\n
@@ -27838,12 +27843,14 @@ PersonalStore
 Pet definition %s: missing "name"
 Pet definition %s: name must be a positive integer
 PetHasAchievement
+PfB
+Pfg
 Pg*
-Pgu
-PhV
+Pgc
+Pgg
 Phags_Pa
-Phe
-Phh
+Phc
+Phg
 Phoenician
 Phoenix Compound
 Phoneme delay to account for sound system latency.
@@ -27870,11 +27877,10 @@ PhysicsRagdollPose_t
 PhysicsRagdollPose_t (demangled)
 PhysicsSimulate
 PhysicsTraces
-PiK
 Picked
 PictureInPicture
 PictureInPictureLightBinnerCsgo
-Pie
+Pig
 Pin or Unpin the overlay to the Entity's location
 Ping a peer.
 Ping higher than this (ms) is considered 'poor'.
@@ -27888,11 +27894,8 @@ Pitch: %6.1f   Yaw: %6.1f %38s
 Pitstop
 Pivot
 PivotPaint
-Pjg
-Pji
-Pkk
-Pl`
-Pla
+PkB
+PlY
 PlaceDecalEvent_t
 PlaceholderText
 PlantAndTurn
@@ -28111,9 +28114,12 @@ Playing CS:GO
 PlayingCSGO
 Plays the named sound event.
 Playsoundscape %s:Unknown command %s\n
+Pld
 Please specify 0 or 1 with the -stream Parameter\n
 Plots view angles yaw at various stages of the frame/tick in Tracy.
-PmK
+Pmh
+Pn=
+PnJ
 Point
 Point entity.
 PointCameraSettings_t
@@ -28185,8 +28191,8 @@ PostPanoramaRenderingPipeline
 PostProcessing
 PostProcessingSystem_001
 Power used when applying the taser effect.
-Pqd
-Pr=
+PpB
+PpY
 Pre Generation KVs
 Pre-Generated Output Material
 PreGraphUpdate
@@ -28419,7 +28425,10 @@ Protobuf: %s(%d): %s\n
 Protocol Buffer map usage error:\n
 Protocol Buffer reflection usage error:\n  Method      : google::protobuf::Reflection::
 Proxy Certificate Information
-Ps6
+Ps;
+Psp
+PuB
+PuW
 Public Key
 Public-Key
 Public-Key: (%d bit)\n
@@ -28431,6 +28440,7 @@ PublishedFileDetails_KVTag (demangled)
 PublishedFileDetails_Preview (demangled)
 PublishedFileDetails_Tag (demangled)
 PublishedFileDetails_VoteData (demangled)
+Pue
 Puffin
 PullKinematicTransformsWorker
 PullSoftbodyTransforms
@@ -28527,15 +28537,18 @@ PushDynamicTransformsWorker
 Pushes an identifier used to group overlays. Deletes all existing overlays using this overlay id.
 Pushes an identifier used to group overlays. Overlays marked with this identifier can be deleted in a big batch.
 Put all physics in all the worlds to sleep
-Pw=
-Px=
-Px>
-Pxe
-PyW
+Pvs
+Pwr
+Py_
 Pyramid
-Pzs
-P{h
-P{r
+PzB
+Pze
+P{K
+P{i
+P|h
+P|k
+P}V
+P}g
 Q2X
 QAR
 QAngle
@@ -28557,8 +28570,8 @@ QUEST_REASON_MAX
 QUEST_WARMUP
 QUEST_WRONG_MAP
 QUEST_WRONG_MODE
+Q\6
 Q\E
-Q`6
 Qg*
 Quad
 Qualification
@@ -28949,7 +28962,7 @@ RUMBLE_SHOTGUN_SINGLE
 RUMBLE_SMG1
 RUMBLE_STOP_ALL
 RUSH_INTRO
-RaP
+R]P
 Radar
 Radar vertical section is invalid!\n
 Radar vertical sections using cs_minimap_boundary entities invalid!\n
@@ -29963,7 +29976,7 @@ SXNET_get_id_ulong
 SXNetID
 SYN
 SYNC_WAIT_FOR_COMPLETION
-S`u
+S\u
 Safe To Auto-Switch Away From
 Safe To Auto-Switch To
 Safehouse
@@ -30530,9 +30543,6 @@ SecondaryLayoutRequested
 Secondary_Mode
 Seconds
 Seconds between drowning ticks
-Seconds for the melted frost to dry
-Seconds indoors for full frost to melt
-Seconds outdoors for frost to grow to full
 Seconds to fade the ChickensObscuredLayer mix layer in and out.
 SectionDividerColor
 SectionPause
@@ -32323,22 +32333,21 @@ T Loadouts for upgraded pistol round when playing bomb site retake.
 T bonus card availability pattern for full buy round when playing bomb site retake.
 T bonus card for full buy round when playing bomb site retake.
 T enemy card for full buy round when playing bomb site retake.
-T#n
-T%B
+T!B
+T"t
 T%d (%s)
-T&t
+T-T
 T-style crosshair: hide the top bar
 T0d/
-T1T
 T61
 T61STRING
-T>u
-T?u
-T@W
+T:u
+T;u
+T<W
+T>r
+T?W
 TACTICAL_SEARCH
 TASK=%llu\n
-TBr
-TCW
 TChinese
 TD_OFFSET_NORMAL
 TD_OFFSET_PACKED
@@ -32433,6 +32442,7 @@ TIMEOUT
 TINY_CENTERED_HULL
 TINY_HULL
 TI_TowerPackage
+TLC
 TLS Web Client Authentication
 TLS Web Server Authentication
 TLS init function for 
@@ -32446,6 +32456,7 @@ TLSv1 part of OpenSSL 1.0.2j  26 Sep 2016
 TLSv1.1
 TLSv1.2
 TLSv1/SSLv3
+TLn
 TODO Display autoaim radius
 TODO show entities that block NPC LOS
 TODO show messages for this entity
@@ -32500,8 +32511,6 @@ TOOLS_VIS_MODE_VERTEX_COLOR
 TOP_SLOT
 TOffMap
 TOnMap
-TPC
-TPn
 TRANSITION_TO_LIFESTATE_DEAD
 TRANSITION_TO_LIFESTATE_DYING
 TRIGGER HAS NO PHYSICS AGGREGATE.
@@ -32511,6 +32520,7 @@ TRS_TRUE
 TRUE
 TRUSTED CERTIFICATE
 TRY
+TRp
 TS lib
 TSA server
 TS_ACCURACY_set_micros
@@ -32556,12 +32566,13 @@ TS_TST_INFO_set_tsa
 TS_VERIFY
 TS_VERIFY_CERT
 TS_VERIFY_CTX_new
-TVp
 TWD
 TYPE=
-T\nm
-T^7
-T_p
+TZ7
+T[p
+T\fu
+T\rT
+T_Y
 Tab Index
 TabBackward
 TabButton
@@ -32621,7 +32632,7 @@ Taser
 Task
 Task Failed
 Task/Action handshake.
-TcY
+Tcu
 Team deathmatch victory points to award for collecting enemy dogtags
 Team deathmatch victory points to award for enemy kill
 Team deathmatch victory points to award for kill with bonus weapon
@@ -32734,7 +32745,6 @@ Texture Runtime Resource Path
 Texture Type
 TextureData
 TextureScale
-Tgu
 Thaana
 Thai
 Thaw
@@ -32816,6 +32826,7 @@ This program requires version
 This program was compiled against version 
 This shouldn't be called if all the sizes are equal.
 This value used to determine this weapon's importance in autoselection
+Thn
 Thread "%s" (ID %llu) failed to shut down
 ThreadAtomicNotifyOne(unsigned int const*) (demangled)
 ThreadGetCurrentId
@@ -32889,6 +32900,7 @@ TimerText
 Times New Roman
 TimestampedEvent
 TimestampedEventMsgV
+Tin
 Tint%u
 TintColor
 Title
@@ -32906,8 +32918,7 @@ TitleImageTextTooltip
 TitleImmediatelyVisible
 TitleLabel
 TitleTextTooltip
-Tln
-Tmn
+TmW
 To google::protobuf::internal::down_cast(From*) [with To = const google::protobuf::Message*; From = const google::protobuf::MessageLite]
 To google::protobuf::internal::down_cast(From*) [with To = const google::protobuf::UninterpretedOption*; From = const google::protobuf::Message]
 To google::protobuf::internal::down_cast(From*) [with To = google::protobuf::Message*; From = google::protobuf::MessageLite]
@@ -33050,7 +33061,6 @@ TowerIconC4
 TowerIconHostage
 TowerIconPackage
 TowerPing
-TqW
 Trace using: %s\n
 TraceCollideable
 TraceHull
@@ -33418,7 +33428,7 @@ UYVYToYRow_Any_AVX2
 UYVYToYRow_Any_SSE2
 UYVYToYRow_C
 UYVYToYRow_SSE2
-U`p
+U\p
 Ugaritic
 UiToolkit.InvokeJSCallback - The first argument must be a callback handle returned by UiToolkit.RegisterJSCallback.
 UiToolkit.InvokeJSCallback takes at least 1 argument: callback handle returned by UiToolkit.RegisterJSCallback.
@@ -33642,6 +33652,7 @@ UploadDraftEntryMap
 UploadFirstVetoTeamID
 Upper bound above Average Human Contribution Score that a bot must be above to change its difficulty
 Upscale
+Upscale Inferno Influence
 Upscale Particle Shadow
 Upscale Smoke Depth
 UpscaleResolve
@@ -33685,7 +33696,6 @@ UtlVectorMemory_Alloc
 UtlVectorMemory_AllocAligned
 UtlVectorMemory_CalcNewAllocationCount
 UtlVectorMemory_FailedAllocation
-V#t
 V2I_ASIDENTIFIERS
 V2I_AUTHORITY_INFO_ACCESS
 V2I_AUTHORITY_KEYID
@@ -34206,7 +34216,7 @@ Vulture
 W Max
 W Min
 W Value
-W9U
+W5U
 WAITING FOR VSCRIPT DEBUGGER CONNECTION -- '-vscriptdebug' was provided on the command line.\n
 WALKING
 WALKUP
@@ -34440,9 +34450,9 @@ WTLS curve over a 112 bit prime field
 WTLS curve over a 113 bit binary field
 WTLS curve over a 160 bit prime field
 WTLS curvs over a 224 bit prime field
+WWP
 WWWWWWWWWWWWWWWW
-W[P
-W\P
+WXP
 Wagon
 Wait
 Wait For Completion
@@ -34467,8 +34477,6 @@ Wants Handshake
 Warden
 Warmup man name contains invalid character %c at position %d!\n
 Warmup map name too long!\n
-Warmup time to use when all players have connected. 0 to disable.
-Warmup time to use when the match will be cancelled (eg. due to a live VAC ban).
 WarmupPeriod
 WarmupVol
 Warn
@@ -34804,14 +34812,16 @@ WsDirection
 WsPosition
 X Max
 X Min
-X P
-X U
 X Value
 X c
-X't
+X#A
+X#t
+X(A
+X-A
+X0n
+X2A
 X400Name
 X400Name:<unsupported>
-X4n
 X500
 X500algorithms
 X509
@@ -34926,6 +34936,8 @@ X509v3 Subject Directory Attributes
 X509v3 Subject Key Identifier
 X509v3 extensions
 X509v3_add_ext
+X7A
+X8s
 X9-57
 X9.42 DH
 X9.42 DH PARAMETERS
@@ -34944,37 +34956,44 @@ X9.62 curve over a 359 bit binary field
 X9.62 curve over a 368 bit binary field
 X9.62 curve over a 431 bit binary field
 X9.62/SECG curve over a 256 bit prime field
-X9?
 X9_62_CHARACTERISTIC_TWO
 X9_62_CURVE
 X9_62_FIELDID
 X9_62_PENTANOMIAL
 X9cm
-X<s
-XDr
-XGi
+X<A
+X@r
+XAA
+XCi
+XFA
 XInputPad
-XJC
+XJ?
+XKA
+XMF
 XML
 XMM 
-XOC
-XTC
+XPA
+XRp
+XTp
+XTr
+XUA
 XUID
-XVp
-XXp
-XXr
+XXP
+XXd
 XY warp curve blowout detected! Falling back to LERP!
-XYC
-X\P
-X\d
-X]d
-X^C
-X_P
+XYd
+XZA
+X[P
+X\nA
+X]p
+X_A
+X_C
+X_w
+X`w
 Xan
-Xap
-XcC
-Xcw
-Xdw
+Xaw
+XdA
+XdC
 Xeon Broadwell
 Xeon Haswell
 Xeon Ice Lake
@@ -34982,11 +35001,13 @@ Xeon Ivy Bridge
 Xeon Phi Knights Landing
 Xeon Phi Knights Mill
 Xeon Sky Lake
-Xew
-XhC
-XmC
-Xo9
-Xo=
+XiA
+XiC
+Xk9
+Xk=
+XnA
+XnC
+XnW
 XpDataJSO
 XpNeededForDrop
 XpNeededForPreviousDrop
@@ -34997,18 +35018,20 @@ XpShop
 XpShopBids
 XpShopDataJSO
 Xps
-XrC
-XrW
+Xru
+XsA
+XsC
+XsZ
 Xsp
 Xuc
-Xvu
-XwC
-XwZ
+Xvn
 Xwd
+XxA
+XxC
+Xxs
 Xzn
-X|C
-X|s
-X~n
+X}A
+X}C
 Y Max
 Y Min
 Y Value
@@ -35045,8 +35068,8 @@ YUY2ToYRow_SSE2
 YYYY
 YYYY-MM-DD
 YYYY-MM-DD hh:mm:ss
+Y]P
 Y_txt
-YaP
 YawArrow
 YellowBlood
 Yes
@@ -35068,7 +35091,6 @@ Z Max
 Z Min
 Z Near
 Z Value
-Z#B
 Z0000
 ZAR
 ZFP compression is not supported in this build
@@ -35086,7 +35108,7 @@ Zigzag
 Zipping %s (%d files)\n
 Zoo
 Zooming
-Zxb
+Ztb
 [ %d : %d ]
 [ Chunk%d ]
 [ RETAKE RULES ] A card should have at least 4 items.\n
@@ -35156,12 +35178,12 @@ Zxb
 [OnTickPetBookRebuild: %s] Failed to read file '%s', aborting cloud file rebuild\n
 [OnTickPetBookRebuild: %s] Failed to upload %d bytes to cloud file: %s\n
 [P:%u:%u]
+[Qn
 [RETURN R%d]
 [RETURN]
 [T:%u:%u]
 [U:%u:%u:%u]
 [U:%u:%u]
-[Un
 [Wearables] Creating new wearable (%d)
 [a:%u:%u]
 [abi:
@@ -35205,34 +35227,34 @@ Zxb
 \ at end of pattern
 \%02X
 \%03o
-\1M
-\3n
-\6U
-\Ar
+\2U
+\7g
+\9U
 \C not allowed in lookbehind assertion
 \N is not supported in a class
-\RE
+\NE
+\RY
+\SW
 \U%04lX
 \U%08x
-\VY
+\UE
 \W%08lX
-\WW
-\YE
+\Yn
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-\bY
 \c at end of pattern
 \c must be followed by an ASCII character
 \f*\f*\f*\f*\f*\f*\f*\f*\f*\f*\f*\f*\f*\f*\f*\f*
-\fCW
-\fI7
-\fOr
-\fRE
-\fVT
-\fWY
-\fzb
+\f6U
+\fE7
+\fKr
+\fNE
+\fRT
+\fSY
+\fvb
 \g is not followed by a braced, angle-bracketed, or quoted name/number or by a plain number
+\i6
 \k is not followed by a braced, angle-bracketed, or quoted name
-\m6
+\kT
 \n            Not After : 
 \n        Public key OCSP hash: 
 \n    Actual    : 
@@ -35277,7 +35299,7 @@ Zxb
 \n***ERROR*** [PsdExtract] File seems to be corrupt, signature does not match "8BPS".
 \n***ERROR*** [PsdExtract] File seems to be corrupt, version does not match 1 or 2.
 \n------- CLIENT SOUNDSCAPES (%d total) -------\n
-\n5n
+\n1n
 \n========================================\n
 \nDictionary: %s\n
 \nFinished generating SSTs (%.1f seconds)\n\n
@@ -35285,16 +35307,14 @@ Zxb
 \nParsing attempt:  
 \nScratch RT Allocations:\n
 \nSimulating Entities:\n\n
-\nYn
+\nUn
 \n\n<font color='#727272'> %s </font><font color='#ff9844'> %s \n</font>\n
 \n\nTotal Frames : %3i\n\n
 \n\nbzip2/libbzip2: internal error number %d.\nThis is a bug in bzip2/libbzip2, %s.\nPlease report it to me at: jseward@acm.org.  If this happened\nwhen you were using some program which uses libbzip2 as a\ncomponent, you should also report this bug to the author(s)\nof that program.  Please make an effort to report this bug;\ntimely and accurate bug reports eventually lead to higher\nquality software.  Thanks.  Julian Seward, 30 December 2001.\n\n
 \n\tIPSec/IKE/Oakley curve #3 over a 155 bit binary field.\n\tNot suitable for ECDSA.\n\tQuestionable extension field!
 \n\tIPSec/IKE/Oakley curve #4 over a 185 bit binary field.\n\tNot suitable for ECDSA.\n\tQuestionable extension field!
 \n\t\toptions {\n\t\t\tanytypemode 0\n\t\t\tserver tbd\n\t\t}\n\t\tgame {\n\t\t\ttype tbd\n\t\t\tmode tbd\n\t\t\tmode_ui tbd\n\t\t\tmapgroupname none\n\t\t\tgamemodeflags tbd\n\t\t}\n\t\tsystem {\n\t\t\tnetwork offline\n\t\t\taccess tbd\n\t\t}\n\t
-\ndu
-\oT
-\rOp
+\rKp
 \t Round is in freeze time.\n
 \t Round is in progress.\n
 \t Round is over.\n
@@ -35341,6 +35361,7 @@ Zxb
 \tC_BaseEntity::Instance([%s]->InVRContinuous()) != [%s]\n
 \tC_BaseEntity::Instance([%s]->InVRContinuous()) == [%s]\n
 \tCloseOpportunity()\n
+\tD
 \tEntity param "%s" returned NULL.\n
 \tFClassnameIs( [%s] 
 \tFailed delayed player swap!
@@ -35350,12 +35371,12 @@ Zxb
 \tListen for open event 
 \tListen for success event 
 \tListen for while open event 
+\tLp
 \tMarkSucceeded()\n
 \tNone\n
 \tParam BasePlayerWeapon returned NULL!\n
 \tParam selecting string is out of range!\n
 \tPlayer param "%s" returned NULL.\n
-\tPp
 \tPrevious element returned false.\n
 \tPrivate script scope:
 \tPublic script scope:
@@ -35445,21 +35466,19 @@ Zxb
 \t]\n\t"m_outputTypeString" "string" "%s"\n\t"m_outputFormat" "string" "%s"\n\t"m_textureOutputChannelArray" "element_array"\n\t[\n\t\t"CDmeTextureOutputChannel"\n\t\t{\n\t\t\t"m_srcChannels" "string" "rgba"\n\t\t\t"m_dstChannels" "string" "rgba"\n\t\t\t"m_mipAlgorithm" "CDmeImageProcessor"\n\t\t\t{\n\t\t\t\t"m_algorithm" "string" "%s"\n\t\t\t}\n\t\t\t"m_outputColorSpace" "string" "%s"\n\t\t\t"m_inputTextureArray" "string_array"\n\t\t\t[\n
 \tm_fLockTime = gpGlobals->curtime()\n
 \u00
+\ug
 \v%\v%\v%\v%\v%\v%\v%\v%\v%\v%\v%\v%\v%\v%\v%\v%
-\vbP
-\vyg
+\vug
 \vzW
 \x%02x
-\xD
-\yg
 ] is an invalid data character in JavaScript compatibility mode
-]wb
+]sb
 ^$\.*+?()[]{}|
+^8i
 ^WL
 _%s.json
 _1080p
 _480p
-_AW
 _BaseEntity
 _CustomCommand
 _CustomCommand%d
@@ -35514,6 +35533,9 @@ _V_strncat
 _V_strncmp
 _V_strncpy
 _V_strnicmp_fast
+_WP
+_YP
+_Yu
 _Z18g_nSequentialBytesIDv4_iE
 _Z20g_nSequentialIndicesIDv4_fE
 _Z20g_nSequentialIndicesIDv4_iE
@@ -36373,7 +36395,6 @@ __wcsxfrm_l
 __wctype_l
 __xstat
 _armsrace
-_au
 _base
 _buildcubemaps
 _buildcubemaps.vpk
@@ -36447,78 +36468,81 @@ _util_drawtext_color
 _util_drawtext_font
 _util_drawtext_pos
 _var
-`%e
-`10
-`1B
-`1O
-`2T
-`3V
-`3u
-`4b
-`5V
-`6B
-`8b
-`9g
-`AU
-`Au
-`Bi
-`Bp
-`Dt
-`EB
-`Fh
-`JB
-`JP
-`KP
-`Kh
-`LP
-`Ld
-`Mt
-`OB
-`Pp
-`QE
-`Sc
-`TB
-`WY
-`YB
-`YY
-`Yc
+`%a
+`0a
+`2b
+`4V
+`4v
+`6h
+`6t
+`8V
+`8a
+`90
+`B0
+`Cb
+`Cu
+`Et
+`Fe
+`Fg
+`Ga
+`Gg
+`HV
+`Hg
+`Ie
+`Ig
+`Ii
+`Jn
+`Ki
+`Lp
+`ME
+`Mg
+`NF
+`NX
+`Pa
+`Pb
+`Qh
+`RE
+`Re
+`SE
+`SP
+`Sb
+`Sp
+`Ta
+`Tb
+`UY
+`W9
+`Wd
+`Wp
+`Xb
+`Xh
 `YfA
-`ZY
-`Zg
-`aa
-`cB
-`cT
-`cd
-`dd
-`e8
-`fV
-`gK
-`hK
-`hV
-`he
-`hh
-`iK
-`iR
-`jB
-`jg
-`kc
-`lD
-`la
-`lc
-`mw
-`nc
-`nw
-`qd
-`rg
-`sX
-`te
-`va
-`vc
-`wB
-`xe
+`Yg
+`a8
+`aP
+`ag
+`as
+`bh
+`cU
+`cw
+`dc
+`e4
+`fe
+`g1
+`ga
+`hc
+`iV
+`lY
+`nJ
+`oJ
+`oY
+`pY
+`ra
+`tw
+`uw
+`xh
+`yK
 `yc
-`yd
-`yh
+`zK
 a null shared library handle was used
 a numbered reference must not be zero
 a world layer in a dota map
@@ -38529,8 +38553,8 @@ byte
 bytes
 bytestring
 c%Q
+c.U
 c/c_ variants
-c2U
 c2i_ASN1_BIT_STRING
 c2i_ASN1_INTEGER
 c2i_ASN1_OBJECT
@@ -38557,13 +38581,13 @@ c2tnb431r1
 c4_digits
 c4_is_defusing
 c4_is_ticking
-c:T
+c6T
 cACertificate
-cKn
+cGn
 cNAMERecord
 cRLSign
-cYW
-cZp
+cUW
+cVp
 c_cs_observer_for_precache
 c_cs_observer_for_precache.ventr
 c_cs_observer_for_precache_client
@@ -40092,6 +40116,7 @@ cms_sd.c
 cms_set1_SignerIdentifier
 cms_set1_ias
 cms_set1_keyid
+cmu
 cmyk document with non 8 bit channels
 cntrl
 co_await 
@@ -40498,7 +40523,6 @@ cq_netgraph_color_target
 cq_netgraph_maxdepth
 cq_netgraph_mindepth
 cq_netgraph_resample_interval
-cqu
 crab
 craft_class
 craft_souvenir
@@ -40820,10 +40844,12 @@ cylinder
 cz75a
 czech
 d e not congruent to 1
-d%B
-d%t
-d&t
-d-n
+d!B
+d!t
+d"t
+d)n
+d*v
+d-T
 d.allOrFirstTier
 d.authenticatedData
 d.certificate
@@ -40841,6 +40867,7 @@ d.encryptedData
 d.enveloped
 d.envelopedData
 d.extendedCertificate
+d.i
 d.iPAddress
 d.issuerAndSerialNumber
 d.kari
@@ -40864,14 +40891,13 @@ d.usernotice
 d.v1AttrCert
 d.v2AttrCert
 d.x400Address
-d1T
+d0n
 d1_both.c
 d1_clnt.c
 d1_lib.c
 d1_pkt.c
 d1_srtp.c
 d1_srvr.c
-d2i
 d2i ecpkparameters failure
 d2i ts resp int failed
 d2i_ASN1_BOOLEAN
@@ -40895,34 +40921,33 @@ d2i_SSL_SESSION
 d2i_TS_RESP
 d2i_X509_PKEY
 d2i_pr.c
-d4n
 d7NSuLq2
 d7o
+d9U
+d:W
 d=%-2d hl=%ld l=%4ld 
 d=%-2d hl=%ld l=inf  
-d=U
-d>W
-dEi
+dAi
+dAv
+dHn
 dITRedirect
-dLn
-dMn
+dIn
+dJp
 dNSDomain
-dNp
+dPn
+dRp
 dSAQuality
-dTn
-dVp
+dT9
+dTN
+dVP
+dVn
 dWry
-dX9
-dXN
-dZP
-dZn
-d\nu
-d\tu
-d^6
-d^p
-d_6
-d_W
-d`6
+dZ6
+dZp
+d[6
+d[W
+d\6
+d`8
 da_DK
 dac_dof_far_blurry
 dac_dof_far_crisp
@@ -41001,7 +41026,7 @@ daylight
 days
 dcObject
 dcobject
-dd8
+dd<
 de_
 de_DE
 de_abbey
@@ -41399,7 +41424,6 @@ dh key too small
 dh public value length is wrong
 dh-cofactor-kdf
 dh-std-kdf
-dh<
 dhKeyAgreement
 dhSinglePass-cofactorDH-sha1kdf-scheme
 dhSinglePass-cofactorDH-sha224kdf-scheme
@@ -41524,6 +41548,7 @@ dm-bonus-points
 dm-bonus-time
 dm-bonus-timer
 dm-bonus-weapon
+dmW
 dm_togglerandomweapons
 dmdName
 dmg.bullets
@@ -41586,7 +41611,7 @@ downloaded
 downloading
 downvotes
 dpiaware
-dqW
+drZ
 draft
 drag_rotate
 dragclickzone
@@ -41661,6 +41686,7 @@ dtls1_send_server_hello
 dtls1_send_server_key_exchange
 dtls1_write_app_data_bytes
 dtor
+dts
 dual ec drbg disabled
 duck
 dummy
@@ -41676,12 +41702,10 @@ duplicate compression id
 duplicate zone id
 duration
 dutch
-dvZ
 dvcs
 dx != __null
 dx == 65536 * 2
 dx == 65536 * 4
-dxs
 dxt5
 dy != __null
 dynamic
@@ -41815,6 +41839,7 @@ e_movement_handshake_body_authority_current
 e_movement_handshake_body_authority_desired
 e_movement_handshake_restart
 e_movement_type_desired
+e`g
 eaFO
 eagle
 earned
@@ -41932,7 +41957,6 @@ ecp_oct.c
 ecp_smpl.c
 ecs_lib.c
 ecs_ossl.c
-edg
 edge
 edge_fade_dist
 edge_fade_dists
@@ -42995,6 +43019,7 @@ evp_pbe.c
 evp_pkey
 evp_pkey.c
 evparam
+evs
 ew-resize
 ex_data
 ex_data.c
@@ -43113,7 +43138,6 @@ eye_ramp
 eye_target
 eyes
 eyes_follow
-ezs
 f == nullptr || dynamic_cast<To>(f) != nullptr
 f5J5J5J5J5J5J5J5J5J5J5J5J5J5J5J5Jx
 fMinAlpha <= fMaxAlpha
@@ -43869,13 +43893,13 @@ fwrite
 fx_blood_bullet_impact
 fx_bubble
 fx_drawmetalspark
+g0U
 g3sg1
-g4U
-g:U
+g6U
 g>m
 gVal
-g\W
-g^u
+gXW
+gZu
 g_BitBuf_BitWriteMasks
 g_BitBuf_ExtraMasks
 g_GameEventManager.Init()
@@ -44184,6 +44208,7 @@ glowstate
 glowteam
 glyphsize
 gmtime_r
+gn=
 gnat
 goal
 goal_direction_type
@@ -44434,7 +44459,6 @@ gpudebugdraw
 gpudebugdrawargs
 gpudebugverts
 gpuvis
-gr=
 grab
 grabbable
 grabbing
@@ -44576,46 +44600,35 @@ gunshotsplash_global_client
 gustdirchange
 gustduration
 gyrating
-h"A
-h$n
-h$t
-h'A
-h,A
-h1A
-h5X
-h6A
-h;A
-h;F
-h=s
-h@A
-hAW
+h n
+h t
+h*v
+h5>
+h9>
+h9s
+h=W
+h>X
+h?r
 hActivator
 hAttacker
+hCW
 hCallbackFunc
 hCallbackScope
 hCaller
 hCamera
-hCr
-hEA
 hEntity
 hEntityA
 hEntityB
-hJA
-hOA
-hOw
-hTA
+hKw
+hSE
+hTW
 hTarget
 hThinkFunc
-hWE
-hXW
-hXp
-hYA
-h\tA
-h\vu
-h^A
-h^u
-h`u
-ha=
+hTp
+hW`
+hZu
+h\u
+h`P
 hair:
 hair_accel
 hair_accel_mb
@@ -44664,8 +44677,6 @@ hashFunc
 hasnotches
 hawk
 hbar
-hcA
-hdP
 head
 head_0
 head_IKTARGET
@@ -44682,6 +44693,7 @@ headshotkills
 health
 health less than
 health percentage less than
+health_c4_preview
 health_override
 health_removed
 healthbar_old--hidden
@@ -44759,7 +44771,7 @@ hexColor
 hex_color
 hex_to_string
 hexkey
-hhA
+hh=
 hidden
 hidden alias for 
 hide
@@ -44802,7 +44814,6 @@ hittest
 hittestchildren
 hkp2000
 hl2
-hl=
 hl_vr_texture_based_animatable
 hltv
 hltvUsable
@@ -44817,7 +44828,6 @@ hltv_replay_status
 hltv_status
 hltv_title
 hltv_versioninfo
-hmA
 hm_ameth.c
 hm_pmeth.c
 hmac
@@ -44831,6 +44841,7 @@ hmacWithSHA256
 hmacWithSHA384
 hmacWithSHA512
 hnM<
+hoK
 hold
 holdInstructionCallIssuer
 holdInstructionCode
@@ -44882,7 +44893,6 @@ hover
 how fast to run (1 to use player max run speed).
 how long from when the C4 is armed until it blows
 hows joint info for this entity
-hrA
 href="
 hscript
 hscript_lightbinding
@@ -44992,10 +45002,8 @@ hullivr_version
 hummingbird
 hungarian
 hungry
-hwA
 hyena
 hyphen
-h|A
 i < length_
 i <= EVP_MAX_MD_SIZE
 i2b_PVK_bio
@@ -45053,7 +45061,7 @@ iRed2 < 0 || iRed2 > 31
 iRed2 >= (signed)(0 + a_uiRadius) && iRed2 <= (signed)(31 - a_uiRadius)
 iRed2 >= 0 && iRed2 <= 31
 iSuccessCount
-i`6
+i\6
 ia5org
 iana
 iboxwidth > 0
@@ -46216,6 +46224,7 @@ is buymenu open
 is casual or training
 is commodity
 is rental
+is=
 isActive
 isAutoCancel
 isAutoConfirm
@@ -46344,8 +46353,7 @@ iv_parallel_latch
 iv_parallel_restore
 iv_wrapped_parallel_latch
 ivory
-iw=
-izs
+ivs
 j <= (int)sizeof(ctx->key)
 j <= sizeof(c->iv)
 j'V
@@ -46457,9 +46465,9 @@ justify
 justify-letter-spacing
 justify_horizontal
 justify_vertical
-k3U
+k/U
+k:s
 k;J;J;J;J;J;J;J;J;J;J;J;J;J;J;J;Jx
-k>s
 kBgrF709Constants
 kBgrH709Constants
 kBgrI601Constants
@@ -47147,25 +47155,25 @@ kv 0x%p AddRef refcount == %d\n
 kv 0x%p Release refcount == %d\n
 kyxsan
 l <= sizeof(c->iv)
-l#t
-l%B
-l+t
-l9`
-l;T
-l;g
-l<U
-l?s
-lCW
-lVW
-lWY
-lWn
-lY`
-l\fu
-l\ru
-l]P
-l^7
-l^n
-l_d
+l!B
+l't
+l5`
+l7T
+l7g
+l8U
+l;s
+l=v
+l?W
+lRW
+lSY
+lSn
+lU`
+lYP
+lZ7
+lZn
+l[d
+l\tu
+l`w4ru
 label
 label_token
 labelled_debug_helper_arc_segments
@@ -47234,6 +47242,7 @@ layout_file
 layoutfailed
 layoutfile
 lazy
+lbW
 lb_csm_cascade_size_override
 lb_shadow_texture_height_override
 lcO/<1\r=,!\r-@@@
@@ -47292,7 +47301,6 @@ level_up_reward
 levellist_t
 levelname
 lexer->mTokens(): Error: No lexer rules were added to the lexer yet!\n
-lfW
 lfoot
 lhash.c
 lib(%lu)
@@ -47606,18 +47614,19 @@ lowercase
 lowervalue
 lowprecisionuv
 lowprecisionuv1
+lqZ
 lseek
-luZ
 luminaire_anisotropy
 luminaire_shape
 luminaire_size
-lzs
-l~r
+lvs
+lzr
+l}T
 m249
 m4a1
 m4a1_silencer
 m4a1_silencer_off
-mPp
+mLp
 mXRecord
 m_16ByteOrLessStack out of space, falling through after %d entries, consider upping NETWORKFIELDSCRATCHDATA_16BYTE_COUNT\n
 m_AdditionalTargetEntities
@@ -51845,6 +51854,7 @@ materials/dev/downsample_depth.vmat
 materials/dev/downsample_depth_cs.vmat
 materials/dev/downsample_outlineglows.vmat
 materials/dev/error_compmat.vtex
+materials/dev/fire.vtex
 materials/dev/frost.vtex
 materials/dev/gaussian_bloom_blur.vmat
 materials/dev/generalfilter_alphablended.vmat
@@ -52091,6 +52101,7 @@ mg_armsrace
 mg_casualalpha
 mg_casualcharlie
 mg_casualdelta
+mg_casualsigma
 mg_cs_italy
 mg_cs_office
 mg_cs_shelter
@@ -52099,6 +52110,7 @@ mg_de_anubis
 mg_de_bank
 mg_de_boulder
 mg_de_cache
+mg_de_cbble
 mg_de_debris
 mg_de_dust2
 mg_de_eldorado
@@ -52495,7 +52507,6 @@ mp_drop_knife_enable
 mp_economy_reset_rounds
 mp_endmatch_votenextmap
 mp_endmatch_votenextmap_keepcurrent
-mp_endwarmup_player_count
 mp_equipment_reset_rounds
 mp_fadetoblack
 mp_flinch_punch_scale
@@ -52515,8 +52526,6 @@ mp_hostages_takedamage
 mp_items_prohibited
 mp_join_grace_time
 mp_match_can_clinch
-mp_match_end_changelevel
-mp_match_end_restart
 mp_match_restart_delay
 mp_max_armor
 mp_maxmoney
@@ -52587,7 +52596,6 @@ mp_technical_timeout_per_team
 mp_timelimit
 mp_tournament
 mp_use_respawn_waves
-mp_verbose_changelevel_spew
 mp_warmup_items_drop_policy
 mp_warmup_items_nocost
 mp_warmup_items_nocount_policy
@@ -52595,8 +52603,6 @@ mp_warmup_offline_enabled
 mp_warmup_online_enabled
 mp_warmup_pausetimer
 mp_warmuptime
-mp_warmuptime_all_players_connected
-mp_warmuptime_match_cancelled
 mp_weapon_prev_owner_touch_time
 mp_weapons_allow_heavy
 mp_weapons_allow_map_placed
@@ -52669,10 +52675,9 @@ my.steamchina.com
 myassignedcase.evidence
 myassignedcase.tmp
 n does not equal p q
-n"U
 n-resize
 n/a
-n3n
+n/n
 nAnimEvent
 nBits != 32
 nChangeOffset < INT16_MAX
@@ -52718,6 +52723,7 @@ n\r2S
 n_A
 n_actions
 n_state_active_tick_count
+n`8
 nadeCount
 namc
 name
@@ -52753,7 +52759,6 @@ navy
 nbio connect error
 ncg:
 nd(unsigned long long restrict) (demangled)
-nd8
 ne-resize
 near '%c' :\n
 near char(%#02X) :\n
@@ -53145,9 +53150,10 @@ nux-recommended
 nvidia_reflex
 nw-resize
 nwse-resize
+n{T
 o2i_ECPublicKey
 oO;I(L%K,\f|
-oWP
+oSP
 o_names.c
 oaep
 oaep decoding error
@@ -53284,6 +53290,7 @@ ontooltiploaded
 onuserinputsubmit
 onvaluechanged
 onworldimpact
+oo=
 opacity
 opacity-brush
 opacity-mask
@@ -53302,6 +53309,7 @@ opened.\n
 openssl.cnf
 openssl_conf
 operand of unlimited repeat could match the empty string
+operation
 operation 3k
 operation 4k
 operation 5k
@@ -53387,7 +53395,6 @@ originatorSignatureValue
 orphan_children_on_remove
 ortholightheight
 ortholightwidth
-os=
 ostrich
 other
 other.m_nFieldType == PREDFIELD_CUSTOM
@@ -53449,31 +53456,31 @@ ox|
 oyster
 p is not prime
 p not prime
-p"h
-p"t
-p#V
+p!a
+p"L
 p%d
-p)t
-p*0
-p,t
-p-D
+p%t
+p(1
+p+g
+p-B
+p.U
 p.char_two
 p.onBasis
 p.other
 p.ppBasis
 p.prime
 p.tpBasis
-p00
-p0a
+p/d
+p/e
 p12_add.c
 p12_crpt.c
 p12_decr.c
 p12_key.c
 p12_p8e.c
 p12_utl.c
-p1O
 p250
-p2U
+p2@
+p2B
 p2p_FightingGame_Connection
 p2p_FightingGame_GameData
 p2p_Ping
@@ -53486,111 +53493,119 @@ p2p_ping could not convert "%s" to a CPeerToPeerAddress\n
 p2p_ping could not ping "%s" because they are an unknown peer\n
 p2p_ping requires a destination address\n
 p2p_ping sending to "%s"\n
-p31
-p4!
-p4%
-p5V
+p3@
+p3U
+p3\r
+p3h
+p3|
+p4@
+p5@
 p5_crpt.c
 p5_crpt2.c
 p5_pbe.c
 p5_pbev2.c
-p6e
-p7U
-p7\r
+p6g
+p7B
 p7t
+p8V
+p8g
 p90
-p:g
-p<a
-p<g
-p?W
-p@e
-pA?
-pAe
-pB?
-pBe
+p;0
+p;V
+p;W
+p;e
+p<B
+p=v
+pA0
+pAB
+pAa
 pBuffer != nullptr
-pC?
 pCachedPoseBuffer->m_ID.IsValid()
-pCe
-pD?
 pData->GetDataDescMap() == pTemplateDataMap
 pDest
-pE?
-pEb
-pF?
+pE!
+pE"
+pFB
+pFO
+pFe
 pFilter
-pG?
-pH?
-pIP
-pId
+pG#
+pGe
+pHV
+pHe
+pIV
+pIe
 pItem
 pJ&
-pJ`
-pKi
-pL2
-pLe
+pJV
+pKB
 pLocationEntity
+pM@
+pMF
 pMessage
-pNb
-pO1
-pOe
+pN_
+pO=
+pO?
+pOn
 pOtherEntity
-pPF
+pP?
+pPB
 pParam
+pPe
 pPose != nullptr
-pQ`
-pQh
+pQ?
+pR?
+pRW
 pRequest
-pRh
+pRn
+pS?
+pSa
 pSequenceName
-pSn
 pSource
 pSourceFunc
 pSpawnedEntityName
 pSpecified
+pT?
+pTP
 pTagName
 pTarget
 pTaskSystem->IsValidCachedPose( pExternalPoseNode->m_externalPoseBufferID )
-pTc
+pTd
 pText
-pTg
-pUF
-pUc
+pU?
+pUB
 pUpdateData->m_updateType == updateType
-pVW
-pVg
-pVn
-pWY
+pV?
+pVw
+pW?
+pWW
 pWeapon
-pWg
+pWn
 pWorldObject
-pYe
-pZc
-pZw
-p[J
-p[W
-p[Y
-p[n
-p\J
+pX?
+pY#
+pY?
+pZB
+p[P
+p\F
+p\i
 p\nK
-p\nV
-p\nd
-p\rd
-p\tX
-p\td
-p\tg
-p]J
+p\nu
+p\p
+p\rD
+p\rb
 p^SYe
-p^d
-p^h
+p^b
+p_B
 p_P
-p_d
 p_lib.c
 p_sign.c
 p_verify.c
-p`p
+p`L
+p`b
 pa end %f
 pa start %f
+paF
 package $0;\n\n
 packedstore.cpp
 packet format
@@ -53605,7 +53620,6 @@ page_class
 page_res
 pagerTelephoneNumber
 pagescroll
-pah
 paint_data
 paint_kits
 paint_kits_rarity
@@ -54223,7 +54237,7 @@ pausematch
 pawn_mimic_all
 payload-%u-%u.data
 payment gateway capabilities
-pb;
+pb`
 pbeWithMD2AndDES-CBC
 pbeWithMD2AndRC2-CBC
 pbeWithMD5AndCast5CBC
@@ -54244,6 +54258,7 @@ pcy_cache.c
 pcy_data.c
 pcy_node.c
 pcy_tree.c
+pdB
 peachpuff
 peaktailend
 pearlescent
@@ -54300,10 +54315,7 @@ pet_definitions
 pet_gcmessages.proto
 pet_photobook_
 petpopulation
-pfV
 pf\n
-pfh
-phV
 phase
 phase not supported
 phase_countdowns
@@ -54352,7 +54364,7 @@ physicalDeliveryOfficeName
 physics_joint_modification_type
 physics_particle
 physics_save_sphere_t
-piK
+piB
 pick
 pick_all_attributes
 picked_item_transition_time
@@ -54382,10 +54394,10 @@ pistolkills
 pistols
 pitch
 pixelAspectRatio
-pjh
 pk7_attr.c
 pk7_doit.c
 pk7_lib.c
+pkc
 pkcs
 pkcs decoding error
 pkcs1
@@ -54413,12 +54425,12 @@ pkcs7-signedData
 pkcs8 unknown broken type
 pkcs8ShroudedKeyBag
 pkcs9
-pke
 pkey
 pkeyalg
 pkgitem
 pkix
 pkparameters2group failure
+plY
 pl_PL
 place_names
 place_token
@@ -54565,11 +54577,17 @@ playtime
 please implement MergeFrom for your type.
 plum
 plus-sign
+pl}
 pm"U
+pmc
 pmeth_fn.c
 pmeth_gn.c
 pmeth_lib.c
+pnB
+pnJ
 png
+poJ
+poY
 point
 point arithmetic failure
 point at infinity
@@ -54685,7 +54703,7 @@ pow
 powderblue
 powf
 ppBasis
-pp`
+ppY
 pqualid
 pqueue.c
 pre
@@ -54775,6 +54793,7 @@ previouslevel
 previously
 prf
 prf-gostr3411-94
+prh
 price
 prices
 prim: 
@@ -54866,6 +54885,9 @@ proxy scale multiplier at max dist (is 1.0 at mindist)
 proxy subject name violation
 proxyCertInfo
 proxyPolicy
+ps;
+ps=
+psB
 psd
 psd::Allocator (demangled)
 psd::File (demangled)
@@ -54878,6 +54900,7 @@ pss
 pszContextName
 pt_BR
 pt_PT
+ptg
 pthread_attr_destroy
 pthread_attr_init
 pthread_attr_setstacksize
@@ -54985,28 +55008,28 @@ pure virtual method called\n
 purple
 putc
 putwc
+pvW
+pvh
 pvk data too short
 pvk too short
 pvsplayer
-pw=
 pwatchent
 pwatchvar
-pwc
 pwd
-px2
-px=
-px>
-pzW
-p{c
-p}e
-p}g
-p~a
-p~e
+pwh
+pxB
+pyK
+pyg
+pzd
+p|g
+p|n
+p}V
+p}h
 q not prime
 qAngle
 qAngles
-qNp
-qRC
+qJp
+qNC
 qangle
 qangle_precise
 qbvh4.quad4i
@@ -55015,7 +55038,7 @@ qbvh8.quad4i
 qbvh8.triangle4
 qbvh8.triangle4i
 qcStatements
-ql=
+qh=
 qsort
 quad4i
 quad4v
@@ -55125,16 +55148,6 @@ r_csgo_enable_tonemapping
 r_csgo_enable_translucent_screen_space
 r_csgo_enable_volume_fog
 r_csgo_firstpersonlegs_nearz_offset
-r_csgo_frost_dry_time
-r_csgo_frost_force
-r_csgo_frost_grow_time
-r_csgo_frost_heat_barrel_position
-r_csgo_frost_heat_cool_time
-r_csgo_frost_heat_light_delay
-r_csgo_frost_heat_light_time
-r_csgo_frost_heat_per_shot
-r_csgo_frost_indoor_distance
-r_csgo_frost_melt_time
 r_csgo_fsr_enable_mip_bias
 r_csgo_fsr_rcas_sharpness
 r_csgo_fsr_upsample
@@ -55925,9 +55938,9 @@ s3_pkt.c
 s3_srvr.c
 s5J5J5J5J5J5J5J5J5J5J5J5J5J5J5J5Jx
 sFileName
+sNE
 sName
 sOARecord
-sRE
 sRGB
 sXuid
 s_PanelID
@@ -60208,20 +60221,21 @@ system/network
 system:access
 system:lock
 system_state
-t%B
-t,t
+t!B
+t(t
 t1_enc.c
 t1_ext.c
 t1_lib.c
 t1_reneg.c
-tAr
-tMX
-tWg
-tYg
-tYn
-t\f6
-t\fm
-t]9
+t=r
+tIX
+tSg
+tUg
+tUn
+tY9
+t\fu
+t\vu
+t^Y
 t_choreo_exit_warp
 t_choreo_target_warp
 t_player
@@ -60294,9 +60308,10 @@ tasn_utl.c
 taxonomy
 taxonomy/table_display
 taxonomy/wall_display
-tbY
 tbsRequest
 tbsResponseData
+tcW
+tcb
 tcgetattr
 tchinese
 tcsetattr
@@ -60419,9 +60434,7 @@ textures/dev/brdf_lut.vtex
 textures/dev/reflectivity_scale.vtex
 texturewidth
 texturewidth and textureheight can be used to override the size of vector graphics. Default value of -1 indicates texture width/height to be determined from source file
-tgW
 tga
-tgb
 th_TH
 thai
 the actual field type (for enums T should be the generated enum 
@@ -60456,6 +60469,7 @@ throw
 throw 
 thrusmoke
 thumbnail_url
+tib
 tick
 ticket_activated
 ticks 
@@ -60540,12 +60554,13 @@ tlsv1 bad certificate status response
 tlsv1 certificate unobtainable
 tlsv1 unrecognized name
 tlsv1 unsupported extension
+tmW
 tm_
 tm_event_id
 tm_event_stage_id
 tm_team_id_ct
 tm_team_id_t
-tmb
+tnu
 to 
 toLocalPlayer
 toad
@@ -60848,7 +60863,8 @@ tournament_team_id
 tournamentdraft
 tournamentdraft_v1
 tpBasis
-tqW
+tqu
+trW
 tr_TR
 trace_raise
 tracer_duration
@@ -60911,7 +60927,6 @@ triple_monitor_mode
 tripmine
 trophy text
 trout
-tru
 true
 true 
 true\n
@@ -60937,8 +60952,6 @@ turnright
 turnup
 turquoise
 turtle
-tuu
-tvW
 tv_listen_voice_indices
 tv_listen_voice_indices_h
 tv_nochat
@@ -61625,7 +61638,7 @@ u axis
 u"W
 u*j
 uZdX:HgYT^
-u`6
+u\6
 uchar32
 ucl
 ugly
@@ -62346,8 +62359,9 @@ v axis
 v%d
 v(_, signed char, unsigned short, unsigned short, long double, unsigned long, operator->, short) (demangled)
 v(_a, unsigned short, unsigned short, long double, unsigned long, operator->, short) (demangled)
+v,i
 v/1
-v0i
+v0n
 v1(0)
 v2f
 v2i_ASN1_BIT_STRING
@@ -62374,7 +62388,6 @@ v3_scts.c
 v3_skey.c
 v3_sxnet.c
 v3_utl.c
-v4n
 v8::Array::Length() const (demangled)
 v8::Array::New(v8::Isolate*, int) (demangled)
 v8::Array::New(v8::Isolate*, v8::Local<v8::Value*>, unsigned long) (demangled)
@@ -62460,9 +62473,9 @@ vMins
 vOrigin
 vP1
 vP2
+v\p
 v_angle
 v_anglePrevious
-v`p
 vacban
 vacnet_longlog
 valid
@@ -62579,6 +62592,7 @@ veto
 veto2
 veto3
 vfe
+viT
 vi_VN
 victim_classname_
 victim_location_
@@ -62650,7 +62664,6 @@ visited-de_vertigo
 visuals
 vjs_c
 vlinearBounds not implemented for this geometry
-vmT
 vm_bodygroup_override
 vm_bodygroup_state_override
 vmap
@@ -64286,8 +64299,8 @@ vypa_defeat
 w+b
 w+bx
 w+x
+w,U
 w-resize
-w0U
 wW>Pp4Q0D,A T7_
 wade
 wait
@@ -65033,19 +65046,24 @@ wrong submessage type
 wrong tag
 wrong type
 wrong version number
+wss
 wstats
-wws
 www.
 www.counter-strike.net
 www.steamcommunity.com
 wyS]
 x != __null
 x axis
+x!A
+x&A
+x)t
+x+A
 x,y,z to display an X for the bomb plant in guardian missions with custom bomb plant boundaries.
 x-offset
-x-t
+x.T
+x0A
 x121Address
-x2T
+x1U
 x500UniqueIdentifier
 x509
 x509 certificate routines
@@ -65068,46 +65086,57 @@ x509_v3.c
 x509_vfy.c
 x509_vpm.c
 x509name.c
-x5U
+x5A
 x931
+x:A
+x=W
+x?A
+x@r
 xAW
-xDr
-xEW
-xKn
-xMC
-xQE
-xQn
-xRC
-xVp
-xWC
-x\7
-x\C
-x\n
-x\rC
-x\rH
-x\vH
-x]P
-x]u
+xDA
+xGn
+xIA
+xME
+xMn
+xNA
+xNF
+xRp
+xSA
+xX7
+xXA
+xXn
+xYP
+xYu
+x\fg
+x\nC
+x\rA
+x\ru
+x\tC
+x\tH
+x]A
+x]C
+x_W
 x_crl.c
 x_info.c
 x_long.c
 x_name.c
 x_pkey.c
 x_pubkey.c
+x_u
+x_w
 x_x509.c
-xa=
-xaC
 xaxis_centroidcoords
-xcW
-xcu
-xcw
+xbA
+xbC
 xdigit
-xfC
-xjW
-xkC
-xl=
+xfW
+xgA
+xgC
+xh=
+xlA
+xlC
 xm1014
-xpC
+xou
 xpExpr
 xp_bonus_percent
 xp_expr
@@ -65128,20 +65157,23 @@ xpshop
 xpshopredeem
 xptrail
 xptrail-streak
+xqA
+xqC
 xray
 xray_item_claim
 xray_item_reveal
 xraymachine
-xsu
-xuC
 xuid
 xuid, skillgroup
 xuidHost
 xuidReserve
+xun
+xvA
+xvC
+xwr
 xxBEAM_HOSExxunused
-xyn
-xzC
-x{r
+x{A
+x{C
 y != __null
 y axis
 y-offset
@@ -65162,7 +65194,7 @@ you have to wait for spawned subtasks
 youblocked
 yres
 z axis
-z%B
+z!B
 z-index
 z-offset
 zFar
@@ -65188,7 +65220,7 @@ zoom_out_sound
 zoom_sensitivity_ratio
 zoom_sensitivity_ratio_mouse
 zoomwithuiscale
-zyD
+zuD
 { "limit": %d, "selected": %s, "choices": [  %s  { "limit": 0, "label": "#SFUI_Settings_Volatile_Limit_Unlimited" }  ] }
 { className = 'IsControlFlowNode' }
 { className = 'IsStateNode' item_factory = 'BooleanSwitchState' }
@@ -65206,12 +65238,13 @@ zyD
 {height}
 {lambda
 {parm#
+{rZ
 {s:SelectedSegment--name}
 {split:
+{ts
 {uint32}
 {unnamed type#
 {vB
-{vZ
 {virtual override thunk({offset(-16)}, std::basic_iostream<char, std::char_traits<char> >::complete object destructor())} (demangled)
 {virtual override thunk({offset(-16)}, std::basic_iostream<char, std::char_traits<char> >::deleting destructor())} (demangled)
 {virtual override thunk({offset(-16)}, void () std::basic_fstream<char, std::char_traits<char> >::complete object destructor())} (demangled)
@@ -65261,31 +65294,29 @@ zyD
 {virtual override thunk({virtual offset(0, -24)}, void () std::basic_stringstream<wchar_t, std::char_traits<wchar_t>, std::allocator<wchar_t> >::complete object destructor())} (demangled)
 {virtual override thunk({virtual offset(0, -24)}, void () std::basic_stringstream<wchar_t, std::char_traits<wchar_t>, std::allocator<wchar_t> >::deleting destructor())} (demangled)
 {width}
-{xs
-|1T
-|2M
-|3n
+|2W
+|3U
 |47?6
-|6W
-|7U
+|6T
+|7T
 |<C!FReQ
-|CW
-|Ln
-|MI
-|VP
-|VW
-|VY
-|eP
-|fu
+|Hn
+|II
+|RP
+|RW
+|RY
+|aP
+|bu
+|db
 |hb
-|lb
-|oT
-|qu
+|kT
+|mu
+|xn
 |}Eq1
 }Jv
 ~CMoviePlayer
 ~CPanel2D
 ~CPanel2D - destroy members
 ~^1W1X;R3_
+~vs
 ~vss0x%08X.dat
-~zs

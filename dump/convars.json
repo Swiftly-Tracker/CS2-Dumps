@@ -31121,9 +31121,8 @@
         "default": "0",
         "description": "Number of players required to be connected to end warmup early. 0 to require maximum players for mode.",
         "flags": [
-            "clientdll",
-            "replicated",
-            "release"
+            "release",
+            "commandline_enforced"
         ],
         "module": "server",
         "name": "mp_endwarmup_player_count"
@@ -31859,8 +31858,6 @@
         "default": "false",
         "description": "At the end of the match, perform a changelevel even if next map is the same",
         "flags": [
-            "clientdll",
-            "replicated",
             "release",
             "commandline_enforced"
         ],
@@ -31879,9 +31876,8 @@
         "default": "false",
         "description": "At the end of the match, perform a restart instead of loading a new map",
         "flags": [
-            "clientdll",
-            "replicated",
-            "release"
+            "release",
+            "commandline_enforced"
         ],
         "module": "server",
         "name": "mp_match_end_restart"
@@ -33839,8 +33835,6 @@
         "default": "1",
         "description": "",
         "flags": [
-            "clientdll",
-            "replicated",
             "release"
         ],
         "module": "server",
@@ -34016,8 +34010,6 @@
         "default": "0.000000",
         "description": "Warmup time to use when all players have connected. 0 to disable.",
         "flags": [
-            "clientdll",
-            "replicated",
             "release",
             "commandline_enforced"
         ],
@@ -34036,8 +34028,6 @@
         "default": "5.000000",
         "description": "Warmup time to use when the match will be cancelled (eg. due to a live VAC ban).",
         "flags": [
-            "clientdll",
-            "replicated",
             "release",
             "commandline_enforced"
         ],
@@ -43447,14 +43437,14 @@
         },
         "datatype": "string",
         "datatype_raw": 9,
-        "default": "mg_de_inferno,mg_de_nuke,mg_de_vertigo,mg_de_debris,mg_de_poseidon,mg_de_eldorado,mg_de_overpass",
+        "default": "mg_de_inferno,mg_de_nuke,mg_de_vertigo,mg_de_debris,mg_de_poseidon,mg_de_eldorado,mg_de_overpass,mg_de_cbble",
         "description": "",
         "flags": [
             "clientdll",
             "archive"
         ],
         "module": "client",
-        "name": "player_competitive_maplist_2v2_10_0_D684D4E1"
+        "name": "player_competitive_maplist_2v2_10_0_7B2B4F7"
     },
     {
         "attributes": {
@@ -43465,14 +43455,14 @@
         },
         "datatype": "string",
         "datatype_raw": 9,
-        "default": "mg_de_dust2,mg_de_train,mg_de_ancient,mg_de_inferno,mg_de_nuke,mg_de_vertigo,mg_de_mirage,mg_cs_office,mg_cs_italy,mg_de_cache,mg_de_boulder,mg_de_anubis,mg_lobby_mapveto,mg_de_fachwerk,mg_cs_shelter,mg_de_overpass",
+        "default": "mg_de_dust2,mg_de_train,mg_de_ancient,mg_de_inferno,mg_de_nuke,mg_de_vertigo,mg_de_mirage,mg_cs_office,mg_cs_italy,mg_de_cache,mg_de_anubis,mg_lobby_mapveto,mg_de_overpass,mg_de_cbble",
         "description": "",
         "flags": [
             "clientdll",
             "archive"
         ],
         "module": "client",
-        "name": "player_competitive_maplist_8_10_0_A062AC6A"
+        "name": "player_competitive_maplist_8_10_0_25074C46"
     },
     {
         "attributes": {
@@ -45552,186 +45542,6 @@
         ],
         "module": "client",
         "name": "r_csgo_firstpersonlegs_nearz_offset"
-    },
-    {
-        "attributes": {
-            "has_callback": true,
-            "has_default": true,
-            "has_max": false,
-            "has_min": false
-        },
-        "datatype": "float32",
-        "datatype_raw": 7,
-        "default": "20.000000",
-        "description": "Seconds for the melted frost to dry",
-        "flags": [
-            "developmentonly",
-            "clientdll"
-        ],
-        "module": "client",
-        "name": "r_csgo_frost_dry_time"
-    },
-    {
-        "attributes": {
-            "has_callback": true,
-            "has_default": true,
-            "has_max": false,
-            "has_min": false
-        },
-        "datatype": "int32",
-        "datatype_raw": 3,
-        "default": "-1",
-        "description": "Frost on players, weapons and chickens: -1 = the map's (info_map_parameters frostenabled), 0 = off, 1 = on (outdoors; melts indoors)",
-        "flags": [
-            "developmentonly",
-            "clientdll"
-        ],
-        "module": "client",
-        "name": "r_csgo_frost_force"
-    },
-    {
-        "attributes": {
-            "has_callback": true,
-            "has_default": true,
-            "has_max": false,
-            "has_min": false
-        },
-        "datatype": "float32",
-        "datatype_raw": 7,
-        "default": "10.000000",
-        "description": "Seconds outdoors for frost to grow to full",
-        "flags": [
-            "developmentonly",
-            "clientdll"
-        ],
-        "module": "client",
-        "name": "r_csgo_frost_grow_time"
-    },
-    {
-        "attributes": {
-            "has_callback": true,
-            "has_default": true,
-            "has_max": false,
-            "has_min": false
-        },
-        "datatype": "float32",
-        "datatype_raw": 7,
-        "default": "0.330000",
-        "description": "Frost: where the barrel heat sits, from the shell eject (0) to the muzzle (1)",
-        "flags": [
-            "developmentonly",
-            "clientdll"
-        ],
-        "module": "client",
-        "name": "r_csgo_frost_heat_barrel_position"
-    },
-    {
-        "attributes": {
-            "has_callback": true,
-            "has_default": true,
-            "has_max": false,
-            "has_min": false
-        },
-        "datatype": "float32",
-        "datatype_raw": 7,
-        "default": "20.000000",
-        "description": "Frost: seconds for a hot barrel to cool down",
-        "flags": [
-            "developmentonly",
-            "clientdll"
-        ],
-        "module": "client",
-        "name": "r_csgo_frost_heat_cool_time"
-    },
-    {
-        "attributes": {
-            "has_callback": true,
-            "has_default": true,
-            "has_max": false,
-            "has_min": false
-        },
-        "datatype": "float32",
-        "datatype_raw": 7,
-        "default": "1.000000",
-        "description": "Frost: seconds after a molotov is lit before its rag starts to heat (the flame shows a moment after)",
-        "flags": [
-            "developmentonly",
-            "clientdll"
-        ],
-        "module": "client",
-        "name": "r_csgo_frost_heat_light_delay"
-    },
-    {
-        "attributes": {
-            "has_callback": true,
-            "has_default": true,
-            "has_max": false,
-            "has_min": false
-        },
-        "datatype": "float32",
-        "datatype_raw": 7,
-        "default": "10.000000",
-        "description": "Frost: seconds for a lit molotov's rag to reach full heat",
-        "flags": [
-            "developmentonly",
-            "clientdll"
-        ],
-        "module": "client",
-        "name": "r_csgo_frost_heat_light_time"
-    },
-    {
-        "attributes": {
-            "has_callback": true,
-            "has_default": true,
-            "has_max": false,
-            "has_min": false
-        },
-        "datatype": "float32",
-        "datatype_raw": 7,
-        "default": "0.050000",
-        "description": "Frost: barrel heat per shot (1 = hot enough to clear the whole barrel)",
-        "flags": [
-            "developmentonly",
-            "clientdll"
-        ],
-        "module": "client",
-        "name": "r_csgo_frost_heat_per_shot"
-    },
-    {
-        "attributes": {
-            "has_callback": true,
-            "has_default": true,
-            "has_max": false,
-            "has_min": false
-        },
-        "datatype": "float32",
-        "datatype_raw": 7,
-        "default": "128.000000",
-        "description": "Frost: distance under cover (no sky) over which the cold fades out (indoors)",
-        "flags": [
-            "developmentonly",
-            "clientdll"
-        ],
-        "module": "client",
-        "name": "r_csgo_frost_indoor_distance"
-    },
-    {
-        "attributes": {
-            "has_callback": true,
-            "has_default": true,
-            "has_max": false,
-            "has_min": false
-        },
-        "datatype": "float32",
-        "datatype_raw": 7,
-        "default": "10.000000",
-        "description": "Seconds indoors for full frost to melt",
-        "flags": [
-            "developmentonly",
-            "clientdll"
-        ],
-        "module": "client",
-        "name": "r_csgo_frost_melt_time"
     },
     {
         "attributes": {
